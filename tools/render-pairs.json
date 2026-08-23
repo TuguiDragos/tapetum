@@ -1,0 +1,488 @@
+[
+  {
+    "fg": "button.foreground",
+    "bg": "button.background",
+    "n": 29,
+    "sel": ".mtkoverflow"
+  },
+  {
+    "fg": "button.secondaryForeground",
+    "bg": "button.secondaryBackground",
+    "n": 14,
+    "sel": ".monaco-button.default-colors.secondary"
+  },
+  {
+    "fg": "badge.foreground",
+    "bg": "badge.background",
+    "n": 12,
+    "sel": ".action-widget .monaco-list-row.action .action-item-badge"
+  },
+  {
+    "fg": "foreground",
+    "bg": "toolbar.hoverBackground",
+    "n": 10,
+    "sel": ".interactive-session .chat-turn-pills-part .chat-turn-preview-action:hover"
+  },
+  {
+    "fg": "input.foreground",
+    "bg": "input.background",
+    "n": 9,
+    "sel": ".action-widget .action-list-filter-input"
+  },
+  {
+    "fg": "inputOption.activeForeground",
+    "bg": "inputOption.activeBackground",
+    "n": 9,
+    "sel": ".viewpane-filter>.viewpane-filter-controls .monaco-action-bar .monaco-dropdown .action-lab"
+  },
+  {
+    "fg": "list.activeSelectionForeground",
+    "bg": "list.activeSelectionBackground",
+    "n": 8,
+    "sel": ".monaco-drag-image"
+  },
+  {
+    "fg": "editorHoverWidget.foreground",
+    "bg": "editorHoverWidget.background",
+    "n": 8,
+    "sel": ".monaco-editor .monaco-editor-overlaymessage .message"
+  },
+  {
+    "fg": "editorWidget.foreground",
+    "bg": "editorWidget.background",
+    "n": 7,
+    "sel": ".monaco-editor .find-widget"
+  },
+  {
+    "fg": "textPreformat.foreground",
+    "bg": "textPreformat.background",
+    "n": 7,
+    "sel": ".settings-editor>.settings-body .settings-tree-container .setting-item-contents .setting-i"
+  },
+  {
+    "fg": "foreground",
+    "bg": "editorWidget.background",
+    "n": 7,
+    "sel": ".interactive-session .interactive-input-part .chat-goal-banner-container .chat-goal-banner"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "editorWidget.background",
+    "n": 6,
+    "sel": ".chat-question-summary-option-details"
+  },
+  {
+    "fg": "editor.foreground",
+    "bg": "editor.background",
+    "n": 5,
+    "sel": ".monaco-editor"
+  },
+  {
+    "fg": "peekViewResult.selectionForeground",
+    "bg": "peekViewResult.selectionBackground",
+    "n": 4,
+    "sel": ".monaco-editor .reference-zone-widget .ref-tree .monaco-list:focus .monaco-list-rows>.mona"
+  },
+  {
+    "fg": "inputValidation.errorForeground",
+    "bg": "inputValidation.errorBackground",
+    "n": 4,
+    "sel": ".settings-editor>.settings-body .settings-tree-container .setting-item-contents .setting-i"
+  },
+  {
+    "fg": "keybindingLabel.foreground",
+    "bg": "keybindingLabel.background",
+    "n": 3,
+    "sel": ".action-widget .monaco-list-row.action .monaco-keybinding>.monaco-keybinding-key"
+  },
+  {
+    "fg": "statusBarItem.errorForeground",
+    "bg": "statusBarItem.errorBackground",
+    "n": 3,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.error-kind"
+  },
+  {
+    "fg": "list.inactiveSelectionForeground",
+    "bg": "list.inactiveSelectionBackground",
+    "n": 3,
+    "sel": ".settings-editor>.settings-body .settings-tree-container .setting-item.setting-item-list ."
+  },
+  {
+    "fg": "chat.slashCommandForeground",
+    "bg": "chat.slashCommandBackground",
+    "n": 3,
+    "sel": ".monaco-workbench .notebookOverlay .cell-chat-part .inline-chat .status .label .slash-comm"
+  },
+  {
+    "fg": "foreground",
+    "bg": "input.background",
+    "n": 3,
+    "sel": ".interactive-item-container.interactive-request .value .chat-request-attachment-cards .cha"
+  },
+  {
+    "fg": "foreground",
+    "bg": "editor.background",
+    "n": 3,
+    "sel": ".prompt-timeline-sticky-band"
+  },
+  {
+    "fg": "radio.inactiveForeground",
+    "bg": "radio.inactiveBackground",
+    "n": 3,
+    "sel": ".monaco-custom-radio>.monaco-button"
+  },
+  {
+    "fg": "inputValidation.warningForeground",
+    "bg": "inputValidation.warningBackground",
+    "n": 3,
+    "sel": ".chat-debug-wirelog-chip-pending"
+  },
+  {
+    "fg": "diffEditor.unchangedRegionForeground",
+    "bg": "diffEditor.unchangedRegionBackground",
+    "n": 2,
+    "sel": ".monaco-editor .diff-hidden-lines .center"
+  },
+  {
+    "fg": "menu.foreground",
+    "bg": "menu.background",
+    "n": 2,
+    "sel": ".action-widget"
+  },
+  {
+    "fg": "list.hoverForeground",
+    "bg": "list.hoverBackground",
+    "n": 2,
+    "sel": ".action-widget .monaco-list .monaco-list-row.action.focused:not(.option-disabled)"
+  },
+  {
+    "fg": "peekViewResult.lineForeground",
+    "bg": "peekViewResult.background",
+    "n": 2,
+    "sel": ".monaco-editor .reference-zone-widget .ref-tree"
+  },
+  {
+    "fg": "statusBarItem.warningForeground",
+    "bg": "statusBarItem.warningBackground",
+    "n": 2,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.warning-kind"
+  },
+  {
+    "fg": "statusBarItem.remoteForeground",
+    "bg": "statusBarItem.remoteBackground",
+    "n": 2,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.remote-kind"
+  },
+  {
+    "fg": "button.secondaryForeground",
+    "bg": "button.secondaryHoverBackground",
+    "n": 2,
+    "sel": ".interactive-session .chat-editing-session .chat-editing-session-actions .monaco-button.se"
+  },
+  {
+    "fg": "foreground",
+    "bg": "list.inactiveSelectionBackground",
+    "n": 2,
+    "sel": ".chat-question-summary-option.selected"
+  },
+  {
+    "fg": "commandCenter.activeForeground",
+    "bg": "commandCenter.activeBackground",
+    "n": 2,
+    "sel": ".agent-status-pill .agent-status-input-area:hover"
+  },
+  {
+    "fg": "quickInputList.focusForeground",
+    "bg": "quickInputList.focusBackground",
+    "n": 2,
+    "sel": ".unified-quick-access-tabs .monaco-custom-radio .monaco-button.active"
+  },
+  {
+    "fg": "radio.activeForeground",
+    "bg": "radio.activeBackground",
+    "n": 2,
+    "sel": ".monaco-custom-radio>.monaco-button.active:hover"
+  },
+  {
+    "fg": "errorForeground",
+    "bg": "inputValidation.errorBackground",
+    "n": 2,
+    "sel": ".chat-debug-log-row.chat-debug-log-error"
+  },
+  {
+    "fg": "foreground",
+    "bg": "button.secondaryBackground",
+    "n": 2,
+    "sel": ".chat-debug-cache-filter-button"
+  },
+  {
+    "fg": "peekViewResult.fileForeground",
+    "bg": "peekViewResult.background",
+    "n": 2,
+    "sel": ".monaco-editor .call-hierarchy .tree"
+  },
+  {
+    "fg": "foreground",
+    "bg": "chat.requestBubbleBackground",
+    "n": 1,
+    "sel": ".action-widget .action-list-header"
+  },
+  {
+    "fg": "peekViewResult.fileForeground",
+    "bg": "peekViewResult.matchHighlightBackground",
+    "n": 1,
+    "sel": ".monaco-editor .reference-zone-widget .ref-tree .referenceMatch .highlight"
+  },
+  {
+    "fg": "surface.foreground",
+    "bg": "surface.background",
+    "n": 1,
+    "sel": ".monaco-workbench.floating-panels .part.sidebar"
+  },
+  {
+    "fg": "tab.selectedForeground",
+    "bg": "tab.selectedBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.editor>.content .editor-group-container.active>.title .tabs-contai"
+  },
+  {
+    "fg": "breadcrumb.foreground",
+    "bg": "breadcrumb.background",
+    "n": 1,
+    "sel": ".monaco-workbench .breadcrumbs-control.with-editor-type>.breadcrumbs-editor-type"
+  },
+  {
+    "fg": "profileBadge.foreground",
+    "bg": "profileBadge.background",
+    "n": 1,
+    "sel": ".monaco-workbench .activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-bad"
+  },
+  {
+    "fg": "banner.foreground",
+    "bg": "banner.background",
+    "n": 1,
+    "sel": ".monaco-workbench .part.banner"
+  },
+  {
+    "fg": "statusBarItem.warningHoverForeground",
+    "bg": "statusBarItem.warningHoverBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.warning-kind a:hover:no"
+  },
+  {
+    "fg": "statusBarItem.errorHoverForeground",
+    "bg": "statusBarItem.errorHoverBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.error-kind a:hover:not("
+  },
+  {
+    "fg": "statusBarItem.prominentForeground",
+    "bg": "statusBarItem.prominentBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.prominent-kind"
+  },
+  {
+    "fg": "statusBarItem.prominentHoverForeground",
+    "bg": "statusBarItem.prominentHoverBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.prominent-kind:not(.com"
+  },
+  {
+    "fg": "statusBarItem.remoteHoverForeground",
+    "bg": "statusBarItem.remoteHoverBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.remote-kind a:hover:not"
+  },
+  {
+    "fg": "statusBarItem.offlineForeground",
+    "bg": "statusBarItem.offlineBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.offline-kind"
+  },
+  {
+    "fg": "statusBarItem.offlineHoverForeground",
+    "bg": "statusBarItem.offlineHoverBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.offline-kind a:hover:no"
+  },
+  {
+    "fg": "settings.checkboxForeground",
+    "bg": "settings.checkboxBackground",
+    "n": 1,
+    "sel": ".settings-editor>.settings-body .settings-tree-container .setting-item-bool .setting-value"
+  },
+  {
+    "fg": "editorInlayHint.foreground",
+    "bg": "editorInlayHint.background",
+    "n": 1,
+    "sel": ".nb-inline-value"
+  },
+  {
+    "fg": "foreground",
+    "bg": "sideBar.background",
+    "n": 1,
+    "sel": ".monaco-toolbar .action-label:hover"
+  },
+  {
+    "fg": "foreground",
+    "bg": "agentsChatInput.background",
+    "n": 1,
+    "sel": ".chat-input-notice"
+  },
+  {
+    "fg": "foreground",
+    "bg": "menu.background",
+    "n": 1,
+    "sel": ".chat-model-hover-cost-number"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "button.secondaryBackground",
+    "n": 1,
+    "sel": ".chat-rich-link[data-chat-rich-link-kind=session]"
+  },
+  {
+    "fg": "extensionButton.prominentForeground",
+    "bg": "extensionButton.prominentBackground",
+    "n": 1,
+    "sel": ".extension-bookmark>.recommendation"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "chat.requestBubbleBackground",
+    "n": 1,
+    "sel": ".chat-request-origin"
+  },
+  {
+    "fg": "foreground",
+    "bg": "chat.list.background",
+    "n": 1,
+    "sel": ".prompt-timeline-sticky-band"
+  },
+  {
+    "fg": "foreground",
+    "bg": "inputValidation.warningBackground",
+    "n": 1,
+    "sel": ".chat-debug-wirelog-chip-pending"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "badge.background",
+    "n": 1,
+    "sel": ".chat-debug-wirelog-badge"
+  },
+  {
+    "fg": "foreground",
+    "bg": "textCodeBlock.background",
+    "n": 1,
+    "sel": ".chat-debug-wirelog-detail-json"
+  },
+  {
+    "fg": "dropdown.foreground",
+    "bg": "dropdown.background",
+    "n": 1,
+    "sel": ".ai-customization-management-editor .harness-dropdown-button"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "toolbar.hoverBackground",
+    "n": 1,
+    "sel": ".inline-badge"
+  },
+  {
+    "fg": "foreground",
+    "bg": "list.hoverBackground",
+    "n": 1,
+    "sel": ".ai-customization-management-editor .welcome-prompts-input-submit:hover"
+  },
+  {
+    "fg": "foreground",
+    "bg": "toolbar.activeBackground",
+    "n": 1,
+    "sel": ".image-carousel-editor .nav-arrow:hover:not(:disabled)"
+  },
+  {
+    "fg": "foreground",
+    "bg": "multiDiffEditor.headerBackground",
+    "n": 1,
+    "sel": ".header"
+  },
+  {
+    "fg": "inputValidation.infoForeground",
+    "bg": "inputValidation.infoBackground",
+    "n": 1,
+    "sel": ".scm-editor-validation-container.validation-info"
+  },
+  {
+    "fg": "debugView.stateLabelForeground",
+    "bg": "debugView.stateLabelBackground",
+    "n": 1,
+    "sel": ".scm-history-view .scm-provider .state-label.monaco-count-badge.long"
+  },
+  {
+    "fg": "editor.inlineValuesForeground",
+    "bg": "editor.inlineValuesBackground",
+    "n": 1,
+    "sel": ".monaco-workbench .debug-inline-value"
+  },
+  {
+    "fg": "modernTab.activeForeground",
+    "bg": "modernTab.activeBackground",
+    "n": 1,
+    "sel": ".modern-ui-tabs .settings-editor .settings-tabs-widget>.monaco-action-bar .action-item .ac"
+  },
+  {
+    "fg": "modernTab.hoverForeground",
+    "bg": "modernTab.hoverBackground",
+    "n": 1,
+    "sel": ".modern-ui-tabs .settings-editor .settings-tabs-widget>.monaco-action-bar .action-item .ac"
+  },
+  {
+    "fg": "foreground",
+    "bg": "welcomePage.background",
+    "n": 1,
+    "sel": ".monaco-workbench .part.editor>.content .gettingStartedContainer"
+  },
+  {
+    "fg": "extensionBadge.remoteForeground",
+    "bg": "extensionBadge.remoteBackground",
+    "n": 1,
+    "sel": ".post-update-widget .badge"
+  },
+  {
+    "fg": "checkbox.foreground",
+    "bg": "checkbox.background",
+    "n": 1,
+    "sel": ".agentSessionsWelcome-checkbox"
+  },
+  {
+    "fg": "notifications.foreground",
+    "bg": "notifications.background",
+    "n": 1,
+    "sel": ".monaco-workbench .notifications-list-container"
+  },
+  {
+    "fg": "commandCenter.foreground",
+    "bg": "commandCenter.background",
+    "n": 1,
+    "sel": ".monaco-workbench .part.titlebar>.titlebar-container>.titlebar-center>.window-title>.comma"
+  },
+  {
+    "fg": "foreground",
+    "bg": "debugToolBar.background",
+    "n": 1,
+    "sel": ".issue-reporter-floating-bar"
+  },
+  {
+    "fg": "foreground",
+    "bg": "list.activeSelectionBackground",
+    "n": 1,
+    "sel": ".issue-reporter-annotation-overlay .annotation-size-button.active"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "textBlockQuote.background",
+    "n": 1,
+    "sel": ".issue-reporter-wizard .wizard-issue-guidance"
+  }
+]

@@ -1,0 +1,1482 @@
+{
+  "vscodeVersion": "1.134.0",
+  "totalKeys": 729,
+  "officialThemesScanned": 17,
+  "usageAcrossOfficialThemes": {
+    "editor.background": 16,
+    "editor.foreground": 15,
+    "focusBorder": 13,
+    "agentsPanel.border": 14,
+    "agentsChatInput.border": 13,
+    "agentsChatInput.focusBorder": 12,
+    "agentsNewSessionButton.border": 13,
+    "input.background": 11,
+    "inputOption.activeBorder": 12,
+    "inputValidation.infoBorder": 8,
+    "inputValidation.infoBackground": 8,
+    "inputValidation.warningBackground": 7,
+    "inputValidation.warningBorder": 6,
+    "inputValidation.errorBackground": 7,
+    "inputValidation.errorBorder": 7,
+    "badge.background": 12,
+    "progressBar.background": 12,
+    "dropdown.background": 13,
+    "button.background": 12,
+    "list.activeSelectionBackground": 12,
+    "quickInputList.focusBackground": 11,
+    "list.hoverBackground": 13,
+    "list.inactiveSelectionBackground": 11,
+    "list.dropBackground": 7,
+    "list.highlightForeground": 11,
+    "scrollbar.shadow": 3,
+    "scrollbarSlider.activeBackground": 3,
+    "scrollbarSlider.background": 3,
+    "scrollbarSlider.hoverBackground": 3,
+    "editorWidget.background": 11,
+    "editorCursor.foreground": 11,
+    "editorWhitespace.foreground": 12,
+    "editor.lineHighlightBackground": 11,
+    "editor.selectionBackground": 12,
+    "editorIndentGuide.background": 7,
+    "editorIndentGuide.activeBackground": 7,
+    "editorHoverWidget.background": 9,
+    "editorHoverWidget.border": 5,
+    "editorLineNumber.foreground": 8,
+    "editorLineNumber.activeForeground": 13,
+    "editorMarkerNavigation.background": 1,
+    "editorMarkerNavigationError.background": 2,
+    "editorMarkerNavigationWarning.background": 2,
+    "editorLink.activeForeground": 4,
+    "editor.findMatchHighlightBackground": 4,
+    "peekViewResult.background": 12,
+    "peekViewEditor.background": 10,
+    "peekViewTitle.background": 9,
+    "peekView.border": 10,
+    "peekViewEditor.matchHighlightBackground": 10,
+    "peekViewResult.matchHighlightBackground": 7,
+    "ports.iconRunningProcessForeground": 13,
+    "diffEditor.insertedTextBackground": 4,
+    "diffEditor.removedTextBackground": 4,
+    "minimap.selectionHighlight": 9,
+    "titleBar.activeBackground": 13,
+    "editorGroup.border": 8,
+    "editorGroup.dropBackground": 6,
+    "editorGroupHeader.tabsBackground": 12,
+    "tab.border": 9,
+    "tab.inactiveBackground": 12,
+    "tab.lastPinnedBorder": 14,
+    "activityBar.background": 13,
+    "panel.border": 8,
+    "sideBar.background": 13,
+    "sideBarSectionHeader.background": 10,
+    "statusBar.background": 13,
+    "statusBar.noFolderBackground": 13,
+    "statusBar.debuggingBackground": 12,
+    "statusBarItem.remoteBackground": 15,
+    "statusBarItem.prominentBackground": 7,
+    "statusBarItem.prominentHoverBackground": 5,
+    "debugToolBar.background": 7,
+    "debugExceptionWidget.background": 3,
+    "debugExceptionWidget.border": 3,
+    "pickerGroup.border": 10,
+    "pickerGroup.foreground": 12,
+    "extensionButton.prominentBackground": 5,
+    "extensionButton.prominentHoverBackground": 5,
+    "terminal.ansiBlack": 6,
+    "terminal.ansiRed": 6,
+    "terminal.ansiGreen": 6,
+    "terminal.ansiYellow": 6,
+    "terminal.ansiBlue": 6,
+    "terminal.ansiMagenta": 6,
+    "terminal.ansiCyan": 6,
+    "terminal.ansiWhite": 6,
+    "terminal.ansiBrightBlack": 6,
+    "terminal.ansiBrightRed": 6,
+    "terminal.ansiBrightGreen": 6,
+    "terminal.ansiBrightYellow": 6,
+    "terminal.ansiBrightBlue": 6,
+    "terminal.ansiBrightMagenta": 6,
+    "terminal.ansiBrightCyan": 6,
+    "terminal.ansiBrightWhite": 6,
+    "surface.border": 14,
+    "modernActivityBar.activeBackground": 7,
+    "modernActivityBar.hoverBackground": 6,
+    "foreground": 4,
+    "disabledForeground": 2,
+    "errorForeground": 8,
+    "descriptionForeground": 4,
+    "icon.foreground": 4,
+    "textBlockQuote.background": 4,
+    "textBlockQuote.border": 4,
+    "textCodeBlock.background": 4,
+    "textLink.foreground": 4,
+    "textLink.activeForeground": 4,
+    "textPreformat.background": 4,
+    "textPreformat.foreground": 4,
+    "textSeparator.foreground": 4,
+    "button.foreground": 4,
+    "button.hoverBackground": 4,
+    "button.border": 4,
+    "button.secondaryHoverBackground": 4,
+    "button.secondaryBorder": 2,
+    "checkbox.background": 4,
+    "checkbox.border": 6,
+    "checkbox.foreground": 2,
+    "dropdown.border": 6,
+    "dropdown.foreground": 4,
+    "dropdown.listBackground": 5,
+    "input.border": 4,
+    "input.foreground": 6,
+    "input.placeholderForeground": 8,
+    "inputOption.activeBackground": 4,
+    "inputOption.activeForeground": 3,
+    "inputValidation.infoForeground": 2,
+    "inputValidation.warningForeground": 2,
+    "inputValidation.errorForeground": 2,
+    "badge.foreground": 6,
+    "list.activeSelectionForeground": 5,
+    "list.inactiveSelectionForeground": 2,
+    "list.hoverForeground": 2,
+    "toolbar.activeBackground": 2,
+    "list.focusBackground": 2,
+    "list.focusForeground": 2,
+    "list.focusOutline": 2,
+    "list.invalidItemForeground": 2,
+    "list.errorForeground": 2,
+    "list.warningForeground": 2,
+    "activityBar.foreground": 9,
+    "activityBar.inactiveForeground": 4,
+    "activityBar.activeBackground": 2,
+    "activityBar.border": 4,
+    "activityBar.activeBorder": 4,
+    "activityBar.activeFocusBorder": 2,
+    "activityBarBadge.background": 9,
+    "activityBarBadge.foreground": 4,
+    "activityBarTop.activeBorder": 2,
+    "sideBar.foreground": 4,
+    "sideBar.border": 4,
+    "sideBarTitle.foreground": 9,
+    "sideBarSectionHeader.foreground": 4,
+    "sideBarSectionHeader.border": 6,
+    "titleBar.activeForeground": 4,
+    "titleBar.inactiveBackground": 5,
+    "titleBar.inactiveForeground": 4,
+    "titleBar.border": 4,
+    "menubar.selectionBackground": 2,
+    "menubar.selectionForeground": 2,
+    "menu.background": 7,
+    "menu.foreground": 6,
+    "menu.selectionBackground": 5,
+    "menu.selectionForeground": 3,
+    "menu.selectionBorder": 2,
+    "menu.separatorBackground": 3,
+    "menu.border": 5,
+    "commandCenter.foreground": 2,
+    "commandCenter.activeForeground": 2,
+    "commandCenter.background": 2,
+    "commandCenter.activeBackground": 2,
+    "commandCenter.border": 2,
+    "editorStickyScroll.background": 1,
+    "editorStickyScrollHover.background": 2,
+    "editorStickyScroll.border": 2,
+    "editor.inactiveSelectionBackground": 5,
+    "editor.selectionHighlightBackground": 9,
+    "editor.wordHighlightBackground": 5,
+    "editor.wordHighlightStrongBackground": 5,
+    "editor.findMatchBackground": 4,
+    "editor.findRangeHighlightBackground": 2,
+    "editor.hoverHighlightBackground": 3,
+    "editor.rangeHighlightBackground": 2,
+    "editorRuler.foreground": 2,
+    "editorCodeLens.foreground": 2,
+    "editorBracketMatch.background": 2,
+    "editorBracketMatch.border": 2,
+    "editorWidget.border": 2,
+    "editorWidget.foreground": 2,
+    "editorSuggestWidget.background": 6,
+    "editorSuggestWidget.border": 4,
+    "editorSuggestWidget.foreground": 2,
+    "editorSuggestWidget.highlightForeground": 2,
+    "editorSuggestWidget.selectedBackground": 2,
+    "editorSuggestWidget.focusOutline": 2,
+    "widget.border": 6,
+    "peekViewResult.fileForeground": 2,
+    "peekViewResult.lineForeground": 2,
+    "peekViewResult.selectionBackground": 3,
+    "peekViewResult.selectionForeground": 2,
+    "peekViewTitleDescription.foreground": 2,
+    "peekViewTitleLabel.foreground": 2,
+    "editorGutter.background": 2,
+    "editorGutter.addedBackground": 4,
+    "editorGutter.deletedBackground": 4,
+    "diffEditor.insertedLineBackground": 1,
+    "diffEditor.removedLineBackground": 1,
+    "editorOverviewRuler.border": 4,
+    "editorOverviewRuler.findMatchForeground": 2,
+    "editorOverviewRuler.modifiedForeground": 2,
+    "editorOverviewRuler.addedForeground": 2,
+    "editorOverviewRuler.deletedForeground": 2,
+    "editorOverviewRuler.errorForeground": 2,
+    "editorOverviewRuler.warningForeground": 2,
+    "panel.background": 5,
+    "panelTitle.activeBorder": 5,
+    "panelTitle.activeForeground": 6,
+    "panelTitle.inactiveForeground": 5,
+    "statusBar.foreground": 6,
+    "statusBar.border": 4,
+    "statusBar.focusBorder": 4,
+    "statusBar.debuggingForeground": 4,
+    "statusBar.noFolderForeground": 2,
+    "statusBarItem.activeBackground": 2,
+    "statusBarItem.hoverBackground": 4,
+    "statusBarItem.focusBorder": 4,
+    "statusBarItem.prominentForeground": 2,
+    "tab.activeBackground": 7,
+    "tab.activeForeground": 5,
+    "tab.inactiveForeground": 8,
+    "tab.activeBorderTop": 4,
+    "tab.hoverBackground": 4,
+    "tab.hoverForeground": 2,
+    "tab.unfocusedActiveBackground": 2,
+    "tab.unfocusedActiveForeground": 2,
+    "tab.unfocusedInactiveBackground": 2,
+    "tab.unfocusedInactiveForeground": 2,
+    "tab.activeBorder": 4,
+    "editorGroupHeader.tabsBorder": 4,
+    "breadcrumb.foreground": 2,
+    "breadcrumb.background": 2,
+    "breadcrumb.focusForeground": 2,
+    "breadcrumb.activeSelectionForeground": 2,
+    "breadcrumbPicker.background": 2,
+    "notificationCenter.border": 2,
+    "notificationCenterHeader.foreground": 4,
+    "notificationCenterHeader.background": 4,
+    "notificationToast.border": 2,
+    "notifications.foreground": 4,
+    "notifications.background": 4,
+    "notifications.border": 4,
+    "notificationLink.foreground": 2,
+    "notificationsWarningIcon.foreground": 2,
+    "notificationsErrorIcon.foreground": 2,
+    "notificationsInfoIcon.foreground": 2,
+    "activityWarningBadge.foreground": 2,
+    "activityWarningBadge.background": 2,
+    "activityErrorBadge.foreground": 2,
+    "activityErrorBadge.background": 2,
+    "extensionButton.prominentForeground": 2,
+    "quickInput.background": 4,
+    "quickInput.foreground": 4,
+    "quickInputList.focusForeground": 2,
+    "quickInputList.focusIconForeground": 2,
+    "quickInputList.focusHighlightForeground": 2,
+    "quickInputList.hoverBackground": 2,
+    "terminal.selectionBackground": 2,
+    "terminal.background": 2,
+    "terminal.border": 1,
+    "terminal.tab.activeBorder": 3,
+    "terminalCursor.foreground": 3,
+    "terminalCursor.background": 2,
+    "gitDecoration.addedResourceForeground": 2,
+    "gitDecoration.modifiedResourceForeground": 2,
+    "gitDecoration.deletedResourceForeground": 2,
+    "gitDecoration.untrackedResourceForeground": 2,
+    "gitDecoration.ignoredResourceForeground": 2,
+    "gitDecoration.conflictingResourceForeground": 2,
+    "gitDecoration.stageModifiedResourceForeground": 2,
+    "gitDecoration.stageDeletedResourceForeground": 2,
+    "quickInputTitle.background": 2,
+    "commandCenter.activeBorder": 2,
+    "quickInput.border": 2,
+    "gauge.foreground": 2,
+    "gauge.background": 2,
+    "gauge.border": 2,
+    "gauge.warningForeground": 2,
+    "gauge.warningBackground": 2,
+    "gauge.errorForeground": 2,
+    "gauge.errorBackground": 2,
+    "chat.requestBubbleBackground": 2,
+    "chat.requestBubbleHoverBackground": 2,
+    "chat.inputWorkingBorderColor1": 2,
+    "chat.inputWorkingBorderColor2": 2,
+    "chat.inputWorkingBorderColor3": 2,
+    "editorCommentsWidget.rangeBackground": 2,
+    "editorCommentsWidget.rangeActiveBackground": 2,
+    "charts.foreground": 2,
+    "charts.lines": 2,
+    "charts.blue": 2,
+    "charts.red": 2,
+    "charts.yellow": 2,
+    "charts.orange": 2,
+    "charts.green": 2,
+    "charts.purple": 2,
+    "inlineChat.border": 2,
+    "minimapSlider.background": 2,
+    "minimapSlider.hoverBackground": 2,
+    "minimapSlider.activeBackground": 2,
+    "agents.background": 3,
+    "agentsPanel.background": 3,
+    "agentsPanel.foreground": 2,
+    "surface.background": 2,
+    "surface.foreground": 2,
+    "agentsGradient.tintColor": 2,
+    "agentsChatInput.background": 2,
+    "agentsChatInput.foreground": 2,
+    "agentsChatInput.placeholderForeground": 2,
+    "agentsNewSessionButton.background": 2,
+    "agentsNewSessionButton.foreground": 2,
+    "agentsNewSessionButton.hoverBackground": 2,
+    "agentsBadge.background": 2,
+    "agentsBadge.foreground": 2,
+    "agentsUnreadBadge.background": 2,
+    "agentsUnreadBadge.foreground": 2,
+    "agentsBottomPanel.border": 3,
+    "button.secondaryBackground": 3,
+    "button.secondaryForeground": 3,
+    "widget.shadow": 2,
+    "editorStickyScroll.shadow": 1,
+    "sideBarStickyScroll.shadow": 1,
+    "panelStickyScroll.shadow": 1,
+    "listFilterWidget.shadow": 1,
+    "editorSuggestWidget.selectedForeground": 1,
+    "editorSuggestWidget.selectedIconForeground": 1,
+    "toolbar.hoverBackground": 1,
+    "problemsWarningIcon.foreground": 1,
+    "statusBarItem.prominentHoverForeground": 1,
+    "chat.thinkingShimmer": 1,
+    "agentStatusIndicator.background": 1,
+    "chat.slashCommandBackground": 2,
+    "chat.slashCommandForeground": 2,
+    "chat.editedFileForeground": 2,
+    "editorGutter.modifiedBackground": 2,
+    "keybindingLabel.foreground": 2,
+    "panelInput.border": 2,
+    "settings.dropdownBackground": 2,
+    "settings.dropdownBorder": 2,
+    "settings.headerForeground": 2,
+    "settings.modifiedItemIndicator": 2,
+    "statusBarItem.hoverForeground": 2,
+    "statusBarItem.remoteForeground": 5,
+    "tab.selectedBorderTop": 2,
+    "tab.unfocusedActiveBorder": 2,
+    "tab.unfocusedActiveBorderTop": 2,
+    "tab.unfocusedHoverBackground": 2,
+    "terminal.foreground": 2,
+    "welcomePage.tileBackground": 3,
+    "welcomePage.progress.foreground": 1,
+    "editorIndentGuide.background1": 5,
+    "editorIndentGuide.activeBackground1": 4,
+    "tab.selectedBackground": 2,
+    "tab.selectedForeground": 2,
+    "list.activeSelectionIconForeground": 3,
+    "terminal.inactiveSelectionBackground": 4,
+    "actionBar.toggledBackground": 4,
+    "agentsCard.border": 4,
+    "selection.background": 7,
+    "list.focusAndSelectionOutline": 2,
+    "notebook.cellBorderColor": 2,
+    "notebook.selectedCellBackground": 2,
+    "searchEditor.textInputBorder": 2,
+    "settings.numberInputBorder": 2,
+    "settings.textInputBorder": 2,
+    "statusBarItem.compactHoverBackground": 1,
+    "statusBarItem.errorBackground": 2,
+    "modernActivityBar.activeForeground": 2,
+    "modernActivityBar.hoverForeground": 2,
+    "diffEditor.unchangedRegionBackground": 1,
+    "settings.focusedRowBackground": 1,
+    "walkThrough.embeddedEditorBackground": 2,
+    "editorBracketHighlight.foreground1": 1,
+    "editorBracketHighlight.foreground2": 1,
+    "editorBracketHighlight.foreground3": 1,
+    "notebook.cellEditorBackground": 1,
+    "tab.activeModifiedBorder": 1
+  },
+  "groups": {
+    "actionBar": [
+      "actionBar.toggledBackground"
+    ],
+    "activityBar": [
+      "activityBar.activeBackground",
+      "activityBar.activeBorder",
+      "activityBar.activeFocusBorder",
+      "activityBar.background",
+      "activityBar.border",
+      "activityBar.foreground",
+      "activityBar.inactiveForeground"
+    ],
+    "activityBarBadge": [
+      "activityBarBadge.background",
+      "activityBarBadge.foreground"
+    ],
+    "activityBarTop": [
+      "activityBarTop.activeBackground",
+      "activityBarTop.activeBorder",
+      "activityBarTop.background",
+      "activityBarTop.foreground"
+    ],
+    "activityErrorBadge": [
+      "activityErrorBadge.background",
+      "activityErrorBadge.foreground"
+    ],
+    "activityWarningBadge": [
+      "activityWarningBadge.background",
+      "activityWarningBadge.foreground"
+    ],
+    "agentStatusIndicator": [
+      "agentStatusIndicator.background"
+    ],
+    "agents": [
+      "agents.background"
+    ],
+    "agentsBadge": [
+      "agentsBadge.background",
+      "agentsBadge.foreground"
+    ],
+    "agentsBottomPanel": [
+      "agentsBottomPanel.border"
+    ],
+    "agentsCard": [
+      "agentsCard.border"
+    ],
+    "agentsChatInput": [
+      "agentsChatInput.background",
+      "agentsChatInput.border",
+      "agentsChatInput.focusBorder",
+      "agentsChatInput.foreground",
+      "agentsChatInput.placeholderForeground"
+    ],
+    "agentsGradient": [
+      "agentsGradient.tintColor"
+    ],
+    "agentsNewSessionButton": [
+      "agentsNewSessionButton.background",
+      "agentsNewSessionButton.border",
+      "agentsNewSessionButton.foreground",
+      "agentsNewSessionButton.hoverBackground"
+    ],
+    "agentsPanel": [
+      "agentsPanel.background",
+      "agentsPanel.border",
+      "agentsPanel.foreground"
+    ],
+    "agentsUnreadBadge": [
+      "agentsUnreadBadge.background",
+      "agentsUnreadBadge.foreground"
+    ],
+    "agentsVoice": [
+      "agentsVoice.speakingForeground"
+    ],
+    "badge": [
+      "badge.background",
+      "badge.foreground"
+    ],
+    "banner": [
+      "banner.background",
+      "banner.foreground",
+      "banner.iconForeground"
+    ],
+    "breadcrumb": [
+      "breadcrumb.activeSelectionForeground",
+      "breadcrumb.background",
+      "breadcrumb.focusForeground",
+      "breadcrumb.foreground"
+    ],
+    "breadcrumbPicker": [
+      "breadcrumbPicker.background"
+    ],
+    "browser": [
+      "browser.border"
+    ],
+    "button": [
+      "button.background",
+      "button.border",
+      "button.foreground",
+      "button.hoverBackground",
+      "button.hoverForeground",
+      "button.secondaryBackground",
+      "button.secondaryBorder",
+      "button.secondaryForeground",
+      "button.secondaryHoverBackground",
+      "button.separator"
+    ],
+    "charts": [
+      "charts.blue",
+      "charts.foreground",
+      "charts.green",
+      "charts.lines",
+      "charts.orange",
+      "charts.purple",
+      "charts.red",
+      "charts.yellow"
+    ],
+    "chat": [
+      "chat.avatarBackground",
+      "chat.avatarForeground",
+      "chat.dictationActiveMicGlow",
+      "chat.editedFileForeground",
+      "chat.findMatchBackground",
+      "chat.findMatchHighlightBackground",
+      "chat.inputWorkingBorderColor1",
+      "chat.inputWorkingBorderColor2",
+      "chat.inputWorkingBorderColor3",
+      "chat.linesAddedForeground",
+      "chat.linesRemovedForeground",
+      "chat.list.background",
+      "chat.requestBackground",
+      "chat.requestBorder",
+      "chat.requestBubbleBackground",
+      "chat.requestBubbleHoverBackground",
+      "chat.requestCodeBorder",
+      "chat.slashCommandBackground",
+      "chat.slashCommandForeground",
+      "chat.thinkingShimmer"
+    ],
+    "checkbox": [
+      "checkbox.background",
+      "checkbox.border",
+      "checkbox.foreground",
+      "checkbox.selectBackground",
+      "checkbox.selectBorder"
+    ],
+    "commandCenter": [
+      "commandCenter.activeBackground",
+      "commandCenter.activeBorder",
+      "commandCenter.activeForeground",
+      "commandCenter.background",
+      "commandCenter.border",
+      "commandCenter.foreground",
+      "commandCenter.inactiveBorder"
+    ],
+    "_root": [
+      "contrastActiveBorder",
+      "contrastBorder",
+      "descriptionForeground",
+      "disabledForeground",
+      "errorForeground",
+      "focusBorder",
+      "foreground"
+    ],
+    "debugExceptionWidget": [
+      "debugExceptionWidget.background",
+      "debugExceptionWidget.border"
+    ],
+    "debugTokenExpression": [
+      "debugTokenExpression.name"
+    ],
+    "debugToolBar": [
+      "debugToolBar.background",
+      "debugToolBar.border"
+    ],
+    "debugView": [
+      "debugView.stateLabelBackground",
+      "debugView.stateLabelForeground"
+    ],
+    "diffEditor": [
+      "diffEditor.border",
+      "diffEditor.diagonalFill",
+      "diffEditor.insertedLineBackground",
+      "diffEditor.insertedTextBackground",
+      "diffEditor.insertedTextBorder",
+      "diffEditor.move.border",
+      "diffEditor.moveActive.border",
+      "diffEditor.removedLineBackground",
+      "diffEditor.removedTextBackground",
+      "diffEditor.removedTextBorder",
+      "diffEditor.unchangedCodeBackground",
+      "diffEditor.unchangedRegionBackground",
+      "diffEditor.unchangedRegionForeground",
+      "diffEditor.unchangedRegionShadow"
+    ],
+    "diffEditorGutter": [
+      "diffEditorGutter.insertedLineBackground",
+      "diffEditorGutter.removedLineBackground"
+    ],
+    "dropdown": [
+      "dropdown.background",
+      "dropdown.border",
+      "dropdown.foreground",
+      "dropdown.listBackground"
+    ],
+    "editor": [
+      "editor.background",
+      "editor.border",
+      "editor.compositionBorder",
+      "editor.findMatchBackground",
+      "editor.findMatchBorder",
+      "editor.findMatchForeground",
+      "editor.findMatchHighlightBackground",
+      "editor.findMatchHighlightBorder",
+      "editor.findMatchHighlightForeground",
+      "editor.findRangeHighlightBackground",
+      "editor.focusedStackFrameHighlightBackground",
+      "editor.foldBackground",
+      "editor.foldPlaceholderForeground",
+      "editor.foreground",
+      "editor.hoverHighlightBackground",
+      "editor.inactiveSelectionBackground",
+      "editor.inlineValuesBackground",
+      "editor.inlineValuesForeground",
+      "editor.lineHighlightBackground",
+      "editor.linkedEditingBackground",
+      "editor.placeholder.foreground",
+      "editor.rangeHighlightBackground",
+      "editor.rangeHighlightBorder",
+      "editor.selectionBackground",
+      "editor.selectionHighlightBackground",
+      "editor.selectionHighlightBorder",
+      "editor.snippetFinalTabstopHighlightBackground",
+      "editor.snippetFinalTabstopHighlightBorder",
+      "editor.snippetTabstopHighlightBackground",
+      "editor.snippetTabstopHighlightBorder",
+      "editor.stackFrameHighlightBackground",
+      "editor.symbolHighlightBackground",
+      "editor.symbolHighlightBorder",
+      "editor.wordHighlightBackground",
+      "editor.wordHighlightBorder",
+      "editor.wordHighlightStrongBackground",
+      "editor.wordHighlightStrongBorder",
+      "editor.wordHighlightTextBackground",
+      "editor.wordHighlightTextBorder"
+    ],
+    "editorActionList": [
+      "editorActionList.background",
+      "editorActionList.focusBackground",
+      "editorActionList.focusForeground",
+      "editorActionList.foreground"
+    ],
+    "editorBracketHighlight": [
+      "editorBracketHighlight.foreground1",
+      "editorBracketHighlight.foreground2",
+      "editorBracketHighlight.foreground3"
+    ],
+    "editorBracketMatch": [
+      "editorBracketMatch.background",
+      "editorBracketMatch.border"
+    ],
+    "editorCodeLens": [
+      "editorCodeLens.foreground"
+    ],
+    "editorCommentsWidget": [
+      "editorCommentsWidget.rangeActiveBackground",
+      "editorCommentsWidget.rangeBackground",
+      "editorCommentsWidget.replyInputBackground"
+    ],
+    "editorCursor": [
+      "editorCursor.background",
+      "editorCursor.foreground"
+    ],
+    "editorError": [
+      "editorError.background",
+      "editorError.border",
+      "editorError.foreground"
+    ],
+    "editorGhostText": [
+      "editorGhostText.background",
+      "editorGhostText.border",
+      "editorGhostText.foreground"
+    ],
+    "editorGroup": [
+      "editorGroup.border",
+      "editorGroup.dropBackground",
+      "editorGroup.focusedEmptyBorder"
+    ],
+    "editorGroupHeader": [
+      "editorGroupHeader.tabsBackground",
+      "editorGroupHeader.tabsBorder"
+    ],
+    "editorGutter": [
+      "editorGutter.addedBackground",
+      "editorGutter.addedSecondaryBackground",
+      "editorGutter.background",
+      "editorGutter.commentDraftGlyphForeground",
+      "editorGutter.commentGlyphForeground",
+      "editorGutter.commentRangeForeground",
+      "editorGutter.commentUnresolvedGlyphForeground",
+      "editorGutter.deletedBackground",
+      "editorGutter.deletedSecondaryBackground",
+      "editorGutter.foldingControlForeground",
+      "editorGutter.itemBackground",
+      "editorGutter.itemGlyphForeground",
+      "editorGutter.modifiedBackground",
+      "editorGutter.modifiedSecondaryBackground"
+    ],
+    "editorHint": [
+      "editorHint.border"
+    ],
+    "editorHoverWidget": [
+      "editorHoverWidget.background",
+      "editorHoverWidget.border",
+      "editorHoverWidget.foreground",
+      "editorHoverWidget.highlightForeground",
+      "editorHoverWidget.statusBarBackground"
+    ],
+    "editorIndentGuide": [
+      "editorIndentGuide.activeBackground",
+      "editorIndentGuide.activeBackground1",
+      "editorIndentGuide.background",
+      "editorIndentGuide.background1"
+    ],
+    "editorInfo": [
+      "editorInfo.background",
+      "editorInfo.border",
+      "editorInfo.foreground"
+    ],
+    "editorInlayHint": [
+      "editorInlayHint.background",
+      "editorInlayHint.foreground"
+    ],
+    "editorLightBulb": [
+      "editorLightBulb.foreground"
+    ],
+    "editorLightBulbAi": [
+      "editorLightBulbAi.foreground"
+    ],
+    "editorLightBulbAutoFix": [
+      "editorLightBulbAutoFix.foreground"
+    ],
+    "editorLineNumber": [
+      "editorLineNumber.activeForeground",
+      "editorLineNumber.foreground"
+    ],
+    "editorLink": [
+      "editorLink.activeForeground"
+    ],
+    "editorMarkerNavigation": [
+      "editorMarkerNavigation.background"
+    ],
+    "editorMarkerNavigationError": [
+      "editorMarkerNavigationError.background"
+    ],
+    "editorMarkerNavigationWarning": [
+      "editorMarkerNavigationWarning.background"
+    ],
+    "editorOverviewRuler": [
+      "editorOverviewRuler.addedForeground",
+      "editorOverviewRuler.border",
+      "editorOverviewRuler.deletedForeground",
+      "editorOverviewRuler.errorForeground",
+      "editorOverviewRuler.findMatchForeground",
+      "editorOverviewRuler.modifiedForeground",
+      "editorOverviewRuler.warningForeground"
+    ],
+    "editorPane": [
+      "editorPane.background"
+    ],
+    "editorRuler": [
+      "editorRuler.foreground"
+    ],
+    "editorStickyScroll": [
+      "editorStickyScroll.background",
+      "editorStickyScroll.border",
+      "editorStickyScroll.shadow"
+    ],
+    "editorStickyScrollGutter": [
+      "editorStickyScrollGutter.background"
+    ],
+    "editorStickyScrollHover": [
+      "editorStickyScrollHover.background"
+    ],
+    "editorSuggestWidget": [
+      "editorSuggestWidget.background",
+      "editorSuggestWidget.border",
+      "editorSuggestWidget.focusHighlightForeground",
+      "editorSuggestWidget.focusOutline",
+      "editorSuggestWidget.foreground",
+      "editorSuggestWidget.highlightForeground",
+      "editorSuggestWidget.selectedBackground",
+      "editorSuggestWidget.selectedForeground",
+      "editorSuggestWidget.selectedIconForeground"
+    ],
+    "editorSuggestWidgetStatus": [
+      "editorSuggestWidgetStatus.foreground"
+    ],
+    "editorUnicodeHighlight": [
+      "editorUnicodeHighlight.background",
+      "editorUnicodeHighlight.border"
+    ],
+    "editorUnnecessaryCode": [
+      "editorUnnecessaryCode.border"
+    ],
+    "editorWarning": [
+      "editorWarning.background",
+      "editorWarning.border",
+      "editorWarning.foreground"
+    ],
+    "editorWhitespace": [
+      "editorWhitespace.foreground"
+    ],
+    "editorWidget": [
+      "editorWidget.background",
+      "editorWidget.border",
+      "editorWidget.foreground",
+      "editorWidget.resizeBorder"
+    ],
+    "extensionBadge": [
+      "extensionBadge.remoteBackground",
+      "extensionBadge.remoteForeground"
+    ],
+    "extensionButton": [
+      "extensionButton.background",
+      "extensionButton.border",
+      "extensionButton.foreground",
+      "extensionButton.hoverBackground",
+      "extensionButton.prominentBackground",
+      "extensionButton.prominentForeground",
+      "extensionButton.prominentHoverBackground",
+      "extensionButton.separator"
+    ],
+    "extensionIcon": [
+      "extensionIcon.preReleaseForeground",
+      "extensionIcon.sponsorForeground",
+      "extensionIcon.verifiedForeground"
+    ],
+    "gauge": [
+      "gauge.background",
+      "gauge.border",
+      "gauge.errorBackground",
+      "gauge.errorForeground",
+      "gauge.foreground",
+      "gauge.warningBackground",
+      "gauge.warningForeground"
+    ],
+    "gitDecoration": [
+      "gitDecoration.addedResourceForeground",
+      "gitDecoration.conflictingResourceForeground",
+      "gitDecoration.deletedResourceForeground",
+      "gitDecoration.ignoredResourceForeground",
+      "gitDecoration.modifiedResourceForeground",
+      "gitDecoration.stageDeletedResourceForeground",
+      "gitDecoration.stageModifiedResourceForeground",
+      "gitDecoration.untrackedResourceForeground"
+    ],
+    "icon": [
+      "icon.foreground"
+    ],
+    "inlineChat": [
+      "inlineChat.background",
+      "inlineChat.border",
+      "inlineChat.regionHighlight"
+    ],
+    "inlineChatInput": [
+      "inlineChatInput.background",
+      "inlineChatInput.border",
+      "inlineChatInput.focusBorder",
+      "inlineChatInput.placeholderForeground"
+    ],
+    "inlineEdit": [
+      "inlineEdit.gutterIndicator.background",
+      "inlineEdit.gutterIndicator.primaryBorder",
+      "inlineEdit.gutterIndicator.primaryForeground",
+      "inlineEdit.modifiedBorder",
+      "inlineEdit.modifiedChangedLineBackground",
+      "inlineEdit.modifiedChangedTextBackground",
+      "inlineEdit.originalChangedLineBackground",
+      "inlineEdit.originalChangedTextBackground"
+    ],
+    "input": [
+      "input.background",
+      "input.border",
+      "input.foreground",
+      "input.placeholderForeground"
+    ],
+    "inputOption": [
+      "inputOption.activeBackground",
+      "inputOption.activeBorder",
+      "inputOption.activeForeground",
+      "inputOption.hoverBackground"
+    ],
+    "inputValidation": [
+      "inputValidation.errorBackground",
+      "inputValidation.errorBorder",
+      "inputValidation.errorForeground",
+      "inputValidation.infoBackground",
+      "inputValidation.infoBorder",
+      "inputValidation.infoForeground",
+      "inputValidation.warningBackground",
+      "inputValidation.warningBorder",
+      "inputValidation.warningForeground"
+    ],
+    "interactive": [
+      "interactive.result.editor.background.color",
+      "interactive.session.foreground"
+    ],
+    "keybindingLabel": [
+      "keybindingLabel.background",
+      "keybindingLabel.border",
+      "keybindingLabel.bottomBorder",
+      "keybindingLabel.foreground"
+    ],
+    "keybindingTable": [
+      "keybindingTable.headerBackground",
+      "keybindingTable.rowsBackground"
+    ],
+    "list": [
+      "list.activeSelectionBackground",
+      "list.activeSelectionForeground",
+      "list.activeSelectionIconForeground",
+      "list.dropBackground",
+      "list.errorForeground",
+      "list.filterMatchBackground",
+      "list.filterMatchBorder",
+      "list.focusAndSelectionOutline",
+      "list.focusBackground",
+      "list.focusForeground",
+      "list.focusHighlightForeground",
+      "list.focusOutline",
+      "list.highlightForeground",
+      "list.hoverBackground",
+      "list.hoverForeground",
+      "list.inactiveFocusBackground",
+      "list.inactiveFocusOutline",
+      "list.inactiveSelectionBackground",
+      "list.inactiveSelectionForeground",
+      "list.invalidItemForeground",
+      "list.warningForeground"
+    ],
+    "listFilterWidget": [
+      "listFilterWidget.shadow"
+    ],
+    "markdownAlert": [
+      "markdownAlert.caution.foreground",
+      "markdownAlert.important.foreground",
+      "markdownAlert.note.foreground",
+      "markdownAlert.tip.foreground",
+      "markdownAlert.warning.foreground"
+    ],
+    "menu": [
+      "menu.background",
+      "menu.border",
+      "menu.foreground",
+      "menu.selectionBackground",
+      "menu.selectionBorder",
+      "menu.selectionForeground",
+      "menu.separatorBackground"
+    ],
+    "menubar": [
+      "menubar.selectionBackground",
+      "menubar.selectionBorder",
+      "menubar.selectionForeground"
+    ],
+    "mergeEditor": [
+      "mergeEditor.change.background",
+      "mergeEditor.change.word.background",
+      "mergeEditor.changeBase.background",
+      "mergeEditor.changeBase.word.background",
+      "mergeEditor.conflict.handledFocused.border",
+      "mergeEditor.conflict.handledUnfocused.border",
+      "mergeEditor.conflict.input1.background",
+      "mergeEditor.conflict.input2.background",
+      "mergeEditor.conflict.unhandledFocused.border",
+      "mergeEditor.conflict.unhandledUnfocused.border",
+      "mergeEditor.conflictingLines.background"
+    ],
+    "minimap": [
+      "minimap.selectionHighlight"
+    ],
+    "minimapSlider": [
+      "minimapSlider.activeBackground",
+      "minimapSlider.background",
+      "minimapSlider.hoverBackground"
+    ],
+    "modernActivityBar": [
+      "modernActivityBar.activeBackground",
+      "modernActivityBar.activeForeground",
+      "modernActivityBar.hoverBackground",
+      "modernActivityBar.hoverForeground"
+    ],
+    "modernEditorTab": [
+      "modernEditorTab.activeActionBackground",
+      "modernEditorTab.activeBackground",
+      "modernEditorTab.activeForeground",
+      "modernEditorTab.activeHoverActionBackground",
+      "modernEditorTab.activeHoverBackground",
+      "modernEditorTab.hoverActionBackground",
+      "modernEditorTab.hoverBackground",
+      "modernEditorTab.hoverForeground",
+      "modernEditorTab.inactiveBackground",
+      "modernEditorTab.selectedActionBackground"
+    ],
+    "modernTab": [
+      "modernTab.activeBackground",
+      "modernTab.activeForeground",
+      "modernTab.hoverBackground",
+      "modernTab.hoverForeground"
+    ],
+    "multiDiffEditor": [
+      "multiDiffEditor.background",
+      "multiDiffEditor.border",
+      "multiDiffEditor.headerBackground"
+    ],
+    "notebook": [
+      "notebook.cellBorderColor",
+      "notebook.cellEditorBackground",
+      "notebook.cellHoverBackground",
+      "notebook.cellInsertionIndicator",
+      "notebook.cellStatusBarItemHoverBackground",
+      "notebook.cellToolbarSeparator",
+      "notebook.editorBackground",
+      "notebook.focusedCellBackground",
+      "notebook.focusedCellBorder",
+      "notebook.focusedEditorBorder",
+      "notebook.inactiveFocusedCellBorder",
+      "notebook.inactiveSelectedCellBorder",
+      "notebook.outputContainerBackgroundColor",
+      "notebook.outputContainerBorderColor",
+      "notebook.selectedCellBackground",
+      "notebook.selectedCellBorder",
+      "notebook.symbolHighlightBackground"
+    ],
+    "notebookScrollbarSlider": [
+      "notebookScrollbarSlider.activeBackground",
+      "notebookScrollbarSlider.background",
+      "notebookScrollbarSlider.hoverBackground"
+    ],
+    "notebookStatusErrorIcon": [
+      "notebookStatusErrorIcon.foreground"
+    ],
+    "notebookStatusSuccessIcon": [
+      "notebookStatusSuccessIcon.foreground"
+    ],
+    "notificationCenter": [
+      "notificationCenter.border"
+    ],
+    "notificationCenterHeader": [
+      "notificationCenterHeader.background",
+      "notificationCenterHeader.foreground"
+    ],
+    "notificationLink": [
+      "notificationLink.foreground"
+    ],
+    "notificationToast": [
+      "notificationToast.border"
+    ],
+    "notifications": [
+      "notifications.background",
+      "notifications.border",
+      "notifications.foreground"
+    ],
+    "notificationsErrorIcon": [
+      "notificationsErrorIcon.foreground"
+    ],
+    "notificationsInfoIcon": [
+      "notificationsInfoIcon.foreground"
+    ],
+    "notificationsWarningIcon": [
+      "notificationsWarningIcon.foreground"
+    ],
+    "outputView": [
+      "outputView.background"
+    ],
+    "outputViewStickyScroll": [
+      "outputViewStickyScroll.background"
+    ],
+    "panel": [
+      "panel.background",
+      "panel.border"
+    ],
+    "panelInput": [
+      "panelInput.border"
+    ],
+    "panelSection": [
+      "panelSection.border"
+    ],
+    "panelSectionHeader": [
+      "panelSectionHeader.border"
+    ],
+    "panelStickyScroll": [
+      "panelStickyScroll.shadow"
+    ],
+    "panelTitle": [
+      "panelTitle.activeBorder",
+      "panelTitle.activeForeground",
+      "panelTitle.inactiveForeground"
+    ],
+    "peekView": [
+      "peekView.border"
+    ],
+    "peekViewEditor": [
+      "peekViewEditor.background",
+      "peekViewEditor.matchHighlightBackground",
+      "peekViewEditor.matchHighlightBorder"
+    ],
+    "peekViewEditorGutter": [
+      "peekViewEditorGutter.background"
+    ],
+    "peekViewEditorStickyScroll": [
+      "peekViewEditorStickyScroll.background"
+    ],
+    "peekViewEditorStickyScrollGutter": [
+      "peekViewEditorStickyScrollGutter.background"
+    ],
+    "peekViewResult": [
+      "peekViewResult.background",
+      "peekViewResult.fileForeground",
+      "peekViewResult.lineForeground",
+      "peekViewResult.matchHighlightBackground",
+      "peekViewResult.selectionBackground",
+      "peekViewResult.selectionForeground"
+    ],
+    "peekViewTitle": [
+      "peekViewTitle.background"
+    ],
+    "peekViewTitleDescription": [
+      "peekViewTitleDescription.foreground"
+    ],
+    "peekViewTitleLabel": [
+      "peekViewTitleLabel.foreground"
+    ],
+    "pickerGroup": [
+      "pickerGroup.border",
+      "pickerGroup.foreground"
+    ],
+    "ports": [
+      "ports.iconRunningProcessForeground"
+    ],
+    "problemsErrorIcon": [
+      "problemsErrorIcon.foreground"
+    ],
+    "problemsInfoIcon": [
+      "problemsInfoIcon.foreground"
+    ],
+    "problemsWarningIcon": [
+      "problemsWarningIcon.foreground"
+    ],
+    "profileBadge": [
+      "profileBadge.background",
+      "profileBadge.foreground"
+    ],
+    "progressBar": [
+      "progressBar.background"
+    ],
+    "quickInput": [
+      "quickInput.background",
+      "quickInput.border",
+      "quickInput.foreground"
+    ],
+    "quickInputList": [
+      "quickInputList.focusBackground",
+      "quickInputList.focusForeground",
+      "quickInputList.focusHighlightForeground",
+      "quickInputList.focusIconForeground",
+      "quickInputList.hoverBackground"
+    ],
+    "quickInputTitle": [
+      "quickInputTitle.background"
+    ],
+    "radio": [
+      "radio.activeBackground",
+      "radio.activeBorder",
+      "radio.activeForeground",
+      "radio.inactiveBackground",
+      "radio.inactiveBorder",
+      "radio.inactiveForeground",
+      "radio.inactiveHoverBackground"
+    ],
+    "scmGraph": [
+      "scmGraph.historyItemHoverDefaultLabelBackground"
+    ],
+    "scrollbar": [
+      "scrollbar.background",
+      "scrollbar.shadow"
+    ],
+    "scrollbarSlider": [
+      "scrollbarSlider.activeBackground",
+      "scrollbarSlider.background",
+      "scrollbarSlider.hoverBackground"
+    ],
+    "search": [
+      "search.resultsInfoForeground"
+    ],
+    "searchEditor": [
+      "searchEditor.findMatchBackground",
+      "searchEditor.findMatchBorder",
+      "searchEditor.textInputBorder"
+    ],
+    "selection": [
+      "selection.background"
+    ],
+    "settings": [
+      "settings.checkboxBackground",
+      "settings.checkboxBorder",
+      "settings.checkboxForeground",
+      "settings.dropdownBackground",
+      "settings.dropdownBorder",
+      "settings.focusedRowBackground",
+      "settings.focusedRowBorder",
+      "settings.headerBorder",
+      "settings.headerForeground",
+      "settings.modifiedItemIndicator",
+      "settings.numberInputBorder",
+      "settings.rowHoverBackground",
+      "settings.textInputBorder"
+    ],
+    "shadow": [
+      "shadow.lg",
+      "shadow.md",
+      "shadow.sm",
+      "shadow.xl"
+    ],
+    "sideBar": [
+      "sideBar.background",
+      "sideBar.border",
+      "sideBar.foreground"
+    ],
+    "sideBarActivityBarTop": [
+      "sideBarActivityBarTop.border"
+    ],
+    "sideBarSectionHeader": [
+      "sideBarSectionHeader.background",
+      "sideBarSectionHeader.border",
+      "sideBarSectionHeader.foreground"
+    ],
+    "sideBarStickyScroll": [
+      "sideBarStickyScroll.shadow"
+    ],
+    "sideBarTitle": [
+      "sideBarTitle.background",
+      "sideBarTitle.foreground"
+    ],
+    "statusBar": [
+      "statusBar.background",
+      "statusBar.border",
+      "statusBar.debuggingBackground",
+      "statusBar.debuggingForeground",
+      "statusBar.focusBorder",
+      "statusBar.foreground",
+      "statusBar.noFolderBackground",
+      "statusBar.noFolderForeground"
+    ],
+    "statusBarItem": [
+      "statusBarItem.activeBackground",
+      "statusBarItem.compactHoverBackground",
+      "statusBarItem.errorBackground",
+      "statusBarItem.errorForeground",
+      "statusBarItem.errorHoverBackground",
+      "statusBarItem.errorHoverForeground",
+      "statusBarItem.focusBorder",
+      "statusBarItem.hoverBackground",
+      "statusBarItem.hoverForeground",
+      "statusBarItem.offlineBackground",
+      "statusBarItem.offlineForeground",
+      "statusBarItem.offlineHoverBackground",
+      "statusBarItem.offlineHoverForeground",
+      "statusBarItem.prominentBackground",
+      "statusBarItem.prominentForeground",
+      "statusBarItem.prominentHoverBackground",
+      "statusBarItem.prominentHoverForeground",
+      "statusBarItem.remoteBackground",
+      "statusBarItem.remoteForeground",
+      "statusBarItem.remoteHoverBackground",
+      "statusBarItem.remoteHoverForeground",
+      "statusBarItem.warningBackground",
+      "statusBarItem.warningForeground",
+      "statusBarItem.warningHoverBackground",
+      "statusBarItem.warningHoverForeground"
+    ],
+    "surface": [
+      "surface.background",
+      "surface.border",
+      "surface.foreground"
+    ],
+    "symbolIcon": [
+      "symbolIcon.arrayForeground",
+      "symbolIcon.booleanForeground",
+      "symbolIcon.classForeground",
+      "symbolIcon.colorForeground",
+      "symbolIcon.constantForeground",
+      "symbolIcon.constructorForeground",
+      "symbolIcon.enumeratorForeground",
+      "symbolIcon.enumeratorMemberForeground",
+      "symbolIcon.eventForeground",
+      "symbolIcon.fieldForeground",
+      "symbolIcon.fileForeground",
+      "symbolIcon.folderForeground",
+      "symbolIcon.functionForeground",
+      "symbolIcon.interfaceForeground",
+      "symbolIcon.keyForeground",
+      "symbolIcon.keywordForeground",
+      "symbolIcon.methodForeground",
+      "symbolIcon.moduleForeground",
+      "symbolIcon.namespaceForeground",
+      "symbolIcon.nullForeground",
+      "symbolIcon.numberForeground",
+      "symbolIcon.objectForeground",
+      "symbolIcon.operatorForeground",
+      "symbolIcon.packageForeground",
+      "symbolIcon.propertyForeground",
+      "symbolIcon.referenceForeground",
+      "symbolIcon.snippetForeground",
+      "symbolIcon.stringForeground",
+      "symbolIcon.structForeground",
+      "symbolIcon.textForeground",
+      "symbolIcon.typeParameterForeground",
+      "symbolIcon.unitForeground",
+      "symbolIcon.variableForeground"
+    ],
+    "tab": [
+      "tab.activeBackground",
+      "tab.activeBorder",
+      "tab.activeBorderTop",
+      "tab.activeForeground",
+      "tab.activeModifiedBorder",
+      "tab.border",
+      "tab.dragAndDropBorder",
+      "tab.hoverBackground",
+      "tab.hoverForeground",
+      "tab.inactiveBackground",
+      "tab.inactiveForeground",
+      "tab.lastPinnedBorder",
+      "tab.selectedBackground",
+      "tab.selectedBorderTop",
+      "tab.selectedForeground",
+      "tab.unfocusedActiveBackground",
+      "tab.unfocusedActiveBorder",
+      "tab.unfocusedActiveBorderTop",
+      "tab.unfocusedActiveForeground",
+      "tab.unfocusedHoverBackground",
+      "tab.unfocusedInactiveBackground",
+      "tab.unfocusedInactiveForeground"
+    ],
+    "terminal": [
+      "terminal.ansiBlack",
+      "terminal.ansiBlue",
+      "terminal.ansiBrightBlack",
+      "terminal.ansiBrightBlue",
+      "terminal.ansiBrightCyan",
+      "terminal.ansiBrightGreen",
+      "terminal.ansiBrightMagenta",
+      "terminal.ansiBrightRed",
+      "terminal.ansiBrightWhite",
+      "terminal.ansiBrightYellow",
+      "terminal.ansiCyan",
+      "terminal.ansiGreen",
+      "terminal.ansiMagenta",
+      "terminal.ansiRed",
+      "terminal.ansiWhite",
+      "terminal.ansiYellow",
+      "terminal.background",
+      "terminal.border",
+      "terminal.dropBackground",
+      "terminal.foreground",
+      "terminal.hoverHighlightBackground",
+      "terminal.inactiveSelectionBackground",
+      "terminal.initialHintForeground",
+      "terminal.selectionBackground",
+      "terminal.tab.activeBorder"
+    ],
+    "terminalCommandDecoration": [
+      "terminalCommandDecoration.defaultBackground",
+      "terminalCommandDecoration.errorBackground",
+      "terminalCommandDecoration.successBackground"
+    ],
+    "terminalCommandGuide": [
+      "terminalCommandGuide.foreground"
+    ],
+    "terminalCursor": [
+      "terminalCursor.background",
+      "terminalCursor.foreground"
+    ],
+    "terminalStickyScroll": [
+      "terminalStickyScroll.background",
+      "terminalStickyScroll.border"
+    ],
+    "terminalStickyScrollHover": [
+      "terminalStickyScrollHover.background"
+    ],
+    "terminalSymbolIcon": [
+      "terminalSymbolIcon.aliasForeground",
+      "terminalSymbolIcon.argumentForeground",
+      "terminalSymbolIcon.branchForeground",
+      "terminalSymbolIcon.commitForeground",
+      "terminalSymbolIcon.fileForeground",
+      "terminalSymbolIcon.flagForeground",
+      "terminalSymbolIcon.folderForeground",
+      "terminalSymbolIcon.inlineSuggestionForeground",
+      "terminalSymbolIcon.methodForeground",
+      "terminalSymbolIcon.optionForeground",
+      "terminalSymbolIcon.optionValueForeground",
+      "terminalSymbolIcon.pullRequestDoneForeground",
+      "terminalSymbolIcon.pullRequestForeground",
+      "terminalSymbolIcon.remoteForeground",
+      "terminalSymbolIcon.stashForeground",
+      "terminalSymbolIcon.symbolText",
+      "terminalSymbolIcon.symbolicLinkFileForeground",
+      "terminalSymbolIcon.symbolicLinkFolderForeground",
+      "terminalSymbolIcon.tagForeground"
+    ],
+    "testing": [
+      "testing.coverCountBadgeBackground",
+      "testing.coverCountBadgeForeground",
+      "testing.coveredBackground",
+      "testing.coveredBorder",
+      "testing.coveredGutterBackground",
+      "testing.iconErrored",
+      "testing.iconFailed",
+      "testing.iconPassed",
+      "testing.iconQueued",
+      "testing.iconSkipped",
+      "testing.iconUnset",
+      "testing.message.error.badgeBorder",
+      "testing.message.error.badgeForeground",
+      "testing.message.error.lineBackground",
+      "testing.message.info.decorationForeground",
+      "testing.message.info.lineBackground",
+      "testing.runAction",
+      "testing.uncoveredBackground",
+      "testing.uncoveredBorder",
+      "testing.uncoveredGutterBackground"
+    ],
+    "textBlockQuote": [
+      "textBlockQuote.background",
+      "textBlockQuote.border"
+    ],
+    "textCodeBlock": [
+      "textCodeBlock.background"
+    ],
+    "textLink": [
+      "textLink.activeForeground",
+      "textLink.foreground"
+    ],
+    "textPreformat": [
+      "textPreformat.background",
+      "textPreformat.border",
+      "textPreformat.foreground"
+    ],
+    "textSeparator": [
+      "textSeparator.foreground"
+    ],
+    "titleBar": [
+      "titleBar.activeBackground",
+      "titleBar.activeForeground",
+      "titleBar.border",
+      "titleBar.inactiveBackground",
+      "titleBar.inactiveForeground"
+    ],
+    "toolbar": [
+      "toolbar.activeBackground",
+      "toolbar.hoverBackground",
+      "toolbar.hoverOutline"
+    ],
+    "tree": [
+      "tree.tableColumnsBorder"
+    ],
+    "walkThrough": [
+      "walkThrough.embeddedEditorBackground"
+    ],
+    "walkthrough": [
+      "walkthrough.stepTitle.foreground"
+    ],
+    "welcomePage": [
+      "welcomePage.background",
+      "welcomePage.progress.foreground",
+      "welcomePage.tileBackground",
+      "welcomePage.tileBorder",
+      "welcomePage.tileHoverBackground"
+    ],
+    "widget": [
+      "widget.border",
+      "widget.shadow"
+    ]
+  },
+  "note": "Extras din build-ul instalat de VS Code. Variabilele CSS care nu sunt culori au fost filtrate."
+}

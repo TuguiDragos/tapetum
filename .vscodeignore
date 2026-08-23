@@ -1,0 +1,11 @@
+.github/**
+.vscode/**
+.vscode-test/**
+tools/**
+node_modules/**
+.gitignore
+.DS_Store
+**/.DS_Store
+readme-assets/**
+!readme-assets/tapetum-fan-512.png
+*.vsix
