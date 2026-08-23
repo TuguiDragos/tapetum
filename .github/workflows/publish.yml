@@ -1,0 +1,61 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Package and check without publishing
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check the tag matches the manifest version
+        if: github.event_name == 'release'
+        run: |
+          manifest=$(node -p "require('./package.json').version")
+          tag="${GITHUB_REF_NAME#v}"
+          echo "manifest $manifest, tag $tag"
+          if [ "$manifest" != "$tag" ]; then
+            echo "::error::package.json says $manifest but the tag says $tag. Bump the version and retag."
+            exit 1
+          fi
+
+      - name: Verify every theme
+        run: node tools/analyze.mjs
+
+      - name: Package
+        run: |
+          npx --yes @vscode/vsce package --no-dependencies -o tapetum.vsix
+          ls -l tapetum.vsix
+
+      - name: Publish to the VS Code Marketplace
+        if: github.event_name == 'release'
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: npx --yes @vscode/vsce publish --packagePath tapetum.vsix --skip-duplicate
+
+      - name: Publish to Open VSX
+        if: github.event_name == 'release'
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: npx --yes ovsx publish tapetum.vsix --skip-duplicate
+
+      - name: Attach the package to the release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" tapetum.vsix --clobber

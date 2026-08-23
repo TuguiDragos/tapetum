@@ -1,0 +1,122 @@
+import { buildColors } from './build-theme.mjs';
+import { hex2lch, contrast, mix, readable } from './color.mjs';
+
+const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
+
+export function deriveStatus(syntax, bg, isDark) {
+  const roles = Object.entries(syntax).filter(([k]) =>
+    ['keyword', 'string', 'func', 'type', 'number', 'tag'].includes(k));
+  const hx = (v) => (typeof v === 'string' ? v : v.hex);
+  const nearest = (target) => roles
+    .map(([k, v]) => ({ k, hex: hx(v), d: hueDist(hex2lch(hx(v))[2], target) }))
+    .sort((a, b) => a.d - b.d)[0].hex;
+
+  const error = nearest(25);
+  const warn = nearest(75);
+  const ok = nearest(140);
+  const info = nearest(265);
+  const lift = (c) => (contrast(c, bg) >= 5.0 ? c : readable(c, bg, 5.0));
+  return {
+    error: lift(error), warn: lift(warn), info: lift(info), ok: lift(ok),
+    added: lift(ok), modified: lift(info), deleted: lift(error), conflict: lift(warn),
+  };
+}
+
+const S = (scope, foreground, fontStyle) => ({
+  scope,
+  settings: fontStyle ? { foreground, fontStyle } : { foreground },
+});
+
+export function buildTokenColors(y) {
+  return [
+    { name: 'Comment', ...S(['comment', 'punctuation.definition.comment', 'string.comment'], y.comment, 'italic') },
+    { name: 'Comment keyword', ...S(['keyword.codetag', 'comment keyword.other', 'storage.type.class.jsdoc'], y.tag, 'italic bold') },
+    { name: 'Variables', ...S(['variable', 'variable.other.readwrite', 'meta.definition.variable.name', 'support.variable', 'string constant.other.placeholder'], y.variable) },
+    { name: 'Parameters', ...S(['variable.parameter', 'meta.parameter', 'variable.other.jsdoc'], y.variable, 'italic') },
+    { name: 'Properties', ...S(['variable.other.property', 'variable.other.object.property', 'meta.object-literal.key', 'support.type.property-name', 'variable.other.member'], y.variable) },
+    { name: 'Language variables', ...S(['variable.language', 'variable.language.this', 'variable.language.super', 'keyword.other.this'], y.tag, 'italic') },
+    { name: 'Constants and enum members', ...S(['variable.other.constant', 'variable.other.enummember', 'constant.other.caps', 'entity.name.constant'], y.number) },
+    { name: 'Numbers and language constants', ...S(['constant.numeric', 'constant.language', 'constant.language.boolean', 'constant.language.null', 'constant.language.undefined', 'keyword.other.unit', 'support.constant'], y.number) },
+    { name: 'Escapes', ...S(['constant.character', 'constant.character.escape', 'constant.other.character-class.regexp'], y.number) },
+    { name: 'Strings', ...S(['string', 'string.quoted', 'string.template', 'punctuation.definition.string'], y.string) },
+    { name: 'Template expression punctuation', ...S(['punctuation.definition.template-expression', 'punctuation.section.embedded', 'meta.embedded'], y.keyword) },
+    { name: 'Regular expressions', ...S(['string.regexp', 'constant.regexp'], y.type) },
+    { name: 'Regexp operators', ...S(['keyword.operator.or.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.quantifier.regexp'], y.tag) },
+    { name: 'Keywords', ...S(['keyword', 'keyword.control', 'keyword.other', 'storage', 'storage.type', 'storage.modifier', 'keyword.operator.expression', 'keyword.operator.new', 'keyword.operator.delete', 'keyword.operator.logical.python'], y.keyword) },
+    { name: 'Import and export', ...S(['keyword.control.import', 'keyword.control.export', 'keyword.control.from', 'keyword.control.default', 'keyword.control.as'], y.keyword, 'italic') },
+    { name: 'Operators and punctuation', ...S(['keyword.operator', 'punctuation', 'punctuation.separator', 'punctuation.terminator', 'meta.brace', 'punctuation.accessor'], y.op) },
+    { name: 'Arrow functions', ...S(['storage.type.function.arrow', 'keyword.operator.arrow', 'storage.type.function.lambda'], y.tag) },
+    { name: 'Functions and methods', ...S(['entity.name.function', 'meta.function-call.generic', 'support.function', 'meta.require', 'variable.function', 'entity.name.method'], y.func) },
+    { name: 'Function declarations', ...S(['meta.definition.method entity.name.function', 'meta.definition.function entity.name.function'], y.func, 'bold') },
+    { name: 'Decorators', ...S(['meta.decorator', 'entity.name.function.decorator', 'punctuation.decorator', 'meta.decorator variable.other'], y.func, 'italic') },
+    { name: 'Types and classes', ...S(['entity.name.type', 'entity.name.class', 'entity.name.namespace', 'entity.name.scope-resolution', 'support.type', 'support.class', 'entity.other.inherited-class', 'entity.name.type.interface', 'entity.name.type.enum', 'entity.name.type.alias', 'meta.type.declaration entity.name.type'], y.type) },
+    { name: 'Primitive types', ...S(['support.type.primitive', 'keyword.type', 'storage.type.primitive', 'support.type.builtin'], y.type, 'italic') },
+    { name: 'Tags', ...S(['entity.name.tag', 'punctuation.definition.tag', 'meta.tag'], y.tag) },
+    { name: 'Component tags', ...S(['support.class.component', 'entity.name.tag.jsx-component', 'entity.name.tag.namespace'], y.type) },
+    { name: 'Attributes', ...S(['entity.other.attribute-name', 'meta.attribute', 'entity.other.attribute-name.html'], y.number, 'italic') },
+    { name: 'CSS selectors', ...S(['entity.name.tag.css', 'entity.other.attribute-name.class.css', 'entity.other.attribute-name.id.css', 'entity.other.attribute-name.pseudo-class.css', 'entity.other.attribute-name.pseudo-element.css'], y.keyword) },
+    { name: 'CSS properties', ...S(['support.type.property-name.css', 'meta.property-name.css'], y.func) },
+    { name: 'CSS values', ...S(['support.constant.property-value.css', 'support.constant.color', 'constant.other.color'], y.string) },
+    { name: 'JSON keys', ...S(['support.type.property-name.json', 'meta.structure.dictionary.json string.quoted.double.json'], y.func) },
+    { name: 'JSON values', ...S(['meta.structure.dictionary.value.json string.quoted.double.json'], y.string) },
+    { name: 'YAML keys', ...S(['entity.name.tag.yaml', 'punctuation.definition.key-value.yaml'], y.func) },
+    { name: 'Rust lifetimes', ...S(['storage.modifier.lifetime.rust', 'entity.name.lifetime.rust'], y.tag, 'italic') },
+    { name: 'Rust macros', ...S(['entity.name.function.macro.rust', 'support.function.macro'], y.tag) },
+    { name: 'Go struct tags', ...S(['string.quoted.raw.go', 'meta.struct.tag.go'], y.number) },
+    { name: 'Python f-string placeholders', ...S(['meta.fstring.python constant.character.format.placeholder', 'constant.character.format.placeholder.other.python'], y.number) },
+    { name: 'C preprocessor', ...S(['keyword.control.directive', 'meta.preprocessor', 'entity.name.function.preprocessor'], y.tag, 'italic') },
+    { name: 'PHP and shell variables', ...S(['variable.other.php', 'punctuation.definition.variable.php', 'variable.other.normal.shell', 'punctuation.definition.variable.shell'], y.number) },
+    { name: 'SQL keywords', ...S(['keyword.other.DML.sql', 'keyword.other.DDL.sql', 'keyword.other.sql'], y.keyword) },
+    { name: 'GraphQL and Terraform blocks', ...S(['keyword.other.block.graphql', 'entity.name.type.graphql', 'entity.name.type.terraform', 'storage.type.function.terraform'], y.type) },
+    { name: 'Markdown headings', ...S(['markup.heading', 'entity.name.section.markdown', 'punctuation.definition.heading.markdown'], y.keyword, 'bold') },
+    { name: 'Markdown bold', ...S(['markup.bold', 'punctuation.definition.bold'], y.number, 'bold') },
+    { name: 'Markdown italic', ...S(['markup.italic', 'punctuation.definition.italic'], y.tag, 'italic') },
+    { name: 'Markdown strikethrough', ...S(['markup.strikethrough'], y.comment, 'strikethrough') },
+    { name: 'Markdown links', ...S(['markup.underline.link', 'string.other.link', 'constant.other.reference.link.markdown'], y.string, 'underline') },
+    { name: 'Markdown link text', ...S(['string.other.link.title.markdown', 'meta.link.inline.markdown'], y.func) },
+    { name: 'Markdown code', ...S(['markup.inline.raw', 'markup.fenced_code', 'markup.raw.block', 'fenced_code.block.language'], y.type) },
+    { name: 'Markdown quote', ...S(['markup.quote', 'beginning.punctuation.definition.quote.markdown'], y.op, 'italic') },
+    { name: 'Markdown list bullets', ...S(['punctuation.definition.list.begin.markdown', 'beginning.punctuation.definition.list'], y.tag) },
+    { name: 'Diff inserted', ...S(['markup.inserted', 'meta.diff.header.to-file', 'punctuation.definition.inserted'], y.st.added) },
+    { name: 'Diff deleted', ...S(['markup.deleted', 'meta.diff.header.from-file', 'punctuation.definition.deleted'], y.st.deleted) },
+    { name: 'Diff changed', ...S(['markup.changed', 'punctuation.definition.changed'], y.st.conflict) },
+    { name: 'Diff header', ...S(['meta.diff.header', 'meta.diff.range'], y.keyword) },
+    { name: 'Shell builtins', ...S(['support.function.builtin.shell', 'entity.name.command.shell', 'meta.function-call.shell'], y.func) },
+    { name: 'Invalid', ...S(['invalid', 'invalid.illegal'], y.st.error, 'italic underline') },
+    { name: 'Deprecated', ...S(['invalid.deprecated'], y.st.conflict, 'strikethrough') },
+  ];
+}
+
+export function buildSemantic(y) {
+  const it = (foreground) => ({ foreground, fontStyle: 'italic' });
+  return {
+    namespace: y.type, class: y.type, 'class.defaultLibrary': it(y.type),
+    interface: y.type, enum: y.type, struct: y.type, type: y.type,
+    typeParameter: it(y.type), enumMember: y.number,
+    function: y.func, 'function.defaultLibrary': it(y.func), method: y.func,
+    macro: y.tag, decorator: it(y.func),
+    variable: y.variable, 'variable.readonly': y.number,
+    'variable.defaultLibrary': it(y.tag),
+    parameter: it(y.variable), property: y.variable, 'property.readonly': y.number,
+    event: y.tag, keyword: y.keyword, modifier: y.keyword,
+    string: y.string, number: y.number, regexp: y.type, operator: y.op,
+    comment: it(y.comment), '*.deprecated': { fontStyle: 'strikethrough' },
+  };
+}
+
+export function emitTheme(spec) {
+  const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark');
+  const full = { ...spec, status: st, ansi: spec.ansi };
+  const y = {};
+  for (const [k, v] of Object.entries(spec.syntax)) y[k] = typeof v === 'string' ? v : v.hex;
+  y.st = st;
+  return {
+    $schema: 'vscode://schemas/color-theme',
+    name: spec.name,
+    type: spec.variant,
+    semanticHighlighting: true,
+    colors: buildColors({ ...full, syntax: y }),
+    tokenColors: buildTokenColors(y),
+    semanticTokenColors: buildSemantic(y),
+  };
+}

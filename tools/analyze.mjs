@@ -1,0 +1,141 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { contrast, over, deltaE, toLab, parse } from './color.mjs';
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const R = (f) => JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8'));
+const REG = R('vscode-color-keys.json');
+const PAIRS = R('render-pairs.json');
+const DERIV = R('derivations.json');
+
+const SEAM_PRONE = /Background$/;
+const DELIBERATE = /^(terminalSymbolIcon|symbolIcon|settings\.numberInput|terminal\.tab|sideBarTitle|sideBarSectionHeader|agentsPanel|agentsNewSessionButton|surface|scmGraph|statusBarItem\.(error|warning|offline|remote)|agentsUnreadBadge|editorUnicodeHighlight)/;
+const ALL_KEYS = Object.values(REG.groups).flat();
+
+const HEX = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
+const SEL = /^(\*|[a-zA-Z][a-zA-Z0-9]*)(\.[a-zA-Z][a-zA-Z0-9]*)*(:[a-zA-Z][a-zA-Z0-9_-]*)?$/;
+const STYLE = /^(|italic|bold|underline|strikethrough)( (italic|bold|underline|strikethrough))*$/;
+
+const ACCEPTED = [
+  {
+    fg: 'descriptionForeground', bg: 'badge.background',
+    why: 'apare doar in .chat-debug-wirelog-badge. Text gri pe un badge colorat este un conflict inerent: temele livrate cu VS Code masoara 1.35 la 2026-dark si 1.17 la 2026-light, deci nu se poate rezolva fara a schimba culoarea badge-ului in toata interfata.',
+  },
+];
+
+const SURFACES = ['editor.background', 'sideBar.background', 'panel.background',
+  'editorWidget.background', 'titleBar.activeBackground', 'activityBar.background',
+  'editorGroupHeader.tabsBackground', 'menu.background', 'quickInput.background'];
+
+const RIDES_ANYWHERE = {
+  'keybindingLabel.background': ['button.background', 'badge.background', 'list.activeSelectionBackground', 'notifications.background'],
+};
+
+const isTranslucent = (c) => parse(c).a < 1;
+
+function worstSurface(t, bgKey) {
+  const bg = t.colors[bgKey];
+  if (!bg) return null;
+  if (!isTranslucent(bg)) return [{ under: null, resolved: bg }];
+  const extra = RIDES_ANYWHERE[bgKey] || [];
+  return [...SURFACES, ...extra].filter((s) => t.colors[s] && !isTranslucent(t.colors[s]))
+    .map((s) => ({ under: s, resolved: over(bg, t.colors[s]) }));
+}
+
+const FLOOR = (fgKey) => {
+  if (/placeholder|inactive|ghost|disabled|dimmed|unnecessary/i.test(fgKey)) return 3.0;
+  if (/description|comment|lineNumber(?!\.active)/i.test(fgKey)) return 4.0;
+  return 4.5;
+};
+
+function analyze(entry) {
+  const file = path.join(HERE, '..', entry.path.slice(2));
+  const found = [];
+  let t;
+  try { t = JSON.parse(fs.readFileSync(file, 'utf8')); }
+  catch (e) { return [{ sev: 'blocant', msg: `JSON invalid: ${e.message}` }]; }
+
+  if (t.name !== entry.label) found.push({ sev: 'blocant', msg: `name "${t.name}" difera de eticheta "${entry.label}"` });
+  if (t.type !== (entry.uiTheme === 'vs-dark' ? 'dark' : 'light'))
+    found.push({ sev: 'blocant', msg: `type "${t.type}" nu se potriveste cu uiTheme "${entry.uiTheme}"` });
+
+  for (const [k, v] of Object.entries(t.colors))
+    if (!HEX.test(v)) found.push({ sev: 'blocant', msg: `culoare invalida ${k} = ${v}` });
+
+  const missing = ALL_KEYS.filter((k) => !(k in t.colors));
+  if (missing.length) found.push({ sev: 'acoperire', msg: `${missing.length} chei lipsa: ${missing.slice(0, 4).join(', ')}` });
+
+  for (const s of Object.keys(t.semanticTokenColors || {}))
+    if (!SEL.test(s)) found.push({ sev: 'blocant', msg: `selector semantic malformat: ${s}` });
+  for (const r of t.tokenColors || []) {
+    if (!r.scope?.length) found.push({ sev: 'blocant', msg: `regula fara scope: ${r.name}` });
+    if (r.settings?.fontStyle !== undefined && !STYLE.test(r.settings.fontStyle))
+      found.push({ sev: 'blocant', msg: `fontStyle invalid la ${r.name}` });
+  }
+
+  const eb = t.colors['editor.background'];
+  for (const r of t.tokenColors || []) {
+    const fg = r.settings?.foreground;
+    if (!fg) continue;
+    const c = contrast(over(fg, eb), eb);
+    const floor = /Comment|strikethrough|quote/i.test(r.name) ? 4.0 : 4.5;
+    if (c < floor) found.push({ sev: 'contrast', msg: `sintaxa ${c.toFixed(2)} sub ${floor} la "${r.name}"` });
+  }
+
+  for (const p of PAIRS) {
+    const fg = t.colors[p.fg];
+    if (!fg || !t.colors[p.bg]) continue;
+    if (ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg)) continue;
+    const floor = FLOOR(p.fg);
+    for (const { under, resolved } of worstSurface(t, p.bg) || []) {
+      const c = contrast(over(fg, resolved), resolved);
+      if (c < floor)
+        found.push({ sev: 'contrast', msg: `${c.toFixed(2)} sub ${floor}: ${p.fg} pe ${p.bg}${under ? ` (peste ${under})` : ''}` });
+    }
+  }
+
+  for (const [key, src] of Object.entries(DERIV)) {
+    if (!SEAM_PRONE.test(key) || DELIBERATE.test(key)) continue;
+    const a = t.colors[key], b = t.colors[src];
+    if (!a || !b) continue;
+    if (a.toLowerCase() !== b.toLowerCase())
+      found.push({ sev: 'cusatura', msg: `${key} = ${a} dar VS Code il deriva din ${src} = ${b}` });
+  }
+
+  const tb = t.colors['terminal.background'];
+  const N = ['Black', 'Red', 'Green', 'Yellow', 'Blue', 'Magenta', 'Cyan', 'White'];
+  const seen = [];
+  for (const n of N) {
+    const base = t.colors['terminal.ansi' + n], br = t.colors['terminal.ansiBright' + n];
+    if (toLab(br)[0] <= toLab(base)[0])
+      found.push({ sev: 'terminal', msg: `bright${n} nu e mai deschis decat ${n}` });
+    const skip = n === 'Black' || (n === 'White' && t.type === 'light');
+    if (!skip && contrast(base, tb) < 3.0)
+      found.push({ sev: 'terminal', msg: `ansi${n} la ${contrast(base, tb).toFixed(2)}` });
+    for (const [on, oh] of seen) {
+      const d = deltaE(base, oh);
+      if (d < 8) found.push({ sev: 'terminal', msg: `ansi${n} si ansi${on} la ${d.toFixed(1)} dE` });
+    }
+    seen.push([n, base]);
+  }
+
+  return found;
+}
+
+const pkg = R('../package.json');
+let total = 0;
+const bySeverity = {};
+for (const entry of pkg.contributes.themes) {
+  const found = analyze(entry);
+  total += found.length;
+  for (const f of found) bySeverity[f.sev] = (bySeverity[f.sev] || 0) + 1;
+  const n = Object.keys(R('../' + entry.path.slice(2)).colors).length;
+  if (!found.length) { console.log(`${entry.label.padEnd(26)} ${n} chei   curat`); continue; }
+  console.log(`\n${entry.label}   ${found.length} probleme`);
+  for (const f of found) console.log(`   [${f.sev}] ${f.msg}`);
+}
+console.log(`\nperechi verificate per tema: ${PAIRS.length - ACCEPTED.length} din ${PAIRS.length} extrase din CSS`);
+for (const a of ACCEPTED) console.log(`exceptie acceptata: ${a.fg} pe ${a.bg}\n   ${a.why}`);
+console.log(total ? `TOTAL ${total} probleme  ${JSON.stringify(bySeverity)}` : 'TOATE CELE 8 TREC');
+process.exit(total ? 1 : 0);

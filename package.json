@@ -1,0 +1,100 @@
+{
+  "name": "tapetum",
+  "displayName": "Tapetum",
+  "description": "8 themes for VS Code and Open VSX. 4 families in dark and light, drawn from emission spectra, oscilloscope phosphors, anodised titanium and nebular gas. Hand-placed colours, measured contrast, all 729 colour keys covered.",
+  "version": "0.1.0",
+  "publisher": "tuguidragos",
+  "license": "MIT",
+  "icon": "readme-assets/tapetum-fan-512.png",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "qna": "https://github.com/TuguiDragos/tapetum/issues",
+  "keywords": [
+    "theme",
+    "color-theme",
+    "colour-theme",
+    "dark-theme",
+    "light-theme",
+    "dark",
+    "light",
+    "syntax-highlighting",
+    "semantic-highlighting",
+    "semantic-tokens",
+    "editor-theme",
+    "contrast",
+    "wcag",
+    "readability",
+    "spectrum",
+    "phosphor",
+    "emission",
+    "vscodium",
+    "open-vsx",
+    "developer-experience"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TuguiDragos/tapetum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TuguiDragos/tapetum/issues"
+  },
+  "homepage": "https://github.com/TuguiDragos/tapetum",
+  "galleryBanner": {
+    "color": "#0B0E1A",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tapetum Quantum",
+        "uiTheme": "vs-dark",
+        "path": "./themes/quantum-dark.json"
+      },
+      {
+        "label": "Tapetum Quantum Light",
+        "uiTheme": "vs",
+        "path": "./themes/quantum-light.json"
+      },
+      {
+        "label": "Tapetum Fraunhofer",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fraunhofer-dark.json"
+      },
+      {
+        "label": "Tapetum Fraunhofer Light",
+        "uiTheme": "vs",
+        "path": "./themes/fraunhofer-light.json"
+      },
+      {
+        "label": "Tapetum Persistence",
+        "uiTheme": "vs-dark",
+        "path": "./themes/persistence-dark.json"
+      },
+      {
+        "label": "Tapetum Persistence Light",
+        "uiTheme": "vs",
+        "path": "./themes/persistence-light.json"
+      },
+      {
+        "label": "Tapetum Anodise",
+        "uiTheme": "vs-dark",
+        "path": "./themes/anodise-dark.json"
+      },
+      {
+        "label": "Tapetum Anodise Light",
+        "uiTheme": "vs",
+        "path": "./themes/anodise-light.json"
+      }
+    ]
+  }
+}
