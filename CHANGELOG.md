@@ -1,0 +1,271 @@
+# Changelog
+
+All notable changes to Tapetum are recorded here. This project follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0]
+
+58 themes instead of 8, five different ways of colouring code instead of one, a
+high contrast pair, and a verification pass that found bugs in the first release.
+
+### Added
+
+**24 new families**, each in a dark and a light variant, bringing the collection
+to 28 families and 58 themes.
+
+| Family | Drawn from | Scheme |
+| --- | --- | --- |
+| **Coherence** | 6 lines from one argon and krypton ion laser | grammar |
+| **Valence** | Transition metals dissolved in water | grammar |
+| **Hadal** | The depth at which each colour dies underwater | grammar |
+| **Cinnabar** | Mineral pigments ground before synthetic chemistry | grammar |
+| **Epitaxy** | A silicon wafer and real LED emission peaks | grammar |
+| **Verdigris** | What copper turns into as it corrodes | grammar |
+| **Cherenkov** | A reactor pool. No warm colour exists in it | grammar |
+| **Aerogel** | Rayleigh scattering. Blue reflected, amber transmitted | grammar |
+| **Cavitation** | Sonoluminescence, the flash of a collapsing bubble | grammar |
+| **Noctiluca** | Light made by living things | grammar |
+| **Incandescence** | The temperature scale of hot steel | grammar |
+| **Safelight** | A darkroom under an OC filter | grammar |
+| **Dichroic** | A dichroic filter. 2 hues in the whole of the code | grammar |
+| **Provenance** | Where each symbol came from | provenance |
+| **Stratum** | Sedimentary layers. Colour sits on nesting depth | tone |
+| **Borrow** | Whether a thing can change, and where it is written to | borrow |
+| **Palimpsest** | A scraped and rewritten manuscript | signal |
+| **Silverpoint** | A silver stylus on prepared paper. No hue anywhere | tone |
+| **Passepartout** | The mat around a framed photograph | grammar |
+| **Effect** | Which code touches the world and which only computes | effect |
+| **Cochineal** | Carminic acid, the first real scarlet Europe had | grammar |
+| **Glacier** | Compressed glacier ice. Nothing in it is black | grammar |
+| **Selenium** | Selenium toning. Hue rotates as tone drops | grammar |
+| **Riso** | The 6 spot inks you can order for a duplicator | grammar |
+
+**4 new colouring schemes.** Until now every theme answered one question: what
+kind of symbol is this. A scheme is a property of the theme, so switching theme
+switches the rule.
+
+- `provenance` colours by where a symbol came from. Gold and bold for what you
+  defined here, cyan and italic for what the language gave you, violet for what
+  cannot change. Keywords are dimmed on purpose.
+- `borrow` colours by mutability. Cold for frozen, warm for mutable, green and
+  italic for borrowed parameters, and the name lights up at the exact point you
+  write to it, using the `modification` semantic modifier.
+- `effect` colours by side effect. `await`, `async`, `throw` and every mutation
+  burn. Pure computation stays cold.
+- `signal` scrapes boilerplate back toward the background so only the names you
+  chose and the data stay lit.
+- `tone` removes hue from the code entirely: 6 tones plus weight and italic.
+
+**Colour coverage raised from 729 to 989 keys.** All 964 keys confirmed to exist
+in VS Code 1.134.0 are now set, including bracket pair guides 4 to 6, indent
+guides 2 to 6, window borders, the agent session surfaces, chart axes, voice
+glow and the marker navigation headers. The previous registry of 729 keys was
+itself incomplete, so the 100 percent coverage claimed in 0.1.0 was measured
+against the wrong denominator.
+
+**TextMate coverage raised from 55 rules over 183 scopes to 92 rules over 320
+scopes**, measured at 98.3 percent of the non structural scopes emitted by the
+125 grammars visible to the checker. Added coverage for log files, F#, Julia,
+Pug, LaTeX, Clojure, Handlebars, snippets, dotenv, Markdown heading levels,
+tables and math, C and C++ operators and preprocessor macros, regexp character
+classes, JSDoc tags, CSS keyframe offsets and counters, Less variables and
+unicode ranges, PHP attributes and namespaces, Objective-C protocols and R
+namespaces.
+
+**Verified against 15 languages whose grammars were installed for the purpose**,
+not assumed. Rust, Go, Swift and Dart ship with VS Code. The other 11 were
+installed and measured: Go modules, Svelte, Vue, Astro, Kotlin, Elixir, Zig,
+Nix, Terraform, GraphQL and Prisma. 924 of their 939 scopes are covered, 98.4
+percent, and 7 of the 15 reach 100 percent. What remains uncovered in them are
+region markers such as `repeat-while` and `self-closing-tag`, which are not
+tokens. Rules were added for GraphQL declarations and fragments, HCL and
+Terraform functions, Kotlin packages, Zig error types, Go module operators and
+Prisma scalar fields.
+
+**2 high contrast variants**, `Tapetum Coherence High Contrast` and
+`Tapetum Coherence High Contrast Light`, registered as `hc-black` and `hc-light`.
+Pure black and pure white grounds, every border drawn in the contrast colour VS
+Code uses for high contrast, and a palette rebuilt to clear APCA Lc 78 rather
+than being a lifted version of the normal one. The light variant clears both
+Lc 78 and WCAG 7 to 1 at the same time. Before this there was no high contrast
+theme in the collection at all, which meant anyone who needs one could not use
+Tapetum.
+
+**APCA contrast, measured and enforced.** WCAG 2 computes relative luminance,
+a model built for black text on white paper. It overestimates how legible light
+text is on a dark background, which is exactly what a code editor does. The
+project now measures APCA Lc alongside WCAG and holds a floor per role: Lc 55
+for keywords, functions and strings, Lc 45 for types, numbers, tags and every
+terminal colour. `tools/apca-check.mjs` verifies the implementation against the
+published reference values and 6 properties of the model.
+
+**A regression harness.** `tools/snapshot.mjs` records every colour, rule and
+semantic selector of all 58 themes and reports, key by key, what changed and in
+which themes. A change to one derivation that silently alters 40 themes now
+shows up as a list rather than as a surprise. `tools/contact-sheet.mjs` renders
+all 58 themes as rows in a single image so the whole collection can be scanned at
+once for an outlier.
+
+**Semantic token coverage measured against the real legend.** VS Code defines 23
+semantic token types and 8 modifiers, and installed extensions declare more:
+Terraform adds 13 types, Pylance 12, Nix 4. `tools/semantic-legend.mjs` reads all
+of them and checks every scheme against the full set, accounting for `superType`
+inheritance and the TextMate fallback mapping. Selectors per scheme went from 29
+to between 45 and 59.
+
+**Automatic depth ramp.** When a family's 6 syntax colours are too close to tell
+bracket nesting levels apart, the generator now derives a dedicated ramp instead:
+a hue rotation for colourful families, an equal delta E lightness ladder for the
+achromatic ones.
+
+**New verification tools**, all reading the installed VS Code rather than a
+hand written list.
+
+- `tools/extract-keys.mjs` derives the full colour key registry from every
+  bundled JavaScript file, the workbench stylesheet, the Microsoft themes and the
+  bundled extension manifests
+- `tools/audit.mjs` checks structure: manifest against files on disk, duplicate
+  labels, byte identical themes, that each scheme really produces different
+  rules, that declared overrides reached the output, and that the README has not
+  fallen behind
+- `tools/deep.mjs` checks each theme individually across semantic tokens,
+  109 foreground and background sibling pairs, stacked overlays, terminal colours
+  over the terminal selection, git decorations, bracket levels, minimap markers
+  and diff washes
+- `tools/deep-compare.mjs` runs the same checks over every theme Microsoft ships
+- `tools/scope-audit.mjs` simulates TextMate precedence over all 7096 real
+  grammar scopes and reports rules that never win, rules that are always
+  shadowed, and scopes no grammar emits
+- `tools/semantic-legend.mjs` reads the semantic token legend out of VS Code and
+  the installed extensions and checks each scheme against it
+- `tools/apca.mjs` and `tools/apca-check.mjs` measure APCA Lc per theme and
+  verify the implementation
+- `tools/apca-lift.mjs` raises colours that sit below the APCA floor, with a
+  movement budget so a colour is corrected rather than replaced
+- `tools/snapshot.mjs` and `tools/contact-sheet.mjs` are the regression harness
+- `tools/gif-slim.mjs` reads a GIF block by block and reports its real structure.
+  It refuses to drop frames when they are partial, which is the case here, because
+  dropping one would lose the pixels it carries and unravel the animation
+- `tools/grammar-coverage.mjs` reports scope coverage per language
+- `tools/grammar-scopes.mjs` extracts every scope from every grammar, reading
+  both the grammars bundled with VS Code and the extensions you have installed,
+  so coverage is measured against the languages you actually use
+- `tools/png-write.mjs` and `tools/build-strips.mjs` generate the palette strips
+- `tools/build-readme.mjs` generates the README from the palettes and the stories
+- `tools/vscode-path.mjs` locates the VS Code installation on macOS, Windows and
+  Linux, including VSCodium, snap and flatpak
+
+### Fixed
+
+- **Quantum Light shipped with the error and warning colours identical.** Both
+  resolved to `#af4900`, so a red squiggle and a yellow one looked the same, as
+  did the gutter and Problems icons. Status colours are now assigned so no two
+  ever land on the same role.
+- **A muted foreground could be lightened when it should have been darkened.**
+  The helper picked its direction from the luminance of the surface rather than
+  from the polarity of the theme, which produced near white text on a light
+  background whenever a surface sat near mid grey.
+- **Muted foregrounds were measured against the editor background** rather than
+  against the hardest surface they can land on, so `descriptionForeground`,
+  `commandCenter.foreground` and `textPreformat` fell below the floor on hover
+  surfaces.
+- **15 colour keys did nothing.** `hover.background`, `shadow.small`,
+  `testing.message.error.decorationForeground` and 12 others do not exist in
+  VS Code. Removed.
+- **78 real colour keys were never set** and fell back to VS Code defaults.
+- **Stratum's depth ramp never reached the generator**, so the one family whose
+  entire idea is colour by nesting depth was using its own near monochrome syntax
+  colours for bracket levels.
+- **Git decorations collided.** Renamed matched untracked in 22 themes. The 7
+  slots that must differ are now assigned distinctly, with hue rotation when a
+  palette has no spare colour, while keeping the pairs VS Code itself ties
+  together.
+- **The secondary multi cursor was too dim** to read the character under it.
+- **`editor.findMatchForeground` was not legible** over the match background.
+- **The Rust lifetime rule never matched anything.** It named
+  `storage.modifier.lifetime.rust` and `entity.name.lifetime.rust`, while the
+  Rust grammar emits `entity.name.type.lifetime.rust` and
+  `punctuation.definition.lifetime.rust`. Every `'a` in Rust code has been
+  falling back to the plain foreground since the first release.
+- **7 more TextMate scope names were wrong** even for bundled languages, among
+  them `punctuation.definition.key-value.yaml`, which the YAML grammar does not
+  emit, `beginning.punctuation.definition.quote.markdown` and
+  `keyword.other.DDL.sql`, which is too specific to match
+  `keyword.other.DDL.create.II.sql`.
+- **The scope extractor had a blind spot.** It only read `name` and
+  `contentName` fields, missing scopes declared elsewhere in a grammar. Rewritten
+  to walk every value, which raised the visible grammar count from 71 to 125 and
+  the scope count from 6561 to 7780. Every coverage number before this was
+  optimistic.
+- **High contrast exposed a bug that affected the whole generator.** Theme
+  polarity was decided by comparing the variant name to the string `dark`, so a
+  variant called `hcDark` was treated as a light theme and every derived surface
+  came out inverted. Input fields were white on white.
+- **52 syntax colours and 24 terminal colours were below the APCA floor**, all of
+  them in dark themes. Every light theme already passed. 50 of the 52 needed less
+  than 8 delta E of movement, which is below the threshold where a colour reads as
+  changed. 3 roles are exempt by design and recorded as such: the keyword in
+  Effect, Palimpsest and Provenance is dimmed on purpose, because that is the
+  point of those schemes.
+- **The grammar scheme handled almost no semantic modifiers.** `declaration`,
+  `static`, `abstract`, `async` and `documentation` were unstyled, and 7 token
+  types including the standard `label` had no rule at all. For comparison, the
+  themes shipped with VS Code declare between 0 and 4 semantic selectors and
+  handle no modifiers.
+- **No rule is dead any more.** Before this pass, 2 rules never won for any real
+  scope. Microsoft's own themes carry between 7 and 21 such rules each.
+- Contrast raised on `statusBar.noFolderForeground`, the testing error badge,
+  `notificationCenterHeader.foreground` and `editorBracketMatch.foreground`.
+- Diff inserted and removed washes are now separated by at least 10 delta E,
+  raising the wash strength when a palette's added and deleted colours are close.
+- The terminal selection no longer drowns the ANSI colours.
+
+**Screenshots for 2 more families.** Cochineal and Passepartout now have their
+own captures in both variants, bringing the number of families shown in the
+README to 6.
+
+**Two recordings of the whole collection**, one dark and one light, that scroll
+the theme picker while VS Code applies each theme live. They sit at the very end
+of the README so the page is readable before 20 MB of animation starts loading.
+
+### Changed
+
+- Display name is now **Tapetum Theme**. The extension identity,
+  `tuguidragos.tapetum`, and every theme label are unchanged, so no one loses
+  their selected theme.
+- The README title is now taken from the manifest `displayName`, so the listing,
+  the repository and the extension all read **Tapetum Theme**. The audit fails if
+  they ever drift apart.
+- The 28 palette strip images and the tool that generated them are gone. Real
+  screenshots and the colour tables carry the same information without the
+  invented graphics.
+- README rewritten and now generated. 6 families carry screenshots, every family
+  has its story and a full colour table covering all of its variants, and the two
+  recordings that run through the whole collection sit at the very end so the page
+  is readable before they load.
+- The colour key registry is derived from the installed editor on every run
+  instead of being a stored list, so it cannot fall behind a VS Code release.
+- Indent guide levels 2 to 6 now follow the bracket depth ramp, so nesting reads
+  the same way in the gutter as it does in the code.
+- The release workflow runs `analyze`, `audit`, `deep`, the snapshot comparison and the APCA self check before packaging, so a
+  broken theme cannot reach either registry. The grammar coverage check is
+  skipped when VS Code is not installed, which is the case on a build runner.
+- The developer tooling runs on macOS, Windows and Linux. It used to have the
+  macOS application path written into three files. It now locates VS Code,
+  VSCodium and Insiders per platform, including snap and flatpak, and accepts a
+  `VSCODE_APP` override.
+- This changelog is checked by `tools/audit.mjs`, which fails if the manifest
+  version has no entry, if the newest entry is not the manifest version, or if a
+  family is missing from it.
+
+## [0.1.0]
+
+First release. 8 themes, 4 families in dark and light, drawn from emission
+spectra, oscilloscope phosphors, anodised titanium and solar absorption lines.
+Hand placed colours, measured contrast, all 729 known colour keys covered.
+
+- **Quantum**, the emission lines of heated gases
+- **Fraunhofer**, the absorption lines in sunlight
+- **Persistence**, oscilloscope phosphor decay
+- **Anodise**, interference colours on anodised titanium

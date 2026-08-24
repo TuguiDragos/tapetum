@@ -2,9 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contrast, over, deltaE, toLab, parse } from './color.mjs';
+import { bundledExtensions } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const EXT = '/Applications/Visual Studio Code.app/Contents/Resources/app/extensions';
+const EXT = bundledExtensions();
 const REG = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys.json'), 'utf8'));
 const PAIRS = JSON.parse(fs.readFileSync(path.join(HERE, 'render-pairs.json'), 'utf8'));
 const ALL = Object.values(REG.groups).flat();

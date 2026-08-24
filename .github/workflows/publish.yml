@@ -37,6 +37,18 @@ jobs:
       - name: Verify every theme
         run: node tools/analyze.mjs
 
+      - name: Audit the structure, the schemes and the docs
+        run: node tools/audit.mjs
+
+      - name: Deep audit, every theme individually
+        run: node tools/deep.mjs
+
+      - name: Compare against the committed snapshot
+        run: node tools/snapshot.mjs
+
+      - name: Check the APCA implementation
+        run: node tools/apca-check.mjs
+
       - name: Package
         run: |
           npx --yes @vscode/vsce package --no-dependencies -o tapetum.vsix

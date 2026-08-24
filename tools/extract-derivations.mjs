@@ -1,6 +1,7 @@
 import fs from 'node:fs';
+import { workbenchJs } from './vscode-path.mjs';
 
-const JS = '/Applications/Visual Studio Code.app/Contents/Resources/app/out/vs/workbench/workbench.desktop.main.js';
+const JS = workbenchJs();
 const js = fs.readFileSync(JS, 'utf8');
 
 const pat = /(\w+)\s*=\s*\w+\("([a-zA-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)+)",\s*([^,]{1,80}?),\s*d\(/g;

@@ -136,3 +136,42 @@ export const protan = (hex) => {
   const B2 = -0.000365294 * L2 - 0.00412163 * M2 + 0.693513 * S2;
   return '#' + [R2, G2, B2].map((v) => Math.round(clamp01(gamma(clamp01(v))) * 255).toString(16).padStart(2, '0')).join('');
 };
+
+const APCA = {
+  normBG: 0.56, normTXT: 0.57, revTXT: 0.62, revBG: 0.65,
+  blkThrs: 0.022, blkClmp: 1.414, scaleBoW: 1.14, scaleWoB: 1.14,
+  loBoWoffset: 0.027, loWoBoffset: 0.027, deltaYmin: 0.0005, loClip: 0.1,
+};
+
+const apcaY = (hex) => {
+  const { r, g, b } = parse(hex);
+  const s = (v) => (v / 255) ** 2.4;
+  const y = 0.2126729 * s(r) + 0.7151522 * s(g) + 0.0721750 * s(b);
+  return y < APCA.blkThrs ? y + (APCA.blkThrs - y) ** APCA.blkClmp : y;
+};
+
+export function apca(text, background) {
+  const Ytxt = apcaY(over(text, background));
+  const Ybg = apcaY(background);
+  if (Math.abs(Ybg - Ytxt) < APCA.deltaYmin) return 0;
+  let out;
+  if (Ybg > Ytxt) {
+    out = (Ybg ** APCA.normBG - Ytxt ** APCA.normTXT) * APCA.scaleBoW;
+    out = out < APCA.loClip ? 0 : out - APCA.loBoWoffset;
+  } else {
+    out = (Ybg ** APCA.revBG - Ytxt ** APCA.revTXT) * APCA.scaleWoB;
+    out = out > -APCA.loClip ? 0 : out + APCA.loWoBoffset;
+  }
+  return out * 100;
+}
+
+export const apcaLc = (text, background) => Math.abs(apca(text, background));
+
+export const APCA_LEVELS = [
+  { lc: 90, use: 'text de corp, preferat' },
+  { lc: 75, use: 'text de corp, minim' },
+  { lc: 60, use: 'continut, minim la corp normal' },
+  { lc: 45, use: 'text mare sau ingrosat' },
+  { lc: 30, use: 'text secundar, dezactivat' },
+  { lc: 15, use: 'elemente care nu sunt text' },
+];
