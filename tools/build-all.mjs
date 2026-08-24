@@ -10,25 +10,37 @@ const THEMES = path.join(HERE, '..', 'themes');
 fs.rmSync(THEMES, { recursive: true, force: true });
 fs.mkdirSync(THEMES, { recursive: true });
 
+const VARIANTS = {
+  dark: { ui: 'vs-dark', type: 'dark', suffix: '' },
+  light: { ui: 'vs', type: 'light', suffix: ' Light' },
+  hcDark: { ui: 'hc-black', type: 'hcDark', suffix: ' High Contrast', hc: 'dark' },
+  hcLight: { ui: 'hc-light', type: 'hcLight', suffix: ' High Contrast Light', hc: 'light' },
+};
+
 const contributes = [];
 for (const fam of FAMILIES) {
-  for (const variant of ['dark', 'light']) {
+  for (const variant of Object.keys(VARIANTS)) {
     const p = fam[variant];
+    if (!p) continue;
+    const spec = VARIANTS[variant];
     const syntax = {
       keyword: p.keyword, string: p.string, func: p.func, type: p.type,
       number: p.number, tag: p.tag, comment: p.comment, op: p.op,
       variable: p.fg, param: p.fg, prop: p.fg, regexp: p.type,
     };
-    const label = `Tapetum ${fam.label}${variant === 'light' ? ' Light' : ''}`;
+    const label = `Tapetum ${fam.label}${spec.suffix}`;
+    const status = p.status
+      ? { ...p.status, added: p.status.ok, modified: p.status.info, deleted: p.status.error, conflict: p.status.warn }
+      : deriveStatus(syntax, p.bg, variant === 'dark' || variant === 'hcDark');
     const theme = emitTheme({
-      name: label, variant,
+      name: label, variant: spec.type, hc: spec.hc, scheme: fam.scheme, palette: p,
       bg: p.bg, fg: p.fg, bgElev: p.bgElev, bgChrome: p.bgChrome,
-      accent: p.keyword, syntax, ansi: p.ansi,
-      status: deriveStatus(syntax, p.bg, variant === 'dark'),
+      fgDim: p.fgDim, fgFaint: p.fgFaint, depth: p.depth,
+      accent: p.accent || p.keyword, syntax, ansi: p.ansi, status,
     });
     const file = `${fam.id}-${variant}.json`;
     fs.writeFileSync(path.join(THEMES, file), JSON.stringify(theme, null, 2) + '\n');
-    contributes.push({ label, uiTheme: variant === 'dark' ? 'vs-dark' : 'vs', path: `./themes/${file}` });
+    contributes.push({ label, uiTheme: spec.ui, path: `./themes/${file}` });
   }
 }
 

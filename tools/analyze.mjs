@@ -5,13 +5,30 @@ import { contrast, over, deltaE, toLab, parse } from './color.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const R = (f) => JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8'));
-const REG = R('vscode-color-keys.json');
+const REG = R('vscode-color-keys-full.json');
 const PAIRS = R('render-pairs.json');
 const DERIV = R('derivations.json');
 
 const SEAM_PRONE = /Background$/;
-const DELIBERATE = /^(terminalSymbolIcon|symbolIcon|settings\.numberInput|terminal\.tab|sideBarTitle|sideBarSectionHeader|agentsPanel|agentsNewSessionButton|surface|scmGraph|statusBarItem\.(error|warning|offline|remote)|agentsUnreadBadge|editorUnicodeHighlight)/;
-const ALL_KEYS = Object.values(REG.groups).flat();
+const DELIBERATE = [
+  { re: /^terminalSymbolIcon/, why: 'iconitele din sugestiile de terminal iau culoarea rolului de sintaxa echivalent, ca sa se potriveasca cu editorul' },
+  { re: /^symbolIcon/, why: 'iconitele de simbol urmeaza aceleasi roluri ca sintaxa, nu culoarea implicita de prim plan' },
+  { re: /^settings\.numberInput/, why: 'campul numeric primeste aceeasi suprafata ca restul campurilor, VS Code il lasa transparent' },
+  { re: /^terminal\.tab/, why: 'taburile de terminal urmeaza culorile de stare ale temei' },
+  { re: /^sideBarTitle/, why: 'titlul barei laterale e stins intentionat fata de continut' },
+  { re: /^sideBarSectionHeader/, why: 'antetele de sectiune stau la nivelul barei, nu la cel al editorului' },
+  { re: /^agentsPanel/, why: 'panoul de agenti primeste suprafata elevata, nu fundalul editorului' },
+  { re: /^agentsNewSessionButton/, why: 'butonul de sesiune noua urmeaza stilul butoanelor, nu suprafata din spate' },
+  { re: /^surface/, why: 'scara de suprafete e definita de tema, nu derivata din fundal' },
+  { re: /^scmGraph/, why: 'graficul de istoric are nevoie de culori distincte intre ele, nu de derivarea implicita' },
+  { re: /^statusBarItem\.(error|warning|offline|remote)/, why: 'elementele de stare folosesc culorile de stare ale temei' },
+  { re: /^agentsUnreadBadge/, why: 'insigna de necitit foloseste accentul temei' },
+  { re: /^editorUnicodeHighlight/, why: 'evidentierea unicode foloseste culoarea de avertisment a temei' },
+  { re: /^inlineEdit\.gutterIndicator\.successfulBackground$/, why: 'in variantele high contrast bordura devine culoarea de contrast a temei, iar fundalul ramane culoarea de succes, altfel indicatorul nu s-ar mai vedea' },
+  { re: /^editor\.inactiveLineHighlightBackground$/, why: 'VS Code o deriva identic cu linia activa. O tin mai slaba, altfel un grup de editor nefocalizat arata la fel de aprins ca cel focalizat' },
+];
+const isDeliberate = (k) => DELIBERATE.some((d) => d.re.test(k));
+const ALL_KEYS = REG.confirmedReal;
 
 const HEX = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 const SEL = /^(\*|[a-zA-Z][a-zA-Z0-9]*)(\.[a-zA-Z][a-zA-Z0-9]*)*(:[a-zA-Z][a-zA-Z0-9_-]*)?$/;
@@ -57,7 +74,8 @@ function analyze(entry) {
   catch (e) { return [{ sev: 'blocant', msg: `JSON invalid: ${e.message}` }]; }
 
   if (t.name !== entry.label) found.push({ sev: 'blocant', msg: `name "${t.name}" difera de eticheta "${entry.label}"` });
-  if (t.type !== (entry.uiTheme === 'vs-dark' ? 'dark' : 'light'))
+  const EXPECTED = { 'vs-dark': 'dark', vs: 'light', 'hc-black': 'hcDark', 'hc-light': 'hcLight' };
+  if (t.type !== EXPECTED[entry.uiTheme])
     found.push({ sev: 'blocant', msg: `type "${t.type}" nu se potriveste cu uiTheme "${entry.uiTheme}"` });
 
   for (const [k, v] of Object.entries(t.colors))
@@ -96,11 +114,19 @@ function analyze(entry) {
   }
 
   for (const [key, src] of Object.entries(DERIV)) {
-    if (!SEAM_PRONE.test(key) || DELIBERATE.test(key)) continue;
+    if (!SEAM_PRONE.test(key) || isDeliberate(key)) continue;
     const a = t.colors[key], b = t.colors[src];
     if (!a || !b) continue;
     if (a.toLowerCase() !== b.toLowerCase())
       found.push({ sev: 'cusatura', msg: `${key} = ${a} dar VS Code il deriva din ${src} = ${b}` });
+  }
+
+  const STATUS = ['editorError.foreground', 'editorWarning.foreground', 'editorInfo.foreground'];
+  for (let i = 0; i < STATUS.length; i++) for (let j = i + 1; j < STATUS.length; j++) {
+    const a = t.colors[STATUS[i]], b = t.colors[STATUS[j]];
+    if (!a || !b) continue;
+    const d = deltaE(a, b);
+    if (d < 12) found.push({ sev: 'stare', msg: `${STATUS[i]} si ${STATUS[j]} la ${d.toFixed(1)} dE` });
   }
 
   const tb = t.colors['terminal.background'];
@@ -137,5 +163,6 @@ for (const entry of pkg.contributes.themes) {
 }
 console.log(`\nperechi verificate per tema: ${PAIRS.length - ACCEPTED.length} din ${PAIRS.length} extrase din CSS`);
 for (const a of ACCEPTED) console.log(`exceptie acceptata: ${a.fg} pe ${a.bg}\n   ${a.why}`);
-console.log(total ? `TOTAL ${total} probleme  ${JSON.stringify(bySeverity)}` : 'TOATE CELE 8 TREC');
+console.log(`cusaturi divergente documentate: ${DELIBERATE.length}`);
+console.log(total ? `TOTAL ${total} probleme  ${JSON.stringify(bySeverity)}` : `TOATE CELE ${pkg.contributes.themes.length} TREC`);
 process.exit(total ? 1 : 0);

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
+import { workbenchCss } from './vscode-path.mjs';
 
-const CSS = '/Applications/Visual Studio Code.app/Contents/Resources/app/out/vs/workbench/workbench.desktop.main.css';
+const CSS = workbenchCss();
 const css = fs.readFileSync(CSS, 'utf8');
 
 const varToKey = (v) => v.replace(/^--vscode-/, '').replace(/-/g, '.');
