@@ -465,7 +465,7 @@
     "banner.iconForeground": "#00616C",
     "terminal.background": "#FFFFFF",
     "terminal.foreground": "#000000",
-    "terminal.selectionBackground": "#00616c33",
+    "terminal.selectionBackground": "#00616c29",
     "terminal.inactiveSelectionBackground": "#00616c21",
     "terminal.selectionForeground": "#000000",
     "terminal.border": "#0F4A85",

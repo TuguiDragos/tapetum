@@ -463,7 +463,7 @@
     "banner.background": "#332327",
     "banner.foreground": "#EDD6DA",
     "banner.iconForeground": "#FF5E7A",
-    "terminal.background": "#1C0A0F",
+    "terminal.background": "#2A1219",
     "terminal.foreground": "#EDD6DA",
     "terminal.selectionBackground": "#ff5e7a3d",
     "terminal.inactiveSelectionBackground": "#ff5e7a29",

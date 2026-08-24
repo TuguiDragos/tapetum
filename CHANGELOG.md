@@ -1,9 +1,5 @@
 # Changelog
 
-All notable changes to Tapetum are recorded here. This project follows
-[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
 ## [1.0.0]
 
 58 themes instead of 8, five different ways of colouring code instead of one, a
@@ -213,6 +209,20 @@ hand written list.
   types including the standard `label` had no rule at all. For comparison, the
   themes shipped with VS Code declare between 0 and 4 semantic selectors and
   handle no modifiers.
+- **The terminal had a different background from the panel it sits in**, so a step
+  was visible right under the row of panel tabs. VS Code registers
+  `terminal.background` with a null default, which means it takes the panel
+  background, and the themes shipped with VS Code set the two to the same value.
+  Tapetum had tied the terminal to the editor background instead. Fixed in all 58,
+  and the audit now fails if the two ever drift more than 1 delta E apart.
+- **The seam checker was case sensitive** and matched only keys ending in
+  `Background`, so every key ending in `.background` was silently skipped. That is
+  why the terminal seam was never reported.
+- **The bright terminal colours were lightened by a fixed amount** regardless of
+  what they landed on. On a light theme that pushes them toward the background.
+  Each one now stops at the largest step that still clears 3.2 to 1 on the real
+  terminal background, and the APCA floor for terminal colours is measured there
+  too rather than against the editor.
 - **No rule is dead any more.** Before this pass, 2 rules never won for any real
   scope. Microsoft's own themes carry between 7 and 21 such rules each.
 - Contrast raised on `statusBar.noFolderForeground`, the testing error badge,

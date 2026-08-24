@@ -1,6 +1,6 @@
 {
  "quantum-dark": {
-  "colors": "fb88b6c1225d7de3",
+  "colors": "676d457bb9e7ad1a",
   "tokenColors": "eb4005650847e419",
   "semanticTokenColors": "258e7567ac961ddd",
   "counts": [
@@ -468,7 +468,7 @@
    "banner.background": "#232631",
    "banner.foreground": "#C8D3F5",
    "banner.iconForeground": "#CD8FF9",
-   "terminal.background": "#0B0E1A",
+   "terminal.background": "#141827",
    "terminal.foreground": "#C8D3F5",
    "terminal.selectionBackground": "#cd8ff93d",
    "terminal.inactiveSelectionBackground": "#cd8ff929",
@@ -1209,7 +1209,7 @@
   }
  },
  "quantum-light": {
-  "colors": "21ec469a8a7a0c97",
+  "colors": "9b521ae7ff60a86f",
   "tokenColors": "68c3b4cee0dd278d",
   "semanticTokenColors": "7a5e201ba5626d55",
   "counts": [
@@ -1677,9 +1677,9 @@
    "banner.background": "#e1e2e6",
    "banner.foreground": "#24294A",
    "banner.iconForeground": "#7B2CBF",
-   "terminal.background": "#FAFBFF",
+   "terminal.background": "#F0F2F9",
    "terminal.foreground": "#24294A",
-   "terminal.selectionBackground": "#7b2cbf33",
+   "terminal.selectionBackground": "#7b2cbf29",
    "terminal.inactiveSelectionBackground": "#7b2cbf21",
    "terminal.selectionForeground": "#24294A",
    "terminal.border": "#dee0e7",
@@ -2418,7 +2418,7 @@
   }
  },
  "fraunhofer-dark": {
-  "colors": "622df68c8b8d3bef",
+  "colors": "26ccfabbb66eec5f",
   "tokenColors": "9f17a264ffcc3cba",
   "semanticTokenColors": "7eb1b8bf8dd54453",
   "counts": [
@@ -2886,7 +2886,7 @@
    "banner.background": "#212328",
    "banner.foreground": "#DDE1E8",
    "banner.iconForeground": "#AF9CF9",
-   "terminal.background": "#080A10",
+   "terminal.background": "#12151D",
    "terminal.foreground": "#DDE1E8",
    "terminal.selectionBackground": "#af9cf93d",
    "terminal.inactiveSelectionBackground": "#af9cf929",
@@ -2908,7 +2908,7 @@
    "terminalStickyScroll.background": "#12151D",
    "terminalStickyScrollHover.background": "#212328",
    "terminal.ansiBlack": "#2a2c33",
-   "terminal.ansiRed": "#FA6245",
+   "terminal.ansiRed": "#FA6447",
    "terminal.ansiGreen": "#7CE85C",
    "terminal.ansiYellow": "#FFC93C",
    "terminal.ansiBlue": "#4FC3F7",
@@ -2916,7 +2916,7 @@
    "terminal.ansiCyan": "#00E5C0",
    "terminal.ansiWhite": "#b2b6bd",
    "terminal.ansiBrightBlack": "#696c72",
-   "terminal.ansiBrightRed": "#fb816a",
+   "terminal.ansiBrightRed": "#fb836c",
    "terminal.ansiBrightGreen": "#96ed7d",
    "terminal.ansiBrightYellow": "#ffd463",
    "terminal.ansiBrightBlue": "#72cff9",
@@ -3627,7 +3627,7 @@
   }
  },
  "fraunhofer-light": {
-  "colors": "bf2d399c3c75dd27",
+  "colors": "31e44c4a55e44241",
   "tokenColors": "4b85ab616bc2236f",
   "semanticTokenColors": "abf9771f14eb5752",
   "counts": [
@@ -4095,9 +4095,9 @@
    "banner.background": "#e2e1dd",
    "banner.foreground": "#1B1D22",
    "banner.iconForeground": "#3A2FC9",
-   "terminal.background": "#FBFAF6",
+   "terminal.background": "#F2F1EC",
    "terminal.foreground": "#1B1D22",
-   "terminal.selectionBackground": "#3a2fc933",
+   "terminal.selectionBackground": "#3a2fc929",
    "terminal.inactiveSelectionBackground": "#3a2fc921",
    "terminal.selectionForeground": "#1B1D22",
    "terminal.border": "#deddda",
@@ -4127,7 +4127,7 @@
    "terminal.ansiBrightBlack": "#707173",
    "terminal.ansiBrightRed": "#cb634a",
    "terminal.ansiBrightGreen": "#63914c",
-   "terminal.ansiBrightYellow": "#a98434",
+   "terminal.ansiBrightYellow": "#a67f2d",
    "terminal.ansiBrightBlue": "#4389b3",
    "terminal.ansiBrightMagenta": "#915ecb",
    "terminal.ansiBrightCyan": "#338e80",
@@ -4836,7 +4836,7 @@
   }
  },
  "persistence-dark": {
-  "colors": "6d6475bc050f5da1",
+  "colors": "24cfb31d40bddb4f",
   "tokenColors": "8a8b1f4cbce30faf",
   "semanticTokenColors": "7495f62281a9f295",
   "counts": [
@@ -5304,7 +5304,7 @@
    "banner.background": "#232322",
    "banner.foreground": "#DCE0D8",
    "banner.iconForeground": "#7FE33F",
-   "terminal.background": "#0A0B09",
+   "terminal.background": "#141613",
    "terminal.foreground": "#DCE0D8",
    "terminal.selectionBackground": "#7fe33f3d",
    "terminal.inactiveSelectionBackground": "#7fe33f29",
@@ -6045,7 +6045,7 @@
   }
  },
  "persistence-light": {
-  "colors": "e9c4bcb08afc8fa2",
+  "colors": "e7c7de0fbfc9e1b6",
   "tokenColors": "23284dc066113ef4",
   "semanticTokenColors": "b70e202eba97b7b2",
   "counts": [
@@ -6513,9 +6513,9 @@
    "banner.background": "#dedfdc",
    "banner.foreground": "#1C1F1A",
    "banner.iconForeground": "#3D7A14",
-   "terminal.background": "#F7F8F4",
+   "terminal.background": "#EEEFEA",
    "terminal.foreground": "#1C1F1A",
-   "terminal.selectionBackground": "#3d7a1433",
+   "terminal.selectionBackground": "#3d7a1429",
    "terminal.inactiveSelectionBackground": "#3d7a1421",
    "terminal.selectionForeground": "#1C1F1A",
    "terminal.border": "#dbdcd8",
@@ -7254,7 +7254,7 @@
   }
  },
  "anodise-dark": {
-  "colors": "be3d6f9fa0b17eb1",
+  "colors": "921757780fa1d968",
   "tokenColors": "df7d8870cd2dd67d",
   "semanticTokenColors": "ca80b94cc1fec71a",
   "counts": [
@@ -7722,7 +7722,7 @@
    "banner.background": "#242425",
    "banner.foreground": "#E2E2E4",
    "banner.iconForeground": "#E8B54A",
-   "terminal.background": "#0C0C0D",
+   "terminal.background": "#171718",
    "terminal.foreground": "#E2E2E4",
    "terminal.selectionBackground": "#e8b54a3d",
    "terminal.inactiveSelectionBackground": "#e8b54a29",
@@ -7744,7 +7744,7 @@
    "terminalStickyScroll.background": "#171718",
    "terminalStickyScrollHover.background": "#242425",
    "terminal.ansiBlack": "#2e2e2f",
-   "terminal.ansiRed": "#F36758",
+   "terminal.ansiRed": "#F66A5A",
    "terminal.ansiGreen": "#39B871",
    "terminal.ansiYellow": "#E8B54A",
    "terminal.ansiBlue": "#6FA8DC",
@@ -7752,7 +7752,7 @@
    "terminal.ansiCyan": "#46C7C2",
    "terminal.ansiWhite": "#b7b7b9",
    "terminal.ansiBrightBlack": "#6e6e6f",
-   "terminal.ansiBrightRed": "#f58579",
+   "terminal.ansiBrightRed": "#f8887b",
    "terminal.ansiBrightGreen": "#61c68d",
    "terminal.ansiBrightYellow": "#edc46e",
    "terminal.ansiBrightBlue": "#8cb9e3",
@@ -8463,7 +8463,7 @@
   }
  },
  "anodise-light": {
-  "colors": "21c29506ec2cba34",
+  "colors": "b4c54bdb5e6d6741",
   "tokenColors": "382ddbb82a914e6a",
   "semanticTokenColors": "a4e5cbe2ad9613ba",
   "counts": [
@@ -8931,9 +8931,9 @@
    "banner.background": "#dfdfe0",
    "banner.foreground": "#1D1D20",
    "banner.iconForeground": "#8A5A00",
-   "terminal.background": "#F8F8F9",
+   "terminal.background": "#EFEFF1",
    "terminal.foreground": "#1D1D20",
-   "terminal.selectionBackground": "#8a5a0033",
+   "terminal.selectionBackground": "#8a5a0029",
    "terminal.inactiveSelectionBackground": "#8a5a0021",
    "terminal.selectionForeground": "#1D1D20",
    "terminal.border": "#dcdcdd",
@@ -9672,7 +9672,7 @@
   }
  },
  "coherence-dark": {
-  "colors": "c418f2b80aab8ebc",
+  "colors": "c50694695e81417e",
   "tokenColors": "b36e60d6f7bcf141",
   "semanticTokenColors": "1fc96f4ba89c810c",
   "counts": [
@@ -10140,7 +10140,7 @@
    "banner.background": "#1d1d1f",
    "banner.foreground": "#C9CED6",
    "banner.iconForeground": "#16DFF4",
-   "terminal.background": "#040406",
+   "terminal.background": "#0D0E11",
    "terminal.foreground": "#C9CED6",
    "terminal.selectionBackground": "#16dff43d",
    "terminal.inactiveSelectionBackground": "#16dff429",
@@ -10881,7 +10881,7 @@
   }
  },
  "coherence-light": {
-  "colors": "a8a3ed21d08c609b",
+  "colors": "a57916b4ae0781d1",
   "tokenColors": "d084275d94ea9a8c",
   "semanticTokenColors": "918e4e6995a52a39",
   "counts": [
@@ -11349,9 +11349,9 @@
    "banner.background": "#e4e4e5",
    "banner.foreground": "#16181C",
    "banner.iconForeground": "#0A5B64",
-   "terminal.background": "#FDFDFE",
+   "terminal.background": "#F3F4F6",
    "terminal.foreground": "#16181C",
-   "terminal.selectionBackground": "#0a5b6433",
+   "terminal.selectionBackground": "#0a5b6429",
    "terminal.inactiveSelectionBackground": "#0a5b6421",
    "terminal.selectionForeground": "#16181C",
    "terminal.border": "#dfdfe1",
@@ -13299,7 +13299,7 @@
   }
  },
  "coherence-hcLight": {
-  "colors": "8f5e1b775a9f85cf",
+  "colors": "704e6f66924583ba",
   "tokenColors": "a09090174933c31e",
   "semanticTokenColors": "0b16001c2f7f4280",
   "counts": [
@@ -13769,7 +13769,7 @@
    "banner.iconForeground": "#00616C",
    "terminal.background": "#FFFFFF",
    "terminal.foreground": "#000000",
-   "terminal.selectionBackground": "#00616c33",
+   "terminal.selectionBackground": "#00616c29",
    "terminal.inactiveSelectionBackground": "#00616c21",
    "terminal.selectionForeground": "#000000",
    "terminal.border": "#0F4A85",
@@ -14508,7 +14508,7 @@
   }
  },
  "valence-dark": {
-  "colors": "e7e1a2335329fb31",
+  "colors": "33e7158dd7836015",
   "tokenColors": "f63bf0f0b5656af4",
   "semanticTokenColors": "798684d901646aac",
   "counts": [
@@ -14976,7 +14976,7 @@
    "banner.background": "#232226",
    "banner.foreground": "#D4D1DC",
    "banner.iconForeground": "#F976E7",
-   "terminal.background": "#0B090E",
+   "terminal.background": "#15121B",
    "terminal.foreground": "#D4D1DC",
    "terminal.selectionBackground": "#f976e73d",
    "terminal.inactiveSelectionBackground": "#f976e729",
@@ -14998,7 +14998,7 @@
    "terminalStickyScroll.background": "#15121B",
    "terminalStickyScrollHover.background": "#232226",
    "terminal.ansiBlack": "#2b292f",
-   "terminal.ansiRed": "#F46469",
+   "terminal.ansiRed": "#F6656A",
    "terminal.ansiGreen": "#20D12E",
    "terminal.ansiYellow": "#F2B486",
    "terminal.ansiBlue": "#12B6E8",
@@ -15006,7 +15006,7 @@
    "terminal.ansiCyan": "#0CB2B2",
    "terminal.ansiWhite": "#aca9b3",
    "terminal.ansiBrightBlack": "#6f6d74",
-   "terminal.ansiBrightRed": "#f68387",
+   "terminal.ansiBrightRed": "#f88488",
    "terminal.ansiBrightGreen": "#4dda58",
    "terminal.ansiBrightYellow": "#f5c39e",
    "terminal.ansiBrightBlue": "#41c5ed",
@@ -15717,7 +15717,7 @@
   }
  },
  "valence-light": {
-  "colors": "53001f41099a65fa",
+  "colors": "3f59580301412097",
   "tokenColors": "dfac0f4ee21c6f30",
   "semanticTokenColors": "280fd4423a86a1c3",
   "counts": [
@@ -16185,9 +16185,9 @@
    "banner.background": "#e3e2e4",
    "banner.foreground": "#222128",
    "banner.iconForeground": "#B70CA8",
-   "terminal.background": "#FCFBFD",
+   "terminal.background": "#F3F1F6",
    "terminal.foreground": "#222128",
-   "terminal.selectionBackground": "#b70ca833",
+   "terminal.selectionBackground": "#b70ca829",
    "terminal.inactiveSelectionBackground": "#b70ca821",
    "terminal.selectionForeground": "#222128",
    "terminal.border": "#e0dfe1",
@@ -16926,7 +16926,7 @@
   }
  },
  "hadal-dark": {
-  "colors": "8b4bc1822b0ca5ea",
+  "colors": "3ce35518f65882e5",
   "tokenColors": "2bd328d1f158a7ef",
   "semanticTokenColors": "5ae3bd8423c67eb6",
   "counts": [
@@ -17394,7 +17394,7 @@
    "banner.background": "#1d2b33",
    "banner.foreground": "#C6DCE1",
    "banner.iconForeground": "#97CCF2",
-   "terminal.background": "#04131C",
+   "terminal.background": "#0C1F2B",
    "terminal.foreground": "#C6DCE1",
    "terminal.selectionBackground": "#97ccf23d",
    "terminal.inactiveSelectionBackground": "#97ccf229",
@@ -17416,7 +17416,7 @@
    "terminalStickyScroll.background": "#0C1F2B",
    "terminalStickyScrollHover.background": "#1d2b33",
    "terminal.ansiBlack": "#23333c",
-   "terminal.ansiRed": "#CA828B",
+   "terminal.ansiRed": "#CD858E",
    "terminal.ansiGreen": "#0CC681",
    "terminal.ansiYellow": "#B69F4B",
    "terminal.ansiBlue": "#97CCF2",
@@ -17424,7 +17424,7 @@
    "terminal.ansiCyan": "#0FCDD2",
    "terminal.ansiWhite": "#9fb4ba",
    "terminal.ansiBrightBlack": "#66767d",
-   "terminal.ansiBrightRed": "#d59ba2",
+   "terminal.ansiBrightRed": "#d79da5",
    "terminal.ansiBrightGreen": "#3dd19a",
    "terminal.ansiBrightYellow": "#c5b26f",
    "terminal.ansiBrightBlue": "#acd6f5",
@@ -18135,7 +18135,7 @@
   }
  },
  "hadal-light": {
-  "colors": "3786dfc2d9938089",
+  "colors": "e4cacacaaf9ee23b",
   "tokenColors": "74065676dca1d7cc",
   "semanticTokenColors": "60f994965b5dacc0",
   "counts": [
@@ -18603,9 +18603,9 @@
    "banner.background": "#dde1e3",
    "banner.foreground": "#152225",
    "banner.iconForeground": "#0A587B",
-   "terminal.background": "#F6FAFC",
+   "terminal.background": "#EBF2F6",
    "terminal.foreground": "#152225",
-   "terminal.selectionBackground": "#0a587b33",
+   "terminal.selectionBackground": "#0a587b29",
    "terminal.inactiveSelectionBackground": "#0a587b21",
    "terminal.selectionForeground": "#152225",
    "terminal.border": "#d9dee0",
@@ -19344,7 +19344,7 @@
   }
  },
  "cinnabar-dark": {
-  "colors": "c4288f15e01a016c",
+  "colors": "21884151d6f66548",
   "tokenColors": "76f77fe2a90e4282",
   "semanticTokenColors": "ac24020e0c3e166a",
   "counts": [
@@ -19812,7 +19812,7 @@
    "banner.background": "#282422",
    "banner.foreground": "#DED2CD",
    "banner.iconForeground": "#F28F83",
-   "terminal.background": "#100C09",
+   "terminal.background": "#1B1512",
    "terminal.foreground": "#DED2CD",
    "terminal.selectionBackground": "#f28f833d",
    "terminal.inactiveSelectionBackground": "#f28f8329",
@@ -19838,7 +19838,7 @@
    "terminal.ansiGreen": "#0CCEA0",
    "terminal.ansiYellow": "#F2BA24",
    "terminal.ansiBlue": "#27A5F2",
-   "terminal.ansiMagenta": "#FA54AC",
+   "terminal.ansiMagenta": "#FA57AD",
    "terminal.ansiCyan": "#11B4B3",
    "terminal.ansiWhite": "#b5aaa6",
    "terminal.ansiBrightBlack": "#766f6b",
@@ -19846,7 +19846,7 @@
    "terminal.ansiBrightGreen": "#3dd8b3",
    "terminal.ansiBrightYellow": "#f5c850",
    "terminal.ansiBrightBlue": "#52b7f5",
-   "terminal.ansiBrightMagenta": "#fb76bd",
+   "terminal.ansiBrightMagenta": "#fb79bd",
    "terminal.ansiBrightCyan": "#41c3c2",
    "terminal.ansiBrightWhite": "#DED2CD",
    "gitDecoration.addedResourceForeground": "#0CCEA0",
@@ -20553,7 +20553,7 @@
   }
  },
  "cinnabar-light": {
-  "colors": "31e5e536c153e975",
+  "colors": "e74688d5ec3e641e",
   "tokenColors": "917d7026f8519b1f",
   "semanticTokenColors": "c8f8c9f3fda4fe23",
   "counts": [
@@ -21021,9 +21021,9 @@
    "banner.background": "#e1ded8",
    "banner.foreground": "#251D19",
    "banner.iconForeground": "#BC0D22",
-   "terminal.background": "#FAF7F0",
+   "terminal.background": "#F1EDE4",
    "terminal.foreground": "#251D19",
-   "terminal.selectionBackground": "#bc0d2233",
+   "terminal.selectionBackground": "#bc0d2229",
    "terminal.inactiveSelectionBackground": "#bc0d2221",
    "terminal.selectionForeground": "#251D19",
    "terminal.border": "#dedbd4",
@@ -21762,7 +21762,7 @@
   }
  },
  "epitaxy-dark": {
-  "colors": "cc222aff1feb8e6e",
+  "colors": "39750fb3d24c13e4",
   "tokenColors": "55ac279e10446691",
   "semanticTokenColors": "eae2cacb396d302f",
   "counts": [
@@ -22230,7 +22230,7 @@
    "banner.background": "#2c2c33",
    "banner.foreground": "#D7DCE5",
    "banner.iconForeground": "#77ABF9",
-   "terminal.background": "#15151C",
+   "terminal.background": "#1F1F28",
    "terminal.foreground": "#D7DCE5",
    "terminal.selectionBackground": "#77abf93d",
    "terminal.inactiveSelectionBackground": "#77abf929",
@@ -22256,7 +22256,7 @@
    "terminal.ansiGreen": "#60D53D",
    "terminal.ansiYellow": "#F2C17A",
    "terminal.ansiBlue": "#70A4F2",
-   "terminal.ansiMagenta": "#C771F8",
+   "terminal.ansiMagenta": "#C974FA",
    "terminal.ansiCyan": "#13C5B5",
    "terminal.ansiWhite": "#b0b4bd",
    "terminal.ansiBrightBlack": "#75787e",
@@ -22264,7 +22264,7 @@
    "terminal.ansiBrightGreen": "#80dd64",
    "terminal.ansiBrightYellow": "#f5cd95",
    "terminal.ansiBrightBlue": "#8db6f5",
-   "terminal.ansiBrightMagenta": "#d28df9",
+   "terminal.ansiBrightMagenta": "#d490fb",
    "terminal.ansiBrightCyan": "#42d1c4",
    "terminal.ansiBrightWhite": "#D7DCE5",
    "gitDecoration.addedResourceForeground": "#60D53D",
@@ -22971,7 +22971,7 @@
   }
  },
  "epitaxy-light": {
-  "colors": "900bfa6999320a04",
+  "colors": "36b108bb42e50cfe",
   "tokenColors": "f9f78f720f780fc2",
   "semanticTokenColors": "9eaa52fb996be3ad",
   "counts": [
@@ -23439,9 +23439,9 @@
    "banner.background": "#e2e0d8",
    "banner.foreground": "#251F19",
    "banner.iconForeground": "#0A66B2",
-   "terminal.background": "#FBF9F0",
+   "terminal.background": "#F3F0E4",
    "terminal.foreground": "#251F19",
-   "terminal.selectionBackground": "#0a66b233",
+   "terminal.selectionBackground": "#0a66b229",
    "terminal.inactiveSelectionBackground": "#0a66b221",
    "terminal.selectionForeground": "#251F19",
    "terminal.border": "#dfddd4",
@@ -24180,7 +24180,7 @@
   }
  },
  "verdigris-dark": {
-  "colors": "ec1f38286eef26f0",
+  "colors": "ff694f44cf32e735",
   "tokenColors": "66a98c797690ef08",
   "semanticTokenColors": "bc130f815e67681d",
   "counts": [
@@ -24648,7 +24648,7 @@
    "banner.background": "#252321",
    "banner.foreground": "#DBD2CE",
    "banner.iconForeground": "#0FCBB7",
-   "terminal.background": "#0D0B08",
+   "terminal.background": "#171410",
    "terminal.foreground": "#DBD2CE",
    "terminal.selectionBackground": "#0fcbb73d",
    "terminal.inactiveSelectionBackground": "#0fcbb729",
@@ -24670,7 +24670,7 @@
    "terminalStickyScroll.background": "#171410",
    "terminalStickyScrollHover.background": "#252321",
    "terminal.ansiBlack": "#2e2b28",
-   "terminal.ansiRed": "#F46577",
+   "terminal.ansiRed": "#F66678",
    "terminal.ansiGreen": "#41BF76",
    "terminal.ansiYellow": "#E4BF39",
    "terminal.ansiBlue": "#2AA2C8",
@@ -24678,7 +24678,7 @@
    "terminal.ansiCyan": "#0FCBB7",
    "terminal.ansiWhite": "#b2aaa6",
    "terminal.ansiBrightBlack": "#746f6b",
-   "terminal.ansiBrightRed": "#f68492",
+   "terminal.ansiBrightRed": "#f88593",
    "terminal.ansiBrightGreen": "#67cc91",
    "terminal.ansiBrightYellow": "#e9cc61",
    "terminal.ansiBrightBlue": "#55b5d3",
@@ -25389,7 +25389,7 @@
   }
  },
  "verdigris-light": {
-  "colors": "a2cad08067b07c80",
+  "colors": "8f3f054ce904cb8b",
   "tokenColors": "b8b1e220fcaa25f3",
   "semanticTokenColors": "00edeca65ba9d09f",
   "counts": [
@@ -25857,9 +25857,9 @@
    "banner.background": "#dedcd5",
    "banner.foreground": "#211B18",
    "banner.iconForeground": "#0C6157",
-   "terminal.background": "#F7F4ED",
+   "terminal.background": "#EEEAE1",
    "terminal.foreground": "#211B18",
-   "terminal.selectionBackground": "#0c615733",
+   "terminal.selectionBackground": "#0c615729",
    "terminal.inactiveSelectionBackground": "#0c615721",
    "terminal.selectionForeground": "#211B18",
    "terminal.border": "#dbd8d1",
@@ -26598,7 +26598,7 @@
   }
  },
  "cherenkov-dark": {
-  "colors": "f387b13e1a26aa98",
+  "colors": "81c4ea60b336f360",
   "tokenColors": "7869748a7eda7463",
   "semanticTokenColors": "41a9abaff4d743b1",
   "counts": [
@@ -27066,7 +27066,7 @@
    "banner.background": "#1f2c3d",
    "banner.foreground": "#CADEE6",
    "banner.iconForeground": "#EE7DFA",
-   "terminal.background": "#061527",
+   "terminal.background": "#0E2138",
    "terminal.foreground": "#CADEE6",
    "terminal.selectionBackground": "#ee7dfa3d",
    "terminal.inactiveSelectionBackground": "#ee7dfa29",
@@ -27091,7 +27091,7 @@
    "terminal.ansiRed": "#F28987",
    "terminal.ansiGreen": "#4FBE6F",
    "terminal.ansiYellow": "#CAA20A",
-   "terminal.ansiBlue": "#0B9FE4",
+   "terminal.ansiBlue": "#16A2E7",
    "terminal.ansiMagenta": "#E572F2",
    "terminal.ansiCyan": "#0DE6D6",
    "terminal.ansiWhite": "#a3b6c0",
@@ -27099,7 +27099,7 @@
    "terminal.ansiBrightRed": "#f5a19f",
    "terminal.ansiBrightGreen": "#72cb8c",
    "terminal.ansiBrightYellow": "#d5b53b",
-   "terminal.ansiBrightBlue": "#3cb2e9",
+   "terminal.ansiBrightBlue": "#45b5ec",
    "terminal.ansiBrightMagenta": "#ea8ef5",
    "terminal.ansiBrightCyan": "#3debde",
    "terminal.ansiBrightWhite": "#CADEE6",
@@ -27807,7 +27807,7 @@
   }
  },
  "cherenkov-light": {
-  "colors": "b855b2f0294ecc33",
+  "colors": "3e56455dc0c0ed2e",
   "tokenColors": "b92520bfb5bc7442",
   "semanticTokenColors": "a29433837e5c1e11",
   "counts": [
@@ -28275,9 +28275,9 @@
    "banner.background": "#dddfe4",
    "banner.foreground": "#152125",
    "banner.iconForeground": "#B61CCB",
-   "terminal.background": "#F5F8FD",
+   "terminal.background": "#EAF0F8",
    "terminal.foreground": "#152125",
-   "terminal.selectionBackground": "#b61ccb33",
+   "terminal.selectionBackground": "#b61ccb29",
    "terminal.inactiveSelectionBackground": "#b61ccb21",
    "terminal.selectionForeground": "#152125",
    "terminal.border": "#d8dce1",
@@ -29016,7 +29016,7 @@
   }
  },
  "aerogel-dark": {
-  "colors": "02036ddc30ec3322",
+  "colors": "aae7427758a2192d",
   "tokenColors": "c9f6cebe86ad4569",
   "semanticTokenColors": "8d1033c4fbefbfb6",
   "counts": [
@@ -29484,7 +29484,7 @@
    "banner.background": "#23252a",
    "banner.foreground": "#C6D8DF",
    "banner.iconForeground": "#F2A47A",
-   "terminal.background": "#0A0D12",
+   "terminal.background": "#151920",
    "terminal.foreground": "#C6D8DF",
    "terminal.selectionBackground": "#f2a47a3d",
    "terminal.inactiveSelectionBackground": "#f2a47a29",
@@ -29507,18 +29507,18 @@
    "terminalStickyScrollHover.background": "#23252a",
    "terminal.ansiBlack": "#282d33",
    "terminal.ansiRed": "#F27884",
-   "terminal.ansiGreen": "#66A567",
+   "terminal.ansiGreen": "#67A668",
    "terminal.ansiYellow": "#F2A47A",
    "terminal.ansiBlue": "#54B2F2",
-   "terminal.ansiMagenta": "#A187E9",
+   "terminal.ansiMagenta": "#A288EA",
    "terminal.ansiCyan": "#0ED8D8",
    "terminal.ansiWhite": "#a0afb6",
    "terminal.ansiBrightBlack": "#6a7277",
    "terminal.ansiBrightRed": "#f5939d",
-   "terminal.ansiBrightGreen": "#85b785",
+   "terminal.ansiBrightGreen": "#85b886",
    "terminal.ansiBrightYellow": "#f5b695",
    "terminal.ansiBrightBlue": "#76c1f5",
-   "terminal.ansiBrightMagenta": "#b49fed",
+   "terminal.ansiBrightMagenta": "#b5a0ee",
    "terminal.ansiBrightCyan": "#3ee0e0",
    "terminal.ansiBrightWhite": "#C6D8DF",
    "gitDecoration.addedResourceForeground": "#66A567",
@@ -30225,7 +30225,7 @@
   }
  },
  "aerogel-light": {
-  "colors": "d24d58ae252d38a7",
+  "colors": "b94d54c4419c67c9",
   "tokenColors": "7b0751a4d9a7fc33",
   "semanticTokenColors": "f0523dcaa9210ca1",
   "counts": [
@@ -30693,9 +30693,9 @@
    "banner.background": "#e2ddd4",
    "banner.foreground": "#251C18",
    "banner.iconForeground": "#913E0A",
-   "terminal.background": "#FBF6EC",
+   "terminal.background": "#F2ECDF",
    "terminal.foreground": "#251C18",
-   "terminal.selectionBackground": "#913e0a33",
+   "terminal.selectionBackground": "#913e0a29",
    "terminal.inactiveSelectionBackground": "#913e0a21",
    "terminal.selectionForeground": "#251C18",
    "terminal.border": "#dfdad0",
@@ -31434,7 +31434,7 @@
   }
  },
  "cavitation-dark": {
-  "colors": "40e1d44f5ced0041",
+  "colors": "d19453d857f27d14",
   "tokenColors": "40d6ea3c2b3b25a3",
   "semanticTokenColors": "aed58df35d0b7b04",
   "counts": [
@@ -31902,7 +31902,7 @@
    "banner.background": "#1e2023",
    "banner.foreground": "#C3D4DB",
    "banner.iconForeground": "#40D0ED",
-   "terminal.background": "#05070B",
+   "terminal.background": "#0F131A",
    "terminal.foreground": "#C3D4DB",
    "terminal.selectionBackground": "#40d0ed3d",
    "terminal.inactiveSelectionBackground": "#40d0ed29",
@@ -31924,20 +31924,20 @@
    "terminalStickyScroll.background": "#0F131A",
    "terminalStickyScrollHover.background": "#1e2023",
    "terminal.ansiBlack": "#23282c",
-   "terminal.ansiRed": "#F955AB",
+   "terminal.ansiRed": "#F958AC",
    "terminal.ansiGreen": "#5BB7A4",
    "terminal.ansiYellow": "#CE8C54",
-   "terminal.ansiBlue": "#6899C9",
+   "terminal.ansiBlue": "#6B9CCC",
    "terminal.ansiMagenta": "#D0A4DB",
-   "terminal.ansiCyan": "#28A4A3",
+   "terminal.ansiCyan": "#2CA7A6",
    "terminal.ansiWhite": "#9dabb1",
    "terminal.ansiBrightBlack": "#666d72",
-   "terminal.ansiBrightRed": "#fa77bc",
+   "terminal.ansiBrightRed": "#fa79bd",
    "terminal.ansiBrightGreen": "#7cc5b6",
    "terminal.ansiBrightYellow": "#d8a376",
-   "terminal.ansiBrightBlue": "#86add4",
+   "terminal.ansiBrightBlue": "#89b0d6",
    "terminal.ansiBrightMagenta": "#d9b6e2",
-   "terminal.ansiBrightCyan": "#53b6b5",
+   "terminal.ansiBrightCyan": "#56b9b8",
    "terminal.ansiBrightWhite": "#C3D4DB",
    "gitDecoration.addedResourceForeground": "#5CB8A5",
    "gitDecoration.untrackedResourceForeground": "#5CB8A5",
@@ -32643,7 +32643,7 @@
   }
  },
  "cavitation-light": {
-  "colors": "ea3c32838a9ec7c9",
+  "colors": "2e8905140dc5f426",
   "tokenColors": "0ae47f6de6cab5d7",
   "semanticTokenColors": "2e0d92589e3ddcc9",
   "counts": [
@@ -33111,9 +33111,9 @@
    "banner.background": "#dfe1e4",
    "banner.foreground": "#162227",
    "banner.iconForeground": "#0C5B6A",
-   "terminal.background": "#F8FAFD",
+   "terminal.background": "#EEF2F7",
    "terminal.foreground": "#162227",
-   "terminal.selectionBackground": "#0c5b6a33",
+   "terminal.selectionBackground": "#0c5b6a29",
    "terminal.inactiveSelectionBackground": "#0c5b6a21",
    "terminal.selectionForeground": "#162227",
    "terminal.border": "#dbdee1",
@@ -33852,7 +33852,7 @@
   }
  },
  "noctiluca-dark": {
-  "colors": "18a7a514be1ab94d",
+  "colors": "417db61e3fa40901",
   "tokenColors": "9431dc9d6622aef0",
   "semanticTokenColors": "f2846056f78348a1",
   "counts": [
@@ -34320,7 +34320,7 @@
    "banner.background": "#1d2224",
    "banner.foreground": "#C4D5D4",
    "banner.iconForeground": "#11D9A9",
-   "terminal.background": "#04090C",
+   "terminal.background": "#0D1418",
    "terminal.foreground": "#C4D5D4",
    "terminal.selectionBackground": "#11d9a93d",
    "terminal.inactiveSelectionBackground": "#11d9a929",
@@ -34342,20 +34342,20 @@
    "terminalStickyScroll.background": "#0D1418",
    "terminalStickyScrollHover.background": "#1d2224",
    "terminal.ansiBlack": "#232a2c",
-   "terminal.ansiRed": "#FA6051",
+   "terminal.ansiRed": "#FA6353",
    "terminal.ansiGreen": "#11D9A9",
    "terminal.ansiYellow": "#AEBD0F",
    "terminal.ansiBlue": "#3AB2F2",
    "terminal.ansiMagenta": "#9291F2",
-   "terminal.ansiCyan": "#1BA4AF",
+   "terminal.ansiCyan": "#1EA5B0",
    "terminal.ansiWhite": "#9eacac",
    "terminal.ansiBrightBlack": "#666f70",
-   "terminal.ansiBrightRed": "#fb8074",
+   "terminal.ansiBrightRed": "#fb8275",
    "terminal.ansiBrightGreen": "#41e1ba",
    "terminal.ansiBrightYellow": "#beca3f",
    "terminal.ansiBrightBlue": "#61c1f5",
    "terminal.ansiBrightMagenta": "#a8a7f5",
-   "terminal.ansiBrightCyan": "#49b6bf",
+   "terminal.ansiBrightCyan": "#4bb7c0",
    "terminal.ansiBrightWhite": "#C4D5D4",
    "gitDecoration.addedResourceForeground": "#11D9A9",
    "gitDecoration.untrackedResourceForeground": "#11D9A9",
@@ -35061,7 +35061,7 @@
   }
  },
  "noctiluca-light": {
-  "colors": "b54d420b17368cce",
+  "colors": "a8f147bce88ed692",
   "tokenColors": "446c5dd53b8bff48",
   "semanticTokenColors": "79faf6c2bdf2a42e",
   "counts": [
@@ -35529,9 +35529,9 @@
    "banner.background": "#dde1e1",
    "banner.foreground": "#172221",
    "banner.iconForeground": "#0C5E48",
-   "terminal.background": "#F5FAFA",
+   "terminal.background": "#EBF2F2",
    "terminal.foreground": "#172221",
-   "terminal.selectionBackground": "#0c5e4833",
+   "terminal.selectionBackground": "#0c5e4829",
    "terminal.inactiveSelectionBackground": "#0c5e4821",
    "terminal.selectionForeground": "#172221",
    "terminal.border": "#d8dede",
@@ -36270,7 +36270,7 @@
   }
  },
  "incandescence-dark": {
-  "colors": "d43e798f25175329",
+  "colors": "0fe0f77a1e7aa381",
   "tokenColors": "3a020eaba5c2f00f",
   "semanticTokenColors": "4758c565aa522804",
   "counts": [
@@ -36738,7 +36738,7 @@
    "banner.background": "#24211f",
    "banner.foreground": "#DDCFCD",
    "banner.iconForeground": "#E8CC6A",
-   "terminal.background": "#0C0806",
+   "terminal.background": "#171110",
    "terminal.foreground": "#DDCFCD",
    "terminal.selectionBackground": "#e8cc6a3d",
    "terminal.inactiveSelectionBackground": "#e8cc6a29",
@@ -36760,19 +36760,19 @@
    "terminalStickyScroll.background": "#171110",
    "terminalStickyScrollHover.background": "#24211f",
    "terminal.ansiBlack": "#2d2826",
-   "terminal.ansiRed": "#F7616A",
+   "terminal.ansiRed": "#F9626B",
    "terminal.ansiGreen": "#0AB84C",
    "terminal.ansiYellow": "#E8CC6A",
    "terminal.ansiBlue": "#12A3E0",
-   "terminal.ansiMagenta": "#F95A93",
+   "terminal.ansiMagenta": "#F95D94",
    "terminal.ansiCyan": "#14B2B1",
    "terminal.ansiWhite": "#b3a7a5",
    "terminal.ansiBrightBlack": "#746c6b",
-   "terminal.ansiBrightRed": "#f98188",
+   "terminal.ansiBrightRed": "#fa8189",
    "terminal.ansiBrightGreen": "#3bc670",
    "terminal.ansiBrightYellow": "#edd688",
    "terminal.ansiBrightBlue": "#41b5e6",
-   "terminal.ansiBrightMagenta": "#fa7ba9",
+   "terminal.ansiBrightMagenta": "#fa7da9",
    "terminal.ansiBrightCyan": "#43c1c1",
    "terminal.ansiBrightWhite": "#DDCFCD",
    "gitDecoration.addedResourceForeground": "#E8CC6A",
@@ -37479,7 +37479,7 @@
   }
  },
  "incandescence-light": {
-  "colors": "62ddad7bdb576b06",
+  "colors": "95597624afe99321",
   "tokenColors": "3ed0cf8d08f161ec",
   "semanticTokenColors": "fafdc21b85f24acc",
   "counts": [
@@ -37947,9 +37947,9 @@
    "banner.background": "#e1ddda",
    "banner.foreground": "#251C1B",
    "banner.iconForeground": "#574A0A",
-   "terminal.background": "#FAF6F2",
+   "terminal.background": "#F1ECE6",
    "terminal.foreground": "#251C1B",
-   "terminal.selectionBackground": "#574a0a33",
+   "terminal.selectionBackground": "#574a0a29",
    "terminal.inactiveSelectionBackground": "#574a0a21",
    "terminal.selectionForeground": "#251C1B",
    "terminal.border": "#dedad6",
@@ -38688,7 +38688,7 @@
   }
  },
  "safelight-dark": {
-  "colors": "061bd3693f23c172",
+  "colors": "a02ddb53e9696c3a",
   "tokenColors": "8d7cec05f78b5533",
   "semanticTokenColors": "a208ee50438cf4f6",
   "counts": [
@@ -39156,7 +39156,7 @@
    "banner.background": "#3f3125",
    "banner.foreground": "#F0DCBE",
    "banner.iconForeground": "#FFF6E4",
-   "terminal.background": "#2A1A0D",
+   "terminal.background": "#352316",
    "terminal.foreground": "#F0DCBE",
    "terminal.selectionBackground": "#fff6e43d",
    "terminal.inactiveSelectionBackground": "#fff6e429",
@@ -39178,7 +39178,7 @@
    "terminalStickyScroll.background": "#352316",
    "terminalStickyScrollHover.background": "#3f3125",
    "terminal.ansiBlack": "#4a3929",
-   "terminal.ansiRed": "#F86D42",
+   "terminal.ansiRed": "#FA7146",
    "terminal.ansiGreen": "#B8B060",
    "terminal.ansiYellow": "#FFC24A",
    "terminal.ansiBlue": "#9DAFC0",
@@ -39186,7 +39186,7 @@
    "terminal.ansiCyan": "#8FBAB0",
    "terminal.ansiWhite": "#c8b59b",
    "terminal.ansiBrightBlack": "#887E6E",
-   "terminal.ansiBrightRed": "#f98a68",
+   "terminal.ansiBrightRed": "#fb8d6b",
    "terminal.ansiBrightGreen": "#c6c080",
    "terminal.ansiBrightYellow": "#ffce6e",
    "terminal.ansiBrightBlue": "#b1bfcd",
@@ -39897,7 +39897,7 @@
   }
  },
  "safelight-light": {
-  "colors": "9703b0c7b6576522",
+  "colors": "a4879ae67e995d16",
   "tokenColors": "95598745bd62ad31",
   "semanticTokenColors": "6eae41d84654e144",
   "counts": [
@@ -40365,9 +40365,9 @@
    "banner.background": "#d5cfc1",
    "banner.foreground": "#2C2318",
    "banner.iconForeground": "#1A130A",
-   "terminal.background": "#EDE6D6",
+   "terminal.background": "#E4DCC9",
    "terminal.foreground": "#2C2318",
-   "terminal.selectionBackground": "#1a130a33",
+   "terminal.selectionBackground": "#1a130a29",
    "terminal.inactiveSelectionBackground": "#1a130a21",
    "terminal.selectionForeground": "#2C2318",
    "terminal.border": "#d4cdbd",
@@ -41106,7 +41106,7 @@
   }
  },
  "dichroic-dark": {
-  "colors": "9b942815d37aa44e",
+  "colors": "28c2c3db66f67f57",
   "tokenColors": "e4524813c643aa2d",
   "semanticTokenColors": "474c16bbe9cf8728",
   "counts": [
@@ -41574,7 +41574,7 @@
    "banner.background": "#202927",
    "banner.foreground": "#C4D2CE",
    "banner.iconForeground": "#3FE8BE",
-   "terminal.background": "#07110F",
+   "terminal.background": "#0F1C19",
    "terminal.foreground": "#C4D2CE",
    "terminal.selectionBackground": "#3fe8be3d",
    "terminal.inactiveSelectionBackground": "#3fe8be29",
@@ -42315,7 +42315,7 @@
   }
  },
  "dichroic-light": {
-  "colors": "ce492b13f117f689",
+  "colors": "95f3dafcf3ac28bd",
   "tokenColors": "1bd3bd74507960fd",
   "semanticTokenColors": "0e5f2fd6ad4b3279",
   "counts": [
@@ -42783,9 +42783,9 @@
    "banner.background": "#ddd6db",
    "banner.foreground": "#1E2321",
    "banner.iconForeground": "#065246",
-   "terminal.background": "#F5EEF3",
+   "terminal.background": "#EBE2E9",
    "terminal.foreground": "#1E2321",
-   "terminal.selectionBackground": "#06524633",
+   "terminal.selectionBackground": "#06524629",
    "terminal.inactiveSelectionBackground": "#06524621",
    "terminal.selectionForeground": "#1E2321",
    "terminal.border": "#d9d4d8",
@@ -43524,7 +43524,7 @@
   }
  },
  "provenance-dark": {
-  "colors": "55627d0c7beffb7d",
+  "colors": "19a251e9e5c324f4",
   "tokenColors": "6211236bca90fca4",
   "semanticTokenColors": "e763f80250955f74",
   "counts": [
@@ -43992,7 +43992,7 @@
    "banner.background": "#303236",
    "banner.foreground": "#C6C8CC",
    "banner.iconForeground": "#F0B75A",
-   "terminal.background": "#191B20",
+   "terminal.background": "#22252B",
    "terminal.foreground": "#C6C8CC",
    "terminal.selectionBackground": "#f0b75a3d",
    "terminal.inactiveSelectionBackground": "#f0b75a29",
@@ -44014,7 +44014,7 @@
    "terminalStickyScroll.background": "#22252B",
    "terminalStickyScrollHover.background": "#303236",
    "terminal.ansiBlack": "#35373c",
-   "terminal.ansiRed": "#E8756B",
+   "terminal.ansiRed": "#EB786D",
    "terminal.ansiGreen": "#96A88E",
    "terminal.ansiYellow": "#F0B75A",
    "terminal.ansiBlue": "#6FC7E0",
@@ -44022,7 +44022,7 @@
    "terminal.ansiCyan": "#5FC4B0",
    "terminal.ansiWhite": "#a3a5aa",
    "terminal.ansiBrightBlack": "#7C7D81",
-   "terminal.ansiBrightRed": "#ed9189",
+   "terminal.ansiBrightRed": "#ef938a",
    "terminal.ansiBrightGreen": "#abb9a5",
    "terminal.ansiBrightYellow": "#f3c57b",
    "terminal.ansiBrightBlue": "#8cd2e6",
@@ -44698,7 +44698,7 @@
   }
  },
  "provenance-light": {
-  "colors": "2618a29c3181224c",
+  "colors": "84ff12f09896999a",
   "tokenColors": "5d03fc7a0804fce0",
   "semanticTokenColors": "57c37f9fbad80741",
   "counts": [
@@ -45166,9 +45166,9 @@
    "banner.background": "#dcdad5",
    "banner.foreground": "#2E3036",
    "banner.iconForeground": "#855606",
-   "terminal.background": "#F4F2ED",
+   "terminal.background": "#EAE7E0",
    "terminal.foreground": "#2E3036",
-   "terminal.selectionBackground": "#85560633",
+   "terminal.selectionBackground": "#85560629",
    "terminal.inactiveSelectionBackground": "#85560621",
    "terminal.selectionForeground": "#2E3036",
    "terminal.border": "#dad9d5",
@@ -45872,7 +45872,7 @@
   }
  },
  "stratum-dark": {
-  "colors": "90f31f565fbbdfe0",
+  "colors": "39d92a42bfd6e8b3",
   "tokenColors": "3019fb451d3cce39",
   "semanticTokenColors": "f32370f73e42635b",
   "counts": [
@@ -46340,7 +46340,7 @@
    "banner.background": "#2c2925",
    "banner.foreground": "#E4DACA",
    "banner.iconForeground": "#C39B54",
-   "terminal.background": "#14110D",
+   "terminal.background": "#1F1B16",
    "terminal.foreground": "#E4DACA",
    "terminal.selectionBackground": "#c39b543d",
    "terminal.inactiveSelectionBackground": "#c39b5429",
@@ -46362,18 +46362,18 @@
    "terminalStickyScroll.background": "#1F1B16",
    "terminalStickyScrollHover.background": "#2c2925",
    "terminal.ansiBlack": "#35312b",
-   "terminal.ansiRed": "#DC7C5D",
+   "terminal.ansiRed": "#DE7D5E",
    "terminal.ansiGreen": "#93A468",
    "terminal.ansiYellow": "#C99C55",
-   "terminal.ansiBlue": "#8F97A9",
+   "terminal.ansiBlue": "#9098AA",
    "terminal.ansiMagenta": "#B18FC0",
    "terminal.ansiCyan": "#7FA89C",
    "terminal.ansiWhite": "#bab2a4",
    "terminal.ansiBrightBlack": "#7a746c",
-   "terminal.ansiBrightRed": "#e3967d",
+   "terminal.ansiBrightRed": "#e5977e",
    "terminal.ansiBrightGreen": "#a9b686",
    "terminal.ansiBrightYellow": "#d4b077",
-   "terminal.ansiBrightBlue": "#a5acba",
+   "terminal.ansiBrightBlue": "#a6adbb",
    "terminal.ansiBrightMagenta": "#c1a5cd",
    "terminal.ansiBrightCyan": "#99b9b0",
    "terminal.ansiBrightWhite": "#E4DACA",
@@ -47089,7 +47089,7 @@
   }
  },
  "stratum-light": {
-  "colors": "2f2463cf3be2cbc9",
+  "colors": "c518a454a1284963",
   "tokenColors": "c9822f39e72fc069",
   "semanticTokenColors": "176f0272942c7f66",
   "counts": [
@@ -47557,9 +47557,9 @@
    "banner.background": "#d7d2c6",
    "banner.foreground": "#241F16",
    "banner.iconForeground": "#8A5F1E",
-   "terminal.background": "#EFE9DC",
+   "terminal.background": "#E5DECE",
    "terminal.foreground": "#241F16",
-   "terminal.selectionBackground": "#8a5f1e33",
+   "terminal.selectionBackground": "#8a5f1e29",
    "terminal.inactiveSelectionBackground": "#8a5f1e21",
    "terminal.selectionForeground": "#241F16",
    "terminal.border": "#d5cfc2",
@@ -47589,7 +47589,7 @@
    "terminal.ansiBrightBlack": "#716c61",
    "terminal.ansiBrightRed": "#ae5e40",
    "terminal.ansiBrightGreen": "#67804a",
-   "terminal.ansiBrightYellow": "#9c8040",
+   "terminal.ansiBrightYellow": "#937630",
    "terminal.ansiBrightBlue": "#4a738c",
    "terminal.ansiBrightMagenta": "#815c9c",
    "terminal.ansiBrightCyan": "#40807d",
@@ -48306,7 +48306,7 @@
   }
  },
  "borrow-dark": {
-  "colors": "3088d000946418bb",
+  "colors": "7931c3171d4629d4",
   "tokenColors": "6275c59bec41d6c1",
   "semanticTokenColors": "d7686e6e52de97d1",
   "counts": [
@@ -48774,7 +48774,7 @@
    "banner.background": "#2a2c31",
    "banner.foreground": "#C8CDD6",
    "banner.iconForeground": "#F09A18",
-   "terminal.background": "#12151A",
+   "terminal.background": "#1B1F26",
    "terminal.foreground": "#C8CDD6",
    "terminal.selectionBackground": "#f09a183d",
    "terminal.inactiveSelectionBackground": "#f09a1829",
@@ -48796,19 +48796,19 @@
    "terminalStickyScroll.background": "#1B1F26",
    "terminalStickyScrollHover.background": "#2a2c31",
    "terminal.ansiBlack": "#2f3238",
-   "terminal.ansiRed": "#FA6362",
+   "terminal.ansiRed": "#F96967",
    "terminal.ansiGreen": "#66C070",
    "terminal.ansiYellow": "#F09A18",
    "terminal.ansiBlue": "#5AA6F0",
-   "terminal.ansiMagenta": "#A585EC",
+   "terminal.ansiMagenta": "#A888EF",
    "terminal.ansiCyan": "#4FC2CE",
    "terminal.ansiWhite": "#a4a8b0",
    "terminal.ansiBrightBlack": "#6e7278",
-   "terminal.ansiBrightRed": "#fb8281",
+   "terminal.ansiBrightRed": "#fa8785",
    "terminal.ansiBrightGreen": "#85cd8d",
    "terminal.ansiBrightYellow": "#f3ae46",
    "terminal.ansiBrightBlue": "#7bb8f3",
-   "terminal.ansiBrightMagenta": "#b79df0",
+   "terminal.ansiBrightMagenta": "#b9a0f2",
    "terminal.ansiBrightCyan": "#72ced8",
    "terminal.ansiBrightWhite": "#C8CDD6",
    "gitDecoration.addedResourceForeground": "#66C070",
@@ -49501,7 +49501,7 @@
   }
  },
  "borrow-light": {
-  "colors": "8e60fbbb606439cd",
+  "colors": "47a37b44e57d12ca",
   "tokenColors": "82f11fb3e7e7f9d9",
   "semanticTokenColors": "f3934f4b48f5b671",
   "counts": [
@@ -49969,9 +49969,9 @@
    "banner.background": "#dddde0",
    "banner.foreground": "#22262E",
    "banner.iconForeground": "#8A5A00",
-   "terminal.background": "#F5F6F9",
+   "terminal.background": "#EBEDF2",
    "terminal.foreground": "#22262E",
-   "terminal.selectionBackground": "#8a5a0033",
+   "terminal.selectionBackground": "#8a5a0029",
    "terminal.inactiveSelectionBackground": "#8a5a0021",
    "terminal.selectionForeground": "#22262E",
    "terminal.border": "#dadbdf",
@@ -50696,7 +50696,7 @@
   }
  },
  "palimpsest-dark": {
-  "colors": "bb31c4ad58563030",
+  "colors": "e29a1661bc4f9df7",
   "tokenColors": "17c8b96412c50522",
   "semanticTokenColors": "1feb8b4f64fdaa71",
   "counts": [
@@ -51164,7 +51164,7 @@
    "banner.background": "#302d2a",
    "banner.foreground": "#E8E1D2",
    "banner.iconForeground": "#D9A94A",
-   "terminal.background": "#191612",
+   "terminal.background": "#242019",
    "terminal.foreground": "#E8E1D2",
    "terminal.selectionBackground": "#d9a94a3d",
    "terminal.inactiveSelectionBackground": "#d9a94a29",
@@ -51186,19 +51186,19 @@
    "terminalStickyScroll.background": "#242019",
    "terminalStickyScrollHover.background": "#302d2a",
    "terminal.ansiBlack": "#3a3631",
-   "terminal.ansiRed": "#D68164",
+   "terminal.ansiRed": "#D98466",
    "terminal.ansiGreen": "#9AA87C",
    "terminal.ansiYellow": "#D98C4A",
    "terminal.ansiBlue": "#8FA0B8",
-   "terminal.ansiMagenta": "#B08FA8",
+   "terminal.ansiMagenta": "#B190A9",
    "terminal.ansiCyan": "#7FA69E",
    "terminal.ansiWhite": "#bfb8ac",
    "terminal.ansiBrightBlack": "#7e7a73",
-   "terminal.ansiBrightRed": "#de9a83",
+   "terminal.ansiBrightRed": "#e19d85",
    "terminal.ansiBrightGreen": "#aeb996",
    "terminal.ansiBrightYellow": "#e1a36e",
    "terminal.ansiBrightBlue": "#a5b3c6",
-   "terminal.ansiBrightMagenta": "#c0a5b9",
+   "terminal.ansiBrightMagenta": "#c1a6ba",
    "terminal.ansiBrightCyan": "#99b8b1",
    "terminal.ansiBrightWhite": "#E8E1D2",
    "gitDecoration.addedResourceForeground": "#9AA87C",
@@ -51876,7 +51876,7 @@
   }
  },
  "palimpsest-light": {
-  "colors": "d4c01ca7889a18be",
+  "colors": "dcd9a2c9c50ab75f",
   "tokenColors": "6ba4c0f9daf60f85",
   "semanticTokenColors": "f03f1bc33c1eedd7",
   "counts": [
@@ -52344,9 +52344,9 @@
    "banner.background": "#d5cdb9",
    "banner.foreground": "#2A241A",
    "banner.iconForeground": "#7E5B0E",
-   "terminal.background": "#EDE4CE",
+   "terminal.background": "#E3D9C0",
    "terminal.foreground": "#2A241A",
-   "terminal.selectionBackground": "#7e5b0e33",
+   "terminal.selectionBackground": "#7e5b0e29",
    "terminal.inactiveSelectionBackground": "#7e5b0e21",
    "terminal.selectionForeground": "#2A241A",
    "terminal.border": "#d4cbb7",
@@ -52376,7 +52376,7 @@
    "terminal.ansiBrightBlack": "#746d5e",
    "terminal.ansiBrightRed": "#9c5843",
    "terminal.ansiBrightGreen": "#697848",
-   "terminal.ansiBrightYellow": "#917334",
+   "terminal.ansiBrightYellow": "#907131",
    "terminal.ansiBrightBlue": "#4d6e89",
    "terminal.ansiBrightMagenta": "#815a84",
    "terminal.ansiBrightCyan": "#407871",
@@ -53056,7 +53056,7 @@
   }
  },
  "silverpoint-dark": {
-  "colors": "9f9993a2e1e1a554",
+  "colors": "27c131eae642ae32",
   "tokenColors": "415d29fd03557fd9",
   "semanticTokenColors": "d3a0e2e6c62e558f",
   "counts": [
@@ -53524,7 +53524,7 @@
    "banner.background": "#313133",
    "banner.foreground": "#D2D2D6",
    "banner.iconForeground": "#93A6BC",
-   "terminal.background": "#1A1A1C",
+   "terminal.background": "#242427",
    "terminal.foreground": "#D2D2D6",
    "terminal.selectionBackground": "#93a6bc3d",
    "terminal.inactiveSelectionBackground": "#93a6bc29",
@@ -54273,7 +54273,7 @@
   }
  },
  "silverpoint-light": {
-  "colors": "459aba1d5a1cd649",
+  "colors": "d1d8c849712fd502",
   "tokenColors": "5a7f4d2947d8dc14",
   "semanticTokenColors": "aebc1e9a59d1e0dc",
   "counts": [
@@ -54741,9 +54741,9 @@
    "banner.background": "#d1cfcb",
    "banner.foreground": "#26262A",
    "banner.iconForeground": "#4E627A",
-   "terminal.background": "#E8E6E1",
+   "terminal.background": "#DEDBD5",
    "terminal.foreground": "#26262A",
-   "terminal.selectionBackground": "#4e627a33",
+   "terminal.selectionBackground": "#4e627a29",
    "terminal.inactiveSelectionBackground": "#4e627a21",
    "terminal.selectionForeground": "#26262A",
    "terminal.border": "#cfcdc9",
@@ -55490,7 +55490,7 @@
   }
  },
  "passepartout-dark": {
-  "colors": "64907dfa18e02871",
+  "colors": "2127ef160c8437ee",
   "tokenColors": "94ba207108ad2016",
   "semanticTokenColors": "e36f82cccf262116",
   "counts": [
@@ -55958,7 +55958,7 @@
    "banner.background": "#212123",
    "banner.foreground": "#DEDCD6",
    "banner.iconForeground": "#D8A83C",
-   "terminal.background": "#08080A",
+   "terminal.background": "#33333A",
    "terminal.foreground": "#DEDCD6",
    "terminal.selectionBackground": "#d8a83c3d",
    "terminal.inactiveSelectionBackground": "#d8a83c29",
@@ -55980,7 +55980,7 @@
    "terminalStickyScroll.background": "#33333A",
    "terminalStickyScrollHover.background": "#212123",
    "terminal.ansiBlack": "#2a2a2b",
-   "terminal.ansiRed": "#D47E6E",
+   "terminal.ansiRed": "#E18A79",
    "terminal.ansiGreen": "#8FB080",
    "terminal.ansiYellow": "#D8A83C",
    "terminal.ansiBlue": "#8FA6C0",
@@ -55988,7 +55988,7 @@
    "terminal.ansiCyan": "#80AEA6",
    "terminal.ansiWhite": "#b3b2ad",
    "terminal.ansiBrightBlack": "#898988",
-   "terminal.ansiBrightRed": "#dd988b",
+   "terminal.ansiBrightRed": "#e7a194",
    "terminal.ansiBrightGreen": "#a5c099",
    "terminal.ansiBrightYellow": "#e0b963",
    "terminal.ansiBrightBlue": "#a5b8cd",
@@ -56699,7 +56699,7 @@
   }
  },
  "passepartout-light": {
-  "colors": "03ca5bd0e52905ea",
+  "colors": "7037ab613dfdeb5a",
   "tokenColors": "78ddc93caf271de7",
   "semanticTokenColors": "da212b089894c140",
   "counts": [
@@ -57167,9 +57167,9 @@
    "banner.background": "#e4e4e2",
    "banner.foreground": "#1F1E1A",
    "banner.iconForeground": "#8A5F12",
-   "terminal.background": "#FDFDFB",
+   "terminal.background": "#D6D1C6",
    "terminal.foreground": "#1F1E1A",
-   "terminal.selectionBackground": "#8a5f1233",
+   "terminal.selectionBackground": "#8a5f1229",
    "terminal.inactiveSelectionBackground": "#8a5f1221",
    "terminal.selectionForeground": "#1F1E1A",
    "terminal.border": "#e0e0de",
@@ -57197,9 +57197,9 @@
    "terminal.ansiCyan": "#1E5C58",
    "terminal.ansiWhite": "#999996",
    "terminal.ansiBrightBlack": "#737370",
-   "terminal.ansiBrightRed": "#a95d4f",
+   "terminal.ansiBrightRed": "#a85b4d",
    "terminal.ansiBrightGreen": "#5b734d",
-   "terminal.ansiBrightYellow": "#9c7736",
+   "terminal.ansiBrightYellow": "#926a23",
    "terminal.ansiBrightBlue": "#526a8e",
    "terminal.ansiBrightMagenta": "#805b7a",
    "terminal.ansiBrightCyan": "#407471",
@@ -57908,7 +57908,7 @@
   }
  },
  "effect-dark": {
-  "colors": "967ff90948fa6c3f",
+  "colors": "815bbfd379de494c",
   "tokenColors": "3f24fd582c76dc2c",
   "semanticTokenColors": "93f10b2e81b668d5",
   "counts": [
@@ -58376,7 +58376,7 @@
    "banner.background": "#202825",
    "banner.foreground": "#C6D2CC",
    "banner.iconForeground": "#FF5C4D",
-   "terminal.background": "#07100D",
+   "terminal.background": "#101A16",
    "terminal.foreground": "#C6D2CC",
    "terminal.selectionBackground": "#ff5c4d3d",
    "terminal.inactiveSelectionBackground": "#ff5c4d29",
@@ -58398,7 +58398,7 @@
    "terminalStickyScroll.background": "#101A16",
    "terminalStickyScrollHover.background": "#202825",
    "terminal.ansiBlack": "#262f2c",
-   "terminal.ansiRed": "#FF5C4D",
+   "terminal.ansiRed": "#FA6756",
    "terminal.ansiGreen": "#5FD8C0",
    "terminal.ansiYellow": "#FFA03C",
    "terminal.ansiBlue": "#8E9CBE",
@@ -58406,7 +58406,7 @@
    "terminal.ansiCyan": "#63C8C8",
    "terminal.ansiWhite": "#a0aba6",
    "terminal.ansiBrightBlack": "#68716d",
-   "terminal.ansiBrightRed": "#ff7d71",
+   "terminal.ansiBrightRed": "#fb8578",
    "terminal.ansiBrightGreen": "#7fe0cd",
    "terminal.ansiBrightYellow": "#ffb363",
    "terminal.ansiBrightBlue": "#a5b0cb",
@@ -59079,7 +59079,7 @@
   }
  },
  "effect-light": {
-  "colors": "b9e375b95b9f6e99",
+  "colors": "1cad46ed652832ea",
   "tokenColors": "589cc9987eb1d339",
   "semanticTokenColors": "931e1f61e0dce783",
   "counts": [
@@ -59547,9 +59547,9 @@
    "banner.background": "#dbdfdd",
    "banner.foreground": "#1D2622",
    "banner.iconForeground": "#C22A18",
-   "terminal.background": "#F3F8F5",
+   "terminal.background": "#E8EFEB",
    "terminal.foreground": "#1D2622",
-   "terminal.selectionBackground": "#c22a1833",
+   "terminal.selectionBackground": "#c22a1829",
    "terminal.inactiveSelectionBackground": "#c22a1821",
    "terminal.selectionForeground": "#1D2622",
    "terminal.border": "#d7ddda",
@@ -60250,7 +60250,7 @@
   }
  },
  "cochineal-dark": {
-  "colors": "bcd657ace4fe9fff",
+  "colors": "596a0e0bf8d8b892",
   "tokenColors": "32b8675e2f8e05d5",
   "semanticTokenColors": "4fe53224a4fb56c8",
   "counts": [
@@ -60718,7 +60718,7 @@
    "banner.background": "#332327",
    "banner.foreground": "#EDD6DA",
    "banner.iconForeground": "#FF5E7A",
-   "terminal.background": "#1C0A0F",
+   "terminal.background": "#2A1219",
    "terminal.foreground": "#EDD6DA",
    "terminal.selectionBackground": "#ff5e7a3d",
    "terminal.inactiveSelectionBackground": "#ff5e7a29",
@@ -61459,7 +61459,7 @@
   }
  },
  "cochineal-light": {
-  "colors": "d9058f41a07b3698",
+  "colors": "a38ad6f0fc0bbb92",
   "tokenColors": "d91fb65c75818212",
   "semanticTokenColors": "5aad1ca973c94381",
   "counts": [
@@ -61927,9 +61927,9 @@
    "banner.background": "#e2dadb",
    "banner.foreground": "#2A161B",
    "banner.iconForeground": "#B01238",
-   "terminal.background": "#FBF2F3",
+   "terminal.background": "#F2E5E7",
    "terminal.foreground": "#2A161B",
-   "terminal.selectionBackground": "#b0123833",
+   "terminal.selectionBackground": "#b0123829",
    "terminal.inactiveSelectionBackground": "#b0123821",
    "terminal.selectionForeground": "#2A161B",
    "terminal.border": "#e0d5d7",
@@ -62668,7 +62668,7 @@
   }
  },
  "glacier-dark": {
-  "colors": "dafab66a150c1cee",
+  "colors": "482f865e93e59ec2",
   "tokenColors": "b5992964a5e50990",
   "semanticTokenColors": "510115acb4b83e45",
   "counts": [
@@ -63136,7 +63136,7 @@
    "banner.background": "#313d47",
    "banner.foreground": "#DCEAF2",
    "banner.iconForeground": "#0ECCCB",
-   "terminal.background": "#1A2733",
+   "terminal.background": "#243343",
    "terminal.foreground": "#DCEAF2",
    "terminal.selectionBackground": "#0ecccb3d",
    "terminal.inactiveSelectionBackground": "#0ecccb29",
@@ -63877,7 +63877,7 @@
   }
  },
  "glacier-light": {
-  "colors": "13715025c0b9185d",
+  "colors": "ef9932d1b23f23f3",
   "tokenColors": "10c570f735d85089",
   "semanticTokenColors": "54097ea39ea1a5e2",
   "counts": [
@@ -64345,9 +64345,9 @@
    "banner.background": "#dae1e4",
    "banner.foreground": "#18262F",
    "banner.iconForeground": "#0A6B6C",
-   "terminal.background": "#F2FAFD",
+   "terminal.background": "#E6F2F8",
    "terminal.foreground": "#18262F",
-   "terminal.selectionBackground": "#0a6b6c33",
+   "terminal.selectionBackground": "#0a6b6c29",
    "terminal.inactiveSelectionBackground": "#0a6b6c21",
    "terminal.selectionForeground": "#18262F",
    "terminal.border": "#d6dee2",
@@ -65086,7 +65086,7 @@
   }
  },
  "selenium-dark": {
-  "colors": "463e025cf8cd3e37",
+  "colors": "7842bd914313b73d",
   "tokenColors": "f917e6486cc754a4",
   "semanticTokenColors": "bdb3eb0f179d61a0",
   "counts": [
@@ -65554,7 +65554,7 @@
    "banner.background": "#2c2b31",
    "banner.foreground": "#D6DEEC",
    "banner.iconForeground": "#AE9FCD",
-   "terminal.background": "#14131A",
+   "terminal.background": "#1E1D26",
    "terminal.foreground": "#D6DEEC",
    "terminal.selectionBackground": "#ae9fcd3d",
    "terminal.inactiveSelectionBackground": "#ae9fcd29",
@@ -66295,7 +66295,7 @@
   }
  },
  "selenium-light": {
-  "colors": "48cdf834ecc26ba1",
+  "colors": "7f81314166272349",
   "tokenColors": "9fe5f11be0c8a68f",
   "semanticTokenColors": "eb2ec8b5b2b18718",
   "counts": [
@@ -66763,9 +66763,9 @@
    "banner.background": "#dddad8",
    "banner.foreground": "#1E1C22",
    "banner.iconForeground": "#60537D",
-   "terminal.background": "#F5F2F0",
+   "terminal.background": "#EBE7E4",
    "terminal.foreground": "#1E1C22",
-   "terminal.selectionBackground": "#60537d33",
+   "terminal.selectionBackground": "#60537d29",
    "terminal.inactiveSelectionBackground": "#60537d21",
    "terminal.selectionForeground": "#1E1C22",
    "terminal.border": "#d9d6d5",
@@ -67504,7 +67504,7 @@
   }
  },
  "riso-dark": {
-  "colors": "ebea449144fc70f7",
+  "colors": "c758ce7da63d09b8",
   "tokenColors": "f44b5ae6e9143798",
   "semanticTokenColors": "3bb7929a6c4442d4",
   "counts": [
@@ -67972,7 +67972,7 @@
    "banner.background": "#2d2b26",
    "banner.foreground": "#E8E2D4",
    "banner.iconForeground": "#FF63B4",
-   "terminal.background": "#16130E",
+   "terminal.background": "#211D16",
    "terminal.foreground": "#E8E2D4",
    "terminal.selectionBackground": "#ff63b43d",
    "terminal.inactiveSelectionBackground": "#ff63b429",
@@ -67997,7 +67997,7 @@
    "terminal.ansiRed": "#FF6A5C",
    "terminal.ansiGreen": "#3FC97E",
    "terminal.ansiYellow": "#FFEE3C",
-   "terminal.ansiBlue": "#7C93E8",
+   "terminal.ansiBlue": "#7D94E9",
    "terminal.ansiMagenta": "#FF63B4",
    "terminal.ansiCyan": "#5FBCC4",
    "terminal.ansiWhite": "#beb9ac",
@@ -68005,7 +68005,7 @@
    "terminal.ansiBrightRed": "#ff887d",
    "terminal.ansiBrightGreen": "#65d498",
    "terminal.ansiBrightYellow": "#fff163",
-   "terminal.ansiBrightBlue": "#96a9ed",
+   "terminal.ansiBrightBlue": "#97a9ed",
    "terminal.ansiBrightMagenta": "#ff82c3",
    "terminal.ansiBrightCyan": "#7fc9d0",
    "terminal.ansiBrightWhite": "#E8E2D4",
@@ -68713,7 +68713,7 @@
   }
  },
  "riso-light": {
-  "colors": "0956f97ec5b9b287",
+  "colors": "a3dc306e8e02a901",
   "tokenColors": "bbca044cca5307ac",
   "semanticTokenColors": "47e209c540ee62c2",
   "counts": [
@@ -69181,9 +69181,9 @@
    "banner.background": "#ddd8cd",
    "banner.foreground": "#211E16",
    "banner.iconForeground": "#C4157E",
-   "terminal.background": "#F5F0E4",
+   "terminal.background": "#ECE5D5",
    "terminal.foreground": "#211E16",
-   "terminal.selectionBackground": "#c4157e33",
+   "terminal.selectionBackground": "#c4157e29",
    "terminal.inactiveSelectionBackground": "#c4157e21",
    "terminal.selectionForeground": "#211E16",
    "terminal.border": "#d9d5c9",
