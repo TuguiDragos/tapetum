@@ -12,6 +12,12 @@
 </h1>
 
 <p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum"><img alt="VS Code installs" height="42" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FTuguiDragos%2Ftapetum%2Fmain%2Freadme-assets%2Fbadge-vscode.json&style=flat&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI%2BPHBhdGggZD0iTTYgMS43IDEwLjIgNHY0LjZMNiAxMC45IDEuOCA4LjZWNHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjEuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8%2BPHBhdGggZD0iTTEuOCA0IDYgNi4zbDQuMi0yLjNNNiA2LjN2NC42IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg%3D%3D&logoColor=9184D9" /></a>
+  <br />
+  <a href="https://open-vsx.org/extension/tuguidragos/tapetum"><img alt="Open VSX downloads" height="42" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FTuguiDragos%2Ftapetum%2Fmain%2Freadme-assets%2Fbadge-openvsx.json&style=flat&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI%2BPHBhdGggZD0iTTYgMS45VjguMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMy4zIDUuNyA2IDguNSA4LjcgNS43IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yLjIgMTAuNWg3LjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjEuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8%2BPC9zdmc%2B&logoColor=9184D9" /></a>
+</p>
+
+<p align="center">
   <b>58 themes for VS Code and Open VSX, drawn from things that actually make colour.</b>
 </p>
 

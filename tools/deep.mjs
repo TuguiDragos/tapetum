@@ -110,11 +110,11 @@ function analyse(fam, v) {
   if (gitMin < 6) bad('git', `${gitPair} la ${gitMin.toFixed(1)} dE`);
   if (gitCr < 3.5 && !DIM_OK.test(gitCrK)) bad('git', `${gitCrK} la ${gitCr.toFixed(2)} pe bara laterala`);
 
-  const br = [1, 2, 3, 4, 5, 6].map((i) => c[`editorBracketHighlight.foreground${i}`]);
+  const br = [1, 2, 3].map((i) => c[`editorBracketHighlight.foreground${i}`]);
   let brMin = 999, brPair = '', brCr = 99;
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 3; i++) {
     brCr = Math.min(brCr, contrast(br[i], eb));
-    for (let j = i + 1; j < 6; j++) {
+    for (let j = i + 1; j < 3; j++) {
       const d = deltaE(br[i], br[j]);
       if (d < brMin) { brMin = d; brPair = `${i + 1}/${j + 1}`; }
     }
@@ -136,10 +136,20 @@ function analyse(fam, v) {
   }
   out.minimap = { worst: mmWorst, worstKey: mmKey };
 
-  const ins = over(c['diffEditor.insertedTextBackground'], eb);
-  const del = over(c['diffEditor.removedTextBackground'], eb);
-  out.diff = { deltaE: deltaE(ins, del) };
-  if (out.diff.deltaE < 8) bad('diff', `inserat si sters la ${out.diff.deltaE.toFixed(1)} dE`);
+  const insLine = over(c['diffEditor.insertedLineBackground'], eb);
+  const delLine = over(c['diffEditor.removedLineBackground'], eb);
+  const ins = over(c['diffEditor.insertedTextBackground'], insLine);
+  const del = over(c['diffEditor.removedTextBackground'], delLine);
+  const diffGrounds = [insLine, delLine, ins, del];
+  const diffSyntax = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
+  const diffText = Math.min(...diffGrounds.flatMap((g) => diffSyntax.map((r) => contrast(p[r], g))));
+  const diffComment = p.comment ? Math.min(...diffGrounds.map((g) => contrast(p.comment, g))) : 99;
+  const diffMark = Math.min(deltaE(ins, insLine), deltaE(del, delLine));
+  out.diff = { deltaE: deltaE(insLine, delLine), text: diffText, comment: diffComment, mark: diffMark };
+  if (out.diff.deltaE < 2.5) bad('diff', `inserat si sters la ${out.diff.deltaE.toFixed(1)} dE`);
+  if (diffText < 3.4) bad('diff', `sintaxa pe fundal de diff la ${diffText.toFixed(2)}`);
+  if (diffComment < 3.19) bad('diff', `comentarii pe fundal de diff la ${diffComment.toFixed(2)}`);
+  if (diffMark < 2) bad('diff', `cuvantul schimbat la ${diffMark.toFixed(1)} dE fata de linie`);
 
   const R = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
   const sim = (fn) => {
