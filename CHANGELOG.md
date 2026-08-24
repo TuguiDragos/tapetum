@@ -226,8 +226,9 @@ own captures in both variants, bringing the number of families shown in the
 README to 6.
 
 **Two recordings of the whole collection**, one dark and one light, that scroll
-the theme picker while VS Code applies each theme live. They sit at the very end
-of the README so the page is readable before 20 MB of animation starts loading.
+the theme picker while VS Code applies each theme live. They sit after every
+family and before the section on colouring schemes, so the page is readable
+before 20 MB of animation starts loading.
 
 ### Changed
 
@@ -240,10 +241,11 @@ of the README so the page is readable before 20 MB of animation starts loading.
 - The 28 palette strip images and the tool that generated them are gone. Real
   screenshots and the colour tables carry the same information without the
   invented graphics.
-- README rewritten and now generated. 6 families carry screenshots, every family
-  has its story and a full colour table covering all of its variants, and the two
-  recordings that run through the whole collection sit at the very end so the page
-  is readable before they load.
+- README rewritten and now generated. The 6 families that carry screenshots come
+  first, in the order Quantum, Cochineal, Fraunhofer, Persistence, Anodise,
+  Passepartout. Every family has its story and a full colour table covering all of
+  its variants. The reading order is declared separately from the palette order,
+  so rearranging the page never touches a theme file.
 - The colour key registry is derived from the installed editor on every run
   instead of being a stored list, so it cannot fall behind a VS Code release.
 - Indent guide levels 2 to 6 now follow the bracket depth ramp, so nesting reads

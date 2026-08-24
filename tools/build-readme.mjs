@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FAMILIES } from './palettes.mjs';
-import { STORIES, SOURCES, SHOTS } from './stories.mjs';
+import { STORIES, SOURCES, SHOTS, README_ORDER } from './stories.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
@@ -12,6 +12,11 @@ const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'))
 const VARIANTS = ['dark', 'light', 'hcDark', 'hcLight'];
 const THEME_COUNT = FAMILIES.reduce((n, f) => n + VARIANTS.filter((k) => f[k]).length, 0);
 const HC = FAMILIES.filter((f) => f.hcDark || f.hcLight);
+const ORDERED = [
+  ...README_ORDER.map((id) => FAMILIES.find((f) => f.id === id)).filter(Boolean),
+  ...FAMILIES.filter((f) => !README_ORDER.includes(f.id)),
+];
+if (ORDERED.length !== FAMILIES.length) throw new Error('ordinea din README nu acopera toate familiile');
 
 const SCHEME = {
   grammar: 'grammar', provenance: 'provenance', borrow: 'borrow',
@@ -77,7 +82,20 @@ the name, and there are two recordings at the end that run through all ${THEME_C
 
 ## Families
 
-${FAMILIES.map(family).join('\n\n')}
+${ORDERED.map(family).join('\n\n')}
+
+## All ${THEME_COUNT}, in one pass
+
+Every theme in the collection, applied live while scrolling the picker.
+
+<p align="center"><img src="${RAW}/tapetum-all-themes-dark.gif" alt="All Tapetum dark themes" width="900" /></p>
+
+That was the dark half. The light variants are not inversions of it. A colour
+that reads clearly at Lc 80 on black is often unreadable on white, and the
+reverse holds just as firmly, so every light palette was placed by hand and
+measured on its own ground. Same families, same sources, different physics.
+
+<p align="center"><img src="${RAW}/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>
 
 ## ${Object.keys(counts).length} ways of colouring code
 
@@ -168,13 +186,6 @@ Every family ships as \`Tapetum <Family>\` for the dark variant and
 \`Tapetum <Family> Light\` for the light one. Switch with \`Cmd+K Cmd+T\`, or
 \`Ctrl+K Ctrl+T\` on Windows and Linux, and type the family name to filter.
 
-## All ${THEME_COUNT}, in one pass
-
-Every theme in the collection, applied live while scrolling the picker.
-
-<p align="center"><img src="${RAW}/tapetum-all-themes-dark.gif" alt="All Tapetum dark themes" width="900" /></p>
-
-<p align="center"><img src="${RAW}/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>
 `;
 
 fs.writeFileSync(path.join(ROOT, 'README.md'), md);
