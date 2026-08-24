@@ -100,7 +100,7 @@ for (const f of FAMILIES) {
   }
 }
 
-const { deltaE: dE } = await import('./color.mjs');
+const { deltaE: dE, hex2lch } = await import('./color.mjs');
 for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
   const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
   const c = th.colors;
@@ -108,6 +108,28 @@ for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight']
   note(seam < 1, `${f.label} ${v}: terminalul are alt fundal decat panoul, ${seam.toFixed(1)} dE. `
     + 'VS Code inregistreaza terminal.background cu implicit null, adica ia fundalul panoului, '
     + 'iar temele Microsoft le pun identice. Diferite, se vede o treapta sub randul de taburi.');
+}
+
+for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
+  const c = th.colors;
+  const label = c['scmGraph.historyItemHoverLabelForeground'];
+  const refs = ['historyItemRefColor', 'historyItemRemoteRefColor', 'historyItemBaseRefColor'].map((k) => c['scmGraph.' + k]);
+  refs.forEach((r, i) => {
+    const cr = contrast(label, r);
+    note(cr >= 4.5, `${f.label} ${v}: pastila de branch ${i + 1} are text la ${cr.toFixed(2)}. `
+      + 'VS Code deseneaza refColor ca fundal si scrie in historyItemHoverLabelForeground peste el.');
+  });
+  for (let i = 0; i < 3; i++) for (let j = i + 1; j < 3; j++) {
+    const d = dE(refs[i], refs[j]);
+    note(d >= 12, `${f.label} ${v}: doua pastile de branch la ${d.toFixed(1)} dE, nu se disting`);
+  }
+  const rb = c['statusBarItem.remoteBackground'];
+  const [, chroma, hue] = hex2lch(rb);
+  const green = chroma > 18 && hue > 95 && hue < 175;
+  const red = chroma > 18 && (hue < 35 || hue > 345);
+  note(!green && !red, `${f.label} ${v}: indicatorul de remote e ${green ? 'verde' : 'rosu'}, ${rb}. `
+    + 'Eticheta scrie si Disconnected, deci culoarea nu are voie sa spuna reusit sau eroare.');
 }
 
 const OVER = ['editor.selectionBackground', 'editor.findMatchBackground', 'editor.wordHighlightStrongBackground',
