@@ -56,6 +56,34 @@ teal from that idea: a small set of exact positions rather than a smooth range.
 
 </details>
 
+### Cochineal
+
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-cochineal-dark.png" alt="Cochineal" width="900" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-cochineal-light.png" alt="Cochineal Light" width="900" /></p>
+
+Cochineal is a scale insect that lives on cactus, and carminic acid is what it
+makes to keep ants away. It gave Europe its first true scarlet, worth close to
+silver by weight, and it took about 70000 insects to make a pound of dye. The
+background is the crimson sunk into the cloth, the syntax is the same dye at
+different strengths.
+
+<details>
+<summary>Carminic acid, the first real scarlet Europe had</summary>
+
+| | `Tapetum Cochineal` | `Tapetum Cochineal Light` |
+| --- | --- | --- |
+| background | `#1C0A0F` | `#FBF2F3` |
+| foreground | `#EDD6DA` | `#2A161B` |
+| keyword | `#F98794` | `#B01238` |
+| function | `#FFA6B6` | `#8A2050` |
+| string | `#E8B54A` | `#8A5A00` |
+| type | `#8FC9A4` | `#1E6A46` |
+| number | `#FF8A5C` | `#A64414` |
+| tag | `#B49BE8` | `#5B48A0` |
+| comment | `#9A7A82` | `#7C6268` |
+
+</details>
+
 ### Fraunhofer
 
 <p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-fraunhofer-dark.png" alt="Fraunhofer" width="900" /></p>
@@ -137,6 +165,33 @@ no dye.
 | number | `#E07A45` | `#B0501F` |
 | tag | `#C77DD8` | `#8A3D9E` |
 | comment | `#7E7E82` | `#66666A` |
+
+</details>
+
+### Passepartout
+
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-passepartout-dark.png" alt="Passepartout" width="900" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-passepartout-light.png" alt="Passepartout Light" width="900" /></p>
+
+A passepartout is the card mat around a framed photograph. It is not decoration,
+it is what makes the eye fall on the picture. Every theme puts the interface at
+the same brightness as the editor or darker. This one inverts it: the mat is
+far lighter than the plate, and the editor sits inside it as the print.
+
+<details>
+<summary>The mat around a framed photograph</summary>
+
+| | `Tapetum Passepartout` | `Tapetum Passepartout Light` |
+| --- | --- | --- |
+| background | `#08080A` | `#FDFDFB` |
+| foreground | `#DEDCD6` | `#1F1E1A` |
+| keyword | `#D8A83C` | `#8A5F12` |
+| function | `#E4DFD2` | `#26241E` |
+| string | `#B8A88C` | `#5A5038` |
+| type | `#A8B0A0` | `#3E5040` |
+| number | `#D89A6A` | `#8A4A18` |
+| tag | `#C0A0B8` | `#6A3E62` |
+| comment | `#83807A` | `#6E6A60` |
 
 </details>
 
@@ -595,33 +650,6 @@ blue accent so you can still find your cursor.
 
 </details>
 
-### Passepartout
-
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-passepartout-dark.png" alt="Passepartout" width="900" /></p>
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-passepartout-light.png" alt="Passepartout Light" width="900" /></p>
-
-A passepartout is the card mat around a framed photograph. It is not decoration,
-it is what makes the eye fall on the picture. Every theme puts the interface at
-the same brightness as the editor or darker. This one inverts it: the mat is
-far lighter than the plate, and the editor sits inside it as the print.
-
-<details>
-<summary>The mat around a framed photograph</summary>
-
-| | `Tapetum Passepartout` | `Tapetum Passepartout Light` |
-| --- | --- | --- |
-| background | `#08080A` | `#FDFDFB` |
-| foreground | `#DEDCD6` | `#1F1E1A` |
-| keyword | `#D8A83C` | `#8A5F12` |
-| function | `#E4DFD2` | `#26241E` |
-| string | `#B8A88C` | `#5A5038` |
-| type | `#A8B0A0` | `#3E5040` |
-| number | `#D89A6A` | `#8A4A18` |
-| tag | `#C0A0B8` | `#6A3E62` |
-| comment | `#83807A` | `#6E6A60` |
-
-</details>
-
 ### Effect
 
 Pure code and code that touches the world look identical in every theme. Here
@@ -644,34 +672,6 @@ signature.
 | number | `#FF5C4D` | `#C22A18` |
 | tag | `#FFA03C` | `#9A5200` |
 | comment | `#6E7B76` | `#65736E` |
-
-</details>
-
-### Cochineal
-
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-cochineal-dark.png" alt="Cochineal" width="900" /></p>
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-cochineal-light.png" alt="Cochineal Light" width="900" /></p>
-
-Cochineal is a scale insect that lives on cactus, and carminic acid is what it
-makes to keep ants away. It gave Europe its first true scarlet, worth close to
-silver by weight, and it took about 70000 insects to make a pound of dye. The
-background is the crimson sunk into the cloth, the syntax is the same dye at
-different strengths.
-
-<details>
-<summary>Carminic acid, the first real scarlet Europe had</summary>
-
-| | `Tapetum Cochineal` | `Tapetum Cochineal Light` |
-| --- | --- | --- |
-| background | `#1C0A0F` | `#FBF2F3` |
-| foreground | `#EDD6DA` | `#2A161B` |
-| keyword | `#F98794` | `#B01238` |
-| function | `#FFA6B6` | `#8A2050` |
-| string | `#E8B54A` | `#8A5A00` |
-| type | `#8FC9A4` | `#1E6A46` |
-| number | `#FF8A5C` | `#A64414` |
-| tag | `#B49BE8` | `#5B48A0` |
-| comment | `#9A7A82` | `#7C6268` |
 
 </details>
 
@@ -748,6 +748,19 @@ anything else. These are 6 of them, printed on kraft.
 | comment | `#847C6C` | `#7C7462` |
 
 </details>
+
+## All 58, in one pass
+
+Every theme in the collection, applied live while scrolling the picker.
+
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-all-themes-dark.gif" alt="All Tapetum dark themes" width="900" /></p>
+
+That was the dark half. The light variants are not inversions of it. A colour
+that reads clearly at Lc 80 on black is often unreadable on white, and the
+reverse holds just as firmly, so every light palette was placed by hand and
+measured on its own ground. Same families, same sources, different physics.
+
+<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>
 
 ## 6 ways of colouring code
 
@@ -838,10 +851,3 @@ Every family ships as `Tapetum <Family>` for the dark variant and
 `Tapetum <Family> Light` for the light one. Switch with `Cmd+K Cmd+T`, or
 `Ctrl+K Ctrl+T` on Windows and Linux, and type the family name to filter.
 
-## All 58, in one pass
-
-Every theme in the collection, applied live while scrolling the picker.
-
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-all-themes-dark.gif" alt="All Tapetum dark themes" width="900" /></p>
-
-<p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>

@@ -1,3 +1,7 @@
+export const README_ORDER = [
+  'quantum', 'cochineal', 'fraunhofer', 'persistence', 'anodise', 'passepartout',
+];
+
 export const SHOTS = {
   quantum: ['dark', 'light'],
   fraunhofer: ['dark', 'light'],
