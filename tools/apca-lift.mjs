@@ -50,12 +50,13 @@ export function plan() {
   const out = [];
   for (const fam of FAMILIES) for (const variant of VARIANT_KEYS(fam)) {
     const p = fam[variant];
+    const termBg = p.bgElev;
     for (const slot of ANSI) {
-      const lc = apcaLc(p.ansi[slot], p.bg);
+      const lc = apcaLc(p.ansi[slot], termBg);
       if (lc >= ANSI_FLOOR) continue;
-      const r = liftToApca(p.ansi[slot], p.bg, ANSI_FLOOR);
+      const r = liftToApca(p.ansi[slot], termBg, ANSI_FLOOR);
       out.push({ id: fam.id, label: fam.label, variant, role: slot, ansi: true, from: p.ansi[slot],
-        to: r.hex, lc, newLc: apcaLc(r.hex, p.bg), moved: r.moved, reached: r.reached, exempt: false });
+        to: r.hex, lc, newLc: apcaLc(r.hex, termBg), moved: r.moved, reached: r.reached, exempt: false });
     }
     for (const role of Object.keys(FLOOR)) {
       const lc = apcaLc(p[role], p.bg);

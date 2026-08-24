@@ -555,12 +555,20 @@ function integrations(t) {
   const legible = t.legible;
   const onColor = t.onColor;
   const A = t.ansi;
-  const bright = (c) => lighten(c, t.dark ? 0.20 : 0.15);
+  const termBg = t.elev;
+  const bright = (c) => {
+    const nominal = t.dark ? 0.20 : 0.15;
+    for (let k = nominal; k >= 0.02; k -= 0.01) {
+      const cand = lighten(c, k);
+      if (contrast(cand, termBg) >= 3.2) return cand;
+    }
+    return lighten(c, 0.02);
+  };
   const { sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
   return {
-    'terminal.background': bg,
+    'terminal.background': elev,
     'terminal.foreground': fg,
-    'terminal.selectionBackground': alpha(t.acc, t.dark ? 0.24 : 0.2),
+    'terminal.selectionBackground': alpha(t.acc, t.dark ? 0.24 : 0.16),
     'terminal.inactiveSelectionBackground': t.selSoft,
     'terminal.selectionForeground': fg,
     'terminal.border': line,

@@ -9,7 +9,7 @@ const REG = R('vscode-color-keys-full.json');
 const PAIRS = R('render-pairs.json');
 const DERIV = R('derivations.json');
 
-const SEAM_PRONE = /Background$/;
+const SEAM_PRONE = /[Bb]ackground$/;
 const DELIBERATE = [
   { re: /^terminalSymbolIcon/, why: 'iconitele din sugestiile de terminal iau culoarea rolului de sintaxa echivalent, ca sa se potriveasca cu editorul' },
   { re: /^symbolIcon/, why: 'iconitele de simbol urmeaza aceleasi roluri ca sintaxa, nu culoarea implicita de prim plan' },

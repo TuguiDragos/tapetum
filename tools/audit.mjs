@@ -100,6 +100,16 @@ for (const f of FAMILIES) {
   }
 }
 
+const { deltaE: dE } = await import('./color.mjs');
+for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
+  const c = th.colors;
+  const seam = dE(c['panel.background'], c['terminal.background']);
+  note(seam < 1, `${f.label} ${v}: terminalul are alt fundal decat panoul, ${seam.toFixed(1)} dE. `
+    + 'VS Code inregistreaza terminal.background cu implicit null, adica ia fundalul panoului, '
+    + 'iar temele Microsoft le pun identice. Diferite, se vede o treapta sub randul de taburi.');
+}
+
 const OVER = ['editor.selectionBackground', 'editor.findMatchBackground', 'editor.wordHighlightStrongBackground',
   'editorBracketMatch.background', 'editor.snippetTabstopHighlightBackground'];
 let worstOverlay = { c: 99 };

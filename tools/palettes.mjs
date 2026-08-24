@@ -22,7 +22,7 @@ export const FAMILIES = [
       bg: '#080A10', bgElev: '#12151D', bgChrome: '#05070B', fg: '#DDE1E8',
       keyword: '#AF9CF9', func: '#4FC3F7', string: '#7CE85C', type: '#00E5C0',
       number: '#FFC93C', tag: '#FA6245', comment: '#727A88', op: '#8A929E',
-      ansi: { red: '#FA6245', green: '#7CE85C', yellow: '#FFC93C', blue: '#4FC3F7', magenta: '#C07BFF', cyan: '#00E5C0' },
+      ansi: { red: '#FA6447', green: '#7CE85C', yellow: '#FFC93C', blue: '#4FC3F7', magenta: '#C07BFF', cyan: '#00E5C0' },
     },
     light: {
       bg: '#FBFAF6', bgElev: '#F2F1EC', bgChrome: '#EAE9E3', fg: '#1B1D22',
@@ -54,7 +54,7 @@ export const FAMILIES = [
       bg: '#0C0C0D', bgElev: '#171718', bgChrome: '#080808', fg: '#E2E2E4',
       keyword: '#E8B54A', func: '#75ADE2', string: '#46C7C2', type: '#39B871',
       number: '#E07A45', tag: '#C77DD8', comment: '#7E7E82', op: '#9A9A9E',
-      ansi: { red: '#F36758', green: '#39B871', yellow: '#E8B54A', blue: '#6FA8DC', magenta: '#C77DD8', cyan: '#46C7C2' },
+      ansi: { red: '#F66A5A', green: '#39B871', yellow: '#E8B54A', blue: '#6FA8DC', magenta: '#C77DD8', cyan: '#46C7C2' },
     },
     light: {
       bg: '#F8F8F9', bgElev: '#EFEFF1', bgChrome: '#E7E7EA', fg: '#1D1D20',
@@ -99,7 +99,7 @@ export const FAMILIES = [
       bg: '#0B090E', bgElev: '#15121B', bgChrome: '#060509', fg: '#D4D1DC',
       keyword: '#F976E7', func: '#12B6E8', string: '#20D12E', type: '#F2B486',
       number: '#F46469', tag: '#6E90FA', comment: '#85828F', op: '#9B98A4',
-      ansi: { red: '#F46469', green: '#20D12E', yellow: '#F2B486', blue: '#12B6E8', magenta: '#F263DF', cyan: '#0CB2B2' },
+      ansi: { red: '#F6656A', green: '#20D12E', yellow: '#F2B486', blue: '#12B6E8', magenta: '#F263DF', cyan: '#0CB2B2' },
     },
     light: {
       bg: '#FCFBFD', bgElev: '#F3F1F6', bgChrome: '#EAE7EF', fg: '#222128',
@@ -114,7 +114,7 @@ export const FAMILIES = [
       bg: '#04131C', bgElev: '#0C1F2B', bgChrome: '#020D14', fg: '#C6DCE1',
       keyword: '#97CCF2', func: '#0FCDD2', string: '#0CC681', type: '#B69F4B',
       number: '#CB8661', tag: '#CA828B', comment: '#768B90', op: '#8FA1A5',
-      ansi: { red: '#CA828B', green: '#0CC681', yellow: '#B69F4B', blue: '#97CCF2', magenta: '#F273EF', cyan: '#0FCDD2' },
+      ansi: { red: '#CD858E', green: '#0CC681', yellow: '#B69F4B', blue: '#97CCF2', magenta: '#F273EF', cyan: '#0FCDD2' },
     },
     light: {
       bg: '#F6FAFC', bgElev: '#EBF2F6', bgChrome: '#E0EAF0', fg: '#152225',
@@ -129,7 +129,7 @@ export const FAMILIES = [
       bg: '#100C09', bgElev: '#1B1512', bgChrome: '#0A0705', fg: '#DED2CD',
       keyword: '#F28F83', func: '#47AFFA', string: '#0CCEA0', type: '#F2BA24',
       number: '#FA54AC', tag: '#9C86F5', comment: '#90827B', op: '#A59992',
-      ansi: { red: '#F28F83', green: '#0CCEA0', yellow: '#F2BA24', blue: '#27A5F2', magenta: '#FA54AC', cyan: '#11B4B3' },
+      ansi: { red: '#F28F83', green: '#0CCEA0', yellow: '#F2BA24', blue: '#27A5F2', magenta: '#FA57AD', cyan: '#11B4B3' },
     },
     light: {
       bg: '#FAF7F0', bgElev: '#F1EDE4', bgChrome: '#E8E3D7', fg: '#251D19',
@@ -144,7 +144,7 @@ export const FAMILIES = [
       bg: '#15151C', bgElev: '#1F1F28', bgChrome: '#0F0F15', fg: '#D7DCE5',
       keyword: '#77ABF9', func: '#13C5B5', string: '#F2C17A', type: '#60D53D',
       number: '#F2726E', tag: '#C771F8', comment: '#838A96', op: '#9BA1AB',
-      ansi: { red: '#F2726E', green: '#60D53D', yellow: '#F2C17A', blue: '#70A4F2', magenta: '#C771F8', cyan: '#13C5B5' },
+      ansi: { red: '#F2726E', green: '#60D53D', yellow: '#F2C17A', blue: '#70A4F2', magenta: '#C974FA', cyan: '#13C5B5' },
     },
     light: {
       bg: '#FBF9F0', bgElev: '#F3F0E4', bgChrome: '#EAE6D6', fg: '#251F19',
@@ -159,7 +159,7 @@ export const FAMILIES = [
       bg: '#0D0B08', bgElev: '#171410', bgChrome: '#080604', fg: '#DBD2CE',
       keyword: '#0FCBB7', func: '#B09BFA', string: '#E4BF39', type: '#41BF76',
       number: '#F46577', tag: '#2AA2C8', comment: '#8F817D', op: '#A39894',
-      ansi: { red: '#F46577', green: '#41BF76', yellow: '#E4BF39', blue: '#2AA2C8', magenta: '#A38EF2', cyan: '#0FCBB7' },
+      ansi: { red: '#F66678', green: '#41BF76', yellow: '#E4BF39', blue: '#2AA2C8', magenta: '#A38EF2', cyan: '#0FCBB7' },
     },
     light: {
       bg: '#F7F4ED', bgElev: '#EEEAE1', bgChrome: '#E4DFD3', fg: '#211B18',
@@ -174,7 +174,7 @@ export const FAMILIES = [
       bg: '#061527', bgElev: '#0E2138', bgChrome: '#030E1C', fg: '#CADEE6',
       keyword: '#EE7DFA', func: '#3AB2F8', string: '#0DE6D6', type: '#4FBE6F',
       number: '#15C6EC', tag: '#BCC2F2', comment: '#798C93', op: '#92A3A9',
-      ansi: { red: '#F28987', green: '#4FBE6F', yellow: '#CAA20A', blue: '#0B9FE4', magenta: '#E572F2', cyan: '#0DE6D6' },
+      ansi: { red: '#F28987', green: '#4FBE6F', yellow: '#CAA20A', blue: '#16A2E7', magenta: '#E572F2', cyan: '#0DE6D6' },
     },
     light: {
       bg: '#F5F8FD', bgElev: '#EAF0F8', bgChrome: '#DEE7F3', fg: '#152125',
@@ -189,7 +189,7 @@ export const FAMILIES = [
       bg: '#0A0D12', bgElev: '#151920', bgChrome: '#06080C', fg: '#C6D8DF',
       keyword: '#F2A47A', func: '#54B2F2', string: '#0ED8D8', type: '#A187E9',
       number: '#F27884', tag: '#66A567', comment: '#75888F', op: '#8D9EA5',
-      ansi: { red: '#F27884', green: '#66A567', yellow: '#F2A47A', blue: '#54B2F2', magenta: '#A187E9', cyan: '#0ED8D8' },
+      ansi: { red: '#F27884', green: '#67A668', yellow: '#F2A47A', blue: '#54B2F2', magenta: '#A288EA', cyan: '#0ED8D8' },
     },
     light: {
       bg: '#FBF6EC', bgElev: '#F2ECDF', bgChrome: '#E9E2D2', fg: '#251C18',
@@ -204,7 +204,7 @@ export const FAMILIES = [
       bg: '#05070B', bgElev: '#0F131A', bgChrome: '#020407', fg: '#C3D4DB',
       keyword: '#40D0ED', func: '#7CACDD', string: '#5CB8A5', type: '#CE8C54',
       number: '#F955AB', tag: '#D0A4DB', comment: '#72858C', op: '#8A9BA1',
-      ansi: { red: '#F955AB', green: '#5BB7A4', yellow: '#CE8C54', blue: '#6899C9', magenta: '#D0A4DB', cyan: '#28A4A3' },
+      ansi: { red: '#F958AC', green: '#5BB7A4', yellow: '#CE8C54', blue: '#6B9CCC', magenta: '#D0A4DB', cyan: '#2CA7A6' },
     },
     light: {
       bg: '#F8FAFD', bgElev: '#EEF2F7', bgChrome: '#E3E9F1', fg: '#162227',
@@ -219,7 +219,7 @@ export const FAMILIES = [
       bg: '#04090C', bgElev: '#0D1418', bgChrome: '#020608', fg: '#C4D5D4',
       keyword: '#11D9A9', func: '#AEBD0F', string: '#3AB2F2', type: '#9291F2',
       number: '#FA6051', tag: '#1BA4AF', comment: '#728786', op: '#8A9D9C',
-      ansi: { red: '#FA6051', green: '#11D9A9', yellow: '#AEBD0F', blue: '#3AB2F2', magenta: '#9291F2', cyan: '#1BA4AF' },
+      ansi: { red: '#FA6353', green: '#11D9A9', yellow: '#AEBD0F', blue: '#3AB2F2', magenta: '#9291F2', cyan: '#1EA5B0' },
     },
     light: {
       bg: '#F5FAFA', bgElev: '#EBF2F2', bgChrome: '#E0EAEA', fg: '#172221',
@@ -234,7 +234,7 @@ export const FAMILIES = [
       bg: '#0C0806', bgElev: '#171110', bgChrome: '#070403', fg: '#DDCFCD',
       keyword: '#E8CC6A', func: '#F2A854', string: '#F88A63', type: '#F7616A',
       number: '#F95A93', tag: '#12A3E0', comment: '#907F7D', op: '#A59694',
-      ansi: { red: '#F7616A', green: '#0AB84C', yellow: '#E8CC6A', blue: '#12A3E0', magenta: '#F95A93', cyan: '#14B2B1' },
+      ansi: { red: '#F9626B', green: '#0AB84C', yellow: '#E8CC6A', blue: '#12A3E0', magenta: '#F95D94', cyan: '#14B2B1' },
     },
     light: {
       bg: '#FAF6F2', bgElev: '#F1ECE6', bgChrome: '#E8E1D9', fg: '#251C1B',
@@ -251,7 +251,7 @@ export const FAMILIES = [
       keyword: '#FFF6E4', func: '#EBD3AE', string: '#FA8D6A', type: '#CFB48A',
       number: '#FF9463', tag: '#B39970', comment: '#9C8665', op: '#A68F6B',
       status: { error: '#FF6B4A', warn: '#FFC24A', info: '#FFF6E4', ok: '#D8C49A' },
-      ansi: { red: '#F86D42', green: '#B8B060', yellow: '#FFC24A', blue: '#9DAFC0', magenta: '#D69A8C', cyan: '#8FBAB0' },
+      ansi: { red: '#FA7146', green: '#B8B060', yellow: '#FFC24A', blue: '#9DAFC0', magenta: '#D69A8C', cyan: '#8FBAB0' },
     },
     light: {
       bg: '#EDE6D6', bgElev: '#E4DCC9', bgChrome: '#DAD1BC', fg: '#2C2318',
@@ -289,7 +289,7 @@ export const FAMILIES = [
       fgDim: '#999B9F', fgFaint: '#7C7D81', accent: '#F0B75A',
       keyword: '#8E939E', func: '#F0B75A', string: '#9EB096', type: '#A8B8A0',
       number: '#B9A6E8', tag: '#6FC7E0', comment: '#7C808A', op: '#83888F',
-      ansi: { red: '#E8756B', green: '#96A88E', yellow: '#F0B75A', blue: '#6FC7E0', magenta: '#B9A6E8', cyan: '#5FC4B0' },
+      ansi: { red: '#EB786D', green: '#96A88E', yellow: '#F0B75A', blue: '#6FC7E0', magenta: '#B9A6E8', cyan: '#5FC4B0' },
     },
     light: {
       bg: '#F4F2ED', bgElev: '#EAE7E0', bgChrome: '#DFDBD2', fg: '#2E3036',
@@ -309,7 +309,7 @@ export const FAMILIES = [
       number: '#D2BC94', tag: '#A69574', comment: '#7E7566', op: '#938977',
       depth: ['#E0D3B0', '#C99C55', '#C4674A', '#93A468', '#8E96A8', '#B18FC0'],
       status: { error: '#D9866B', warn: '#C99C55', info: '#8E96A8', ok: '#93A468' },
-      ansi: { red: '#DC7C5D', green: '#93A468', yellow: '#C99C55', blue: '#8F97A9', magenta: '#B18FC0', cyan: '#7FA89C' },
+      ansi: { red: '#DE7D5E', green: '#93A468', yellow: '#C99C55', blue: '#9098AA', magenta: '#B18FC0', cyan: '#7FA89C' },
     },
     light: {
       bg: '#EFE9DC', bgElev: '#E5DECE', bgChrome: '#DAD2BF', fg: '#241F16',
@@ -329,7 +329,7 @@ export const FAMILIES = [
       accent: '#F09A18',
       keyword: '#64AEF9', func: '#EAECF0', string: '#66C070', type: '#A585EC',
       number: '#F09A18', tag: '#FA6362', comment: '#767D89', op: '#8D95A1',
-      ansi: { red: '#FA6362', green: '#66C070', yellow: '#F09A18', blue: '#5AA6F0', magenta: '#A585EC', cyan: '#4FC2CE' },
+      ansi: { red: '#F96967', green: '#66C070', yellow: '#F09A18', blue: '#5AA6F0', magenta: '#A888EF', cyan: '#4FC2CE' },
     },
     light: {
       bg: '#F5F6F9', bgElev: '#EBEDF2', bgChrome: '#E0E3EA', fg: '#22262E',
@@ -348,7 +348,7 @@ export const FAMILIES = [
       keyword: '#8A8173', func: '#F5EEDE', string: '#D9A94A', type: '#A19788',
       number: '#D9A94A', tag: '#D68164', comment: '#837A6C', op: '#8A8173',
       status: { error: '#CF7A5E', warn: '#C9A24A', info: '#8FA0B8', ok: '#9AA87C' },
-      ansi: { red: '#D68164', green: '#9AA87C', yellow: '#D98C4A', blue: '#8FA0B8', magenta: '#B08FA8', cyan: '#7FA69E' },
+      ansi: { red: '#D98466', green: '#9AA87C', yellow: '#D98C4A', blue: '#8FA0B8', magenta: '#B190A9', cyan: '#7FA69E' },
     },
     light: {
       bg: '#EDE4CE', bgElev: '#E3D9C0', bgChrome: '#D7CBAE', fg: '#2A241A',
@@ -387,7 +387,7 @@ export const FAMILIES = [
       keyword: '#D8A83C', func: '#E4DFD2', string: '#B8A88C', type: '#A8B0A0',
       number: '#D89A6A', tag: '#C0A0B8', comment: '#83807A', op: '#9A968E',
       status: { error: '#D07A6A', warn: '#D8A83C', info: '#8FA6C0', ok: '#8FB080' },
-      ansi: { red: '#D47E6E', green: '#8FB080', yellow: '#D8A83C', blue: '#8FA6C0', magenta: '#C0A0B8', cyan: '#80AEA6' },
+      ansi: { red: '#E18A79', green: '#8FB080', yellow: '#D8A83C', blue: '#8FA6C0', magenta: '#C0A0B8', cyan: '#80AEA6' },
     },
     light: {
       bg: '#FDFDFB', bgElev: '#D6D1C6', bgChrome: '#C6C0B2', fg: '#1F1E1A',
@@ -406,7 +406,7 @@ export const FAMILIES = [
       accent: '#FF5C4D',
       keyword: '#6E8079', func: '#5FD8C0', string: '#93B4CA', type: '#8E9CBE',
       number: '#FF5C4D', tag: '#FFA03C', comment: '#6E7B76', op: '#849690',
-      ansi: { red: '#FF5C4D', green: '#5FD8C0', yellow: '#FFA03C', blue: '#8E9CBE', magenta: '#C08FD0', cyan: '#63C8C8' },
+      ansi: { red: '#FA6756', green: '#5FD8C0', yellow: '#FFA03C', blue: '#8E9CBE', magenta: '#C08FD0', cyan: '#63C8C8' },
     },
     light: {
       bg: '#F3F8F5', bgElev: '#E8EFEB', bgChrome: '#DCE5E0', fg: '#1D2622',
@@ -476,7 +476,7 @@ export const FAMILIES = [
       accent: '#FF63B4',
       keyword: '#FA80BB', func: '#FFEE3C', string: '#3FC97E', type: '#5FBCC4',
       number: '#FF7F42', tag: '#A289DB', comment: '#847C6C', op: '#9C9382',
-      ansi: { red: '#FF6A5C', green: '#3FC97E', yellow: '#FFEE3C', blue: '#7C93E8', magenta: '#FF63B4', cyan: '#5FBCC4' },
+      ansi: { red: '#FF6A5C', green: '#3FC97E', yellow: '#FFEE3C', blue: '#7D94E9', magenta: '#FF63B4', cyan: '#5FBCC4' },
     },
     light: {
       bg: '#F5F0E4', bgElev: '#ECE5D5', bgChrome: '#E0D8C4', fg: '#211E16',
