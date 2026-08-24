@@ -797,7 +797,7 @@ What is measured, on all 58 variants:
   4.5 to 1, comments clear 4.0. The lowest value anywhere is 4.53.
 - **Separation.** CIEDE2000 between every pair of coloured roles, and between
   every pair of families so no two look like each other.
-- **Coverage.** All 729 colour keys registered in the running VS Code build,
+- **Coverage.** All 964 colour keys registered in the running VS Code build,
   including the chat, agents, inline edit and modern tab surfaces that most
   themes leave to the defaults.
 

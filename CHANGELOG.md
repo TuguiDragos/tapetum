@@ -2,7 +2,7 @@
 
 ## [1.0.0]
 
-58 themes instead of 8, five different ways of colouring code instead of one, a
+58 themes instead of 8, six different ways of colouring code instead of one, a
 high contrast pair, and a verification pass that found bugs in the first release.
 
 ### Added
@@ -223,6 +223,22 @@ hand written list.
   Each one now stops at the largest step that still clears 3.2 to 1 on the real
   terminal background, and the APCA floor for terminal colours is measured there
   too rather than against the editor.
+- **Every branch pill in the Source Control graph was unreadable, in all 58
+  themes.** VS Code draws `scmGraph.historyItemRefColor` as the pill background
+  and writes the label in `scmGraph.historyItemHoverLabelForeground`, which
+  defaults to the panel background. Tapetum had the two the other way round, so a
+  light theme produced a black pill with black text and a dark theme a pale pill
+  with pale text. The worst measured 1.00 to 1, meaning fully invisible. All 174
+  pills now clear 4.5 to 1 and the three ref colours are at least 12 delta E apart.
+- **The graph curves used syntax colours**, which in the near monochrome families
+  made the branches indistinguishable. They now follow the bracket depth ramp,
+  which is guaranteed to be distinct in every theme.
+- **The remote indicator in the status bar could read as success or as error.**
+  It was tied to the theme accent, which comes out green in Persistence and
+  Noctiluca and red in Cochineal, Riso and Effect, on a chip that also says
+  Disconnected. 21 of 58 were affected. The indicator now falls back to the
+  theme's info colour, and to a blue if that is green too, so no theme can claim a
+  state the label contradicts.
 - **No rule is dead any more.** Before this pass, 2 rules never won for any real
   scope. Microsoft's own themes carry between 7 and 21 such rules each.
 - Contrast raised on `statusBar.noFolderForeground`, the testing error badge,

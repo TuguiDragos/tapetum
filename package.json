@@ -1,7 +1,7 @@
 {
   "name": "tapetum",
   "displayName": "Tapetum Theme",
-  "description": "58 themes for VS Code and Open VSX. 28 families in dark and light, 2 high contrast variants, and 5 ways of colouring code: by grammar, by where a symbol came from, by whether it can change, by side effect, and by tone alone. Measured contrast, all 964 colour keys covered.",
+  "description": "58 themes for VS Code, Cursor, VSCodium and Windsurf, drawn from things that actually make colour. 28 families in dark and light, placed by hand, plus a high contrast pair.",
   "version": "1.0.0",
   "publisher": "tuguidragos",
   "license": "MIT",
@@ -38,6 +38,8 @@
     "phosphor",
     "emission",
     "vscodium",
+    "cursor",
+    "windsurf",
     "open-vsx",
     "developer-experience",
     "italic",

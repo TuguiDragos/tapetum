@@ -403,10 +403,7 @@ function chrome(t) {
     'statusBarItem.prominentForeground': fg,
     'statusBarItem.prominentHoverBackground': alphaOf(fg, 0.2),
     'statusBarItem.prominentHoverForeground': fg,
-    'statusBarItem.remoteBackground': acc,
-    'statusBarItem.remoteForeground': onAcc,
-    'statusBarItem.remoteHoverBackground': up(acc, 0.12),
-    'statusBarItem.remoteHoverForeground': onAcc,
+    ...remoteIndicator(t),
     'statusBarItem.errorBackground': st.error,
     'statusBarItem.errorForeground': onColor(st.error),
     'statusBarItem.errorHoverBackground': up(st.error, 0.1),
@@ -605,17 +602,9 @@ function integrations(t) {
     'terminal.ansiBrightWhite': dark ? fg : mixOf(fg, bg, 0.72),
 
     ...gitDecorations(t),
-    'scmGraph.historyItemHoverLabelForeground': fg,
-    'scmGraph.foreground1': y.func,
-    'scmGraph.foreground2': y.keyword,
-    'scmGraph.foreground3': y.type,
-    'scmGraph.foreground4': y.number,
-    'scmGraph.foreground5': y.tag,
+    ...scmGraphColors(t),
     'scmGraph.historyItemHoverAdditionsForeground': st.added,
     'scmGraph.historyItemHoverDeletionsForeground': st.deleted,
-    'scmGraph.historyItemRefColor': y.func,
-    'scmGraph.historyItemRemoteRefColor': y.type,
-    'scmGraph.historyItemBaseRefColor': y.keyword,
 
     ...diffWashes(t),
     'diffEditor.insertedLineBackground': alphaOf(st.added, dark ? 0.07 : 0.08),
@@ -1246,4 +1235,67 @@ function applyHighContrast(all, t) {
   all['widget.shadow'] = '#00000000';
   all['scrollbar.shadow'] = '#00000000';
   for (const k of ['shadow.sm', 'shadow.md', 'shadow.lg', 'shadow.xl']) if (k in all) all[k] = '#00000000';
+}
+
+function scmGraphColors(t) {
+  const { elev, depth, y, legible } = t;
+  const hueOf = (c) => hex2lch(c)[2];
+  const dist = (a, b) => { const d = Math.abs(a - b); return d > 180 ? 360 - d : d; };
+  const pool = [y.keyword, y.func, y.string, y.type, y.number, y.tag, ...depth];
+
+  const pick = (target, taken) => {
+    const ranked = pool
+      .map((c) => ({ c, d: dist(hueOf(c), target) }))
+      .sort((a, b) => a.d - b.d);
+    for (const { c } of ranked) {
+      const badge = legible(c, elev, 4.6);
+      if (taken.every((u) => deltaE(badge, u) >= 12)) return badge;
+    }
+    const [L, C, h] = hex2lch(ranked[0].c);
+    for (let turn = 40; turn <= 320; turn += 40) {
+      const cand = legible(lch2hex(L, Math.max(C, 34), (h + turn) % 360), elev, 4.6);
+      if (taken.every((u) => deltaE(cand, u) >= 14)) return cand;
+    }
+    return legible(ranked[0].c, elev, 4.6);
+  };
+
+  const local = pick(250, []);
+  const remote = pick(300, [local]);
+  const base = pick(40, [local, remote]);
+
+  const lines = {};
+  depth.slice(0, 5).forEach((c, i) => { lines[`scmGraph.foreground${i + 1}`] = legible(c, elev, 3.2); });
+
+  return {
+    ...lines,
+    'scmGraph.historyItemRefColor': local,
+    'scmGraph.historyItemRemoteRefColor': remote,
+    'scmGraph.historyItemBaseRefColor': base,
+    'scmGraph.historyItemHoverLabelForeground': elev,
+  };
+}
+
+function remoteIndicator(t) {
+  const { acc, st, onColor, up } = t;
+  const [, chroma, hue] = hex2lch(acc);
+  const readsAsOk = chroma > 18 && hue > 95 && hue < 175;
+  const readsAsError = chroma > 18 && (hue < 35 || hue > 345);
+  const risky = (c) => {
+    const [, ch, h] = hex2lch(c);
+    const green = ch > 18 && h > 95 && h < 175;
+    const red = ch > 18 && (h < 35 || h > 345);
+    return green || red || Math.min(deltaE(c, st.ok), deltaE(c, st.error), deltaE(c, st.warn)) < 14;
+  };
+  let base = risky(acc) ? st.info : acc;
+  if (risky(base)) {
+    const [L, C, h] = hex2lch(base);
+    base = lch2hex(L, Math.max(C, 26), 250);
+    if (risky(base)) base = lch2hex(L, Math.max(C, 26), 265);
+  }
+  return {
+    'statusBarItem.remoteBackground': base,
+    'statusBarItem.remoteForeground': onColor(base),
+    'statusBarItem.remoteHoverBackground': up(base, 0.12),
+    'statusBarItem.remoteHoverForeground': onColor(up(base, 0.12)),
+  };
 }
