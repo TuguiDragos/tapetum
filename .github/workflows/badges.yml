@@ -1,0 +1,45 @@
+name: Badges
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: badges
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Read both registries and redraw the badges
+        run: node tools/build-badges.mjs
+
+      - name: Commit only if a number moved
+        run: |
+          for f in readme-assets/badge-vscode.json readme-assets/badge-openvsx.json; do
+            if [ ! -f "$f" ]; then
+              echo "::error::$f was not written, the generator changed shape"
+              exit 1
+            fi
+          done
+          if [ -z "$(git status --porcelain -- readme-assets/badge-vscode.json readme-assets/badge-openvsx.json)" ]; then
+            echo "nothing moved"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add readme-assets/badge-vscode.json readme-assets/badge-openvsx.json
+          git commit -m "refresh the download badges" \
+            -m "Co-authored-by: Țugui Dragoș <contact@tuguidragos.com>"
+          git push

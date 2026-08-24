@@ -4,7 +4,7 @@ import * as borrow from './scheme-borrow.mjs';
 import * as effect from './scheme-effect.mjs';
 import * as signal from './scheme-signal.mjs';
 import * as tone from './scheme-tone.mjs';
-import { hex2lch, contrast, mix, readable } from './color.mjs';
+import { hex2lch, lch2hex, contrast, mix, readable } from './color.mjs';
 
 const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
@@ -88,7 +88,7 @@ export function buildTokenColors(y) {
     { name: 'PHP and shell variables', ...S(['variable.other.php', 'punctuation.definition.variable.php', 'variable.other.normal.shell', 'punctuation.definition.variable.shell'], y.number) },
     { name: 'SQL keywords', ...S(['keyword.other.DML', 'keyword.other.DDL', 'keyword.other.sql'], y.keyword) },
     { name: 'GraphQL and Terraform blocks', ...S(['keyword.other.block.graphql', 'entity.name.type.graphql', 'entity.name.type.terraform', 'storage.type.function.terraform'], y.type) },
-    { name: 'Markdown headings', ...S(['markup.heading', 'entity.name.section.markdown', 'punctuation.definition.heading.markdown'], y.keyword, 'bold') },
+    { name: 'Markdown headings', ...S(['markup.heading', 'entity.name.section.markdown', 'punctuation.definition.heading.markdown'], y.heading, 'bold') },
     { name: 'Markdown bold', ...S(['markup.bold', 'punctuation.definition.bold'], y.number, 'bold') },
     { name: 'Markdown italic', ...S(['markup.italic', 'punctuation.definition.italic'], y.tag, 'italic') },
     { name: 'Markdown strikethrough', ...S(['markup.strikethrough'], y.comment, 'strikethrough') },
@@ -205,12 +205,35 @@ const SCHEMES = {
   provenance: wrap(provenance), borrow: wrap(borrow), effect: wrap(effect), signal: wrap(signal), tone: wrap(tone),
 };
 
+function capToBody(accent, body, bg) {
+  const ceiling = contrast(body, bg);
+  if (contrast(accent, bg) <= ceiling) return accent;
+  let best = accent;
+  for (let k = 0.02; k <= 0.9; k += 0.02) {
+    best = mix(accent, bg, k);
+    if (contrast(best, bg) <= ceiling) return best;
+  }
+  return best;
+}
+
+function tameHeadings(rules, body, bg) {
+  return rules.map((rule) => {
+    const scope = Array.isArray(rule.scope) ? rule.scope : [rule.scope || ''];
+    if (!scope.some((x) => x.startsWith('markup.heading') || x.startsWith('entity.name.section') || x.startsWith('heading'))) return rule;
+    const fg = rule.settings?.foreground;
+    if (!fg) return rule;
+    const tamed = capToBody(fg, body, bg);
+    return tamed === fg ? rule : { ...rule, settings: { ...rule.settings, foreground: tamed } };
+  });
+}
+
 export function emitTheme(spec) {
   const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark');
   const full = { ...spec, status: st, ansi: spec.ansi };
   const y = {};
   for (const [k, v] of Object.entries(spec.syntax)) y[k] = typeof v === 'string' ? v : v.hex;
   y.st = st;
+  y.heading = capToBody(y.keyword, spec.fg, spec.bg);
   const scheme = SCHEMES[spec.scheme || 'grammar'];
   return {
     $schema: 'vscode://schemas/color-theme',
@@ -218,7 +241,7 @@ export function emitTheme(spec) {
     type: spec.variant,
     semanticHighlighting: true,
     colors: buildColors({ ...full, syntax: y }),
-    tokenColors: scheme.tokenColors(y, spec.palette),
+    tokenColors: tameHeadings(scheme.tokenColors(y, spec.palette), spec.fg, spec.bg),
     semanticTokenColors: scheme.semanticTokenColors(y, spec.palette),
   };
 }

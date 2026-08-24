@@ -1,5 +1,95 @@
 # Changelog
 
+## [1.0.1]
+
+Most of this release came from someone opening the themes in a real editor and
+saying what hurt. That turned out to be a better test than any of the measuring
+tools, which had been reporting everything clean.
+
+### Added
+
+**Download counts under the title.** Two small badges, a box for installs on the
+Marketplace and a downward arrow for downloads on Open VSX. The two shapes are
+deliberate: the numbers count different things, and a reader should sense that
+before reading the labels. Open VSX counts every fetch of the file, including
+robots and mirrors, while the Marketplace counts people who actually installed
+it, so the two will never line up and are not meant to be compared.
+
+They refresh themselves. A workflow reads both registries each morning, and
+commits only if a number actually moved, so the history does not fill up with
+noise. The commit is made by the bot but credits the repository owner as
+co-author, because the tooling behind it is his work.
+
+Getting there was less obvious than it sounds. Hand drawn badge files turned out
+to be impossible: the Marketplace refuses any README that points at an SVG from
+outside its own list of trusted badge providers, and the packaging step catches
+it, so the whole thing would have failed at publish time. Shields.io has also
+quietly retired every Visual Studio Marketplace badge it used to serve. Neither
+registry publishes a monthly figure either, only a running total.
+
+### Fixed
+
+**Diffs were hard to read.** In the diff editor a changed word sits on two
+tinted layers at once, the tint for the whole line and a stronger one for the
+word itself. Nothing in the tooling had ever looked at the two of them together,
+only at each on its own, so this went unnoticed. Comments were the worst hit,
+dropping to 3.14 against inserted text in Fraunhofer and to 2.72 somewhere in
+the collection.
+
+The awkward part is that comments are placed right at their contrast floor on
+purpose, so they recede. That leaves no headroom at all: any tint, however
+faint, pushes them under. There is no arrangement that keeps both the tint and
+the full contrast, so the tints are now chosen to hold every theme above the
+level that was reported as too low, and no theme is worse than the one that
+started the complaint.
+
+**Brackets looked like a rainbow.** Six colours, each a sixth of the way around
+the colour wheel, with the saturation forced up. In a warm, almost monochrome
+family like Safelight that meant green and cyan brackets in a theme that has
+neither. VS Code itself only ships three bracket colours and repeats them, which
+is the sensible thing to do, so Tapetum does that now, picking the three from
+the family's own palette. Indent guides follow the same three. Families that
+chose their own ramp by hand keep it.
+
+**Unused code was almost invisible** rather than merely dimmed. It was being
+drawn at 45 per cent while the VS Code documentation suggests 75. Open a file
+with a lot of unused imports and you could barely read it.
+
+**Markdown headings were the brightest thing on screen.** They borrowed the
+keyword colour, which in several families is lighter than ordinary text, so a
+heading line glared. Headings now follow a simple rule: a heading is never
+allowed more contrast than the body text around it. That was broken in 27 of the
+58 themes.
+
+**Errors and warnings shouted.** The colours they used were pushed hard enough
+that in Cherenkov Light the error colour had drifted all the way to magenta.
+Squiggles and small icons appear everywhere, so they are now calmed down. The
+underlying status colour is untouched, so git decorations and diff tints keep
+looking like themselves.
+
+**The two halves of a merge conflict looked the same.** In a few themes, current
+and incoming were near enough in colour to be indistinguishable, which rather
+defeats the point. They are now pulled apart, and if the palette has no two
+colours far enough from each other, one of them gets rotated until it does.
+
+**A stale number in the README.** It still claimed 729 colour keys long after
+the count had grown to 964.
+
+**A miscount in the docs.** Both the manifest and the changelog said five ways of
+colouring code. There are six. `signal` had been left off the list.
+
+### Changed
+
+**A shorter store description**, and `cursor` and `windsurf` added to the search
+keywords, since the extension runs in both and those are the words people
+actually type.
+
+**Five new checks in the audit**, so none of the above can creep back. The
+stacked layer check had only ever combined the selection with a few highlights
+and never included comments, which is exactly why the diff problem stayed
+invisible. It now looks at the real diff stack, and the bracket check has been
+taught that three repeating colours is the intended answer, not a bug.
+
 ## [1.0.0]
 
 58 themes instead of 8, six different ways of colouring code instead of one, a

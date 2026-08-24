@@ -47,7 +47,9 @@ function tokens(s) {
   const shadow = sh(0.28);
 
   const y = s.syntax;
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, sel, selSoft, onAcc, onColor, st, y, depth, ansi: s.ansi, shadow, sh, up, dn, dark, editor: {
+  const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
+  const sides = mergeSides({ y: s.syntax, bg, legible });
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, sel, selSoft, onAcc, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -113,15 +115,15 @@ function tokens(s) {
     'editorLightBulbAi.foreground': y.tag,
     'editorBracketMatch.background': alpha(acc, 0.2),
     'editorBracketMatch.border': y.string,
-    'editorBracketHighlight.foreground1': depth[0],
-    'editorBracketHighlight.foreground2': depth[1],
-    'editorBracketHighlight.foreground3': depth[2],
-    'editorBracketHighlight.foreground4': depth[3],
-    'editorBracketHighlight.foreground5': depth[4],
-    'editorBracketHighlight.foreground6': depth[5],
+    'editorBracketHighlight.foreground1': trio[0],
+    'editorBracketHighlight.foreground2': trio[1],
+    'editorBracketHighlight.foreground3': trio[2],
+    'editorBracketHighlight.foreground4': trio[0],
+    'editorBracketHighlight.foreground5': trio[1],
+    'editorBracketHighlight.foreground6': trio[2],
     'editorBracketHighlight.unexpectedBracket.foreground': st.error,
-    'editorBracketPairGuide.background1': alpha(depth[0], 0.28),
-    'editorBracketPairGuide.background2': alpha(depth[1], 0.28),
+    'editorBracketPairGuide.background1': alpha(trio[0], 0.28),
+    'editorBracketPairGuide.background2': alpha(trio[1], 0.28),
     'editorBracketPairGuide.background3': alpha(depth[2], 0.28),
     'editorBracketPairGuide.background4': alpha(depth[3], 0.28),
     'editorBracketPairGuide.background5': alpha(depth[4], 0.28),
@@ -133,15 +135,15 @@ function tokens(s) {
     'editorBracketPairGuide.activeBackground5': alpha(depth[4], 0.6),
     'editorBracketPairGuide.activeBackground6': alpha(depth[5], 0.6),
 
-    'editorError.foreground': st.error,
-    'editorWarning.foreground': st.warn,
+    'editorError.foreground': softStatus(st.error),
+    'editorWarning.foreground': softStatus(st.warn),
     'editorInfo.foreground': st.info,
     'editorHint.foreground': st.ok,
     'editorError.background': alpha(st.error, 0.08),
     'editorWarning.background': alpha(st.warn, 0.08),
     'editorInfo.background': alpha(st.info, 0.08),
-    'problemsErrorIcon.foreground': st.error,
-    'problemsWarningIcon.foreground': st.warn,
+    'problemsErrorIcon.foreground': softStatus(st.error),
+    'problemsWarningIcon.foreground': softStatus(st.warn),
     'problemsInfoIcon.foreground': st.info,
 
     'editorGutter.background': bg,
@@ -166,8 +168,8 @@ function tokens(s) {
     'editorOverviewRuler.modifiedForeground': alpha(st.modified, 0.8),
     'editorOverviewRuler.addedForeground': alpha(st.added, 0.8),
     'editorOverviewRuler.deletedForeground': alpha(st.deleted, 0.8),
-    'editorOverviewRuler.errorForeground': st.error,
-    'editorOverviewRuler.warningForeground': st.warn,
+    'editorOverviewRuler.errorForeground': softStatus(st.error),
+    'editorOverviewRuler.warningForeground': softStatus(st.warn),
     'editorOverviewRuler.infoForeground': st.info,
     'editorOverviewRuler.bracketMatchForeground': y.string,
     'editorOverviewRuler.inlineChatInserted': alpha(st.added, 0.5),
@@ -204,7 +206,7 @@ function tokens(s) {
     'editorInlayHint.typeForeground': legible(mix(y.type, fg, 0.3), mix(bg, y.type, 0.1), 4.5),
     'editorInlayHint.parameterBackground': alpha(y.param, 0.08),
     'editorInlayHint.parameterForeground': legible(mix(y.param, fg, 0.3), mix(bg, y.param, 0.1), 4.5),
-    'editorUnnecessaryCode.opacity': alpha('#000000', 0.55),
+    'editorUnnecessaryCode.opacity': alpha('#000000', 0.77),
     'editorUnnecessaryCode.border': '#00000000',
 
     'editorActionList.background': elev,
@@ -505,8 +507,8 @@ function controls(t) {
     'minimap.findMatchHighlight': y.number,
     'minimap.selectionHighlight': alphaOf(acc, 0.5),
     'minimap.selectionOccurrenceHighlight': alphaOf(acc, 0.3),
-    'minimap.errorHighlight': st.error,
-    'minimap.warningHighlight': st.warn,
+    'minimap.errorHighlight': softStatus(st.error),
+    'minimap.warningHighlight': softStatus(st.warn),
     'minimap.infoHighlight': st.info,
     'minimap.chatEditHighlight': alphaOf(y.tag, 0.4),
     'minimapSlider.background': alphaOf(fg, 0.1),
@@ -549,6 +551,7 @@ function controls(t) {
 }
 
 function integrations(t) {
+  const sides = t.sides;
   const legible = t.legible;
   const onColor = t.onColor;
   const A = t.ansi;
@@ -607,10 +610,6 @@ function integrations(t) {
     'scmGraph.historyItemHoverDeletionsForeground': st.deleted,
 
     ...diffWashes(t),
-    'diffEditor.insertedLineBackground': alphaOf(st.added, dark ? 0.07 : 0.08),
-    'diffEditor.removedLineBackground': alphaOf(st.deleted, dark ? 0.07 : 0.08),
-    'diffEditor.insertedTextBorder': '#00000000',
-    'diffEditor.removedTextBorder': '#00000000',
     'diffEditor.border': line,
     'diffEditor.diagonalFill': line2,
     'diffEditor.unchangedRegionBackground': elev,
@@ -627,10 +626,10 @@ function integrations(t) {
     'multiDiffEditor.background': bg,
     'multiDiffEditor.border': line,
 
-    'merge.currentHeaderBackground': alphaOf(y.type, 0.3),
-    'merge.currentContentBackground': alphaOf(y.type, 0.12),
-    'merge.incomingHeaderBackground': alphaOf(y.func, 0.3),
-    'merge.incomingContentBackground': alphaOf(y.func, 0.12),
+    'merge.currentHeaderBackground': alphaOf(sides.current, 0.3),
+    'merge.currentContentBackground': alphaOf(sides.current, 0.12),
+    'merge.incomingHeaderBackground': alphaOf(sides.incoming, 0.3),
+    'merge.incomingContentBackground': alphaOf(sides.incoming, 0.12),
     'merge.commonHeaderBackground': alphaOf(faint, 0.3),
     'merge.commonContentBackground': alphaOf(faint, 0.12),
     'merge.border': '#00000000',
@@ -1044,13 +1043,14 @@ function tail(t) {
 }
 
 function addendum(t) {
-  const { bg, elev, chrome, over, fg, dim, faint, ghost, line, line2, acc, sel, onAcc, st, y, depth, dark, legible } = t;
+  const { bg, elev, chrome, over, fg, dim, faint, ghost, line, line2, acc, sel, onAcc, st, y, depth, trio, dark, legible } = t;
   const a = (c, k) => alpha(c, k);
   const m = (x, yy, k) => mix(x, yy, k);
   const guides = {};
   for (let i = 2; i <= 6; i++) {
-    guides[`editorIndentGuide.background${i}`] = a(depth[i - 1], 0.22);
-    guides[`editorIndentGuide.activeBackground${i}`] = a(depth[i - 1], 0.55);
+    const hue = trio[(i - 1) % 3];
+    guides[`editorIndentGuide.background${i}`] = a(hue, 0.22);
+    guides[`editorIndentGuide.activeBackground${i}`] = a(hue, 0.55);
   }
   return {
     ...guides,
@@ -1188,16 +1188,99 @@ function depthRamp(roles, bg, dark) {
   return [0, 1, 2, 3, 4, 5].map((n) => lch2hex(target, Math.max(C, 34), (h0 + n * 60) % 360).toUpperCase());
 }
 
-function diffWashes(t) {
-  const { st, bg, dark } = t;
-  const base = dark ? 0.12 : 0.14;
-  for (let k = base; k <= 0.32; k += 0.02) {
-    const ins = alpha(st.added, k), del = alpha(st.deleted, k);
-    if (deltaE(composite(ins, bg), composite(del, bg)) >= 10 || k > 0.3) {
-      return { 'diffEditor.insertedTextBackground': ins, 'diffEditor.removedTextBackground': del };
+function mergeSides(t) {
+  const { y, bg, legible } = t;
+  const pool = [y.type, y.func, y.keyword, y.string, y.number, y.tag].filter(Boolean);
+  const current = legible(pool[0], bg, 3.0);
+  let incoming = null;
+  for (const cand of pool.slice(1)) {
+    const lifted = legible(cand, bg, 3.0);
+    if (deltaE(lifted, current) >= 22) { incoming = lifted; break; }
+  }
+  if (!incoming) {
+    const [L, C, h] = hex2lch(current);
+    for (let turn = 120; turn <= 240; turn += 30) {
+      const cand = legible(lch2hex(L, Math.max(C, 30), (h + turn) % 360), bg, 3.0);
+      if (deltaE(cand, current) >= 22) { incoming = cand; break; }
     }
   }
-  return { 'diffEditor.insertedTextBackground': alpha(st.added, base), 'diffEditor.removedTextBackground': alpha(st.deleted, base) };
+  return { current, incoming: incoming || legible(y.func, bg, 3.0) };
+}
+
+function bracketTrio(t) {
+  const { y, bg, legible, declared } = t;
+  if (declared && declared.length >= 3) return declared.slice(0, 3);
+  const seeds = [y.keyword, y.func, y.type, y.string, y.number, y.tag].filter(Boolean);
+  const out = [];
+  for (const seed of seeds) {
+    const cand = legible(seed, bg, 4.0);
+    if (out.every((c) => deltaE(c, cand) >= 12)) out.push(cand);
+    if (out.length === 3) break;
+  }
+  while (out.length < 3) {
+    const [L, C, h] = hex2lch(out[out.length - 1] || y.keyword);
+    const turn = 60 * out.length;
+    out.push(legible(lch2hex(L, Math.max(C, 22), (h + turn) % 360), bg, 4.0));
+  }
+  return out;
+}
+
+function softStatus(c, cap = 46) {
+  const [L, C, h] = hex2lch(c);
+  return C <= cap ? c : lch2hex(L, cap, h);
+}
+
+function headingColor(t) {
+  const { y, fg } = t;
+  const [Lf] = hex2lch(fg);
+  const [L, C, h] = hex2lch(y.keyword);
+  return lch2hex(Math.min(L, Lf), Math.max(C, 16), h);
+}
+
+function diffWashes(t) {
+  const { st, bg, y } = t;
+  const syntax = [y.keyword, y.string, y.func, y.type, y.number, y.tag, y.op].filter(Boolean);
+  const LINE = 0.10, TEXT = 0.21;
+  const SYNTAX_RESCUE = 3.4, COMMENT_RESCUE = 3.2;
+
+  const at = (scale) => {
+    const lineK = LINE * scale, textK = TEXT * scale;
+    const insLine = alpha(st.added, lineK), delLine = alpha(st.deleted, lineK);
+    const grounds = [composite(insLine, bg), composite(delLine, bg)];
+    const insText = alpha(st.added, textK), delText = alpha(st.deleted, textK);
+    grounds.push(composite(insText, grounds[0]), composite(delText, grounds[1]));
+    return {
+      insLine, delLine, insText, delText,
+      syntax: Math.min(...grounds.flatMap((g) => syntax.map((c) => contrast(c, g)))),
+      comment: y.comment ? Math.min(...grounds.map((g) => contrast(y.comment, g))) : 99,
+    };
+  };
+
+  let pick = at(1);
+  for (let scale = 1; scale >= 0.4; scale -= 0.05) {
+    pick = at(scale);
+    if (pick.syntax >= SYNTAX_RESCUE && pick.comment >= COMMENT_RESCUE) break;
+  }
+
+  return {
+    'diffEditor.insertedLineBackground': pick.insLine,
+    'diffEditor.removedLineBackground': pick.delLine,
+    'diffEditor.insertedTextBackground': pick.insText,
+    'diffEditor.removedTextBackground': pick.delText,
+    'diffEditor.insertedTextBorder': '#00000000',
+    'diffEditor.removedTextBorder': '#00000000',
+  };
+}
+
+function legibleOn(c, ground, target) {
+  if (contrast(c, ground) >= target) return c;
+  const up = relLum(ground) < 0.5;
+  let best = c;
+  for (let k = 0.05; k <= 0.9; k += 0.05) {
+    best = up ? lighten(c, k) : darken(c, k);
+    if (contrast(best, ground) >= target) return best;
+  }
+  return best;
 }
 
 function lightnessFor(cr, bg) {

@@ -90,11 +90,12 @@ for (const f of FAMILIES) {
     note(th.colors['editorCursor.foreground'].toLowerCase() === wantAccent,
       `${f.label} ${v}: accentul nu s-a aplicat`);
     const d = [1, 2, 3, 4, 5, 6].map((i) => th.colors['editorBracketHighlight.foreground' + i].toLowerCase());
-    if (p.depth) note(JSON.stringify(d) === JSON.stringify(p.depth.map((c) => c.toLowerCase())),
+    if (p.depth) note(JSON.stringify(d.slice(0, 3)) === JSON.stringify(p.depth.slice(0, 3).map((c) => c.toLowerCase())),
       `${f.label} ${v}: rampa de adancime declarata nu s-a aplicat`);
-    note(new Set(d).size === 6, `${f.label} ${v}: rampa de adancime are niveluri identice`);
+    note(new Set(d).size === 3, `${f.label} ${v}: parantezele nu au exact 3 culori distincte`);
+    note(d[0] === d[3] && d[1] === d[4] && d[2] === d[5], `${f.label} ${v}: parantezele nu cicleaza dupa 3`);
     if (p.status) {
-      note(th.colors['editorError.foreground'].toLowerCase() === p.status.error.toLowerCase(),
+      note(th.colors['gitDecoration.deletedResourceForeground'].toLowerCase() === p.status.error.toLowerCase(),
         `${f.label} ${v}: statusul explicit nu s-a aplicat`);
     }
   }

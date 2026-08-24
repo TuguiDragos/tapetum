@@ -8,6 +8,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 const RAW = 'https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets';
 const badges = fs.readFileSync(path.join(HERE, 'readme-badges.html'), 'utf8').trimEnd();
+const downloads = fs.readFileSync(path.join(HERE, 'readme-downloads.html'), 'utf8').trimEnd();
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
 const VARIANTS = ['dark', 'light', 'hcDark', 'hcLight'];
 const THEME_COUNT = FAMILIES.reduce((n, f) => n + VARIANTS.filter((k) => f[k]).length, 0);
@@ -64,6 +65,8 @@ const md = `${badges}
   <img src="${RAW}/tapetum-fan-512.png" alt="" width="56" align="center" />
   &nbsp;${pkg.displayName}
 </h1>
+
+${downloads}
 
 <p align="center">
   <b>${THEME_COUNT} themes for VS Code and Open VSX, drawn from things that actually make colour.</b>
