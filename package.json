@@ -2,7 +2,7 @@
   "name": "tapetum",
   "displayName": "Tapetum Theme",
   "description": "58 themes for VS Code, Cursor, VSCodium and Windsurf, drawn from things that actually make colour. 28 families in dark and light, placed by hand, plus a high contrast pair.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "tuguidragos",
   "license": "MIT",
   "icon": "readme-assets/tapetum-fan-512.png",
