@@ -22,11 +22,9 @@
   "keywords": [
     "theme",
     "color-theme",
-    "colour-theme",
     "dark-theme",
     "light-theme",
     "editor-theme",
-    "syntax-theme",
     "syntax-highlighting",
     "semantic-highlighting",
     "semantic-tokens",
@@ -49,10 +47,12 @@
     "italic",
     "minimal",
     "monochrome",
-    "pastel",
     "spectrum",
     "phosphor",
-    "emission"
+    "emission",
+    "colour-theme",
+    "syntax-theme",
+    "pastel"
   ],
   "repository": {
     "type": "git",
