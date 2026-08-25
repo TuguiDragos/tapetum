@@ -146,7 +146,7 @@ function tokens(s) {
     'problemsWarningIcon.foreground': softStatus(st.warn),
     'problemsInfoIcon.foreground': st.info,
 
-    'editorGutter.background': bg,
+    'editorGutter.background': '#00000000',
     'editorGutter.modifiedBackground': st.modified,
     'editorGutter.addedBackground': st.added,
     'editorGutter.deletedBackground': st.deleted,
@@ -157,8 +157,8 @@ function tokens(s) {
     'editorGutter.itemBackground': alpha(acc, 0.14),
     'editorGutter.itemGlyphForeground': fg,
 
-    'editorOverviewRuler.border': '#00000000',
-    'editorOverviewRuler.background': bg,
+    'editorOverviewRuler.border': line,
+    'editorOverviewRuler.background': cellFill(bg, fg, 5),
     'editorOverviewRuler.findMatchForeground': alpha(y.number, 0.6),
     'editorOverviewRuler.rangeHighlightForeground': alpha(acc, 0.4),
     'editorOverviewRuler.selectionHighlightForeground': alpha(acc, 0.4),
@@ -285,11 +285,11 @@ function chrome(t) {
     'list.hoverForeground': fg,
     'list.focusBackground': over,
     'list.focusForeground': fg,
-    'list.focusOutline': '#00000000',
-    'list.focusAndSelectionOutline': '#00000000',
+    'list.focusOutline': alphaOf(acc, 0.55),
+    'list.focusAndSelectionOutline': alphaOf(acc, 0.7),
     'list.focusHighlightForeground': y.string,
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
-    'list.inactiveFocusOutline': '#00000000',
+    'list.inactiveFocusOutline': alphaOf(fg, 0.22),
     'list.highlightForeground': y.string,
     'list.errorForeground': st.error,
     'list.warningForeground': st.warn,
@@ -452,7 +452,7 @@ function controls(t) {
 
     'button.background': acc,
     'button.foreground': onAcc,
-    'button.border': '#00000000',
+    'button.border': alphaOf(fg, 0.12),
     'button.hoverBackground': up(acc, 0.12),
     'button.separator': alphaOf(onAcc, 0.35),
     'button.secondaryBackground': over,
@@ -460,7 +460,7 @@ function controls(t) {
     'button.secondaryHoverBackground': mixOf(over, fg, 0.08),
     'extensionButton.background': acc,
     'extensionButton.foreground': onAcc,
-    'extensionButton.border': '#00000000',
+    'extensionButton.border': alphaOf(fg, 0.12),
     'extensionButton.hoverBackground': up(acc, 0.12),
     'extensionButton.prominentBackground': acc,
     'extensionButton.prominentForeground': onAcc,
@@ -497,13 +497,13 @@ function controls(t) {
     'gauge.errorBackground': alphaOf(st.error, 0.25),
     'gauge.errorForeground': st.error,
 
-    'scrollbar.shadow': '#00000000',
-    'scrollbarSlider.background': alphaOf(fg, 0.16),
-    'scrollbarSlider.hoverBackground': alphaOf(fg, 0.24),
-    'scrollbarSlider.activeBackground': alphaOf(fg, 0.34),
+    'scrollbar.shadow': shadow,
+    'scrollbarSlider.background': sliderTone(bg, fg, 2.0),
+    'scrollbarSlider.hoverBackground': sliderTone(bg, fg, 2.7),
+    'scrollbarSlider.activeBackground': sliderTone(bg, fg, 3.5),
 
     'minimap.background': bg,
-    'minimap.foregroundOpacity': alphaOf('#000000', 1),
+    'minimap.foregroundOpacity': alphaOf('#000000', 0.8),
     'minimap.findMatchHighlight': y.number,
     'minimap.selectionHighlight': alphaOf(acc, 0.5),
     'minimap.selectionOccurrenceHighlight': alphaOf(acc, 0.3),
@@ -511,9 +511,9 @@ function controls(t) {
     'minimap.warningHighlight': softStatus(st.warn),
     'minimap.infoHighlight': st.info,
     'minimap.chatEditHighlight': alphaOf(y.tag, 0.4),
-    'minimapSlider.background': alphaOf(fg, 0.1),
-    'minimapSlider.hoverBackground': alphaOf(fg, 0.16),
-    'minimapSlider.activeBackground': alphaOf(fg, 0.24),
+    'minimapSlider.background': sliderTone(bg, fg, 1.8),
+    'minimapSlider.hoverBackground': sliderTone(bg, fg, 2.4),
+    'minimapSlider.activeBackground': sliderTone(bg, fg, 3.0),
     'minimapGutter.addedBackground': st.added,
     'minimapGutter.modifiedBackground': st.modified,
     'minimapGutter.deletedBackground': st.deleted,
@@ -763,7 +763,7 @@ function assistant(t) {
     'agentsChatInput.placeholderForeground': faint,
     'agentsNewSessionButton.background': acc,
     'agentsNewSessionButton.foreground': onAcc,
-    'agentsNewSessionButton.border': '#00000000',
+    'agentsNewSessionButton.border': alphaOf(fg, 0.14),
     'agentsNewSessionButton.hoverBackground': up(acc, 0.12),
 
     'inlineEdit.gutterIndicator.background': alphaOf(acc, 0.2),
@@ -816,25 +816,25 @@ function assistant(t) {
     'testing.coverCountBadgeForeground': onAcc,
 
     'notebook.editorBackground': bg,
-    'notebook.cellBorderColor': line,
-    'notebook.cellEditorBackground': elev,
-    'notebook.cellHoverBackground': alphaOf(fg, 0.03),
+    'notebook.cellBorderColor': cellFill(bg, fg, 9),
+    'notebook.cellEditorBackground': cellFill(bg, fg, 2.2),
+    'notebook.cellHoverBackground': '#00000000',
     'notebook.cellInsertionIndicator': acc,
     'notebook.cellStatusBarItemHoverBackground': alphaOf(fg, 0.1),
-    'notebook.cellToolbarSeparator': line,
-    'notebook.focusedCellBackground': alphaOf(acc, 0.05),
+    'notebook.cellToolbarSeparator': cellFill(bg, fg, 9),
+    'notebook.focusedCellBackground': '#00000000',
     'notebook.focusedCellBorder': acc,
     'notebook.focusedEditorBorder': acc,
     'notebook.inactiveFocusedCellBorder': line2,
     'notebook.inactiveSelectedCellBorder': line2,
-    'notebook.outputContainerBackgroundColor': elev,
-    'notebook.outputContainerBorderColor': line,
-    'notebook.selectedCellBackground': alphaOf(fg, 0.04),
+    'notebook.outputContainerBackgroundColor': '#00000000',
+    'notebook.outputContainerBorderColor': '#00000000',
+    'notebook.selectedCellBackground': '#00000000',
     'notebook.selectedCellBorder': line2,
     'notebook.symbolHighlightBackground': alphaOf(y.type, 0.16),
-    'notebookScrollbarSlider.background': alphaOf(fg, 0.16),
-    'notebookScrollbarSlider.hoverBackground': alphaOf(fg, 0.24),
-    'notebookScrollbarSlider.activeBackground': alphaOf(fg, 0.34),
+    'notebookScrollbarSlider.background': sliderTone(bg, fg, 1.5),
+    'notebookScrollbarSlider.hoverBackground': sliderTone(bg, fg, 2.4),
+    'notebookScrollbarSlider.activeBackground': sliderTone(bg, fg, 3.0),
     'notebookStatusErrorIcon.foreground': st.error,
     'notebookStatusRunningIcon.foreground': y.func,
     'notebookStatusSuccessIcon.foreground': st.ok,
@@ -1186,6 +1186,31 @@ function depthRamp(roles, bg, dark) {
   const [L, C, h0] = hex2lch(roles.reduce((a, b) => (hex2lch(b)[1] > hex2lch(a)[1] ? b : a)));
   const target = dark ? Math.max(L, 62) : Math.min(L, 48);
   return [0, 1, 2, 3, 4, 5].map((n) => lch2hex(target, Math.max(C, 34), (h0 + n * 60) % 360).toUpperCase());
+}
+
+function sliderTone(bg, fg, target) {
+  let out = bg;
+  for (let k = 0.02; k <= 0.9; k += 0.01) {
+    out = mix(bg, fg, k);
+    if (contrast(out, bg) >= target) return out;
+  }
+  return out;
+}
+
+function sliderAlpha(bg, fg, target) {
+  for (let k = 0.05; k <= 0.9; k += 0.01) {
+    if (deltaE(composite(alpha(fg, k), bg), bg) >= target) return Number(k.toFixed(2));
+  }
+  return 0.5;
+}
+
+function cellFill(bg, fg, target = 3.0) {
+  let out = bg;
+  for (let k = 0.01; k <= 0.3; k += 0.005) {
+    out = mix(bg, fg, k);
+    if (deltaE(out, bg) >= target) return out;
+  }
+  return out;
 }
 
 function mergeSides(t) {
