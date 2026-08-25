@@ -145,6 +145,19 @@ function analyse(fam, v) {
   const diffText = Math.min(...diffGrounds.flatMap((g) => diffSyntax.map((r) => contrast(p[r], g))));
   const diffComment = p.comment ? Math.min(...diffGrounds.map((g) => contrast(p.comment, g))) : 99;
   const diffMark = Math.min(deltaE(ins, insLine), deltaE(del, delLine));
+  const curContent = over(c['merge.currentContentBackground'], eb);
+  const incContent = over(c['merge.incomingContentBackground'], eb);
+  const curHeader = over(c['merge.currentHeaderBackground'], eb);
+  const incHeader = over(c['merge.incomingHeaderBackground'], eb);
+  const mergeGrounds = [curContent, incContent, curHeader, incHeader];
+  const mergeText = Math.min(...mergeGrounds.flatMap((g) => diffSyntax.concat('comment').map((r) => contrast(p[r], g))));
+  const mergeSplit = deltaE(curContent, incContent);
+  const mergePresence = Math.min(deltaE(curContent, eb), deltaE(incContent, eb));
+  out.merge = { split: mergeSplit, presence: mergePresence, text: mergeText };
+  if (mergeText < 2.95) bad('conflict', `text la ${mergeText.toFixed(2)} peste blocurile de conflict`);
+  if (mergePresence < 3) bad('conflict', `blocurile nu se vad pe fundal, ${mergePresence.toFixed(1)} dE`);
+  if (mergeSplit < 3) bad('conflict', `curent si primit la ${mergeSplit.toFixed(1)} dE`);
+
   out.diff = { deltaE: deltaE(insLine, delLine), text: diffText, comment: diffComment, mark: diffMark };
   if (out.diff.deltaE < 2.5) bad('diff', `inserat si sters la ${out.diff.deltaE.toFixed(1)} dE`);
   if (diffText < 3.4) bad('diff', `sintaxa pe fundal de diff la ${diffText.toFixed(2)}`);

@@ -48,7 +48,7 @@ function tokens(s) {
 
   const y = s.syntax;
   const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
-  const sides = mergeSides({ y: s.syntax, bg, legible });
+  const sides = mergeSides({ y: s.syntax, bg, dark, legible });
   return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, sel, selSoft, onAcc, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, editor: {
     foreground: fg,
     descriptionForeground: dim,
@@ -626,12 +626,12 @@ function integrations(t) {
     'multiDiffEditor.background': bg,
     'multiDiffEditor.border': line,
 
-    'merge.currentHeaderBackground': alphaOf(sides.current, 0.3),
-    'merge.currentContentBackground': alphaOf(sides.current, 0.12),
-    'merge.incomingHeaderBackground': alphaOf(sides.incoming, 0.3),
-    'merge.incomingContentBackground': alphaOf(sides.incoming, 0.12),
-    'merge.commonHeaderBackground': alphaOf(faint, 0.3),
-    'merge.commonContentBackground': alphaOf(faint, 0.12),
+    'merge.currentHeaderBackground': alphaOf(sides.current, sides.headerK),
+    'merge.currentContentBackground': alphaOf(sides.current, sides.contentK),
+    'merge.incomingHeaderBackground': alphaOf(sides.incoming, sides.headerK),
+    'merge.incomingContentBackground': alphaOf(sides.incoming, sides.contentK),
+    'merge.commonHeaderBackground': alphaOf(faint, sides.headerK),
+    'merge.commonContentBackground': alphaOf(faint, sides.contentK),
     'merge.border': '#00000000',
     'mergeEditor.change.background': alphaOf(st.added, 0.12),
     'mergeEditor.change.word.background': alphaOf(st.added, 0.22),
@@ -1189,22 +1189,55 @@ function depthRamp(roles, bg, dark) {
 }
 
 function mergeSides(t) {
-  const { y, bg, legible } = t;
+  const { y, bg, dark, legible } = t;
   const pool = [y.type, y.func, y.keyword, y.string, y.number, y.tag].filter(Boolean);
-  const current = legible(pool[0], bg, 3.0);
-  let incoming = null;
-  for (const cand of pool.slice(1)) {
-    const lifted = legible(cand, bg, 3.0);
-    if (deltaE(lifted, current) >= 22) { incoming = lifted; break; }
-  }
-  if (!incoming) {
-    const [L, C, h] = hex2lch(current);
-    for (let turn = 120; turn <= 240; turn += 30) {
-      const cand = legible(lch2hex(L, Math.max(C, 30), (h + turn) % 360), bg, 3.0);
-      if (deltaE(cand, current) >= 22) { incoming = cand; break; }
+  const chroma = Math.max(...pool.map((c) => hex2lch(c)[1]));
+
+  let current, incoming;
+  if (chroma < 16) {
+    const [Lb, , hb] = hex2lch(bg);
+    const away = dark ? 1 : -1;
+    current = lch2hex(Math.min(96, Math.max(6, Lb + away * 34)), Math.min(chroma, 8), hb);
+    incoming = lch2hex(Math.min(96, Math.max(6, Lb + away * 68)), Math.min(chroma, 8), hb);
+  } else {
+    current = legible(pool[0], bg, 3.0);
+    for (const cand of pool.slice(1)) {
+      const lifted = legible(cand, bg, 3.0);
+      if (deltaE(lifted, current) >= 30) { incoming = lifted; break; }
     }
+    if (!incoming) {
+      const [L, C, h] = hex2lch(current);
+      for (let turn = 120; turn <= 240; turn += 20) {
+        const cand = legible(lch2hex(L, Math.max(C, 34), (h + turn) % 360), bg, 3.0);
+        if (deltaE(cand, current) >= 30) { incoming = cand; break; }
+      }
+    }
+    if (!incoming) incoming = legible(y.func, bg, 3.0);
   }
-  return { current, incoming: incoming || legible(y.func, bg, 3.0) };
+
+  const faint = [y.comment, y.keyword, y.string, y.func, y.type, y.number, y.tag].filter(Boolean);
+  const reads = (ground) => Math.min(...faint.map((c) => contrast(c, ground)));
+  const SEPARATION = 12, PRESENCE = 9, FLOOR = 3.0;
+
+  let contentK = 0;
+  for (let k = 0.06; k <= 0.40; k += 0.01) {
+    const cg = composite(alpha(current, k), bg), ig = composite(alpha(incoming, k), bg);
+    if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
+    contentK = Number(k.toFixed(2));
+    if (deltaE(cg, ig) >= SEPARATION && Math.min(deltaE(cg, bg), deltaE(ig, bg)) >= PRESENCE) break;
+  }
+  if (!contentK) contentK = 0.06;
+
+  let headerK = contentK;
+  const headerCap = Math.min(contentK * 1.6, 0.5);
+  for (let k = contentK + 0.01; k <= headerCap; k += 0.01) {
+    const cg = composite(alpha(current, k), bg), ig = composite(alpha(incoming, k), bg);
+    if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
+    headerK = Number(k.toFixed(2));
+  }
+
+  const common = lch2hex(hex2lch(bg)[0] + (dark ? 30 : -30), 4, hex2lch(bg)[2]);
+  return { current, incoming, common, contentK, headerK };
 }
 
 function bracketTrio(t) {

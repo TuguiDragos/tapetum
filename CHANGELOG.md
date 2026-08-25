@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.0.2]
+
+### Fixed
+
+**Merge conflicts were hard to follow.** The two halves of a conflict, the one
+you already have and the one arriving, were tinted so faintly and so similarly
+that in most themes you could not tell where one block ended and the other
+began. In 44 of the 58 they were closer to each other than a person can
+comfortably see, and in 45 the blocks barely stood out from the plain
+background at all.
+
+This was the same mistake as the diff problem, wearing a different hat. The
+rule that was supposed to keep the two sides apart only ever looked at the two
+marker lines, the ones with the angle brackets, and never at the code in
+between, which is the part you actually read. Worse, it measured the colours
+before they were mixed with the background rather than after, so the numbers it
+reported had little to do with what appears on screen.
+
+The colours are now chosen from what actually gets drawn. In families that have
+no hue to spare, like Silverpoint and Stratum, the two sides are separated by
+lightness instead, because forcing opposite hues into a deliberately colourless
+theme both looked wrong and washed out the text.
+
+Eight themes still separate more gently than the rest. They are the ones built
+with almost no colour and with their text sitting right at its contrast floor,
+so there is no amount of tint that both separates the halves and keeps the code
+readable. Readability won. In those themes the written labels and the buttons
+above the conflict carry the meaning and the colour reinforces it.
+
+Text over a conflict is allowed slightly less contrast than elsewhere, because
+a conflict is a state you are in for half a minute while resolving it, and not
+being able to tell the halves apart during that half minute is the worse
+problem.
+
 ## [1.0.1]
 
 Most of this release came from someone opening the themes in a real editor and
