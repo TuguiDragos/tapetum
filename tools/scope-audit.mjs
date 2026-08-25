@@ -8,9 +8,16 @@ import { grammarScopes } from './grammar-scopes.mjs';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 
-const { byLang, real: REAL } = grammarScopes();
+let byLang, REAL, extDir;
+try {
+  ({ byLang, real: REAL } = grammarScopes());
+  extDir = bundledExtensions();
+} catch (err) {
+  console.log('verificarea domeniilor cere gramaticile TextMate din VS Code, care nu este instalat aici');
+  console.log('seteaza VSCODE_APP catre resources/app daca vrei sa ruleze');
+  process.exit(0);
+}
 const VARIANT_KEYS = (f) => ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k]);
-const extDir = bundledExtensions();
 
 const selectorsOf = (rule) => [].concat(rule.scope).map((s) => s.trim()).filter(Boolean);
 const leaf = (sel) => (sel.includes(' ') ? sel.split(/\s+/).pop() : sel);
