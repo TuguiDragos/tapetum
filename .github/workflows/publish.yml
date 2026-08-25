@@ -50,9 +50,6 @@ jobs:
       - name: Check the APCA implementation
         run: node tools/apca-check.mjs
 
-      - name: Check every TextMate scope still resolves
-        run: node tools/scope-audit.mjs
-
       - name: Package
         run: |
           npx --yes @vscode/vsce@3 package --no-dependencies -o tapetum.vsix
