@@ -1,14 +1,14 @@
 export const README_ORDER = [
-  'quantum', 'cochineal', 'fraunhofer', 'persistence', 'anodise', 'passepartout',
+  'selenium', 'hadal', 'effect', 'dichroic', 'cochineal', 'aerogel',
 ];
 
 export const SHOTS = {
-  quantum: ['dark', 'light'],
-  fraunhofer: ['dark', 'light'],
-  persistence: ['dark', 'light'],
-  anodise: ['dark', 'light'],
+  selenium: ['dark', 'light'],
+  hadal: ['dark', 'light'],
+  effect: ['dark', 'light'],
+  dichroic: ['dark', 'light'],
   cochineal: ['dark', 'light'],
-  passepartout: ['dark', 'light'],
+  aerogel: ['dark', 'light'],
 };
 
 export const STORIES = {

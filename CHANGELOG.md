@@ -2,37 +2,44 @@
 
 ## [1.0.2]
 
+A day of looking at the themes rather than measuring them.
+
 ### Fixed
 
-**Merge conflicts were hard to follow.** The two halves of a conflict, the one
-you already have and the one arriving, were tinted so faintly and so similarly
-that in most themes you could not tell where one block ended and the other
-began. In 44 of the 58 they were closer to each other than a person can
-comfortably see, and in 45 the blocks barely stood out from the plain
-background at all.
+**Merge conflicts.** The two halves were too close in colour to tell apart in 44
+of the 58, and neither stood out from the background in 45. The rule only ever
+checked the two marker lines, never the code between them, and compared the
+colours before they were mixed with the background rather than after.
 
-This was the same mistake as the diff problem, wearing a different hat. The
-rule that was supposed to keep the two sides apart only ever looked at the two
-marker lines, the ones with the angle brackets, and never at the code in
-between, which is the part you actually read. Worse, it measured the colours
-before they were mixed with the background rather than after, so the numbers it
-reported had little to do with what appears on screen.
+**Brackets.** Six rainbow colours, so a warm monochrome family drew green and
+cyan brackets. VS Code ships three and repeats them; Tapetum now does the same,
+taking its three from the family's own palette.
 
-The colours are now chosen from what actually gets drawn. In families that have
-no hue to spare, like Silverpoint and Stratum, the two sides are separated by
-lightness instead, because forcing opposite hues into a deliberately colourless
-theme both looked wrong and washed out the text.
+**Unused code** was drawn at 45 per cent where the documentation suggests 75.
 
-Eight themes still separate more gently than the rest. They are the ones built
-with almost no colour and with their text sitting right at its contrast floor,
-so there is no amount of tint that both separates the halves and keeps the code
-readable. Readability won. In those themes the written labels and the buttons
-above the conflict carry the meaning and the colour reinforces it.
+**Markdown headings** outshone body text in 27 of the 58. A heading may now
+never carry more contrast against the background than the text around it.
 
-Text over a conflict is allowed slightly less contrast than elsewhere, because
-a conflict is a state you are in for half a minute while resolving it, and not
-being able to tell the halves apart during that half minute is the worse
-problem.
+**Error and warning colours** were saturated enough that Cherenkov Light had
+drifted to magenta. The thin lines and small icons are capped now.
+
+**Keyboard focus in lists was invisible.** No focus ring, and the focused row
+had the same background as the selected one. An accessibility failure, not a
+matter of taste.
+
+**Buttons had no edge** and the scrolled pane shadow was off. Both restored
+after a key by key comparison with Dark Modern.
+
+**Notebook cells.** The cell is a gently raised surface again, its code on the
+same background it would have in a normal file. The square output box and the
+square overlays painted across cells on focus are gone.
+
+**Sliders were see through.** The one over the minimap let 90 per cent of it
+show through. Each is now built by picking the tone that carries the right
+weight, then painting it solid.
+
+**The strip beside the minimap** had no surface of its own. It has one now, with
+a dividing line, as in Dark Modern.
 
 ## [1.0.1]
 
