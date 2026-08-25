@@ -42,14 +42,30 @@ async function marketplaceOnce() {
   return Math.round(install.value);
 }
 
+async function marketplacePage() {
+  const res = await fetch(`https://marketplace.visualstudio.com/items?itemName=${PUBLISHER}.${NAME}`, {
+    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15' },
+  });
+  if (!res.ok) return null;
+  const html = await res.text();
+  const found = html.match(/([\d,]+)\s*installs?/i);
+  if (!found) return null;
+  const n = Number(found[1].replace(/,/g, ''));
+  return Number.isFinite(n) ? n : null;
+}
+
 async function marketplaceInstalls(attempts = 5) {
   const seen = [];
   for (let i = 0; i < attempts; i += 1) {
     seen.push(await marketplaceOnce());
     if (i < attempts - 1) await new Promise((r) => setTimeout(r, 400));
   }
-  const best = Math.max(...seen);
-  if (new Set(seen).size > 1) console.log(`  marketplace a raspuns ${seen.join(', ')}, iau ${best}`);
+  let page = null;
+  try { page = await marketplacePage(); } catch { page = null; }
+  const best = Math.max(...seen, page ?? 0);
+  if (new Set(seen).size > 1 || (page !== null && page !== seen[0])) {
+    console.log(`  api a raspuns ${seen.join(', ')}, pagina ${page ?? 'indisponibila'}, iau ${best}`);
+  }
   return best;
 }
 
