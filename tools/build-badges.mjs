@@ -25,7 +25,7 @@ const compact = (n) => {
   return String(n);
 };
 
-async function marketplaceInstalls() {
+async function marketplaceOnce() {
   const res = await fetch('https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery', {
     method: 'POST',
     headers: { Accept: 'application/json;api-version=7.2-preview.1', 'Content-Type': 'application/json' },
@@ -40,6 +40,17 @@ async function marketplaceInstalls() {
   const install = stats.find((s) => s.statisticName === 'install');
   if (!install) throw new Error('marketplace nu a returnat statistica de instalari');
   return Math.round(install.value);
+}
+
+async function marketplaceInstalls(attempts = 5) {
+  const seen = [];
+  for (let i = 0; i < attempts; i += 1) {
+    seen.push(await marketplaceOnce());
+    if (i < attempts - 1) await new Promise((r) => setTimeout(r, 400));
+  }
+  const best = Math.max(...seen);
+  if (new Set(seen).size > 1) console.log(`  marketplace a raspuns ${seen.join(', ')}, iau ${best}`);
+  return best;
 }
 
 async function openVsxDownloads() {
