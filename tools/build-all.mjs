@@ -44,6 +44,16 @@ for (const fam of FAMILIES) {
   }
 }
 
+const RANK = { dark: 0, light: 1, hcDark: 2, hcLight: 3 };
+const shelf = (e) => {
+  const m = e.path.match(/^\.\/themes\/(.+)-(dark|light|hcDark|hcLight)\.json$/);
+  return [m[1], RANK[m[2]]];
+};
+contributes.sort((a, b) => {
+  const [fa, ra] = shelf(a), [fb, rb] = shelf(b);
+  return fa === fb ? ra - rb : fa.localeCompare(fb);
+});
+
 const pkgPath = path.join(HERE, '..', 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
 pkg.contributes.themes = contributes;
