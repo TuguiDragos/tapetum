@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.0.4]
+
+VS Code 1.135 moved underneath the themes, and the tooling noticed before any
+person did.
+
+### Fixed
+
+**The key extractor trusted a two letter name.** The minifier renamed the
+colour register function to oe, and a second bundle happened to give the same
+two letters to a function of its own, one that takes API parameter names as
+strings. Sixteen of them walked straight into the registry: uriOrString,
+NotebookData, title, value. The scan now reads registrations only from the
+bundle where the function was actually found, which is where every colour has
+always lived. Verified against 1.135: zero junk in, zero real keys lost.
+
+**The generator undid the alphabetical manifest.** build-all rewrites the
+manifest on every run and wrote the families in the order they were born,
+quietly reverting the order given by hand one release earlier. It sorts now,
+so the order cannot drift again.
+
+### Added
+
+**The modern activity bar has its ground.** 1.135 registers 2 new keys, a
+background and an inactive background for the modern activity bar. Its other
+4 keys were already covered, so only the ground was missing. Both sit on the
+chrome surface, the same one the title bar stands on, and the inactive one
+equals its derivation exactly, so no seam opens in either direction. The
+registry moves from 964 to 966, the render pairs from 81 to 83 with both new
+ones already passing, and every theme now carries 991 keys.
+
 ## [1.0.3]
 
 No colours changed in this release. The numbers that describe them caught up.
