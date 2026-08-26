@@ -190,6 +190,11 @@ note(!fs.readdirSync(path.join(ROOT, 'readme-assets')).some((f) => f.includes('-
 note(readme.includes(`${declared.length} themes`), `README nu spune ${declared.length} themes`);
 note(readme.includes(`${FAMILIES.length} families`) || readme.includes(`All ${FAMILIES.length} families`),
   `README nu spune ${FAMILIES.length} families`);
+note(readme.includes(`all ${ALL_KEYS.length} colour keys`), `README nu spune all ${ALL_KEYS.length} colour keys`);
+const lowestAnywhere = Math.min(...FAMILIES.flatMap((f) => ['dark', 'light', 'hcDark', 'hcLight']
+  .filter((v) => f[v]).flatMap((v) => [...R, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
+note(readme.includes(`the lowest value anywhere is ${lowestAnywhere}`),
+  `README nu spune the lowest value anywhere is ${lowestAnywhere}`);
 note(!readme.includes('\u2014'), 'README contine linie lunga de dialog');
 note(!/^##?\s*License/m.test(readme), 'README are sectiune de licenta');
 const imgs = [...readme.matchAll(/readme-assets\/([\w.-]+)/g)].map((m) => m[1]);

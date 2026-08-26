@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FAMILIES } from './palettes.mjs';
-import { deltaE } from './color.mjs';
+import { contrast, deltaE } from './color.mjs';
 import { STORIES, SOURCES, SHOTS, README_ORDER } from './stories.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -29,6 +29,9 @@ for (const v of ['dark', 'light']) {
   }
 }
 const FAMILY_GAP = Math.floor(closest);
+const KEY_COUNT = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8')).confirmedReal.length;
+const LOWEST = Math.min(...FAMILIES.flatMap((f) => VARIANTS.filter((v) => f[v])
+  .flatMap((v) => [...HUE_ROLES, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
 if (ORDERED.length !== FAMILIES.length) throw new Error('ordinea din README nu acopera toate familiile');
 
 const SCHEME = {
@@ -180,9 +183,9 @@ ${THEME_COUNT} variants:
 
 | | |
 | --- | --- |
-| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.53 |
+| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is ${LOWEST} |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no two look like each other |
-| **Coverage** | all 964 colour keys the running VS Code build registers, including the chat, agents, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Coverage** | all ${KEY_COUNT} colour keys the running VS Code build registers, including the chat, agents, inline edit and modern tab surfaces most themes leave to the defaults |
 
 None of that comes from a hand written list, which would go stale the first time
 VS Code shipped a new surface. \`tools/extract-pairs.mjs\` reads the workbench
