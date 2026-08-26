@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.5]
+
+A person looked at a small diff and asked what that grey pillar was.
+
+### Changed
+
+**The sliders went from solid to glass.** 1.0.2 made every slider opaque,
+because the one over the minimap was letting 90% of it show through. That
+overcorrection sent its bill in the diff editor, where the scrollbar is 30
+pixels wide and always visible: over an 8 line file the slider filled the
+whole track, a solid grey pillar over nothing. The sliders are translucent
+now and firm up under the hand. The scrollbar rests at 40% and reaches 75%
+when dragged, and the minimap window rests at 35%, so the code stays
+visible beneath it. The overview ruler keeps its opaque ground, which
+is what stops long lines from showing through at the right edge, so nothing
+the 1.0.2 fix solved comes back.
+
 ## [1.0.4]
 
 VS Code 1.135 moved underneath the themes, and the tooling noticed before any
@@ -72,7 +89,7 @@ colours before they were mixed with the background rather than after.
 cyan brackets. VS Code ships three and repeats them; Tapetum now does the same,
 taking its three from the family's own palette.
 
-**Unused code** was drawn at 45 per cent where the documentation suggests 75.
+**Unused code** was drawn at 45% where the documentation suggests 75%.
 
 **Markdown headings** outshone body text in 27 of the 58. A heading may now
 never carry more contrast against the background than the text around it.
@@ -91,7 +108,7 @@ after a key by key comparison with Dark Modern.
 same background it would have in a normal file. The square output box and the
 square overlays painted across cells on focus are gone.
 
-**Sliders were see through.** The one over the minimap let 90 per cent of it
+**Sliders were see through.** The one over the minimap let 90% of it
 show through. Each is now built by picking the tone that carries the right
 weight, then painting it solid.
 
@@ -150,7 +167,7 @@ the family's own palette. Indent guides follow the same three. Families that
 chose their own ramp by hand keep it.
 
 **Unused code was almost invisible** rather than merely dimmed. It was being
-drawn at 45 per cent while the VS Code documentation suggests 75. Open a file
+drawn at 45% while the VS Code documentation suggests 75%. Open a file
 with a lot of unused imports and you could barely read it.
 
 **Markdown headings were the brightest thing on screen.** They borrowed the
