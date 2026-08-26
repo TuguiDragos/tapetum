@@ -834,7 +834,7 @@ What a machine is good for is catching what a person misses. On all
 
 | | |
 | --- | --- |
-| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.53 |
+| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.07 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no two look like each other |
 | **Coverage** | all 964 colour keys the running VS Code build registers, including the chat, agents, inline edit and modern tab surfaces most themes leave to the defaults |
 
