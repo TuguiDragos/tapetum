@@ -49,10 +49,7 @@
     "monochrome",
     "spectrum",
     "phosphor",
-    "emission",
-    "colour-theme",
-    "syntax-theme",
-    "pastel"
+    "emission"
   ],
   "repository": {
     "type": "git",
