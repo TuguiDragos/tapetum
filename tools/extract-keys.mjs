@@ -6,12 +6,14 @@ import { appRoot, workbenchJs } from './vscode-path.mjs';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = appRoot();
 
-const probe = fs.readFileSync(workbenchJs(), 'utf8').match(/(\w+)\("editor\.background",\s*\{/);
+const wb = fs.readFileSync(workbenchJs(), 'utf8');
+const probe = wb.match(/(\w+)\("editor\.background",\s*\{/);
 if (!probe) throw new Error('nu am putut identifica functia de inregistrare a culorilor');
 const FN = probe[1];
 const KEY = /^[a-zA-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)*$/;
 
 const registered = new Set();
+for (const m of wb.matchAll(new RegExp(`\\b${FN}\\("([a-zA-Z][A-Za-z0-9.]*)"\\s*,`, 'g'))) registered.add(m[1]);
 const seen = new Set();
 const files = [];
 (function collect(dir, d = 0) {
@@ -26,7 +28,6 @@ const files = [];
 
 for (const f of files) {
   let s; try { s = fs.readFileSync(f, 'utf8'); } catch { continue; }
-  for (const m of s.matchAll(new RegExp(`\\b${FN}\\("([a-zA-Z][A-Za-z0-9.]*)"\\s*,`, 'g'))) registered.add(m[1]);
   for (const m of s.matchAll(/["'`]([a-zA-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)*)["'`]/g)) if (KEY.test(m[1])) seen.add(m[1]);
   for (const m of s.matchAll(/--vscode-([A-Za-z0-9-]+)/g)) {
     const raw = m[1], i = raw.indexOf('-');
