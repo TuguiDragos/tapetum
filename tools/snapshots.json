@@ -1,10 +1,10 @@
 {
  "quantum-dark": {
-  "colors": "41f56354c1550312",
+  "colors": "b124f9529fc653a6",
   "tokenColors": "eb4005650847e419",
   "semanticTokenColors": "258e7567ac961ddd",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -194,6 +194,8 @@
    "activityBarTop.activeBorder": "#CD8FF9",
    "activityBarTop.activeBackground": "#232631",
    "activityBarTop.dropBorder": "#CD8FF9",
+   "modernActivityBar.background": "#070911",
+   "modernActivityBar.inactiveBackground": "#070911",
    "modernActivityBar.activeBackground": "#0B0E1A",
    "modernActivityBar.activeForeground": "#C8D3F5",
    "modernActivityBar.hoverBackground": "#141827",
@@ -1209,11 +1211,11 @@
   }
  },
  "quantum-light": {
-  "colors": "c2f7352e6a62bc73",
+  "colors": "dd93f3c9cb820ecc",
   "tokenColors": "68c3b4cee0dd278d",
   "semanticTokenColors": "7a5e201ba5626d55",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -1403,6 +1405,8 @@
    "activityBarTop.activeBorder": "#7B2CBF",
    "activityBarTop.activeBackground": "#e1e2e6",
    "activityBarTop.dropBorder": "#7B2CBF",
+   "modernActivityBar.background": "#E8EBF4",
+   "modernActivityBar.inactiveBackground": "#E8EBF4",
    "modernActivityBar.activeBackground": "#FAFBFF",
    "modernActivityBar.activeForeground": "#24294A",
    "modernActivityBar.hoverBackground": "#F0F2F9",
@@ -2418,11 +2422,11 @@
   }
  },
  "fraunhofer-dark": {
-  "colors": "925040867d915fb1",
+  "colors": "dfa64eb7becdddac",
   "tokenColors": "9f17a264ffcc3cba",
   "semanticTokenColors": "7eb1b8bf8dd54453",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -2612,6 +2616,8 @@
    "activityBarTop.activeBorder": "#AF9CF9",
    "activityBarTop.activeBackground": "#212328",
    "activityBarTop.dropBorder": "#AF9CF9",
+   "modernActivityBar.background": "#05070B",
+   "modernActivityBar.inactiveBackground": "#05070B",
    "modernActivityBar.activeBackground": "#080A10",
    "modernActivityBar.activeForeground": "#DDE1E8",
    "modernActivityBar.hoverBackground": "#12151D",
@@ -3627,11 +3633,11 @@
   }
  },
  "fraunhofer-light": {
-  "colors": "ba5a8961ecb1f53c",
+  "colors": "69999936d142ebb8",
   "tokenColors": "4b85ab616bc2236f",
   "semanticTokenColors": "abf9771f14eb5752",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -3821,6 +3827,8 @@
    "activityBarTop.activeBorder": "#3A2FC9",
    "activityBarTop.activeBackground": "#e2e1dd",
    "activityBarTop.dropBorder": "#3A2FC9",
+   "modernActivityBar.background": "#EAE9E3",
+   "modernActivityBar.inactiveBackground": "#EAE9E3",
    "modernActivityBar.activeBackground": "#FBFAF6",
    "modernActivityBar.activeForeground": "#1B1D22",
    "modernActivityBar.hoverBackground": "#F2F1EC",
@@ -4836,11 +4844,11 @@
   }
  },
  "persistence-dark": {
-  "colors": "a0f7afbd9dda046e",
+  "colors": "74e9a84d7326ed07",
   "tokenColors": "8a8b1f4cbce30faf",
   "semanticTokenColors": "7495f62281a9f295",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -5030,6 +5038,8 @@
    "activityBarTop.activeBorder": "#7FE33F",
    "activityBarTop.activeBackground": "#232322",
    "activityBarTop.dropBorder": "#7FE33F",
+   "modernActivityBar.background": "#060706",
+   "modernActivityBar.inactiveBackground": "#060706",
    "modernActivityBar.activeBackground": "#0A0B09",
    "modernActivityBar.activeForeground": "#DCE0D8",
    "modernActivityBar.hoverBackground": "#141613",
@@ -6045,11 +6055,11 @@
   }
  },
  "persistence-light": {
-  "colors": "a4bbcd4b41a6def0",
+  "colors": "5eecac0e3b79cafb",
   "tokenColors": "23284dc066113ef4",
   "semanticTokenColors": "b70e202eba97b7b2",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -6239,6 +6249,8 @@
    "activityBarTop.activeBorder": "#3D7A14",
    "activityBarTop.activeBackground": "#dedfdc",
    "activityBarTop.dropBorder": "#3D7A14",
+   "modernActivityBar.background": "#E6E8E1",
+   "modernActivityBar.inactiveBackground": "#E6E8E1",
    "modernActivityBar.activeBackground": "#F7F8F4",
    "modernActivityBar.activeForeground": "#1C1F1A",
    "modernActivityBar.hoverBackground": "#EEEFEA",
@@ -7254,11 +7266,11 @@
   }
  },
  "anodise-dark": {
-  "colors": "ae1558871dcc931d",
+  "colors": "c29d7eb2c7ef6cc9",
   "tokenColors": "df7d8870cd2dd67d",
   "semanticTokenColors": "ca80b94cc1fec71a",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -7448,6 +7460,8 @@
    "activityBarTop.activeBorder": "#E8B54A",
    "activityBarTop.activeBackground": "#242425",
    "activityBarTop.dropBorder": "#E8B54A",
+   "modernActivityBar.background": "#080808",
+   "modernActivityBar.inactiveBackground": "#080808",
    "modernActivityBar.activeBackground": "#0C0C0D",
    "modernActivityBar.activeForeground": "#E2E2E4",
    "modernActivityBar.hoverBackground": "#171718",
@@ -8463,11 +8477,11 @@
   }
  },
  "anodise-light": {
-  "colors": "67e4a5c898f72429",
+  "colors": "67fb31576973f9e0",
   "tokenColors": "382ddbb82a914e6a",
   "semanticTokenColors": "a4e5cbe2ad9613ba",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -8657,6 +8671,8 @@
    "activityBarTop.activeBorder": "#8A5A00",
    "activityBarTop.activeBackground": "#dfdfe0",
    "activityBarTop.dropBorder": "#8A5A00",
+   "modernActivityBar.background": "#E7E7EA",
+   "modernActivityBar.inactiveBackground": "#E7E7EA",
    "modernActivityBar.activeBackground": "#F8F8F9",
    "modernActivityBar.activeForeground": "#1D1D20",
    "modernActivityBar.hoverBackground": "#EFEFF1",
@@ -9672,11 +9688,11 @@
   }
  },
  "coherence-dark": {
-  "colors": "2e17a1dc5c2b2a26",
+  "colors": "c79142f9dbb2d4e1",
   "tokenColors": "b36e60d6f7bcf141",
   "semanticTokenColors": "1fc96f4ba89c810c",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -9866,6 +9882,8 @@
    "activityBarTop.activeBorder": "#16DFF4",
    "activityBarTop.activeBackground": "#1d1d1f",
    "activityBarTop.dropBorder": "#16DFF4",
+   "modernActivityBar.background": "#000000",
+   "modernActivityBar.inactiveBackground": "#000000",
    "modernActivityBar.activeBackground": "#040406",
    "modernActivityBar.activeForeground": "#C9CED6",
    "modernActivityBar.hoverBackground": "#0D0E11",
@@ -10881,11 +10899,11 @@
   }
  },
  "coherence-light": {
-  "colors": "9b8645194e2a5098",
+  "colors": "b21536efd32154b0",
   "tokenColors": "d084275d94ea9a8c",
   "semanticTokenColors": "918e4e6995a52a39",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -11075,6 +11093,8 @@
    "activityBarTop.activeBorder": "#0A5B64",
    "activityBarTop.activeBackground": "#e4e4e5",
    "activityBarTop.dropBorder": "#0A5B64",
+   "modernActivityBar.background": "#EAEBEE",
+   "modernActivityBar.inactiveBackground": "#EAEBEE",
    "modernActivityBar.activeBackground": "#FDFDFE",
    "modernActivityBar.activeForeground": "#16181C",
    "modernActivityBar.hoverBackground": "#F3F4F6",
@@ -12090,11 +12110,11 @@
   }
  },
  "coherence-hcDark": {
-  "colors": "e964850f925b0431",
+  "colors": "82aae251374f0dd0",
   "tokenColors": "e33a8b58a1febec5",
   "semanticTokenColors": "66fa920fca2dbe83",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -12284,6 +12304,8 @@
    "activityBarTop.activeBorder": "#F38518",
    "activityBarTop.activeBackground": "#1a1a1a",
    "activityBarTop.dropBorder": "#6FC3DF",
+   "modernActivityBar.background": "#000000",
+   "modernActivityBar.inactiveBackground": "#000000",
    "modernActivityBar.activeBackground": "#000000",
    "modernActivityBar.activeForeground": "#FFFFFF",
    "modernActivityBar.hoverBackground": "#000000",
@@ -13299,11 +13321,11 @@
   }
  },
  "coherence-hcLight": {
-  "colors": "891ffca591f77ca7",
+  "colors": "86edd83edd0baeaf",
   "tokenColors": "a09090174933c31e",
   "semanticTokenColors": "0b16001c2f7f4280",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -13493,6 +13515,8 @@
    "activityBarTop.activeBorder": "#006BBD",
    "activityBarTop.activeBackground": "#e6e6e6",
    "activityBarTop.dropBorder": "#0F4A85",
+   "modernActivityBar.background": "#FFFFFF",
+   "modernActivityBar.inactiveBackground": "#FFFFFF",
    "modernActivityBar.activeBackground": "#FFFFFF",
    "modernActivityBar.activeForeground": "#000000",
    "modernActivityBar.hoverBackground": "#FFFFFF",
@@ -14508,11 +14532,11 @@
   }
  },
  "valence-dark": {
-  "colors": "a7be8bc62c06586b",
+  "colors": "219d964816783a20",
   "tokenColors": "f63bf0f0b5656af4",
   "semanticTokenColors": "798684d901646aac",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -14702,6 +14726,8 @@
    "activityBarTop.activeBorder": "#F976E7",
    "activityBarTop.activeBackground": "#232226",
    "activityBarTop.dropBorder": "#F976E7",
+   "modernActivityBar.background": "#060509",
+   "modernActivityBar.inactiveBackground": "#060509",
    "modernActivityBar.activeBackground": "#0B090E",
    "modernActivityBar.activeForeground": "#D4D1DC",
    "modernActivityBar.hoverBackground": "#15121B",
@@ -15717,11 +15743,11 @@
   }
  },
  "valence-light": {
-  "colors": "16982692206a4be6",
+  "colors": "1c3c67ca86e845a7",
   "tokenColors": "dfac0f4ee21c6f30",
   "semanticTokenColors": "280fd4423a86a1c3",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -15911,6 +15937,8 @@
    "activityBarTop.activeBorder": "#B70CA8",
    "activityBarTop.activeBackground": "#e3e2e4",
    "activityBarTop.dropBorder": "#B70CA8",
+   "modernActivityBar.background": "#EAE7EF",
+   "modernActivityBar.inactiveBackground": "#EAE7EF",
    "modernActivityBar.activeBackground": "#FCFBFD",
    "modernActivityBar.activeForeground": "#222128",
    "modernActivityBar.hoverBackground": "#F3F1F6",
@@ -16926,11 +16954,11 @@
   }
  },
  "hadal-dark": {
-  "colors": "c57c1226473c1534",
+  "colors": "f9ced573e3958b2e",
   "tokenColors": "2bd328d1f158a7ef",
   "semanticTokenColors": "5ae3bd8423c67eb6",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -17120,6 +17148,8 @@
    "activityBarTop.activeBorder": "#97CCF2",
    "activityBarTop.activeBackground": "#1d2b33",
    "activityBarTop.dropBorder": "#97CCF2",
+   "modernActivityBar.background": "#020D14",
+   "modernActivityBar.inactiveBackground": "#020D14",
    "modernActivityBar.activeBackground": "#04131C",
    "modernActivityBar.activeForeground": "#C6DCE1",
    "modernActivityBar.hoverBackground": "#0C1F2B",
@@ -18135,11 +18165,11 @@
   }
  },
  "hadal-light": {
-  "colors": "b32c26ad79967bc0",
+  "colors": "c6a6c771c74f665c",
   "tokenColors": "74065676dca1d7cc",
   "semanticTokenColors": "60f994965b5dacc0",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -18329,6 +18359,8 @@
    "activityBarTop.activeBorder": "#0A587B",
    "activityBarTop.activeBackground": "#dde1e3",
    "activityBarTop.dropBorder": "#0A587B",
+   "modernActivityBar.background": "#E0EAF0",
+   "modernActivityBar.inactiveBackground": "#E0EAF0",
    "modernActivityBar.activeBackground": "#F6FAFC",
    "modernActivityBar.activeForeground": "#152225",
    "modernActivityBar.hoverBackground": "#EBF2F6",
@@ -19344,11 +19376,11 @@
   }
  },
  "cinnabar-dark": {
-  "colors": "dcdc64fac1c13d23",
+  "colors": "6e20f5b0531d6ad3",
   "tokenColors": "76f77fe2a90e4282",
   "semanticTokenColors": "ac24020e0c3e166a",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -19538,6 +19570,8 @@
    "activityBarTop.activeBorder": "#F28F83",
    "activityBarTop.activeBackground": "#282422",
    "activityBarTop.dropBorder": "#F28F83",
+   "modernActivityBar.background": "#0A0705",
+   "modernActivityBar.inactiveBackground": "#0A0705",
    "modernActivityBar.activeBackground": "#100C09",
    "modernActivityBar.activeForeground": "#DED2CD",
    "modernActivityBar.hoverBackground": "#1B1512",
@@ -20553,11 +20587,11 @@
   }
  },
  "cinnabar-light": {
-  "colors": "03b6991db55e67de",
+  "colors": "418e80aa2fe3cf8f",
   "tokenColors": "917d7026f8519b1f",
   "semanticTokenColors": "c8f8c9f3fda4fe23",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -20747,6 +20781,8 @@
    "activityBarTop.activeBorder": "#BC0D22",
    "activityBarTop.activeBackground": "#e1ded8",
    "activityBarTop.dropBorder": "#BC0D22",
+   "modernActivityBar.background": "#E8E3D7",
+   "modernActivityBar.inactiveBackground": "#E8E3D7",
    "modernActivityBar.activeBackground": "#FAF7F0",
    "modernActivityBar.activeForeground": "#251D19",
    "modernActivityBar.hoverBackground": "#F1EDE4",
@@ -21762,11 +21798,11 @@
   }
  },
  "epitaxy-dark": {
-  "colors": "fffc429e2c3060bd",
+  "colors": "898a4949eece8658",
   "tokenColors": "55ac279e10446691",
   "semanticTokenColors": "eae2cacb396d302f",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -21956,6 +21992,8 @@
    "activityBarTop.activeBorder": "#77ABF9",
    "activityBarTop.activeBackground": "#2c2c33",
    "activityBarTop.dropBorder": "#77ABF9",
+   "modernActivityBar.background": "#0F0F15",
+   "modernActivityBar.inactiveBackground": "#0F0F15",
    "modernActivityBar.activeBackground": "#15151C",
    "modernActivityBar.activeForeground": "#D7DCE5",
    "modernActivityBar.hoverBackground": "#1F1F28",
@@ -22971,11 +23009,11 @@
   }
  },
  "epitaxy-light": {
-  "colors": "58ab20d8d3751f6b",
+  "colors": "f6c74d7a034e8fe1",
   "tokenColors": "f9f78f720f780fc2",
   "semanticTokenColors": "9eaa52fb996be3ad",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -23165,6 +23203,8 @@
    "activityBarTop.activeBorder": "#0A66B2",
    "activityBarTop.activeBackground": "#e2e0d8",
    "activityBarTop.dropBorder": "#0A66B2",
+   "modernActivityBar.background": "#EAE6D6",
+   "modernActivityBar.inactiveBackground": "#EAE6D6",
    "modernActivityBar.activeBackground": "#FBF9F0",
    "modernActivityBar.activeForeground": "#251F19",
    "modernActivityBar.hoverBackground": "#F3F0E4",
@@ -24180,11 +24220,11 @@
   }
  },
  "verdigris-dark": {
-  "colors": "d564eb887267523a",
+  "colors": "970b257d762a70ed",
   "tokenColors": "66a98c797690ef08",
   "semanticTokenColors": "bc130f815e67681d",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -24374,6 +24414,8 @@
    "activityBarTop.activeBorder": "#0FCBB7",
    "activityBarTop.activeBackground": "#252321",
    "activityBarTop.dropBorder": "#0FCBB7",
+   "modernActivityBar.background": "#080604",
+   "modernActivityBar.inactiveBackground": "#080604",
    "modernActivityBar.activeBackground": "#0D0B08",
    "modernActivityBar.activeForeground": "#DBD2CE",
    "modernActivityBar.hoverBackground": "#171410",
@@ -25389,11 +25431,11 @@
   }
  },
  "verdigris-light": {
-  "colors": "a12846706bbb7954",
+  "colors": "90345d2deb2236f8",
   "tokenColors": "b8b1e220fcaa25f3",
   "semanticTokenColors": "00edeca65ba9d09f",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -25583,6 +25625,8 @@
    "activityBarTop.activeBorder": "#0C6157",
    "activityBarTop.activeBackground": "#dedcd5",
    "activityBarTop.dropBorder": "#0C6157",
+   "modernActivityBar.background": "#E4DFD3",
+   "modernActivityBar.inactiveBackground": "#E4DFD3",
    "modernActivityBar.activeBackground": "#F7F4ED",
    "modernActivityBar.activeForeground": "#211B18",
    "modernActivityBar.hoverBackground": "#EEEAE1",
@@ -26598,11 +26642,11 @@
   }
  },
  "cherenkov-dark": {
-  "colors": "4290881b972ded0c",
+  "colors": "faf6046379a29f22",
   "tokenColors": "7869748a7eda7463",
   "semanticTokenColors": "41a9abaff4d743b1",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -26792,6 +26836,8 @@
    "activityBarTop.activeBorder": "#EE7DFA",
    "activityBarTop.activeBackground": "#1f2c3d",
    "activityBarTop.dropBorder": "#EE7DFA",
+   "modernActivityBar.background": "#030E1C",
+   "modernActivityBar.inactiveBackground": "#030E1C",
    "modernActivityBar.activeBackground": "#061527",
    "modernActivityBar.activeForeground": "#CADEE6",
    "modernActivityBar.hoverBackground": "#0E2138",
@@ -27807,11 +27853,11 @@
   }
  },
  "cherenkov-light": {
-  "colors": "1718b24e2aab1182",
+  "colors": "3289400222a9944c",
   "tokenColors": "b92520bfb5bc7442",
   "semanticTokenColors": "a29433837e5c1e11",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -28001,6 +28047,8 @@
    "activityBarTop.activeBorder": "#B61CCB",
    "activityBarTop.activeBackground": "#dddfe4",
    "activityBarTop.dropBorder": "#B61CCB",
+   "modernActivityBar.background": "#DEE7F3",
+   "modernActivityBar.inactiveBackground": "#DEE7F3",
    "modernActivityBar.activeBackground": "#F5F8FD",
    "modernActivityBar.activeForeground": "#152125",
    "modernActivityBar.hoverBackground": "#EAF0F8",
@@ -29016,11 +29064,11 @@
   }
  },
  "aerogel-dark": {
-  "colors": "f3f7a8f309a5d506",
+  "colors": "58a03a13efb71869",
   "tokenColors": "c9f6cebe86ad4569",
   "semanticTokenColors": "8d1033c4fbefbfb6",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -29210,6 +29258,8 @@
    "activityBarTop.activeBorder": "#F2A47A",
    "activityBarTop.activeBackground": "#23252a",
    "activityBarTop.dropBorder": "#F2A47A",
+   "modernActivityBar.background": "#06080C",
+   "modernActivityBar.inactiveBackground": "#06080C",
    "modernActivityBar.activeBackground": "#0A0D12",
    "modernActivityBar.activeForeground": "#C6D8DF",
    "modernActivityBar.hoverBackground": "#151920",
@@ -30225,11 +30275,11 @@
   }
  },
  "aerogel-light": {
-  "colors": "d40f3654213f5921",
+  "colors": "611804971590def2",
   "tokenColors": "7b0751a4d9a7fc33",
   "semanticTokenColors": "f0523dcaa9210ca1",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -30419,6 +30469,8 @@
    "activityBarTop.activeBorder": "#913E0A",
    "activityBarTop.activeBackground": "#e2ddd4",
    "activityBarTop.dropBorder": "#913E0A",
+   "modernActivityBar.background": "#E9E2D2",
+   "modernActivityBar.inactiveBackground": "#E9E2D2",
    "modernActivityBar.activeBackground": "#FBF6EC",
    "modernActivityBar.activeForeground": "#251C18",
    "modernActivityBar.hoverBackground": "#F2ECDF",
@@ -31434,11 +31486,11 @@
   }
  },
  "cavitation-dark": {
-  "colors": "49b0a8adbf22ad62",
+  "colors": "6749664fb5ee7e1d",
   "tokenColors": "40d6ea3c2b3b25a3",
   "semanticTokenColors": "aed58df35d0b7b04",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -31628,6 +31680,8 @@
    "activityBarTop.activeBorder": "#40D0ED",
    "activityBarTop.activeBackground": "#1e2023",
    "activityBarTop.dropBorder": "#40D0ED",
+   "modernActivityBar.background": "#020407",
+   "modernActivityBar.inactiveBackground": "#020407",
    "modernActivityBar.activeBackground": "#05070B",
    "modernActivityBar.activeForeground": "#C3D4DB",
    "modernActivityBar.hoverBackground": "#0F131A",
@@ -32643,11 +32697,11 @@
   }
  },
  "cavitation-light": {
-  "colors": "b1eda0ff1fc51114",
+  "colors": "1a2c410b95d3642f",
   "tokenColors": "0ae47f6de6cab5d7",
   "semanticTokenColors": "2e0d92589e3ddcc9",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -32837,6 +32891,8 @@
    "activityBarTop.activeBorder": "#0C5B6A",
    "activityBarTop.activeBackground": "#dfe1e4",
    "activityBarTop.dropBorder": "#0C5B6A",
+   "modernActivityBar.background": "#E3E9F1",
+   "modernActivityBar.inactiveBackground": "#E3E9F1",
    "modernActivityBar.activeBackground": "#F8FAFD",
    "modernActivityBar.activeForeground": "#162227",
    "modernActivityBar.hoverBackground": "#EEF2F7",
@@ -33852,11 +33908,11 @@
   }
  },
  "noctiluca-dark": {
-  "colors": "4983e00f9c1e5d28",
+  "colors": "9895e29a4ec29752",
   "tokenColors": "9431dc9d6622aef0",
   "semanticTokenColors": "f2846056f78348a1",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -34046,6 +34102,8 @@
    "activityBarTop.activeBorder": "#11D9A9",
    "activityBarTop.activeBackground": "#1d2224",
    "activityBarTop.dropBorder": "#11D9A9",
+   "modernActivityBar.background": "#020608",
+   "modernActivityBar.inactiveBackground": "#020608",
    "modernActivityBar.activeBackground": "#04090C",
    "modernActivityBar.activeForeground": "#C4D5D4",
    "modernActivityBar.hoverBackground": "#0D1418",
@@ -35061,11 +35119,11 @@
   }
  },
  "noctiluca-light": {
-  "colors": "449aa4590ffc1938",
+  "colors": "47a16f3837d4a299",
   "tokenColors": "446c5dd53b8bff48",
   "semanticTokenColors": "79faf6c2bdf2a42e",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -35255,6 +35313,8 @@
    "activityBarTop.activeBorder": "#0C5E48",
    "activityBarTop.activeBackground": "#dde1e1",
    "activityBarTop.dropBorder": "#0C5E48",
+   "modernActivityBar.background": "#E0EAEA",
+   "modernActivityBar.inactiveBackground": "#E0EAEA",
    "modernActivityBar.activeBackground": "#F5FAFA",
    "modernActivityBar.activeForeground": "#172221",
    "modernActivityBar.hoverBackground": "#EBF2F2",
@@ -36270,11 +36330,11 @@
   }
  },
  "incandescence-dark": {
-  "colors": "3664535d4229449c",
+  "colors": "165cbf65f5eae928",
   "tokenColors": "3a020eaba5c2f00f",
   "semanticTokenColors": "4758c565aa522804",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -36464,6 +36524,8 @@
    "activityBarTop.activeBorder": "#E8CC6A",
    "activityBarTop.activeBackground": "#24211f",
    "activityBarTop.dropBorder": "#E8CC6A",
+   "modernActivityBar.background": "#070403",
+   "modernActivityBar.inactiveBackground": "#070403",
    "modernActivityBar.activeBackground": "#0C0806",
    "modernActivityBar.activeForeground": "#DDCFCD",
    "modernActivityBar.hoverBackground": "#171110",
@@ -37479,11 +37541,11 @@
   }
  },
  "incandescence-light": {
-  "colors": "fb58c7cdc7f776a7",
+  "colors": "34cb7602e77e4bb1",
   "tokenColors": "3ed0cf8d08f161ec",
   "semanticTokenColors": "fafdc21b85f24acc",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -37673,6 +37735,8 @@
    "activityBarTop.activeBorder": "#574A0A",
    "activityBarTop.activeBackground": "#e1ddda",
    "activityBarTop.dropBorder": "#574A0A",
+   "modernActivityBar.background": "#E8E1D9",
+   "modernActivityBar.inactiveBackground": "#E8E1D9",
    "modernActivityBar.activeBackground": "#FAF6F2",
    "modernActivityBar.activeForeground": "#251C1B",
    "modernActivityBar.hoverBackground": "#F1ECE6",
@@ -38688,11 +38752,11 @@
   }
  },
  "safelight-dark": {
-  "colors": "227d9f5790fb66e7",
+  "colors": "509989026d33ffb6",
   "tokenColors": "39f4e0bb89524398",
   "semanticTokenColors": "a208ee50438cf4f6",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -38882,6 +38946,8 @@
    "activityBarTop.activeBorder": "#FFF6E4",
    "activityBarTop.activeBackground": "#3f3125",
    "activityBarTop.dropBorder": "#FFF6E4",
+   "modernActivityBar.background": "#1F1208",
+   "modernActivityBar.inactiveBackground": "#1F1208",
    "modernActivityBar.activeBackground": "#2A1A0D",
    "modernActivityBar.activeForeground": "#F0DCBE",
    "modernActivityBar.hoverBackground": "#352316",
@@ -39897,11 +39963,11 @@
   }
  },
  "safelight-light": {
-  "colors": "8f77a901f28a9f68",
+  "colors": "e5d11c942d28fc5e",
   "tokenColors": "bdd9abd277c9c946",
   "semanticTokenColors": "6eae41d84654e144",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -40091,6 +40157,8 @@
    "activityBarTop.activeBorder": "#1A130A",
    "activityBarTop.activeBackground": "#d5cfc1",
    "activityBarTop.dropBorder": "#1A130A",
+   "modernActivityBar.background": "#DAD1BC",
+   "modernActivityBar.inactiveBackground": "#DAD1BC",
    "modernActivityBar.activeBackground": "#EDE6D6",
    "modernActivityBar.activeForeground": "#2C2318",
    "modernActivityBar.hoverBackground": "#E4DCC9",
@@ -41106,11 +41174,11 @@
   }
  },
  "dichroic-dark": {
-  "colors": "7d09c4e150ea4ee4",
+  "colors": "7462a2791aa4ce5f",
   "tokenColors": "96645291ffd5b6df",
   "semanticTokenColors": "474c16bbe9cf8728",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -41300,6 +41368,8 @@
    "activityBarTop.activeBorder": "#3FE8BE",
    "activityBarTop.activeBackground": "#202927",
    "activityBarTop.dropBorder": "#3FE8BE",
+   "modernActivityBar.background": "#040B09",
+   "modernActivityBar.inactiveBackground": "#040B09",
    "modernActivityBar.activeBackground": "#07110F",
    "modernActivityBar.activeForeground": "#C4D2CE",
    "modernActivityBar.hoverBackground": "#0F1C19",
@@ -42315,11 +42385,11 @@
   }
  },
  "dichroic-light": {
-  "colors": "7e317b6090846ab0",
+  "colors": "63066dc6c5c3d3dd",
   "tokenColors": "1bd3bd74507960fd",
   "semanticTokenColors": "0e5f2fd6ad4b3279",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -42509,6 +42579,8 @@
    "activityBarTop.activeBorder": "#065246",
    "activityBarTop.activeBackground": "#ddd6db",
    "activityBarTop.dropBorder": "#065246",
+   "modernActivityBar.background": "#E0D5DE",
+   "modernActivityBar.inactiveBackground": "#E0D5DE",
    "modernActivityBar.activeBackground": "#F5EEF3",
    "modernActivityBar.activeForeground": "#1E2321",
    "modernActivityBar.hoverBackground": "#EBE2E9",
@@ -43524,11 +43596,11 @@
   }
  },
  "provenance-dark": {
-  "colors": "3c9ee06f5b055dcc",
+  "colors": "d4ee07f4aa3ac033",
   "tokenColors": "6211236bca90fca4",
   "semanticTokenColors": "e763f80250955f74",
   "counts": [
-   989,
+   991,
    31,
    59
   ],
@@ -43718,6 +43790,8 @@
    "activityBarTop.activeBorder": "#F0B75A",
    "activityBarTop.activeBackground": "#303236",
    "activityBarTop.dropBorder": "#F0B75A",
+   "modernActivityBar.background": "#131519",
+   "modernActivityBar.inactiveBackground": "#131519",
    "modernActivityBar.activeBackground": "#191B20",
    "modernActivityBar.activeForeground": "#C6C8CC",
    "modernActivityBar.hoverBackground": "#22252B",
@@ -44698,11 +44772,11 @@
   }
  },
  "provenance-light": {
-  "colors": "de9f2dedff85f33c",
+  "colors": "608b1cf407d9d9b6",
   "tokenColors": "5d03fc7a0804fce0",
   "semanticTokenColors": "57c37f9fbad80741",
   "counts": [
-   989,
+   991,
    31,
    59
   ],
@@ -44892,6 +44966,8 @@
    "activityBarTop.activeBorder": "#855606",
    "activityBarTop.activeBackground": "#dcdad5",
    "activityBarTop.dropBorder": "#855606",
+   "modernActivityBar.background": "#DFDBD2",
+   "modernActivityBar.inactiveBackground": "#DFDBD2",
    "modernActivityBar.activeBackground": "#F4F2ED",
    "modernActivityBar.activeForeground": "#2E3036",
    "modernActivityBar.hoverBackground": "#EAE7E0",
@@ -45872,11 +45948,11 @@
   }
  },
  "stratum-dark": {
-  "colors": "feb8c2bb4bdc4235",
+  "colors": "4f1d4abd37a7b54e",
   "tokenColors": "b236693f80d181ce",
   "semanticTokenColors": "f32370f73e42635b",
   "counts": [
-   989,
+   991,
    77,
    46
   ],
@@ -46066,6 +46142,8 @@
    "activityBarTop.activeBorder": "#C39B54",
    "activityBarTop.activeBackground": "#2c2925",
    "activityBarTop.dropBorder": "#C39B54",
+   "modernActivityBar.background": "#0E0C09",
+   "modernActivityBar.inactiveBackground": "#0E0C09",
    "modernActivityBar.activeBackground": "#14110D",
    "modernActivityBar.activeForeground": "#E4DACA",
    "modernActivityBar.hoverBackground": "#1F1B16",
@@ -47089,11 +47167,11 @@
   }
  },
  "stratum-light": {
-  "colors": "51323c857a99b029",
+  "colors": "cbfcc3ecc005ffc1",
   "tokenColors": "90dd5224745e1a8c",
   "semanticTokenColors": "176f0272942c7f66",
   "counts": [
-   989,
+   991,
    77,
    46
   ],
@@ -47283,6 +47361,8 @@
    "activityBarTop.activeBorder": "#8A5F1E",
    "activityBarTop.activeBackground": "#d7d2c6",
    "activityBarTop.dropBorder": "#8A5F1E",
+   "modernActivityBar.background": "#DAD2BF",
+   "modernActivityBar.inactiveBackground": "#DAD2BF",
    "modernActivityBar.activeBackground": "#EFE9DC",
    "modernActivityBar.activeForeground": "#241F16",
    "modernActivityBar.hoverBackground": "#E5DECE",
@@ -48306,11 +48386,11 @@
   }
  },
  "borrow-dark": {
-  "colors": "48056e416cdf5a15",
+  "colors": "0f6924c28583c170",
   "tokenColors": "99018c0c4061bfd0",
   "semanticTokenColors": "d7686e6e52de97d1",
   "counts": [
-   989,
+   991,
    77,
    51
   ],
@@ -48500,6 +48580,8 @@
    "activityBarTop.activeBorder": "#F09A18",
    "activityBarTop.activeBackground": "#2a2c31",
    "activityBarTop.dropBorder": "#F09A18",
+   "modernActivityBar.background": "#0D1014",
+   "modernActivityBar.inactiveBackground": "#0D1014",
    "modernActivityBar.activeBackground": "#12151A",
    "modernActivityBar.activeForeground": "#C8CDD6",
    "modernActivityBar.hoverBackground": "#1B1F26",
@@ -49501,11 +49583,11 @@
   }
  },
  "borrow-light": {
-  "colors": "4b0e4df7c929cf7b",
+  "colors": "60f75c8d5f7e7634",
   "tokenColors": "d9200687290034c4",
   "semanticTokenColors": "f3934f4b48f5b671",
   "counts": [
-   989,
+   991,
    77,
    51
   ],
@@ -49695,6 +49777,8 @@
    "activityBarTop.activeBorder": "#8A5A00",
    "activityBarTop.activeBackground": "#dddde0",
    "activityBarTop.dropBorder": "#8A5A00",
+   "modernActivityBar.background": "#E0E3EA",
+   "modernActivityBar.inactiveBackground": "#E0E3EA",
    "modernActivityBar.activeBackground": "#F5F6F9",
    "modernActivityBar.activeForeground": "#22262E",
    "modernActivityBar.hoverBackground": "#EBEDF2",
@@ -50696,11 +50780,11 @@
   }
  },
  "palimpsest-dark": {
-  "colors": "6f89d700ef6b4fd4",
+  "colors": "0a0911e4a2b0fd41",
   "tokenColors": "95ce757c6a69194c",
   "semanticTokenColors": "1feb8b4f64fdaa71",
   "counts": [
-   989,
+   991,
    77,
    45
   ],
@@ -50890,6 +50974,8 @@
    "activityBarTop.activeBorder": "#D9A94A",
    "activityBarTop.activeBackground": "#302d2a",
    "activityBarTop.dropBorder": "#D9A94A",
+   "modernActivityBar.background": "#12100C",
+   "modernActivityBar.inactiveBackground": "#12100C",
    "modernActivityBar.activeBackground": "#191612",
    "modernActivityBar.activeForeground": "#E8E1D2",
    "modernActivityBar.hoverBackground": "#242019",
@@ -51876,11 +51962,11 @@
   }
  },
  "palimpsest-light": {
-  "colors": "81da5388677a3bc7",
+  "colors": "cce14a2685a495a3",
   "tokenColors": "2618b499e77983ba",
   "semanticTokenColors": "f03f1bc33c1eedd7",
   "counts": [
-   989,
+   991,
    77,
    45
   ],
@@ -52070,6 +52156,8 @@
    "activityBarTop.activeBorder": "#7E5B0E",
    "activityBarTop.activeBackground": "#d5cdb9",
    "activityBarTop.dropBorder": "#7E5B0E",
+   "modernActivityBar.background": "#D7CBAE",
+   "modernActivityBar.inactiveBackground": "#D7CBAE",
    "modernActivityBar.activeBackground": "#EDE4CE",
    "modernActivityBar.activeForeground": "#2A241A",
    "modernActivityBar.hoverBackground": "#E3D9C0",
@@ -53056,11 +53144,11 @@
   }
  },
  "silverpoint-dark": {
-  "colors": "f5d443e554685815",
+  "colors": "35ed87c921529bdc",
   "tokenColors": "7e850da1c6a40d04",
   "semanticTokenColors": "d3a0e2e6c62e558f",
   "counts": [
-   989,
+   991,
    77,
    46
   ],
@@ -53250,6 +53338,8 @@
    "activityBarTop.activeBorder": "#93A6BC",
    "activityBarTop.activeBackground": "#313133",
    "activityBarTop.dropBorder": "#93A6BC",
+   "modernActivityBar.background": "#141416",
+   "modernActivityBar.inactiveBackground": "#141416",
    "modernActivityBar.activeBackground": "#1A1A1C",
    "modernActivityBar.activeForeground": "#D2D2D6",
    "modernActivityBar.hoverBackground": "#242427",
@@ -54273,11 +54363,11 @@
   }
  },
  "silverpoint-light": {
-  "colors": "78a46295cb6f03c0",
+  "colors": "4c42db9ec6704e5b",
   "tokenColors": "9eaee312027c85b6",
   "semanticTokenColors": "aebc1e9a59d1e0dc",
   "counts": [
-   989,
+   991,
    77,
    46
   ],
@@ -54467,6 +54557,8 @@
    "activityBarTop.activeBorder": "#4E627A",
    "activityBarTop.activeBackground": "#d1cfcb",
    "activityBarTop.dropBorder": "#4E627A",
+   "modernActivityBar.background": "#D2CFC8",
+   "modernActivityBar.inactiveBackground": "#D2CFC8",
    "modernActivityBar.activeBackground": "#E8E6E1",
    "modernActivityBar.activeForeground": "#26262A",
    "modernActivityBar.hoverBackground": "#DEDBD5",
@@ -55490,11 +55582,11 @@
   }
  },
  "passepartout-dark": {
-  "colors": "8facec80c1693e5f",
+  "colors": "be7fce48ca59483e",
   "tokenColors": "a082826b813643ca",
   "semanticTokenColors": "e36f82cccf262116",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -55684,6 +55776,8 @@
    "activityBarTop.activeBorder": "#D8A83C",
    "activityBarTop.activeBackground": "#212123",
    "activityBarTop.dropBorder": "#D8A83C",
+   "modernActivityBar.background": "#2B2B31",
+   "modernActivityBar.inactiveBackground": "#2B2B31",
    "modernActivityBar.activeBackground": "#08080A",
    "modernActivityBar.activeForeground": "#DEDCD6",
    "modernActivityBar.hoverBackground": "#33333A",
@@ -56699,11 +56793,11 @@
   }
  },
  "passepartout-light": {
-  "colors": "0276dd622b0c1f56",
+  "colors": "424776d7624c34e8",
   "tokenColors": "78ddc93caf271de7",
   "semanticTokenColors": "da212b089894c140",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -56893,6 +56987,8 @@
    "activityBarTop.activeBorder": "#8A5F12",
    "activityBarTop.activeBackground": "#e4e4e2",
    "activityBarTop.dropBorder": "#8A5F12",
+   "modernActivityBar.background": "#C6C0B2",
+   "modernActivityBar.inactiveBackground": "#C6C0B2",
    "modernActivityBar.activeBackground": "#FDFDFB",
    "modernActivityBar.activeForeground": "#1F1E1A",
    "modernActivityBar.hoverBackground": "#D6D1C6",
@@ -57908,11 +58004,11 @@
   }
  },
  "effect-dark": {
-  "colors": "4ca778961a29234d",
+  "colors": "45fa8426000179fc",
   "tokenColors": "3f24fd582c76dc2c",
   "semanticTokenColors": "93f10b2e81b668d5",
   "counts": [
-   989,
+   991,
    77,
    47
   ],
@@ -58102,6 +58198,8 @@
    "activityBarTop.activeBorder": "#FF5C4D",
    "activityBarTop.activeBackground": "#202825",
    "activityBarTop.dropBorder": "#FF5C4D",
+   "modernActivityBar.background": "#040B09",
+   "modernActivityBar.inactiveBackground": "#040B09",
    "modernActivityBar.activeBackground": "#07100D",
    "modernActivityBar.activeForeground": "#C6D2CC",
    "modernActivityBar.hoverBackground": "#101A16",
@@ -59079,11 +59177,11 @@
   }
  },
  "effect-light": {
-  "colors": "e0ade5a18fa7a572",
+  "colors": "7f9b5d05587221a9",
   "tokenColors": "589cc9987eb1d339",
   "semanticTokenColors": "931e1f61e0dce783",
   "counts": [
-   989,
+   991,
    77,
    47
   ],
@@ -59273,6 +59371,8 @@
    "activityBarTop.activeBorder": "#C22A18",
    "activityBarTop.activeBackground": "#dbdfdd",
    "activityBarTop.dropBorder": "#C22A18",
+   "modernActivityBar.background": "#DCE5E0",
+   "modernActivityBar.inactiveBackground": "#DCE5E0",
    "modernActivityBar.activeBackground": "#F3F8F5",
    "modernActivityBar.activeForeground": "#1D2622",
    "modernActivityBar.hoverBackground": "#E8EFEB",
@@ -60250,11 +60350,11 @@
   }
  },
  "cochineal-dark": {
-  "colors": "3f4f045b30bc0bb0",
+  "colors": "f4c2f8f298a15d37",
   "tokenColors": "32b8675e2f8e05d5",
   "semanticTokenColors": "4fe53224a4fb56c8",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -60444,6 +60544,8 @@
    "activityBarTop.activeBorder": "#FF5E7A",
    "activityBarTop.activeBackground": "#332327",
    "activityBarTop.dropBorder": "#FF5E7A",
+   "modernActivityBar.background": "#14070B",
+   "modernActivityBar.inactiveBackground": "#14070B",
    "modernActivityBar.activeBackground": "#1C0A0F",
    "modernActivityBar.activeForeground": "#EDD6DA",
    "modernActivityBar.hoverBackground": "#2A1219",
@@ -61459,11 +61561,11 @@
   }
  },
  "cochineal-light": {
-  "colors": "5f7dcf858a3a33fa",
+  "colors": "ac6dacde3ed4ef83",
   "tokenColors": "d91fb65c75818212",
   "semanticTokenColors": "5aad1ca973c94381",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -61653,6 +61755,8 @@
    "activityBarTop.activeBorder": "#B01238",
    "activityBarTop.activeBackground": "#e2dadb",
    "activityBarTop.dropBorder": "#B01238",
+   "modernActivityBar.background": "#E8D8DB",
+   "modernActivityBar.inactiveBackground": "#E8D8DB",
    "modernActivityBar.activeBackground": "#FBF2F3",
    "modernActivityBar.activeForeground": "#2A161B",
    "modernActivityBar.hoverBackground": "#F2E5E7",
@@ -62668,11 +62772,11 @@
   }
  },
  "glacier-dark": {
-  "colors": "51c86e67b81db4b3",
+  "colors": "47eaeff9327f4215",
   "tokenColors": "b5992964a5e50990",
   "semanticTokenColors": "510115acb4b83e45",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -62862,6 +62966,8 @@
    "activityBarTop.activeBorder": "#0ECCCB",
    "activityBarTop.activeBackground": "#313d47",
    "activityBarTop.dropBorder": "#0ECCCB",
+   "modernActivityBar.background": "#152029",
+   "modernActivityBar.inactiveBackground": "#152029",
    "modernActivityBar.activeBackground": "#1A2733",
    "modernActivityBar.activeForeground": "#DCEAF2",
    "modernActivityBar.hoverBackground": "#243343",
@@ -63877,11 +63983,11 @@
   }
  },
  "glacier-light": {
-  "colors": "fdeded2c746889b1",
+  "colors": "3c432b53a3977cfd",
   "tokenColors": "10c570f735d85089",
   "semanticTokenColors": "54097ea39ea1a5e2",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -64071,6 +64177,8 @@
    "activityBarTop.activeBorder": "#0A6B6C",
    "activityBarTop.activeBackground": "#dae1e4",
    "activityBarTop.dropBorder": "#0A6B6C",
+   "modernActivityBar.background": "#D8E9F2",
+   "modernActivityBar.inactiveBackground": "#D8E9F2",
    "modernActivityBar.activeBackground": "#F2FAFD",
    "modernActivityBar.activeForeground": "#18262F",
    "modernActivityBar.hoverBackground": "#E6F2F8",
@@ -65086,11 +65194,11 @@
   }
  },
  "selenium-dark": {
-  "colors": "036826114cbde3fd",
+  "colors": "48ce4802becdce57",
   "tokenColors": "f917e6486cc754a4",
   "semanticTokenColors": "bdb3eb0f179d61a0",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -65280,6 +65388,8 @@
    "activityBarTop.activeBorder": "#AE9FCD",
    "activityBarTop.activeBackground": "#2c2b31",
    "activityBarTop.dropBorder": "#AE9FCD",
+   "modernActivityBar.background": "#0F0E14",
+   "modernActivityBar.inactiveBackground": "#0F0E14",
    "modernActivityBar.activeBackground": "#14131A",
    "modernActivityBar.activeForeground": "#D6DEEC",
    "modernActivityBar.hoverBackground": "#1E1D26",
@@ -66295,11 +66405,11 @@
   }
  },
  "selenium-light": {
-  "colors": "37a7e1aa8125fd54",
+  "colors": "34310583ba1f8a6a",
   "tokenColors": "9fe5f11be0c8a68f",
   "semanticTokenColors": "eb2ec8b5b2b18718",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -66489,6 +66599,8 @@
    "activityBarTop.activeBorder": "#60537D",
    "activityBarTop.activeBackground": "#dddad8",
    "activityBarTop.dropBorder": "#60537D",
+   "modernActivityBar.background": "#DFDAD6",
+   "modernActivityBar.inactiveBackground": "#DFDAD6",
    "modernActivityBar.activeBackground": "#F5F2F0",
    "modernActivityBar.activeForeground": "#1E1C22",
    "modernActivityBar.hoverBackground": "#EBE7E4",
@@ -67504,11 +67616,11 @@
   }
  },
  "riso-dark": {
-  "colors": "869e9ea51a6ab4eb",
+  "colors": "75b2fc404808f2bc",
   "tokenColors": "3c84e7d672371b1a",
   "semanticTokenColors": "3bb7929a6c4442d4",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -67698,6 +67810,8 @@
    "activityBarTop.activeBorder": "#FF63B4",
    "activityBarTop.activeBackground": "#2d2b26",
    "activityBarTop.dropBorder": "#FF63B4",
+   "modernActivityBar.background": "#100E0A",
+   "modernActivityBar.inactiveBackground": "#100E0A",
    "modernActivityBar.activeBackground": "#16130E",
    "modernActivityBar.activeForeground": "#E8E2D4",
    "modernActivityBar.hoverBackground": "#211D16",
@@ -68713,11 +68827,11 @@
   }
  },
  "riso-light": {
-  "colors": "9c336320f6d23b0d",
+  "colors": "8934b5a986689d2a",
   "tokenColors": "bbca044cca5307ac",
   "semanticTokenColors": "47e209c540ee62c2",
   "counts": [
-   989,
+   991,
    92,
    55
   ],
@@ -68907,6 +69021,8 @@
    "activityBarTop.activeBorder": "#C4157E",
    "activityBarTop.activeBackground": "#ddd8cd",
    "activityBarTop.dropBorder": "#C4157E",
+   "modernActivityBar.background": "#E0D8C4",
+   "modernActivityBar.inactiveBackground": "#E0D8C4",
    "modernActivityBar.activeBackground": "#F5F0E4",
    "modernActivityBar.activeForeground": "#211E16",
    "modernActivityBar.hoverBackground": "#ECE5D5",
