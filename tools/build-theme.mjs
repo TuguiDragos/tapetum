@@ -251,6 +251,8 @@ function chrome(t) {
     'activityBarTop.activeBorder': acc,
     'activityBarTop.activeBackground': over,
     'activityBarTop.dropBorder': acc,
+    'modernActivityBar.background': ch,
+    'modernActivityBar.inactiveBackground': ch,
     'modernActivityBar.activeBackground': bg,
     'modernActivityBar.activeForeground': fg,
     'modernActivityBar.hoverBackground': elev,

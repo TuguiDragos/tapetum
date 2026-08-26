@@ -189,6 +189,8 @@
     "activityBarTop.activeBorder": "#7E5B0E",
     "activityBarTop.activeBackground": "#d5cdb9",
     "activityBarTop.dropBorder": "#7E5B0E",
+    "modernActivityBar.background": "#D7CBAE",
+    "modernActivityBar.inactiveBackground": "#D7CBAE",
     "modernActivityBar.activeBackground": "#EDE4CE",
     "modernActivityBar.activeForeground": "#2A241A",
     "modernActivityBar.hoverBackground": "#E3D9C0",
