@@ -23,6 +23,10 @@ gone entirely: the British spelling of a keyword already present, a repeat,
 and pastel. The Marketplace and Open VSX finally describe the same package
 with the same words.
 
+**The manifest lists the families alphabetically.** The 58 entries sat in the
+order the families were born, so finding one meant scanning the whole list.
+Variants stay together, dark then light then the high contrast pair.
+
 ## [1.0.2]
 
 A day of looking at the themes rather than measuring them.
