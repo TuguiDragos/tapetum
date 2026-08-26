@@ -66,34 +66,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Tapetum Quantum",
+        "label": "Tapetum Aerogel",
         "uiTheme": "vs-dark",
-        "path": "./themes/quantum-dark.json"
+        "path": "./themes/aerogel-dark.json"
       },
       {
-        "label": "Tapetum Quantum Light",
+        "label": "Tapetum Aerogel Light",
         "uiTheme": "vs",
-        "path": "./themes/quantum-light.json"
-      },
-      {
-        "label": "Tapetum Fraunhofer",
-        "uiTheme": "vs-dark",
-        "path": "./themes/fraunhofer-dark.json"
-      },
-      {
-        "label": "Tapetum Fraunhofer Light",
-        "uiTheme": "vs",
-        "path": "./themes/fraunhofer-light.json"
-      },
-      {
-        "label": "Tapetum Persistence",
-        "uiTheme": "vs-dark",
-        "path": "./themes/persistence-dark.json"
-      },
-      {
-        "label": "Tapetum Persistence Light",
-        "uiTheme": "vs",
-        "path": "./themes/persistence-light.json"
+        "path": "./themes/aerogel-light.json"
       },
       {
         "label": "Tapetum Anodise",
@@ -104,6 +84,56 @@
         "label": "Tapetum Anodise Light",
         "uiTheme": "vs",
         "path": "./themes/anodise-light.json"
+      },
+      {
+        "label": "Tapetum Borrow",
+        "uiTheme": "vs-dark",
+        "path": "./themes/borrow-dark.json"
+      },
+      {
+        "label": "Tapetum Borrow Light",
+        "uiTheme": "vs",
+        "path": "./themes/borrow-light.json"
+      },
+      {
+        "label": "Tapetum Cavitation",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cavitation-dark.json"
+      },
+      {
+        "label": "Tapetum Cavitation Light",
+        "uiTheme": "vs",
+        "path": "./themes/cavitation-light.json"
+      },
+      {
+        "label": "Tapetum Cherenkov",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cherenkov-dark.json"
+      },
+      {
+        "label": "Tapetum Cherenkov Light",
+        "uiTheme": "vs",
+        "path": "./themes/cherenkov-light.json"
+      },
+      {
+        "label": "Tapetum Cinnabar",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cinnabar-dark.json"
+      },
+      {
+        "label": "Tapetum Cinnabar Light",
+        "uiTheme": "vs",
+        "path": "./themes/cinnabar-light.json"
+      },
+      {
+        "label": "Tapetum Cochineal",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cochineal-dark.json"
+      },
+      {
+        "label": "Tapetum Cochineal Light",
+        "uiTheme": "vs",
+        "path": "./themes/cochineal-light.json"
       },
       {
         "label": "Tapetum Coherence",
@@ -126,116 +156,6 @@
         "path": "./themes/coherence-hcLight.json"
       },
       {
-        "label": "Tapetum Valence",
-        "uiTheme": "vs-dark",
-        "path": "./themes/valence-dark.json"
-      },
-      {
-        "label": "Tapetum Valence Light",
-        "uiTheme": "vs",
-        "path": "./themes/valence-light.json"
-      },
-      {
-        "label": "Tapetum Hadal",
-        "uiTheme": "vs-dark",
-        "path": "./themes/hadal-dark.json"
-      },
-      {
-        "label": "Tapetum Hadal Light",
-        "uiTheme": "vs",
-        "path": "./themes/hadal-light.json"
-      },
-      {
-        "label": "Tapetum Cinnabar",
-        "uiTheme": "vs-dark",
-        "path": "./themes/cinnabar-dark.json"
-      },
-      {
-        "label": "Tapetum Cinnabar Light",
-        "uiTheme": "vs",
-        "path": "./themes/cinnabar-light.json"
-      },
-      {
-        "label": "Tapetum Epitaxy",
-        "uiTheme": "vs-dark",
-        "path": "./themes/epitaxy-dark.json"
-      },
-      {
-        "label": "Tapetum Epitaxy Light",
-        "uiTheme": "vs",
-        "path": "./themes/epitaxy-light.json"
-      },
-      {
-        "label": "Tapetum Verdigris",
-        "uiTheme": "vs-dark",
-        "path": "./themes/verdigris-dark.json"
-      },
-      {
-        "label": "Tapetum Verdigris Light",
-        "uiTheme": "vs",
-        "path": "./themes/verdigris-light.json"
-      },
-      {
-        "label": "Tapetum Cherenkov",
-        "uiTheme": "vs-dark",
-        "path": "./themes/cherenkov-dark.json"
-      },
-      {
-        "label": "Tapetum Cherenkov Light",
-        "uiTheme": "vs",
-        "path": "./themes/cherenkov-light.json"
-      },
-      {
-        "label": "Tapetum Aerogel",
-        "uiTheme": "vs-dark",
-        "path": "./themes/aerogel-dark.json"
-      },
-      {
-        "label": "Tapetum Aerogel Light",
-        "uiTheme": "vs",
-        "path": "./themes/aerogel-light.json"
-      },
-      {
-        "label": "Tapetum Cavitation",
-        "uiTheme": "vs-dark",
-        "path": "./themes/cavitation-dark.json"
-      },
-      {
-        "label": "Tapetum Cavitation Light",
-        "uiTheme": "vs",
-        "path": "./themes/cavitation-light.json"
-      },
-      {
-        "label": "Tapetum Noctiluca",
-        "uiTheme": "vs-dark",
-        "path": "./themes/noctiluca-dark.json"
-      },
-      {
-        "label": "Tapetum Noctiluca Light",
-        "uiTheme": "vs",
-        "path": "./themes/noctiluca-light.json"
-      },
-      {
-        "label": "Tapetum Incandescence",
-        "uiTheme": "vs-dark",
-        "path": "./themes/incandescence-dark.json"
-      },
-      {
-        "label": "Tapetum Incandescence Light",
-        "uiTheme": "vs",
-        "path": "./themes/incandescence-light.json"
-      },
-      {
-        "label": "Tapetum Safelight",
-        "uiTheme": "vs-dark",
-        "path": "./themes/safelight-dark.json"
-      },
-      {
-        "label": "Tapetum Safelight Light",
-        "uiTheme": "vs",
-        "path": "./themes/safelight-light.json"
-      },
-      {
         "label": "Tapetum Dichroic",
         "uiTheme": "vs-dark",
         "path": "./themes/dichroic-dark.json"
@@ -244,66 +164,6 @@
         "label": "Tapetum Dichroic Light",
         "uiTheme": "vs",
         "path": "./themes/dichroic-light.json"
-      },
-      {
-        "label": "Tapetum Provenance",
-        "uiTheme": "vs-dark",
-        "path": "./themes/provenance-dark.json"
-      },
-      {
-        "label": "Tapetum Provenance Light",
-        "uiTheme": "vs",
-        "path": "./themes/provenance-light.json"
-      },
-      {
-        "label": "Tapetum Stratum",
-        "uiTheme": "vs-dark",
-        "path": "./themes/stratum-dark.json"
-      },
-      {
-        "label": "Tapetum Stratum Light",
-        "uiTheme": "vs",
-        "path": "./themes/stratum-light.json"
-      },
-      {
-        "label": "Tapetum Borrow",
-        "uiTheme": "vs-dark",
-        "path": "./themes/borrow-dark.json"
-      },
-      {
-        "label": "Tapetum Borrow Light",
-        "uiTheme": "vs",
-        "path": "./themes/borrow-light.json"
-      },
-      {
-        "label": "Tapetum Palimpsest",
-        "uiTheme": "vs-dark",
-        "path": "./themes/palimpsest-dark.json"
-      },
-      {
-        "label": "Tapetum Palimpsest Light",
-        "uiTheme": "vs",
-        "path": "./themes/palimpsest-light.json"
-      },
-      {
-        "label": "Tapetum Silverpoint",
-        "uiTheme": "vs-dark",
-        "path": "./themes/silverpoint-dark.json"
-      },
-      {
-        "label": "Tapetum Silverpoint Light",
-        "uiTheme": "vs",
-        "path": "./themes/silverpoint-light.json"
-      },
-      {
-        "label": "Tapetum Passepartout",
-        "uiTheme": "vs-dark",
-        "path": "./themes/passepartout-dark.json"
-      },
-      {
-        "label": "Tapetum Passepartout Light",
-        "uiTheme": "vs",
-        "path": "./themes/passepartout-light.json"
       },
       {
         "label": "Tapetum Effect",
@@ -316,14 +176,24 @@
         "path": "./themes/effect-light.json"
       },
       {
-        "label": "Tapetum Cochineal",
+        "label": "Tapetum Epitaxy",
         "uiTheme": "vs-dark",
-        "path": "./themes/cochineal-dark.json"
+        "path": "./themes/epitaxy-dark.json"
       },
       {
-        "label": "Tapetum Cochineal Light",
+        "label": "Tapetum Epitaxy Light",
         "uiTheme": "vs",
-        "path": "./themes/cochineal-light.json"
+        "path": "./themes/epitaxy-light.json"
+      },
+      {
+        "label": "Tapetum Fraunhofer",
+        "uiTheme": "vs-dark",
+        "path": "./themes/fraunhofer-dark.json"
+      },
+      {
+        "label": "Tapetum Fraunhofer Light",
+        "uiTheme": "vs",
+        "path": "./themes/fraunhofer-light.json"
       },
       {
         "label": "Tapetum Glacier",
@@ -336,14 +206,84 @@
         "path": "./themes/glacier-light.json"
       },
       {
-        "label": "Tapetum Selenium",
+        "label": "Tapetum Hadal",
         "uiTheme": "vs-dark",
-        "path": "./themes/selenium-dark.json"
+        "path": "./themes/hadal-dark.json"
       },
       {
-        "label": "Tapetum Selenium Light",
+        "label": "Tapetum Hadal Light",
         "uiTheme": "vs",
-        "path": "./themes/selenium-light.json"
+        "path": "./themes/hadal-light.json"
+      },
+      {
+        "label": "Tapetum Incandescence",
+        "uiTheme": "vs-dark",
+        "path": "./themes/incandescence-dark.json"
+      },
+      {
+        "label": "Tapetum Incandescence Light",
+        "uiTheme": "vs",
+        "path": "./themes/incandescence-light.json"
+      },
+      {
+        "label": "Tapetum Noctiluca",
+        "uiTheme": "vs-dark",
+        "path": "./themes/noctiluca-dark.json"
+      },
+      {
+        "label": "Tapetum Noctiluca Light",
+        "uiTheme": "vs",
+        "path": "./themes/noctiluca-light.json"
+      },
+      {
+        "label": "Tapetum Palimpsest",
+        "uiTheme": "vs-dark",
+        "path": "./themes/palimpsest-dark.json"
+      },
+      {
+        "label": "Tapetum Palimpsest Light",
+        "uiTheme": "vs",
+        "path": "./themes/palimpsest-light.json"
+      },
+      {
+        "label": "Tapetum Passepartout",
+        "uiTheme": "vs-dark",
+        "path": "./themes/passepartout-dark.json"
+      },
+      {
+        "label": "Tapetum Passepartout Light",
+        "uiTheme": "vs",
+        "path": "./themes/passepartout-light.json"
+      },
+      {
+        "label": "Tapetum Persistence",
+        "uiTheme": "vs-dark",
+        "path": "./themes/persistence-dark.json"
+      },
+      {
+        "label": "Tapetum Persistence Light",
+        "uiTheme": "vs",
+        "path": "./themes/persistence-light.json"
+      },
+      {
+        "label": "Tapetum Provenance",
+        "uiTheme": "vs-dark",
+        "path": "./themes/provenance-dark.json"
+      },
+      {
+        "label": "Tapetum Provenance Light",
+        "uiTheme": "vs",
+        "path": "./themes/provenance-light.json"
+      },
+      {
+        "label": "Tapetum Quantum",
+        "uiTheme": "vs-dark",
+        "path": "./themes/quantum-dark.json"
+      },
+      {
+        "label": "Tapetum Quantum Light",
+        "uiTheme": "vs",
+        "path": "./themes/quantum-light.json"
       },
       {
         "label": "Tapetum Riso",
@@ -354,6 +294,66 @@
         "label": "Tapetum Riso Light",
         "uiTheme": "vs",
         "path": "./themes/riso-light.json"
+      },
+      {
+        "label": "Tapetum Safelight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/safelight-dark.json"
+      },
+      {
+        "label": "Tapetum Safelight Light",
+        "uiTheme": "vs",
+        "path": "./themes/safelight-light.json"
+      },
+      {
+        "label": "Tapetum Selenium",
+        "uiTheme": "vs-dark",
+        "path": "./themes/selenium-dark.json"
+      },
+      {
+        "label": "Tapetum Selenium Light",
+        "uiTheme": "vs",
+        "path": "./themes/selenium-light.json"
+      },
+      {
+        "label": "Tapetum Silverpoint",
+        "uiTheme": "vs-dark",
+        "path": "./themes/silverpoint-dark.json"
+      },
+      {
+        "label": "Tapetum Silverpoint Light",
+        "uiTheme": "vs",
+        "path": "./themes/silverpoint-light.json"
+      },
+      {
+        "label": "Tapetum Stratum",
+        "uiTheme": "vs-dark",
+        "path": "./themes/stratum-dark.json"
+      },
+      {
+        "label": "Tapetum Stratum Light",
+        "uiTheme": "vs",
+        "path": "./themes/stratum-light.json"
+      },
+      {
+        "label": "Tapetum Valence",
+        "uiTheme": "vs-dark",
+        "path": "./themes/valence-dark.json"
+      },
+      {
+        "label": "Tapetum Valence Light",
+        "uiTheme": "vs",
+        "path": "./themes/valence-light.json"
+      },
+      {
+        "label": "Tapetum Verdigris",
+        "uiTheme": "vs-dark",
+        "path": "./themes/verdigris-dark.json"
+      },
+      {
+        "label": "Tapetum Verdigris Light",
+        "uiTheme": "vs",
+        "path": "./themes/verdigris-light.json"
       }
     ]
   }
