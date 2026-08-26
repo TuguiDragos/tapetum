@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.0.3]
+
+No colours changed in this release. The numbers that describe them caught up.
+
+### Fixed
+
+**The lowest contrast in the README was wrong.** The sentence says anywhere,
+but the number behind it only ever looked at the six code roles. Comments sit
+lower by design, and the true minimum anywhere is 4.07, a Stratum Light
+comment, above its own floor of 4.0. Both this number and the key count are
+computed at generation now, and the audit fails the moment the README
+disagrees with either of them again. The same paragraph promises that none of
+it comes from a hand written list; now that holds for the numbers in it too.
+
+### Changed
+
+**Both registries see the same 30 keywords.** Open VSX publishes the first 30
+and silently drops the rest, so the list first got reordered to keep
+spectrum, phosphor and emission inside the cut, and now the three past it are
+gone entirely: the British spelling of a keyword already present, a repeat,
+and pastel. The Marketplace and Open VSX finally describe the same package
+with the same words.
+
 ## [1.0.2]
 
 A day of looking at the themes rather than measuring them.
