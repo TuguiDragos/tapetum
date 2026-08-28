@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.6]
+
+Half the families were putting the cursor colour into a button, which sounds
+harmless until a rectangle of it is sitting in the corner of your eye all day.
+
+### Changed
+
+**Buttons and badges take a quieter version of the accent.** The accent comes
+from the same place the syntax does, so how saturated it is depends entirely on
+what the family was drawn from: 6 in Silverpoint, 94 in Cherenkov. In a cursor
+or a focus ring that spread is the whole point of the collection. In a filled
+rectangle it decides whether the extensions view looks like part of the theme,
+the way it does in Selenium at 26, or like something needs answering, the way
+it did in Effect at 74.
+
+Filled surfaces now take the accent with its saturation capped at 45 and
+nothing else altered, same hue, same lightness, so a family still looks like
+itself and only stops raising its voice. 33 of the 58 were over the line and
+came down. The other 25, Selenium and Silverpoint and Coherence among them, did
+not move a byte.
+
 ## [1.0.5]
 
 A person looked at a small diff and asked what that grey pillar was.
