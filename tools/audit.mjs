@@ -133,6 +133,21 @@ for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight']
     + 'Eticheta scrie si Disconnected, deci culoarea nu are voie sa spuna reusit sau eroare.');
 }
 
+const FILLED = ['button.background', 'button.hoverBackground', 'badge.background', 'activityBarBadge.background',
+  'profileBadge.background', 'extensionButton.background', 'extensionButton.prominentBackground',
+  'extensionBadge.remoteBackground', 'agentsNewSessionButton.background', 'agentsBadge.background',
+  'panelTitleBadge.background', 'testing.coverCountBadgeBackground'];
+const FILL_CEILING = 45;
+for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
+  const c = th.colors;
+  for (const k of FILLED) {
+    const [, chroma] = hex2lch(c[k]);
+    note(chroma <= FILL_CEILING + 1, `${f.label} ${v}: ${k} are croma ${chroma.toFixed(0)}, peste plafonul de ${FILL_CEILING}. `
+      + 'Pe o suprafata plina zgomotul creste cu aria, iar accentul brut trece de la identitate la semnal de alarma.');
+  }
+}
+
 const OVER = ['editor.selectionBackground', 'editor.findMatchBackground', 'editor.wordHighlightStrongBackground',
   'editorBracketMatch.background', 'editor.snippetTabstopHighlightBackground'];
 let worstOverlay = { c: 99 };

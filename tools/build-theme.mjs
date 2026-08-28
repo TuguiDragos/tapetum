@@ -41,6 +41,9 @@ function tokens(s) {
     return white > ink ? '#ffffff' : '#101014';
   };
   const onAcc = onColor(acc);
+  const calm = (c, ceiling = 45) => { const [L, C, h] = hex2lch(c); return C <= ceiling ? c : lch2hex(L, ceiling, h); };
+  const fill = calm(acc);
+  const onFill = onColor(fill);
   const st = s.status;
   const shadowInk = dark ? '#000000' : '#1a1a2e';
   const sh = (k) => alpha(shadowInk, dark ? k : k * 0.45);
@@ -49,7 +52,7 @@ function tokens(s) {
   const y = s.syntax;
   const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, sel, selSoft, onAcc, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -218,7 +221,7 @@ function tokens(s) {
 
 function chrome(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, sel, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, sel, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   return {
     'titleBar.activeBackground': ch,
     'titleBar.activeForeground': legible(dim, ch, 4.5),
@@ -243,8 +246,8 @@ function chrome(t) {
     'activityBar.activeBackground': '#00000000',
     'activityBar.activeFocusBorder': acc,
     'activityBar.dropBorder': acc,
-    'activityBarBadge.background': acc,
-    'activityBarBadge.foreground': onAcc,
+    'activityBarBadge.background': fill,
+    'activityBarBadge.foreground': onFill,
     'activityBarTop.background': ch,
     'activityBarTop.foreground': fg,
     'activityBarTop.inactiveForeground': faint,
@@ -258,8 +261,8 @@ function chrome(t) {
     'modernActivityBar.hoverBackground': elev,
     'modernActivityBar.hoverForeground': fg,
 
-    'profileBadge.background': acc,
-    'profileBadge.foreground': onAcc,
+    'profileBadge.background': fill,
+    'profileBadge.foreground': onFill,
     'profiles.sashBorder': line2,
 
     'sideBar.background': elev,
@@ -426,7 +429,7 @@ function chrome(t) {
 
 function controls(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   const field = dark ? mixOf(bg, fg, 0.08) : '#ffffff';
   return {
     'input.background': field,
@@ -452,24 +455,24 @@ function controls(t) {
     'dropdown.foreground': fg,
     'dropdown.border': line2,
 
-    'button.background': acc,
-    'button.foreground': onAcc,
+    'button.background': fill,
+    'button.foreground': onFill,
     'button.border': alphaOf(fg, 0.12),
-    'button.hoverBackground': up(acc, 0.12),
-    'button.separator': alphaOf(onAcc, 0.35),
+    'button.hoverBackground': up(fill, 0.12),
+    'button.separator': alphaOf(onFill, 0.35),
     'button.secondaryBackground': over,
     'button.secondaryForeground': fg,
     'button.secondaryHoverBackground': mixOf(over, fg, 0.08),
-    'extensionButton.background': acc,
-    'extensionButton.foreground': onAcc,
+    'extensionButton.background': fill,
+    'extensionButton.foreground': onFill,
     'extensionButton.border': alphaOf(fg, 0.12),
-    'extensionButton.hoverBackground': up(acc, 0.12),
-    'extensionButton.prominentBackground': acc,
-    'extensionButton.prominentForeground': onAcc,
-    'extensionButton.prominentHoverBackground': up(acc, 0.12),
-    'extensionButton.separator': alphaOf(onAcc, 0.35),
-    'extensionBadge.remoteBackground': acc,
-    'extensionBadge.remoteForeground': onAcc,
+    'extensionButton.hoverBackground': up(fill, 0.12),
+    'extensionButton.prominentBackground': fill,
+    'extensionButton.prominentForeground': onFill,
+    'extensionButton.prominentHoverBackground': up(fill, 0.12),
+    'extensionButton.separator': alphaOf(onFill, 0.35),
+    'extensionBadge.remoteBackground': fill,
+    'extensionBadge.remoteForeground': onFill,
     'extensionIcon.starForeground': st.warn,
     'extensionIcon.verifiedForeground': st.ok,
     'extensionIcon.preReleaseForeground': y.tag,
@@ -488,8 +491,8 @@ function controls(t) {
     'radio.inactiveBorder': line2,
     'radio.inactiveHoverBackground': alphaOf(fg, 0.08),
 
-    'badge.background': acc,
-    'badge.foreground': onAcc,
+    'badge.background': fill,
+    'badge.foreground': onFill,
     'progressBar.background': acc,
     'gauge.background': alphaOf(acc, 0.25),
     'gauge.foreground': acc,
@@ -566,7 +569,7 @@ function integrations(t) {
     }
     return lighten(c, 0.02);
   };
-  const { sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   return {
     'terminal.background': elev,
     'terminal.foreground': fg,
@@ -718,7 +721,7 @@ function integrations(t) {
 
 function assistant(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   const field = dark ? mixOf(bg, fg, 0.08) : '#ffffff';
   return {
     'chat.requestBackground': elev,
@@ -763,10 +766,10 @@ function assistant(t) {
     'agentsChatInput.border': line2,
     'agentsChatInput.focusBorder': acc,
     'agentsChatInput.placeholderForeground': faint,
-    'agentsNewSessionButton.background': acc,
-    'agentsNewSessionButton.foreground': onAcc,
+    'agentsNewSessionButton.background': fill,
+    'agentsNewSessionButton.foreground': onFill,
     'agentsNewSessionButton.border': alphaOf(fg, 0.14),
-    'agentsNewSessionButton.hoverBackground': up(acc, 0.12),
+    'agentsNewSessionButton.hoverBackground': up(fill, 0.12),
 
     'inlineEdit.gutterIndicator.background': alphaOf(acc, 0.2),
     'inlineEdit.gutterIndicator.primaryBorder': acc,
@@ -814,8 +817,8 @@ function assistant(t) {
     'testing.uncoveredBorder': alphaOf(st.error, 0.4),
     'testing.uncoveredGutterBackground': alphaOf(st.error, 0.3),
     'testing.uncoveredBranchBackground': alphaOf(st.warn, 0.22),
-    'testing.coverCountBadgeBackground': acc,
-    'testing.coverCountBadgeForeground': onAcc,
+    'testing.coverCountBadgeBackground': fill,
+    'testing.coverCountBadgeForeground': onFill,
 
     'notebook.editorBackground': bg,
     'notebook.cellBorderColor': cellFill(bg, fg, 9),
@@ -941,7 +944,7 @@ export function buildColors(spec) {
 export { tokens };
 
 function remainder(t) {
-  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   const sym = {
     alias: y.variable, argument: y.param, branch: y.type, file: fg,
     folder: dim, inlineSuggestion: faint, method: y.func, option: y.keyword,
@@ -976,15 +979,15 @@ function remainder(t) {
     'activityErrorBadge.foreground': onColor(st.error),
     'activityWarningBadge.background': st.warn,
     'activityWarningBadge.foreground': onColor(st.warn),
-    'agentsBadge.background': acc,
-    'agentsBadge.foreground': onAcc,
+    'agentsBadge.background': fill,
+    'agentsBadge.foreground': onFill,
     'agentsUnreadBadge.background': y.tag,
     'agentsUnreadBadge.foreground': onColor(y.tag),
   };
 }
 
 function tail(t) {
-  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, onAcc, st, y, shadow, up, dn, dark } = t;
+  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
   return {
     'actionBar.toggledBackground': alphaOf(acc, 0.2),
     'toolbar.hoverOutline': '#00000000',
@@ -1045,7 +1048,7 @@ function tail(t) {
 }
 
 function addendum(t) {
-  const { bg, elev, chrome, over, fg, dim, faint, ghost, line, line2, acc, sel, onAcc, st, y, depth, trio, dark, legible } = t;
+  const { bg, elev, chrome, over, fg, dim, faint, ghost, line, line2, acc, fill, sel, onAcc, onFill, st, y, depth, trio, dark, legible } = t;
   const a = (c, k) => alpha(c, k);
   const m = (x, yy, k) => mix(x, yy, k);
   const guides = {};
@@ -1105,8 +1108,8 @@ function addendum(t) {
     'interactive.activeCodeBorder': acc,
     'interactive.inactiveCodeBorder': line,
     'mcpIcon.starForeground': st.warn,
-    'panelTitleBadge.background': acc,
-    'panelTitleBadge.foreground': onAcc,
+    'panelTitleBadge.background': fill,
+    'panelTitleBadge.foreground': onFill,
     'quickInput.list.focusBackground': over,
     'sideBySideEditor.horizontalBorder': line,
     'sideBySideEditor.verticalBorder': line,
