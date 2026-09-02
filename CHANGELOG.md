@@ -1,5 +1,233 @@
 # Changelog
 
+## [1.0.7]
+
+VS Code 1.136 moved a whole window into a bundle of its own, deprecated 4
+keys and added 9, and an audit of every family found that the one thing the
+tooling had never measured was whether a colour meant what it said.
+
+### Fixed
+
+**Status colours were chosen by hue alone.** The derivation picked error,
+warning, added and info from the 6 syntax colours by nearest hue, without
+asking whether the winner had any chroma or sat anywhere near the hue it was
+meant to stand for. Cherenkov, which has no warm colour in its code, got cyan
+warnings and pink errors. Provenance got violet errors and a grey info. Borrow
+Light got a near black info, Effect a grey added, Incandescence a yellow added
+that read as modified. The derivation now skips colours with a chroma under 15
+and, when the nearest syntax colour still sits more than 45 degrees from the
+target hue, takes the family's own terminal colour for that slot, which every
+palette places by hand and which is red, yellow, green and blue by definition.
+Squiggles, gutter marks, git decorations, diff washes, the Problems icons and
+the test icons in those 5 families follow. Families with a status placed by
+hand, Safelight, Dichroic, Stratum, Silverpoint, Palimpsest, Passepartout and
+Selenium, do not move.
+
+**The focus ring was under 3 to 1 in 26 of the 28 light themes.** The accent at
+60% never reached the WCAG 1.4.11 floor for non text contrast on light
+surfaces, and Effect and Cochineal missed it on dark. The ring now takes the
+lowest opacity, from 60% up, that clears 3 to 1 on the editor, the side bar and
+the chrome, and the accent is darkened or lightened first if it cannot get
+there opaque. 28 themes moved; the other 30 did not change a byte.
+`list.focusOutline` follows the same ring.
+
+**The current line was invisible.** Lightened by 3.5% on dark and darkened by
+2% on light, the line highlight sat 1 dE from the editor in every light theme
+and under 2 dE in 7 dark ones, below what an eye picks up. It now stops at
+the first step that reaches 3 dE, and the inactive group's line at 2 dE, in
+every theme but the high contrast pair, which signals with a border.
+
+**Hover on tabs did not show in 24 themes**, because the elevated surface sits
+under 3 dE from the chrome in most light families and in Coherence. The hover
+surface now steps away from the chrome until it reaches 3 dE, on classic tabs,
+modern tabs and the modern activity bar alike. Sticky scroll hover in
+Passepartout and terminal sticky scroll hover in Silverpoint Light and Selenium
+Light had the same problem and take the same cure.
+
+**Colours from outside the family.** When 2 syntax colours were too close,
+the depth ramp rotated hue in 60 degree steps, and the source control graph,
+the git decorations and the remote indicator rotated their own, which put cyan
+bracket guides and blue branch pills into Safelight, a darkroom with 1 amber,
+and a cyan pill into Cochineal. The ramp now takes the family's 6 terminal
+colours, placed by hand and already checked for separation and legibility on
+that very surface, and the pickers try every colour the family owns before
+they rotate anything. 9 themes changed their ramp, 9 their remote
+indicator and 12 a git decoration, and the deep audit now fails on any
+opaque colour more than 30 degrees from every hue in the palette.
+
+**Comment glyphs sat on their own range colour.** 1.136 draws the agent
+feedback glyph in `editorGutter.commentGlyphForeground` on top of
+`editorGutter.commentRangeForeground`, and the 2 were a dim grey on a faint
+one. The range is the inactive list selection over the editor now, as VS Code
+derives it, and the glyph is the foreground.
+
+**18 keys did nothing.** `shadow.sm` to `shadow.xl` are static tokens in the
+stylesheet, `chat.list.background` is only ever read with a fallback, and
+`button.hoverForeground`, `inlineChat.regionHighlight`,
+`interactive.result.editor.background.color`, `interactive.session.foreground`,
+the 7 `gauge` keys, `quickInput.border` and `quickInputList.hoverBackground`
+are registered nowhere in 1.136. 9 of them are set by the 2026 themes
+Microsoft ships, which is how they got past the audit: it validated keys
+against every string in the build rather than against the registrations.
+Removed, and the audit checks against the registrations now.
+
+**Deprecated keys.** `quickInput.list.focusBackground` and
+`editorActiveLineNumber.foreground` are gone; their replacements exist in every
+version the manifest accepts. `editorIndentGuide.background` and
+`editorIndentGuide.activeBackground` stay while the manifest accepts 1.70, and
+the 4 `modernActivityBar` keys deprecated in 1.136 stay 1 release
+alongside their `modernActivityBarItem` replacements, so an editor that has not
+reached 1.136 loses nothing. `tools/deprecated.mjs` lists the 6 with their
+reasons, and the audit fails on any other deprecated key and on any of the 6
+drifting from its replacement.
+
+**The extractors read 1 bundle and 1 stylesheet.** 1.136 has 2 of each,
+and the sessions window registers 4 keys the workbench never sees. All
+3 extractors now read every bundle and stylesheet under `out`, take
+registrations only from the function with the registration signature, read the
+ANSI map, record deprecations, and ignore a `var()` fallback when pairing a
+text colour with a background. `extract-derivations.mjs` bound minified names
+with a pattern that let `$Oo=` be read as `Oo=`, so every key whose default was
+`foreground` came out derived from `editorGroup.dropIntoPromptForeground`.
+Identifiers are matched at their real boundary now and the map went from 74
+entries to 311, all of them checked against the binary. The bigger map
+surfaced 30 places where a value contradicted the surface VS Code derives it
+from: 15 were aligned, the drop backgrounds, the radio and action bar washes,
+the notebook sliders that 1.0.5 had left opaque, the header without tabs, the
+selected tab, the keybinding table header, the welcome progress track, the
+agent status indicator, the word highlight text wash and the gutter, and 11
+are declared with their reason in `analyze.mjs`.
+
+**Smaller things.** `bench.mjs` crashed on the high contrast variants and
+carried a key count and a version number written by hand. `compare.mjs`
+measured coverage against a 729 key list from 1.134. `deep.mjs` assumed
+`editor.selectionForeground` applies to every theme, while VS Code applies it
+only in high contrast. `vscode-strings.json` and `vscode-color-keys.json` were
+read by nothing and are gone. The 1.0.0 entry below named a `build-strips.mjs`
+that never shipped.
+
+### Added
+
+**The 9 keys of 1.136.** `modernActivityBar.border` and the 4
+`modernActivityBarItem` keys of the modern activity bar,
+`agentsMobileDiff.addedForeground`, `agentsMobileDiff.modifiedForeground` and
+`agentsMobileDiff.deletedForeground`, which take the family's status colours
+instead of the Microsoft green, amber and red they default to, and
+`editorOverviewRuler.agentFeedbackForeground`. Every theme carries 1015 keys:
+the 974 that 1.136 registers and has not deprecated, the 6 kept above, and
+35 that exist only in editors built on VS Code, listed further down.
+
+**The Agents window has the family's own tint.** Its background gradient reads
+`agentsGradient.tintColor` and mixes it at 9% on dark and 12% on light.
+Tapetum handed it the accent at 28% opacity, so after the mix it was 2.5% and
+invisible. It is the accent now, opaque, and each family gets its own.
+
+**Output and search.** 4 rules for `token.info-token`, `token.warn-token`,
+`token.error-token` and `token.debug-token`, which colour the log levels in the
+Output panel and which VS Code otherwise fills in with its own blue, orange and
+red, in every scheme, on the family's status colours. `meta.separator` and the
+context line prefix of the search editor take the operator colour, and
+`constant`, `support` and `entity` are covered as bare fallbacks, as the themes
+Microsoft ships do.
+
+**6 checks in the deep audit** that did not exist before: status hue and
+chroma for every derived status, ANSI hue for every terminal colour, focus ring
+contrast on 6 surfaces, presence of every highlight on its ground, foreign
+hues, and the comment glyphs on their range. Together with the hover and line
+thresholds, none of the above can creep back.
+
+**A weekly workflow** downloads the current VS Code build with
+`@vscode/test-electron`, re-extracts the registry, the pairs and the
+derivations, runs `analyze` and `audit` against every theme and opens an issue
+when anything moved. The 1.136 gap was found by a person; the next one will be
+found by a machine.
+
+**Checked on the editors that install from Open VSX, and on Linux and Windows.**
+The current builds of VSCodium 1.126, Cursor 3.18 (a 1.128 core), Windsurf 3.8
+(a 1.126 core), code-server 4.135 (the 1.135 web build), Positron 2026.08 (a
+1.124 core), Kiro 1.0.437 (a 1.109 core), Trae 2.3 (a 1.107 core), Antigravity
+IDE 2.5 (a 1.107 core) and Void 1.99 were downloaded from their own release
+channels, their colour registries, stylesheets and derivations read with the
+same extractors, and every theme measured against each one of them. The Linux
+and Windows builds of VS Code 1.136 were read the same way: their registries,
+render pairs and derivations are byte for byte the ones read from the macOS
+build, and every check passes on them, so a theme verified on one platform is
+verified on all 3.
+
+4 things came out of it, and one of them was a VS Code bug wearing another
+editor's clothes. Antigravity's onboarding page draws
+`editor.selectionForeground` over `editor.inactiveSelectionBackground`, which
+measured 1.3 to 1 in the 2 high contrast themes. VS Code itself paints the
+selection text colour on inactive selections in high contrast, and the inactive
+wash was the family accent at 16%, so black text sat on near black there too.
+The inactive selection of the 2 high contrast themes is the selection colour
+now, at the lowest opacity from 50% that keeps its text at 4.5 to 1. Positron's
+console history paints `list.focusHighlightForeground` over
+`list.filterMatchBackground`, and 30 themes sat between 3.4 and 4.3; the
+highlight is now made legible over the wash on the editor, the chrome and the
+elevated surface, which moved it in 32 themes. Cursor draws
+`descriptionForeground` over `editor.inactiveSelectionBackground` and
+`editor.findMatchForeground` over surfaces other than the editor, which put 6
+dark families under 4 to 1 and 2 under 4.5; the dimmed text is now made
+legible over the selection wash as well, and the find match text over the
+hardest surface it can land on, so the fix holds in VS Code too. In the 2
+high contrast themes that description text is the full text colour now, which
+is how VS Code's own high contrast themes derive it, so it holds over the new
+inactive selection as well. The deep audit checks all 4 pairs from now on.
+
+Then the keys. Windsurf paints the text its assistant deletes inline on a red
+wash of its own, Void paints its diff lines on a fixed green and red, Kiro puts
+its inline diff hotkeys on an orange badge with black text, and Positron
+defaults 30 colours of its own panes, the data grid cursor and selection,
+the runtime state icons, the walkthrough badge, the welcome page link, the
+inputs, checkboxes, separators and tooltips of its dialogs and action bars, to
+fixed blues and greys, whatever the theme. All 35 take the family's own colour
+now, each one copied from the Tapetum key it mirrors, and `tools/forks.mjs`
+lists them by editor with their reasons so the audit knows they are not dead
+keys and fails if one goes missing. What was left alone was left alone on
+purpose: Trae's 165 `icube` design tokens belong to its own AI panels and are
+set by its own colour themes; Antigravity's stark buttons and diff fallbacks,
+Kiro's gradients, alert buttons and autonomy toggle, Void's neutral sweep washes
+and Positron's other 127 keys either derive from colours Tapetum already sets,
+default to transparent, or are chart marks whose meaning cannot be read off
+their names. The keys an older core does not know yet are ignored by it, and so
+are the keys of one editor on another.
+
+The extractors assumed a minified bundle. Positron ships its workbench with
+`registerColor(` and `localize(N, null)` spelled out, and the extractors read
+nothing from it; they accept any function name and any spacing now, as does the
+semantic legend reader, and the 1.136 registry, pairs, derivations and legend
+came out byte for byte the same. The key extractor had also assumed the
+minified name of the localize function was `d`, as it is in VS Code, so it had
+read nothing out of Cursor or Windsurf either. The deprecated keys kept above
+matter today: code-server ships the 1.135 core, which still reads the 4 activity
+bar keys, and every other editor on the list still reads the indent guide pair.
+Antigravity 2.11 on its own is a launcher; the editor it installs comes from
+Google's update endpoint, which is where the 1.107 build was read.
+
+### Changed
+
+**The tools speak English, all of them.** Every message, table header, error
+and documented reason in `tools/` was Romanian. They are English now, so what
+the tools print reads in the same language as the README, the changelog and the
+code around it.
+The check in `audit.mjs` that reads the coverage line out of
+`grammar-coverage.mjs` was moved together with the line it parses.
+
+**The README** says 974 colour keys, that the registry is a committed snapshot
+refreshed by the workflow rather than something derived on every run, that
+Cherenkov keeps a warm red and yellow in its terminal and its marks, and that
+Coherence's terminal magenta slot carries the krypton violet.
+
+**The workflows.** A CI workflow runs the 5 checks, analyze, audit, deep,
+snapshot and apca, on every push and pull request, so a regression is caught
+before a tag rather than on release day; none of them needs a VS Code on the
+runner, and the 2 that read one say so and skip. All 4 workflows pin their
+actions to a commit SHA with the version written beside it, a Dependabot
+configuration keeps those pins current every week, every job has a timeout,
+and the registry workflow pins `@vscode/test-electron` to its major, as vsce
+and ovsx already were.
+
 ## [1.0.6]
 
 Half the families were putting the cursor colour into a button, which sounds
@@ -45,17 +273,17 @@ person did.
 
 ### Fixed
 
-**The key extractor trusted a two letter name.** The minifier renamed the
+**The key extractor trusted a 2 letter name.** The minifier renamed the
 colour register function to oe, and a second bundle happened to give the same
-two letters to a function of its own, one that takes API parameter names as
-strings. Sixteen of them walked straight into the registry: uriOrString,
+2 letters to a function of its own, one that takes API parameter names as
+strings. 16 of them walked straight into the registry: uriOrString,
 NotebookData, title, value. The scan now reads registrations only from the
 bundle where the function was actually found, which is where every colour has
 always lived. Verified against 1.135: zero junk in, zero real keys lost.
 
 **The generator undid the alphabetical manifest.** build-all rewrites the
 manifest on every run and wrote the families in the order they were born,
-quietly reverting the order given by hand one release earlier. It sorts now,
+quietly reverting the order given by hand 1 release earlier. It sorts now,
 so the order cannot drift again.
 
 ### Added
@@ -75,7 +303,7 @@ No colours changed in this release. The numbers that describe them caught up.
 ### Fixed
 
 **The lowest contrast in the README was wrong.** The sentence says anywhere,
-but the number behind it only ever looked at the six code roles. Comments sit
+but the number behind it only ever looked at the 6 code roles. Comments sit
 lower by design, and the true minimum anywhere is 4.07, a Stratum Light
 comment, above its own floor of 4.0. Both this number and the key count are
 computed at generation now, and the audit fails the moment the README
@@ -86,7 +314,7 @@ it comes from a hand written list; now that holds for the numbers in it too.
 
 **Both registries see the same 30 keywords.** Open VSX publishes the first 30
 and silently drops the rest, so the list first got reordered to keep
-spectrum, phosphor and emission inside the cut, and now the three past it are
+spectrum, phosphor and emission inside the cut, and now the 3 past it are
 gone entirely: the British spelling of a keyword already present, a repeat,
 and pastel. The Marketplace and Open VSX finally describe the same package
 with the same words.
@@ -101,14 +329,14 @@ A day of looking at the themes rather than measuring them.
 
 ### Fixed
 
-**Merge conflicts.** The two halves were too close in colour to tell apart in 44
+**Merge conflicts.** The 2 halves were too close in colour to tell apart in 44
 of the 58, and neither stood out from the background in 45. The rule only ever
-checked the two marker lines, never the code between them, and compared the
+checked the 2 marker lines, never the code between them, and compared the
 colours before they were mixed with the background rather than after.
 
-**Brackets.** Six rainbow colours, so a warm monochrome family drew green and
-cyan brackets. VS Code ships three and repeats them; Tapetum now does the same,
-taking its three from the family's own palette.
+**Brackets.** 6 rainbow colours, so a warm monochrome family drew green and
+cyan brackets. VS Code ships 3 and repeats them; Tapetum now does the same,
+taking its 3 from the family's own palette.
 
 **Unused code** was drawn at 45% where the documentation suggests 75%.
 
@@ -144,12 +372,12 @@ tools, which had been reporting everything clean.
 
 ### Added
 
-**Download counts under the title.** Two small badges, a box for installs on the
-Marketplace and a downward arrow for downloads on Open VSX. The two shapes are
+**Download counts under the title.** 2 small badges, a box for installs on the
+Marketplace and a downward arrow for downloads on Open VSX. The 2 shapes are
 deliberate: the numbers count different things, and a reader should sense that
 before reading the labels. Open VSX counts every fetch of the file, including
 robots and mirrors, while the Marketplace counts people who actually installed
-it, so the two will never line up and are not meant to be compared.
+it, so the 2 will never line up and are not meant to be compared.
 
 They refresh themselves. A workflow reads both registries each morning, and
 commits only if a number actually moved, so the history does not fill up with
@@ -165,9 +393,9 @@ registry publishes a monthly figure either, only a running total.
 
 ### Fixed
 
-**Diffs were hard to read.** In the diff editor a changed word sits on two
+**Diffs were hard to read.** In the diff editor a changed word sits on 2
 tinted layers at once, the tint for the whole line and a stronger one for the
-word itself. Nothing in the tooling had ever looked at the two of them together,
+word itself. Nothing in the tooling had ever looked at the 2 of them together,
 only at each on its own, so this went unnoticed. Comments were the worst hit,
 dropping to 3.14 against inserted text in Fraunhofer and to 2.72 somewhere in
 the collection.
@@ -179,12 +407,12 @@ the full contrast, so the tints are now chosen to hold every theme above the
 level that was reported as too low, and no theme is worse than the one that
 started the complaint.
 
-**Brackets looked like a rainbow.** Six colours, each a sixth of the way around
+**Brackets looked like a rainbow.** 6 colours, each a sixth of the way around
 the colour wheel, with the saturation forced up. In a warm, almost monochrome
 family like Safelight that meant green and cyan brackets in a theme that has
-neither. VS Code itself only ships three bracket colours and repeats them, which
-is the sensible thing to do, so Tapetum does that now, picking the three from
-the family's own palette. Indent guides follow the same three. Families that
+neither. VS Code itself only ships 3 bracket colours and repeats them, which
+is the sensible thing to do, so Tapetum does that now, picking the 3 from
+the family's own palette. Indent guides follow the same 3. Families that
 chose their own ramp by hand keep it.
 
 **Unused code was almost invisible** rather than merely dimmed. It was being
@@ -203,16 +431,16 @@ Squiggles and small icons appear everywhere, so they are now calmed down. The
 underlying status colour is untouched, so git decorations and diff tints keep
 looking like themselves.
 
-**The two halves of a merge conflict looked the same.** In a few themes, current
+**The 2 halves of a merge conflict looked the same.** In a few themes, current
 and incoming were near enough in colour to be indistinguishable, which rather
-defeats the point. They are now pulled apart, and if the palette has no two
+defeats the point. They are now pulled apart, and if the palette has no 2
 colours far enough from each other, one of them gets rotated until it does.
 
 **A stale number in the README.** It still claimed 729 colour keys long after
 the count had grown to 964.
 
-**A miscount in the docs.** Both the manifest and the changelog said five ways of
-colouring code. There are six. `signal` had been left off the list.
+**A miscount in the docs.** Both the manifest and the changelog said 5 ways of
+colouring code. There are 6. `signal` had been left off the list.
 
 ### Changed
 
@@ -220,15 +448,15 @@ colouring code. There are six. `signal` had been left off the list.
 keywords, since the extension runs in both and those are the words people
 actually type.
 
-**Five new checks in the audit**, so none of the above can creep back. The
+**5 new checks in the audit**, so none of the above can creep back. The
 stacked layer check had only ever combined the selection with a few highlights
 and never included comments, which is exactly why the diff problem stayed
 invisible. It now looks at the real diff stack, and the bracket check has been
-taught that three repeating colours is the intended answer, not a bug.
+taught that 3 repeating colours is the intended answer, not a bug.
 
 ## [1.0.0]
 
-58 themes instead of 8, six different ways of colouring code instead of one, a
+58 themes instead of 8, 6 different ways of colouring code instead of 1, a
 high contrast pair, and a verification pass that found bugs in the first release.
 
 ### Added
@@ -238,7 +466,7 @@ to 28 families and 58 themes.
 
 | Family | Drawn from | Scheme |
 | --- | --- | --- |
-| **Coherence** | 6 lines from one argon and krypton ion laser | grammar |
+| **Coherence** | 6 lines from 1 argon and krypton ion laser | grammar |
 | **Valence** | Transition metals dissolved in water | grammar |
 | **Hadal** | The depth at which each colour dies underwater | grammar |
 | **Cinnabar** | Mineral pigments ground before synthetic chemistry | grammar |
@@ -373,7 +601,7 @@ hand written list.
 - `tools/grammar-scopes.mjs` extracts every scope from every grammar, reading
   both the grammars bundled with VS Code and the extensions you have installed,
   so coverage is measured against the languages you actually use
-- `tools/png-write.mjs` and `tools/build-strips.mjs` generate the palette strips
+- `tools/png-write.mjs` writes the PNG files behind the contact sheet
 - `tools/build-readme.mjs` generates the README from the palettes and the stories
 - `tools/vscode-path.mjs` locates the VS Code installation on macOS, Windows and
   Linux, including VSCodium, snap and flatpak
@@ -382,7 +610,7 @@ hand written list.
 
 - **Quantum Light shipped with the error and warning colours identical.** Both
   resolved to `#af4900`, so a red squiggle and a yellow one looked the same, as
-  did the gutter and Problems icons. Status colours are now assigned so no two
+  did the gutter and Problems icons. Status colours are now assigned so no 2
   ever land on the same role.
 - **A muted foreground could be lightened when it should have been darkened.**
   The helper picked its direction from the luminance of the surface rather than
@@ -438,9 +666,9 @@ hand written list.
 - **The terminal had a different background from the panel it sits in**, so a step
   was visible right under the row of panel tabs. VS Code registers
   `terminal.background` with a null default, which means it takes the panel
-  background, and the themes shipped with VS Code set the two to the same value.
+  background, and the themes shipped with VS Code set the 2 to the same value.
   Tapetum had tied the terminal to the editor background instead. Fixed in all 58,
-  and the audit now fails if the two ever drift more than 1 delta E apart.
+  and the audit now fails if the 2 ever drift more than 1 delta E apart.
 - **The seam checker was case sensitive** and matched only keys ending in
   `Background`, so every key ending in `.background` was silently skipped. That is
   why the terminal seam was never reported.
@@ -452,10 +680,10 @@ hand written list.
 - **Every branch pill in the Source Control graph was unreadable, in all 58
   themes.** VS Code draws `scmGraph.historyItemRefColor` as the pill background
   and writes the label in `scmGraph.historyItemHoverLabelForeground`, which
-  defaults to the panel background. Tapetum had the two the other way round, so a
+  defaults to the panel background. Tapetum had the 2 the other way round, so a
   light theme produced a black pill with black text and a dark theme a pale pill
   with pale text. The worst measured 1.00 to 1, meaning fully invisible. All 174
-  pills now clear 4.5 to 1 and the three ref colours are at least 12 delta E apart.
+  pills now clear 4.5 to 1 and the 3 ref colours are at least 12 delta E apart.
 - **The graph curves used syntax colours**, which in the near monochrome families
   made the branches indistinguishable. They now follow the bracket depth ramp,
   which is guaranteed to be distinct in every theme.
@@ -477,7 +705,7 @@ hand written list.
 own captures in both variants, bringing the number of families shown in the
 README to 6.
 
-**Two recordings of the whole collection**, one dark and one light, that scroll
+**2 recordings of the whole collection**, 1 dark and 1 light, that scroll
 the theme picker while VS Code applies each theme live. They sit after every
 family and before the section on colouring schemes, so the page is readable
 before 20 MB of animation starts loading.
@@ -506,7 +734,7 @@ before 20 MB of animation starts loading.
   broken theme cannot reach either registry. The grammar coverage check is
   skipped when VS Code is not installed, which is the case on a build runner.
 - The developer tooling runs on macOS, Windows and Linux. It used to have the
-  macOS application path written into three files. It now locates VS Code,
+  macOS application path written into 3 files. It now locates VS Code,
   VSCodium and Insiders per platform, including snap and flatpak, and accepts a
   `VSCODE_APP` override.
 - This changelog is checked by `tools/audit.mjs`, which fails if the manifest
