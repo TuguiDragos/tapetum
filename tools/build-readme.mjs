@@ -207,7 +207,8 @@ Positron, Kiro, Trae, Antigravity and Void builds were each read the same way,
 registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 35
 surfaces those editors paint in colours of their own, listed with their reasons
-in \`tools/forks.mjs\`, take the family's colour instead. The Linux and Windows
+in \`tools/forks.mjs\`, take the family's colour instead; \`tools/fork-check.mjs\`
+repeats those measurements on any editor from 1 command. The Linux and Windows
 builds of VS Code ${REGISTRY.vscode} carry the same registry, stylesheets and
 derivations as the macOS build, byte for byte, so what holds on one holds on all
 3.
@@ -216,6 +217,7 @@ derivations as the macOS build, byte for byte, so what holds on one holds on all
 node tools/analyze.mjs    # all ${THEME_COUNT}, against the real pairs
 node tools/audit.mjs      # structure, schemes, manifest, files and this README
 node tools/compare.mjs    # against every theme Microsoft ships
+node tools/fork-check.mjs kiro <resources/app>   # the same checks, on another editor
 \`\`\`
 
 ## Install
