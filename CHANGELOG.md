@@ -1,5 +1,19 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+**`tools/fork-check.mjs`.** The script that read the 9 other editors for
+1.0.7 lived outside the repository. It is a tool now: given a name and the
+editor's resources/app folder, it copies the repository to a temporary folder,
+extracts that editor's registry, stylesheets and derivations into the copy,
+runs analyze, audit and deep there, and prints what the editor knows that the
+committed registry does not, what it does not know yet, and every problem the
+3 checks report, sorted into the findings an older or extended core is
+expected to produce and the ones that are real. The repository itself is not
+touched, and the exit code follows the real ones.
+
 ## [1.0.7]
 
 VS Code 1.136 moved a whole window into a bundle of its own, deprecated 4
