@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify every theme against the committed registry
+        run: node tools/analyze.mjs
+
+      - name: Audit the structure, the schemes and the docs
+        run: node tools/audit.mjs
+
+      - name: Deep audit, every theme individually
+        run: node tools/deep.mjs
+
+      - name: Compare against the committed snapshot
+        run: node tools/snapshot.mjs
+
+      - name: Check the APCA implementation
+        run: node tools/apca-check.mjs

@@ -1,0 +1,83 @@
+name: Registry
+
+on:
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: registry
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Download the current VS Code build
+        id: vscode
+        run: |
+          npm install --no-save --no-package-lock @vscode/test-electron@3
+          exe=$(node -e "require('@vscode/test-electron').downloadAndUnzipVSCode('stable').then((p) => console.log(p))")
+          app=$(cd "$(dirname "$(find .vscode-test -name product.json -path '*/app/product.json' | head -1)")" && pwd)
+          echo "app=$app" >> "$GITHUB_OUTPUT"
+          echo "version=$(node -p "require('$app/product.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Re-extract the registry, the pairs and the derivations
+        env:
+          VSCODE_APP: ${{ steps.vscode.outputs.app }}
+        run: |
+          node tools/extract-keys.mjs
+          node tools/extract-pairs.mjs
+          node tools/extract-derivations.mjs
+
+      - name: Check every theme against the fresh registry
+        id: check
+        continue-on-error: true
+        run: |
+          node tools/analyze.mjs | tee analyze.txt
+          node tools/audit.mjs | tee audit.txt
+
+      - name: Open an issue if anything moved
+        if: steps.check.outcome == 'failure' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.vscode.outputs.version }}
+        run: |
+          if git diff --quiet -- tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json && [ "${{ steps.check.outcome }}" = "success" ]; then
+            echo "registry unchanged, every theme passes"
+            exit 0
+          fi
+          title="VS Code $VERSION moved the colour registry"
+          if [ -n "$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')" ]; then
+            echo "issue already open"
+            exit 0
+          fi
+          {
+            echo "The weekly registry check ran against VS Code $VERSION."
+            echo
+            echo '```'
+            git diff --stat -- tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json
+            echo '```'
+            echo
+            echo "## analyze"
+            echo '```'
+            tail -n 40 analyze.txt
+            echo '```'
+            echo
+            echo "## audit"
+            echo '```'
+            tail -n 40 audit.txt
+            echo '```'
+          } > body.md
+          gh issue create --title "$title" --body-file body.md
