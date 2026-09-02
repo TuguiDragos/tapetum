@@ -4,6 +4,14 @@
 
 ### Added
 
+**The publishing tokens are checked every month.** The Marketplace token
+lives at most 1 year, and until now the publish workflow would have found
+that out on release day, at the step that needs it. On the 1st of every month
+a workflow asks both registries whether the 2 tokens can still publish as
+tuguidragos; when one cannot, it opens an issue that names it, says where a
+new one comes from and where it goes, and the run stays red until the token
+works again.
+
 **`tools/fork-check.mjs`.** The script that read the 9 other editors for
 1.0.7 lived outside the repository. It is a tool now: given a name and the
 editor's resources/app folder, it copies the repository to a temporary folder,
