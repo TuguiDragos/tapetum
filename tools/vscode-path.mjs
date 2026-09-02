@@ -31,11 +31,12 @@ export function appRoot() {
     if (c && fs.existsSync(path.join(c, 'product.json'))) return c;
   }
   throw new Error(
-    `nu am gasit instalarea VS Code pe ${process.platform}. Seteaza VSCODE_APP catre folderul resources/app`,
+    `could not find a VS Code installation on ${process.platform}. Set VSCODE_APP to the resources/app folder`,
   );
 }
 
 export const bundledExtensions = () => path.join(appRoot(), 'extensions');
+export const outDir = () => path.join(appRoot(), 'out');
 export const workbenchCss = () => path.join(appRoot(), 'out/vs/workbench/workbench.desktop.main.css');
 export const workbenchJs = () => path.join(appRoot(), 'out/vs/workbench/workbench.desktop.main.js');
 
@@ -50,6 +51,6 @@ const userExtensionRoots = () => {
 
 export function extensionRoots() {
   const roots = [];
-  try { roots.push(bundledExtensions()); } catch { /* fara instalare locala */ }
+  try { roots.push(bundledExtensions()); } catch { /* no local install */ }
   return [...roots, ...userExtensionRoots()];
 }

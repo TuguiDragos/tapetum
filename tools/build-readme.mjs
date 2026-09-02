@@ -29,10 +29,11 @@ for (const v of ['dark', 'light']) {
   }
 }
 const FAMILY_GAP = Math.floor(closest);
-const KEY_COUNT = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8')).confirmedReal.length;
+const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
+const KEY_COUNT = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
 const LOWEST = Math.min(...FAMILIES.flatMap((f) => VARIANTS.filter((v) => f[v])
   .flatMap((v) => [...HUE_ROLES, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
-if (ORDERED.length !== FAMILIES.length) throw new Error('ordinea din README nu acopera toate familiile');
+if (ORDERED.length !== FAMILIES.length) throw new Error('the README order does not cover every family');
 
 const SCHEME = {
   grammar: 'grammar', provenance: 'provenance', borrow: 'borrow',
@@ -95,8 +96,8 @@ so almost none of it is wasted. It is why a cat sees where we see nothing, and
 why its eyes flare when a torch finds them.
 
 The mirror is called the *tapetum lucidum*, and every animal throws back its own
-colour: green in cats, blue in horses, red in alligators, white in spiders. One
-structure, and no two of them look alike.
+colour: green in cats, blue in horses, red in alligators, white in spiders. 1
+structure, and no 2 of them look alike.
 
 You also spend your nights looking at light. This is a collection of ways to
 throw it back: ${FAMILIES.length} families, each in a dark and a light variant, plus ${HC.length === 1 ? 'a high contrast pair' : HC.length + ' high contrast pairs'} for ${HC.map((f) => f.label).join(' and ')}.
@@ -113,8 +114,8 @@ Every theme in the collection, applied live while scrolling the picker.
 
 **The dark half.** ${DARK_COUNT} of them, each drawn from something in the physical
 world that emits or bends light: emission lines, phosphor, anodised metal, deep
-sea bioluminescence, the blue glow of a reactor pool. No two of them share a
-palette: across the six roles that carry a hue, the closest pair still averages
+sea bioluminescence, the blue glow of a reactor pool. No 2 of them share a
+palette: across the 6 roles that carry a hue, the closest pair still averages
 ${FAMILY_GAP} dE apart, so switching family is a real change and not a shade of one.
 
 <p align="center"><img src="${RAW}/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>
@@ -159,7 +160,7 @@ Nothing at all. No hue in the code, only 6 tones plus weight and italic.
 
 <br>
 
-Three of these read your language server rather than the grammar. \`provenance\`,
+3 of these read your language server rather than the grammar. \`provenance\`,
 \`borrow\` and \`effect\` use the semantic tokens it emits, including the
 \`declaration\`, \`defaultLibrary\`, \`readonly\`, \`static\`, \`modification\` and
 \`async\` modifiers that most themes never touch. They fall back to grammar rules
@@ -184,16 +185,32 @@ ${THEME_COUNT} variants:
 | | |
 | --- | --- |
 | **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is ${LOWEST} |
-| **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no two look like each other |
-| **Coverage** | all ${KEY_COUNT} colour keys the running VS Code build registers, including the chat, agents, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
+| **Coverage** | all ${KEY_COUNT} colour keys VS Code ${REGISTRY.vscode} registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code ${REGISTRY.vscode} |
 
-None of that comes from a hand written list, which would go stale the first time
-VS Code shipped a new surface. \`tools/extract-pairs.mjs\` reads the workbench
-stylesheet out of the installed editor and collects every foreground and
-background used in the same rule, so what gets checked is what the editor
-actually paints together. \`tools/extract-derivations.mjs\` reads the binary for
+None of that comes from a hand written list. \`tools/extract-keys.mjs\` reads the
+colour registry out of every window bundle of the installed editor, including the
+sessions window that 1.136 moved into a bundle of its own, and records which keys
+are deprecated. \`tools/extract-pairs.mjs\` reads every stylesheet and collects
+each foreground and background used in the same rule, so what gets checked is
+what the editor actually paints together. \`tools/extract-derivations.mjs\` reads
 the keys whose default is another key, which catches the class of bug where a
-value quietly contradicts the surface beneath it.
+value quietly contradicts the surface beneath it. The 3 files they write are
+committed, checked in CI against every theme, and refreshed by a weekly workflow
+that downloads the current VS Code build, so a new surface is noticed by a
+machine rather than by a person.
+
+The same measurements run against the editors that install from Open VSX, and
+against the other platforms. The current VSCodium, Cursor, Windsurf, code-server,
+Positron, Kiro, Trae, Antigravity and Void builds were each read the same way,
+registry, stylesheets and derivations, and every theme checked on every one of
+them; the keys their older cores do not know yet are ignored by them, and the 35
+surfaces those editors paint in colours of their own, listed with their reasons
+in \`tools/forks.mjs\`, take the family's colour instead. The Linux and Windows
+builds of VS Code ${REGISTRY.vscode} carry the same registry, stylesheets and
+derivations as the macOS build, byte for byte, so what holds on one holds on all
+3.
 
 \`\`\`bash
 node tools/analyze.mjs    # all ${THEME_COUNT}, against the real pairs
@@ -209,7 +226,8 @@ code --install-extension tuguidragos.tapetum
 
 Or from [the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum),
 or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), which is where
-VSCodium, Cursor, Windsurf, Gitpod, code-server and Theia install from.
+VSCodium, Cursor, Windsurf, Positron, Kiro, Trae, Antigravity, Void, Gitpod,
+code-server and Theia install from.
 
 Press \`Cmd K\` then \`Cmd T\`, or \`Ctrl K\` then \`Ctrl T\` on Windows and Linux, and
 type a family name to filter. Every family is \`Tapetum <Family>\` for the dark
@@ -237,4 +255,4 @@ Any colour can be overridden per theme, without forking anything:
 `;
 
 fs.writeFileSync(path.join(ROOT, 'README.md'), md);
-console.log(`README scris, ${md.split('\n').length} linii, ${FAMILIES.length} familii, ${Object.keys(SHOTS).length} cu capturi`);
+console.log(`README written, ${md.split('\n').length} lines, ${FAMILIES.length} families, ${Object.keys(SHOTS).length} with screenshots`);

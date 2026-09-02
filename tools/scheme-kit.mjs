@@ -1,10 +1,12 @@
+import { readable } from './color.mjs';
+
 export const SLOTS = [
   { name: 'Comments', slot: 'comment', scope: ['comment', 'punctuation.definition.comment', 'string.comment'] },
   { name: 'Comment keyword', slot: 'codetag', scope: ['keyword.codetag', 'comment keyword.other', 'storage.type.class.jsdoc'] },
   { name: 'Identifiers', slot: 'identifier', scope: ['variable', 'variable.other', 'variable.other.readwrite',
     'meta.definition.variable.name', 'variable.other.property', 'variable.other.object.property',
     'meta.object-literal.key', 'support.type.property-name', 'variable.other.member', 'entity.name.label'] },
-  { name: 'Calls', slot: 'call', scope: ['meta.function-call.generic', 'variable.function'] },
+  { name: 'Calls', slot: 'call', scope: ['meta.function-call.generic', 'variable.function', 'entity'] },
   { name: 'Parameters', slot: 'parameter', scope: ['variable.parameter', 'meta.parameter', 'variable.other.jsdoc'] },
   { name: 'Function definitions', slot: 'definition', scope: ['entity.name.function', 'meta.definition.function',
     'meta.definition.method', 'entity.name.method', 'entity.name.function.decorator'] },
@@ -14,10 +16,10 @@ export const SLOTS = [
   { name: 'Types in annotations', slot: 'type', scope: ['support.type.primitive', 'keyword.type', 'storage.type.primitive'] },
   { name: 'Builtins', slot: 'builtin', scope: ['support.function', 'support.class', 'support.type', 'support.type.builtin',
     'support.variable', 'support.constant', 'support.module', 'meta.require', 'variable.language',
-    'variable.language.this', 'variable.language.super', 'keyword.other.this'] },
+    'variable.language.this', 'variable.language.super', 'keyword.other.this', 'support'] },
   { name: 'Constants', slot: 'frozen', scope: ['variable.other.constant', 'variable.other.enummember',
     'constant.other.caps', 'entity.name.constant', 'constant.language', 'constant.language.boolean',
-    'constant.language.null', 'constant.language.undefined'] },
+    'constant.language.null', 'constant.language.undefined', 'constant'] },
   { name: 'Strings', slot: 'string', scope: ['string', 'string.quoted', 'string.template', 'punctuation.definition.string'] },
   { name: 'Numbers and units', slot: 'number', scope: ['constant.numeric', 'keyword.other.unit', 'constant.character',
     'constant.character.escape'] },
@@ -48,7 +50,8 @@ export const SLOTS = [
     'storage.type.function.lambda'] },
   { name: 'Operators and punctuation', slot: 'operator', scope: ['keyword.operator', 'punctuation',
     'punctuation.separator', 'punctuation.terminator', 'meta.brace', 'punctuation.accessor',
-    'punctuation.definition.template-expression', 'punctuation.section.embedded', 'meta.embedded'] },
+    'punctuation.definition.template-expression', 'punctuation.section.embedded', 'meta.embedded',
+    'meta.separator', 'meta.resultLinePrefix.contextLinePrefix.search'] },
   { name: 'Tags', slot: 'tag', scope: ['entity.name.tag', 'punctuation.definition.tag', 'meta.tag'] },
   { name: 'Component tags', slot: 'component', scope: ['support.class.component', 'entity.name.tag.jsx-component',
     'entity.name.tag.namespace'] },
@@ -147,3 +150,10 @@ export function buildFrom(paint) {
 }
 
 export const styled = (foreground, fontStyle) => (fontStyle ? { foreground, fontStyle } : { foreground });
+
+export const outputRules = (st, op, bg) => [
+  { name: 'Output info', scope: 'token.info-token', settings: { foreground: readable(st.info, bg) } },
+  { name: 'Output warnings', scope: 'token.warn-token', settings: { foreground: readable(st.warn, bg) } },
+  { name: 'Output errors', scope: 'token.error-token', settings: { foreground: readable(st.error, bg) } },
+  { name: 'Output debug', scope: 'token.debug-token', settings: { foreground: op } },
+];

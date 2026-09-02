@@ -9,7 +9,7 @@ function skipSubBlocks(b, i) {
 }
 
 export function parse(buf) {
-  if (buf.slice(0, 3).toString() !== 'GIF') throw new Error('nu e un GIF');
+  if (buf.slice(0, 3).toString() !== 'GIF') throw new Error('not a GIF');
   const width = buf.readUInt16LE(6);
   const height = buf.readUInt16LE(8);
   const packed = buf[10];
@@ -51,9 +51,9 @@ export function slim(buf, { keepEvery = 2, maxDelay = 400, force = false } = {})
   const partial = g.frames.filter((f) => f.w !== g.width || f.h !== g.height).length;
   const keeps = g.frames.filter((f) => f.disposal === 1).length;
   if (keepEvery > 1 && partial > 0 && keeps > 0 && !force) {
-    throw new Error(`${partial} din ${g.frames.length} cadre sunt partiale cu dispunere 1. `
-      + 'Fiecare deseneaza doar ce s-a schimbat peste cel dinainte, deci aruncarea unui cadru '
-      + 'pierde definitiv pixelii aceia si animatia se destrama. Redu dimensiunea prin recodare, nu prin rarire.');
+    throw new Error(`${partial} of ${g.frames.length} frames are partial with disposal 1. `
+      + 'Each one draws only what changed over the previous frame, so dropping a frame '
+      + 'loses those pixels for good and the animation unravels. Reduce the size by re-encoding, not by thinning.');
   }
   const out = [g.head];
   for (const e of g.extras) out.push(buf.slice(e.start, e.end));
@@ -90,22 +90,22 @@ if (args.length) {
     for (const f of g.frames) disp[f.disposal] = (disp[f.disposal] || 0) + 1;
     const longest = g.frames.reduce((m, f) => (f.delay > m.delay ? f : m));
     console.log(`\n${path.basename(file)}`);
-    console.log(`  ${g.width}x${g.height}, ${g.frames.length} cadre, ${(buf.length / 1048576).toFixed(1)} MB, ${total.toFixed(1)} s`);
-    console.log(`  cadre pe tot canvasul: ${fullCanvas}, partiale: ${g.frames.length - fullCanvas}`);
-    console.log(`  metode de dispunere: ${Object.entries(disp).map(([k, v]) => `${k} x${v}`).join(', ')}`);
-    console.log(`  cea mai lunga intarziere: ${(longest.delay / 100).toFixed(2)} s`);
+    console.log(`  ${g.width}x${g.height}, ${g.frames.length} frames, ${(buf.length / 1048576).toFixed(1)} MB, ${total.toFixed(1)} s`);
+    console.log(`  full canvas frames: ${fullCanvas}, partial: ${g.frames.length - fullCanvas}`);
+    console.log(`  disposal methods: ${Object.entries(disp).map(([k, v]) => `${k} x${v}`).join(', ')}`);
+    console.log(`  longest delay: ${(longest.delay / 100).toFixed(2)} s`);
     let r = null;
     try {
       r = slim(buf, { keepEvery: every, maxDelay: cap, force: args.includes('--force') });
-      console.log(`  dupa rarire 1 din ${every} si plafon ${cap / 100}s: ${r.kept} cadre, ${(r.buffer.length / 1048576).toFixed(1)} MB`);
+      console.log(`  after keeping 1 in ${every} and capping at ${cap / 100}s: ${r.kept} frames, ${(r.buffer.length / 1048576).toFixed(1)} MB`);
     } catch (e) {
-      console.log(`  RARIREA NU E SIGURA: ${e.message}`);
+      console.log(`  THINNING IS NOT SAFE: ${e.message}`);
     }
     if (apply && r) {
       fs.copyFileSync(file, file + '.orig');
       fs.writeFileSync(file, r.buffer);
-      console.log(`  scris. originalul e la ${path.basename(file)}.orig`);
+      console.log(`  written. the original is at ${path.basename(file)}.orig`);
     }
   }
-  if (!apply) console.log('\nruleaza cu --apply ca sa scriu fisierele');
+  if (!apply) console.log('\nrun with --apply to write the files');
 }

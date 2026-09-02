@@ -72,14 +72,14 @@ try {
         official.push({ name: label, min: Math.min(...lc), mean: lc.reduce((a, b) => a + b, 0) / lc.length,
           below: fgs.filter((f) => apcaLc(f, bg) < FLOOR_CODE).length, rules: fgs.length,
           wcag: Math.min(...fgs.map((f) => contrast(f, bg))) });
-      } catch { /* tema nu se rezolva */ }
+      } catch { /* theme cannot be resolved */ }
     }
   }
-} catch { /* fara VS Code nu compar */ }
+} catch { /* without VS Code there is nothing to compare against */ }
 
-console.log(`APCA. Praguri pe rol: ${Object.entries(FLOOR).map(([k, v]) => `${k} ${v}`).join(', ')}, comentarii ${FLOOR_COMMENT}.`);
-console.log(`Referinta: Lc 60 e pragul APCA pentru text de continut la greutate normala, Lc 45 pentru text mare sau citit in salturi.\n`);
-console.log('tema                          Lc min  Lc mediu  comentariu  sub prag   WCAG min');
+console.log(`APCA. Floors per role: ${Object.entries(FLOOR).map(([k, v]) => `${k} ${v}`).join(', ')}, comments ${FLOOR_COMMENT}.`);
+console.log(`Reference: Lc 60 is the APCA floor for content text at normal weight, Lc 45 for large text or text read in glances.\n`);
+console.log('theme'.padEnd(30) + 'Lc min'.padStart(6) + 'Lc mean'.padStart(10) + 'comment'.padStart(12) + 'under'.padStart(11) + 'WCAG min'.padStart(11));
 console.log('-'.repeat(80));
 for (const m of mine.sort((a, b) => a.min - b.min)) {
   console.log(m.name.padEnd(30) + m.min.toFixed(1).padStart(6) + m.mean.toFixed(1).padStart(10)
@@ -90,16 +90,16 @@ const minAll = Math.min(...mine.map((m) => m.min));
 const worstComment = Math.min(...mine.map((m) => m.comment));
 const failing = mine.filter((m) => m.below.length);
 console.log('-'.repeat(80));
-console.log(`cel mai mic Lc pe cod: ${minAll.toFixed(1)}  |  cel mai mic Lc pe comentarii: ${worstComment.toFixed(1)}`);
+console.log(`lowest Lc on code: ${minAll.toFixed(1)}  |  lowest Lc on comments: ${worstComment.toFixed(1)}`);
 const exemptKey = new Set(EXEMPT.map((e) => `${e.family}.${e.role}`));
 const realFail = mine.filter((m) => m.below.length);
-console.log(`teme cu cel putin un rol sub pragul lui: ${realFail.length} din ${mine.length}`);
+console.log(`themes with at least one role under its floor: ${realFail.length} of ${mine.length}`);
 if (realFail.length) for (const m of realFail) console.log(`   ${m.name.padEnd(28)} ${m.below.join(', ')}`);
-console.log(`scutite prin design: ${EXEMPT.map((e) => e.family + '.' + e.role).join(', ')}`);
+console.log(`exempt by design: ${EXEMPT.map((e) => e.family + '.' + e.role).join(', ')}`);
 
 if (official.length) {
-  console.log('\nTEMELE LIVRATE DE MICROSOFT, aceeasi masura pe regulile lor TextMate');
-  console.log('tema                          Lc min  Lc mediu  reguli sub prag  din  WCAG min');
+  console.log('\nTHE THEMES MICROSOFT SHIPS, the same measure on their TextMate rules');
+  console.log('theme'.padEnd(30) + 'Lc min'.padStart(6) + 'Lc mean'.padStart(10) + 'rules under'.padStart(15) + 'of'.padStart(6) + 'WCAG min'.padStart(10));
   console.log('-'.repeat(80));
   for (const o of official.sort((a, b) => a.min - b.min)) {
     console.log(o.name.padEnd(30) + o.min.toFixed(1).padStart(6) + o.mean.toFixed(1).padStart(10)

@@ -6,9 +6,9 @@ import { bundledExtensions } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EXT = bundledExtensions();
-const REG = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys.json'), 'utf8'));
+const REG = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
 const PAIRS = JSON.parse(fs.readFileSync(path.join(HERE, 'render-pairs.json'), 'utf8'));
-const ALL = Object.values(REG.groups).flat();
+const ALL = REG.confirmedReal.filter((k) => !REG.deprecated.includes(k));
 
 const strip = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '').replace(/,(\s*[}\]])/g, '$1');
 
@@ -62,7 +62,7 @@ function score(t, onlyPairs) {
       const v = contrast(over(fg, s), s);
       checked++;
       if (v < floor) failed++;
-      if (v < worst.c) worst = { c: v, what: `${p.fg} pe ${p.bg}` };
+      if (v < worst.c) worst = { c: v, what: `${p.fg} on ${p.bg}` };
     }
   }
 
@@ -104,9 +104,9 @@ const commonWith = (t) => {
   return new Set([...a].filter((x) => b.has(x)));
 };
 
-console.log('COMPARATIE CU TEMELE LIVRATE DE MICROSOFT');
-console.log('masurate identic, cu acelasi cod, pe aceleasi 81 de perechi extrase din CSS\n');
-const head = 'tema                        tip     chei   acop   perechi  pica  cel mai slab   sintaxa pica  ANSI dubluri  ANSI inversate';
+console.log('COMPARISON WITH THE THEMES MICROSOFT SHIPS');
+console.log(`measured identically, with the same code, on the same ${PAIRS.length} pairs extracted from the CSS\n`);
+const head = 'theme'.padEnd(28) + 'type'.padEnd(8) + 'keys'.padStart(4) + 'cover'.padStart(7) + 'pairs'.padStart(9) + 'fail'.padStart(6) + 'weakest'.padStart(11) + 'syntax fails'.padStart(15) + 'ANSI dupes'.padStart(14) + 'ANSI inverted'.padStart(16);
 console.log(head);
 console.log('-'.repeat(head.length));
 
@@ -116,12 +116,12 @@ for (const t of mine) console.log(row(t, score(t), '* '));
 console.log();
 for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) console.log(row(t, score(t), '  '));
 
-console.log('\n\nMASURAT PE SUBSETUL COMUN, adica doar perechile pe care le seteaza AMBELE');
-console.log('tema oficiala               perechi   ea pica   media mea pica pe aceleasi perechi');
+console.log('\n\nMEASURED ON THE COMMON SUBSET, that is only the pairs BOTH set');
+console.log('  ' + 'official theme'.padEnd(28) + 'pairs'.padStart(7) + 'it fails'.padStart(10) + 'mine fail on average'.padStart(20));
 console.log('-'.repeat(82));
 for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) {
   const common = commonWith(t);
-  if (!common.size) { console.log('  ' + t.name.slice(0,25).padEnd(28) + '0'.padStart(7) + '   (nu seteaza nicio pereche verificabila)'); continue; }
+  if (!common.size) { console.log('  ' + t.name.slice(0,25).padEnd(28) + '0'.padStart(7) + '   (sets no checkable pair)'); continue; }
   const theirs = score(t, common);
   const mineOnSame = mine.map((m) => score(m, common).failed);
   const avgMine = mineOnSame.reduce((a,b)=>a+b,0) / mineOnSame.length;
@@ -130,9 +130,9 @@ for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) {
 
 const ms = mine.map((t) => score(t)), os = official.map((t) => score(t));
 const avg = (a, f) => (a.reduce((s, x) => s + f(x), 0) / a.length);
-console.log('\nMEDII');
-console.log(`  acoperire        ale mele ${avg(ms, (x) => x.pct).toFixed(0)}%   oficiale ${avg(os, (x) => x.pct).toFixed(0)}%`);
-console.log(`  perechi picate   ale mele ${avg(ms, (x) => x.failed).toFixed(1)}    oficiale ${avg(os, (x) => x.failed).toFixed(1)}`);
-console.log(`  sintaxa picata   ale mele ${avg(ms, (x) => x.synFailed).toFixed(1)}    oficiale ${avg(os, (x) => x.synFailed).toFixed(1)}`);
-console.log(`  ANSI dubluri     ale mele ${avg(ms, (x) => x.ansiDup).toFixed(1)}    oficiale ${avg(os, (x) => x.ansiDup).toFixed(1)}`);
-console.log(`  ANSI inversate   ale mele ${avg(ms, (x) => x.ansiInverted).toFixed(1)}    oficiale ${avg(os, (x) => x.ansiInverted).toFixed(1)}`);
+console.log('\nAVERAGES');
+console.log(`  coverage         mine ${avg(ms, (x) => x.pct).toFixed(0)}%   official ${avg(os, (x) => x.pct).toFixed(0)}%`);
+console.log(`  pairs failed     mine ${avg(ms, (x) => x.failed).toFixed(1)}    official ${avg(os, (x) => x.failed).toFixed(1)}`);
+console.log(`  syntax failed    mine ${avg(ms, (x) => x.synFailed).toFixed(1)}    official ${avg(os, (x) => x.synFailed).toFixed(1)}`);
+console.log(`  ANSI dupes       mine ${avg(ms, (x) => x.ansiDup).toFixed(1)}    official ${avg(os, (x) => x.ansiDup).toFixed(1)}`);
+console.log(`  ANSI inverted    mine ${avg(ms, (x) => x.ansiInverted).toFixed(1)}    official ${avg(os, (x) => x.ansiInverted).toFixed(1)}`);

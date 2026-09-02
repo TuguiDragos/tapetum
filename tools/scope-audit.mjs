@@ -13,10 +13,12 @@ try {
   ({ byLang, real: REAL } = grammarScopes());
   extDir = bundledExtensions();
 } catch (err) {
-  console.log('verificarea domeniilor cere gramaticile TextMate din VS Code, care nu este instalat aici');
-  console.log('seteaza VSCODE_APP catre resources/app daca vrei sa ruleze');
+  console.log('the scope check needs the TextMate grammars from VS Code, which is not installed here');
+  console.log('set VSCODE_APP to resources/app if you want it to run');
   process.exit(0);
 }
+const OUTPUT_CHANNEL_SCOPES = ['token.info-token', 'token.warn-token', 'token.error-token', 'token.debug-token'];
+REAL = [...REAL, ...OUTPUT_CHANNEL_SCOPES];
 const VARIANT_KEYS = (f) => ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k]);
 
 const selectorsOf = (rule) => [].concat(rule.scope).map((s) => s.trim()).filter(Boolean);
@@ -108,21 +110,21 @@ for (const name of fs.readdirSync(extDir)) {
         if (fs.existsSync(nls)) label = JSON.parse(fs.readFileSync(nls, 'utf8'))[label.slice(1, -1)] || label;
       }
       official.push(auditTheme(label, tokens, colors['editor.background']));
-    } catch { /* tema nu se rezolva */ }
+    } catch { /* theme cannot be resolved */ }
   }
 }
 
-console.log(`domenii reale in cele ${byLang.size} gramatici livrate: ${REAL.length}\n`);
-console.log('TEMELE OFICIALE');
-console.log('tema                          reguli  domenii  acoperite     %   moarte  umbrite  domenii moarte  contrast min');
+console.log(`real scopes in the ${byLang.size} shipped grammars: ${REAL.length}\n`);
+console.log('THE OFFICIAL THEMES');
+console.log('theme'.padEnd(30) + 'rules'.padStart(6) + 'scopes'.padStart(9) + 'covered'.padStart(11) + '%'.padStart(7) + 'dead'.padStart(8) + 'shadowed'.padStart(9) + 'dead scopes'.padStart(15) + 'min contrast'.padStart(14));
 console.log('-'.repeat(116));
 for (const o of official.sort((a, b) => b.pct - a.pct)) {
   console.log(o.name.padEnd(30) + String(o.rules).padStart(6) + String(o.scopes).padStart(9)
     + String(o.covered).padStart(11) + o.pct.toFixed(1).padStart(7) + String(o.dead.length).padStart(8)
     + String(o.shadowed.length).padStart(9) + String(o.deadScopes.length).padStart(15) + o.worst.toFixed(2).padStart(14));
 }
-console.log('\nALE MELE, pe schema');
-console.log('schema        teme  reguli  domenii  acoperite     %   moarte  umbrite  domenii moarte  contrast min');
+console.log('\nMINE, per scheme');
+console.log('scheme'.padEnd(12) + 'themes'.padStart(6) + 'rules'.padStart(8) + 'scopes'.padStart(9) + 'covered'.padStart(11) + '%'.padStart(7) + 'dead'.padStart(8) + 'shadowed'.padStart(9) + 'dead scopes'.padStart(15) + 'min contrast'.padStart(14));
 console.log('-'.repeat(116));
 const bySch = {};
 for (const m of mine) (bySch[m.scheme] ||= []).push(m);
@@ -135,21 +137,21 @@ for (const [s, list] of Object.entries(bySch)) {
 }
 const problems = [];
 for (const m of mine) {
-  if (m.noColor.length) problems.push(`${m.name}: ${m.noColor.length} reguli fara culoare si fara stil`);
+  if (m.noColor.length) problems.push(`${m.name}: ${m.noColor.length} rules without colour or style`);
   if (m.badStyle) problems.push(`${m.name}: ${m.badStyle} fontStyle invalid`);
 }
 for (const [s, list] of Object.entries(bySch)) {
   const set = new Set(list.map((x) => x.rules + '|' + x.covered));
-  if (set.size !== 1) problems.push(`schema ${s} nu e stabila intre teme: ${[...set].join(', ')}`);
+  if (set.size !== 1) problems.push(`scheme ${s} is not stable across themes: ${[...set].join(', ')}`);
 }
-console.log(problems.length ? '\nPROBLEME:\n  ' + problems.join('\n  ') : '\nfiecare tema, aceleasi reguli, aceeasi acoperire, nicio regula fara culoare, niciun fontStyle invalid');
+console.log(problems.length ? '\nPROBLEMS:\n  ' + problems.join('\n  ') : '\nevery theme, the same rules, the same coverage, no rule without colour, no invalid fontStyle');
 
 if (process.argv.includes('--gaps')) {
   const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'themes/quantum-dark.json'), 'utf8')).tokenColors;
   const uncovered = REAL.filter((s) => !winnerFor(rules, s));
   const byPrefix = {};
   for (const s of uncovered) { const p = s.split('.')[0]; (byPrefix[p] ||= []).push(s); }
-  console.log(`\nDOMENII NEACOPERITE: ${uncovered.length} din ${REAL.length}`);
+  console.log(`\nUNCOVERED SCOPES: ${uncovered.length} of ${REAL.length}`);
   for (const [p, v] of Object.entries(byPrefix).sort((a, b) => b[1].length - a[1].length))
     console.log(`  ${String(v.length).padStart(3)}  ${p}.*   ${v.slice(0, 4).join(', ')}${v.length > 4 ? ' ...' : ''}`);
   const perLang = [...byLang.entries()].map(([lang, set]) => {
@@ -157,16 +159,16 @@ if (process.argv.includes('--gaps')) {
     const miss = real.filter((s) => !winnerFor(rules, s));
     return { lang, total: real.length, miss: miss.length };
   }).filter((x) => x.miss).sort((a, b) => b.miss / b.total - a.miss / a.total);
-  console.log('\nlimbaje cu domenii neacoperite:');
-  for (const l of perLang) console.log(`  ${l.lang.padEnd(24)} ${l.miss} din ${l.total}`);
+  console.log('\nlanguages with uncovered scopes:');
+  for (const l of perLang) console.log(`  ${l.lang.padEnd(24)} ${l.miss} of ${l.total}`);
 }
 
 if (process.argv.includes('--dead')) {
   for (const [s, list] of Object.entries(bySch)) {
     const r = list[0];
-    console.log(`\nschema ${s}`);
-    if (r.dead.length) console.log('  reguli care nu castiga niciodata: ' + r.dead.join(', '));
-    if (r.shadowed.length) console.log('  reguli umbrite mereu: ' + r.shadowed.join(', '));
-    if (r.deadScopes.length) console.log('  domenii pe care nicio gramatica livrata nu le emite:\n    ' + r.deadScopes.join('\n    '));
+    console.log(`\nscheme ${s}`);
+    if (r.dead.length) console.log('  rules that never win: ' + r.dead.join(', '));
+    if (r.shadowed.length) console.log('  rules always shadowed: ' + r.shadowed.join(', '));
+    if (r.deadScopes.length) console.log('  scopes no shipped grammar emits:\n    ' + r.deadScopes.join('\n    '));
   }
 }

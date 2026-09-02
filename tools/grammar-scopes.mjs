@@ -35,7 +35,7 @@ export function grammarScopes() {
         walk(gr, set, null);
         const lang = g.language || g.scopeName || name;
         byLang.set(lang, new Set([...(byLang.get(lang) || []), ...set]));
-        if (!source.has(lang)) source.set(lang, bundled ? 'livrat' : name.replace(/-\d+\.\d+\.\d+$/, ''));
+        if (!source.has(lang)) source.set(lang, bundled ? 'bundled' : name.replace(/-\d+\.\d+\.\d+$/, ''));
       }
     }
   }

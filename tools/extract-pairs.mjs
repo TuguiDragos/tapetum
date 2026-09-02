@@ -1,30 +1,64 @@
 import fs from 'node:fs';
-import { workbenchCss } from './vscode-path.mjs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { outDir } from './vscode-path.mjs';
 
-const CSS = workbenchCss();
-const css = fs.readFileSync(CSS, 'utf8');
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+
+function stylesheets() {
+  const out = [];
+  (function walk(dir) {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name.endsWith('.css')) out.push(p);
+    }
+  })(outDir());
+  return out.sort();
+}
 
 const varToKey = (v) => v.replace(/^--vscode-/, '').replace(/-/g, '.');
-const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
-
 const FG_PROP = /(^|;)\s*color\s*:\s*([^;]+)/g;
 const BG_PROP = /(^|;)\s*background(-color)?\s*:\s*([^;]+)/g;
-const BORDER = /(^|;)\s*(border[a-z-]*|outline)\s*:\s*([^;]+)/g;
 const VAR = /var\(\s*(--vscode-[A-Za-z0-9-]+)/g;
+
+function outerVars(value) {
+  const out = [];
+  let i = 0;
+  while (i < value.length) {
+    const at = value.indexOf('var(', i);
+    if (at < 0) break;
+    let depth = 0, end = at + 3;
+    for (; end < value.length; end++) {
+      if (value[end] === '(') depth++;
+      else if (value[end] === ')' && --depth === 0) break;
+    }
+    const m = value.slice(at, at + 60).match(VAR);
+    if (m) out.push(m[0].replace(/^var\(\s*/, ''));
+    i = end + 1;
+  }
+  return out;
+}
 
 const pairs = new Map();
 const selectorFor = new Map();
-
-for (const [, sel, body] of rules) {
-  const fgs = new Set(), bgs = new Set();
-  for (const m of body.matchAll(FG_PROP)) for (const v of m[2].matchAll(VAR)) fgs.add(varToKey(v[1]));
-  for (const m of body.matchAll(BG_PROP)) for (const v of m[3].matchAll(VAR)) bgs.add(varToKey(v[1]));
-  if (!fgs.size || !bgs.size) continue;
-  for (const f of fgs) for (const b of bgs) {
-    if (f === b) continue;
-    const k = f + '|' + b;
-    pairs.set(k, (pairs.get(k) || 0) + 1);
-    if (!selectorFor.has(k)) selectorFor.set(k, sel.trim().split(',')[0].slice(0, 90));
+let ruleCount = 0;
+const files = stylesheets();
+for (const file of files) {
+  const css = fs.readFileSync(file, 'utf8');
+  const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+  ruleCount += rules.length;
+  for (const [, sel, body] of rules) {
+    const fgs = new Set(), bgs = new Set();
+    for (const m of body.matchAll(FG_PROP)) for (const v of outerVars(m[2])) fgs.add(varToKey(v));
+    for (const m of body.matchAll(BG_PROP)) for (const v of outerVars(m[3])) bgs.add(varToKey(v));
+    if (!fgs.size || !bgs.size) continue;
+    for (const f of fgs) for (const b of bgs) {
+      if (f === b) continue;
+      const k = f + '|' + b;
+      pairs.set(k, (pairs.get(k) || 0) + 1);
+      if (!selectorFor.has(k)) selectorFor.set(k, sel.trim().split(',')[0].slice(0, 90));
+    }
   }
 }
 
@@ -44,8 +78,8 @@ const out = [...pairs.entries()]
   })
   .sort((a, b) => b.n - a.n);
 
-fs.writeFileSync('tools/render-pairs.json', JSON.stringify(out, null, 2));
-console.log(`reguli CSS analizate: ${rules.length}`);
-console.log(`perechi text/fundal care apar in aceeasi regula: ${out.length}`);
-console.log('\nprimele 12:');
-for (const p of out.slice(0, 12)) console.log(`  ${p.fg}  pe  ${p.bg}`);
+fs.writeFileSync(path.join(HERE, 'render-pairs.json'), JSON.stringify(out, null, 2));
+console.log(`stylesheets read: ${files.length}, CSS rules analysed: ${ruleCount}`);
+console.log(`text/background pairs that share a rule: ${out.length}`);
+console.log('\nfirst 12:');
+for (const p of out.slice(0, 12)) console.log(`  ${p.fg}  on  ${p.bg}`);

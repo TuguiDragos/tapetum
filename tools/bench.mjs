@@ -10,9 +10,9 @@ const T = (f) => path.join(HERE, '..', 'themes', f);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const ROLES = [
-  ['keyword', 'cuvinte cheie'], ['string', 'șiruri'], ['func', 'funcții'], ['type', 'tipuri'],
-  ['number', 'numere'], ['prop', 'proprietăți'], ['param', 'parametri'], ['tag', 'etichete'],
-  ['variable', 'variabile'], ['op', 'operatori'], ['comment', 'comentarii'],
+  ['keyword', 'keywords'], ['string', 'strings'], ['func', 'functions'], ['type', 'types'],
+  ['number', 'numbers'], ['prop', 'properties'], ['param', 'parameters'], ['tag', 'tags'],
+  ['variable', 'variables'], ['op', 'operators'], ['comment', 'comments'],
 ];
 
 function win(p) {
@@ -66,7 +66,7 @@ function win(p) {
   <div class="w-tabs">${tabs}</div>
   <div class="w-main">
     <div class="w-act"><i class="on"></i><i></i><i></i><i></i></div>
-    <div class="w-side"><div class="s-head">EXPLORATOR</div>${tree}</div>
+    <div class="w-side"><div class="s-head">EXPLORER</div>${tree}</div>
     <div class="w-ed">${code}</div>
   </div>
   <div class="w-status"><span>main*</span><span>TypeScript</span><span>Ln 14, Col 28</span><span>UTF-8</span></div>
@@ -81,7 +81,7 @@ function roleTable(p) {
     const cls = r >= 4.5 ? 'ok' : r >= 3 ? 'warn' : 'bad';
     return `<tr><td><span class="chip" style="background:${hex}"></span>${label}</td><td class="mono">${hex}</td><td class="mono ${cls}">${r.toFixed(2)}</td></tr>`;
   }).join('');
-  return `<table class="roles"><thead><tr><th>rol</th><th>hex</th><th>contrast</th></tr></thead><tbody>${rows}</tbody></table>`;
+  return `<table class="roles"><thead><tr><th>role</th><th>hex</th><th>contrast</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 
@@ -89,20 +89,21 @@ const pkg = JSON.parse(fs.readFileSync(path.join(HERE, '..', 'package.json'), 'u
 const families = [];
 const seen = new Map();
 for (const t of pkg.contributes.themes) {
-  const id = t.path.replace('./themes/', '').replace(/-(dark|light)\.json$/, '');
-  const variant = /-dark\.json$/.test(t.path) ? 'dark' : 'light';
+  const m = t.path.match(/^\.\/themes\/(.+)-(dark|light)\.json$/);
+  if (!m) continue;
+  const [, id, variant] = m;
   if (!seen.has(id)) {
-    seen.set(id, { id, name: t.label.replace(/^Tapetum /, '').replace(/ Light$/, ''), status: 'trece', note: '' });
+    seen.set(id, { id, name: t.label.replace(/^Tapetum /, '').replace(/ Light$/, ''), status: 'passes', note: '' });
     families.push(seen.get(id));
   }
   seen.get(id)[variant] = extract(path.join(HERE, '..', t.path.slice(2)));
 }
 
 const NOTES = {
-  quantum: 'Emisia gazului ionizat dintr-o nebuloasa. Violetul e la nuanta initiala, luminozitatea a fost redistribuita.',
-  fraunhofer: 'Linii de emisie atomica reale, convertite din lungime de unda prin functiile CIE 1931.',
-  persistence: 'Chimia fosforilor de osciloscop si radar, de la P11 albastru la P22 rosu.',
-  anodise: 'Interferenta in film subtire pe titan anodizat, culoarea indexata dupa tensiunea de anodizare.',
+  quantum: 'Emission of ionised gas in a nebula. The violet keeps its original hue; lightness was redistributed.',
+  fraunhofer: 'Real atomic emission lines, converted from wavelength through the CIE 1931 functions.',
+  persistence: 'The chemistry of oscilloscope and radar phosphors, from P11 blue to P22 red.',
+  anodise: 'Thin film interference on anodised titanium, the colour indexed by the anodising voltage.',
 };
 for (const f of families) f.note = NOTES[f.id] || '';
 
@@ -114,12 +115,12 @@ const sections = families.map((f) => `
   </header>
   <div class="pair">
     <article class="variant">
-      <div class="v-h"><h3>${esc(f.dark.name)}</h3><span class="v-t">întunecat</span></div>
+      <div class="v-h"><h3>${esc(f.dark.name)}</h3><span class="v-t">dark</span></div>
       ${win(f.dark)}
       ${roleTable(f.dark)}
     </article>
     <article class="variant">
-      <div class="v-h"><h3>${esc(f.light.name)}</h3><span class="v-t">luminos</span></div>
+      <div class="v-h"><h3>${esc(f.light.name)}</h3><span class="v-t">light</span></div>
       ${win(f.light)}
       ${roleTable(f.light)}
     </article>
@@ -252,7 +253,8 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--hair);
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 `;
 
-const totalKeys = 778;
+const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
+const totalKeys = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
 const cov = Math.round(Object.keys(JSON.parse(fs.readFileSync(T('quantum-dark.json'), 'utf8')).colors).length / totalKeys * 100);
 
 console.log(`<title>Palette Bench</title>
@@ -262,15 +264,15 @@ console.log(`<title>Palette Bench</title>
 <style>${CSS}</style>
 <div class="wrap">
   <header class="masthead">
-    <span class="eyebrow">Tapetum, banca de proba, VS Code 1.134.0</span>
-    <h1>Quantum, inainte si dupa</h1>
-    <p class="lede">Primele doua sectiuni sunt aceeasi paleta, inainte si dupa reparatie. Nuantele sunt pastrate, violetul a ramas la aceeasi valoare exacta, dar luminozitatea a fost redistribuita ca rolurile sa nu se mai suprapuna cand daltonismul scoate nuanta din ecuatie. Sub fiecare fereastra e tabelul de coliziuni: doua perechi la varianta veche, niciuna la cea noua.</p>
+    <span class="eyebrow">Tapetum, test bench, VS Code ${REGISTRY.vscode}</span>
+    <h1>Quantum, before and after</h1>
+    <p class="lede">The first two sections are the same palette, before and after the repair. The hues are kept, the violet stayed at exactly the same value, but lightness was redistributed so the roles no longer overlap when colour blindness takes hue out of the equation. Under every window is the collision table: two pairs in the old variant, none in the new one.</p>
     <div class="facts">
-      <span class="fact">4 familii, 8 teme</span>
-      <span class="fact">violet pastrat la 0 grade deriva</span>
-      <span class="fact">deuteranopie 4.4 devine 12.4</span>
+      <span class="fact">${families.length} families, ${families.length * 2} themes</span>
+      <span class="fact">violet kept at 0 degrees of drift</span>
+      <span class="fact">deuteranopia 4.4 becomes 12.4</span>
     </div>
   </header>
   ${sections}
-  <footer>Randat din <span class="mono">themes/*.json</span> prin <span class="mono">tools/bench.mjs</span>. Regenerabil oricând se schimbă o culoare.</footer>
+  <footer>Rendered from <span class="mono">themes/*.json</span> by <span class="mono">tools/bench.mjs</span>. Regenerable whenever a colour changes.</footer>
 </div>`);

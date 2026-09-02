@@ -13,9 +13,9 @@ const ANSI = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan'];
 export const BUDGET = 10;
 
 export const EXEMPT = [
-  { family: 'effect', role: 'keyword', why: 'schema effect stinge intentionat cuvintele cheie ca sa iasa in fata ce are efect secundar' },
-  { family: 'palimpsest', role: 'keyword', why: 'schema signal rade boilerplate-ul spre fundal, cuvintele cheie sunt stratul ras' },
-  { family: 'provenance', role: 'keyword', why: 'schema provenance stinge cuvintele cheie pentru ca stii deja ca function e function' },
+  { family: 'effect', role: 'keyword', why: 'the effect scheme dims keywords on purpose so that whatever has a side effect stands out' },
+  { family: 'palimpsest', role: 'keyword', why: 'the signal scheme scrapes boilerplate toward the background; keywords are the scraped layer' },
+  { family: 'provenance', role: 'keyword', why: 'the provenance scheme dims keywords because you already know function is a function' },
 ];
 const exempt = (id, role) => EXEMPT.some((e) => e.family === id && e.role === role);
 
@@ -80,23 +80,23 @@ if (process.argv[1] && process.argv[1].endsWith('apca-lift.mjs')) {
   const real = steps.filter((s) => !s.exempt && s.to !== s.from);
   const short = steps.filter((s) => !s.exempt && !s.reached);
   const skipped = steps.filter((s) => s.exempt);
-  console.log(`praguri APCA: ${Object.entries(FLOOR).map(([k, v]) => `${k} ${v}`).join(', ')}, ANSI ${ANSI_FLOOR}, buget de miscare ${BUDGET} dE\n`);
-  console.log(`roluri sub prag: ${steps.length}`);
-  console.log(`  ridicate:                 ${real.length}`);
-  console.log(`  scutite prin design:      ${skipped.length}`);
-  console.log(`  raman sub prag dupa buget: ${short.length}`);
+  console.log(`APCA floors: ${Object.entries(FLOOR).map(([k, v]) => `${k} ${v}`).join(', ')}, ANSI ${ANSI_FLOOR}, movement budget ${BUDGET} dE\n`);
+  console.log(`roles under their floor: ${steps.length}`);
+  console.log(`  lifted:                    ${real.length}`);
+  console.log(`  exempt by design:          ${skipped.length}`);
+  console.log(`  still under after budget:  ${short.length}`);
   if (short.length) {
-    console.log('\nnu ajung la prag in bugetul de 8 dE:');
-    for (const s of short) console.log(`  ${(s.label + ' ' + s.variant).padEnd(24)} ${s.role.padEnd(8)} ${s.from} -> ${s.to}  Lc ${s.lc.toFixed(0)} -> ${s.newLc.toFixed(0)}, prag ${FLOOR[s.role]}`);
+    console.log('\ndo not reach the floor within the 8 dE budget:');
+    for (const s of short) console.log(`  ${(s.label + ' ' + s.variant).padEnd(24)} ${s.role.padEnd(8)} ${s.from} -> ${s.to}  Lc ${s.lc.toFixed(0)} -> ${s.newLc.toFixed(0)}, floor ${FLOOR[s.role]}`);
   }
   if (skipped.length) {
-    console.log('\nscutite, cu motiv:');
+    console.log('\nexempt, with the reason:');
     for (const s of skipped) {
       const why = EXEMPT.find((e) => e.family === s.id && e.role === s.role).why;
       console.log(`  ${(s.label + ' ' + s.variant).padEnd(24)} ${s.role.padEnd(8)} Lc ${s.lc.toFixed(0)}\n     ${why}`);
     }
   }
-  if (!apply) { console.log('\nruleaza cu --apply ca sa scriu valorile in tools/palettes.mjs'); process.exit(0); }
+  if (!apply) { console.log('\nrun with --apply to write the values into tools/palettes.mjs'); process.exit(0); }
 
   const file = path.join(HERE, 'palettes.mjs');
   let src = fs.readFileSync(file, 'utf8');
@@ -110,10 +110,10 @@ if (process.argv[1] && process.argv[1].endsWith('apca-lift.mjs')) {
     const re = s.ansi
       ? new RegExp(`(${s.role}: ')${s.from}(')`, 'i')
       : new RegExp(`(\\b${s.role}: ')${s.from}(')`, 'i');
-    if (!re.test(block)) { console.log(`nu am gasit ${s.id} ${s.variant} ${s.role} = ${s.from}`); continue; }
+    if (!re.test(block)) { console.log(`could not find ${s.id} ${s.variant} ${s.role} = ${s.from}`); continue; }
     src = src.slice(0, variantAnchor) + block.replace(re, `$1${s.to}$2`) + src.slice(blockEnd);
     done++;
   }
   fs.writeFileSync(file, src);
-  console.log(`\n${done} valori scrise in tools/palettes.mjs`);
+  console.log(`\n${done} values written to tools/palettes.mjs`);
 }

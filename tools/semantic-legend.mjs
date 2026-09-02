@@ -6,10 +6,10 @@ function standardLegend() {
   const js = fs.readFileSync(workbenchJs(), 'utf8');
   const types = new Set();
   const modifiers = new Set();
-  for (const m of js.matchAll(/\b(\w+)\("(namespace|class|enum|interface|struct|typeParameter|type|parameter|variable|property|enumMember|decorator|event|function|method|macro|label|comment|string|keyword|number|regexp|operator)"\s*,\s*d\(/g)) {
+  for (const m of js.matchAll(/\b(\w+)\("(namespace|class|enum|interface|struct|typeParameter|type|parameter|variable|property|enumMember|decorator|event|function|method|macro|label|comment|string|keyword|number|regexp|operator)"\s*,\s*[A-Za-z_$][\w$]*\(\d+,\s*null\)/g)) {
     types.add(m[2]);
   }
-  for (const m of js.matchAll(/\b(\w+)\("(declaration|definition|readonly|static|deprecated|abstract|async|modification|documentation|defaultLibrary)"\s*,\s*d\(/g)) {
+  for (const m of js.matchAll(/\b(\w+)\("(declaration|definition|readonly|static|deprecated|abstract|async|modification|documentation|defaultLibrary)"\s*,\s*[A-Za-z_$][\w$]*\(\d+,\s*null\)/g)) {
     modifiers.add(m[2]);
   }
   return { types: [...types].sort(), modifiers: [...modifiers].sort() };
@@ -80,34 +80,34 @@ export function coverage(semanticTokenColors, lg, textmateScopes) {
 
 if (process.argv[1] && process.argv[1].endsWith('semantic-legend.mjs')) {
   const lg = legend();
-  console.log(`tipuri standard ${lg.std.types.length}: ${lg.std.types.join(', ')}`);
-  console.log(`\nmodificatori standard ${lg.std.modifiers.length}: ${lg.std.modifiers.join(', ')}`);
-  console.log(`\ntipuri proprii declarate de extensii ${lg.custom.types.size}:`);
+  console.log(`standard types ${lg.std.types.length}: ${lg.std.types.join(', ')}`);
+  console.log(`\nstandard modifiers ${lg.std.modifiers.length}: ${lg.std.modifiers.join(', ')}`);
+  console.log(`\ncustom types declared by extensions ${lg.custom.types.size}:`);
   for (const [id, v] of lg.custom.types) console.log(`  ${id.padEnd(22)} ${(v.superType || '').padEnd(12)} ${v.from}`);
-  console.log(`\nmodificatori proprii ${lg.custom.modifiers.size}:`);
+  console.log(`\ncustom modifiers ${lg.custom.modifiers.size}:`);
   for (const [id, v] of lg.custom.modifiers) console.log(`  ${id.padEnd(24)} ${v.from}`);
   const t = JSON.parse(fs.readFileSync(new URL('../themes/quantum-dark.json', import.meta.url), 'utf8'));
   const tm = new Set();
   for (const r of t.tokenColors) for (const x of [].concat(r.scope)) tm.add(x.trim());
   const c = coverage(t.semanticTokenColors, lg, tm);
-  console.log(`\nselectorii mei: ${c.selectors}, dintre care generici: ${c.wildcard.join(', ') || 'niciunul'}`);
-  console.log(`\ntipuri, ${c.types.total} in total`);
-  console.log(`  regula proprie      ${c.types.direct.length}`);
-  console.log(`  prin superType      ${c.types.superType.length}  ${c.types.superType.join(', ')}`);
-  console.log(`  prin mapare TextMate ${c.types.textmate.length}  ${c.types.textmate.join(', ')}`);
-  console.log(`  DELOC               ${c.types.none.length}  ${c.types.none.join(', ')}`);
-  console.log(`\nmodificatori standard, ${c.modifiers.standard.total}`);
-  console.log(`  acoperiti ${c.modifiers.standard.covered.join(', ') || 'niciunul'}`);
-  console.log(`  LIPSA     ${c.modifiers.standard.missing.join(', ') || 'niciunul'}`);
-  console.log(`\nmodificatori proprii, ${c.modifiers.custom.total}`);
-  console.log(`  acoperiti ${c.modifiers.custom.covered.join(', ') || 'niciunul'}`);
+  console.log(`\nmy selectors: ${c.selectors}, of which wildcards: ${c.wildcard.join(', ') || 'none'}`);
+  console.log(`\ntypes, ${c.types.total} in total`);
+  console.log(`  own rule            ${c.types.direct.length}`);
+  console.log(`  through superType   ${c.types.superType.length}  ${c.types.superType.join(', ')}`);
+  console.log(`  through TextMate map ${c.types.textmate.length}  ${c.types.textmate.join(', ')}`);
+  console.log(`  NONE                ${c.types.none.length}  ${c.types.none.join(', ')}`);
+  console.log(`\nstandard modifiers, ${c.modifiers.standard.total}`);
+  console.log(`  covered ${c.modifiers.standard.covered.join(', ') || 'none'}`);
+  console.log(`  MISSING ${c.modifiers.standard.missing.join(', ') || 'none'}`);
+  console.log(`\ncustom modifiers, ${c.modifiers.custom.total}`);
+  console.log(`  covered ${c.modifiers.custom.covered.join(', ') || 'none'}`);
 }
 
 export const DELIBERATE_MODIFIERS = [
   { modifier: 'modification', schemes: ['grammar', 'provenance', 'effect'],
-    why: 'accesul de scriere e ideea schemei borrow. In restul schemelor l-as marca pe fiecare atribuire, ceea ce ar face codul zgomotos fara sa adauge informatie' },
+    why: 'write access is the whole idea of the borrow scheme. In the other schemes it would mark every assignment, which makes the code noisy without adding information' },
 ];
 
 export const VENDOR_ONLY = {
-  why: 'modificatorii proprii ai unui furnizor, ca terraform-resource sau typeHintComment, cad pe culoarea tipului de baza si niciun furnizor nu ii coloreaza. Sunt acoperiti cei folositi larg, builtin si typeHint',
+  why: 'the modifiers a vendor declares for itself, such as terraform-resource or typeHintComment, fall back to the colour of the base type and no vendor colours them. The widely used ones, builtin and typeHint, are covered',
 };

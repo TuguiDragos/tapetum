@@ -37,22 +37,22 @@ langs.sort((a, b) => a.pct - b.pct);
 
 const total = langs.reduce((s, l) => s + l.total, 0);
 const hit = langs.reduce((s, l) => s + l.hit, 0);
-console.log(`reguli in tema: ${theme.tokenColors.length}, domenii distincte pe care le numesc: ${mine.size}`);
-console.log(`gramatici livrate cu VS Code: ${langs.length}`);
-console.log(`domenii distincte in ele: ${total}, acoperite: ${hit} (${((hit / total) * 100).toFixed(1)}%)\n`);
-console.log('limbaj                     domenii  acoperite   %');
+console.log(`rules in the theme: ${theme.tokenColors.length}, distinct scopes they name: ${mine.size}`);
+console.log(`grammars shipped with VS Code: ${langs.length}`);
+console.log(`distinct scopes in them: ${total}, covered: ${hit} (${((hit / total) * 100).toFixed(1)}%)\n`);
+console.log('language'.padEnd(26) + 'scopes'.padStart(7) + 'covered'.padStart(11) + '%'.padStart(5));
 console.log('-'.repeat(56));
 for (const l of langs) console.log(l.lang.padEnd(26) + String(l.total).padStart(7) + String(l.hit).padStart(11) + l.pct.toFixed(0).padStart(5));
 
 if (process.argv.includes('--missed')) {
   const freq = {};
   for (const l of langs) for (const s of l.missed) freq[s] = (freq[s] || 0) + 1;
-  console.log('\ncele mai frecvente domenii neacoperite:');
+  console.log('\nmost frequent uncovered scopes:');
   for (const [s, n] of Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 40)) console.log(`  ${String(n).padStart(3)}  ${s}`);
 }
 
 if (process.argv.includes('--worst')) {
-  console.log('\ndomenii lipsa, pe limbajele cele mai slabe:');
+  console.log('\nmissing scopes, on the weakest languages:');
   for (const l of langs.slice(0, 10)) {
     console.log(`\n${l.lang} (${l.pct.toFixed(0)}%)`);
     console.log('  ' + l.missed.slice(0, 14).join('\n  '));

@@ -31,7 +31,7 @@ for (const fam of FAMILIES) {
     const label = `Tapetum ${fam.label}${spec.suffix}`;
     const status = p.status
       ? { ...p.status, added: p.status.ok, modified: p.status.info, deleted: p.status.error, conflict: p.status.warn }
-      : deriveStatus(syntax, p.bg, variant === 'dark' || variant === 'hcDark');
+      : deriveStatus(syntax, p.bg, variant === 'dark' || variant === 'hcDark', p.ansi);
     const theme = emitTheme({
       name: label, variant: spec.type, hc: spec.hc, scheme: fam.scheme, palette: p,
       bg: p.bg, fg: p.fg, bgElev: p.bgElev, bgChrome: p.bgChrome,
@@ -58,4 +58,4 @@ const pkgPath = path.join(HERE, '..', 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
 pkg.contributes.themes = contributes;
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
-console.log(`${contributes.length} teme scrise din palete alese manual`);
+console.log(`${contributes.length} themes written from hand placed palettes`);
