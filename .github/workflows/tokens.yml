@@ -1,0 +1,73 @@
+name: Tokens
+
+on:
+  schedule:
+    - cron: '47 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: tokens
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Read the publisher from the manifest
+        id: manifest
+        run: echo "publisher=$(node -p "require('./package.json').publisher")" >> "$GITHUB_OUTPUT"
+
+      - name: Ask the Marketplace whether its token can still publish
+        id: marketplace
+        continue-on-error: true
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          PUBLISHER: ${{ steps.manifest.outputs.publisher }}
+        run: npx --yes @vscode/vsce@3 verify-pat "$PUBLISHER"
+
+      - name: Ask Open VSX whether its token can still publish
+        id: openvsx
+        continue-on-error: true
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+          PUBLISHER: ${{ steps.manifest.outputs.publisher }}
+        run: npx --yes ovsx@1 verify-pat "$PUBLISHER"
+
+      - name: Open an issue if a token stopped working
+        if: steps.marketplace.outcome == 'failure' || steps.openvsx.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARKETPLACE: ${{ steps.marketplace.outcome }}
+          OPENVSX: ${{ steps.openvsx.outcome }}
+          PUBLISHER: ${{ steps.manifest.outputs.publisher }}
+        run: |
+          failed=""
+          if [ "$MARKETPLACE" = "failure" ]; then failed="$failed VSCE_PAT"; fi
+          if [ "$OPENVSX" = "failure" ]; then failed="$failed OVSX_PAT"; fi
+          title="A publishing token stopped working"
+          if [ -n "$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')" ]; then
+            echo "issue already open, still failing:$failed"
+            exit 1
+          fi
+          {
+            echo "The monthly token check could not publish as $PUBLISHER with:$failed."
+            echo
+            echo "A Marketplace token comes from https://dev.azure.com, user settings, personal access tokens, with the Marketplace Manage scope, and lives at most 1 year. An Open VSX token comes from https://open-vsx.org/user-settings/tokens and does not expire."
+            echo
+            echo "Put the new value in the repository settings under Secrets and variables, Actions, then run the Tokens workflow again to confirm. The Publish workflow fails at the same step until then."
+          } > body.md
+          gh issue create --title "$title" --body-file body.md
+          exit 1
