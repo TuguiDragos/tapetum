@@ -168,10 +168,10 @@ export function apca(text, background) {
 export const apcaLc = (text, background) => Math.abs(apca(text, background));
 
 export const APCA_LEVELS = [
-  { lc: 90, use: 'text de corp, preferat' },
-  { lc: 75, use: 'text de corp, minim' },
-  { lc: 60, use: 'continut, minim la corp normal' },
-  { lc: 45, use: 'text mare sau ingrosat' },
-  { lc: 30, use: 'text secundar, dezactivat' },
-  { lc: 15, use: 'elemente care nu sunt text' },
+  { lc: 90, use: 'body text, preferred' },
+  { lc: 75, use: 'body text, minimum' },
+  { lc: 60, use: 'content, minimum at normal weight' },
+  { lc: 45, use: 'large or bold text' },
+  { lc: 30, use: 'secondary text, disabled' },
+  { lc: 15, use: 'non text elements' },
 ];

@@ -103,21 +103,21 @@ for (const name of fs.readdirSync(extDir)) {
     if (/^%.*%$/.test(label)) {
       const nls = path.join(extDir, name, 'package.nls.json');
       if (fs.existsSync(nls)) {
-        try { label = JSON.parse(fs.readFileSync(nls, 'utf8'))[label.slice(1, -1)] || label; } catch { /* fara nls */ }
+        try { label = JSON.parse(fs.readFileSync(nls, 'utf8'))[label.slice(1, -1)] || label; } catch { /* no nls */ }
       }
     }
     const m = measure(label, colors, tokens);
       if (m) rows.push({ mine: false, ...m });
-    } catch { /* tema nu se poate rezolva */ }
+    } catch { /* theme cannot be resolved */ }
   }
 }
 
 const mine = rows.filter((r) => r.mine);
 const off = rows.filter((r) => !r.mine);
 const num = (v, d = 2) => (v === null || v === undefined || !isFinite(v) ? '  .' : v.toFixed(d));
-console.log('COMPARATIE ADANCA CU TEMELE LIVRATE DE MICROSOFT');
-console.log('aceleasi verificari, acelasi cod, doar pe chei de culoare\n');
-console.log('tema                          chei  perechi  pica  cea mai slaba   ANSI  ANSI/sel  paranteze dE  stivuit  diff dE  git');
+console.log('DEEP COMPARISON WITH THE THEMES MICROSOFT SHIPS');
+console.log('the same checks, the same code, on colour keys only\n');
+console.log('theme'.padEnd(30) + 'keys'.padStart(5) + 'pairs'.padStart(9) + 'fail'.padStart(6) + 'weakest'.padStart(16) + 'ANSI'.padStart(7) + 'ANSI/sel'.padStart(10) + 'brackets dE'.padStart(14) + 'stacked'.padStart(9) + 'diff dE'.padStart(9) + 'git'.padStart(5));
 console.log('-'.repeat(120));
 const line = (r) => r.name.padEnd(30) + String(r.keys).padStart(5) + String(r.siblings.checked).padStart(9)
   + String(r.siblings.failed).padStart(6) + num(r.siblings.worst).padStart(16) + num(r.ansi.onBg).padStart(7)
@@ -126,17 +126,17 @@ const line = (r) => r.name.padEnd(30) + String(r.keys).padStart(5) + String(r.si
 const agg = (list, f) => { const v = list.map(f).filter((x) => x !== null && x !== undefined && isFinite(x)); return v.length ? v : null; };
 for (const r of off.sort((a, b) => a.name.localeCompare(b.name))) console.log(line(r));
 console.log('-'.repeat(120));
-console.log('ALE MELE, extreme peste toate cele 56');
+console.log('MINE, extremes over all 56');
 const worstMine = { keys: Math.min(...mine.map((r) => r.keys)), sib: Math.min(...agg(mine, (r) => r.siblings.worst)),
   fail: Math.max(...mine.map((r) => r.siblings.failed)), ansi: Math.min(...agg(mine, (r) => r.ansi.onBg)),
   sel: Math.min(...agg(mine, (r) => r.ansi.onSel)), br: Math.min(...agg(mine, (r) => r.brackets.minDeltaE)),
   st: Math.min(...agg(mine, (r) => r.stacked)), diff: Math.min(...agg(mine, (r) => r.diff)) };
-console.log('cel mai slab din 56'.padEnd(30) + String(worstMine.keys).padStart(5) + String(mine[0].siblings.checked).padStart(9)
+console.log('weakest of 56'.padEnd(30) + String(worstMine.keys).padStart(5) + String(mine[0].siblings.checked).padStart(9)
   + String(worstMine.fail).padStart(6) + num(worstMine.sib).padStart(16) + num(worstMine.ansi).padStart(7)
   + num(worstMine.sel).padStart(10) + num(worstMine.br, 1).padStart(14) + num(worstMine.st).padStart(9)
   + num(worstMine.diff, 1).padStart(9) + '   10');
 const oa = (f, agg2 = Math.min) => { const v = agg(off, f); return v ? agg2(...v) : null; };
-console.log('cel mai slab dintre oficiale'.padEnd(30) + String(Math.min(...off.map((r) => r.keys))).padStart(5)
+console.log('weakest of the official ones'.padEnd(30) + String(Math.min(...off.map((r) => r.keys))).padStart(5)
   + ''.padStart(9) + String(Math.max(...off.map((r) => r.siblings.failed))).padStart(6)
   + num(oa((r) => r.siblings.worst)).padStart(16) + num(oa((r) => r.ansi.onBg)).padStart(7)
   + num(oa((r) => r.ansi.onSel)).padStart(10) + num(oa((r) => r.brackets.minDeltaE), 1).padStart(14)

@@ -1,3 +1,5 @@
+import { outputRules } from './scheme-kit.mjs';
+
 const S = (scope, foreground, fontStyle) => ({ scope, settings: fontStyle ? { foreground, fontStyle } : { foreground } });
 
 export const ink = (p) => ({
@@ -10,7 +12,7 @@ export function tokenColors(p) {
   return [
     { name: 'Everything you wrote', ...S(['variable', 'variable.other', 'variable.other.readwrite', 'meta.definition.variable.name',
       'variable.other.property', 'variable.other.object.property', 'meta.object-literal.key', 'support.type.property-name',
-      'variable.other.member', 'meta.function-call.generic', 'variable.function', 'entity.name.label', 'source'], fg) },
+      'variable.other.member', 'meta.function-call.generic', 'variable.function', 'entity.name.label', 'source', 'entity'], fg) },
     { name: 'Parameters', ...S(['variable.parameter', 'meta.parameter', 'variable.other.jsdoc'], fg, 'italic') },
     { name: 'Defined here, functions', ...S(['entity.name.function', 'meta.definition.function', 'meta.definition.method',
       'entity.name.method', 'entity.name.function.decorator'], def, 'bold') },
@@ -20,10 +22,10 @@ export function tokenColors(p) {
     { name: 'From the language itself', ...S(['support.function', 'support.class', 'support.type', 'support.type.builtin',
       'support.type.primitive', 'support.variable', 'support.constant', 'support.module', 'keyword.type',
       'storage.type.primitive', 'meta.require', 'variable.language', 'variable.language.this', 'variable.language.super',
-      'keyword.other.this'], builtin, 'italic') },
+      'keyword.other.this', 'support'], builtin, 'italic') },
     { name: 'Cannot change', ...S(['variable.other.constant', 'variable.other.enummember', 'constant.other.caps',
       'entity.name.constant', 'constant.language', 'constant.language.boolean', 'constant.language.null',
-      'constant.language.undefined'], frozen) },
+      'constant.language.undefined', 'constant'], frozen) },
     { name: 'Literal data', ...S(['string', 'string.quoted', 'string.template', 'punctuation.definition.string',
       'constant.numeric', 'constant.character', 'constant.character.escape', 'keyword.other.unit',
       'string.regexp', 'constant.regexp', 'constant.other.character-class.regexp', 'string.other.link'], lit) },
@@ -35,7 +37,8 @@ export function tokenColors(p) {
     { name: 'Operators and punctuation', ...S(['keyword.operator', 'punctuation', 'punctuation.separator',
       'punctuation.terminator', 'meta.brace', 'punctuation.accessor', 'punctuation.definition.tag',
       'punctuation.definition.template-expression', 'punctuation.section.embedded', 'meta.embedded',
-      'keyword.operator.or.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.quantifier.regexp'], op) },
+      'keyword.operator.or.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.quantifier.regexp',
+      'meta.separator', 'meta.resultLinePrefix.contextLinePrefix.search'], op) },
     { name: 'Attributes and inherited', ...S(['entity.other.attribute-name', 'meta.attribute', 'entity.other.inherited-class',
       'meta.decorator', 'punctuation.decorator', 'entity.name.tag.namespace'], builtin, 'italic') },
     { name: 'CSS selectors', ...S(['entity.name.tag.css', 'entity.other.attribute-name.class.css',
@@ -61,6 +64,7 @@ export function tokenColors(p) {
     { name: 'Deprecated, strikethrough', ...S(['invalid.deprecated'], op, 'strikethrough') },
     { name: 'Shell variables', ...S(['variable.other.normal.shell', 'punctuation.definition.variable.shell'], frozen) },
     { name: 'YAML keys', ...S(['entity.name.tag.yaml', 'support.type.property-name.yaml'], def) },
+    ...outputRules(p.st, op, p.bg),
   ];
 }
 

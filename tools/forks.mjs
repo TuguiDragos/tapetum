@@ -1,0 +1,38 @@
+// Colour keys that exist only in editors built on VS Code. Their own builds read them, VS Code
+// ignores them, and audit.mjs expects every one of them in every theme.
+const GROUPS = [
+  { editor: 'Windsurf',
+    why: 'the wash behind text the assistant deletes inline; Windsurf defaults it to red at 7% whatever the theme, so it takes the family deleted wash',
+    keys: ['diffEditor.windsurfRemovedTextBackground'] },
+  { editor: 'Void',
+    why: 'the line washes of the inline diff; Void defaults them to a fixed green and a fixed red at 10% whatever the theme, so they take the family diff line washes',
+    keys: ['void.greenBG', 'void.redBG'] },
+  { editor: 'Kiro',
+    why: 'the hotkey badge of the inline diff toolbar; Kiro defaults it to orange with black text whatever the theme, so it takes the family button colours',
+    keys: ['inlineDiffToolbar.hotkeyBackground', 'inlineDiffToolbar.hotkeyForeground'] },
+  { editor: 'Positron',
+    why: 'the walkthrough badge on the activity bar; Positron defaults it to VS Code blue, so it takes the activity bar badge colour',
+    keys: ['walkthroughActivityBarBadge.background'] },
+  { editor: 'Positron',
+    why: 'text selected inside the action bar and dialog inputs; Positron defaults it to VS Code blue with white text, so it takes the button colours',
+    keys: ['positronActionBar.textInputSelectionBackground', 'positronActionBar.textInputSelectionForeground',
+      'positronModalDialog.textInputSelectionBackground', 'positronModalDialog.textInputSelectionForeground'] },
+  { editor: 'Positron',
+    why: 'the cell cursor and the selection of the data grid; Positron defaults them to fixed blues, so they take the focus ring and the editor selection',
+    keys: ['positronDataGrid.cursorBorder', 'positronDataGrid.selectionBorder', 'positronDataGrid.selectionInnerBorder', 'positronDataGrid.selectionBackground'] },
+  { editor: 'Positron',
+    why: 'the runtime state icons; Positron defaults them to a fixed blue, green and red, so they take the family info, added and deleted colours',
+    keys: ['positronRuntime.stateIconActive', 'positronRuntime.stateIconIdle', 'positronRuntime.stateIconDisconnected'] },
+  { editor: 'Positron',
+    why: 'the welcome page link and its secondary text; Positron defaults them to a fixed blue and a fixed grey, so they take the link and description colours',
+    keys: ['positronWelcome.foreground', 'positronWelcome.secondaryForeground'] },
+  { editor: 'Positron',
+    why: 'inputs, checkboxes, separators, tooltips and small marks of the Positron panes; Positron defaults them to fixed greys and blues, so they take the matching input, checkbox, border, hover widget, description and status colours',
+    keys: ['positronActionBar.textInputBackground', 'positronActionBar.textInputBorder', 'positronActionBar.separator',
+      'positronModalDialog.textInputBackground', 'positronModalDialog.textInputBorder', 'positronModalDialog.separator',
+      'positronModalDialog.buttonDestructiveForeground', 'positronCheckbox.background', 'positronCheckbox.border', 'positronCheckbox.foreground',
+      'positronToolTip.background', 'positronToolTip.border', 'positronConsole.traceBackground', 'positronNotebook.cellFooterForeground',
+      'positronDataExplorer.invalidFilterBackground', 'positronSplitterExpandCollapseButton.foreground'] },
+];
+
+export const FORK_KEYS = GROUPS.flatMap((g) => g.keys.map((key) => ({ key, editor: g.editor, why: g.why })));

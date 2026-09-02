@@ -36,12 +36,13 @@ voltage: bronze around 20 volts, violet at 30, blue at 40, gold at 70. The metal
 underneath never changes. Anodise is the quietest family, all interference and
 no dye.`,
 
-  coherence: `A mixed argon and krypton ion laser puts out 6 visible lines from one tube at
+  coherence: `A mixed argon and krypton ion laser puts out 6 visible lines from 1 tube at
 once, which is what a white laser actually is. Argon gives 457.9, 488.0 and
 514.5 nm, krypton gives 413.1, 568.2 and 647.1. Every colour in the code is one
 of those lines. There is no magenta anywhere in it, because magenta is not a
-spectral colour and no laser can emit one. The interface falls to true black so
-the only thing emitting on the screen is the code.`,
+spectral colour and no laser can emit one, so the terminal's magenta slot carries
+the krypton violet instead. The interface falls to true black so the only thing
+emitting on the screen is the code.`,
 
   valence: `Dissolve a transition metal and the water takes its colour. Permanganate is a
 violet so intense a few grains stain a litre, dichromate is orange, copper is
@@ -57,7 +58,7 @@ grey, and it should be.`,
 
   cinnabar: `Before synthetic chemistry, colour was something you dug up and ground. Cinnabar
 is mercury sulfide and gave the vermilion of Pompeii. Orpiment is arsenic and
-was the only clean yellow for a thousand years, poisonous enough that painters
+was the only clean yellow for 1000 years, poisonous enough that painters
 avoided mixing it with lead. Malachite, azurite and lapis came out of the same
 kind of rock. Warm and heavy, because pigment is.`,
 
@@ -76,32 +77,34 @@ metal before any of it happened.`,
   cherenkov: `A particle moving faster than light does in water drags a shockwave of light
 behind it, and that is the blue glow in a reactor pool. The intensity rises as
 1 over lambda squared, so the shorter the wavelength the stronger it gets,
-which is why it looks violet blue. There is not a single warm colour in this
-family, because the physics does not produce one.`,
+which is why it looks violet blue. There is not a single warm colour in the
+code, because the physics does not produce one. The terminal keeps its red and
+yellow, and so do the error and warning marks, because those have to mean what
+they have always meant.`,
 
   aerogel: `Aerogel is 99 percent air and scatters short wavelengths the same way the sky
 does. Look at a block against a dark background and it is blue. Hold it up to a
-lamp and the light that gets through is amber. Same material, two colours, so
+lamp and the light that gets through is amber. Same material, 2 colours, so
 the dark variant is the reflection and the light variant is the transmission.
-This is the only pair here that comes from one physical fact rather than two.`,
+This is the only pair here that comes from 1 physical fact rather than 2.`,
 
   cavitation: `Drive a bubble in water with sound and it collapses in under a nanosecond,
 reaching temperatures people still argue about, and emits a flash of light.
 Nobody fully agrees why. The flash is blue white and almost too fast to
 measure. Cavitation is the quietest palette in the collection, cold and low in
-chroma, with one hot colour for the core.`,
+chroma, with 1 hot colour for the core.`,
 
   noctiluca: `Living light is nearly always blue green, because that is what travels furthest
 through seawater. Dinoflagellates glow at 480 nm and turn a breaking wave into
 a line of fire. Jellyfish green fluorescent protein sits at 509 and won a Nobel
 prize for being useful. Fireflies are further toward yellow. The red is the
-rarest thing here: one Brazilian beetle larva, the railroad worm, is the only
+rarest thing here: 1 Brazilian beetle larva, the railroad worm, is the only
 land animal known to make it.`,
 
   incandescence: `Heat steel and it tells you its temperature. Dull red around 600 degrees,
 cherry at 750, orange at 900, amber at 1000, almost white by 1300. Blacksmiths
 read it by eye and still do. In this family lightness is temperature, so the
-ladder is not an aesthetic choice, it is the scale. The one cold colour is the
+ladder is not an aesthetic choice, it is the scale. The 1 cold colour is the
 blue at the base of the forge flame.`,
 
   safelight: `Photographic paper cannot see the deep amber of an OC filter, which is why it is
@@ -125,7 +128,7 @@ what is yours and what is borrowed.`,
 
   stratum: `A road cut through sediment is read by depth, not by content. Each band is a
 different million years. Stratum takes the colour off the syntax entirely and
-puts it on nesting depth: the code itself is one sandstone in 6 tones, and all
+puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and all
 6 real colours are spent on bracket levels and indent guides. You see how deep
 you are without counting.`,
 
@@ -139,7 +142,7 @@ seeing it.`,
   palimpsest: `A palimpsest is a parchment scraped clean and written over, with the old text
 still faintly readable underneath. Keywords, imports, punctuation and type
 annotations are the scraped layer here, pushed back toward the background. The
-names you chose and the data you wrote are the new text. Roughly two thirds of
+names you chose and the data you wrote are the new text. Roughly 2 thirds of
 the screen recedes on purpose.`,
 
   silverpoint: `Silverpoint is drawing with a silver stylus on prepared paper. There is no
@@ -177,7 +180,7 @@ shadows and cool in the highlights at once. So this family does not pick 6
 separate hues. It picks a ladder of lightness and lets the hue rotate as the
 ladder descends.`,
 
-  riso: `A Riso duplicator does not mix colour. It pulls one pass per ink and lays them
+  riso: `A Riso duplicator does not mix colour. It pulls 1 pass per ink and lays them
 over each other, slightly out of register. The inks come from a fixed catalogue
 you order by name, and the fluorescent pink is impossible to mistake for
 anything else. These are 6 of them, printed on kraft.`,
@@ -188,13 +191,13 @@ export const SOURCES = {
   fraunhofer: 'Absorption lines in sunlight',
   persistence: 'Oscilloscope phosphor decay',
   anodise: 'Interference on anodised titanium',
-  coherence: '6 lines from one argon and krypton ion laser',
+  coherence: '6 lines from 1 argon and krypton ion laser',
   valence: 'Transition metals dissolved in water',
   hadal: 'The depth at which each colour dies underwater',
   cinnabar: 'Mineral pigments ground before synthetic chemistry',
   epitaxy: 'A silicon wafer and real LED emission peaks',
   verdigris: 'What copper turns into as it corrodes',
-  cherenkov: 'A reactor pool. No warm colour exists in it',
+  cherenkov: 'A reactor pool. No warm colour in the code',
   aerogel: 'Rayleigh scattering. Blue reflected, amber transmitted',
   cavitation: 'Sonoluminescence, the flash of a collapsing bubble',
   noctiluca: 'Light made by living things',

@@ -35,23 +35,23 @@ function diffTheme(before, after) {
   for (const k of keys) {
     const a = before.values[k], b = after.values[k];
     if (a === b) continue;
-    changes.push({ kind: 'culoare', key: k, from: a ?? 'lipsa', to: b ?? 'stearsa' });
+    changes.push({ kind: 'colour', key: k, from: a ?? 'missing', to: b ?? 'removed' });
   }
   const ruleSet = new Set([...before.rules, ...after.rules]);
   for (const r of ruleSet) {
     const inA = before.rules.includes(r), inB = after.rules.includes(r);
     if (inA && inB) continue;
     const [name] = r.split('|');
-    if (!changes.some((c) => c.kind === 'regula' && c.key === name)) {
-      changes.push({ kind: 'regula', key: name, from: before.rules.find((x) => x.startsWith(name + '|')) || 'lipsa',
-        to: after.rules.find((x) => x.startsWith(name + '|')) || 'stearsa' });
+    if (!changes.some((c) => c.kind === 'rule' && c.key === name)) {
+      changes.push({ kind: 'rule', key: name, from: before.rules.find((x) => x.startsWith(name + '|')) || 'missing',
+        to: after.rules.find((x) => x.startsWith(name + '|')) || 'removed' });
     }
   }
   const semKeys = new Set([...Object.keys(before.semantic), ...Object.keys(after.semantic)]);
   for (const k of semKeys) {
     const a = JSON.stringify(before.semantic[k]), b = JSON.stringify(after.semantic[k]);
     if (a === b) continue;
-    changes.push({ kind: 'semantic', key: k, from: a ?? 'lipsa', to: b ?? 'sters' });
+    changes.push({ kind: 'semantic', key: k, from: a ?? 'missing', to: b ?? 'removed' });
   }
   return changes;
 }
@@ -63,7 +63,7 @@ const verbose = process.argv.includes('--verbose');
 if (update || !fs.existsSync(FILE)) {
   fs.writeFileSync(FILE, JSON.stringify(now, null, 1) + '\n');
   const keys = Object.values(now).reduce((n, t) => n + Object.keys(t.values).length, 0);
-  console.log(`instantaneu scris: ${Object.keys(now).length} teme, ${keys} chei de culoare`);
+  console.log(`snapshot written: ${Object.keys(now).length} themes, ${keys} colour keys`);
   process.exit(0);
 }
 
@@ -79,33 +79,33 @@ for (const id of Object.keys(now)) {
 }
 
 if (!added.length && !removed.length && !changed.length) {
-  console.log(`instantaneu identic: ${Object.keys(now).length} teme neschimbate`);
+  console.log(`snapshot identical: ${Object.keys(now).length} themes unchanged`);
   process.exit(0);
 }
 
-if (added.length) console.log(`teme noi: ${added.join(', ')}`);
-if (removed.length) console.log(`teme disparute: ${removed.join(', ')}`);
+if (added.length) console.log(`new themes: ${added.join(', ')}`);
+if (removed.length) console.log(`themes gone: ${removed.join(', ')}`);
 if (changed.length) {
   const total = changed.reduce((n, c) => n + c.changes.length, 0);
-  console.log(`${changed.length} teme modificate, ${total} diferente\n`);
+  console.log(`${changed.length} themes changed, ${total} differences\n`);
   const byKey = {};
   for (const c of changed) for (const d of c.changes) {
     const k = `${d.kind}: ${d.key}`;
     (byKey[k] ||= new Set()).add(c.id);
   }
   const rows = Object.entries(byKey).sort((a, b) => b[1].size - a[1].size);
-  console.log('diferenta                                              teme');
+  console.log('difference'.padEnd(54) + 'themes');
   for (const [k, set] of rows.slice(0, verbose ? rows.length : 30)) {
     console.log('  ' + k.padEnd(52) + set.size);
   }
-  if (!verbose && rows.length > 30) console.log(`  ... si inca ${rows.length - 30}, ruleaza cu --verbose`);
+  if (!verbose && rows.length > 30) console.log(`  ... and ${rows.length - 30} more, run with --verbose`);
   if (verbose) {
     for (const c of changed) {
       console.log(`\n${c.id}`);
       for (const d of c.changes.slice(0, 40)) console.log(`   ${d.kind} ${d.key}: ${d.from} -> ${d.to}`);
-      if (c.changes.length > 40) console.log(`   ... si inca ${c.changes.length - 40}`);
+      if (c.changes.length > 40) console.log(`   ... and ${c.changes.length - 40} more`);
     }
   }
 }
-console.log('\nDaca schimbarile sunt intentionate: node tools/snapshot.mjs --update');
+console.log('\nIf the changes are intended: node tools/snapshot.mjs --update');
 process.exit(1);

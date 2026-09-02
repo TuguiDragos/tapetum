@@ -59,5 +59,5 @@ rows.forEach((row, i) => {
 const out = c.downsample(S);
 const file = path.join(ROOT, 'readme-assets', 'tapetum-contact-sheet.png');
 fs.writeFileSync(file, encodePng(out.width, out.height, out.buf));
-console.log(`plansa scrisa: ${rows.length} teme, ${out.width}x${out.height}, ${(fs.statSync(file).size / 1024).toFixed(0)} KB`);
-console.log('coloane: bara de titlu, bara laterala, editor cu 7 roluri, bara de stare, 6 niveluri de paranteze, terminal cu 6 ANSI si variantele lor, 3 culori de stare, contrastul minim');
+console.log(`sheet written: ${rows.length} themes, ${out.width}x${out.height}, ${(fs.statSync(file).size / 1024).toFixed(0)} KB`);
+console.log('columns: title bar, side bar, editor with 7 roles, status bar, 6 bracket levels, terminal with 6 ANSI colours and their bright variants, 3 status colours, minimum contrast');

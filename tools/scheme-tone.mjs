@@ -1,4 +1,4 @@
-import { buildFrom, styled } from './scheme-kit.mjs';
+import { buildFrom, styled, outputRules } from './scheme-kit.mjs';
 
 const tones = (p) => ({
   t1: p.func, t2: p.keyword, t3: p.string, t4: p.type, t5: p.number, t6: p.tag,
@@ -25,7 +25,7 @@ export function tokenColors(p) {
     shellVar: styled(t.t2, 'bold'), invalid: styled(t.t5, 'underline'),
     deprecated: styled(t.op, 'strikethrough'),
   };
-  return buildFrom((slot) => map[slot]);
+  return [...buildFrom((slot) => map[slot]), ...outputRules(p.st, p.op, p.bg)];
 }
 
 export function semanticTokenColors(p) {

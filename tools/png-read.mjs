@@ -3,7 +3,7 @@ import zlib from 'node:zlib';
 
 export function decodePNG(file) {
   const buf = fs.readFileSync(file);
-  if (buf.readUInt32BE(0) !== 0x89504e47) throw new Error('nu este PNG');
+  if (buf.readUInt32BE(0) !== 0x89504e47) throw new Error('not a PNG');
 
   let pos = 8, width = 0, height = 0, depth = 0, colorType = 0;
   const idat = [];
@@ -20,9 +20,9 @@ export function decodePNG(file) {
     else if (type === 'IEND') break;
     pos += 12 + len;
   }
-  if (depth !== 8) throw new Error(`adancime ${depth} nesuportata`);
+  if (depth !== 8) throw new Error(`unsupported bit depth ${depth}`);
   const channels = { 0: 1, 2: 3, 4: 2, 6: 4 }[colorType];
-  if (!channels) throw new Error(`colorType ${colorType} nesuportat`);
+  if (!channels) throw new Error(`unsupported colorType ${colorType}`);
 
   const raw = zlib.inflateSync(Buffer.concat(idat));
   const stride = width * channels;

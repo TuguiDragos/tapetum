@@ -29,8 +29,8 @@ so almost none of it is wasted. It is why a cat sees where we see nothing, and
 why its eyes flare when a torch finds them.
 
 The mirror is called the *tapetum lucidum*, and every animal throws back its own
-colour: green in cats, blue in horses, red in alligators, white in spiders. One
-structure, and no two of them look alike.
+colour: green in cats, blue in horses, red in alligators, white in spiders. 1
+structure, and no 2 of them look alike.
 
 You also spend your nights looking at light. This is a collection of ways to
 throw it back: 28 families, each in a dark and a light variant, plus a high contrast pair for Coherence.
@@ -184,9 +184,9 @@ different strengths.
 
 Aerogel is 99 percent air and scatters short wavelengths the same way the sky
 does. Look at a block against a dark background and it is blue. Hold it up to a
-lamp and the light that gets through is amber. Same material, two colours, so
+lamp and the light that gets through is amber. Same material, 2 colours, so
 the dark variant is the reflection and the light variant is the transmission.
-This is the only pair here that comes from one physical fact rather than two.
+This is the only pair here that comes from 1 physical fact rather than 2.
 
 <details>
 <summary>Rayleigh scattering. Blue reflected, amber transmitted</summary>
@@ -213,8 +213,8 @@ Every theme in the collection, applied live while scrolling the picker.
 
 **The dark half.** 28 of them, each drawn from something in the physical
 world that emits or bends light: emission lines, phosphor, anodised metal, deep
-sea bioluminescence, the blue glow of a reactor pool. No two of them share a
-palette: across the six roles that carry a hue, the closest pair still averages
+sea bioluminescence, the blue glow of a reactor pool. No 2 of them share a
+palette: across the 6 roles that carry a hue, the closest pair still averages
 12 dE apart, so switching family is a real change and not a shade of one.
 
 <p align="center"><img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-all-themes-light.gif" alt="All Tapetum light themes" width="900" /></p>
@@ -281,7 +281,7 @@ Drive a bubble in water with sound and it collapses in under a nanosecond,
 reaching temperatures people still argue about, and emits a flash of light.
 Nobody fully agrees why. The flash is blue white and almost too fast to
 measure. Cavitation is the quietest palette in the collection, cold and low in
-chroma, with one hot colour for the core.
+chroma, with 1 hot colour for the core.
 
 <details>
 <summary>Sonoluminescence, the flash of a collapsing bubble</summary>
@@ -305,11 +305,13 @@ chroma, with one hot colour for the core.
 A particle moving faster than light does in water drags a shockwave of light
 behind it, and that is the blue glow in a reactor pool. The intensity rises as
 1 over lambda squared, so the shorter the wavelength the stronger it gets,
-which is why it looks violet blue. There is not a single warm colour in this
-family, because the physics does not produce one.
+which is why it looks violet blue. There is not a single warm colour in the
+code, because the physics does not produce one. The terminal keeps its red and
+yellow, and so do the error and warning marks, because those have to mean what
+they have always meant.
 
 <details>
-<summary>A reactor pool. No warm colour exists in it</summary>
+<summary>A reactor pool. No warm colour in the code</summary>
 
 | | `Tapetum Cherenkov` | `Tapetum Cherenkov Light` |
 | --- | --- | --- |
@@ -329,7 +331,7 @@ family, because the physics does not produce one.
 
 Before synthetic chemistry, colour was something you dug up and ground. Cinnabar
 is mercury sulfide and gave the vermilion of Pompeii. Orpiment is arsenic and
-was the only clean yellow for a thousand years, poisonous enough that painters
+was the only clean yellow for 1000 years, poisonous enough that painters
 avoided mixing it with lead. Malachite, azurite and lapis came out of the same
 kind of rock. Warm and heavy, because pigment is.
 
@@ -352,15 +354,16 @@ kind of rock. Warm and heavy, because pigment is.
 
 ### Coherence
 
-A mixed argon and krypton ion laser puts out 6 visible lines from one tube at
+A mixed argon and krypton ion laser puts out 6 visible lines from 1 tube at
 once, which is what a white laser actually is. Argon gives 457.9, 488.0 and
 514.5 nm, krypton gives 413.1, 568.2 and 647.1. Every colour in the code is one
 of those lines. There is no magenta anywhere in it, because magenta is not a
-spectral colour and no laser can emit one. The interface falls to true black so
-the only thing emitting on the screen is the code.
+spectral colour and no laser can emit one, so the terminal's magenta slot carries
+the krypton violet instead. The interface falls to true black so the only thing
+emitting on the screen is the code.
 
 <details>
-<summary>6 lines from one argon and krypton ion laser</summary>
+<summary>6 lines from 1 argon and krypton ion laser</summary>
 
 | | `Tapetum Coherence` | `Tapetum Coherence Light` | `Tapetum Coherence High Contrast` | `Tapetum Coherence High Contrast Light` |
 | --- | --- | --- | --- | --- |
@@ -456,7 +459,7 @@ are the sun on the surface and the rock band running through it.
 Heat steel and it tells you its temperature. Dull red around 600 degrees,
 cherry at 750, orange at 900, amber at 1000, almost white by 1300. Blacksmiths
 read it by eye and still do. In this family lightness is temperature, so the
-ladder is not an aesthetic choice, it is the scale. The one cold colour is the
+ladder is not an aesthetic choice, it is the scale. The 1 cold colour is the
 blue at the base of the forge flame.
 
 <details>
@@ -482,7 +485,7 @@ Living light is nearly always blue green, because that is what travels furthest
 through seawater. Dinoflagellates glow at 480 nm and turn a breaking wave into
 a line of fire. Jellyfish green fluorescent protein sits at 509 and won a Nobel
 prize for being useful. Fireflies are further toward yellow. The red is the
-rarest thing here: one Brazilian beetle larva, the railroad worm, is the only
+rarest thing here: 1 Brazilian beetle larva, the railroad worm, is the only
 land animal known to make it.
 
 <details>
@@ -507,7 +510,7 @@ land animal known to make it.
 A palimpsest is a parchment scraped clean and written over, with the old text
 still faintly readable underneath. Keywords, imports, punctuation and type
 annotations are the scraped layer here, pushed back toward the background. The
-names you chose and the data you wrote are the new text. Roughly two thirds of
+names you chose and the data you wrote are the new text. Roughly 2 thirds of
 the screen recedes on purpose.
 
 <details>
@@ -629,7 +632,7 @@ teal from that idea: a small set of exact positions rather than a smooth range.
 
 ### Riso
 
-A Riso duplicator does not mix colour. It pulls one pass per ink and lays them
+A Riso duplicator does not mix colour. It pulls 1 pass per ink and lays them
 over each other, slightly out of register. The inks come from a fixed catalogue
 you order by name, and the fluorescent pink is impossible to mistake for
 anything else. These are 6 of them, printed on kraft.
@@ -705,7 +708,7 @@ blue accent so you can still find your cursor.
 
 A road cut through sediment is read by depth, not by content. Each band is a
 different million years. Stratum takes the colour off the syntax entirely and
-puts it on nesting depth: the code itself is one sandstone in 6 tones, and all
+puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and all
 6 real colours are spent on bracket levels and indent guides. You see how deep
 you are without counting.
 
@@ -810,7 +813,7 @@ Nothing at all. No hue in the code, only 6 tones plus weight and italic.
 
 <br>
 
-Three of these read your language server rather than the grammar. `provenance`,
+3 of these read your language server rather than the grammar. `provenance`,
 `borrow` and `effect` use the semantic tokens it emits, including the
 `declaration`, `defaultLibrary`, `readonly`, `static`, `modification` and
 `async` modifiers that most themes never touch. They fall back to grammar rules
@@ -835,16 +838,32 @@ What a machine is good for is catching what a person misses. On all
 | | |
 | --- | --- |
 | **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.07 |
-| **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no two look like each other |
-| **Coverage** | all 966 colour keys the running VS Code build registers, including the chat, agents, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
+| **Coverage** | all 974 colour keys VS Code 1.136.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.136.0 |
 
-None of that comes from a hand written list, which would go stale the first time
-VS Code shipped a new surface. `tools/extract-pairs.mjs` reads the workbench
-stylesheet out of the installed editor and collects every foreground and
-background used in the same rule, so what gets checked is what the editor
-actually paints together. `tools/extract-derivations.mjs` reads the binary for
+None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
+colour registry out of every window bundle of the installed editor, including the
+sessions window that 1.136 moved into a bundle of its own, and records which keys
+are deprecated. `tools/extract-pairs.mjs` reads every stylesheet and collects
+each foreground and background used in the same rule, so what gets checked is
+what the editor actually paints together. `tools/extract-derivations.mjs` reads
 the keys whose default is another key, which catches the class of bug where a
-value quietly contradicts the surface beneath it.
+value quietly contradicts the surface beneath it. The 3 files they write are
+committed, checked in CI against every theme, and refreshed by a weekly workflow
+that downloads the current VS Code build, so a new surface is noticed by a
+machine rather than by a person.
+
+The same measurements run against the editors that install from Open VSX, and
+against the other platforms. The current VSCodium, Cursor, Windsurf, code-server,
+Positron, Kiro, Trae, Antigravity and Void builds were each read the same way,
+registry, stylesheets and derivations, and every theme checked on every one of
+them; the keys their older cores do not know yet are ignored by them, and the 35
+surfaces those editors paint in colours of their own, listed with their reasons
+in `tools/forks.mjs`, take the family's colour instead. The Linux and Windows
+builds of VS Code 1.136.0 carry the same registry, stylesheets and
+derivations as the macOS build, byte for byte, so what holds on one holds on all
+3.
 
 ```bash
 node tools/analyze.mjs    # all 58, against the real pairs
@@ -860,7 +879,8 @@ code --install-extension tuguidragos.tapetum
 
 Or from [the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum),
 or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), which is where
-VSCodium, Cursor, Windsurf, Gitpod, code-server and Theia install from.
+VSCodium, Cursor, Windsurf, Positron, Kiro, Trae, Antigravity, Void, Gitpod,
+code-server and Theia install from.
 
 Press `Cmd K` then `Cmd T`, or `Ctrl K` then `Ctrl T` on Windows and Linux, and
 type a family name to filter. Every family is `Tapetum <Family>` for the dark

@@ -34,11 +34,11 @@ async function marketplaceOnce() {
       flags: 914,
     }),
   });
-  if (!res.ok) throw new Error(`marketplace a raspuns ${res.status}`);
+  if (!res.ok) throw new Error(`the marketplace answered ${res.status}`);
   const body = await res.json();
   const stats = body.results?.[0]?.extensions?.[0]?.statistics ?? [];
   const install = stats.find((s) => s.statisticName === 'install');
-  if (!install) throw new Error('marketplace nu a returnat statistica de instalari');
+  if (!install) throw new Error('the marketplace did not return the install statistic');
   return Math.round(install.value);
 }
 
@@ -64,16 +64,16 @@ async function marketplaceInstalls(attempts = 5) {
   try { page = await marketplacePage(); } catch { page = null; }
   const best = Math.max(...seen, page ?? 0);
   if (new Set(seen).size > 1 || (page !== null && page !== seen[0])) {
-    console.log(`  api a raspuns ${seen.join(', ')}, pagina ${page ?? 'indisponibila'}, iau ${best}`);
+    console.log(`  the api answered ${seen.join(', ')}, the page ${page ?? 'unavailable'}, taking ${best}`);
   }
   return best;
 }
 
 async function openVsxDownloads() {
   const res = await fetch(`https://open-vsx.org/api/${PUBLISHER}/${NAME}`);
-  if (!res.ok) throw new Error(`open vsx a raspuns ${res.status}`);
+  if (!res.ok) throw new Error(`open vsx answered ${res.status}`);
   const body = await res.json();
-  if (typeof body.downloadCount !== 'number') throw new Error('open vsx nu a returnat downloadCount');
+  if (typeof body.downloadCount !== 'number') throw new Error('open vsx did not return downloadCount');
   return body.downloadCount;
 }
 
@@ -109,4 +109,4 @@ for (const [name, body] of Object.entries(badges)) {
 for (const [name, glyph] of Object.entries({ 'logo-installs.txt': 'box', 'logo-downloads.txt': 'arrow' })) {
   fs.writeFileSync(path.join(OUT, name), logo(glyph));
 }
-console.log(`instalari ${installs}, descarcari ${downloads}, fisiere schimbate ${changed}`);
+console.log(`installs ${installs}, downloads ${downloads}, files changed ${changed}`);

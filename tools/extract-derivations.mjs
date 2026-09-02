@@ -1,22 +1,44 @@
 import fs from 'node:fs';
-import { workbenchJs } from './vscode-path.mjs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { bundles, registerFunction, registrations } from './extract-keys.mjs';
 
-const JS = workbenchJs();
-const js = fs.readFileSync(JS, 'utf8');
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const NAME = /^[A-Za-z_$][\w$]*$/;
 
-const pat = /(\w+)\s*=\s*\w+\("([a-zA-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)+)",\s*([^,]{1,80}?),\s*d\(/g;
-const binding = new Map();
-const dflt = new Map();
-for (const m of js.matchAll(pat)) {
-  binding.set(m[1], m[2]);
-  dflt.set(m[2], m[3].trim());
+const perBundle = [];
+let read = 0;
+for (const file of bundles()) {
+  const src = fs.readFileSync(file, 'utf8');
+  const fn = registerFunction(src);
+  if (!fn) continue;
+  const regs = [...registrations(src, fn)];
+  read += regs.length;
+  const byName = new Map();
+  for (const [id, r] of regs) if (r.binding) (byName.get(r.binding) || byName.set(r.binding, []).get(r.binding)).push({ key: id, pos: r.pos });
+  const resolved = new Map();
+  for (const [id, r] of regs) {
+    if (!NAME.test(r.defaults)) continue;
+    const seen = byName.get(r.defaults) || [];
+    let latest = null;
+    for (const b of seen) if (b.pos < r.pos) latest = b;
+    if (latest) resolved.set(id, { source: latest.key, ambiguous: seen.length > 1 });
+  }
+  perBundle.push(resolved);
 }
 
+const keys = new Set(perBundle.flatMap((m) => [...m.keys()]));
 const alias = {};
-for (const [key, d] of dflt) {
-  if (/^\w+$/.test(d) && binding.has(d)) alias[key] = binding.get(d);
+let ambiguous = 0, disagree = 0;
+for (const key of [...keys].sort()) {
+  const entries = perBundle.map((m) => m.get(key)).filter(Boolean);
+  const sources = new Set(entries.map((e) => e.source));
+  if (sources.size > 1) { disagree++; continue; }
+  if (entries.length >= 2 || !entries[0].ambiguous) alias[key] = entries[0].source;
+  else ambiguous++;
 }
 
-fs.writeFileSync('tools/derivations.json', JSON.stringify(alias, null, 2));
-console.log(`chei citite din binar: ${dflt.size}`);
-console.log(`chei al caror implicit este alta cheie: ${Object.keys(alias).length}`);
+fs.writeFileSync(path.join(HERE, 'derivations.json'), JSON.stringify(alias, null, 2) + '\n');
+console.log(`keys read from the bundles: ${read}`);
+console.log(`keys whose default is another key: ${Object.keys(alias).length}`);
+console.log(`rejected: ${ambiguous} with an ambiguous minified name in a single bundle, ${disagree} with different sources across bundles`);

@@ -5,16 +5,22 @@ import * as effect from './scheme-effect.mjs';
 import * as signal from './scheme-signal.mjs';
 import * as tone from './scheme-tone.mjs';
 import { hex2lch, lch2hex, contrast, mix, readable } from './color.mjs';
+import { outputRules } from './scheme-kit.mjs';
 
 const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
 const TARGETS = [25, 75, 140, 265];
+const ANSI_FOR = ['red', 'yellow', 'green', 'blue'];
+const MIN_CHROMA = 15;
+const MAX_DRIFT = 45;
 
-export function deriveStatus(syntax, bg, isDark) {
+export function deriveStatus(syntax, bg, isDark, ansi) {
   const hx = (v) => (typeof v === 'string' ? v : v.hex);
-  const roles = Object.entries(syntax)
+  const all = Object.entries(syntax)
     .filter(([k]) => ['keyword', 'string', 'func', 'type', 'number', 'tag'].includes(k))
-    .map(([, v]) => ({ hex: hx(v), hue: hex2lch(hx(v))[2] }));
+    .map(([, v]) => ({ hex: hx(v), hue: hex2lch(hx(v))[2], chroma: hex2lch(hx(v))[1] }));
+  const vivid = all.filter((r) => r.chroma >= MIN_CHROMA);
+  const roles = vivid.length >= TARGETS.length ? vivid : all;
 
   let best = null;
   const walk = (slot, taken, cost, chosen) => {
@@ -33,8 +39,9 @@ export function deriveStatus(syntax, bg, isDark) {
   };
   walk(0, new Set(), 0, []);
 
+  const chosen = best.chosen.map((hex, i) => (ansi && hueDist(hex2lch(hex)[2], TARGETS[i]) > MAX_DRIFT ? hx(ansi[ANSI_FOR[i]]) : hex));
   const lift = (c) => (contrast(c, bg) >= 5.0 ? c : readable(c, bg, 5.0));
-  const [error, warn, ok, info] = best.chosen.map(lift);
+  const [error, warn, ok, info] = chosen.map(lift);
   return {
     error, warn, info, ok,
     added: ok, modified: info, deleted: error, conflict: warn,
@@ -55,7 +62,7 @@ export function buildTokenColors(y) {
     { name: 'Properties', ...S(['variable.other.property', 'variable.other.object.property', 'meta.object-literal.key', 'support.type.property-name', 'variable.other.member'], y.variable) },
     { name: 'Language variables', ...S(['variable.language', 'variable.language.this', 'variable.language.super', 'keyword.other.this'], y.tag, 'italic') },
     { name: 'Constants and enum members', ...S(['variable.other.constant', 'variable.other.enummember', 'constant.other.caps', 'entity.name.constant'], y.number) },
-    { name: 'Numbers and language constants', ...S(['constant.numeric', 'constant.language', 'constant.language.boolean', 'constant.language.null', 'constant.language.undefined', 'keyword.other.unit', 'support.constant'], y.number) },
+    { name: 'Numbers and language constants', ...S(['constant.numeric', 'constant.language', 'constant.language.boolean', 'constant.language.null', 'constant.language.undefined', 'keyword.other.unit', 'support.constant', 'constant'], y.number) },
     { name: 'Escapes', ...S(['constant.character', 'constant.character.escape', 'constant.other.character-class.regexp'], y.number) },
     { name: 'Strings', ...S(['string', 'string.quoted', 'string.template', 'punctuation.definition.string'], y.string) },
     { name: 'Template expression punctuation', ...S(['punctuation.definition.template-expression', 'punctuation.section.embedded', 'meta.embedded'], y.keyword) },
@@ -63,13 +70,13 @@ export function buildTokenColors(y) {
     { name: 'Regexp operators', ...S(['keyword.operator.or.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.quantifier.regexp'], y.tag) },
     { name: 'Keywords', ...S(['keyword', 'keyword.control', 'keyword.other', 'storage', 'storage.type', 'storage.modifier', 'keyword.operator.expression', 'keyword.operator.new', 'keyword.operator.delete', 'keyword.operator.logical.python'], y.keyword) },
     { name: 'Import and export', ...S(['keyword.control.import', 'keyword.control.export', 'keyword.control.from', 'keyword.control.default', 'keyword.control.as'], y.keyword, 'italic') },
-    { name: 'Operators and punctuation', ...S(['keyword.operator', 'punctuation', 'punctuation.separator', 'punctuation.terminator', 'meta.brace', 'punctuation.accessor'], y.op) },
+    { name: 'Operators and punctuation', ...S(['keyword.operator', 'punctuation', 'punctuation.separator', 'punctuation.terminator', 'meta.brace', 'punctuation.accessor', 'meta.separator', 'meta.resultLinePrefix.contextLinePrefix.search'], y.op) },
     { name: 'Arrow functions', ...S(['storage.type.function.arrow', 'keyword.operator.arrow', 'storage.type.function.lambda'], y.tag) },
-    { name: 'Functions and methods', ...S(['entity.name.function', 'meta.function-call.generic', 'support.function', 'meta.require', 'variable.function', 'entity.name.method'], y.func) },
+    { name: 'Functions and methods', ...S(['entity.name.function', 'meta.function-call.generic', 'support.function', 'meta.require', 'variable.function', 'entity.name.method', 'entity'], y.func) },
     { name: 'Function declarations', ...S(['meta.definition.method entity.name.function', 'meta.definition.function entity.name.function'], y.func, 'bold') },
     { name: 'Decorators', ...S(['meta.decorator', 'entity.name.function.decorator', 'punctuation.decorator', 'meta.decorator variable.other'], y.func, 'italic') },
     { name: 'Types and classes', ...S(['entity.name.type', 'entity.name.class', 'entity.name.namespace', 'entity.name.scope-resolution', 'support.type', 'support.class', 'entity.other.inherited-class', 'entity.name.type.interface', 'entity.name.type.enum', 'entity.name.type.alias', 'meta.type.declaration entity.name.type'], y.type) },
-    { name: 'Primitive types', ...S(['support.type.primitive', 'keyword.type', 'storage.type.primitive', 'support.type.builtin'], y.type, 'italic') },
+    { name: 'Primitive types', ...S(['support.type.primitive', 'keyword.type', 'storage.type.primitive', 'support.type.builtin', 'support'], y.type, 'italic') },
     { name: 'Tags', ...S(['entity.name.tag', 'punctuation.definition.tag', 'meta.tag'], y.tag) },
     { name: 'Component tags', ...S(['support.class.component', 'entity.name.tag.jsx-component', 'entity.name.tag.namespace'], y.type) },
     { name: 'Attributes', ...S(['entity.other.attribute-name', 'meta.attribute', 'entity.other.attribute-name.html'], y.number, 'italic') },
@@ -165,6 +172,7 @@ export function buildTokenColors(y) {
     { name: 'Module file operators', ...S(['operator.go.mod', 'keyword.operator.go.mod'], y.op) },
     { name: 'Invalid', ...S(['invalid', 'invalid.illegal'], y.st.error, 'italic underline') },
     { name: 'Deprecated', ...S(['invalid.deprecated'], y.st.conflict, 'strikethrough') },
+    ...outputRules(y.st, y.op, y.bg),
   ];
 }
 
@@ -198,7 +206,7 @@ export function buildSemantic(y) {
   };
 }
 
-const wrap = (m) => ({ tokenColors: (y, p) => m.tokenColors(p), semanticTokenColors: (y, p) => m.semanticTokenColors(p) });
+const wrap = (m) => ({ tokenColors: (y, p) => m.tokenColors({ ...p, st: y.st }), semanticTokenColors: (y, p) => m.semanticTokenColors(p) });
 
 const SCHEMES = {
   grammar: { tokenColors: (y) => buildTokenColors(y), semanticTokenColors: (y) => buildSemantic(y) },
@@ -228,11 +236,12 @@ function tameHeadings(rules, body, bg) {
 }
 
 export function emitTheme(spec) {
-  const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark');
+  const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark', spec.ansi);
   const full = { ...spec, status: st, ansi: spec.ansi };
   const y = {};
   for (const [k, v] of Object.entries(spec.syntax)) y[k] = typeof v === 'string' ? v : v.hex;
   y.st = st;
+  y.bg = spec.bg;
   y.heading = capToBody(y.keyword, spec.fg, spec.bg);
   const scheme = SCHEMES[spec.scheme || 'grammar'];
   return {
