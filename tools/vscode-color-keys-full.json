@@ -1,25 +1,25 @@
 {
- "vscode": "1.136.0",
+ "vscode": "1.137.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
    "registerFunction": "de",
-   "registrations": 883,
+   "registrations": 884,
    "deprecated": 8,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
-   "registerFunction": "re",
-   "registrations": 951,
+   "registerFunction": "se",
+   "registrations": 952,
    "deprecated": 8,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 971,
+  "registered": 972,
   "contributedByExtensions": 11,
-  "confirmedReal": 982,
+  "confirmedReal": 983,
   "deprecated": 8,
   "microsoftThemes": 358
  },
@@ -131,6 +131,7 @@
   "chat.requestCodeBorder",
   "chat.slashCommandBackground",
   "chat.slashCommandForeground",
+  "chat.statusBackground",
   "chat.thinkingShimmer",
   "chat.voiceGlowBaseColor",
   "chat.voiceListeningGlow",

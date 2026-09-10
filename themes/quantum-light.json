@@ -135,8 +135,8 @@
     "editorSuggestWidget.background": "#F0F2F9",
     "editorSuggestWidget.border": "#c7c9d4",
     "editorSuggestWidget.foreground": "#24294A",
-    "editorSuggestWidget.highlightForeground": "#0A7570",
-    "editorSuggestWidget.focusHighlightForeground": "#0A7570",
+    "editorSuggestWidget.highlightForeground": "#0a6f6a",
+    "editorSuggestWidget.focusHighlightForeground": "#0a6f6a",
     "editorSuggestWidget.selectedBackground": "#e1e2e6",
     "editorSuggestWidget.selectedForeground": "#24294A",
     "editorSuggestWidget.selectedIconForeground": "#7B2CBF",
@@ -232,7 +232,7 @@
     "list.focusHighlightForeground": "#085854",
     "list.inactiveFocusBackground": "#24294a0a",
     "list.inactiveFocusOutline": "#24294a38",
-    "list.highlightForeground": "#0A7570",
+    "list.highlightForeground": "#0a6f6a",
     "list.errorForeground": "#C42B7B",
     "list.warningForeground": "#af4900",
     "list.deemphasizedForeground": "#787a86",
@@ -628,6 +628,7 @@
     "chat.requestBorder": "#c7c9d4",
     "chat.requestBubbleBackground": "#e1e2e6",
     "chat.requestBubbleHoverBackground": "#d6d7dd",
+    "chat.statusBackground": "#24294a14",
     "chat.requestCodeBorder": "#c7c9d4",
     "chat.avatarBackground": "#e1e2e6",
     "chat.avatarForeground": "#24294A",
@@ -1501,11 +1502,20 @@
       "name": "Markdown headings",
       "scope": [
         "markup.heading",
-        "entity.name.section.markdown",
-        "punctuation.definition.heading.markdown"
+        "entity.name.section.markdown"
       ],
       "settings": {
         "foreground": "#7B2CBF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#5B6183",
         "fontStyle": "bold"
       }
     },
@@ -1529,6 +1539,17 @@
       "settings": {
         "foreground": "#C42B7B",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#C25100",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -2028,10 +2049,21 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#7B2CBF"
+        "foreground": "#7B2CBF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#7B2CBF",
+        "fontStyle": ""
       }
     },
     {

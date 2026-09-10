@@ -43,10 +43,10 @@
     "editor.wordHighlightBackground": "#f0f0f42e",
     "editor.wordHighlightStrongBackground": "#aaaab033",
     "editor.wordHighlightTextBackground": "#f0f0f42e",
-    "editor.findMatchBackground": "#c8c8ce61",
+    "editor.findMatchBackground": "#c8c8ce5c",
     "editor.findMatchBorder": "#C8C8CE",
     "editor.findMatchHighlightBackground": "#bebec43d",
-    "editor.findMatchForeground": "#e0e0e2",
+    "editor.findMatchForeground": "#dbdbde",
     "editor.findMatchHighlightForeground": "#D2D2D6",
     "editor.findRangeHighlightBackground": "#93a6bc1a",
     "editor.hoverHighlightBackground": "#93a6bc24",
@@ -628,6 +628,7 @@
     "chat.requestBorder": "#464649",
     "chat.requestBubbleBackground": "#313133",
     "chat.requestBubbleHoverBackground": "#3b3b3d",
+    "chat.statusBackground": "#d2d2d614",
     "chat.requestCodeBorder": "#464649",
     "chat.avatarBackground": "#313133",
     "chat.avatarForeground": "#D2D2D6",
@@ -1056,8 +1057,7 @@
         "variable.other.object.property",
         "meta.object-literal.key",
         "support.type.property-name",
-        "variable.other.member",
-        "entity.name.label"
+        "variable.other.member"
       ],
       "settings": {
         "foreground": "#D2D2D6"
@@ -1232,10 +1232,11 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#AAAAB0"
+        "foreground": "#AAAAB0",
+        "fontStyle": ""
       }
     },
     {
@@ -1313,12 +1314,21 @@
         "storage.type",
         "storage.modifier",
         "keyword.operator.expression",
-        "keyword.operator.new",
         "keyword.operator.delete",
         "keyword.operator.logical.python"
       ],
       "settings": {
         "foreground": "#AAAAB0"
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#AAAAB0",
+        "fontStyle": ""
       }
     },
     {
@@ -1500,6 +1510,16 @@
       }
     },
     {
+      "name": "Markup heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#8A8A90",
+        "fontStyle": "bold"
+      }
+    },
+    {
       "name": "Markup link",
       "scope": [
         "markup.underline.link",
@@ -1528,6 +1548,17 @@
       "settings": {
         "foreground": "#D2D2D6",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup strong emphasis",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#D2D2D6",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -1781,7 +1812,6 @@
     {
       "name": "Generic raw markup",
       "scope": [
-        "markup.raw",
         "markup.raw.texttt",
         "markup.raw.verbatim",
         "markup.raw.verb",
@@ -1956,7 +1986,8 @@
         "constant.string.documentation"
       ],
       "settings": {
-        "foreground": "#BEBEC4"
+        "foreground": "#BEBEC4",
+        "fontStyle": ""
       }
     },
     {

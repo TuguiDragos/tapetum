@@ -5,7 +5,7 @@ export const SLOTS = [
   { name: 'Comment keyword', slot: 'codetag', scope: ['keyword.codetag', 'comment keyword.other', 'storage.type.class.jsdoc'] },
   { name: 'Identifiers', slot: 'identifier', scope: ['variable', 'variable.other', 'variable.other.readwrite',
     'meta.definition.variable.name', 'variable.other.property', 'variable.other.object.property',
-    'meta.object-literal.key', 'support.type.property-name', 'variable.other.member', 'entity.name.label'] },
+    'meta.object-literal.key', 'support.type.property-name', 'variable.other.member'] },
   { name: 'Calls', slot: 'call', scope: ['meta.function-call.generic', 'variable.function', 'entity'] },
   { name: 'Parameters', slot: 'parameter', scope: ['variable.parameter', 'meta.parameter', 'variable.other.jsdoc'] },
   { name: 'Function definitions', slot: 'definition', scope: ['entity.name.function', 'meta.definition.function',
@@ -29,7 +29,7 @@ export const SLOTS = [
     'punctuation.definition.lifetime', 'storage.modifier.lifetime'] },
   { name: 'GraphQL declarations', slot: 'keyword', scope: ['entity.name.fragment', 'entity.scalar',
     'keyword.fragment', 'keyword.interface', 'keyword.enum', 'keyword.input', 'keyword.implements',
-    'keyword.directive', 'keyword.on', 'keyword.union', 'keyword.scalar', 'keyword.type'] },
+    'keyword.directive', 'keyword.on', 'keyword.union', 'keyword.scalar', 'keyword.type.graphql'], fontStyle: '' },
   { name: 'GraphQL and data keys', slot: 'identifier', scope: ['constant.object.key', 'scalar.field'] },
   { name: 'HCL and Terraform', slot: 'call', scope: ['storage.type.function.hcl', 'support.function.builtin.hcl',
     'support.function.namespaced.hcl', 'support.function.builtin.terraform'] },
@@ -39,8 +39,9 @@ export const SLOTS = [
   { name: 'Regexp operators', slot: 'regexpop', scope: ['keyword.operator.or.regexp', 'keyword.control.anchor.regexp',
     'keyword.operator.quantifier.regexp'] },
   { name: 'Keywords', slot: 'keyword', scope: ['keyword', 'keyword.control', 'keyword.other', 'storage', 'storage.type',
-    'storage.modifier', 'keyword.operator.expression', 'keyword.operator.new', 'keyword.operator.delete',
+    'storage.modifier', 'keyword.operator.expression', 'keyword.operator.delete',
     'keyword.operator.logical.python'] },
+  { name: 'Go type keyword', slot: 'keyword', scope: ['keyword.type.go'], fontStyle: '' },
   { name: 'Effectful keywords', slot: 'effect', scope: ['keyword.control.flow.await', 'storage.modifier.async',
     'keyword.control.trycatch', 'keyword.control.exception', 'keyword.other.throw', 'keyword.control.flow.return',
     'storage.modifier.async.js', 'keyword.control.flow.yield', 'keyword.operator.new'] },
@@ -68,9 +69,11 @@ export const SLOTS = [
     'meta.structure.dictionary.json', 'entity.name.tag.yaml', 'support.type.property-name.yaml'] },
   { name: 'JSON values', slot: 'dataValue', scope: ['meta.structure.dictionary.value.json'] },
   { name: 'Markup heading', slot: 'heading', scope: ['markup.heading', 'entity.name.section'] },
+  { name: 'Markup heading marks', slot: 'list', scope: ['punctuation.definition.heading.markdown'], fontStyle: 'bold' },
   { name: 'Markup link', slot: 'link', scope: ['markup.underline.link', 'string.other.link'] },
   { name: 'Markup emphasis', slot: 'emphasis', scope: ['markup.italic'] },
   { name: 'Markup strong', slot: 'strong', scope: ['markup.bold'] },
+  { name: 'Markup strong emphasis', slot: 'strong', scope: ['markup.bold markup.italic', 'markup.italic markup.bold'], fontStyle: 'bold italic' },
   { name: 'Markup quote', slot: 'quote', scope: ['markup.quote', 'punctuation.definition.quote.begin', 'blockquote'] },
   { name: 'Markup code', slot: 'code', scope: ['markup.inline.raw', 'markup.fenced_code', 'markup.raw'] },
   { name: 'Markup list', slot: 'list', scope: ['markup.list', 'punctuation.definition.list.begin', 'punctuation.definition.list.end'] },
@@ -104,7 +107,7 @@ export const SLOTS = [
   { name: 'Lisp keywords and globals', slot: 'keyword', scope: ['constant.keyword', 'entity.global'] },
   { name: 'Generic constants', slot: 'frozen', scope: ['constant.other', 'constant.sha', 'constant.global',
     'constant.other.symbol', 'constant.other.option'] },
-  { name: 'Generic raw markup', slot: 'code', scope: ['markup.raw', 'markup.raw.texttt', 'markup.raw.verbatim',
+  { name: 'Generic raw markup', slot: 'code', scope: ['markup.raw.texttt', 'markup.raw.verbatim',
     'markup.raw.verb', 'markup.raw.yaml.front-matter'] },
   { name: 'Attribute values', slot: 'cssValue', scope: ['entity.other.attribute-value', 'property.value',
     'constant.other.inline-data'] },
@@ -132,7 +135,7 @@ export const SLOTS = [
   { name: 'Regexp anchors and groups', slot: 'regexpop', scope: ['support.other.match',
     'support.other.parenthesis.regexp', 'support.other.escape.special.regexp'] },
   { name: 'Inline and block math', slot: 'number', scope: ['markup.math.block', 'markup.math.inline'] },
-  { name: 'Documentation strings', slot: 'string', scope: ['constant.string.documentation'] },
+  { name: 'Documentation strings', slot: 'string', scope: ['constant.string.documentation'], fontStyle: '' },
   { name: 'Invalid', slot: 'invalid', scope: ['invalid', 'invalid.illegal'] },
   { name: 'Deprecated, strikethrough', slot: 'deprecated', scope: ['invalid.deprecated'] },
 ];
@@ -142,8 +145,9 @@ export function buildFrom(paint) {
   for (const s of SLOTS) {
     const v = paint(s.slot);
     if (!v) continue;
-    const settings = typeof v === 'string' ? { foreground: v } : v;
+    const settings = typeof v === 'string' ? { foreground: v } : { ...v };
     if (!settings.foreground) continue;
+    if (s.fontStyle !== undefined) settings.fontStyle = s.fontStyle;
     out.push({ name: s.name, scope: s.scope, settings });
   }
   return out;

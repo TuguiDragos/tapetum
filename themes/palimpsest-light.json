@@ -135,8 +135,8 @@
     "editorSuggestWidget.background": "#E3D9C0",
     "editorSuggestWidget.border": "#beb6a3",
     "editorSuggestWidget.foreground": "#2A241A",
-    "editorSuggestWidget.highlightForeground": "#7E5B0E",
-    "editorSuggestWidget.focusHighlightForeground": "#7E5B0E",
+    "editorSuggestWidget.highlightForeground": "#71520d",
+    "editorSuggestWidget.focusHighlightForeground": "#71520d",
     "editorSuggestWidget.selectedBackground": "#d5cdb9",
     "editorSuggestWidget.selectedForeground": "#2A241A",
     "editorSuggestWidget.selectedIconForeground": "#7E5B0E",
@@ -232,7 +232,7 @@
     "list.focusHighlightForeground": "#523b09",
     "list.inactiveFocusBackground": "#2a241a0a",
     "list.inactiveFocusOutline": "#2a241a38",
-    "list.highlightForeground": "#7E5B0E",
+    "list.highlightForeground": "#71520d",
     "list.errorForeground": "#8A3A22",
     "list.warningForeground": "#7E5A10",
     "list.deemphasizedForeground": "#6d675b",
@@ -475,7 +475,7 @@
     "terminal.findMatchBorder": "#7E5B0E",
     "terminal.findMatchHighlightBackground": "#7e5b0e3d",
     "terminal.hoverHighlightBackground": "#7e5b0e24",
-    "terminalCursor.foreground": "#7E5B0E",
+    "terminalCursor.foreground": "#78560d",
     "terminalCursor.background": "#EDE4CE",
     "terminalCommandDecoration.defaultBackground": "#6d675b",
     "terminalCommandDecoration.successBackground": "#4E6028",
@@ -628,6 +628,7 @@
     "chat.requestBorder": "#beb6a3",
     "chat.requestBubbleBackground": "#d5cdb9",
     "chat.requestBubbleHoverBackground": "#cbc3af",
+    "chat.statusBackground": "#2a241a14",
     "chat.requestCodeBorder": "#beb6a3",
     "chat.avatarBackground": "#d5cdb9",
     "chat.avatarForeground": "#2A241A",
@@ -1056,8 +1057,7 @@
         "variable.other.object.property",
         "meta.object-literal.key",
         "support.type.property-name",
-        "variable.other.member",
-        "entity.name.label"
+        "variable.other.member"
       ],
       "settings": {
         "foreground": "#2A241A"
@@ -1229,10 +1229,11 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#6B6352"
+        "foreground": "#6B6352",
+        "fontStyle": ""
       }
     },
     {
@@ -1309,12 +1310,21 @@
         "storage.type",
         "storage.modifier",
         "keyword.operator.expression",
-        "keyword.operator.new",
         "keyword.operator.delete",
         "keyword.operator.logical.python"
       ],
       "settings": {
         "foreground": "#6B6352"
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#6B6352",
+        "fontStyle": ""
       }
     },
     {
@@ -1492,6 +1502,16 @@
       }
     },
     {
+      "name": "Markup heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#6B6352",
+        "fontStyle": "bold"
+      }
+    },
+    {
       "name": "Markup link",
       "scope": [
         "markup.underline.link",
@@ -1520,6 +1540,17 @@
       "settings": {
         "foreground": "#2A241A",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup strong emphasis",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#2A241A",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -1766,7 +1797,6 @@
     {
       "name": "Generic raw markup",
       "scope": [
-        "markup.raw",
         "markup.raw.texttt",
         "markup.raw.verbatim",
         "markup.raw.verb",
@@ -1937,7 +1967,8 @@
         "constant.string.documentation"
       ],
       "settings": {
-        "foreground": "#7E5B0E"
+        "foreground": "#7E5B0E",
+        "fontStyle": ""
       }
     },
     {

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, toLab, parse } from './color.mjs';
+import { contrast, over, deltaE, toLab, parse, mix, alpha } from './color.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -48,12 +48,18 @@ const HEX = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 const SEL = /^(\*|[a-zA-Z][a-zA-Z0-9]*)(\.[a-zA-Z][a-zA-Z0-9]*)*(:[a-zA-Z][a-zA-Z0-9_-]*)?$/;
 const STYLE = /^(|italic|bold|underline|strikethrough)( (italic|bold|underline|strikethrough))*$/;
 
+// An entry with bgAlpha matches only the variant of the pair painted at that share of its strength.
 const ACCEPTED = [
   {
     fg: 'descriptionForeground', bg: 'badge.background',
     why: 'appears only in .chat-debug-wirelog-badge. Grey text on a coloured badge is an inherent conflict: the themes shipped with VS Code measure 1.35 in 2026-dark and 1.17 in 2026-light, so it cannot be fixed without changing the badge colour across the whole interface.',
   },
+  {
+    fg: 'badge.foreground', bg: 'badge.background', bgAlpha: 0.5,
+    why: 'the disabled plugin status of the sessions window is the badge at half strength under the ordinary badge text. It reads only when the text is white on a dark badge over a dark surface, the 1 combination a light theme cannot have: VS Code\'s own 2026-light measures 2.20, and Light Modern passes only because its badge is grey. The alternative is a grey badge across the whole interface.',
+  },
 ];
+const accepted = (p) => ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg && a.bgAlpha === p.bgAlpha);
 
 const SURFACES = ['editor.background', 'sideBar.background', 'panel.background',
   'editorWidget.background', 'titleBar.activeBackground', 'activityBar.background',
@@ -65,14 +71,38 @@ const RIDES_ANYWHERE = {
 
 const isTranslucent = (c) => parse(c).a < 1;
 
-function worstSurface(t, bgKey) {
-  const bg = t.colors[bgKey];
-  if (!bg) return null;
+// A key painted at a share of its strength (a color-mix with transparent) is that key with its alpha scaled.
+const faded = (c, share) => (share === undefined ? c : alpha(c, parse(c).a * share));
+
+function worstSurface(t, bgKey, share) {
+  if (!t.colors[bgKey]) return null;
+  const bg = faded(t.colors[bgKey], share);
   if (!isTranslucent(bg)) return [{ under: null, resolved: bg }];
   const extra = RIDES_ANYWHERE[bgKey] || [];
   return [...SURFACES, ...extra].filter((s) => t.colors[s] && !isTranslucent(t.colors[s]))
     .map((s) => ({ under: s, resolved: over(bg, t.colors[s]) }));
 }
+
+// The surfaces a pair's text sits on: the background key, or, when the rule blends 2 keys, the
+// dominant key with the other riding on it at its share, both composited on the same ground first.
+function surfacesFor(t, p) {
+  const base = worstSurface(t, p.bg, p.bgAlpha);
+  if (!base || !p.bgMix) return base;
+  const other = t.colors[p.bgMix.key];
+  if (!other) return null;
+  return base.map(({ under, resolved }) => ({ under, resolved: mix(resolved, over(other, under ? t.colors[under] : resolved), p.bgMix.share) }));
+}
+
+const textOn = (t, p, surface) => {
+  const fg = over(faded(t.colors[p.fg], p.fgAlpha), surface);
+  if (!p.fgMix || !t.colors[p.fgMix.key]) return fg;
+  return mix(fg, over(t.colors[p.fgMix.key], surface), p.fgMix.share);
+};
+
+const describe = (p) => {
+  const part = (key, share, blend) => `${key}${share !== undefined ? ` at ${Math.round(share * 100)}%` : ''}${blend ? ` blended ${Math.round(blend.share * 100)}% with ${blend.key}` : ''}`;
+  return `${part(p.fg, p.fgAlpha, p.fgMix)} on ${part(p.bg, p.bgAlpha, p.bgMix)}`;
+};
 
 const FLOOR = (fgKey) => {
   if (/placeholder|inactive|ghost|disabled|dimmed|unnecessary/i.test(fgKey)) return 3.0;
@@ -118,14 +148,13 @@ function analyze(entry) {
   }
 
   for (const p of PAIRS) {
-    const fg = t.colors[p.fg];
-    if (!fg || !t.colors[p.bg]) continue;
-    if (ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg)) continue;
+    if (!t.colors[p.fg] || !t.colors[p.bg]) continue;
+    if (accepted(p)) continue;
     const floor = FLOOR(p.fg);
-    for (const { under, resolved } of worstSurface(t, p.bg) || []) {
-      const c = contrast(over(fg, resolved), resolved);
+    for (const { under, resolved } of surfacesFor(t, p) || []) {
+      const c = contrast(textOn(t, p, resolved), resolved);
       if (c < floor)
-        found.push({ sev: 'contrast', msg: `${c.toFixed(2)} under ${floor}: ${p.fg} on ${p.bg}${under ? ` (over ${under})` : ''}` });
+        found.push({ sev: 'contrast', msg: `${c.toFixed(2)} under ${floor}: ${describe(p)}${under ? ` (over ${under})` : ''}` });
     }
   }
 
@@ -178,7 +207,7 @@ for (const entry of pkg.contributes.themes) {
   for (const f of found) console.log(`   [${f.sev}] ${f.msg}`);
 }
 console.log(`\npairs checked per theme: ${PAIRS.length - ACCEPTED.length} of ${PAIRS.length} extracted from the CSS`);
-for (const a of ACCEPTED) console.log(`accepted exception: ${a.fg} on ${a.bg}\n   ${a.why}`);
+for (const a of ACCEPTED) console.log(`accepted exception: ${a.fg} on ${a.bg}${a.bgAlpha !== undefined ? ` at ${Math.round(a.bgAlpha * 100)}%` : ''}\n   ${a.why}`);
 console.log(`documented divergent seams: ${DELIBERATE.length}`);
 console.log(total ? `TOTAL ${total} problems  ${JSON.stringify(bySeverity)}` : `ALL ${pkg.contributes.themes.length} PASS`);
 process.exit(total ? 1 : 0);

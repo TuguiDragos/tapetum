@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, toLab, parse } from './color.mjs';
+import { contrast, over, deltaE, toLab, parse, mix, alpha } from './color.mjs';
 import { bundledExtensions } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -41,7 +41,8 @@ const isTrans = (c) => parse(c).a < 1;
 const SURF = ['editor.background', 'sideBar.background', 'panel.background', 'editorWidget.background',
   'titleBar.activeBackground', 'activityBar.background', 'editorGroupHeader.tabsBackground'];
 
-const ACCEPTED = new Set(['descriptionForeground|badge.background']);
+const pid = (p) => p.fg + '|' + p.bg + (p.bgAlpha !== undefined ? '@' + p.bgAlpha : '');
+const ACCEPTED = new Set(['descriptionForeground|badge.background', 'badge.foreground|badge.background@0.5']);
 
 function score(t, onlyPairs) {
   const c = t.colors;
@@ -49,17 +50,20 @@ function score(t, onlyPairs) {
 
   let checked = 0, failed = 0, worst = { c: 99, what: '' };
   for (const p of PAIRS) {
-    if (ACCEPTED.has(p.fg + '|' + p.bg)) continue;
-    if (onlyPairs && !onlyPairs.has(p.fg + '|' + p.bg)) continue;
-    const fg = c[p.fg], bg = c[p.bg];
-    if (!fg || !bg) continue;
+    if (ACCEPTED.has(pid(p))) continue;
+    if (onlyPairs && !onlyPairs.has(pid(p))) continue;
+    if (!c[p.fg] || !c[p.bg] || (p.bgMix && !c[p.bgMix.key]) || (p.fgMix && !c[p.fgMix.key])) continue;
+    const fade = (col, share) => (share === undefined ? col : alpha(col, parse(col).a * share));
+    const fg = fade(c[p.fg], p.fgAlpha), bg = fade(c[p.bg], p.bgAlpha);
     const floor = /placeholder|inactive|ghost|disabled|dimmed/i.test(p.fg) ? 3.0
       : /description|comment/i.test(p.fg) ? 4.0 : 4.5;
-    const surfaces = isTrans(bg)
-      ? SURF.filter((s) => c[s] && !isTrans(c[s])).map((s) => over(bg, c[s]))
-      : [bg];
-    for (const s of surfaces) {
-      const v = contrast(over(fg, s), s);
+    const grounds = isTrans(bg)
+      ? SURF.filter((s) => c[s] && !isTrans(c[s])).map((s) => ({ ground: c[s], surface: over(bg, c[s]) }))
+      : [{ ground: bg, surface: bg }];
+    for (const { ground, surface } of grounds) {
+      const s = p.bgMix ? mix(surface, over(c[p.bgMix.key], ground), p.bgMix.share) : surface;
+      const text = p.fgMix ? mix(over(fg, s), over(c[p.fgMix.key], s), p.fgMix.share) : fg;
+      const v = contrast(over(text, s), s);
       checked++;
       if (v < floor) failed++;
       if (v < worst.c) worst = { c: v, what: `${p.fg} on ${p.bg}` };
@@ -97,7 +101,7 @@ function score(t, onlyPairs) {
 const official = loadOfficial();
 const mine = loadMine();
 
-const settable = (t) => new Set(PAIRS.filter((p) => t.colors[p.fg] && t.colors[p.bg]).map((p) => p.fg + '|' + p.bg));
+const settable = (t) => new Set(PAIRS.filter((p) => t.colors[p.fg] && t.colors[p.bg]).map(pid));
 const commonWith = (t) => {
   const a = settable(t);
   const b = settable(mine[0]);

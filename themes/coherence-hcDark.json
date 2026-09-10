@@ -28,7 +28,7 @@
     "textSeparator.foreground": "#3d3d3d",
     "editor.background": "#000000",
     "editor.foreground": "#FFFFFF",
-    "editorLineNumber.foreground": "#525252",
+    "editorLineNumber.foreground": "#757575",
     "editorLineNumber.activeForeground": "#12EBFF",
     "editorLineNumber.dimmedForeground": "#303030",
     "editorCursor.foreground": "#FFFFFF",
@@ -628,6 +628,7 @@
     "chat.requestBorder": "#6FC3DF",
     "chat.requestBubbleBackground": "#1a1a1a",
     "chat.requestBubbleHoverBackground": "#282828",
+    "chat.statusBackground": "#000000",
     "chat.requestCodeBorder": "#6FC3DF",
     "chat.avatarBackground": "#1a1a1a",
     "chat.avatarForeground": "#FFFFFF",
@@ -1501,11 +1502,20 @@
       "name": "Markdown headings",
       "scope": [
         "markup.heading",
-        "entity.name.section.markdown",
-        "punctuation.definition.heading.markdown"
+        "entity.name.section.markdown"
       ],
       "settings": {
         "foreground": "#12EBFF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#B5B5B4",
         "fontStyle": "bold"
       }
     },
@@ -1529,6 +1539,17 @@
       "settings": {
         "foreground": "#BAD2FF",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#FFA05C",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -2028,10 +2049,21 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#12EBFF"
+        "foreground": "#12EBFF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#12EBFF",
+        "fontStyle": ""
       }
     },
     {

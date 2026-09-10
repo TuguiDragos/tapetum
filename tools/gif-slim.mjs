@@ -108,4 +108,7 @@ if (args.length) {
     }
   }
   if (!apply) console.log('\nrun with --apply to write the files');
+} else {
+  console.error('usage: node tools/gif-slim.mjs <file.gif> [more files] [--every=N] [--cap=HUNDREDTHS] [--apply] [--force]');
+  process.exit(2);
 }

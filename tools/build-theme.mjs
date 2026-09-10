@@ -34,7 +34,10 @@ function tokens(s) {
   const sel = alpha(acc, dark ? 0.3 : 0.24);
   const selSoft = alpha(acc, dark ? 0.16 : 0.13);
   const dim = legible(dimBase, composite(selSoft, hard), 4.0);
-  const findWash = alpha(s.syntax.number, 0.38);
+  let findAlpha = 0.38;
+  while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
+  const findWash = alpha(s.syntax.number, findAlpha);
+  const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   const findGround = [bg, elev, chrome].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
   const field = dark ? mix(bg, fg, 0.08) : '#ffffff';
@@ -60,7 +63,14 @@ function tokens(s) {
   };
   const onAcc = onColor(acc);
   const calm = (c, ceiling = 45) => { const [L, C, h] = hex2lch(c); return C <= ceiling ? c : lch2hex(L, ceiling, h); };
-  const fill = calm(acc);
+  // Cursor paints the button at 90% of its strength, so the text has to clear 4.5 on it over every chrome surface
+  let fill = calm(acc);
+  for (let k = 0; k < 20; k++) {
+    const text = onColor(fill);
+    const weakest = Math.min(...[bg, elev, chrome].map((g) => contrast(text, composite(alpha(fill, 0.9), g))));
+    if (weakest >= 4.5) break;
+    fill = text === '#ffffff' ? darken(fill, 0.03) : lighten(fill, 0.03);
+  }
   const onFill = onColor(fill);
   const st = s.status;
   const shadowInk = dark ? '#000000' : '#1a1a2e';
@@ -70,7 +80,7 @@ function tokens(s) {
   const y = s.syntax;
   const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, field, hoverTab, lineHighlight, commentRange, sliders, focusRing, focusStrong, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, field, hoverTab, lineHighlight, commentRange, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -86,7 +96,7 @@ function tokens(s) {
     'contrastBorder': '#00000000',
     'contrastActiveBorder': '#00000000',
 
-    'textLink.foreground': y.func,
+    'textLink.foreground': legible(legible(y.func, bg, 4.5), elev, 4.5),
     'textLink.activeForeground': y.string,
     'textPreformat.foreground': legible(y.number, mix(hard, y.number, 0.12), 5.4),
     'textPreformat.background': alpha(y.number, 0.10),
@@ -97,7 +107,7 @@ function tokens(s) {
 
     'editor.background': bg,
     'editor.foreground': fg,
-    'editorLineNumber.foreground': ghost,
+    'editorLineNumber.foreground': legible(ghost, bg, hc ? 4.5 : 3.0),
     'editorLineNumber.activeForeground': acc,
     'editorLineNumber.dimmedForeground': mix(faint, bg, 0.55),
     'editorCursor.foreground': acc,
@@ -112,7 +122,7 @@ function tokens(s) {
     'editor.wordHighlightBackground': alpha(y.func, 0.18),
     'editor.wordHighlightStrongBackground': alpha(y.type, 0.2),
     'editor.wordHighlightTextBackground': alpha(y.func, 0.18),
-    'editor.findMatchBackground': alpha(y.number, 0.38),
+    'editor.findMatchBackground': findWash,
     'editor.findMatchBorder': y.number,
     'editor.findMatchHighlightBackground': alpha(y.string, 0.24),
     'editor.findMatchForeground': legible(fg, findGround, 4.6),
@@ -208,8 +218,8 @@ function tokens(s) {
     'editorSuggestWidget.background': elev,
     'editorSuggestWidget.border': line2,
     'editorSuggestWidget.foreground': fg,
-    'editorSuggestWidget.highlightForeground': y.string,
-    'editorSuggestWidget.focusHighlightForeground': y.string,
+    'editorSuggestWidget.highlightForeground': highlight,
+    'editorSuggestWidget.focusHighlightForeground': highlight,
     'editorSuggestWidget.selectedBackground': over,
     'editorSuggestWidget.selectedForeground': fg,
     'editorSuggestWidget.selectedIconForeground': acc,
@@ -242,7 +252,7 @@ function chrome(t) {
   const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, sel, onAcc, onFill, st, y, shadow, up, dn, dark, hoverTab, focusRing, focusStrong } = t;
   const filterWash = alphaOf(y.number, 0.3);
   const filterGround = [bg, ch, elev].map((s) => composite(filterWash, s)).reduce((a, b) => (contrast(y.string, b) < contrast(y.string, a) ? b : a));
-  const focusHighlight = legible(y.string, filterGround, 4.5);
+  const focusHighlight = legible(legible(y.string, filterGround, 4.5), t.over, 4.5);
   return {
     'titleBar.activeBackground': ch,
     'titleBar.activeForeground': legible(dim, ch, 4.5),
@@ -321,7 +331,7 @@ function chrome(t) {
     'list.focusHighlightForeground': focusHighlight,
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
     'list.inactiveFocusOutline': alphaOf(fg, 0.22),
-    'list.highlightForeground': y.string,
+    'list.highlightForeground': t.highlight,
     'list.errorForeground': st.error,
     'list.warningForeground': st.warn,
     'list.deemphasizedForeground': faint,
@@ -601,7 +611,7 @@ function integrations(t) {
     'terminal.findMatchBorder': y.number,
     'terminal.findMatchHighlightBackground': alphaOf(y.string, 0.24),
     'terminal.hoverHighlightBackground': alphaOf(acc, 0.14),
-    'terminalCursor.foreground': acc,
+    'terminalCursor.foreground': t.legible(acc, elev, 4.5),
     'terminalCursor.background': bg,
     'terminalCommandDecoration.defaultBackground': faint,
     'terminalCommandDecoration.successBackground': st.ok,
@@ -745,6 +755,7 @@ function assistant(t) {
     'chat.requestBorder': line2,
     'chat.requestBubbleBackground': over,
     'chat.requestBubbleHoverBackground': mixOf(over, fg, 0.06),
+    'chat.statusBackground': t.hc ? bg : alphaOf(fg, 0.08),
     'chat.requestCodeBorder': line2,
     'chat.avatarBackground': over,
     'chat.avatarForeground': fg,

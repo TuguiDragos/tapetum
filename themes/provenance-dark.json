@@ -628,6 +628,7 @@
     "chat.requestBorder": "#434549",
     "chat.requestBubbleBackground": "#303236",
     "chat.requestBubbleHoverBackground": "#393b3f",
+    "chat.statusBackground": "#c6c8cc14",
     "chat.requestCodeBorder": "#434549",
     "chat.avatarBackground": "#303236",
     "chat.avatarForeground": "#C6C8CC",
@@ -1178,6 +1179,16 @@
       }
     },
     {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#8E939E",
+        "fontStyle": ""
+      }
+    },
+    {
       "name": "Operators and punctuation",
       "scope": [
         "keyword.operator",
@@ -1304,6 +1315,16 @@
       }
     },
     {
+      "name": "Markup heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#83888F",
+        "fontStyle": "bold"
+      }
+    },
+    {
       "name": "Markup link",
       "scope": [
         "markup.underline.link"
@@ -1331,6 +1352,17 @@
       "settings": {
         "foreground": "#C6C8CC",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup strong emphasis",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#C6C8CC",
+        "fontStyle": "bold italic"
       }
     },
     {

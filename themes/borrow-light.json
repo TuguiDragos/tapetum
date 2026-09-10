@@ -628,6 +628,7 @@
     "chat.requestBorder": "#c2c4c8",
     "chat.requestBubbleBackground": "#dddde0",
     "chat.requestBubbleHoverBackground": "#d2d2d5",
+    "chat.statusBackground": "#22262e14",
     "chat.requestCodeBorder": "#c2c4c8",
     "chat.avatarBackground": "#dddde0",
     "chat.avatarForeground": "#22262E",
@@ -1056,8 +1057,7 @@
         "variable.other.object.property",
         "meta.object-literal.key",
         "support.type.property-name",
-        "variable.other.member",
-        "entity.name.label"
+        "variable.other.member"
       ],
       "settings": {
         "foreground": "#9A5A00"
@@ -1229,10 +1229,11 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#565D68"
+        "foreground": "#565D68",
+        "fontStyle": ""
       }
     },
     {
@@ -1309,12 +1310,21 @@
         "storage.type",
         "storage.modifier",
         "keyword.operator.expression",
-        "keyword.operator.new",
         "keyword.operator.delete",
         "keyword.operator.logical.python"
       ],
       "settings": {
         "foreground": "#565D68"
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#565D68",
+        "fontStyle": ""
       }
     },
     {
@@ -1491,6 +1501,16 @@
       }
     },
     {
+      "name": "Markup heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#565D68",
+        "fontStyle": "bold"
+      }
+    },
+    {
       "name": "Markup link",
       "scope": [
         "markup.underline.link",
@@ -1519,6 +1539,17 @@
       "settings": {
         "foreground": "#22262E",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup strong emphasis",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#22262E",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -1765,7 +1796,6 @@
     {
       "name": "Generic raw markup",
       "scope": [
-        "markup.raw",
         "markup.raw.texttt",
         "markup.raw.verbatim",
         "markup.raw.verb",
@@ -1936,7 +1966,8 @@
         "constant.string.documentation"
       ],
       "settings": {
-        "foreground": "#565D68"
+        "foreground": "#565D68",
+        "fontStyle": ""
       }
     },
     {
