@@ -39,3 +39,9 @@ jobs:
 
       - name: Check the APCA implementation
         run: node tools/apca-check.mjs
+
+      - name: Install the tokenizer VS Code uses
+        run: npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@2.0.1
+
+      - name: Check that every rule is painted as it says
+        run: node tools/paint-check.mjs
