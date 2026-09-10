@@ -1,8 +1,128 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.8]
+
+VS Code 1.137 registered 1 key and started painting surfaces through
+`color-mix()`, which the pairs extractor read as full strength colours.
+
+### Fixed
+
+**A blended surface was measured as its strongest ingredient.** 1.137 paints
+the checked row of the chat model picker with `color-mix(in srgb,
+button.background 18%, menu.background)` and the welcome cards of the agent
+customisation editor with the foreground at 8% over the agents panel.
+`tools/extract-pairs.mjs` took every key inside a `color-mix()` as a surface in
+its own right, so the weekly check against 1.137 would have reported the
+foreground failing on `button.background` in all 58 themes, at 1.00 in
+Dichroic, while the text sits on a surface that measures 6.12 at its weakest,
+in Provenance, and the welcome card 7.40, in Passepartout. The extractor now
+records what a `color-mix()` does: a key mixed with transparent is that key at
+a share of its strength, and 2 keys mixed are the dominant one as the surface
+with the other riding on it at its share. `analyze` and `compare` compose that
+surface before measuring. 95 pairs come out of the 1.137 stylesheets, 4 of
+them blends and 2 at a share of their strength.
+
+**The heading marks in markdown had the colour of the title.** The `#`
+characters in front of a markdown heading carry the scope
+`punctuation.definition.heading.markdown`, which every scheme folded into the
+heading rule, so the marks were as bright and as bold as the words. They take
+the tone of lists and tables now, in all 6 schemes, bold kept, so a heading
+reads as its words with the marks stepping back. In the same place, text that
+is bold and italic at once was rendered italic only, because the deeper scope
+wins and font styles do not merge; a rule for `markup.bold markup.italic`, and
+its mirror, renders both.
+
+**C# painted its primitive types as keywords.** The scope `keyword.type` sat
+in 2 rules, the primitive types and, further down, the GraphQL declarations,
+and for the same selector the later rule wins the colour. The C# grammar
+gives `keyword.type.<name>.cs` to its 18 builtin types, `int`, `string`,
+`bool` and the rest, so they took the keyword colour in the 56 themes that
+carry a GraphQL rule; the italic of the primitive types rule they kept,
+because a rule that names no style inherits the style of the rules above it
+in VS Code's trie. That rule now names `keyword.type.graphql`, the scope the
+GraphQL extension emits, and says upright explicitly. The same inheritance
+had put Go's `type` keyword in italic in 56 themes, and in Provenance in the
+colour of a type; it has a rule of its own now, upright, in the keyword
+colour. In Stratum and Silverpoint, where constants are bold, documentation
+strings had inherited the bold; they say upright too. Every rule of every
+scheme was then tokenized with `vscode-textmate`, the library VS Code itself
+uses, and is painted as it says, apart from the inheritances the schemes ask
+for on purpose: what the language hands you in italic, constants in bold in
+the tone families, tags in bold in Provenance. Over the 7186 scopes the
+shipped grammars emit, exactly 3 things change: the C# types, Go's `type`,
+and those documentation strings. In the same pass the scheme kit stopped
+listing `entity.name.label`, `keyword.operator.new` and `markup.raw` in 2
+rules each; the later rule was winning anyway, so nothing painted changes.
+
+**5 small things sat just under their floors.** An audit of the interface
+elements VS Code does not paint in the same rule as their surface, measured
+on the 58 themes and on the 9 themes VS Code ships, found values under the
+floors the package uses everywhere else: line numbers under 3.0 in 10 themes
+(2.69 in Coherence High Contrast), the terminal cursor under 4.5 in 4 light
+themes (3.70 in Passepartout Light), the highlighted match in a selected list
+row and in the selected suggestion under 4.5 in 8 light themes (3.91 in
+Palimpsest Light), the editor text over a find match at 4.42 in Silverpoint,
+and links on widgets at 4.43 in Cherenkov Light. Each derivation now passes
+through the same `legible` step the rest of the theme uses, which leaves a
+colour alone once it clears the floor: line numbers clear 3.0 on the editor,
+4.5 in the high contrast pair; the terminal cursor clears 4.5 on the terminal;
+the highlight clears 4.5 on the selected row, on widgets and on the editor;
+the find match wash steps down from 38% in 2% steps until the text over it
+clears 4.5, 36% in Silverpoint; links clear 4.5 on the editor and on widgets.
+22 themes change 1 to 4 values each; the other 36 keep every value they had.
+
+**The button held at 90%.** Cursor paints its focus outline button with the
+button colour at 90% of its strength under the ordinary button text, and in
+Cherenkov Light and Persistence Light that text measured 4.32 and 4.34 over
+the editor, on a button that clears 5.2 at full strength. The fill behind
+every button and badge now steps away from its text until the text clears
+4.5 on the 90% button over every chrome surface; those 2 themes darken it by
+1 step, to 5.48 and 5.55 at full strength, and the other 56 keep theirs.
+
+**The disabled plugin badge is measured, and accepted.** The plugin list of the
+sessions window paints a disabled status badge with `badge.background` at 50%
+under the ordinary badge text. Measured as it is painted, that badge reads only
+when the text is white on a dark badge over a dark surface, the 1 combination a
+light theme cannot have: VS Code's own 2026 light theme measures 2.20, Light
+Modern passes only because its badge is grey, and 57 of the 58 Tapetum themes
+measure between 2.16 and 4.43 over their surfaces, Safelight alone clearing
+4.5. It joins the documented exceptions with those numbers, restricted to the
+half strength variant of the pair, because the alternative is a grey badge
+across the whole interface.
 
 ### Added
+
+**`chat.statusBackground`.** The 1 key VS Code 1.137 registered, the surface of
+the agent merge card in chat. The 56 dark and light themes set it to their
+foreground at 8%, which is how VS Code derives it, and the 2 high contrast
+variants set it to their editor background, black and white, the values VS
+Code uses there. Each theme now carries 1016 keys.
+
+**Italic can be switched off in 1 setting.** Italic carries meaning in Borrow
+and Effect and marks comments, parameters, imports and decorators everywhere
+else, and the only way out of it was to know the scopes. The README now ends
+with a settings block that turns it off in all 58 themes at once: VS Code
+matches a theme scope ending in `*` against every theme whose name starts that
+way, and since the 6 schemes style a scope differently, italic in one, bold in
+another, the block has 1 entry per scheme, limited to its own families, that
+states what stays once italic is gone. `tools/build-readme.mjs` reads the 322
+scopes and 24 semantic selectors from the generated themes themselves and
+refuses to write the README if a scope keeps 2 styles inside one scheme, so
+the block cannot fall behind the rules.
+
+**A 6th check: every rule painted as it says.** `tools/paint-check.mjs`
+tokenizes each plain selector of each rule of each theme with
+`vscode-textmate`, the library VS Code itself uses to colour code, and
+compares the colour and the style that come out with the rule's own. In
+VS Code's theme trie a selector inherits the style of the rules on the
+selectors above it, and a later rule with the same selector takes the colour,
+which is how the C# types, Go's `type` and the documentation strings of the
+tone families went wrong without any check noticing. The 6 inheritances the
+schemes ask for on purpose, italic on what the language hands you, bold on
+constants in the tone families and 4 more, are listed in the tool with their
+reasons, and anything else fails the check. CI installs the 2 pinned modules
+and runs it after the other 5; up to 322 selectors per theme, 1748 documented
+paintings across the package, 0 problems.
 
 **The publishing tokens are checked every month.** The Marketplace token
 lives at most 1 year, and until now the publish workflow would have found
@@ -21,6 +141,31 @@ committed registry does not, what it does not know yet, and every problem the
 3 checks report, sorted into the findings an older or extended core is
 expected to produce and the ones that are real. The repository itself is not
 touched, and the exit code follows the real ones.
+
+### Changed
+
+**The deep audit has a floor for TextMate rules.** It measured the weakest
+rule of every theme and printed it without judging it; it now fails under
+4.5, and 4.0 for comments, quotes and strikethrough, the floors `analyze`
+applies. `tools/palette-extract.mjs` and `tools/gif-slim.mjs` print a usage
+line instead of doing nothing or throwing when run without arguments, and
+`tools/fork-check.mjs` copies `readme-assets` into its temporary folder
+instead of linking the real one, so nothing run inside the copy can write
+into the repository.
+
+**The registry is VS Code 1.137.0.** 983 keys, 975 of them live and all
+covered. No key was removed and the 8 deprecated ones are the same, so the 4
+`modernActivityBar` keys and the 2 `editorIndentGuide` keys stay for editors on
+older cores. The registry, pairs and derivations extracted from the Linux and
+Windows builds of 1.137 are identical to the macOS ones, byte for byte, and the
+README now claims exactly that rather than the stylesheets: on Windows the
+stylesheets differ in 1 path, the one written into the source map comment. Every
+theme was then read again on the current builds of the 9 other editors,
+VSCodium 1.135, Cursor 3.19 on core 1.128, Windsurf 3.9, which calls itself
+Devin now, on core 1.126, code-server 4.136 on core 1.136, Positron 2026.09
+on core 1.130, Kiro 1.0.437 on core 1.109, Trae 3.5 on core 1.107,
+Antigravity 2.5 on core 1.107 and Void 1.4 on core 1.99, with 0 real
+problems on each once the button held at 90%.
 
 ## [1.0.7]
 
