@@ -41,5 +41,6 @@ export function extract(file) {
 }
 
 if (process.argv[1] && import.meta.url.endsWith(encodeURI(process.argv[1].split("/").pop()))) {
+  if (!process.argv[2]) { console.error('usage: node tools/palette-extract.mjs <theme.json>'); process.exit(2); }
   console.log(JSON.stringify(extract(process.argv[2]), null, 2));
 }

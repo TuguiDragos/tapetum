@@ -628,6 +628,7 @@
     "chat.requestBorder": "#3f3f41",
     "chat.requestBubbleBackground": "#242425",
     "chat.requestBubbleHoverBackground": "#2f2f30",
+    "chat.statusBackground": "#e2e2e414",
     "chat.requestCodeBorder": "#3f3f41",
     "chat.avatarBackground": "#242425",
     "chat.avatarForeground": "#E2E2E4",
@@ -1501,11 +1502,20 @@
       "name": "Markdown headings",
       "scope": [
         "markup.heading",
-        "entity.name.section.markdown",
-        "punctuation.definition.heading.markdown"
+        "entity.name.section.markdown"
       ],
       "settings": {
         "foreground": "#E8B54A",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#9A9A9E",
         "fontStyle": "bold"
       }
     },
@@ -1529,6 +1539,17 @@
       "settings": {
         "foreground": "#C77DD8",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#E07A45",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -2028,10 +2049,21 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#E8B54A"
+        "foreground": "#E8B54A",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#E8B54A",
+        "fontStyle": ""
       }
     },
     {

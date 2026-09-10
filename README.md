@@ -839,18 +839,23 @@ What a machine is good for is catching what a person misses. On all
 | --- | --- |
 | **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.07 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all 974 colour keys VS Code 1.136.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
-| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.136.0 |
+| **Coverage** | all 975 colour keys VS Code 1.137.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.137.0 |
 
 None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
 colour registry out of every window bundle of the installed editor, including the
 sessions window that 1.136 moved into a bundle of its own, and records which keys
 are deprecated. `tools/extract-pairs.mjs` reads every stylesheet and collects
-each foreground and background used in the same rule, so what gets checked is
-what the editor actually paints together. `tools/extract-derivations.mjs` reads
+each foreground and background used in the same rule, weighing a `color-mix()`
+by the share of each colour, so what gets checked is what the editor actually
+paints together. `tools/extract-derivations.mjs` reads
 the keys whose default is another key, which catches the class of bug where a
-value quietly contradicts the surface beneath it. The 3 files they write are
-committed, checked in CI against every theme, and refreshed by a weekly workflow
+value quietly contradicts the surface beneath it. `tools/paint-check.mjs`
+tokenizes every selector of every rule with `vscode-textmate`, the library VS
+Code itself uses to colour code, so a rule that inherits a style from a rule
+above it, or loses its colour to a rule below it, is caught before it ships.
+The 3 files the extractors write are committed, checked in CI against every
+theme, and refreshed by a weekly workflow
 that downloads the current VS Code build, so a new surface is noticed by a
 machine rather than by a person.
 
@@ -861,14 +866,15 @@ registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 35
 surfaces those editors paint in colours of their own, listed with their reasons
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
-repeats those measurements on any editor from 1 command. The Linux and Windows
-builds of VS Code 1.136.0 carry the same registry, stylesheets and
-derivations as the macOS build, byte for byte, so what holds on one holds on all
+repeats those measurements on any editor from 1 command. The registry, pairs and
+derivations extracted from the Linux and Windows builds of VS Code 1.137.0
+are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 
 ```bash
 node tools/analyze.mjs    # all 58, against the real pairs
 node tools/audit.mjs      # structure, schemes, manifest, files and this README
+node tools/paint-check.mjs   # every rule painted as written, with VS Code's own tokenizer
 node tools/compare.mjs    # against every theme Microsoft ships
 node tools/fork-check.mjs kiro <resources/app>   # the same checks, on another editor
 ```
@@ -902,6 +908,291 @@ Any colour can be overridden per theme, without forking anything:
   "editor.tokenColorCustomizations": {
     "[Tapetum Quantum]": {
       "comments": "#7580AD"
+    }
+  }
+}
+```
+
+Italic carries meaning in 2 families, Borrow, where it marks a borrowed value,
+and Effect, which has no hue to spare, and everywhere else it marks comments,
+parameters, imports, decorators and a few more. To switch it off in all
+58 themes at once, paste this into your settings. VS Code matches a
+theme scope that ends in `*` against every theme whose name starts that way, so
+each of the 6 schemes gets 1 entry for its own families, stating what
+stays once italic is gone: nothing, bold or underline. The 326 scopes and
+24 semantic selectors are read from the rules themselves, so the
+list stays complete when the rules change:
+
+```jsonc
+{
+  "editor.tokenColorCustomizations": {
+    "[Tapetum Quantum*][Tapetum Fraunhofer*][Tapetum Persistence*][Tapetum Anodise*][Tapetum Coherence*][Tapetum Valence*][Tapetum Hadal*][Tapetum Cinnabar*][Tapetum Epitaxy*][Tapetum Verdigris*][Tapetum Cherenkov*][Tapetum Aerogel*][Tapetum Cavitation*][Tapetum Noctiluca*][Tapetum Incandescence*][Tapetum Safelight*][Tapetum Dichroic*][Tapetum Passepartout*][Tapetum Cochineal*][Tapetum Glacier*][Tapetum Selenium*][Tapetum Riso*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "blockquote", "comment", "constant.other.description.jsdoc",
+            "constant.other.email.link.underline.jsdoc",
+            "constant.string.documentation", "entity.name.function.decorator",
+            "entity.name.function.preprocessor",
+            "entity.name.type.instance.jsdoc", "entity.name.type.lifetime",
+            "entity.other.attribute-name", "entity.other.attribute-name.html",
+            "keyword.control.as", "keyword.control.default",
+            "keyword.control.directive", "keyword.control.export",
+            "keyword.control.from", "keyword.control.import",
+            "keyword.other.this", "keyword.type", "log.date", "log.debug",
+            "log.info", "log.verbose", "markup.italic", "markup.quote",
+            "meta.attribute", "meta.decorator",
+            "meta.decorator variable.other", "meta.parameter",
+            "meta.preprocessor", "punctuation.decorator",
+            "punctuation.definition.comment", "punctuation.definition.italic",
+            "punctuation.definition.lifetime",
+            "punctuation.definition.quote.begin", "storage.modifier.lifetime",
+            "storage.type.primitive", "string.comment", "support",
+            "support.type.builtin", "support.type.primitive",
+            "variable.language", "variable.language.super",
+            "variable.language.this", "variable.other.jsdoc",
+            "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        },
+        {
+          "scope": [
+            "invalid", "invalid.illegal"
+          ],
+          "settings": { "fontStyle": "underline" }
+        }
+      ]
+    },
+    "[Tapetum Provenance*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "comment", "entity.name.tag.namespace",
+            "entity.other.attribute-name", "entity.other.inherited-class",
+            "keyword.other.this", "keyword.type", "markup.italic",
+            "markup.quote", "meta.attribute", "meta.decorator",
+            "meta.parameter", "meta.require", "punctuation.decorator",
+            "punctuation.definition.comment", "storage.type.primitive",
+            "string.comment", "support", "support.class", "support.constant",
+            "support.function", "support.module", "support.type",
+            "support.type.builtin", "support.type.primitive",
+            "support.variable", "variable.language", "variable.language.super",
+            "variable.language.this", "variable.other.jsdoc",
+            "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        }
+      ]
+    },
+    "[Tapetum Stratum*][Tapetum Silverpoint*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "blockquote", "comment", "constant.name.attribute.tag",
+            "constant.other.character-class",
+            "constant.other.character-class.range",
+            "constant.other.character-class.regexp",
+            "constant.other.character-class.set", "constant.regexp",
+            "entity.name.label", "entity.name.label.call",
+            "entity.name.pragma.name", "entity.name.type.lifetime",
+            "entity.other.attribute", "entity.other.attribute-name",
+            "entity.other.attribute-name.html", "entity.other.inherited-class",
+            "entity.scope", "keyword.control.as", "keyword.control.default",
+            "keyword.control.export", "keyword.control.from",
+            "keyword.control.import", "keyword.other.this", "keyword.type",
+            "log.warning", "markup.deleted", "markup.italic", "markup.quote",
+            "meta.attribute", "meta.decorator", "meta.diff.header.from-file",
+            "meta.parameter", "meta.require", "punctuation.decorator",
+            "punctuation.definition.comment",
+            "punctuation.definition.lifetime",
+            "punctuation.definition.quote.begin", "storage.modifier.lifetime",
+            "storage.type.primitive", "string.comment", "string.regexp",
+            "support", "support.attribute", "support.class",
+            "support.constant", "support.function", "support.module",
+            "support.other.attribute", "support.other.php",
+            "support.other.protocol", "support.type", "support.type.builtin",
+            "support.type.primitive", "support.variable", "variable.language",
+            "variable.language.super", "variable.language.this",
+            "variable.other.jsdoc", "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "constant.other.description.jsdoc",
+            "constant.other.email.link.underline.jsdoc", "entity.name.class",
+            "entity.name.namespace", "entity.name.namespace.package",
+            "entity.name.package", "entity.name.scope-resolution",
+            "entity.name.type", "entity.name.type.alias",
+            "entity.name.type.enum", "entity.name.type.instance.jsdoc",
+            "entity.name.type.interface", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "meta.type.declaration", "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        }
+      ]
+    },
+    "[Tapetum Borrow*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "blockquote", "comment", "constant.name.attribute.tag",
+            "entity.name.label", "entity.name.label.call",
+            "entity.name.pragma.name", "entity.name.type.lifetime",
+            "entity.other.attribute", "entity.other.attribute-name",
+            "entity.other.attribute-name.html", "entity.other.inherited-class",
+            "entity.scope", "keyword.other.this", "keyword.type",
+            "markup.italic", "markup.quote", "meta.attribute",
+            "meta.decorator", "meta.parameter", "meta.require",
+            "punctuation.decorator", "punctuation.definition.comment",
+            "punctuation.definition.lifetime",
+            "punctuation.definition.quote.begin", "storage.modifier.lifetime",
+            "storage.type.primitive", "string.comment", "support",
+            "support.attribute", "support.class", "support.constant",
+            "support.function", "support.module", "support.other.attribute",
+            "support.other.php", "support.other.protocol", "support.type",
+            "support.type.builtin", "support.type.primitive",
+            "support.variable", "variable.language", "variable.language.super",
+            "variable.language.this", "variable.other.jsdoc",
+            "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "constant.other.description.jsdoc",
+            "constant.other.email.link.underline.jsdoc",
+            "entity.name.type.instance.jsdoc", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        }
+      ]
+    },
+    "[Tapetum Palimpsest*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "blockquote", "comment", "constant.name.attribute.tag",
+            "entity.name.label", "entity.name.label.call",
+            "entity.name.pragma.name", "entity.name.type.lifetime",
+            "entity.other.attribute", "entity.other.attribute-name",
+            "entity.other.attribute-name.html", "entity.other.inherited-class",
+            "entity.scope", "keyword.control.as", "keyword.control.default",
+            "keyword.control.export", "keyword.control.from",
+            "keyword.control.import", "keyword.other.this", "keyword.type",
+            "markup.italic", "markup.quote", "meta.attribute",
+            "meta.decorator", "meta.parameter", "meta.require",
+            "punctuation.decorator", "punctuation.definition.comment",
+            "punctuation.definition.lifetime",
+            "punctuation.definition.quote.begin", "storage.modifier.lifetime",
+            "storage.type.primitive", "string.comment", "support",
+            "support.attribute", "support.class", "support.constant",
+            "support.function", "support.module", "support.other.attribute",
+            "support.other.php", "support.other.protocol", "support.type",
+            "support.type.builtin", "support.type.primitive",
+            "support.variable", "variable.language", "variable.language.super",
+            "variable.language.this", "variable.other.jsdoc",
+            "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "constant.other.description.jsdoc",
+            "constant.other.email.link.underline.jsdoc",
+            "entity.name.type.instance.jsdoc", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        }
+      ]
+    },
+    "[Tapetum Effect*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "blockquote", "comment", "constant.name.attribute.tag",
+            "entity.name.label", "entity.name.label.call",
+            "entity.name.pragma.name", "entity.name.type.lifetime",
+            "entity.other.attribute", "entity.other.attribute-name",
+            "entity.other.attribute-name.html", "entity.other.inherited-class",
+            "entity.scope", "keyword.other.this", "markup.italic",
+            "markup.quote", "meta.attribute", "meta.decorator",
+            "meta.parameter", "meta.require", "punctuation.decorator",
+            "punctuation.definition.comment",
+            "punctuation.definition.lifetime",
+            "punctuation.definition.quote.begin", "storage.modifier.lifetime",
+            "string.comment", "support", "support.attribute", "support.class",
+            "support.constant", "support.function", "support.module",
+            "support.other.attribute", "support.other.php",
+            "support.other.protocol", "support.type", "support.type.builtin",
+            "support.variable", "variable.language", "variable.language.super",
+            "variable.language.this", "variable.other.jsdoc",
+            "variable.parameter"
+          ],
+          "settings": { "fontStyle": "" }
+        },
+        {
+          "scope": [
+            "comment keyword.other", "constant.other.description.jsdoc",
+            "constant.other.email.link.underline.jsdoc",
+            "entity.name.type.instance.jsdoc", "keyword.codetag",
+            "markup.bold markup.italic", "markup.italic markup.bold",
+            "storage.type.class.jsdoc"
+          ],
+          "settings": { "fontStyle": "bold" }
+        }
+      ]
+    }
+  },
+  "editor.semanticTokenColorCustomizations": {
+    "[Tapetum*]": {
+      "rules": {
+        "*.abstract": { "italic": false },
+        "*.async": { "italic": false },
+        "*.builtin": { "italic": false },
+        "*.defaultLibrary": { "italic": false },
+        "*.documentation": { "italic": false },
+        "*.static": { "italic": false },
+        "*.typeHint": { "italic": false },
+        "builtinConstant": { "italic": false },
+        "class": { "italic": false },
+        "class.defaultLibrary": { "italic": false },
+        "comment": { "italic": false },
+        "decorator": { "italic": false },
+        "enum": { "italic": false },
+        "function.defaultLibrary": { "italic": false },
+        "interface": { "italic": false },
+        "namespace": { "italic": false },
+        "parameter": { "italic": false },
+        "parameter.readonly": { "italic": false },
+        "regexp": { "italic": false },
+        "struct": { "italic": false },
+        "type": { "italic": false },
+        "type.defaultLibrary": { "italic": false },
+        "typeParameter": { "italic": false },
+        "variable.defaultLibrary": { "italic": false }
+      }
     }
   }
 }

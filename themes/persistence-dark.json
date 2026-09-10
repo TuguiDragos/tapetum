@@ -628,6 +628,7 @@
     "chat.requestBorder": "#3c3e3b",
     "chat.requestBubbleBackground": "#232322",
     "chat.requestBubbleHoverBackground": "#2e2e2d",
+    "chat.statusBackground": "#dce0d814",
     "chat.requestCodeBorder": "#3c3e3b",
     "chat.avatarBackground": "#232322",
     "chat.avatarForeground": "#DCE0D8",
@@ -1501,11 +1502,20 @@
       "name": "Markdown headings",
       "scope": [
         "markup.heading",
-        "entity.name.section.markdown",
-        "punctuation.definition.heading.markdown"
+        "entity.name.section.markdown"
       ],
       "settings": {
         "foreground": "#7FE33F",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#949A8F",
         "fontStyle": "bold"
       }
     },
@@ -1529,6 +1539,17 @@
       "settings": {
         "foreground": "#B79BFF",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#FF6B4A",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -2028,10 +2049,21 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#7FE33F"
+        "foreground": "#7FE33F",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#7FE33F",
+        "fontStyle": ""
       }
     },
     {

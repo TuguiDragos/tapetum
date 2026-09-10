@@ -231,6 +231,8 @@ function analyse(fam, v) {
   for (const r of rules) {
     const cr = contrast(over(r.settings.foreground, eb), eb);
     if (cr < tmWorst) { tmWorst = cr; tmKey = r.name; }
+    const floor = /Comment|strikethrough|quote/i.test(r.name) ? 4.0 : 4.5;
+    if (cr < floor) bad('textmate', `${r.name} at ${cr.toFixed(2)}, under ${floor}`);
   }
   out.textmate = { rules: rules.length, worst: tmWorst, worstKey: tmKey };
 

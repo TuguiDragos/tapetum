@@ -75,6 +75,87 @@ const counts = {};
 for (const f of FAMILIES) counts[f.scheme || 'grammar'] = (counts[f.scheme || 'grammar'] || 0) + 1;
 const named = (s) => FAMILIES.filter((f) => (f.scheme || 'grammar') === s).map((f) => f.label).join(', ');
 
+// Every scope and semantic selector that carries italic, read from the generated themes, so the
+// switch in the README stays complete when the rules change. The 6 schemes style a scope differently
+// (italic here, bold there, plain elsewhere), so the TextMate side has 1 entry per scheme, scoped to
+// that scheme's families, and the entry states what stays once italic is gone: nothing, bold or
+// underline. The semantic side is 1 entry for all, because turning italic off where it is not on
+// changes nothing.
+const ITALIC = (() => {
+  const schemeOf = (id) => (FAMILIES.find((x) => x.id === id) || {}).scheme || 'grammar';
+  const schemes = [...new Set(FAMILIES.map((x) => x.scheme || 'grammar'))];
+  const blocks = [];
+  const semantic = new Set();
+  let scopes = 0;
+  for (const scheme of schemes) {
+    const families = FAMILIES.filter((x) => (x.scheme || 'grammar') === scheme);
+    const groups = new Map();
+    for (const e of pkg.contributes.themes) {
+      const id = e.path.replace('./themes/', '').replace(/-(dark|light|hcDark|hcLight)\.json$/, '');
+      if (schemeOf(id) !== scheme) continue;
+      const t = JSON.parse(fs.readFileSync(path.join(ROOT, e.path.slice(2)), 'utf8'));
+      const last = new Map();
+      for (const r of t.tokenColors) for (const scope of [].concat(r.scope)) last.set(scope.trim(), r.settings.fontStyle || '');
+      for (const [scope, style] of last) {
+        const parts = style.split(' ').filter(Boolean);
+        if (!parts.includes('italic')) continue;
+        const rest = parts.filter((x) => x !== 'italic').join(' ');
+        if (!groups.has(rest)) groups.set(rest, new Set());
+        groups.get(rest).add(scope);
+      }
+      for (const [selector, v] of Object.entries(t.semanticTokenColors || {})) {
+        if (v && typeof v === 'object' && (v.italic === true || /italic/.test(v.fontStyle || ''))) semantic.add(selector);
+      }
+    }
+    const seen = new Map();
+    for (const [rest, set] of groups) for (const scope of set) {
+      if (seen.has(scope) && seen.get(scope) !== rest) throw new Error(`${scope} keeps 2 styles inside the ${scheme} scheme`);
+      seen.set(scope, rest);
+    }
+    scopes += seen.size;
+    blocks.push({ key: families.map((x) => `[Tapetum ${x.label}*]`).join(''), groups });
+  }
+  const wrap = (items, indent) => {
+    const lines = [];
+    let line = '';
+    for (const item of items) {
+      const piece = JSON.stringify(item);
+      if (line && (line + ', ' + piece).length > 78 - indent) { lines.push(line + ','); line = piece; }
+      else line = line ? line + ', ' + piece : piece;
+    }
+    if (line) lines.push(line);
+    return lines.map((l) => ' '.repeat(indent) + l).join('\n');
+  };
+  const entry = (block) => {
+    const order = [...block.groups.keys()].sort((a, b) => a.length - b.length || a.localeCompare(b));
+    const rules = order.map((rest) => `        {
+          "scope": [
+${wrap([...block.groups.get(rest)].sort(), 12)}
+          ],
+          "settings": { "fontStyle": ${JSON.stringify(rest)} }
+        }`).join(',\n');
+    return `    ${JSON.stringify(block.key)}: {
+      "textMateRules": [
+${rules}
+      ]
+    }`;
+  };
+  const sem = [...semantic].sort().map((x) => `        ${JSON.stringify(x)}: { "italic": false }`).join(',\n');
+  const snippet = `{
+  "editor.tokenColorCustomizations": {
+${blocks.map(entry).join(',\n')}
+  },
+  "editor.semanticTokenColorCustomizations": {
+    "[Tapetum*]": {
+      "rules": {
+${sem}
+      }
+    }
+  }
+}`;
+  return { scopes, selectors: semantic.size, schemes: blocks.length, snippet };
+})();
+
 const md = `${badges}
 
 <h1 align="center">
@@ -193,11 +274,16 @@ None of that comes from a hand written list. \`tools/extract-keys.mjs\` reads th
 colour registry out of every window bundle of the installed editor, including the
 sessions window that 1.136 moved into a bundle of its own, and records which keys
 are deprecated. \`tools/extract-pairs.mjs\` reads every stylesheet and collects
-each foreground and background used in the same rule, so what gets checked is
-what the editor actually paints together. \`tools/extract-derivations.mjs\` reads
+each foreground and background used in the same rule, weighing a \`color-mix()\`
+by the share of each colour, so what gets checked is what the editor actually
+paints together. \`tools/extract-derivations.mjs\` reads
 the keys whose default is another key, which catches the class of bug where a
-value quietly contradicts the surface beneath it. The 3 files they write are
-committed, checked in CI against every theme, and refreshed by a weekly workflow
+value quietly contradicts the surface beneath it. \`tools/paint-check.mjs\`
+tokenizes every selector of every rule with \`vscode-textmate\`, the library VS
+Code itself uses to colour code, so a rule that inherits a style from a rule
+above it, or loses its colour to a rule below it, is caught before it ships.
+The 3 files the extractors write are committed, checked in CI against every
+theme, and refreshed by a weekly workflow
 that downloads the current VS Code build, so a new surface is noticed by a
 machine rather than by a person.
 
@@ -208,14 +294,15 @@ registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 35
 surfaces those editors paint in colours of their own, listed with their reasons
 in \`tools/forks.mjs\`, take the family's colour instead; \`tools/fork-check.mjs\`
-repeats those measurements on any editor from 1 command. The Linux and Windows
-builds of VS Code ${REGISTRY.vscode} carry the same registry, stylesheets and
-derivations as the macOS build, byte for byte, so what holds on one holds on all
+repeats those measurements on any editor from 1 command. The registry, pairs and
+derivations extracted from the Linux and Windows builds of VS Code ${REGISTRY.vscode}
+are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 
 \`\`\`bash
 node tools/analyze.mjs    # all ${THEME_COUNT}, against the real pairs
 node tools/audit.mjs      # structure, schemes, manifest, files and this README
+node tools/paint-check.mjs   # every rule painted as written, with VS Code's own tokenizer
 node tools/compare.mjs    # against every theme Microsoft ships
 node tools/fork-check.mjs kiro <resources/app>   # the same checks, on another editor
 \`\`\`
@@ -252,6 +339,20 @@ Any colour can be overridden per theme, without forking anything:
     }
   }
 }
+\`\`\`
+
+Italic carries meaning in 2 families, Borrow, where it marks a borrowed value,
+and Effect, which has no hue to spare, and everywhere else it marks comments,
+parameters, imports, decorators and a few more. To switch it off in all
+${THEME_COUNT} themes at once, paste this into your settings. VS Code matches a
+theme scope that ends in \`*\` against every theme whose name starts that way, so
+each of the ${ITALIC.schemes} schemes gets 1 entry for its own families, stating what
+stays once italic is gone: nothing, bold or underline. The ${ITALIC.scopes} scopes and
+${ITALIC.selectors} semantic selectors are read from the rules themselves, so the
+list stays complete when the rules change:
+
+\`\`\`jsonc
+${ITALIC.snippet}
 \`\`\`
 
 `;

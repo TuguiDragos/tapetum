@@ -35,7 +35,7 @@ const product = JSON.parse(fs.readFileSync(path.join(app, 'product.json'), 'utf8
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
 const core = product.vscodeVersion || product.vsCodeVersion;
 const RUN = fs.mkdtempSync(path.join(os.tmpdir(), `tapetum-${name}-`));
-const SKIP = new Set(['.git', 'node_modules', 'readme-assets', '.vscode-test', '_shots']);
+const SKIP = new Set(['.git', 'node_modules', '.vscode-test', '_shots']);
 fs.cpSync(ROOT, RUN, {
   recursive: true,
   filter: (src) => {
@@ -43,11 +43,6 @@ fs.cpSync(ROOT, RUN, {
     return rel === '' || (!SKIP.has(rel.split(path.sep)[0]) && !rel.endsWith('.vsix'));
   },
 });
-try {
-  fs.symlinkSync(path.join(ROOT, 'readme-assets'), path.join(RUN, 'readme-assets'), 'junction');
-} catch {
-  fs.cpSync(path.join(ROOT, 'readme-assets'), path.join(RUN, 'readme-assets'), { recursive: true });
-}
 const cleanup = () => {
   if (keep) console.log(`\ncopy kept in ${RUN}`);
   else fs.rmSync(RUN, { recursive: true, force: true });

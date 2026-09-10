@@ -28,7 +28,7 @@
     "textSeparator.foreground": "#3b393f",
     "editor.background": "#0B090E",
     "editor.foreground": "#D4D1DC",
-    "editorLineNumber.foreground": "#5d5b62",
+    "editorLineNumber.foreground": "#65636a",
     "editorLineNumber.activeForeground": "#F976E7",
     "editorLineNumber.dimmedForeground": "#38363c",
     "editorCursor.foreground": "#F976E7",
@@ -628,6 +628,7 @@
     "chat.requestBorder": "#3b393f",
     "chat.requestBubbleBackground": "#232226",
     "chat.requestBubbleHoverBackground": "#2e2d31",
+    "chat.statusBackground": "#d4d1dc14",
     "chat.requestCodeBorder": "#3b393f",
     "chat.avatarBackground": "#232226",
     "chat.avatarForeground": "#D4D1DC",
@@ -1501,11 +1502,20 @@
       "name": "Markdown headings",
       "scope": [
         "markup.heading",
-        "entity.name.section.markdown",
-        "punctuation.definition.heading.markdown"
+        "entity.name.section.markdown"
       ],
       "settings": {
         "foreground": "#F976E7",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown heading marks",
+      "scope": [
+        "punctuation.definition.heading.markdown"
+      ],
+      "settings": {
+        "foreground": "#9B98A4",
         "fontStyle": "bold"
       }
     },
@@ -1529,6 +1539,17 @@
       "settings": {
         "foreground": "#6E90FA",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown bold italic",
+      "scope": [
+        "markup.bold markup.italic",
+        "markup.italic markup.bold"
+      ],
+      "settings": {
+        "foreground": "#F46469",
+        "fontStyle": "bold italic"
       }
     },
     {
@@ -2028,10 +2049,21 @@
         "keyword.on",
         "keyword.union",
         "keyword.scalar",
-        "keyword.type"
+        "keyword.type.graphql"
       ],
       "settings": {
-        "foreground": "#F976E7"
+        "foreground": "#F976E7",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Go type keyword",
+      "scope": [
+        "keyword.type.go"
+      ],
+      "settings": {
+        "foreground": "#F976E7",
+        "fontStyle": ""
       }
     },
     {
