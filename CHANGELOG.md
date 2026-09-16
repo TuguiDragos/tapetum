@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.9]
+
+VS Code 1.138 registered 8 keys and stopped using 2 that every theme set.
+Nothing looks different: every new key defaults to a key Tapetum already
+set, and the 2 retired ones stay for editors on older cores.
+
+### Added
+
+**The 8 keys of 1.138.** The frame 1.138 draws around a chat editor behind
+its experimental session state indicator, solid while a request runs, dotted
+while a result waits to be seen, dashed when the session waits for input,
+takes the family's warning, ok and error colours, kept above 3:1 on the
+editor, the side bar and the chrome, and the active border in high contrast.
+In the modern UI the panel card takes the stroke of the other cards, the sash
+grip the faint text colour and the shell behind the cards the title bar's
+colour; the status bar keeps its colour when the window loses focus, as the
+title bar does.
+
+### Changed
+
+**The registry is VS Code 1.138.0.** 991 keys, 981 of them live and all
+covered. `chat.inputWorkingBorderColor2` and `3` are deprecated, the animated
+chat input border is drawn from colour 1 alone now; both stay one release for
+editors whose cores still cycle through all 3. The pairs are the same 95, the
+derivations grew by the 3 modern UI keys, and Linux and Windows extract the
+same files as macOS, byte for byte. Every theme was read again on the current
+VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity
+and Void, and on TRAE SOLO, the second product Trae ships, with 0 real
+problems on each. `tools/fork-check.mjs` finds the app inside the Windows
+archive and reads the TextMate coverage of another editor as that editor's
+own.
+
 ## [1.0.8]
 
 VS Code 1.137 registered 1 key and started painting surfaces through
