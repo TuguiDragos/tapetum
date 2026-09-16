@@ -8,7 +8,7 @@
   {
     "fg": "foreground",
     "bg": "toolbar.hoverBackground",
-    "n": 36,
+    "n": 33,
     "sel": ".chat-input-picker-item .action-label.model-picker-split .model-picker-section:hover"
   },
   {
@@ -24,16 +24,28 @@
     "sel": ".monaco-button.default-colors.secondary"
   },
   {
+    "fg": "list.activeSelectionForeground",
+    "bg": "list.activeSelectionBackground",
+    "n": 20,
+    "sel": ".monaco-drag-image"
+  },
+  {
     "fg": "input.foreground",
     "bg": "input.background",
     "n": 20,
     "sel": ".action-widget .action-list-filter-input"
   },
   {
-    "fg": "list.activeSelectionForeground",
-    "bg": "list.activeSelectionBackground",
-    "n": 18,
-    "sel": ".monaco-drag-image"
+    "fg": "editorWidget.foreground",
+    "bg": "editorWidget.background",
+    "n": 17,
+    "sel": ".monaco-editor .find-widget"
+  },
+  {
+    "fg": "foreground",
+    "bg": "editorWidget.background",
+    "n": 17,
+    "sel": ".chat-session-archive-nudge"
   },
   {
     "fg": "editorHoverWidget.foreground",
@@ -42,22 +54,10 @@
     "sel": ".monaco-editor .monaco-editor-overlaymessage .message"
   },
   {
-    "fg": "editorWidget.foreground",
-    "bg": "editorWidget.background",
-    "n": 16,
-    "sel": ".monaco-editor .find-widget"
-  },
-  {
     "fg": "inputOption.activeForeground",
     "bg": "inputOption.activeBackground",
     "n": 15,
     "sel": ".viewpane-filter>.viewpane-filter-controls .monaco-action-bar .monaco-dropdown .action-lab"
-  },
-  {
-    "fg": "foreground",
-    "bg": "editorWidget.background",
-    "n": 15,
-    "sel": ".unified-quick-access-pr-badge"
   },
   {
     "fg": "textPreformat.foreground",
@@ -192,20 +192,28 @@
     "sel": ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.remote-kind"
   },
   {
-    "fg": "foreground",
-    "bg": "menu.background",
+    "fg": "modernTab.hoverForeground",
+    "bg": "modernTab.hoverBackground",
     "n": 4,
-    "sel": ".action-widget .chat-model-picker-tabbed .monaco-list-row.action.checked",
-    "bgMix": {
-      "key": "button.background",
-      "share": 0.18
-    }
+    "sel": ".action-widget .chat-model-picker-tabbar .monaco-custom-radio>.monaco-button:hover:not(.ac"
+  },
+  {
+    "fg": "modernTab.activeForeground",
+    "bg": "modernTab.activeBackground",
+    "n": 4,
+    "sel": ".action-widget .chat-model-picker-tabbar .monaco-custom-radio>.monaco-button.active"
   },
   {
     "fg": "radio.activeForeground",
     "bg": "radio.activeBackground",
     "n": 4,
     "sel": ".monaco-custom-radio>.monaco-button.active:hover"
+  },
+  {
+    "fg": "errorForeground",
+    "bg": "inputValidation.errorBackground",
+    "n": 4,
+    "sel": ".chat-debug-log-row.chat-debug-log-error"
   },
   {
     "fg": "peekViewResult.fileForeground",
@@ -234,6 +242,12 @@
     "bg": "editor.background",
     "n": 3,
     "sel": ".chat-pet-achievement-roadmap-preview"
+  },
+  {
+    "fg": "commandCenter.foreground",
+    "bg": "commandCenter.background",
+    "n": 3,
+    "sel": ".monaco-workbench .part.titlebar>.titlebar-container>.titlebar-center>.window-title>.comma"
   },
   {
     "fg": "agentsChatInput.foreground",
@@ -351,6 +365,16 @@
   },
   {
     "fg": "foreground",
+    "bg": "menu.background",
+    "n": 2,
+    "sel": ".action-widget .chat-model-picker-tabbed .monaco-list-row.action.checked",
+    "bgMix": {
+      "key": "button.background",
+      "share": 0.18
+    }
+  },
+  {
+    "fg": "foreground",
     "bg": "list.inactiveSelectionBackground",
     "n": 2,
     "sel": ".chat-question-summary-option.selected"
@@ -382,12 +406,6 @@
     "bg": "chat.list.background",
     "n": 2,
     "sel": ".prompt-timeline-sticky-band"
-  },
-  {
-    "fg": "errorForeground",
-    "bg": "inputValidation.errorBackground",
-    "n": 2,
-    "sel": ".chat-debug-log-row.chat-debug-log-error"
   },
   {
     "fg": "foreground",
@@ -474,12 +492,6 @@
     "sel": ".monaco-workbench .notifications-list-container"
   },
   {
-    "fg": "commandCenter.foreground",
-    "bg": "commandCenter.background",
-    "n": 2,
-    "sel": ".monaco-workbench .part.titlebar>.titlebar-container>.titlebar-center>.window-title>.comma"
-  },
-  {
     "fg": "activityBarBadge.foreground",
     "bg": "activityBarBadge.background",
     "n": 2,
@@ -490,18 +502,6 @@
     "bg": "multiDiffEditor.headerBackground",
     "n": 2,
     "sel": ".mobile-multi-diff-file-header"
-  },
-  {
-    "fg": "modernTab.activeForeground",
-    "bg": "modernTab.activeBackground",
-    "n": 2,
-    "sel": ".modern-ui-tabs .settings-editor .settings-tabs-widget>.monaco-action-bar .action-item .ac"
-  },
-  {
-    "fg": "modernTab.hoverForeground",
-    "bg": "modernTab.hoverBackground",
-    "n": 2,
-    "sel": ".modern-ui-tabs .settings-editor .settings-tabs-widget>.monaco-action-bar .action-item .ac"
   },
   {
     "fg": "foreground",

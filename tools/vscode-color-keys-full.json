@@ -1,27 +1,27 @@
 {
- "vscode": "1.137.0",
+ "vscode": "1.138.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
-   "registerFunction": "de",
-   "registrations": 884,
-   "deprecated": 8,
+   "registerFunction": "ue",
+   "registrations": 892,
+   "deprecated": 10,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
-   "registerFunction": "se",
-   "registrations": 952,
-   "deprecated": 8,
+   "registerFunction": "re",
+   "registrations": 960,
+   "deprecated": 10,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 972,
+  "registered": 980,
   "contributedByExtensions": 11,
-  "confirmedReal": 983,
-  "deprecated": 8,
-  "microsoftThemes": 358
+  "confirmedReal": 991,
+  "deprecated": 10,
+  "microsoftThemes": 348
  },
  "confirmedReal": [
   "actionBar.toggledBackground",
@@ -129,6 +129,9 @@
   "chat.requestBubbleBackground",
   "chat.requestBubbleHoverBackground",
   "chat.requestCodeBorder",
+  "chat.sessionStateIndicator.inProgressBorder",
+  "chat.sessionStateIndicator.needsInputBorder",
+  "chat.sessionStateIndicator.unvisitedBorder",
   "chat.slashCommandBackground",
   "chat.slashCommandForeground",
   "chat.statusBackground",
@@ -614,10 +617,14 @@
   "modernEditorTab.hoverForeground",
   "modernEditorTab.inactiveBackground",
   "modernEditorTab.selectedActionBackground",
+  "modernPanel.border",
+  "modernSash.gripForeground",
   "modernTab.activeBackground",
   "modernTab.activeForeground",
   "modernTab.hoverBackground",
   "modernTab.hoverForeground",
+  "modernUI.inactiveShellBackground",
+  "modernUI.shellBackground",
   "multiDiffEditor.background",
   "multiDiffEditor.border",
   "multiDiffEditor.headerBackground",
@@ -786,6 +793,7 @@
   "statusBar.debuggingForeground",
   "statusBar.focusBorder",
   "statusBar.foreground",
+  "statusBar.inactiveBackground",
   "statusBar.noFolderBackground",
   "statusBar.noFolderBorder",
   "statusBar.noFolderForeground",
@@ -1009,6 +1017,8 @@
   "window.inactiveBorder"
  ],
  "deprecated": [
+  "chat.inputWorkingBorderColor2",
+  "chat.inputWorkingBorderColor3",
   "editorActiveLineNumber.foreground",
   "editorIndentGuide.activeBackground",
   "editorIndentGuide.background",
@@ -1031,15 +1041,5 @@
   "gitDecoration.submoduleResourceForeground",
   "gitDecoration.untrackedResourceForeground"
  ],
- "unregisteredInMicrosoftThemes": [
-  "gauge.background",
-  "gauge.border",
-  "gauge.errorBackground",
-  "gauge.errorForeground",
-  "gauge.foreground",
-  "gauge.warningBackground",
-  "gauge.warningForeground",
-  "quickInput.border",
-  "quickInputList.hoverBackground"
- ]
+ "unregisteredInMicrosoftThemes": []
 }

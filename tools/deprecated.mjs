@@ -11,4 +11,8 @@ export const KEPT_DEPRECATED = [
     why: 'deprecated since VS Code 1.85; kept while the manifest accepts VS Code 1.70' },
   { key: 'editorIndentGuide.activeBackground', replacement: 'editorIndentGuide.activeBackground1',
     why: 'deprecated since VS Code 1.85; kept while the manifest accepts VS Code 1.70' },
+  { key: 'chat.inputWorkingBorderColor2', replacement: null,
+    why: 'deprecated in VS Code 1.138, which animates the chat input border from chat.inputWorkingBorderColor1 alone; kept for one release for editors that have not reached 1.138 yet, where the border still cycles through all 3 colours, so there is no key it has to match' },
+  { key: 'chat.inputWorkingBorderColor3', replacement: null,
+    why: 'deprecated in VS Code 1.138, which animates the chat input border from chat.inputWorkingBorderColor1 alone; kept for one release for editors that have not reached 1.138 yet, where the border still cycles through all 3 colours, so there is no key it has to match' },
 ];

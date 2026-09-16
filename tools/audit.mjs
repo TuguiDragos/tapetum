@@ -57,8 +57,8 @@ for (const t of declared) {
   note(dead.length === 0, `${t.label}: ${dead.length} dead keys: ${dead.slice(0, 3).join(', ')}`);
   const stale = Object.keys(th.colors).filter((k) => DEPRECATED.has(k) && !KEPT.has(k));
   note(stale.length === 0, `${t.label}: ${stale.length} deprecated keys set: ${stale.slice(0, 3).join(', ')}`);
-  for (const [key, k] of KEPT) note(th.colors[key] !== undefined && th.colors[key] === th.colors[k.replacement],
-    `${t.label}: ${key} must be set and equal to ${k.replacement} while it is kept`);
+  for (const [key, k] of KEPT) note(th.colors[key] !== undefined && (!k.replacement || th.colors[key] === th.colors[k.replacement]),
+    `${t.label}: ${key} must be set${k.replacement ? ` and equal to ${k.replacement}` : ''} while it is kept`);
   for (const [k, v] of Object.entries(th.colors)) {
     note(typeof v === 'string' && /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(v), `${t.label}: invalid colour ${k}=${v}`);
   }

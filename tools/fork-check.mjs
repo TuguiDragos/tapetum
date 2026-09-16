@@ -6,8 +6,9 @@
 // deep run there. The summary says what the editor knows that the committed registry does not,
 // what it does not know yet, and which findings are real. An editor on an older or extended core
 // does not know every key Tapetum sets and registers keys of its own, so the missing and dead key
-// counts of audit, its README figures, and the coverage and seam classes of analyze are reported
-// as expected; every other finding, and anything deep reports, is real and sets the exit code.
+// counts of audit, its README figures, its TextMate coverage, which is measured against the
+// editor's own grammars, and the coverage and seam classes of analyze are reported as expected;
+// every other finding, and anything deep reports, is real and sets the exit code.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -25,6 +26,11 @@ if (!name || !given) {
 
 function resolveApp(p) {
   for (const c of [p, path.join(p, 'Contents/Resources/app'), path.join(p, 'resources/app'), path.join(p, 'lib/vscode')]) {
+    if (fs.existsSync(path.join(c, 'product.json'))) return path.resolve(c);
+  }
+  // the Windows archive keeps the app under a folder named after the commit
+  if (fs.existsSync(p) && fs.statSync(p).isDirectory()) for (const d of fs.readdirSync(p)) {
+    const c = path.join(p, d, 'resources/app');
     if (fs.existsSync(path.join(c, 'product.json'))) return path.resolve(c);
   }
   throw new Error(`no product.json under ${p}; pass the editor's resources/app folder`);
@@ -90,7 +96,8 @@ console.log(`live keys of this editor left to its defaults (${unset.length}): ${
 console.log(`text and background pairs from this editor's stylesheets: ${pairs.length}, not in the committed set (${newPairs.length}): ${list(newPairs, 8)}`);
 
 const EXPECTED_KINDS = new Set(['coverage', 'seam']);
-const EXPECTED_AUDIT = [/: \d+ missing keys$/, /: \d+ dead keys: /, /: \d+ deprecated keys set: /, /^README does not say /];
+// the TextMate coverage is measured against the editor's own grammars, so the README figure moves with them
+const EXPECTED_AUDIT = [/: \d+ missing keys$/, /: \d+ dead keys: /, /: \d+ deprecated keys set: /, /^README does not say /, /^TextMate scope coverage dropped to /];
 const normalise = (m) => m.replace(/#[0-9a-fA-F]{6,8}\b/g, '#').replace(/\d+(\.\d+)?/g, 'N');
 const perTheme = new Map();
 const real = { analyze: new Map(), audit: new Map(), deep: new Map() };
