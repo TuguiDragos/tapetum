@@ -296,6 +296,10 @@ function chrome(t) {
     'modernActivityBarItem.activeForeground': fg,
     'modernActivityBarItem.hoverBackground': hoverTab,
     'modernActivityBarItem.hoverForeground': fg,
+    'modernPanel.border': line2,
+    'modernSash.gripForeground': t.hc ? fg : faint,
+    'modernUI.shellBackground': ch,
+    'modernUI.inactiveShellBackground': ch,
 
     'profileBadge.background': fill,
     'profileBadge.foreground': onFill,
@@ -429,6 +433,7 @@ function chrome(t) {
     'outputView.background': elev,
 
     'statusBar.background': ch,
+    'statusBar.inactiveBackground': ch,
     'statusBar.foreground': legible(dim, ch, 4.5),
     'statusBar.border': line,
     'statusBar.debuggingBackground': st.warn,
@@ -750,6 +755,10 @@ function integrations(t) {
 function assistant(t) {
   const legible = t.legible;
   const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark, field, sliders } = t;
+  // the frame 1.138 draws around a chat editor: solid while a request runs, dotted while a result
+  // waits to be seen, dashed when the session waits for input. A chat editor sits on the editor,
+  // the side bar or the chrome, so the status colour is lifted until it clears 3:1 on all 3.
+  const frame = (c) => [bg, elev, ch].reduce((x, g) => legible(x, g, 3.0), c);
   return {
     'chat.requestBackground': elev,
     'chat.requestBorder': line2,
@@ -772,6 +781,9 @@ function assistant(t) {
     'chat.inputWorkingBorderColor2': y.string,
     'chat.inputWorkingBorderColor3': y.tag,
     'chat.checkpointSeparator': line2,
+    'chat.sessionStateIndicator.inProgressBorder': frame(st.warn),
+    'chat.sessionStateIndicator.unvisitedBorder': frame(st.ok),
+    'chat.sessionStateIndicator.needsInputBorder': frame(st.error),
 
     'inlineChat.background': elev,
     'inlineChat.border': line2,
@@ -1467,7 +1479,8 @@ function applyHighContrast(all, t) {
   const c = HC[t.hc];
   for (const k of Object.keys(all)) {
     if (!/(\.border|Border)$/.test(k) || KEEP_TRANSPARENT.test(k)) continue;
-    if (/focus|active|Active/.test(k)) { all[k] = c.active; continue; }
+    // the session state frames ask for attention, so they take the active border, as VS Code's own defaults do
+    if (/focus|active|Active|sessionStateIndicator/.test(k)) { all[k] = c.active; continue; }
     all[k] = c.border;
   }
   all.contrastBorder = c.border;

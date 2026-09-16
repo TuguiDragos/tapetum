@@ -33,6 +33,8 @@ const ANSI_EXEMPT = [
 ];
 const FOCUS_SURFACES = ['editor.background', 'sideBar.background', 'editorWidget.background', 'panel.background',
   'statusBar.background', 'titleBar.activeBackground'];
+const SESSION_FRAMES = ['chat.sessionStateIndicator.inProgressBorder', 'chat.sessionStateIndicator.unvisitedBorder',
+  'chat.sessionStateIndicator.needsInputBorder'];
 const PRESENCE = [
   ['editor.lineHighlightBackground', 'editor.background', 3.0],
   ['editor.inactiveLineHighlightBackground', 'editor.background', 2.0],
@@ -263,6 +265,11 @@ function analyse(fam, v) {
     const cr = contrast(over(c[k], ground), ground);
     if (cr < 3) bad('focus', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
   }
+  for (const k of SESSION_FRAMES) for (const s of FOCUS_SURFACES) {
+    const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
+    const cr = contrast(over(c[k], ground), ground);
+    if (cr < 3) bad('frame', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
+  }
   if (!hc) for (const [k, groundKey, min] of PRESENCE) {
     const ground = isAlpha(c[groundKey]) ? over(c[groundKey], eb) : c[groundKey];
     const d = deltaE(over(c[k], ground), ground);
@@ -301,13 +308,13 @@ for (const fam of FAMILIES) for (const v of VARIANT_KEYS(fam)) rows.push(analyse
 
 const detail = process.argv.includes('--detail');
 console.log('DEEP AUDIT, every theme on its own\n');
-console.log('theme'.padEnd(27) + 'syntax'.padStart(6) + 'sep'.padStart(7) + 'TextMate'.padStart(10) + 'semantic'.padStart(10) + 'overlay'.padStart(10) + 'stacked'.padStart(9) + 'ANSI'.padStart(6) + 'ANSI/sel'.padStart(10) + 'git dE'.padStart(8) + 'brackets'.padStart(11) + 'diff dE'.padStart(9) + 'minimap'.padStart(9) + 'cvd'.padStart(11) + 'issues'.padStart(10));
+console.log('theme'.padEnd(38) + 'syntax'.padStart(6) + 'sep'.padStart(7) + 'TextMate'.padStart(10) + 'semantic'.padStart(10) + 'overlay'.padStart(10) + 'stacked'.padStart(9) + 'ANSI'.padStart(6) + 'ANSI/sel'.padStart(10) + 'git dE'.padStart(8) + 'brackets'.padStart(11) + 'diff dE'.padStart(9) + 'minimap'.padStart(9) + 'cvd'.padStart(11) + 'issues'.padStart(10));
 console.log('-'.repeat(160));
 let issues = 0;
 for (const r of rows) {
   issues += r.findings.length;
   console.log(
-    r.label.padEnd(28) +
+    r.label.padEnd(39) +
     `${r.syntax.min.toFixed(2)}`.padStart(5) + `${r.syntax.separation.toFixed(1)}`.padStart(7) +
     `${r.textmate.worst.toFixed(2)}`.padStart(10) + `${r.semantic.worst.toFixed(2)}`.padStart(10) +
     `${r.overlay.worst.toFixed(2)}`.padStart(10) + `${r.stacked.worst.toFixed(2)}`.padStart(9) +
