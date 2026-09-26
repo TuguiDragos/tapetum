@@ -1,5 +1,114 @@
 # Changelog
 
+## [1.1.0]
+
+VS Code 1.139 turned the modern UI on by default, with tabs that join the
+active one to the editor and draw no line on it. In most dark themes the
+active tab disappeared into the strip. This version gives the strip its own
+place, sets the 3 keys 1.139 registered, and fixes what a live check of every
+key in VS Code turned up. The logo got a polish.
+
+### Changed
+
+**The active tab stands out again.** A connected tab is the editor surface
+itself, so only the strip around it outlines it, and in the dark themes that
+strip sat almost on the editor. It now lies on the text side of the editor, at
+least as far from it as in Dark 2026 and Light 2026, which moves it in 33
+themes. Inactive tab names stay legible on it, and a hovered classic tab rises
+above it the way VS Code's own connected tabs do.
+
+**Modern tabs take the toolbar washes.** In the pill style, which the Agents
+window always uses, the active pill took the editor's own colour and vanished.
+Modern tabs now take the text at 10% when active and at 6% on hover, which
+read on the editor and on menus alike, so their hover no longer disappears on
+menus either.
+
+**Small moves around the strip.** A few descriptions, filter highlights and
+find matches moved slightly to stay legible over the new strip, and the focus
+ring of Riso got a little stronger.
+
+**VS Code 1.99 or later.** The manifest asks for 1.99 instead of 1.70, the
+oldest core among the 10 editors Tapetum is checked on, so all of them still
+install it. The 2 indent guide keys kept for cores before 1.81 are gone. The 6
+other kept keys stay for the editors that still read them.
+
+**The registry is VS Code 1.139.1.** 994 keys, 984 of them live, the same from
+the macOS, Linux and Windows builds.
+
+**Cleaner tools.** 3 unused helpers and 2 unused imports are gone, with the
+themes byte for byte the same.
+
+### Fixed
+
+**What a transparent colour switched on.** The regular themes set
+`contrastBorder` and `contrastActiveBorder` to transparent. VS Code reads any
+value there as a high contrast theme and swaps in its own outlines,
+transparent here. So the find widget, the segmented controls and some chat and
+agent views lost their border, shrunk tab names lost their fade, keyboard
+focus in the activity bar showed no line, and the selected row of an unfocused
+list lost the dotted outline Tapetum defines for it.
+
+**The modern activity bar.** A transparent `activityBar.activeBackground` hid
+its active item. It shows now in the 10% wash of an active modern tab, and its
+hover takes their 6%, lighter than before in most themes, so the active item
+stays the stronger of the 2.
+
+**Left unset on purpose.** The regular themes no longer set the 2 contrast
+keys, and no theme sets `activityBar.activeBackground`, as Microsoft's own
+themes leave them. `tools/unset.mjs` says why, and the high contrast themes
+keep their contrast colours. Badges shrink by 2 pixels, to the size VS Code
+draws.
+
+**Text that fell short.** All of these clear their floor now:
+
+- `errorForeground` on raised surfaces in the 2 Passepartout themes, and
+  `textLink.activeForeground` in Palimpsest Light.
+- The white VS Code writes on the pre-release badge. It took each family's
+  pale tag colour and now darkens until white reads at 4.5, in 29 themes.
+- Links in the Settings editor, which shows descriptions at 90%, in 9 light
+  themes.
+- The match highlight on the focused row of the command palette, which took
+  the raw string colour, in 8 light themes.
+- The text of a match in the search view, on the find highlight, in 4 dark
+  themes. The highlight eases from 24% to as little as 20% and stays clearly
+  visible.
+- The colour of a renamed or submodule file name in the side bar, in 3 themes.
+- The focus outline of a selected and focused row, in 5 light themes.
+
+**Colours placed by hand.** The warning or error colour of 4 hand placed
+palettes, Passepartout in both variants, Stratum Light and Palimpsest Light,
+read under 4.5 on the side bar, where a file name with a conflict, a deletion
+or an error takes it. It moved in lightness just enough to reach 4.5, its hue
+kept, and everything that uses it follows.
+
+**Line numbers.** They kept 3.0 on the editor but fell under it on sticky
+scroll and in the peek view in 18 themes. They reach it there too, moving by
+1.2 dE at most.
+
+**Hovers that did not show.** A hover that moves a colour toward white leaves
+an almost white button almost unchanged, so buttons in 6 themes and the
+warning and remote items of the status bar in 6 barely changed on hover. Where
+the usual step moves a colour by less than 2 dE, it now goes the other way.
+
+### Added
+
+**The 3 keys of 1.139.** The arrow at the end of a wrapped line takes the
+whitespace colour, as VS Code derives it. The VS Code logo in the working
+indicator of chat takes the family's info colour on Stable and its success
+colour on Insiders.
+
+**Checks.** `tools/deep.mjs` measures colours on the surfaces they actually
+sit on: the tab strip with its texts, surfaces composed from 2 rules,
+decorated file names, line numbers, and the hovers, active items and focus
+outlines fixed here. `tools/audit.mjs` keeps the unset keys out.
+`tools/fork-check.mjs` confirms that each editor's core accepts the manifest
+and shows which kept keys it still reads.
+
+**Workflows.** The download badges refresh every third Monday and the registry
+check runs once a month. Packaging moved to vsce 4 and the paint check pins
+the tokenizer VS Code 1.139 bundles, both with the same result. Only the job
+that commits the badges can write to the repository.
+
 ## [1.0.9]
 
 VS Code 1.138 registered 8 keys and stopped using 2 that every theme set.
