@@ -14,6 +14,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { KEPT_DEPRECATED } from './deprecated.mjs';
+import { LEFT_UNSET } from './unset.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
@@ -84,7 +86,8 @@ const onlyFork = [...forkKeys].filter((k) => !baseKeys.has(k)).sort();
 const onlyBase = [...baseKeys].filter((k) => !forkKeys.has(k)).sort();
 const unknown = [...set].filter((k) => !forkKeys.has(k)).sort();
 const stale = [...set].filter((k) => forkDep.has(k)).sort();
-const unset = [...forkKeys].filter((k) => !forkDep.has(k) && !set.has(k)).sort();
+const planned = new Set(LEFT_UNSET.map((u) => u.key));
+const unset = [...forkKeys].filter((k) => !forkDep.has(k) && !set.has(k) && !planned.has(k)).sort();
 const newPairs = pairs.filter((p) => !basePairs.has(`${p.fg}|${p.bg}`)).map((p) => `${p.fg} on ${p.bg}`);
 
 console.log(`\nregistry: ${forkKeys.size} keys, ${forkDep.size} deprecated (committed registry, VS Code ${base.vscode}: ${baseKeys.size} keys)`);
@@ -93,7 +96,14 @@ console.log(`keys VS Code ${base.vscode} has and this editor does not (${onlyBas
 console.log(`Tapetum keys this editor does not know, ignored harmlessly (${unknown.length}): ${list(unknown)}`);
 console.log(`Tapetum keys this editor marks deprecated (${stale.length}): ${list(stale)}`);
 console.log(`live keys of this editor left to its defaults (${unset.length}): ${list(unset)}`);
+console.log(`keys left unset on purpose, as tools/unset.mjs explains: ${LEFT_UNSET.map(({ key }) => `${key} ${forkDep.has(key) ? 'deprecated' : forkKeys.has(key) ? 'live' : 'unknown'}`).join(', ')}`);
 console.log(`text and background pairs from this editor's stylesheets: ${pairs.length}, not in the committed set (${newPairs.length}): ${list(newPairs, 8)}`);
+console.log(`kept deprecated keys here: ${KEPT_DEPRECATED.map(({ key }) => `${key} ${forkDep.has(key) ? 'deprecated' : forkKeys.has(key) ? 'live' : 'unknown'}`).join(', ')}`);
+
+const semver = (v) => (String(v).match(/(\d+)\.(\d+)(?:\.(\d+))?/) || []).slice(1, 4).map((x) => Number(x || 0));
+const [need, runs] = [semver(pkg.engines.vscode), semver(core || product.version)];
+const installs = runs[0] === need[0] && (runs[1] > need[1] || (runs[1] === need[1] && runs[2] >= need[2]));
+console.log(`the manifest asks for VS Code ${pkg.engines.vscode}, this editor runs ${runs.join('.')}: ${installs ? 'it installs' : 'IT CANNOT INSTALL THIS VERSION'}`);
 
 const EXPECTED_KINDS = new Set(['coverage', 'seam']);
 // the TextMate coverage is measured against the editor's own grammars, so the README figure moves with them
@@ -144,7 +154,7 @@ const failing = [...perTheme.entries()].filter(([, v]) => v.real > 0);
 const seen = perTheme.size;
 console.log(`\nthemes seen: ${seen} of ${pkg.contributes.themes.length}`);
 console.log(`themes with a real problem: ${failing.length ? failing.map(([k, v]) => `${k} (${v.real})`).join(', ') : 'none'}`);
-const realTotal = sum(real.analyze) + sum(real.audit) + sum(real.deep);
+const realTotal = sum(real.analyze) + sum(real.audit) + sum(real.deep) + (installs ? 0 : 1);
 const complete = seen === pkg.contributes.themes.length && exits.analyze !== null && exits.audit !== null && exits.deep !== null;
 console.log(`\n${realTotal === 0 && complete ? 'PASS' : 'FAIL'} on ${product.nameLong} ${product.version}: ${realTotal} real problems${complete ? '' : ', and a check did not run to the end'}`);
 cleanup();

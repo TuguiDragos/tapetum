@@ -7,7 +7,7 @@
 </p>
 
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-fan-512.png" alt="" width="56" align="center" />
+  <img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-fan-512.png" alt="" width="56" align="absmiddle" />
   &nbsp;Tapetum Theme
 </h1>
 
@@ -105,7 +105,7 @@ system uses to track effects, except you can see it without reading a
 signature.
 
 <details>
-<summary>Which code touches the world and which only computes &nbsp;`effect` scheme</summary>
+<summary>Which code touches the world and which only computes &nbsp;<code>effect</code> scheme</summary>
 
 | | `Tapetum Effect` | `Tapetum Effect Light` |
 | --- | --- | --- |
@@ -259,7 +259,7 @@ into a variable, the name lights up. You stop looking for mutation and start
 seeing it.
 
 <details>
-<summary>Whether a thing can change, and where it is written to &nbsp;`borrow` scheme</summary>
+<summary>Whether a thing can change, and where it is written to &nbsp;<code>borrow</code> scheme</summary>
 
 | | `Tapetum Borrow` | `Tapetum Borrow Light` |
 | --- | --- | --- |
@@ -514,7 +514,7 @@ names you chose and the data you wrote are the new text. Roughly 2 thirds of
 the screen recedes on purpose.
 
 <details>
-<summary>A scraped and rewritten manuscript &nbsp;`signal` scheme</summary>
+<summary>A scraped and rewritten manuscript &nbsp;<code>signal</code> scheme</summary>
 
 | | `Tapetum Palimpsest` | `Tapetum Palimpsest Light` |
 | --- | --- | --- |
@@ -589,7 +589,7 @@ already know that function is a function. Open a file and you see instantly
 what is yours and what is borrowed.
 
 <details>
-<summary>Where each symbol came from &nbsp;`provenance` scheme</summary>
+<summary>Where each symbol came from &nbsp;<code>provenance</code> scheme</summary>
 
 | | `Tapetum Provenance` | `Tapetum Provenance Light` |
 | --- | --- | --- |
@@ -688,7 +688,7 @@ doing the work that colour usually does. The interface keeps a single silver
 blue accent so you can still find your cursor.
 
 <details>
-<summary>A silver stylus on prepared paper. No hue anywhere &nbsp;`tone` scheme</summary>
+<summary>A silver stylus on prepared paper. No hue anywhere &nbsp;<code>tone</code> scheme</summary>
 
 | | `Tapetum Silverpoint` | `Tapetum Silverpoint Light` |
 | --- | --- | --- |
@@ -713,7 +713,7 @@ puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and all
 you are without counting.
 
 <details>
-<summary>Sedimentary layers. Colour sits on nesting depth &nbsp;`tone` scheme</summary>
+<summary>Sedimentary layers. Colour sits on nesting depth &nbsp;<code>tone</code> scheme</summary>
 
 | | `Tapetum Stratum` | `Tapetum Stratum Light` |
 | --- | --- | --- |
@@ -837,10 +837,10 @@ What a machine is good for is catching what a person misses. On all
 
 | | |
 | --- | --- |
-| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is 4.07 |
+| **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1 and comments 4.0, the lowest at 4.07; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all 981 colour keys VS Code 1.138.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
-| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.138.0 |
+| **Coverage** | all 984 colour keys VS Code 1.139.1 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 3 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.139.1 |
 
 None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
 colour registry out of every window bundle of the installed editor, including the
@@ -854,8 +854,13 @@ value quietly contradicts the surface beneath it. `tools/paint-check.mjs`
 tokenizes every selector of every rule with `vscode-textmate`, the library VS
 Code itself uses to colour code, so a rule that inherits a style from a rule
 above it, or loses its colour to a rule below it, is caught before it ships.
+`tools/deep.mjs` measures what the stylesheets set apart: the colours VS Code
+paints on whatever surface a component sits on, read on every one of those
+surfaces, text whose surface comes from another rule, and the tab strip, whose
+difference from the editor is the only outline the active tab has in the
+connected tabs of VS Code 1.139.
 The 3 files the extractors write are committed, checked in CI against every
-theme, and refreshed by a weekly workflow
+theme, and refreshed by a monthly workflow
 that downloads the current VS Code build, so a new surface is noticed by a
 machine rather than by a person.
 
@@ -866,8 +871,9 @@ registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 35
 surfaces those editors paint in colours of their own, listed with their reasons
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
-repeats those measurements on any editor from 1 command. The registry, pairs and
-derivations extracted from the Linux and Windows builds of VS Code 1.138.0
+repeats those measurements on any editor from 1 command, and confirms that its
+core accepts the VS Code version the manifest asks for. The registry, pairs and
+derivations extracted from the Linux and Windows builds of VS Code 1.139.1
 are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 

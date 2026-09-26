@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, parse, deuter, protan, relLum, hex2lch } from './color.mjs';
+import { contrast, over, deltaE, parse, deuter, protan, relLum, hex2lch, mix, alpha } from './color.mjs';
 import { FAMILIES } from './palettes.mjs';
 const VARIANT_KEYS = (f) => ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k]);
 
@@ -33,12 +33,25 @@ const ANSI_EXEMPT = [
 ];
 const FOCUS_SURFACES = ['editor.background', 'sideBar.background', 'editorWidget.background', 'panel.background',
   'statusBar.background', 'titleBar.activeBackground'];
+const WASH_SURFACES = [...FOCUS_SURFACES, 'editorGroupHeader.tabsBackground'];
 const SESSION_FRAMES = ['chat.sessionStateIndicator.inProgressBorder', 'chat.sessionStateIndicator.unvisitedBorder',
   'chat.sessionStateIndicator.needsInputBorder'];
+const TAB_STRIP_DE = 4.3;
 const PRESENCE = [
   ['editor.lineHighlightBackground', 'editor.background', 3.0],
   ['editor.inactiveLineHighlightBackground', 'editor.background', 2.0],
   ['tab.hoverBackground', 'editorGroupHeader.tabsBackground', 3.0],
+  ['modernTab.hoverBackground', 'editor.background', 2.0],
+  ['modernTab.hoverBackground', 'menu.background', 2.0],
+  ['modernTab.activeBackground', 'editor.background', TAB_STRIP_DE],
+  ['modernTab.activeBackground', 'menu.background', TAB_STRIP_DE],
+  ['modernEditorTab.activeBackground', 'editor.background', TAB_STRIP_DE],
+  ['modernActivityBarItem.hoverBackground', 'modernActivityBar.background', 2.0],
+  ['modernActivityBarItem.activeBackground', 'modernActivityBar.background', 4.0],
+  ...[['button.hoverBackground', 'button.background'], ['extensionButton.hoverBackground', 'extensionButton.background'],
+    ['extensionButton.prominentHoverBackground', 'extensionButton.prominentBackground'],
+    ['agentsNewSessionButton.hoverBackground', 'agentsNewSessionButton.background'],
+    ...['error', 'warning', 'offline', 'remote'].map((k) => [`statusBarItem.${k}HoverBackground`, `statusBarItem.${k}Background`])].map(([k, g]) => [k, g, 2.0]),
   ['editorStickyScrollHover.background', 'editorStickyScroll.background', 3.0],
   ['terminalStickyScrollHover.background', 'terminalStickyScroll.background', 3.0],
   ...['editor.selectionBackground', 'editor.inactiveSelectionBackground', 'editor.selectionHighlightBackground',
@@ -66,6 +79,38 @@ const FORK_PAIRS = [
   ['list.focusHighlightForeground', 'list.filterMatchBackground', 4.5],
   ['editor.findMatchForeground', 'editor.findMatchBackground', 4.5],
 ];
+// colours VS Code paints on whatever surface a component sits on, so each one has to read on all of them
+const TEXT_SURFACES = ['editor.background', 'sideBar.background', 'panel.background', 'editorWidget.background', 'menu.background',
+  'quickInput.background', 'editorHoverWidget.background', 'notifications.background', 'surface.background', 'agentsPanel.background'];
+const ON_ANY_SURFACE = [
+  ['foreground', 4.5], ['descriptionForeground', 4.0], ['errorForeground', 4.5], ['textLink.foreground', 4.5],
+  ['textLink.activeForeground', 4.5], ['icon.foreground', 3.0], ['editorError.foreground', 3.0], ['editorWarning.foreground', 3.0],
+  ['editorInfo.foreground', 3.0], ['problemsErrorIcon.foreground', 3.0], ['problemsWarningIcon.foreground', 3.0],
+  ['problemsInfoIcon.foreground', 3.0], ['testing.iconFailed', 3.0], ['testing.iconPassed', 3.0], ['testing.iconQueued', 3.0],
+  ['chat.workingProgressStableIconForeground', 3.0], ['chat.workingProgressInsidersIconForeground', 3.0],
+];
+// text and surface set in different rules of the stylesheets, which tools/extract-pairs.mjs cannot pair
+const multiDiffHeaders = (c) => {
+  const header = over(c['sideBarSectionHeader.background'], c['editor.background']);
+  return [header, over(c['toolbar.hoverBackground'], header), over(c['list.focusBackground'], header), over(c['list.inactiveSelectionBackground'], c['editor.background'])];
+};
+const COMPOSED = [
+  { fg: (c) => c.descriptionForeground, grounds: (c) => [mix(c['menu.background'], over(c.foreground, c['menu.background']), 0.1)], floor: 4.0, what: 'description on a badge washed with the text at 10% over the menu' },
+  { fg: (c) => c.descriptionForeground, grounds: (c) => [over(c['textCodeBlock.background'], c['editorHoverWidget.background'])], floor: 4.0, what: 'description on a code block pill in a hover' },
+  { fg: (c) => c['textLink.foreground'], grounds: (c) => [over(c['textCodeBlock.background'], c['editorHoverWidget.background'])], floor: 4.5, what: 'link on a code block pill in a hover' },
+  { fg: (c) => c['button.secondaryForeground'], grounds: (c) => ['activeSessionView.background', 'inactiveSessionView.background'].map((k) => over(c['button.secondaryBackground'], c[k])), floor: 4.5, what: 'secondary button in an Agents session' },
+  { fg: (c) => c.foreground, grounds: multiDiffHeaders, floor: 4.5, what: 'file name on a multi diff card header' },
+  { fg: (c, light) => alpha(c.foreground, light ? 0.95 : 0.7), grounds: multiDiffHeaders, floor: 4.0, what: 'description on a multi diff card header' },
+  { fg: () => '#ffffff', grounds: (c) => [over(c['extensionIcon.preReleaseForeground'], c['editor.background'])], floor: 4.5, what: 'the white text VS Code writes on the pre-release badge' },
+  { fg: (c) => c['textLink.foreground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'link in a Settings description, which VS Code shows at 90%' },
+  { fg: (c) => c['textLink.activeForeground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'hovered link in a Settings description, which VS Code shows at 90%' },
+  { fg: (c) => c['sideBar.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['sideBar.background'])], floor: 4.5, what: 'a match in the search view, the side bar text on the find highlight' },
+  { fg: (c) => c['editor.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['editor.background'])], floor: 4.5, what: 'text on a find highlight in the editor' },
+  { fg: (c) => c['quickInputList.focusHighlightForeground'], grounds: (c) => [over(c['quickInputList.focusBackground'], c['quickInput.background'])], floor: 4.5, what: 'match highlight on the focused row of the command palette' },
+];
+const DECORATED_NAMES = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule']
+  .map((s) => `gitDecoration.${s}ResourceForeground`), 'list.errorForeground', 'list.warningForeground', 'list.invalidItemForeground'];
+const LINE_NUMBER_GROUNDS = ['editor.background', 'editorStickyScrollGutter.background', 'peekViewEditorGutter.background', 'peekViewEditorStickyScrollGutter.background'];
 const hueDist = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
 
 function analyse(fam, v) {
@@ -260,7 +305,12 @@ function analyse(fam, v) {
     if (chroma < 10) bad('terminal', `ansi${name} (${val}) is nearly grey, chroma ${chroma.toFixed(0)}`);
     else if (hueDist(hue, target) > 50) bad('terminal', `ansi${name} (${val}) is ${hueDist(hue, target).toFixed(0)} degrees from ${name.toLowerCase()}`);
   }
-  for (const k of ['focusBorder', 'list.focusOutline']) for (const s of FOCUS_SURFACES) {
+  for (const s of ['sideBar.background', 'editorWidget.background', 'panel.background', 'quickInput.background']) {
+    const ground = over(c['list.activeSelectionBackground'], over(c[s], eb));
+    const cr = contrast(over(c['list.focusAndSelectionOutline'], ground), ground);
+    if (cr < 3) bad('focus', `list.focusAndSelectionOutline on the selection over ${s} at ${cr.toFixed(2)}, under 3:1`);
+  }
+  for (const k of ['focusBorder', 'list.focusOutline']) for (const s of WASH_SURFACES) {
     const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const cr = contrast(over(c[k], ground), ground);
     if (cr < 3) bad('focus', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
@@ -275,11 +325,54 @@ function analyse(fam, v) {
     const d = deltaE(over(c[k], ground), ground);
     if (d < min) bad('presence', `${k} at ${d.toFixed(2)} dE from ${groundKey}, under ${min}`);
   }
-  for (const [fgKey, washKey, floor] of FORK_PAIRS) for (const s of FOCUS_SURFACES) {
+  for (const [fgKey, washKey, floor] of FORK_PAIRS) for (const s of WASH_SURFACES) {
     const surface = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const ground = over(c[washKey], surface);
     const cr = contrast(over(c[fgKey], ground), ground);
     if (cr < floor) bad('pair', `${fgKey} on ${washKey} over ${s} at ${cr.toFixed(2)}, under ${floor}`);
+  }
+  for (const [k, floor] of ON_ANY_SURFACE) for (const s of TEXT_SURFACES) {
+    if (!c[k] || !c[s]) { bad('surface', `${c[k] ? s : k} is not set`); continue; }
+    const ground = over(c[s], eb);
+    const cr = contrast(over(c[k], ground), ground);
+    if (cr < floor) bad('surface', `${k} on ${s} at ${cr.toFixed(2)}, under ${floor}`);
+  }
+  for (const k of DECORATED_NAMES) {
+    const cr = contrast(over(c[k], c['sideBar.background']), c['sideBar.background']);
+    if (cr < 4.5) bad('surface', `${k}, a decorated file name in the side bar, at ${cr.toFixed(2)}, under 4.5`);
+  }
+  for (const g of LINE_NUMBER_GROUNDS) {
+    const floor = hc ? 4.5 : 3.0;
+    const cr = contrast(over(c['editorLineNumber.foreground'], c[g]), c[g]);
+    if (cr < floor) bad('surface', `editorLineNumber.foreground on ${g} at ${cr.toFixed(2)}, under ${floor}`);
+  }
+  for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
+    // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
+    const shown = share ? mix(ground, fg(c, t.type === 'light'), share) : over(fg(c, t.type === 'light'), ground);
+    const cr = contrast(shown, ground);
+    if (cr < floor) bad('surface', `${what} at ${cr.toFixed(2)}, under ${floor}`);
+  }
+  if (!hc) {
+    const strip = over(c['editorGroupHeader.tabsBackground'], eb);
+    const sep = deltaE(strip, eb);
+    if (sep < TAB_STRIP_DE) bad('tabs', `the tab strip at ${sep.toFixed(2)} dE from the editor, under ${TAB_STRIP_DE}`);
+    const texts = [
+      ['modernEditorTab.activeForeground', eb, 4.5, 'the active tab'],
+      ['tab.inactiveForeground', strip, 4.5, 'an inactive tab'],
+      ['modernEditorTab.hoverForeground', mix(strip, over(c.foreground, strip), 0.06), 4.5, 'a hovered connected tab'],
+      ['modernEditorTab.hoverForeground', over(c['modernEditorTab.hoverBackground'], strip), 4.5, 'a hovered tab'],
+      ['icon.foreground', strip, 3.0, 'the editor actions on the strip'],
+      ['modernEditorTab.activeForeground', over(c['modernEditorTab.activeBackground'], eb), 4.5, 'the active pill'],
+    ];
+    out.tabTexts = texts.length;
+    for (const [k, ground, floor, what] of texts) {
+      const cr = contrast(over(c[k], ground), ground);
+      if (cr < floor) bad('tabs', `${k} on ${what} at ${cr.toFixed(2)}, under ${floor}`);
+    }
+    for (const [item, s] of [['modernTab', 'editor.background'], ['modernTab', 'menu.background'], ['modernActivityBarItem', 'modernActivityBar.background']]) {
+      const d = deltaE(over(c[`${item}.activeBackground`], c[s]), over(c[`${item}.hoverBackground`], c[s]));
+      if (d < 1.5) bad('tabs', `an active ${item} at ${d.toFixed(2)} dE from a hovered one on ${s}, under 1.5`);
+    }
   }
   for (const k of COMMENT_GLYPHS) {
     const strip = c['editorGutter.commentRangeForeground'];
@@ -328,6 +421,7 @@ console.log('-'.repeat(160));
 const agg = (fn) => Math.min(...rows.map(fn));
 console.log(`minimums across the package: syntax ${agg((r) => r.syntax.min).toFixed(2)}, separation ${agg((r) => r.syntax.separation).toFixed(1)}, TextMate ${agg((r) => r.textmate.worst).toFixed(2)}, semantic ${agg((r) => r.semantic.worst).toFixed(2)}, overlay ${agg((r) => r.overlay.worst).toFixed(2)}, stacked ${agg((r) => r.stacked.worst).toFixed(2)}, ANSI ${agg((r) => r.terminal.worst).toFixed(2)}, git ${agg((r) => r.git.minDeltaE).toFixed(1)}, brackets ${agg((r) => r.brackets.minDeltaE).toFixed(1)}, diff ${agg((r) => r.diff.deltaE).toFixed(1)}`);
 console.log(`sibling pairs checked per theme: ${rows[0].siblings.checked}, TextMate rules ${rows[0].textmate.rules}, semantic selectors ${rows[0].semantic.count}`);
+console.log(`on every text surface: ${ON_ANY_SURFACE.length} colours on ${TEXT_SURFACES.length} surfaces, ${COMPOSED.length} composed surfaces, ${DECORATED_NAMES.length} decorated file names on the side bar, line numbers on ${LINE_NUMBER_GROUNDS.length} surfaces, the tab strip at ${TAB_STRIP_DE} dE with ${rows.find((r) => r.tabTexts).tabTexts} tab texts`);
 if (issues || detail) {
   for (const r of rows) {
     if (!r.findings.length) continue;

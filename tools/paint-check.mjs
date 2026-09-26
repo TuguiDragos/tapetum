@@ -10,7 +10,7 @@
 // audit cover those rules.
 //
 // Needs the tokenizer next to the repository; it is not a dependency of the package:
-//   npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@2.0.1
+//   npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -25,7 +25,7 @@ try {
   vsctm = require('vscode-textmate');
   onig = require('vscode-oniguruma');
 } catch {
-  console.error('paint-check needs the tokenizer VS Code uses, next to the repository:\n  npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@2.0.1');
+  console.error('paint-check needs the tokenizer VS Code uses, next to the repository:\n  npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0');
   process.exit(2);
 }
 

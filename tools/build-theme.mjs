@@ -1,4 +1,4 @@
-import { mix, alpha, lighten, darken, readable, contrast, relLum, deltaE, over as composite, hex2lch, lch2hex } from './color.mjs';
+import { mix, alpha, lighten, darken, contrast, relLum, deltaE, over as composite, hex2lch, lch2hex } from './color.mjs';
 
 const alphaOf = alpha;
 const mixOf = mix;
@@ -8,12 +8,18 @@ function tokens(s) {
   const dark = s.variant === 'dark' || s.variant === 'hcDark';
   const up = (c, t) => (dark ? lighten(c, t) : darken(c, t));
   const dn = (c, t) => (dark ? darken(c, t) : lighten(c, t));
+  // a colour already near the end of its range barely moves on hover, so it moves the other way instead
+  const hoverOf = (c, t) => (deltaE(up(c, t), c) >= 2 ? up(c, t) : dn(c, t));
 
   const bg = s.bg;
   const elev = s.bgElev || up(bg, 0.05);
   const chrome = s.bgChrome || dn(bg, 0.3);
   const over = s.bgOverlay || up(bg, 0.1);
   const fg = s.fg;
+  // the connected tabs of VS Code 1.139 draw no line on the active tab, only the editor against the strip, so the
+  // strip lies on the text side of the editor and at least as far from it as in Dark 2026 and Light 2026
+  const towardText = (c) => (dark ? relLum(c) > relLum(bg) : relLum(c) < relLum(bg));
+  const strip = hc ? chrome : reach(towardText(chrome) ? chrome : elev, bg, fg, 4.3);
   const depth = s.depth || depthRamp([s.syntax.keyword, s.syntax.string, s.syntax.number, s.syntax.type, s.syntax.func, s.syntax.tag], bg, dark, s.ansi);
   const hard = [bg, elev, chrome].reduce((a, b) => (dark ? (relLum(b) > relLum(a) ? b : a) : (relLum(b) < relLum(a) ? b : a)));
   const legible = (c, ground, target = 4.5) => {
@@ -33,15 +39,21 @@ function tokens(s) {
   const acc = s.accent || s.syntax.keyword;
   const sel = alpha(acc, dark ? 0.3 : 0.24);
   const selSoft = alpha(acc, dark ? 0.16 : 0.13);
-  const dim = legible(dimBase, composite(selSoft, hard), 4.0);
+  const dim = [hard, strip].reduce((d, g) => legible(d, composite(selSoft, g), 4.0), dimBase);
   let findAlpha = 0.38;
   while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
   const findWash = alpha(s.syntax.number, findAlpha);
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
-  const findGround = [bg, elev, chrome].map((surface) => composite(findWash, surface))
+  const findGround = [bg, elev, chrome, strip].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
   const field = dark ? mix(bg, fg, 0.08) : '#ffffff';
-  const hoverTab = hc ? elev : apart(elev, chrome, relLum(chrome) < relLum(elev) ? '#ffffff' : '#000000', 3.0);
+  const stripHover = hc ? elev : reach(strip, strip, fg, 3.0);
+  const whitespace = mix(bg, fg, 0.2);
+  // the search view shows each match in the side bar's text on the find highlight, so the highlight eases off until that text reads
+  const sideText = legible(mix(fg, elev, 0.18), elev, 4.5);
+  let matchAlpha = 0.24;
+  const matchText = (a) => Math.min(contrast(sideText, composite(alpha(s.syntax.string, a), elev)), contrast(fg, composite(alpha(s.syntax.string, a), bg)));
+  while (matchAlpha > 0.1 && matchText(matchAlpha) < 4.5) matchAlpha = Math.round((matchAlpha - 0.01) * 100) / 100;
   const lineHighlight = presence(bg, dark ? '#ffffff' : '#000000', dark ? 0.035 : 0.02, 3.0);
   const commentRange = composite(alpha(fg, 0.06), bg);
   const sliders = {
@@ -50,10 +62,11 @@ function tokens(s) {
     active: alpha(sliderTone(bg, fg, 3.5), 0.75),
   };
   let ringBase = acc;
-  for (const surface of [bg, elev, chrome]) if (contrast(ringBase, surface) < 3) ringBase = legible(ringBase, surface, 3.0);
-  const ringK = ringLevel(ringBase, [bg, elev, chrome], 3.0);
+  for (const surface of [bg, elev, chrome, strip]) if (contrast(ringBase, surface) < 3) ringBase = legible(ringBase, surface, 3.0);
+  const ringK = ringLevel(ringBase, [bg, elev, chrome, strip], 3.0);
   const focusRing = alpha(ringBase, ringK);
-  const focusStrong = alpha(ringBase, Math.max(0.7, ringK));
+  const strongBase = legible(ringBase, over, 3.0);
+  const focusStrong = alpha(strongBase, Math.max(0.7, ringK, ringLevel(strongBase, [over], 3.0)));
   const onColor = (c) => {
     const white = contrast('#ffffff', c);
     const ink = contrast('#101014', c);
@@ -80,11 +93,11 @@ function tokens(s) {
   const y = s.syntax;
   const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, dark, field, hoverTab, lineHighlight, commentRange, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
-    errorForeground: st.error,
+    errorForeground: legible(legible(st.error, bg, 4.5), elev, 4.5),
     focusBorder: focusRing,
     'icon.foreground': dim,
     'selection.background': sel,
@@ -93,11 +106,9 @@ function tokens(s) {
     'sash.hoverBorder': acc,
     'toolbar.hoverBackground': alpha(fg, 0.06),
     'toolbar.activeBackground': alpha(fg, 0.10),
-    'contrastBorder': '#00000000',
-    'contrastActiveBorder': '#00000000',
 
-    'textLink.foreground': legible(legible(y.func, bg, 4.5), elev, 4.5),
-    'textLink.activeForeground': y.string,
+    'textLink.foreground': faded(legible(legible(y.func, bg, 4.5), elev, 4.5), bg, 0.9, 4.5),
+    'textLink.activeForeground': faded(legible(legible(y.string, bg, 4.5), elev, 4.5), bg, 0.9, 4.5),
     'textPreformat.foreground': legible(y.number, mix(hard, y.number, 0.12), 5.4),
     'textPreformat.background': alpha(y.number, 0.10),
     'textBlockQuote.background': elev,
@@ -107,7 +118,8 @@ function tokens(s) {
 
     'editor.background': bg,
     'editor.foreground': fg,
-    'editorLineNumber.foreground': legible(ghost, bg, hc ? 4.5 : 3.0),
+    // line numbers also sit on sticky scroll and in the peek view, half way to the raised surface
+    'editorLineNumber.foreground': readsOn(legible(ghost, bg, hc ? 4.5 : 3.0), mix(bg, elev, 0.5), hc ? 4.5 : 3.0),
     'editorLineNumber.activeForeground': acc,
     'editorLineNumber.dimmedForeground': mix(faint, bg, 0.55),
     'editorCursor.foreground': acc,
@@ -124,7 +136,7 @@ function tokens(s) {
     'editor.wordHighlightTextBackground': alpha(y.func, 0.18),
     'editor.findMatchBackground': findWash,
     'editor.findMatchBorder': y.number,
-    'editor.findMatchHighlightBackground': alpha(y.string, 0.24),
+    'editor.findMatchHighlightBackground': alpha(y.string, matchAlpha),
     'editor.findMatchForeground': legible(fg, findGround, 4.6),
     'editor.findMatchHighlightForeground': fg,
     'editor.findRangeHighlightBackground': alpha(acc, 0.1),
@@ -136,7 +148,8 @@ function tokens(s) {
     'editor.foldBackground': alpha(acc, 0.08),
     'editor.foldPlaceholderForeground': faint,
     'editorLink.activeForeground': y.string,
-    'editorWhitespace.foreground': mix(bg, fg, 0.2),
+    'editorWhitespace.foreground': whitespace,
+    'editorWordWrapIndicator.foreground': whitespace,
     'editorIndentGuide.background1': line,
     'editorIndentGuide.activeBackground1': mix(bg, fg, 0.34),
     'editorRuler.foreground': line,
@@ -249,10 +262,13 @@ function tokens(s) {
 
 function chrome(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, sel, onAcc, onFill, st, y, shadow, up, dn, dark, hoverTab, focusRing, focusStrong } = t;
+  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onFill, st, y, hoverOf, strip, stripHover, focusRing, focusStrong } = t;
   const filterWash = alphaOf(y.number, 0.3);
-  const filterGround = [bg, ch, elev].map((s) => composite(filterWash, s)).reduce((a, b) => (contrast(y.string, b) < contrast(y.string, a) ? b : a));
+  const filterGround = [bg, ch, elev, strip].map((s) => composite(filterWash, s)).reduce((a, b) => (contrast(y.string, b) < contrast(y.string, a) ? b : a));
   const focusHighlight = legible(legible(y.string, filterGround, 4.5), t.over, 4.5);
+  const listHover = alphaOf(fg, 0.06);
+  const activeWash = alphaOf(fg, 0.10);
+  const selectedWash = alphaOf(fg, 0.06);
   return {
     'titleBar.activeBackground': ch,
     'titleBar.activeForeground': legible(dim, ch, 4.5),
@@ -274,7 +290,6 @@ function chrome(t) {
     'activityBar.inactiveForeground': legible(faint, ch, 3.2),
     'activityBar.border': line,
     'activityBar.activeBorder': acc,
-    'activityBar.activeBackground': '#00000000',
     'activityBar.activeFocusBorder': acc,
     'activityBar.dropBorder': acc,
     'activityBarBadge.background': fill,
@@ -288,13 +303,13 @@ function chrome(t) {
     'modernActivityBar.background': ch,
     'modernActivityBar.inactiveBackground': ch,
     'modernActivityBar.border': line2,
-    'modernActivityBar.activeBackground': bg,
+    'modernActivityBar.activeBackground': activeWash,
     'modernActivityBar.activeForeground': fg,
-    'modernActivityBar.hoverBackground': hoverTab,
+    'modernActivityBar.hoverBackground': listHover,
     'modernActivityBar.hoverForeground': fg,
-    'modernActivityBarItem.activeBackground': bg,
+    'modernActivityBarItem.activeBackground': activeWash,
     'modernActivityBarItem.activeForeground': fg,
-    'modernActivityBarItem.hoverBackground': hoverTab,
+    'modernActivityBarItem.hoverBackground': listHover,
     'modernActivityBarItem.hoverForeground': fg,
     'modernPanel.border': line2,
     'modernSash.gripForeground': t.hc ? fg : faint,
@@ -306,7 +321,7 @@ function chrome(t) {
     'profiles.sashBorder': line2,
 
     'sideBar.background': elev,
-    'sideBar.foreground': legible(mixOf(fg, elev, 0.18), elev, 4.5),
+    'sideBar.foreground': t.sideText,
     'sideBar.border': line,
     'sideBar.dropBackground': alphaOf(acc, 0.14),
     'sideBarTitle.background': elev,
@@ -326,7 +341,7 @@ function chrome(t) {
     'list.inactiveSelectionBackground': alphaOf(fg, 0.06),
     'list.inactiveSelectionForeground': fg,
     'list.inactiveSelectionIconForeground': dim,
-    'list.hoverBackground': alphaOf(fg, 0.06),
+    'list.hoverBackground': listHover,
     'list.hoverForeground': fg,
     'list.focusBackground': over,
     'list.focusForeground': fg,
@@ -336,10 +351,10 @@ function chrome(t) {
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
     'list.inactiveFocusOutline': alphaOf(fg, 0.22),
     'list.highlightForeground': t.highlight,
-    'list.errorForeground': st.error,
-    'list.warningForeground': st.warn,
+    'list.errorForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
+    'list.warningForeground': t.handStatus ? st.warn : readsOn(st.warn, elev, 4.5),
     'list.deemphasizedForeground': faint,
-    'list.invalidItemForeground': st.error,
+    'list.invalidItemForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
     'list.dropBackground': alphaOf(acc, 0.16),
     'list.dropBetweenBackground': acc,
     'list.filterMatchBackground': filterWash,
@@ -360,7 +375,7 @@ function chrome(t) {
     'editorGroup.dropIntoPromptBackground': elev,
     'editorGroup.dropIntoPromptForeground': fg,
     'editorGroup.dropIntoPromptBorder': line2,
-    'editorGroupHeader.tabsBackground': ch,
+    'editorGroupHeader.tabsBackground': strip,
     'editorGroupHeader.tabsBorder': line,
     'editorGroupHeader.noTabsBackground': bg,
     'editorGroupHeader.border': line,
@@ -369,44 +384,44 @@ function chrome(t) {
     'tab.activeForeground': fg,
     'tab.activeBorder': bg,
     'tab.activeBorderTop': acc,
-    'tab.inactiveBackground': ch,
-    'tab.inactiveForeground': mix(dim, faint, 0.4),
+    'tab.inactiveBackground': strip,
+    'tab.inactiveForeground': legible(mix(dim, faint, 0.4), strip, 4.5),
     'tab.border': line,
-    'tab.hoverBackground': hoverTab,
+    'tab.hoverBackground': stripHover,
     'tab.hoverForeground': fg,
     'tab.hoverBorder': '#00000000',
     'tab.unfocusedActiveBackground': bg,
     'tab.unfocusedActiveForeground': dim,
     'tab.unfocusedActiveBorder': '#00000000',
     'tab.unfocusedActiveBorderTop': mixOf(acc, ch, 0.5),
-    'tab.unfocusedInactiveBackground': ch,
-    'tab.unfocusedInactiveForeground': faint,
-    'tab.unfocusedHoverBackground': hoverTab,
-    'tab.unfocusedHoverForeground': legible(dim, hoverTab, 4.5),
+    'tab.unfocusedInactiveBackground': strip,
+    'tab.unfocusedInactiveForeground': legible(faint, strip, 3.4),
+    'tab.unfocusedHoverBackground': stripHover,
+    'tab.unfocusedHoverForeground': legible(dim, stripHover, 4.5),
     'tab.unfocusedHoverBorder': '#00000000',
     'tab.lastPinnedBorder': line2,
     'tab.dragAndDropBorder': acc,
     'tab.activeModifiedBorder': st.modified,
-    'tab.inactiveModifiedBorder': mixOf(st.modified, ch, 0.5),
+    'tab.inactiveModifiedBorder': mixOf(st.modified, strip, 0.5),
     'tab.unfocusedActiveModifiedBorder': mixOf(st.modified, ch, 0.4),
-    'tab.unfocusedInactiveModifiedBorder': mixOf(st.modified, ch, 0.65),
-    'tab.selectedBackground': alphaOf(fg, 0.06),
+    'tab.unfocusedInactiveModifiedBorder': mixOf(st.modified, strip, 0.65),
+    'tab.selectedBackground': selectedWash,
     'tab.selectedForeground': fg,
     'tab.selectedBorderTop': acc,
-    'modernTab.activeBackground': bg,
+    'modernTab.activeBackground': activeWash,
     'modernTab.activeForeground': fg,
-    'modernTab.hoverBackground': hoverTab,
+    'modernTab.hoverBackground': listHover,
     'modernTab.hoverForeground': fg,
-    'modernEditorTab.activeBackground': bg,
+    'modernEditorTab.activeBackground': activeWash,
     'modernEditorTab.activeForeground': fg,
     'modernEditorTab.inactiveBackground': '#00000000',
-    'modernEditorTab.hoverBackground': hoverTab,
+    'modernEditorTab.hoverBackground': listHover,
     'modernEditorTab.hoverForeground': fg,
-    'modernEditorTab.activeHoverBackground': hoverTab,
-    'modernEditorTab.activeActionBackground': bg,
-    'modernEditorTab.activeHoverActionBackground': hoverTab,
-    'modernEditorTab.hoverActionBackground': hoverTab,
-    'modernEditorTab.selectedActionBackground': bg,
+    'modernEditorTab.activeHoverBackground': activeWash,
+    'modernEditorTab.activeActionBackground': composite(activeWash, bg),
+    'modernEditorTab.activeHoverActionBackground': composite(activeWash, bg),
+    'modernEditorTab.hoverActionBackground': composite(listHover, bg),
+    'modernEditorTab.selectedActionBackground': composite(selectedWash, bg),
 
     'breadcrumb.background': bg,
     'breadcrumb.foreground': dim,
@@ -454,23 +469,23 @@ function chrome(t) {
     ...remoteIndicator(t),
     'statusBarItem.errorBackground': st.error,
     'statusBarItem.errorForeground': onColor(st.error),
-    'statusBarItem.errorHoverBackground': up(st.error, 0.1),
-    'statusBarItem.errorHoverForeground': onColor(up(st.error, 0.1)),
+    'statusBarItem.errorHoverBackground': hoverOf(st.error, 0.1),
+    'statusBarItem.errorHoverForeground': onColor(hoverOf(st.error, 0.1)),
     'statusBarItem.warningBackground': st.warn,
     'statusBarItem.warningForeground': onColor(st.warn),
-    'statusBarItem.warningHoverBackground': up(st.warn, 0.1),
-    'statusBarItem.warningHoverForeground': onColor(up(st.warn, 0.1)),
+    'statusBarItem.warningHoverBackground': hoverOf(st.warn, 0.1),
+    'statusBarItem.warningHoverForeground': onColor(hoverOf(st.warn, 0.1)),
     'statusBarItem.compactHoverBackground': alphaOf(fg, 0.14),
     'statusBarItem.offlineBackground': st.deleted,
     'statusBarItem.offlineForeground': onColor(st.deleted),
-    'statusBarItem.offlineHoverBackground': up(st.deleted, 0.1),
-    'statusBarItem.offlineHoverForeground': onColor(up(st.deleted, 0.1)),
+    'statusBarItem.offlineHoverBackground': hoverOf(st.deleted, 0.1),
+    'statusBarItem.offlineHoverForeground': onColor(hoverOf(st.deleted, 0.1)),
   };
 }
 
 function controls(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark, field, sliders } = t;
+  const { bg, elev, over, fg, dim, faint, line, line2, acc, fill, onFill, st, y, shadow, hoverOf, dark, field, sliders } = t;
   return {
     'input.background': field,
     'input.foreground': fg,
@@ -498,7 +513,7 @@ function controls(t) {
     'button.background': fill,
     'button.foreground': onFill,
     'button.border': alphaOf(fg, 0.12),
-    'button.hoverBackground': up(fill, 0.12),
+    'button.hoverBackground': hoverOf(fill, 0.12),
     'button.separator': alphaOf(onFill, 0.35),
     'button.secondaryBackground': over,
     'button.secondaryForeground': fg,
@@ -506,16 +521,16 @@ function controls(t) {
     'extensionButton.background': fill,
     'extensionButton.foreground': onFill,
     'extensionButton.border': alphaOf(fg, 0.12),
-    'extensionButton.hoverBackground': up(fill, 0.12),
+    'extensionButton.hoverBackground': hoverOf(fill, 0.12),
     'extensionButton.prominentBackground': fill,
     'extensionButton.prominentForeground': onFill,
-    'extensionButton.prominentHoverBackground': up(fill, 0.12),
+    'extensionButton.prominentHoverBackground': hoverOf(fill, 0.12),
     'extensionButton.separator': alphaOf(onFill, 0.35),
     'extensionBadge.remoteBackground': fill,
     'extensionBadge.remoteForeground': onFill,
     'extensionIcon.starForeground': st.warn,
     'extensionIcon.verifiedForeground': st.ok,
-    'extensionIcon.preReleaseForeground': y.tag,
+    'extensionIcon.preReleaseForeground': underWhite(y.tag),
     'extensionIcon.sponsorForeground': y.tag,
 
     'checkbox.background': field,
@@ -602,7 +617,7 @@ function integrations(t) {
     }
     return lighten(c, 0.02);
   };
-  const { sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
+  const { sh, bg, elev, over, fg, dim, faint, line, line2, acc, st, y, dark } = t;
   return {
     'terminal.background': elev,
     'terminal.foreground': fg,
@@ -754,7 +769,7 @@ function integrations(t) {
 
 function assistant(t) {
   const legible = t.legible;
-  const { onColor, sh, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark, field, sliders } = t;
+  const { onColor, bg, elev, chrome: ch, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, hoverOf, field, sliders } = t;
   // the frame 1.138 draws around a chat editor: solid while a request runs, dotted while a result
   // waits to be seen, dashed when the session waits for input. A chat editor sits on the editor,
   // the side bar or the chrome, so the status colour is lifted until it clears 3:1 on all 3.
@@ -784,6 +799,8 @@ function assistant(t) {
     'chat.sessionStateIndicator.inProgressBorder': frame(st.warn),
     'chat.sessionStateIndicator.unvisitedBorder': frame(st.ok),
     'chat.sessionStateIndicator.needsInputBorder': frame(st.error),
+    'chat.workingProgressStableIconForeground': st.info,
+    'chat.workingProgressInsidersIconForeground': st.ok,
 
     'inlineChat.background': elev,
     'inlineChat.border': line2,
@@ -807,7 +824,7 @@ function assistant(t) {
     'agentsNewSessionButton.background': fill,
     'agentsNewSessionButton.foreground': onFill,
     'agentsNewSessionButton.border': alphaOf(fg, 0.14),
-    'agentsNewSessionButton.hoverBackground': up(fill, 0.12),
+    'agentsNewSessionButton.hoverBackground': hoverOf(fill, 0.12),
     'agentsMobileDiff.addedForeground': st.added,
     'agentsMobileDiff.modifiedForeground': st.modified,
     'agentsMobileDiff.deletedForeground': st.deleted,
@@ -987,7 +1004,7 @@ export function buildColors(spec) {
 export { tokens };
 
 function remainder(t) {
-  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
+  const { onColor, elev, fg, dim, faint, line, line2, acc, fill, onFill, st, y } = t;
   const sym = {
     alias: y.variable, argument: y.param, branch: y.type, file: fg,
     folder: dim, inlineSuggestion: faint, method: y.func, option: y.keyword,
@@ -1029,7 +1046,7 @@ function remainder(t) {
 }
 
 function tail(t) {
-  const { onColor, sh, bg, elev, over, fg, dim, faint, line, line2, acc, fill, onAcc, onFill, st, y, shadow, up, dn, dark } = t;
+  const { bg, elev, over, fg, faint, line, line2, acc, st, y, highlight } = t;
   return {
     'actionBar.toggledBackground': alphaOf(acc, 0.22),
     'toolbar.hoverOutline': '#00000000',
@@ -1050,8 +1067,6 @@ function tail(t) {
     'editorWarning.border': '#00000000',
     'editorInfo.border': '#00000000',
     'editorHint.border': '#00000000',
-    'editorIndentGuide.background': line,
-    'editorIndentGuide.activeBackground': mixOf(bg, fg, 0.34),
     'editorMarkerNavigation.background': elev,
     'editorMarkerNavigationError.background': st.error,
     'editorMarkerNavigationWarning.background': st.warn,
@@ -1063,7 +1078,7 @@ function tail(t) {
     'mergeEditor.conflict.input1.background': alphaOf(y.type, 0.16),
     'mergeEditor.conflict.input2.background': alphaOf(y.func, 0.16),
     'outputViewStickyScroll.background': elev,
-    'quickInputList.focusHighlightForeground': y.string,
+    'quickInputList.focusHighlightForeground': highlight,
     'scmGraph.historyItemHoverDefaultLabelBackground': over,
     'scmGraph.historyItemHoverDefaultLabelForeground': fg,
     'scrollbar.background': '#00000000',
@@ -1082,7 +1097,7 @@ function tail(t) {
 }
 
 function addendum(t) {
-  const { bg, elev, chrome, over, fg, dim, faint, ghost, line, line2, acc, fill, sel, onAcc, onFill, st, y, depth, trio, dark, legible } = t;
+  const { bg, elev, chrome, fg, dim, faint, ghost, line, line2, acc, fill, onFill, st, y, trio, dark, legible } = t;
   const a = (c, k) => alpha(c, k);
   const m = (x, yy, k) => mix(x, yy, k);
   const guides = {};
@@ -1163,7 +1178,7 @@ function addendum(t) {
 }
 
 function gitDecorations(t) {
-  const { st, y, bg, ansi } = t;
+  const { st, y, ansi } = t;
   let ignored = t.faint;
   if (deltaE(ignored, st.modified) < 9) {
     const [L, , h] = hex2lch(ignored);
@@ -1194,17 +1209,20 @@ function gitDecorations(t) {
   };
   const renamed = pick(taken);
   const submodule = pick([...taken, renamed]);
+  // hand placed status colours stay as their palette writes them
+  const name = (c) => readsOn(c, t.elev, 4.5);
+  const status = (c) => (t.handStatus ? c : name(c));
   return {
-    'gitDecoration.addedResourceForeground': st.added,
-    'gitDecoration.untrackedResourceForeground': st.added,
-    'gitDecoration.modifiedResourceForeground': st.modified,
-    'gitDecoration.stageModifiedResourceForeground': st.modified,
-    'gitDecoration.deletedResourceForeground': st.deleted,
-    'gitDecoration.stageDeletedResourceForeground': st.deleted,
-    'gitDecoration.conflictingResourceForeground': st.conflict,
+    'gitDecoration.addedResourceForeground': status(st.added),
+    'gitDecoration.untrackedResourceForeground': status(st.added),
+    'gitDecoration.modifiedResourceForeground': status(st.modified),
+    'gitDecoration.stageModifiedResourceForeground': status(st.modified),
+    'gitDecoration.deletedResourceForeground': status(st.deleted),
+    'gitDecoration.stageDeletedResourceForeground': status(st.deleted),
+    'gitDecoration.conflictingResourceForeground': status(st.conflict),
     'gitDecoration.ignoredResourceForeground': ignored,
-    'gitDecoration.renamedResourceForeground': renamed,
-    'gitDecoration.submoduleResourceForeground': submodule,
+    'gitDecoration.renamedResourceForeground': name(renamed),
+    'gitDecoration.submoduleResourceForeground': name(submodule),
   };
 }
 
@@ -1252,6 +1270,38 @@ function apart(colour, ground, toward, minDE) {
   return toward;
 }
 
+// a colour VS Code writes as text on a surface, moved just enough to read there
+function readsOn(colour, ground, target) {
+  const dark = relLum(ground) < 0.5;
+  let c = colour;
+  for (let k = 0.01; k <= 0.95 && contrast(c, ground) < target; k += 0.01) c = dark ? lighten(colour, k) : darken(colour, k);
+  return c;
+}
+
+// the Settings editor shows its descriptions at 90% opacity, links included
+function faded(colour, ground, share, target) {
+  const dark = relLum(ground) < 0.5;
+  const at = (c) => contrast(mix(ground, c, share), ground);
+  for (let k = 0; k <= 0.9 && at(colour) < target; k += 0.01) colour = dark ? lighten(colour, 0.01) : darken(colour, 0.01);
+  return colour;
+}
+
+// VS Code writes white text on this colour, so it darkens just until white reads at 4.5
+function underWhite(colour) {
+  let c = colour;
+  for (let k = 0.01; k <= 0.9 && contrast('#ffffff', c) < 4.5; k += 0.01) c = darken(colour, k);
+  return c;
+}
+
+function reach(colour, ground, toward, minDE) {
+  if (deltaE(colour, ground) >= minDE) return colour;
+  for (let k = 0.005; k <= 1; k += 0.005) {
+    const c = mix(colour, toward, k);
+    if (deltaE(c, ground) >= minDE) return c;
+  }
+  return toward;
+}
+
 function presence(ground, toward, start, minDE) {
   for (let k = start; k <= 0.5; k += 0.005) {
     const c = mix(ground, toward, k);
@@ -1274,13 +1324,6 @@ function sliderTone(bg, fg, target) {
     if (contrast(out, bg) >= target) return out;
   }
   return out;
-}
-
-function sliderAlpha(bg, fg, target) {
-  for (let k = 0.05; k <= 0.9; k += 0.01) {
-    if (deltaE(composite(alpha(fg, k), bg), bg) >= target) return Number(k.toFixed(2));
-  }
-  return 0.5;
 }
 
 function cellFill(bg, fg, target = 3.0) {
@@ -1367,13 +1410,6 @@ function softStatus(c, cap = 46) {
   return C <= cap ? c : lch2hex(L, cap, h);
 }
 
-function headingColor(t) {
-  const { y, fg } = t;
-  const [Lf] = hex2lch(fg);
-  const [L, C, h] = hex2lch(y.keyword);
-  return lch2hex(Math.min(L, Lf), Math.max(C, 16), h);
-}
-
 function diffWashes(t) {
   const { st, bg, y } = t;
   const syntax = [y.keyword, y.string, y.func, y.type, y.number, y.tag, y.op].filter(Boolean);
@@ -1450,17 +1486,6 @@ function forkKeys(all, t) {
   };
 }
 
-function legibleOn(c, ground, target) {
-  if (contrast(c, ground) >= target) return c;
-  const up = relLum(ground) < 0.5;
-  let best = c;
-  for (let k = 0.05; k <= 0.9; k += 0.05) {
-    best = up ? lighten(c, k) : darken(c, k);
-    if (contrast(best, ground) >= target) return best;
-  }
-  return best;
-}
-
 function lightnessFor(cr, bg) {
   const Yb = relLum(bg);
   const Y = Yb < 0.5 ? cr * (Yb + 0.05) - 0.05 : (Yb + 0.05) / cr - 0.05;
@@ -1498,6 +1523,9 @@ function applyHighContrast(all, t) {
   all['editor.lineHighlightBorder'] = c.active;
   all['editor.lineHighlightBackground'] = '#00000000';
   all['editorWhitespace.foreground'] = t.legible(t.faint, t.bg, 4.5);
+  all['editorWordWrapIndicator.foreground'] = all['editorWhitespace.foreground'];
+  all['chat.workingProgressStableIconForeground'] = c.active;
+  all['chat.workingProgressInsidersIconForeground'] = c.active;
   all['widget.shadow'] = '#00000000';
   all['scrollbar.shadow'] = '#00000000';
 }
@@ -1545,7 +1573,7 @@ function scmGraphColors(t) {
 }
 
 function remoteIndicator(t) {
-  const { acc, st, y, ansi, onColor, up } = t;
+  const { acc, st, y, ansi, onColor, hoverOf } = t;
   const [, chroma, hue] = hex2lch(acc);
   const readsAsOk = chroma > 18 && hue > 95 && hue < 175;
   const readsAsError = chroma > 18 && (hue < 35 || hue > 345);
@@ -1568,7 +1596,7 @@ function remoteIndicator(t) {
   return {
     'statusBarItem.remoteBackground': base,
     'statusBarItem.remoteForeground': onColor(base),
-    'statusBarItem.remoteHoverBackground': up(base, 0.12),
-    'statusBarItem.remoteHoverForeground': onColor(up(base, 0.12)),
+    'statusBarItem.remoteHoverBackground': hoverOf(base, 0.12),
+    'statusBarItem.remoteHoverForeground': onColor(hoverOf(base, 0.12)),
   };
 }

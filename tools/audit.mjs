@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, parse } from './color.mjs';
+import { contrast, over, deltaE } from './color.mjs';
 import { FAMILIES } from './palettes.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
 import { FORK_KEYS } from './forks.mjs';
+import { LEFT_UNSET, leftUnset } from './unset.mjs';
 import { execFileSync } from 'node:child_process';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -50,8 +51,10 @@ for (const t of declared) {
   note(th.type === EXPECT[t.uiTheme], `${t.label}: type ${th.type} does not match uiTheme ${t.uiTheme}`);
   note(th.semanticHighlighting === true, `${t.label}: semanticHighlighting is not on`);
   note(th.$schema === 'vscode://schemas/color-theme', `${t.label}: $schema is missing`);
-  const missing = ALL_KEYS.filter((k) => !(k in th.colors));
+  const unset = leftUnset(t.uiTheme);
+  const missing = ALL_KEYS.filter((k) => !(k in th.colors) && !unset.has(k));
   note(missing.length === 0, `${t.label}: ${missing.length} missing keys`);
+  for (const k of unset) note(!(k in th.colors), `${t.label}: ${k} must stay unset, ${LEFT_UNSET.find((u) => u.key === k).why}`);
   const dead = Object.keys(th.colors).filter((k) => !REAL.has(k) && !FORK.has(k));
   for (const k of FORK) note(k in th.colors, `${t.label}: ${k} is missing`);
   note(dead.length === 0, `${t.label}: ${dead.length} dead keys: ${dead.slice(0, 3).join(', ')}`);
@@ -216,10 +219,10 @@ note(readme.includes(`${declared.length} themes`), `README does not say ${declar
 note(readme.includes(`${FAMILIES.length} families`) || readme.includes(`All ${FAMILIES.length} families`),
   `README does not say ${FAMILIES.length} families`);
 note(readme.includes(`all ${ALL_KEYS.length} colour keys`), `README does not say all ${ALL_KEYS.length} colour keys`);
-const lowestAnywhere = Math.min(...FAMILIES.flatMap((f) => ['dark', 'light', 'hcDark', 'hcLight']
+const lowestSyntax = Math.min(...FAMILIES.flatMap((f) => ['dark', 'light', 'hcDark', 'hcLight']
   .filter((v) => f[v]).flatMap((v) => [...R, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
-note(readme.includes(`the lowest value anywhere is ${lowestAnywhere}`),
-  `README does not say the lowest value anywhere is ${lowestAnywhere}`);
+note(readme.includes(`comments 4.0, the lowest at ${lowestSyntax};`),
+  `README does not say the lowest syntax contrast is ${lowestSyntax}`);
 note(!readme.includes('\u2014'), 'README contains an em dash');
 note(!/^##?\s*License/m.test(readme), 'README has a licence section');
 const imgs = [...readme.matchAll(/readme-assets\/([\w.-]+)/g)].map((m) => m[1]);

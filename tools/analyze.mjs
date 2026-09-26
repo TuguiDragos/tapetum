@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contrast, over, deltaE, toLab, parse, mix, alpha } from './color.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
+import { leftUnset } from './unset.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const R = (f) => JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8'));
@@ -28,8 +29,8 @@ const DELIBERATE = [
   { re: /^inlineEdit\.gutterIndicator\.successfulBackground$/, why: 'in the high contrast variants the border becomes the theme contrast colour while the background keeps the success colour, otherwise the indicator would disappear' },
   { re: /^editor\.inactiveLineHighlightBackground$/, why: 'VS Code derives it equal to the active line. It is kept weaker, otherwise an unfocused editor group looks as lit as the focused one' },
   { re: /^editorInlayHint\.(parameter|type)Background$/, why: 'parameter and type hints take the hue of their own role, the same as the text drawn in them, not the accent' },
-  { re: /^modernTab\.activeBackground$/, why: 'the active modern tab takes the editor surface, like the classic active tab, so the open file and its tab read as one surface' },
-  { re: /^modernTab\.hoverBackground$/, why: 'hover on a modern tab takes the same surface as hover on a classic tab, not the list hover' },
+  { re: /^modernTab\.activeBackground$/, why: 'modern tabs sit on the editor or on a menu, so the active one takes the active wash of toolbars, the text at 10%, a step above the list hover it would otherwise equal' },
+  { re: /^modernEditorTab\.activeHoverBackground$/, why: 'hovering the active tab keeps it at the active wash instead of dropping to the lighter hover' },
   { re: /^statusBarItem\.prominentHoverBackground$/, why: 'prominent items already sit on a 14% wash, so their hover has to rise above it rather than take the ordinary hover' },
   { re: /^terminal\.selectionBackground$/, why: 'the terminal selection is weaker than the editor selection, otherwise it drowns the ANSI colours' },
   { re: /^menu\.background$/, why: 'menus are elevated surfaces, not input fields' },
@@ -105,8 +106,8 @@ const describe = (p) => {
 };
 
 const FLOOR = (fgKey) => {
-  if (/placeholder|inactive|ghost|disabled|dimmed|unnecessary/i.test(fgKey)) return 3.0;
-  if (/description|comment|lineNumber(?!\.active)/i.test(fgKey)) return 4.0;
+  if (/placeholder|inactive|ghost|disabled|dimmed|unnecessary|lineNumber(?!\.active)/i.test(fgKey)) return 3.0;
+  if (/description|comment/i.test(fgKey)) return 4.0;
   return 4.5;
 };
 
@@ -125,7 +126,8 @@ function analyze(entry) {
   for (const [k, v] of Object.entries(t.colors))
     if (!HEX.test(v)) found.push({ sev: 'blocking', msg: `invalid colour ${k} = ${v}` });
 
-  const missing = ALL_KEYS.filter((k) => !(k in t.colors));
+  const unset = leftUnset(entry.uiTheme);
+  const missing = ALL_KEYS.filter((k) => !(k in t.colors) && !unset.has(k));
   if (missing.length) found.push({ sev: 'coverage', msg: `${missing.length} missing keys: ${missing.slice(0, 4).join(', ')}` });
   const stale = Object.keys(t.colors).filter((k) => DEPRECATED.has(k) && !KEPT.has(k));
   if (stale.length) found.push({ sev: 'deprecated', msg: `${stale.length} deprecated keys set: ${stale.slice(0, 4).join(', ')}` });

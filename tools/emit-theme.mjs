@@ -240,7 +240,7 @@ function tameHeadings(rules, body, bg) {
 
 export function emitTheme(spec) {
   const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark', spec.ansi);
-  const full = { ...spec, status: st, ansi: spec.ansi };
+  const full = { ...spec, status: st, handStatus: !!spec.status, ansi: spec.ansi };
   const y = {};
   for (const [k, v] of Object.entries(spec.syntax)) y[k] = typeof v === 'string' ? v : v.hex;
   y.st = st;
