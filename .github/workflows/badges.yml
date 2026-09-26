@@ -2,18 +2,31 @@ name: Badges
 
 on:
   schedule:
-    - cron: '17 6 * * *'
+    - cron: '17 6 * * 1'
   workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: badges
   cancel-in-progress: false
 
 jobs:
+  cadence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      due: ${{ steps.week.outputs.due }}
+    steps:
+      - name: Every third week, counted from the Unix epoch
+        id: week
+        run: echo "due=$(( $(date -u +%s) / 604800 % 3 == 0 ))" >> "$GITHUB_OUTPUT"
+
   refresh:
+    needs: cadence
+    if: github.event_name == 'workflow_dispatch' || needs.cadence.outputs.due == '1'
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

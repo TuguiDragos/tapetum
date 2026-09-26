@@ -2,7 +2,7 @@ name: Registry
 
 on:
   schedule:
-    - cron: '23 5 * * 1'
+    - cron: '23 5 2 * *'
   workflow_dispatch:
 
 permissions:
@@ -64,7 +64,7 @@ jobs:
             exit 0
           fi
           {
-            echo "The weekly registry check ran against VS Code $VERSION."
+            echo "The monthly registry check ran against VS Code $VERSION."
             echo
             echo '```'
             git diff --stat -- tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json
