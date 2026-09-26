@@ -126,12 +126,6 @@
     "sel": ".monaco-editor"
   },
   {
-    "fg": "menu.foreground",
-    "bg": "menu.background",
-    "n": 6,
-    "sel": ".action-widget"
-  },
-  {
     "fg": "statusBarItem.errorForeground",
     "bg": "statusBarItem.errorBackground",
     "n": 6,
@@ -172,6 +166,12 @@
     "bg": "diffEditor.unchangedRegionBackground",
     "n": 4,
     "sel": ".monaco-editor .diff-hidden-lines .center"
+  },
+  {
+    "fg": "menu.foreground",
+    "bg": "menu.background",
+    "n": 4,
+    "sel": ".action-widget"
   },
   {
     "fg": "list.hoverForeground",
@@ -254,6 +254,12 @@
     "bg": "agentsChatInput.background",
     "n": 3,
     "sel": ".agent-sessions-workbench .interactive-session .chat-input-container"
+  },
+  {
+    "fg": "foreground",
+    "bg": "list.hoverBackground",
+    "n": 2,
+    "sel": ".monaco-editor .diff-hidden-lines-disclosure .center:hover"
   },
   {
     "fg": "foreground",
@@ -496,6 +502,12 @@
     "bg": "activityBarBadge.background",
     "n": 2,
     "sel": ".agent-sessions-workbench .sessions-account-titlebar-widget.kind-prominent .sessions-accou"
+  },
+  {
+    "fg": "descriptionForeground",
+    "bg": "textCodeBlock.background",
+    "n": 2,
+    "sel": ".sessions-issue-hover-status"
   },
   {
     "fg": "foreground",

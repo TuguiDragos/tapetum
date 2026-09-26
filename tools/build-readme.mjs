@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { FAMILIES } from './palettes.mjs';
 import { contrast, deltaE } from './color.mjs';
 import { STORIES, SOURCES, SHOTS, README_ORDER } from './stories.mjs';
+import { leftUnset } from './unset.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
@@ -31,6 +32,8 @@ for (const v of ['dark', 'light']) {
 const FAMILY_GAP = Math.floor(closest);
 const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
 const KEY_COUNT = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
+const UNSET_REGULAR = leftUnset('vs-dark').size;
+const UNSET_HC = leftUnset('hc-black').size;
 const LOWEST = Math.min(...FAMILIES.flatMap((f) => VARIANTS.filter((v) => f[v])
   .flatMap((v) => [...HUE_ROLES, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
 if (ORDERED.length !== FAMILIES.length) throw new Error('the README order does not cover every family');
@@ -56,7 +59,7 @@ function family(fam) {
   const depth = fam.dark.depth
     ? `\n| nesting depth | ${cols.map((v) => (fam[v].depth || []).map((d) => `\`${d}\``).join(' ') || '-').join(' | ')} |`
     : '';
-  const scheme = fam.scheme && fam.scheme !== 'grammar' ? ' &nbsp;`' + SCHEME[fam.scheme] + '` scheme' : '';
+  const scheme = fam.scheme && fam.scheme !== 'grammar' ? ' &nbsp;<code>' + SCHEME[fam.scheme] + '</code> scheme' : '';
   return `### ${fam.label}
 
 ${shots ? shots + '\n\n' : ''}${STORIES[fam.id].trim()}
@@ -159,7 +162,7 @@ ${sem}
 const md = `${badges}
 
 <h1 align="center">
-  <img src="${RAW}/tapetum-fan-512.png" alt="" width="56" align="center" />
+  <img src="${RAW}/tapetum-fan-512.png" alt="" width="56" align="absmiddle" />
   &nbsp;${pkg.displayName}
 </h1>
 
@@ -265,9 +268,9 @@ ${THEME_COUNT} variants:
 
 | | |
 | --- | --- |
-| **Contrast** | every syntax colour against its own background, and every piece of interface text against the surface it actually sits on. Syntax clears 4.5 to 1, comments clear 4.0, and the lowest value anywhere is ${LOWEST} |
+| **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1 and comments 4.0, the lowest at ${LOWEST}; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all ${KEY_COUNT} colour keys VS Code ${REGISTRY.vscode} registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults |
+| **Coverage** | all ${KEY_COUNT} colour keys VS Code ${REGISTRY.vscode} registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, ${UNSET_REGULAR} in the regular themes and ${UNSET_HC} in the high contrast ones, which \`tools/unset.mjs\` lists with the reason |
 | **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code ${REGISTRY.vscode} |
 
 None of that comes from a hand written list. \`tools/extract-keys.mjs\` reads the
@@ -282,8 +285,13 @@ value quietly contradicts the surface beneath it. \`tools/paint-check.mjs\`
 tokenizes every selector of every rule with \`vscode-textmate\`, the library VS
 Code itself uses to colour code, so a rule that inherits a style from a rule
 above it, or loses its colour to a rule below it, is caught before it ships.
+\`tools/deep.mjs\` measures what the stylesheets set apart: the colours VS Code
+paints on whatever surface a component sits on, read on every one of those
+surfaces, text whose surface comes from another rule, and the tab strip, whose
+difference from the editor is the only outline the active tab has in the
+connected tabs of VS Code 1.139.
 The 3 files the extractors write are committed, checked in CI against every
-theme, and refreshed by a weekly workflow
+theme, and refreshed by a monthly workflow
 that downloads the current VS Code build, so a new surface is noticed by a
 machine rather than by a person.
 
@@ -294,7 +302,8 @@ registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 35
 surfaces those editors paint in colours of their own, listed with their reasons
 in \`tools/forks.mjs\`, take the family's colour instead; \`tools/fork-check.mjs\`
-repeats those measurements on any editor from 1 command. The registry, pairs and
+repeats those measurements on any editor from 1 command, and confirms that its
+core accepts the VS Code version the manifest asks for. The registry, pairs and
 derivations extracted from the Linux and Windows builds of VS Code ${REGISTRY.vscode}
 are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
