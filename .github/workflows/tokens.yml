@@ -36,7 +36,7 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
           PUBLISHER: ${{ steps.manifest.outputs.publisher }}
-        run: npx --yes @vscode/vsce@3 verify-pat "$PUBLISHER"
+        run: npx --yes @vscode/vsce@4 verify-pat "$PUBLISHER"
 
       - name: Ask Open VSX whether its token can still publish
         id: openvsx
