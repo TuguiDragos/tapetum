@@ -30,7 +30,8 @@ function measure(name, bg, roles, comment) {
 const mine = [];
 for (const fam of FAMILIES) for (const v of VARIANT_KEYS(fam)) {
   const p = fam[v];
-  const m = measure(`Tapetum ${fam.label}${v === 'light' ? ' Light' : ''}`, p.bg, p, p.comment);
+  const m = measure(`Tapetum ${fam.label}${{ dark: '', light: ' Light', hcDark: ' High Contrast', hcLight: ' High Contrast Light' }[v]}`, p.bg, p, p.comment);
+  m.id = fam.id;
   m.wcag = Math.min(...ROLES.map((r) => contrast(p[r], p.bg)));
   mine.push(m);
 }
@@ -79,23 +80,25 @@ try {
 
 console.log(`APCA. Floors per role: ${Object.entries(FLOOR).map(([k, v]) => `${k} ${v}`).join(', ')}, comments ${FLOOR_COMMENT}.`);
 console.log(`Reference: Lc 60 is the APCA floor for content text at normal weight, Lc 45 for large text or text read in glances.\n`);
-console.log('theme'.padEnd(30) + 'Lc min'.padStart(6) + 'Lc mean'.padStart(10) + 'comment'.padStart(12) + 'under'.padStart(11) + 'WCAG min'.padStart(11));
-console.log('-'.repeat(80));
+console.log('theme'.padEnd(38) + 'Lc min'.padStart(6) + 'Lc mean'.padStart(10) + 'comment'.padStart(12) + 'under'.padStart(11) + 'WCAG min'.padStart(11));
+console.log('-'.repeat(88));
 for (const m of mine.sort((a, b) => a.min - b.min)) {
-  console.log(m.name.padEnd(30) + m.min.toFixed(1).padStart(6) + m.mean.toFixed(1).padStart(10)
+  console.log(m.name.padEnd(38) + m.min.toFixed(1).padStart(6) + m.mean.toFixed(1).padStart(10)
     + (m.comment === null ? '   .' : m.comment.toFixed(1)).padStart(12)
     + (m.below.length ? m.below.join(',') : '-').padStart(11) + m.wcag.toFixed(2).padStart(11));
 }
 const minAll = Math.min(...mine.map((m) => m.min));
-const worstComment = Math.min(...mine.map((m) => m.comment));
-const failing = mine.filter((m) => m.below.length);
-console.log('-'.repeat(80));
+const worstComment = Math.min(...mine.filter((m) => m.comment !== null).map((m) => m.comment));
+console.log('-'.repeat(88));
 console.log(`lowest Lc on code: ${minAll.toFixed(1)}  |  lowest Lc on comments: ${worstComment.toFixed(1)}`);
 const exemptKey = new Set(EXEMPT.map((e) => `${e.family}.${e.role}`));
-const realFail = mine.filter((m) => m.below.length);
-console.log(`themes with at least one role under its floor: ${realFail.length} of ${mine.length}`);
-if (realFail.length) for (const m of realFail) console.log(`   ${m.name.padEnd(28)} ${m.below.join(', ')}`);
+const realFail = mine.filter((m) => m.below.some((r) => !exemptKey.has(`${m.id}.${r}`)));
+console.log(`themes with a role under its floor, exemptions aside: ${realFail.length} of ${mine.length}`);
+for (const m of realFail) console.log(`   ${m.name.padEnd(36)} ${m.below.filter((r) => !exemptKey.has(`${m.id}.${r}`)).join(', ')}`);
 console.log(`exempt by design: ${EXEMPT.map((e) => e.family + '.' + e.role).join(', ')}`);
+const quietComments = mine.filter((m) => m.comment !== null && m.comment < FLOOR_COMMENT);
+console.log(`themes with comments under Lc ${FLOOR_COMMENT}: ${quietComments.length} of ${mine.length}`);
+for (const m of quietComments) console.log(`   ${m.name.padEnd(36)} Lc ${m.comment.toFixed(1)}`);
 
 if (official.length) {
   console.log('\nTHE THEMES MICROSOFT SHIPS, the same measure on their TextMate rules');

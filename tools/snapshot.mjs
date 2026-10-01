@@ -16,13 +16,15 @@ function shoot() {
   for (const fam of FAMILIES) for (const v of VARIANT_KEYS(fam)) {
     const id = `${fam.id}-${v}`;
     const t = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${id}.json`), 'utf8'));
+    const meta = { name: t.name, type: t.type, semanticHighlighting: t.semanticHighlighting, $schema: t.$schema };
     out[id] = {
+      meta,
       colors: digest(t.colors),
       tokenColors: digest(t.tokenColors),
       semanticTokenColors: digest(t.semanticTokenColors),
       counts: [Object.keys(t.colors).length, t.tokenColors.length, Object.keys(t.semanticTokenColors).length],
       values: t.colors,
-      rules: t.tokenColors.map((r) => `${r.name}|${r.settings.foreground || ''}|${r.settings.fontStyle || ''}`),
+      rules: t.tokenColors.map((r) => `${r.name}|${[].concat(r.scope).join(', ')}|${r.settings.foreground || ''}|${r.settings.fontStyle || ''}`),
       semantic: t.semanticTokenColors,
     };
   }
@@ -31,6 +33,10 @@ function shoot() {
 
 function diffTheme(before, after) {
   const changes = [];
+  for (const k of new Set([...Object.keys(before.meta || {}), ...Object.keys(after.meta)])) {
+    const a = JSON.stringify((before.meta || {})[k]), b = JSON.stringify(after.meta[k]);
+    if (a !== b) changes.push({ kind: 'field', key: k, from: a ?? 'missing', to: b ?? 'removed' });
+  }
   const keys = new Set([...Object.keys(before.values), ...Object.keys(after.values)]);
   for (const k of keys) {
     const a = before.values[k], b = after.values[k];
@@ -60,7 +66,11 @@ const now = shoot();
 const update = process.argv.includes('--update');
 const verbose = process.argv.includes('--verbose');
 
-if (update || !fs.existsSync(FILE)) {
+if (!update && !fs.existsSync(FILE)) {
+  console.log('no snapshot to compare with: tools/snapshots.json is missing; run node tools/snapshot.mjs --update to create it');
+  process.exit(1);
+}
+if (update) {
   fs.writeFileSync(FILE, JSON.stringify(now, null, 1) + '\n');
   const keys = Object.values(now).reduce((n, t) => n + Object.keys(t.values).length, 0);
   console.log(`snapshot written: ${Object.keys(now).length} themes, ${keys} colour keys`);
@@ -74,7 +84,7 @@ const changed = [];
 for (const id of Object.keys(now)) {
   if (!(id in before)) continue;
   const a = before[id], b = now[id];
-  if (a.colors === b.colors && a.tokenColors === b.tokenColors && a.semanticTokenColors === b.semanticTokenColors) continue;
+  if (JSON.stringify(a.meta) === JSON.stringify(b.meta) && a.colors === b.colors && a.tokenColors === b.tokenColors && a.semanticTokenColors === b.semanticTokenColors) continue;
   changed.push({ id, changes: diffTheme(a, b) });
 }
 

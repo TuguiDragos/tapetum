@@ -75,7 +75,8 @@ for (const t of ['extract-keys.mjs', 'extract-pairs.mjs', 'extract-derivations.m
 
 const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/vscode-color-keys-full.json'), 'utf8'));
 const reg = JSON.parse(fs.readFileSync(path.join(RUN, 'tools/vscode-color-keys-full.json'), 'utf8'));
-const basePairs = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/render-pairs.json'), 'utf8')).map((p) => `${p.fg}|${p.bg}`));
+const pairId = (p) => JSON.stringify([p.fg, p.bg, p.fgAlpha, p.bgAlpha, p.fgMix, p.bgMix]);
+const basePairs = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/render-pairs.json'), 'utf8')).map(pairId));
 const pairs = JSON.parse(fs.readFileSync(path.join(RUN, 'tools/render-pairs.json'), 'utf8'));
 const theme = JSON.parse(fs.readFileSync(path.join(ROOT, pkg.contributes.themes[0].path), 'utf8'));
 const set = new Set(Object.keys(theme.colors));
@@ -88,7 +89,7 @@ const unknown = [...set].filter((k) => !forkKeys.has(k)).sort();
 const stale = [...set].filter((k) => forkDep.has(k)).sort();
 const planned = new Set(LEFT_UNSET.map((u) => u.key));
 const unset = [...forkKeys].filter((k) => !forkDep.has(k) && !set.has(k) && !planned.has(k)).sort();
-const newPairs = pairs.filter((p) => !basePairs.has(`${p.fg}|${p.bg}`)).map((p) => `${p.fg} on ${p.bg}`);
+const newPairs = pairs.filter((p) => !basePairs.has(pairId(p))).map((p) => `${p.fg} on ${p.bg}${p.bgAlpha !== undefined ? ` at ${p.bgAlpha}` : ''}${p.bgMix ? ` mixed with ${p.bgMix.key} at ${p.bgMix.share}` : ''}${p.fgAlpha !== undefined ? `, text at ${p.fgAlpha}` : ''}${p.fgMix ? `, text mixed with ${p.fgMix.key} at ${p.fgMix.share}` : ''}`);
 
 console.log(`\nregistry: ${forkKeys.size} keys, ${forkDep.size} deprecated (committed registry, VS Code ${base.vscode}: ${baseKeys.size} keys)`);
 console.log(`keys this editor has and VS Code ${base.vscode} does not (${onlyFork.length}): ${list(onlyFork)}`);
@@ -103,7 +104,7 @@ console.log(`kept deprecated keys here: ${KEPT_DEPRECATED.map(({ key }) => `${ke
 const semver = (v) => (String(v).match(/(\d+)\.(\d+)(?:\.(\d+))?/) || []).slice(1, 4).map((x) => Number(x || 0));
 const [need, runs] = [semver(pkg.engines.vscode), semver(core || product.version)];
 const installs = runs[0] === need[0] && (runs[1] > need[1] || (runs[1] === need[1] && runs[2] >= need[2]));
-console.log(`the manifest asks for VS Code ${pkg.engines.vscode}, this editor runs ${runs.join('.')}: ${installs ? 'it installs' : 'IT CANNOT INSTALL THIS VERSION'}`);
+console.log(`the manifest asks for VS Code ${pkg.engines.vscode}, this editor ${core ? `runs VS Code ${runs.join('.')}` : `records no VS Code core, its product version reads as ${runs.join('.')}`}: ${installs ? 'it installs' : 'IT CANNOT INSTALL THIS VERSION'}`);
 
 const EXPECTED_KINDS = new Set(['coverage', 'seam']);
 // the TextMate coverage is measured against the editor's own grammars, so the README figure moves with them
@@ -115,10 +116,14 @@ const expected = { analyze: new Map(), audit: new Map(), deep: new Map() };
 const count = (map, key) => map.set(key, (map.get(key) || 0) + 1);
 const themeOf = (label) => { if (!perTheme.has(label)) perTheme.set(label, { real: 0, expected: 0 }); return perTheme.get(label); };
 const exits = {};
+const verdicts = {};
+const VERDICT = { analyze: /^(TOTAL \d+ problems|(ALL \d+ PASS))/m, audit: /^(\d+ PROBLEMS:|(STRUCTURE CLEAN))$/m, deep: /^(TOTAL \d+ problems|(NO PROBLEM IN THE DEEP AUDIT))$/m };
 
 for (const t of ['analyze', 'audit', 'deep']) {
   const r = run(`${t}.mjs`);
   exits[t] = r.status;
+  const v = r.stdout.match(VERDICT[t]);
+  verdicts[t] = v ? !!v[2] : undefined;
   if (r.stderr.trim()) console.log(`\n${t} stderr: ${r.stderr.trim().split('\n').slice(0, 6).join('\n')}`);
   let label = null;
   let inProblems = false;
@@ -154,8 +159,14 @@ const failing = [...perTheme.entries()].filter(([, v]) => v.real > 0);
 const seen = perTheme.size;
 console.log(`\nthemes seen: ${seen} of ${pkg.contributes.themes.length}`);
 console.log(`themes with a real problem: ${failing.length ? failing.map(([k, v]) => `${k} (${v.real})`).join(', ') : 'none'}`);
-const realTotal = sum(real.analyze) + sum(real.audit) + sum(real.deep) + (installs ? 0 : 1);
-const complete = seen === pkg.contributes.themes.length && exits.analyze !== null && exits.audit !== null && exits.deep !== null;
+const isVSCode = /^Visual Studio Code/.test(product.nameLong || '');
+const newer = (a, b) => a[0] > b[0] || (a[0] === b[0] && (a[1] > b[1] || (a[1] === b[1] && a[2] > b[2])));
+const outdated = isVSCode && newer(semver(product.version), semver(base.vscode)) && unset.length > 0;
+if (outdated) console.log(`\nREAL: ${product.nameLong} ${product.version} is newer than the committed registry (VS Code ${base.vscode}) and registers ${unset.length} live keys the themes leave to its defaults: refresh the registry`);
+const realTotal = sum(real.analyze) + sum(real.audit) + sum(real.deep) + (installs ? 0 : 1) + (outdated ? 1 : 0);
+const ran = Object.keys(VERDICT).every((t) => verdicts[t] !== undefined && (exits[t] === 0) === verdicts[t]);
+for (const t of Object.keys(VERDICT)) if (verdicts[t] === undefined || (exits[t] === 0) !== verdicts[t]) console.log(`${t} did not run to the end: exit ${exits[t]}, verdict ${verdicts[t] === undefined ? 'missing' : verdicts[t] ? 'pass' : 'fail'}`);
+const complete = seen === pkg.contributes.themes.length && ran;
 console.log(`\n${realTotal === 0 && complete ? 'PASS' : 'FAIL'} on ${product.nameLong} ${product.version}: ${realTotal} real problems${complete ? '' : ', and a check did not run to the end'}`);
 cleanup();
 process.exit(realTotal === 0 && complete ? 0 : 1);

@@ -86,7 +86,7 @@ if (process.argv[1] && process.argv[1].endsWith('apca-lift.mjs')) {
   console.log(`  exempt by design:          ${skipped.length}`);
   console.log(`  still under after budget:  ${short.length}`);
   if (short.length) {
-    console.log('\ndo not reach the floor within the 8 dE budget:');
+    console.log(`\ndo not reach the floor within the ${BUDGET} dE budget:`);
     for (const s of short) console.log(`  ${(s.label + ' ' + s.variant).padEnd(24)} ${s.role.padEnd(8)} ${s.from} -> ${s.to}  Lc ${s.lc.toFixed(0)} -> ${s.newLc.toFixed(0)}, floor ${FLOOR[s.role]}`);
   }
   if (skipped.length) {

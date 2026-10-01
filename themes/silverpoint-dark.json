@@ -45,7 +45,7 @@
     "editor.findMatchBorder": "#C8C8CE",
     "editor.findMatchHighlightBackground": "#bebec438",
     "editor.findMatchForeground": "#e0e0e2",
-    "editor.findMatchHighlightForeground": "#D2D2D6",
+    "editor.findMatchHighlightForeground": "#e0e0e2",
     "editor.findRangeHighlightBackground": "#93a6bc1a",
     "editor.hoverHighlightBackground": "#93a6bc24",
     "editor.lineHighlightBackground": "#242426",
@@ -259,6 +259,7 @@
     "editorGroup.dropIntoPromptForeground": "#D2D2D6",
     "editorGroup.dropIntoPromptBorder": "#464649",
     "editorGroupHeader.tabsBackground": "#27272b",
+    "editorGroupHeader.connectedTabsBackground": "#27272b",
     "editorGroupHeader.tabsBorder": "#323234",
     "editorGroupHeader.noTabsBackground": "#1A1A1C",
     "editorGroupHeader.border": "#323234",
@@ -474,7 +475,7 @@
     "terminal.border": "#323234",
     "terminal.dropBackground": "#93a6bc24",
     "terminal.tab.activeBorder": "#93A6BC",
-    "terminal.findMatchBackground": "#c8c8ce61",
+    "terminal.findMatchBackground": "#59595d",
     "terminal.findMatchBorder": "#C8C8CE",
     "terminal.findMatchHighlightBackground": "#bebec43d",
     "terminal.hoverHighlightBackground": "#93a6bc24",
@@ -640,13 +641,12 @@
     "chat.linesAddedForeground": "#8FB894",
     "chat.linesRemovedForeground": "#D08080",
     "chat.editedFileForeground": "#90A8C8",
+    "chat.mcpCompatibilityWarningForeground": "#C8B084",
     "chat.findMatchBackground": "#c8c8ce52",
     "chat.findMatchHighlightBackground": "#bebec438",
     "chat.thinkingShimmer": "#93a6bc8c",
     "chat.dictationActiveMicGlow": "#97979d99",
     "chat.inputWorkingBorderColor1": "#AAAAB0",
-    "chat.inputWorkingBorderColor2": "#BEBEC4",
-    "chat.inputWorkingBorderColor3": "#97979D",
     "chat.checkpointSeparator": "#464649",
     "chat.sessionStateIndicator.inProgressBorder": "#C8B084",
     "chat.sessionStateIndicator.unvisitedBorder": "#8FB894",
@@ -663,6 +663,7 @@
     "inlineChatDiff.inserted": "#8fb8941f",
     "inlineChatDiff.removed": "#d080801f",
     "agents.background": "#1A1A1C",
+    "agentsDetail.background": "#1A1A1C",
     "agentsPanel.background": "#242427",
     "agentsPanel.border": "#323234",
     "agentsPanel.foreground": "#D2D2D6",
@@ -1003,13 +1004,11 @@
     "positronModalDialog.textInputSelectionForeground": "#101014",
     "positronDataGrid.cursorBorder": "#93a6bc99",
     "positronDataGrid.selectionBorder": "#93a6bc99",
-    "positronDataGrid.selectionInnerBorder": "#93a6bc80",
+    "positronDataGrid.selectionInnerBorder": "#93a6bc4d",
     "positronDataGrid.selectionBackground": "#93a6bc4d",
     "positronRuntime.stateIconActive": "#90A8C8",
     "positronRuntime.stateIconIdle": "#8FB894",
     "positronRuntime.stateIconDisconnected": "#D08080",
-    "positronWelcome.foreground": "#F0F0F4",
-    "positronWelcome.secondaryForeground": "#9c9c9f",
     "positronActionBar.textInputBackground": "#29292b",
     "positronActionBar.textInputBorder": "#464649",
     "positronActionBar.separator": "#464649",
@@ -1115,7 +1114,7 @@
         "entity.name.type.interface",
         "entity.name.type.enum",
         "entity.name.type.alias",
-        "meta.type.declaration",
+        "meta.type.declaration entity.name.type",
         "entity.name.scope-resolution"
       ],
       "settings": {
@@ -1580,6 +1579,16 @@
       }
     },
     {
+      "name": "Markup strikethrough",
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "foreground": "#7E7E84",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
       "name": "Markup code",
       "scope": [
         "markup.inline.raw",
@@ -1727,6 +1736,18 @@
       ],
       "settings": {
         "foreground": "#8A8A90"
+      }
+    },
+    {
+      "name": "Preprocessor macros",
+      "scope": [
+        "entity.name.other.preprocessor",
+        "entity.name.other.preprocessor.macro",
+        "entity.name.other.preprocessor.macro.include"
+      ],
+      "settings": {
+        "foreground": "#F0F0F4",
+        "fontStyle": "bold"
       }
     },
     {
@@ -2143,6 +2164,12 @@
     "curlybrace": "#8A8A90",
     "semicolon": "#8A8A90",
     "colon": "#8A8A90",
+    "punctuation": "#8A8A90",
+    "brace": "#8A8A90",
+    "macroBang": {
+      "foreground": "#F0F0F4",
+      "fontStyle": "bold"
+    },
     "*.abstract": {
       "foreground": "#AAAAB0",
       "fontStyle": "italic"

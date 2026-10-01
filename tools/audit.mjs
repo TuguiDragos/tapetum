@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE } from './color.mjs';
+import { contrast, over, deltaE, relLum } from './color.mjs';
 import { FAMILIES } from './palettes.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
 import { FORK_KEYS } from './forks.mjs';
@@ -21,6 +21,9 @@ const FORK = new Set(FORK_KEYS.map((k) => k.key));
 const fail = [];
 const note = (ok, msg) => { if (!ok) fail.push(msg); };
 const R = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
+const HEX = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
+const FONT_STYLES = new Set(['italic', 'bold', 'underline', 'strikethrough']);
+const fontStyleOk = (v) => typeof v === 'string' && v.split(' ').filter(Boolean).every((x) => FONT_STYLES.has(x));
 
 const declared = pkg.contributes.themes;
 const onDisk = fs.readdirSync(path.join(ROOT, 'themes')).filter((f) => f.endsWith('.json'));
@@ -60,10 +63,27 @@ for (const t of declared) {
   note(dead.length === 0, `${t.label}: ${dead.length} dead keys: ${dead.slice(0, 3).join(', ')}`);
   const stale = Object.keys(th.colors).filter((k) => DEPRECATED.has(k) && !KEPT.has(k));
   note(stale.length === 0, `${t.label}: ${stale.length} deprecated keys set: ${stale.slice(0, 3).join(', ')}`);
-  for (const [key, k] of KEPT) note(th.colors[key] !== undefined && (!k.replacement || th.colors[key] === th.colors[k.replacement]),
+  for (const [key, k] of KEPT) note(th.colors[key] !== undefined && (!k.replacement || th.colors[key].toLowerCase() === String(th.colors[k.replacement]).toLowerCase()),
     `${t.label}: ${key} must be set${k.replacement ? ` and equal to ${k.replacement}` : ''} while it is kept`);
   for (const [k, v] of Object.entries(th.colors)) {
-    note(typeof v === 'string' && /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(v), `${t.label}: invalid colour ${k}=${v}`);
+    note(typeof v === 'string' && HEX.test(v), `${t.label}: invalid colour ${k}=${v}`);
+  }
+  const dark = relLum(th.colors['editor.background'].slice(0, 7)) < 0.5;
+  note(dark === (th.type === 'dark' || th.type === 'hcDark'), `${t.label}: type ${th.type} but the editor background is ${dark ? 'dark' : 'light'}`);
+  for (const r of th.tokenColors) {
+    const where = `${t.label}: TextMate rule "${r.name}"`;
+    note([].concat(r.scope).length > 0 && [].concat(r.scope).every((x) => typeof x === 'string' && x.trim()), `${where} has an empty scope`);
+    for (const f of ['foreground', 'background']) if (r.settings[f] !== undefined) note(HEX.test(r.settings[f]), `${where} has an invalid ${f} ${r.settings[f]}`);
+    if (r.settings.fontStyle !== undefined) note(fontStyleOk(r.settings.fontStyle), `${where} has an invalid fontStyle "${r.settings.fontStyle}"`);
+  }
+  for (const [sel, v] of Object.entries(th.semanticTokenColors)) {
+    const where = `${t.label}: semantic ${sel}`;
+    if (typeof v === 'string') { note(HEX.test(v), `${where} has an invalid colour ${v}`); continue; }
+    if (v.foreground !== undefined) note(HEX.test(v.foreground), `${where} has an invalid colour ${v.foreground}`);
+    if (v.fontStyle !== undefined) note(fontStyleOk(v.fontStyle), `${where} has an invalid fontStyle "${v.fontStyle}"`);
+    for (const b of FONT_STYLES) if (v[b] !== undefined) note(typeof v[b] === 'boolean', `${where}: ${b} must be true or false`);
+    const extra = Object.keys(v).filter((x) => x !== 'foreground' && x !== 'fontStyle' && !FONT_STYLES.has(x));
+    note(extra.length === 0, `${where} has unknown properties: ${extra.join(', ')}`);
   }
   const key = JSON.stringify(th.colors) + JSON.stringify(th.tokenColors);
   if (bodies.has(key)) fail.push(`${t.label} is identical to ${bodies.get(key)}`);
@@ -77,19 +97,16 @@ for (const t of declared) {
 const schemes = {};
 for (const f of FAMILIES) (schemes[f.scheme || 'grammar'] ||= []).push(f.label);
 const ruleCounts = {};
-for (const f of FAMILIES) {
-  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-dark.json`), 'utf8'));
-  const s = f.scheme || 'grammar';
-  if (ruleCounts[s] === undefined) ruleCounts[s] = th.tokenColors.length;
-  else note(ruleCounts[s] === th.tokenColors.length, `${f.label}: scheme ${s} gives ${th.tokenColors.length} rules, another family gives ${ruleCounts[s]}`);
-}
 const shape = {};
-for (const f of FAMILIES) {
-  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-dark.json`), 'utf8'));
+for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
   const s = f.scheme || 'grammar';
+  const label = `${f.label} ${v}`;
+  if (ruleCounts[s] === undefined) ruleCounts[s] = th.tokenColors.length;
+  else note(ruleCounts[s] === th.tokenColors.length, `${label}: scheme ${s} gives ${th.tokenColors.length} rules, another theme gives ${ruleCounts[s]}`);
   const sig = th.tokenColors.map((r) => `${r.name}|${r.settings.fontStyle || ''}`).join(';');
-  if (shape[s] === undefined) shape[s] = { sig, from: f.label };
-  else note(shape[s].sig === sig, `${f.label}: scheme ${s} does not match ${shape[s].from}`);
+  if (shape[s] === undefined) shape[s] = { sig, from: label };
+  else note(shape[s].sig === sig, `${label}: scheme ${s} does not match ${shape[s].from}`);
 }
 const sigs = Object.entries(shape).map(([k, v]) => [k, v.sig]);
 for (let i = 0; i < sigs.length; i++) for (let j = i + 1; j < sigs.length; j++)
@@ -219,6 +236,8 @@ note(readme.includes(`${declared.length} themes`), `README does not say ${declar
 note(readme.includes(`${FAMILIES.length} families`) || readme.includes(`All ${FAMILIES.length} families`),
   `README does not say ${FAMILIES.length} families`);
 note(readme.includes(`all ${ALL_KEYS.length} colour keys`), `README does not say all ${ALL_KEYS.length} colour keys`);
+note(readme.includes(`Windows builds of VS Code ${REG.vscode} |`),
+  `README does not say the 3 platforms were checked on VS Code ${REG.vscode}: check them, then set VERIFIED in tools/build-readme.mjs`);
 const lowestSyntax = Math.min(...FAMILIES.flatMap((f) => ['dark', 'light', 'hcDark', 'hcLight']
   .filter((v) => f[v]).flatMap((v) => [...R, 'comment'].map((r) => contrast(f[v][r], f[v].bg))))).toFixed(2);
 note(readme.includes(`comments 4.0, the lowest at ${lowestSyntax};`),
@@ -270,17 +289,17 @@ try {
   }
   for (const g of gaps) note(false, g);
   semantic = `${perScheme.size} schemes checked, ${lg.std.types.length + lg.custom.types.size} types, ${lg.std.modifiers.length} standard modifiers`;
-} catch { /* without VS Code the legend cannot be read */ }
+} catch (e) { semantic = `skipped, ${e.message.split('\n')[0]}`; }
 
-let coverage = 'skipped, VS Code is not installed here';
+let coverage = 'skipped, grammar-coverage printed no figure';
 try {
-  const cov = execFileSync(process.execPath, [path.join(HERE, 'grammar-coverage.mjs')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  const cov = execFileSync(process.execPath, [path.join(HERE, 'grammar-coverage.mjs')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const m = cov.match(/covered: \d+ \((\d+\.\d)%\)/);
   if (m) {
     coverage = `${m[1]}%`;
     note(parseFloat(m[1]) >= 98, `TextMate scope coverage dropped to ${m[1]}%`);
   }
-} catch { /* without a local VS Code this check cannot run, which is not an error */ }
+} catch (e) { coverage = `skipped, ${String(e.stderr || e.message).trim().split('\n').find((l) => /Error|could not/.test(l)) || 'grammar-coverage failed'}`; }
 
 console.log(`families ${FAMILIES.length}, themes ${declared.length}, files ${onDisk.length}`);
 console.log(`TextMate scope coverage: ${coverage}`);

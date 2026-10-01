@@ -33,7 +33,7 @@ function outerVars(value) {
       if (value[end] === '(') depth++;
       else if (value[end] === ')' && --depth === 0) break;
     }
-    const m = value.slice(at, at + 60).match(VAR);
+    const m = value.slice(at, end + 1).match(VAR);
     if (m) out.push(m[0].replace(/^var\(\s*/, ''));
     i = end + 1;
   }
@@ -64,14 +64,64 @@ function paints(value) {
   return share >= 0.5 ? [{ key: a.key, mix: { key: b.key, share: round(1 - share) } }] : [{ key: b.key, mix: { key: a.key, share: round(share) } }];
 }
 
+const topLevel = (sel) => {
+  const parts = [];
+  let depth = 0, cur = '';
+  for (const ch of sel) {
+    if (ch === '(' || ch === '[') depth++;
+    else if (ch === ')' || ch === ']') depth--;
+    if (ch === ',' && depth === 0) { parts.push(cur.trim()); cur = ''; } else cur += ch;
+  }
+  return [...parts, cur.trim()].filter(Boolean);
+};
+
+// Every block with its own declarations, nested rules resolved against their parent (& or descendant),
+// at-rules passed through, keyframes left out.
+function rulesOf(css) {
+  const out = [];
+  const stack = [{ sel: null, decls: '', keyframes: false }];
+  let buf = '', quote = null;
+  for (let i = 0; i < css.length; i++) {
+    const ch = css[i];
+    if (quote) { buf += ch; if (ch === '\\') buf += css[++i] ?? ''; else if (ch === quote) quote = null; continue; }
+    if (ch === '/' && css[i + 1] === '*') { const end = css.indexOf('*/', i + 2); i = end < 0 ? css.length : end + 1; continue; }
+    if (ch === '"' || ch === "'") { quote = ch; buf += ch; continue; }
+    const top = stack[stack.length - 1];
+    if (ch === '{') {
+      const cut = buf.lastIndexOf(';');
+      top.decls += buf.slice(0, cut + 1);
+      const prelude = buf.slice(cut + 1).trim();
+      buf = '';
+      let sel = top.sel;
+      if (prelude.startsWith('@')) stack.push({ sel, decls: '', keyframes: top.keyframes || /^@(-\w+-)?keyframes/.test(prelude) });
+      else {
+        if (top.sel) sel = topLevel(prelude).map((p) => (p.includes('&') ? p.replace(/&/g, topLevel(top.sel)[0]) : `${topLevel(top.sel)[0]} ${p}`)).join(',');
+        else sel = prelude;
+        stack.push({ sel, decls: '', keyframes: top.keyframes });
+      }
+      continue;
+    }
+    if (ch === '}') {
+      const f = stack.pop();
+      f.decls += buf;
+      buf = '';
+      if (!f.keyframes && f.sel) out.push([f.sel, f.decls]);
+      if (!stack.length) stack.push({ sel: null, decls: '', keyframes: false });
+      continue;
+    }
+    buf += ch;
+  }
+  return out;
+}
+
 const pairs = new Map();
 let ruleCount = 0;
 const files = stylesheets();
 for (const file of files) {
   const css = fs.readFileSync(file, 'utf8');
-  const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+  const rules = rulesOf(css);
   ruleCount += rules.length;
-  for (const [, sel, body] of rules) {
+  for (const [sel, body] of rules) {
     const fgs = [], bgs = [];
     for (const m of body.matchAll(FG_PROP)) fgs.push(...paints(m[2]));
     for (const m of body.matchAll(BG_PROP)) bgs.push(...paints(m[3]));
@@ -85,7 +135,7 @@ for (const file of files) {
       const seen = pairs.get(k);
       if (seen) { seen.n++; continue; }
       pairs.set(k, {
-        fg: f.key, bg: b.key, n: 1, sel: sel.trim().split(',')[0].slice(0, 90),
+        fg: f.key, bg: b.key, n: 1, sel: topLevel(sel)[0].slice(0, 90),
         ...(f.alpha !== undefined && { fgAlpha: f.alpha }),
         ...(b.alpha !== undefined && { bgAlpha: b.alpha }),
         ...(f.mix && { fgMix: f.mix }),
@@ -110,6 +160,10 @@ const out = [...pairs.values()]
   })
   .sort((a, b) => b.n - a.n);
 
+if (!files.length || !out.length) {
+  console.error(`no pairs: ${files.length} stylesheets read under ${outDir()}, nothing written`);
+  process.exit(1);
+}
 fs.writeFileSync(path.join(HERE, 'render-pairs.json'), JSON.stringify(out, null, 2));
 const blended = out.filter((p) => p.fgMix || p.bgMix).length;
 const fadedOut = out.filter((p) => p.fgAlpha !== undefined || p.bgAlpha !== undefined).length;

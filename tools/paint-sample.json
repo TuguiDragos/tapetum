@@ -1,0 +1,1184 @@
+{
+ "vscode": "1.140.0",
+ "grammar": "extensions/typescript-basics/syntaxes/TypeScript.tmLanguage.json",
+ "lines": [
+  "type Point = { x: number; label: string };",
+  "interface Shape { area(): number; readonly name: string }",
+  "export type Id<T> = T extends string ? `id-${T}` : never;",
+  "enum Mode { On = 1, Off }",
+  "class Box<T> implements Shape {",
+  "  constructor(private readonly size: number, public name = 'box') {}",
+  "  area(): number { return this.size ** 2; }",
+  "}",
+  "const box = new Box<Point>(3);",
+  "function measure(p: Point): number { return p.x * 2; }"
+ ],
+ "tokens": [
+  {
+   "text": "type",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "storage.type.type.ts"
+   ]
+  },
+  {
+   "text": "Point",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "entity.name.type.alias.ts"
+   ]
+  },
+  {
+   "text": "=",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "keyword.operator.assignment.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "x",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.definition.property.ts",
+    "variable.object.property.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "number",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "label",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.definition.property.ts",
+    "variable.object.property.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "string",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.object.type.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "interface",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "storage.type.interface.ts"
+   ]
+  },
+  {
+   "text": "Shape",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "entity.name.type.interface.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "area",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.method.declaration.ts",
+    "meta.definition.method.ts",
+    "entity.name.function.ts"
+   ]
+  },
+  {
+   "text": "(",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.begin.ts"
+   ]
+  },
+  {
+   "text": ")",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.end.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.method.declaration.ts",
+    "meta.return.type.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "number",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.method.declaration.ts",
+    "meta.return.type.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "readonly",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.field.declaration.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "name",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.field.declaration.ts",
+    "meta.definition.property.ts",
+    "variable.object.property.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "string",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "meta.field.declaration.ts",
+    "meta.type.annotation.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.interface.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "export",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "keyword.control.export.ts"
+   ]
+  },
+  {
+   "text": "type",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "storage.type.type.ts"
+   ]
+  },
+  {
+   "text": "Id",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "entity.name.type.alias.ts"
+   ]
+  },
+  {
+   "text": "<",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.begin.ts"
+   ]
+  },
+  {
+   "text": "T",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.type.parameters.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": ">",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.end.ts"
+   ]
+  },
+  {
+   "text": "=",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "keyword.operator.assignment.ts"
+   ]
+  },
+  {
+   "text": "T",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": "extends",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "string",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": "?",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "keyword.operator.ternary.ts"
+   ]
+  },
+  {
+   "text": "`",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts",
+    "punctuation.definition.string.template.begin.ts"
+   ]
+  },
+  {
+   "text": "id-",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts"
+   ]
+  },
+  {
+   "text": "${",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts",
+    "meta.template.expression.ts",
+    "punctuation.definition.template-expression.begin.ts"
+   ]
+  },
+  {
+   "text": "T",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts",
+    "meta.template.expression.ts",
+    "meta.embedded.line.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts",
+    "meta.template.expression.ts",
+    "punctuation.definition.template-expression.end.ts"
+   ]
+  },
+  {
+   "text": "`",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "string.template.ts",
+    "punctuation.definition.string.template.end.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "keyword.operator.ternary.ts"
+   ]
+  },
+  {
+   "text": "never",
+   "scopes": [
+    "source.ts",
+    "meta.type.declaration.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "enum",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "storage.type.enum.ts"
+   ]
+  },
+  {
+   "text": "Mode",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "entity.name.type.enum.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "On",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "variable.other.enummember.ts"
+   ]
+  },
+  {
+   "text": "=",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "keyword.operator.assignment.ts"
+   ]
+  },
+  {
+   "text": "1",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "constant.numeric.decimal.ts"
+   ]
+  },
+  {
+   "text": ",",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "punctuation.separator.comma.ts"
+   ]
+  },
+  {
+   "text": "Off",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "variable.other.enummember.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.enum.declaration.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "class",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "storage.type.class.ts"
+   ]
+  },
+  {
+   "text": "Box",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "entity.name.type.class.ts"
+   ]
+  },
+  {
+   "text": "<",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.begin.ts"
+   ]
+  },
+  {
+   "text": "T",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.type.parameters.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": ">",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.end.ts"
+   ]
+  },
+  {
+   "text": "implements",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "Shape",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "entity.other.inherited-class.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "constructor",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "storage.type.ts"
+   ]
+  },
+  {
+   "text": "(",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.begin.ts"
+   ]
+  },
+  {
+   "text": "private",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "readonly",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "size",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "variable.parameter.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "meta.type.annotation.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "number",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "meta.type.annotation.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": ",",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.separator.parameter.ts"
+   ]
+  },
+  {
+   "text": "public",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "storage.modifier.ts"
+   ]
+  },
+  {
+   "text": "name",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "variable.parameter.ts"
+   ]
+  },
+  {
+   "text": "=",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "keyword.operator.assignment.ts"
+   ]
+  },
+  {
+   "text": "'",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "string.quoted.single.ts",
+    "punctuation.definition.string.begin.ts"
+   ]
+  },
+  {
+   "text": "box",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "string.quoted.single.ts"
+   ]
+  },
+  {
+   "text": "'",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "string.quoted.single.ts",
+    "punctuation.definition.string.end.ts"
+   ]
+  },
+  {
+   "text": ")",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.end.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "area",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.definition.method.ts",
+    "entity.name.function.ts"
+   ]
+  },
+  {
+   "text": "(",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.begin.ts"
+   ]
+  },
+  {
+   "text": ")",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.end.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.return.type.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "number",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.return.type.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "return",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "keyword.control.flow.ts"
+   ]
+  },
+  {
+   "text": "this",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "variable.language.this.ts"
+   ]
+  },
+  {
+   "text": ".",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.accessor.ts"
+   ]
+  },
+  {
+   "text": "size",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "variable.other.property.ts"
+   ]
+  },
+  {
+   "text": "*",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "keyword.operator.arithmetic.ts"
+   ]
+  },
+  {
+   "text": "*",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "keyword.operator.arithmetic.ts"
+   ]
+  },
+  {
+   "text": "2",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "constant.numeric.decimal.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "meta.method.declaration.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.class.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "const",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "storage.type.ts"
+   ]
+  },
+  {
+   "text": "box",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "meta.var-single-variable.expr.ts",
+    "meta.definition.variable.ts",
+    "variable.other.constant.ts"
+   ]
+  },
+  {
+   "text": "=",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "keyword.operator.assignment.ts"
+   ]
+  },
+  {
+   "text": "new",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "keyword.operator.new.ts"
+   ]
+  },
+  {
+   "text": "Box",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.function-call.ts",
+    "entity.name.function.ts"
+   ]
+  },
+  {
+   "text": "<",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.begin.ts"
+   ]
+  },
+  {
+   "text": "Point",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.type.parameters.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": ">",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.type.parameters.ts",
+    "punctuation.definition.typeparameters.end.ts"
+   ]
+  },
+  {
+   "text": "(",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.brace.round.ts"
+   ]
+  },
+  {
+   "text": "3",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "constant.numeric.decimal.ts"
+   ]
+  },
+  {
+   "text": ")",
+   "scopes": [
+    "source.ts",
+    "meta.var.expr.ts",
+    "new.expr.ts",
+    "meta.brace.round.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "function",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "storage.type.function.ts"
+   ]
+  },
+  {
+   "text": "measure",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.definition.function.ts",
+    "entity.name.function.ts"
+   ]
+  },
+  {
+   "text": "(",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.begin.ts"
+   ]
+  },
+  {
+   "text": "p",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.parameters.ts",
+    "variable.parameter.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.parameters.ts",
+    "meta.type.annotation.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "Point",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.parameters.ts",
+    "meta.type.annotation.ts",
+    "entity.name.type.ts"
+   ]
+  },
+  {
+   "text": ")",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.parameters.ts",
+    "punctuation.definition.parameters.end.ts"
+   ]
+  },
+  {
+   "text": ":",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.return.type.ts",
+    "keyword.operator.type.annotation.ts"
+   ]
+  },
+  {
+   "text": "number",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.return.type.ts",
+    "support.type.primitive.ts"
+   ]
+  },
+  {
+   "text": "{",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  },
+  {
+   "text": "return",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "keyword.control.flow.ts"
+   ]
+  },
+  {
+   "text": "p",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "variable.other.object.ts"
+   ]
+  },
+  {
+   "text": ".",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "punctuation.accessor.ts"
+   ]
+  },
+  {
+   "text": "x",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "variable.other.property.ts"
+   ]
+  },
+  {
+   "text": "*",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "keyword.operator.arithmetic.ts"
+   ]
+  },
+  {
+   "text": "2",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "constant.numeric.decimal.ts"
+   ]
+  },
+  {
+   "text": ";",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "punctuation.terminator.statement.ts"
+   ]
+  },
+  {
+   "text": "}",
+   "scopes": [
+    "source.ts",
+    "meta.function.ts",
+    "meta.block.ts",
+    "punctuation.definition.block.ts"
+   ]
+  }
+ ]
+}

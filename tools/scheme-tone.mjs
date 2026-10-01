@@ -23,7 +23,7 @@ export function tokenColors(p) {
     quote: styled(t.comment, 'italic'), code: t.t3, list: t.op,
     added: styled(t.t3, 'bold'), deleted: styled(t.t5, 'italic'), diffHeader: t.t4,
     shellVar: styled(t.t2, 'bold'), invalid: styled(t.t5, 'underline'),
-    deprecated: styled(t.op, 'strikethrough'),
+    deprecated: styled(t.op, 'strikethrough'), macro: styled(t.t1, 'bold'),
   };
   return [...buildFrom((slot) => map[slot]), ...outputRules(p.st, p.op, p.bg)];
 }
@@ -42,6 +42,7 @@ export function semanticTokenColors(p) {
     enumMember: bold(t.t2), 'variable.readonly': bold(t.t2), 'property.readonly': bold(t.t2),
     label: t.fg, constant: bold(t.t2), builtinConstant: it(t.t3),
     punctuations: t.op, parenthesis: t.op, bracket: t.op, curlybrace: t.op, semicolon: t.op, colon: t.op,
+    punctuation: t.op, brace: t.op, macroBang: bold(t.t1),
     '*.abstract': it(t.t4), '*.async': { fontStyle: 'italic' }, '*.modification': bold(t.fg),
     '*.documentation': it(t.comment), '*.builtin': it(t.t3), '*.typeHint': it(t.t4),
     keyword: t.t2, modifier: t.t2, operator: t.op,

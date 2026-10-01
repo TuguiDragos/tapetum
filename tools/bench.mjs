@@ -3,10 +3,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extract } from './palette-extract.mjs';
 import { SAMPLE, TREE, TABS } from './bench-data.mjs';
-import { contrast, over } from './color.mjs';
+import { contrast } from './color.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const T = (f) => path.join(HERE, '..', 'themes', f);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const ROLES = [
@@ -254,8 +253,6 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--hair);
 `;
 
 const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
-const totalKeys = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
-const cov = Math.round(Object.keys(JSON.parse(fs.readFileSync(T('quantum-dark.json'), 'utf8')).colors).length / totalKeys * 100);
 
 console.log(`<title>Palette Bench</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -265,12 +262,10 @@ console.log(`<title>Palette Bench</title>
 <div class="wrap">
   <header class="masthead">
     <span class="eyebrow">Tapetum, test bench, VS Code ${REGISTRY.vscode}</span>
-    <h1>Quantum, before and after</h1>
-    <p class="lede">The first two sections are the same palette, before and after the repair. The hues are kept, the violet stayed at exactly the same value, but lightness was redistributed so the roles no longer overlap when colour blindness takes hue out of the equation. Under every window is the collision table: two pairs in the old variant, none in the new one.</p>
+    <h1>Every family, dark and light</h1>
+    <p class="lede">Each window is drawn from the theme files: the editor, the side bar, the tabs and a TypeScript sample in the theme's own syntax colours. Under every window is the contrast of each syntax role on the editor.</p>
     <div class="facts">
       <span class="fact">${families.length} families, ${families.length * 2} themes</span>
-      <span class="fact">violet kept at 0 degrees of drift</span>
-      <span class="fact">deuteranopia 4.4 becomes 12.4</span>
     </div>
   </header>
   ${sections}

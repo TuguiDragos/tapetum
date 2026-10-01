@@ -11,7 +11,7 @@ export const SLOTS = [
   { name: 'Function definitions', slot: 'definition', scope: ['entity.name.function', 'meta.definition.function',
     'meta.definition.method', 'entity.name.method', 'entity.name.function.decorator'] },
   { name: 'Type definitions', slot: 'typedef', scope: ['entity.name.type', 'entity.name.class', 'entity.name.namespace',
-    'entity.name.type.interface', 'entity.name.type.enum', 'entity.name.type.alias', 'meta.type.declaration',
+    'entity.name.type.interface', 'entity.name.type.enum', 'entity.name.type.alias', 'meta.type.declaration entity.name.type',
     'entity.name.scope-resolution'] },
   { name: 'Types in annotations', slot: 'type', scope: ['support.type.primitive', 'keyword.type', 'storage.type.primitive'] },
   { name: 'Builtins', slot: 'builtin', scope: ['support.function', 'support.class', 'support.type', 'support.type.builtin',
@@ -75,6 +75,7 @@ export const SLOTS = [
   { name: 'Markup strong', slot: 'strong', scope: ['markup.bold'] },
   { name: 'Markup strong emphasis', slot: 'strong', scope: ['markup.bold markup.italic', 'markup.italic markup.bold'], fontStyle: 'bold italic' },
   { name: 'Markup quote', slot: 'quote', scope: ['markup.quote', 'punctuation.definition.quote.begin', 'blockquote'] },
+  { name: 'Markup strikethrough', slot: 'quote', scope: ['markup.strikethrough'], fontStyle: 'strikethrough' },
   { name: 'Markup code', slot: 'code', scope: ['markup.inline.raw', 'markup.fenced_code', 'markup.raw'] },
   { name: 'Markup list', slot: 'list', scope: ['markup.list', 'punctuation.definition.list.begin', 'punctuation.definition.list.end'] },
   { name: 'Diff inserted', slot: 'added', scope: ['markup.inserted', 'meta.diff.header.to-file'] },
@@ -144,6 +145,7 @@ export function buildFrom(paint) {
   const out = [];
   for (const s of SLOTS) {
     const v = paint(s.slot);
+    if (v === undefined) throw new Error(`the scheme paints no slot "${s.slot}" (${s.name})`);
     if (!v) continue;
     const settings = typeof v === 'string' ? { foreground: v } : { ...v };
     if (!settings.foreground) continue;
@@ -152,6 +154,10 @@ export function buildFrom(paint) {
   }
   return out;
 }
+
+// Comments and what sits in them, quotes and struck-through Markdown may recede to 4.0; other syntax holds 4.5.
+const RECEDES = /(^|[\s.])comment([\s.]|$)|\.jsdoc$|^keyword\.codetag$|^(markup\.quote|blockquote|punctuation\.definition\.quote)|^markup\.strikethrough/;
+export const syntaxFloor = (r) => ([].concat(r.scope).every((s) => RECEDES.test(s)) ? 4.0 : 4.5);
 
 export const styled = (foreground, fontStyle) => (fontStyle ? { foreground, fontStyle } : { foreground });
 

@@ -15,13 +15,13 @@ export function bundles() {
     for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
       const p = path.join(dir, e.name);
       if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith('.js') && fs.statSync(p).size > 1_000_000) out.push(p);
+      else if (e.name.endsWith('.js')) out.push(p);
     }
   })(outDir());
   return out.sort();
 }
 
-const SIGNATURE = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\("(${ID})",\\s*(?:\\{[^{}]*\\}|null|"[^"]*"|[A-Za-z_$][\\w$]*(?:\\([^()]*(?:\\([^()]*\\)[^()]*)*\\))?),\\s*${LOCALIZE}`, 'g');
+const SIGNATURE = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\(\\s*"(${ID})",\\s*(?:\\{[^{}]*\\}|null|"[^"]*"|[A-Za-z_$][\\w$]*(?:\\([^()]*(?:\\([^()]*\\)[^()]*)*\\))?),\\s*${LOCALIZE}`, 'g');
 
 export function registerFunction(src) {
   const counts = new Map();
@@ -51,12 +51,23 @@ export function callArguments(src, from) {
 
 export function registrations(src, fn) {
   const found = new Map();
-  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\("(${ID})"\\s*,`, 'g');
-  for (const m of src.matchAll(re)) {
-    const open = m.index + m[0].indexOf('(');
+  const add = (id, m, binding) => {
+    const open = m.index + m[0].lastIndexOf('(');
     const a = callArguments(src, open + 1);
-    if (a.length < 3) continue;
-    found.set(m[2], { binding: m[1] || null, defaults: a[1], deprecated: a.length >= 5 && LOCALIZED.test(a[4]), pos: m.index });
+    if (a.length < 3) return;
+    found.set(id, { binding: binding || null, defaults: a[1], deprecated: a.length >= 5 && LOCALIZED.test(a[4]), pos: m.index });
+  };
+  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*"(${ID})"\\s*,`, 'g');
+  for (const m of src.matchAll(re)) add(m[2], m, m[1]);
+  // a few editors pass the id through a constant bound once to a string: X="a.b";…;fn(X,…,"description")
+  const constants = new Map();
+  for (const m of src.matchAll(new RegExp(`(?<![\\w$.])([A-Za-z_$][\\w$]*)\\s*=\\s*"(${ID}\\.${ID})"`, 'g'))) constants.set(m[1], constants.has(m[1]) ? null : m[2]);
+  const byName = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*([A-Za-z_$][\\w$]*)\\s*,`, 'g');
+  for (const m of src.matchAll(byName)) {
+    const id = constants.get(m[2]);
+    if (!id || found.has(id)) continue;
+    const a = callArguments(src, m.index + m[0].lastIndexOf('(') + 1);
+    if (a.length >= 3 && (LOCALIZED.test(a[2]) || /^["'`]/.test(a[2]))) add(id, m, m[1]);
   }
   return found;
 }
@@ -87,7 +98,7 @@ if (process.argv[1] && process.argv[1].endsWith('extract-keys.mjs')) {
     const pj = path.join(extDir, name, 'package.json');
     if (!fs.existsSync(pj)) continue;
     try { for (const c of JSON.parse(fs.readFileSync(pj, 'utf8')).contributes?.colors || []) if (c.id) contributed.add(c.id); }
-    catch { /* manifest ilizibil */ }
+    catch { /* unreadable manifest */ }
   }
 
   const microsoft = new Set();

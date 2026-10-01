@@ -1,4 +1,4 @@
-import { mix, alpha, lighten, darken, contrast, relLum, deltaE, over as composite, hex2lch, lch2hex } from './color.mjs';
+import { mix, alpha, lighten, darken, contrast, relLum, deltaE, over as composite, hex2lch, lch2hex, parse } from './color.mjs';
 
 const alphaOf = alpha;
 const mixOf = mix;
@@ -14,10 +14,10 @@ function tokens(s) {
   const bg = s.bg;
   const elev = s.bgElev || up(bg, 0.05);
   const chrome = s.bgChrome || dn(bg, 0.3);
-  const over = s.bgOverlay || up(bg, 0.1);
+  const over = up(bg, 0.1);
   const fg = s.fg;
-  // the connected tabs of VS Code 1.139 draw no line on the active tab, only the editor against the strip, so the
-  // strip lies on the text side of the editor and at least as far from it as in Dark 2026 and Light 2026
+  // connected tabs show the active tab as the editor cut out of the strip, so the strip lies on the text side
+  // of the editor and at least as far from it as in Dark 2026 and Light 2026
   const towardText = (c) => (dark ? relLum(c) > relLum(bg) : relLum(c) < relLum(bg));
   const strip = hc ? chrome : reach(towardText(chrome) ? chrome : elev, bg, fg, 4.3);
   const depth = s.depth || depthRamp([s.syntax.keyword, s.syntax.string, s.syntax.number, s.syntax.type, s.syntax.func, s.syntax.tag], bg, dark, s.ansi);
@@ -25,8 +25,8 @@ function tokens(s) {
   const legible = (c, ground, target = 4.5) => {
     if (contrast(c, ground) >= target) return c;
     let best = c;
-    for (let k = 0.05; k <= 0.95; k += 0.05) {
-      best = dark ? lighten(c, k) : darken(c, k);
+    for (let i = 1; i <= 19; i++) {
+      best = dark ? lighten(c, i / 20) : darken(c, i / 20);
       if (contrast(best, ground) >= target) return best;
     }
     return best;
@@ -107,7 +107,8 @@ function tokens(s) {
     'toolbar.hoverBackground': alpha(fg, 0.06),
     'toolbar.activeBackground': alpha(fg, 0.10),
 
-    'textLink.foreground': faded(legible(legible(y.func, bg, 4.5), elev, 4.5), bg, 0.9, 4.5),
+    // links also sit on the status bar of a hover, which is the overlay surface
+    'textLink.foreground': faded(readsOn(legible(legible(y.func, bg, 4.5), elev, 4.5), over, 4.5), bg, 0.9, 4.5),
     'textLink.activeForeground': faded(legible(legible(y.string, bg, 4.5), elev, 4.5), bg, 0.9, 4.5),
     'textPreformat.foreground': legible(y.number, mix(hard, y.number, 0.12), 5.4),
     'textPreformat.background': alpha(y.number, 0.10),
@@ -120,7 +121,7 @@ function tokens(s) {
     'editor.foreground': fg,
     // line numbers also sit on sticky scroll and in the peek view, half way to the raised surface
     'editorLineNumber.foreground': readsOn(legible(ghost, bg, hc ? 4.5 : 3.0), mix(bg, elev, 0.5), hc ? 4.5 : 3.0),
-    'editorLineNumber.activeForeground': acc,
+    'editorLineNumber.activeForeground': readsOn(acc, mix(bg, elev, 0.5), 4.5),
     'editorLineNumber.dimmedForeground': mix(faint, bg, 0.55),
     'editorCursor.foreground': acc,
     'editorCursor.background': bg,
@@ -137,8 +138,9 @@ function tokens(s) {
     'editor.findMatchBackground': findWash,
     'editor.findMatchBorder': y.number,
     'editor.findMatchHighlightBackground': alpha(y.string, matchAlpha),
+    // VS Code paints findMatchHighlightForeground on the current match and findMatchForeground on the others, so both read on the current one
     'editor.findMatchForeground': legible(fg, findGround, 4.6),
-    'editor.findMatchHighlightForeground': fg,
+    'editor.findMatchHighlightForeground': legible(fg, findGround, 4.6),
     'editor.findRangeHighlightBackground': alpha(acc, 0.1),
     'editor.hoverHighlightBackground': alpha(acc, 0.14),
     'editor.lineHighlightBackground': lineHighlight,
@@ -226,7 +228,7 @@ function tokens(s) {
     'editorHoverWidget.background': elev,
     'editorHoverWidget.foreground': fg,
     'editorHoverWidget.border': line2,
-    'editorHoverWidget.highlightForeground': y.string,
+    'editorHoverWidget.highlightForeground': readsOn(y.string, elev, 4.5),
     'editorHoverWidget.statusBarBackground': over,
     'editorSuggestWidget.background': elev,
     'editorSuggestWidget.border': line2,
@@ -376,6 +378,7 @@ function chrome(t) {
     'editorGroup.dropIntoPromptForeground': fg,
     'editorGroup.dropIntoPromptBorder': line2,
     'editorGroupHeader.tabsBackground': strip,
+    'editorGroupHeader.connectedTabsBackground': strip,
     'editorGroupHeader.tabsBorder': line,
     'editorGroupHeader.noTabsBackground': bg,
     'editorGroupHeader.border': line,
@@ -611,13 +614,18 @@ function integrations(t) {
   const termBg = t.elev;
   const bright = (c) => {
     const nominal = t.dark ? 0.20 : 0.15;
-    for (let k = nominal; k >= 0.02; k -= 0.01) {
-      const cand = lighten(c, k);
+    for (let i = Math.round(nominal * 100); i >= 2; i--) {
+      const cand = lighten(c, i / 100);
       if (contrast(cand, termBg) >= 3.2) return cand;
     }
     return lighten(c, 0.02);
   };
   const { sh, bg, elev, over, fg, dim, faint, line, line2, acc, st, y, dark } = t;
+  const termWash = (c, start, floor, step) => {
+    let a = start;
+    while (a > floor && contrast(fg, composite(alpha(c, a / 100), termBg)) < 4.5) a -= step;
+    return alpha(c, a / 100);
+  };
   return {
     'terminal.background': elev,
     'terminal.foreground': fg,
@@ -627,9 +635,10 @@ function integrations(t) {
     'terminal.border': line,
     'terminal.dropBackground': alphaOf(acc, 0.14),
     'terminal.tab.activeBorder': acc,
-    'terminal.findMatchBackground': alphaOf(y.number, 0.38),
+    // xterm draws the active match without its alpha, so it gets the wash already laid on the terminal
+    'terminal.findMatchBackground': composite(termWash(y.number, 38, 20, 2), termBg),
     'terminal.findMatchBorder': y.number,
-    'terminal.findMatchHighlightBackground': alphaOf(y.string, 0.24),
+    'terminal.findMatchHighlightBackground': termWash(y.string, 24, 10, 1),
     'terminal.hoverHighlightBackground': alphaOf(acc, 0.14),
     'terminalCursor.foreground': t.legible(acc, elev, 4.5),
     'terminalCursor.background': bg,
@@ -721,7 +730,7 @@ function integrations(t) {
     'notifications.background': elev,
     'notifications.foreground': fg,
     'notifications.border': line,
-    'notificationLink.foreground': y.func,
+    'notificationLink.foreground': readsOn(y.func, elev, 4.5),
     'notificationsErrorIcon.foreground': st.error,
     'notificationsWarningIcon.foreground': st.warn,
     'notificationsInfoIcon.foreground': st.info,
@@ -750,13 +759,14 @@ function integrations(t) {
     'debugConsoleInputIcon.foreground': acc,
     'debugExceptionWidget.background': mixOf(bg, st.error, 0.18),
     'debugExceptionWidget.border': st.error,
-    'debugTokenExpression.name': y.func,
+    // the debug views show their tokens on the raised surface, not on the editor
+    'debugTokenExpression.name': readsOn(y.func, elev, 4.5),
     'debugTokenExpression.value': fg,
-    'debugTokenExpression.string': y.string,
-    'debugTokenExpression.number': y.number,
-    'debugTokenExpression.boolean': y.number,
+    'debugTokenExpression.string': readsOn(y.string, elev, 4.5),
+    'debugTokenExpression.number': readsOn(y.number, elev, 4.5),
+    'debugTokenExpression.boolean': readsOn(y.number, elev, 4.5),
     'debugTokenExpression.error': st.error,
-    'debugTokenExpression.type': y.type,
+    'debugTokenExpression.type': readsOn(y.type, elev, 4.5),
     'debugView.exceptionLabelBackground': st.error,
     'debugView.exceptionLabelForeground': onColor(st.error),
     'debugView.stateLabelBackground': over,
@@ -788,13 +798,12 @@ function assistant(t) {
     'chat.linesAddedForeground': st.added,
     'chat.linesRemovedForeground': st.deleted,
     'chat.editedFileForeground': st.modified,
+    'chat.mcpCompatibilityWarningForeground': t.handStatus ? st.warn : readsOn(st.warn, elev, 4.5),
     'chat.findMatchBackground': alphaOf(y.number, 0.32),
     'chat.findMatchHighlightBackground': alphaOf(y.string, 0.22),
     'chat.thinkingShimmer': alphaOf(acc, 0.55),
     'chat.dictationActiveMicGlow': alphaOf(y.tag, 0.6),
     'chat.inputWorkingBorderColor1': y.keyword,
-    'chat.inputWorkingBorderColor2': y.string,
-    'chat.inputWorkingBorderColor3': y.tag,
     'chat.checkpointSeparator': line2,
     'chat.sessionStateIndicator.inProgressBorder': frame(st.warn),
     'chat.sessionStateIndicator.unvisitedBorder': frame(st.ok),
@@ -813,6 +822,7 @@ function assistant(t) {
     'inlineChatDiff.removed': alphaOf(st.deleted, 0.12),
 
     'agents.background': bg,
+    'agentsDetail.background': bg,
     'agentsPanel.background': elev,
     'agentsPanel.border': line,
     'agentsPanel.foreground': fg,
@@ -995,13 +1005,12 @@ function assistant(t) {
 export function buildColors(spec) {
   const t = tokens(spec);
   const all = { ...t.editor, ...chrome(t), ...controls(t), ...integrations(t), ...assistant(t), ...remainder(t), ...tail(t), ...addendum(t) };
-  Object.assign(all, forkKeys(all, t));
   if (t.hc) applyHighContrast(all, t);
+  Object.assign(all, forkKeys(all, t));
   for (const k of Object.keys(all)) if (all[k] === undefined) delete all[k];
   return all;
 }
 
-export { tokens };
 
 function remainder(t) {
   const { onColor, elev, fg, dim, faint, line, line2, acc, fill, onFill, st, y } = t;
@@ -1254,17 +1263,17 @@ function depthRamp(roles, bg, dark, ansi) {
 }
 
 function ringLevel(colour, surfaces, target) {
-  for (let k = 0.6; k < 1; k += 0.05) {
-    const ring = alpha(colour, k);
-    if (surfaces.every((s) => contrast(composite(ring, s), s) >= target)) return Number(k.toFixed(2));
+  for (let i = 12; i < 20; i++) {
+    const ring = alpha(colour, i / 20);
+    if (surfaces.every((s) => contrast(composite(ring, s), s) >= target)) return i / 20;
   }
   return 1;
 }
 
 function apart(colour, ground, toward, minDE) {
   if (deltaE(colour, ground) >= minDE) return colour;
-  for (let k = 0.05; k <= 1; k += 0.05) {
-    const c = mix(colour, toward, k);
+  for (let i = 1; i <= 20; i++) {
+    const c = mix(colour, toward, i / 20);
     if (deltaE(c, ground) >= minDE) return c;
   }
   return toward;
@@ -1274,7 +1283,7 @@ function apart(colour, ground, toward, minDE) {
 function readsOn(colour, ground, target) {
   const dark = relLum(ground) < 0.5;
   let c = colour;
-  for (let k = 0.01; k <= 0.95 && contrast(c, ground) < target; k += 0.01) c = dark ? lighten(colour, k) : darken(colour, k);
+  for (let i = 1; i <= 95 && contrast(c, ground) < target; i++) c = dark ? lighten(colour, i / 100) : darken(colour, i / 100);
   return c;
 }
 
@@ -1282,45 +1291,45 @@ function readsOn(colour, ground, target) {
 function faded(colour, ground, share, target) {
   const dark = relLum(ground) < 0.5;
   const at = (c) => contrast(mix(ground, c, share), ground);
-  for (let k = 0; k <= 0.9 && at(colour) < target; k += 0.01) colour = dark ? lighten(colour, 0.01) : darken(colour, 0.01);
+  for (let i = 0; i <= 90 && at(colour) < target; i++) colour = dark ? lighten(colour, 0.01) : darken(colour, 0.01);
   return colour;
 }
 
 // VS Code writes white text on this colour, so it darkens just until white reads at 4.5
 function underWhite(colour) {
   let c = colour;
-  for (let k = 0.01; k <= 0.9 && contrast('#ffffff', c) < 4.5; k += 0.01) c = darken(colour, k);
+  for (let i = 1; i <= 90 && contrast('#ffffff', c) < 4.5; i++) c = darken(colour, i / 100);
   return c;
 }
 
 function reach(colour, ground, toward, minDE) {
   if (deltaE(colour, ground) >= minDE) return colour;
-  for (let k = 0.005; k <= 1; k += 0.005) {
-    const c = mix(colour, toward, k);
+  for (let i = 1; i <= 200; i++) {
+    const c = mix(colour, toward, i / 200);
     if (deltaE(c, ground) >= minDE) return c;
   }
   return toward;
 }
 
 function presence(ground, toward, start, minDE) {
-  for (let k = start; k <= 0.5; k += 0.005) {
-    const c = mix(ground, toward, k);
+  for (let i = Math.round(start * 200); i <= 100; i++) {
+    const c = mix(ground, toward, i / 200);
     if (deltaE(c, ground) >= minDE) return c;
   }
   return mix(ground, toward, 0.5);
 }
 
 function washAlpha(colour, ground, start, minDE) {
-  for (let k = start; k <= 0.5; k += 0.005) {
-    if (deltaE(composite(alpha(colour, k), ground), ground) >= minDE) return alpha(colour, Number(k.toFixed(3)));
+  for (let i = Math.round(start * 200); i <= 100; i++) {
+    if (deltaE(composite(alpha(colour, i / 200), ground), ground) >= minDE) return alpha(colour, i / 200);
   }
   return alpha(colour, 0.5);
 }
 
 function sliderTone(bg, fg, target) {
   let out = bg;
-  for (let k = 0.02; k <= 0.9; k += 0.01) {
-    out = mix(bg, fg, k);
+  for (let i = 2; i <= 90; i++) {
+    out = mix(bg, fg, i / 100);
     if (contrast(out, bg) >= target) return out;
   }
   return out;
@@ -1328,8 +1337,8 @@ function sliderTone(bg, fg, target) {
 
 function cellFill(bg, fg, target = 3.0) {
   let out = bg;
-  for (let k = 0.01; k <= 0.3; k += 0.005) {
-    out = mix(bg, fg, k);
+  for (let i = 2; i <= 60; i++) {
+    out = mix(bg, fg, i / 200);
     if (deltaE(out, bg) >= target) return out;
   }
   return out;
@@ -1367,20 +1376,20 @@ function mergeSides(t) {
   const SEPARATION = 12, PRESENCE = 9, FLOOR = 3.0;
 
   let contentK = 0;
-  for (let k = 0.06; k <= 0.40; k += 0.01) {
-    const cg = composite(alpha(current, k), bg), ig = composite(alpha(incoming, k), bg);
+  for (let i = 6; i <= 40; i++) {
+    const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
     if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
-    contentK = Number(k.toFixed(2));
+    contentK = i / 100;
     if (deltaE(cg, ig) >= SEPARATION && Math.min(deltaE(cg, bg), deltaE(ig, bg)) >= PRESENCE) break;
   }
   if (!contentK) contentK = 0.06;
 
   let headerK = contentK;
   const headerCap = Math.min(contentK * 1.6, 0.5);
-  for (let k = contentK + 0.01; k <= headerCap; k += 0.01) {
-    const cg = composite(alpha(current, k), bg), ig = composite(alpha(incoming, k), bg);
+  for (let i = Math.round(contentK * 100) + 1; i / 100 <= headerCap; i++) {
+    const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
     if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
-    headerK = Number(k.toFixed(2));
+    headerK = i / 100;
   }
 
   const common = lch2hex(hex2lch(bg)[0] + (dark ? 30 : -30), 4, hex2lch(bg)[2]);
@@ -1430,8 +1439,8 @@ function diffWashes(t) {
   };
 
   let pick = at(1);
-  for (let scale = 1; scale >= 0.4; scale -= 0.05) {
-    pick = at(scale);
+  for (let i = 20; i >= 8; i--) {
+    pick = at(i / 20);
     if (pick.syntax >= SYNTAX_RESCUE && pick.comment >= COMMENT_RESCUE) break;
   }
 
@@ -1460,13 +1469,12 @@ function forkKeys(all, t) {
     'positronModalDialog.textInputSelectionForeground': all['button.foreground'],
     'positronDataGrid.cursorBorder': all.focusBorder,
     'positronDataGrid.selectionBorder': all.focusBorder,
-    'positronDataGrid.selectionInnerBorder': alpha(all.focusBorder, 0.5),
-    'positronDataGrid.selectionBackground': all['editor.selectionBackground'],
+    'positronDataGrid.selectionInnerBorder': alpha(all.focusBorder, parse(all.focusBorder).a * 0.5),
+    // the grid lays its selection over the cell text, so an opaque high contrast selection is thinned to 30%
+    'positronDataGrid.selectionBackground': parse(all['editor.selectionBackground']).a < 1 ? all['editor.selectionBackground'] : alpha(all['editor.selectionBackground'], 0.3),
     'positronRuntime.stateIconActive': st.info,
     'positronRuntime.stateIconIdle': st.added,
     'positronRuntime.stateIconDisconnected': st.deleted,
-    'positronWelcome.foreground': all['textLink.foreground'],
-    'positronWelcome.secondaryForeground': all.descriptionForeground,
     'positronActionBar.textInputBackground': all['input.background'],
     'positronActionBar.textInputBorder': all['input.border'],
     'positronActionBar.separator': all['editorWidget.border'],
@@ -1498,16 +1506,29 @@ const HC = {
   light: { border: '#0F4A85', active: '#006BBD', selection: '#0F4A85', selectionFg: '#FFFFFF', ink: '#000000' },
 };
 
-const KEEP_TRANSPARENT = /^(editorOverviewRuler\.border|scrollbar\.shadow|merge\.border|editorGroup\.dropIntoPromptBorder)$/;
+// borders the high contrast pass leaves as the family sets them, and why
+const HC_KEEPS = {
+  'editorOverviewRuler.border': "a quiet line beside the scrollbar, as in VS Code's own high contrast themes",
+  'merge.border': 'conflict blocks are marked by their header and content washes, not a frame',
+  'editorGroup.dropIntoPromptBorder': 'a quiet line, like the rulers and guides of the high contrast themes',
+};
+// borders whose colour says what happened keep the status colour the family gives them, as VS Code's HC defaults do
+const MEANING = /^(debugExceptionWidget\.border|editorUnicodeHighlight\.border|inlineEdit\.(modified|original)Border|mergeEditor\.conflict\.\w+\.border)$/;
 
 function applyHighContrast(all, t) {
   const c = HC[t.hc];
   for (const k of Object.keys(all)) {
-    if (!/(\.border|Border)$/.test(k) || KEEP_TRANSPARENT.test(k)) continue;
-    // the session state frames ask for attention, so they take the active border, as VS Code's own defaults do
-    if (/focus|active|Active|sessionStateIndicator/.test(k)) { all[k] = c.active; continue; }
+    if (!/(\.border|Border)$/.test(k) || k in HC_KEEPS || MEANING.test(k)) continue;
+    // focused and active borders take the active colour, and so do the session state frames, which ask for attention;
+    // inactive and unfocused ones stay neutral as in VS Code's own defaults, but for the selected cell of an inactive notebook
+    const passive = /inactive|Inactive|unfocused|Unfocused/.test(k) && k !== 'notebook.inactiveSelectedCellBorder';
+    if (/focus|active|Active|sessionStateIndicator/.test(k) && !passive) { all[k] = c.active; continue; }
     all[k] = c.border;
   }
+  for (const s of ['Error', 'Warning', 'Info', 'Hint']) all[`editor${s}.border`] = all[`editor${s}.foreground`];
+  all['diffEditor.insertedTextBorder'] = t.st.added;
+  all['diffEditor.removedTextBorder'] = t.st.deleted;
+  for (const k of ['list.focusOutline', 'list.focusAndSelectionOutline', 'listFilterWidget.outline', 'editorSuggestWidget.focusOutline', 'toolbar.hoverOutline']) all[k] = c.active;
   all.contrastBorder = c.border;
   all.contrastActiveBorder = c.active;
   all.focusBorder = c.active;
@@ -1574,9 +1595,6 @@ function scmGraphColors(t) {
 
 function remoteIndicator(t) {
   const { acc, st, y, ansi, onColor, hoverOf } = t;
-  const [, chroma, hue] = hex2lch(acc);
-  const readsAsOk = chroma > 18 && hue > 95 && hue < 175;
-  const readsAsError = chroma > 18 && (hue < 35 || hue > 345);
   const risky = (c) => {
     const [, ch, h] = hex2lch(c);
     const green = ch > 18 && h > 95 && h < 175;
