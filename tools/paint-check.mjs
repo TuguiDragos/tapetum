@@ -14,8 +14,8 @@
 // ("markup.bold markup.italic") cannot be tokenized without its context and is left out; analyze and
 // audit cover those rules.
 //
-// Needs the tokenizer next to the repository; it is not a dependency of the package:
-//   npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0
+// Needs the tokenizer VS Code uses, which is not a dependency of the package; .github/tools pins it:
+//   npm ci --prefix .github/tools && NODE_PATH=.github/tools/node_modules node tools/paint-check.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -30,7 +30,7 @@ try {
   vsctm = require('vscode-textmate');
   onig = require('vscode-oniguruma');
 } catch {
-  console.error('paint-check needs the tokenizer VS Code uses, next to the repository:\n  npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0');
+  console.error('paint-check needs the tokenizer VS Code uses, which .github/tools pins:\n  npm ci --prefix .github/tools && NODE_PATH=.github/tools/node_modules node tools/paint-check.mjs');
   process.exit(2);
 }
 

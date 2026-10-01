@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: publish
@@ -16,6 +16,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -51,31 +54,46 @@ jobs:
       - name: Check the APCA implementation
         run: node tools/apca-check.mjs
 
-      - name: Install the tokenizer VS Code uses
-        run: npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0
+      - name: Install the workflow tools from their lockfile
+        run: |
+          npm ci --prefix .github/tools --ignore-scripts --no-audit --no-fund
+          echo "$GITHUB_WORKSPACE/.github/tools/node_modules/.bin" >> "$GITHUB_PATH"
+          echo "NODE_PATH=$GITHUB_WORKSPACE/.github/tools/node_modules" >> "$GITHUB_ENV"
 
       - name: Check that every rule is painted as it says
         run: node tools/paint-check.mjs
 
       - name: Package
         run: |
-          npx --yes @vscode/vsce@4 package --no-dependencies -o tapetum.vsix
+          vsce package --no-dependencies -o tapetum.vsix
           ls -l tapetum.vsix
 
+      # each registry gets its chance even if the other refuses; the job fails at the end if one did
       - name: Publish to the VS Code Marketplace
+        id: marketplace
         if: github.event_name == 'release'
+        continue-on-error: true
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npx --yes @vscode/vsce@4 publish --packagePath tapetum.vsix --skip-duplicate
+        run: vsce publish --packagePath tapetum.vsix --skip-duplicate
 
-      - name: Publish to Open VSX
+      - name: Publish to Open VSX by trusted publishing
+        id: openvsx
         if: github.event_name == 'release'
-        env:
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        run: npx --yes ovsx@1 publish tapetum.vsix --skip-duplicate
+        continue-on-error: true
+        run: ovsx publish tapetum.vsix --skip-duplicate --trusted-publishing
 
       - name: Attach the package to the release
         if: github.event_name == 'release'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release upload "$GITHUB_REF_NAME" tapetum.vsix --clobber
+
+      - name: Fail if a registry refused the package
+        if: steps.marketplace.outcome == 'failure' || steps.openvsx.outcome == 'failure'
+        env:
+          MARKETPLACE: ${{ steps.marketplace.outcome }}
+          OPENVSX: ${{ steps.openvsx.outcome }}
+        run: |
+          echo "::error::Marketplace: $MARKETPLACE, Open VSX: $OPENVSX"
+          exit 1

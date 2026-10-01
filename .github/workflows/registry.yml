@@ -19,42 +19,59 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
 
+      - name: Install the workflow tools from their lockfile
+        run: |
+          npm ci --prefix .github/tools --ignore-scripts --no-audit --no-fund
+          echo "$GITHUB_WORKSPACE/.github/tools/node_modules/.bin" >> "$GITHUB_PATH"
+          echo "NODE_PATH=$GITHUB_WORKSPACE/.github/tools/node_modules" >> "$GITHUB_ENV"
+
       - name: Download the current VS Code build
         id: vscode
         run: |
-          npm install --no-save --no-package-lock @vscode/test-electron@3
-          exe=$(node -e "require('@vscode/test-electron').downloadAndUnzipVSCode('stable').then((p) => console.log(p))")
+          node -e "require('@vscode/test-electron').downloadAndUnzipVSCode('stable').then((p) => console.log(p))"
           app=$(cd "$(dirname "$(find .vscode-test -name product.json -path '*/app/product.json' | head -1)")" && pwd)
           echo "app=$app" >> "$GITHUB_OUTPUT"
           echo "version=$(node -p "require('$app/product.json').version")" >> "$GITHUB_OUTPUT"
 
-      - name: Re-extract the registry, the pairs and the derivations
+      - name: Re-extract the registry, the pairs, the derivations and the TypeScript sample
         env:
           VSCODE_APP: ${{ steps.vscode.outputs.app }}
         run: |
           node tools/extract-keys.mjs
           node tools/extract-pairs.mjs
           node tools/extract-derivations.mjs
+          node tools/extract-sample.mjs
 
       - name: Check every theme against the fresh registry
         id: check
         continue-on-error: true
+        env:
+          VSCODE_APP: ${{ steps.vscode.outputs.app }}
         run: |
-          node tools/analyze.mjs | tee analyze.txt
-          node tools/audit.mjs | tee audit.txt
+          status=0
+          node tools/analyze.mjs > analyze.txt || status=1
+          node tools/audit.mjs > audit.txt || status=1
+          node tools/paint-check.mjs > paint.txt || status=1
+          node -e "const vs = require(process.env.VSCODE_APP + '/package.json').dependencies, ours = require('./.github/tools/package.json').dependencies; let ok = true; for (const p of ['vscode-textmate', 'vscode-oniguruma']) { const pin = ours[p], want = vs[p].replace(/^[~^]/, ''); console.log(p + ': VS Code declares ' + vs[p] + ', the tools pin ' + pin); if (want !== pin) ok = false; } process.exit(ok ? 0 : 1)" > tokenizer.txt || status=1
+          cat analyze.txt audit.txt paint.txt tokenizer.txt
+          exit $status
 
       - name: Open an issue if anything moved
-        if: steps.check.outcome == 'failure' || github.event_name == 'workflow_dispatch'
+        if: ${{ !cancelled() && steps.vscode.outcome == 'success' }}
         env:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.vscode.outputs.version }}
+          CHECK: ${{ steps.check.outcome }}
+          FILES: tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json tools/paint-sample.json
         run: |
-          if git diff --quiet -- tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json && [ "${{ steps.check.outcome }}" = "success" ]; then
+          if git diff --quiet -- $FILES && [ "$CHECK" = "success" ]; then
             echo "registry unchanged, every theme passes"
             exit 0
           fi
@@ -64,20 +81,23 @@ jobs:
             exit 0
           fi
           {
-            echo "The monthly registry check ran against VS Code $VERSION."
+            echo "The monthly registry check ran against VS Code $VERSION; the checks ended in: $CHECK."
             echo
+            echo "## What moved"
             echo '```'
-            git diff --stat -- tools/vscode-color-keys-full.json tools/render-pairs.json tools/derivations.json
-            echo '```'
-            echo
-            echo "## analyze"
-            echo '```'
-            tail -n 40 analyze.txt
+            git diff --stat -- $FILES
             echo '```'
             echo
-            echo "## audit"
+            echo "## The registry, line by line"
+            echo '```diff'
+            git diff -U0 -- tools/vscode-color-keys-full.json | grep '^[-+] ' | head -n 120
             echo '```'
-            tail -n 40 audit.txt
-            echo '```'
+            for t in analyze audit paint tokenizer; do
+              echo
+              echo "## $t"
+              echo '```'
+              grep -v -e 'keys   clean$' -e 'painted as written$' "$t.txt" | head -n 150
+              echo '```'
+            done
           } > body.md
           gh issue create --title "$title" --body-file body.md

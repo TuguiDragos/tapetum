@@ -1,0 +1,12 @@
+{
+  "name": "tapetum-workflow-tools",
+  "private": true,
+  "description": "The tools the workflows run, at exact versions with a lockfile. vscode-textmate and vscode-oniguruma follow the versions VS Code itself declares.",
+  "dependencies": {
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "4.0.0",
+    "ovsx": "1.2.0",
+    "vscode-oniguruma": "1.7.0",
+    "vscode-textmate": "9.3.2"
+  }
+}
