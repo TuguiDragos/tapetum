@@ -72,13 +72,19 @@ export const isDark = (c) => relLum(c) < 0.5;
 
 export const readable = (c, bg, target = 4.5) => {
   if (contrast(c, bg) >= target) return c;
-  const up = isDark(bg);
-  let best = c;
-  for (let i = 1; i <= 19; i++) {
-    best = up ? lighten(c, i / 20) : darken(c, i / 20);
-    if (contrast(best, bg) >= target) return best;
-  }
-  return best;
+  // away from the ground's lightness first, the other way only when that side cannot read
+  const walk = (up) => {
+    let best = c;
+    for (let i = 1; i <= 19; i++) {
+      best = up ? lighten(c, i / 20) : darken(c, i / 20);
+      if (contrast(best, bg) >= target) return best;
+    }
+    return best;
+  };
+  const first = walk(relLum(c) > relLum(bg));
+  if (contrast(first, bg) >= target) return first;
+  const second = walk(relLum(c) <= relLum(bg));
+  return contrast(second, bg) >= target ? second : first;
 };
 
 const clamp01 = (v) => Math.min(1, Math.max(0, v));
