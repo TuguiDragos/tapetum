@@ -6,11 +6,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2c12409b1d14d37b",
+  "colors": "bc9ba167be582978",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -1034,7 +1034,23 @@
    "positronConsole.traceBackground": "#c8d3f50d",
    "positronNotebook.cellFooterForeground": "#8c94af",
    "positronDataExplorer.invalidFilterBackground": "#281a2a",
-   "positronSplitterExpandCollapseButton.foreground": "#CD8FF9"
+   "positronSplitterExpandCollapseButton.foreground": "#CD8FF9",
+   "diffEditor.insertedTextBackgroundFallback": "#6ee7a818",
+   "diffEditor.removedTextBackgroundFallback": "#ff6e9c18",
+   "windsurf.sessionStatus.orange": "#FF9F45",
+   "windsurf.sessionStatus.green": "#6EE7A8",
+   "windsurf.sessionStatus.blue": "#8AB4FF",
+   "windsurf.sessionStatus.red": "#FF6E9C",
+   "windsurf.sessionStatus.purple": "#6EE7A8",
+   "tab.worktreeBorder": "#FF9F45",
+   "editorWatermark.foreground": "#C8D3F5",
+   "positronDataExplorer.sparklineFill": "#8AB4FF",
+   "positronDataExplorer.sparklineStroke": "#8AB4FF",
+   "positronDataExplorer.sparklineHover": "#FF9F45",
+   "positronDataExplorer.sparklineAxis": "#6b7184",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF6E9C",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#8c94af",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6b7184"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#6E769E|italic",
@@ -1262,11 +1278,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "43edfad625ca654a",
+  "colors": "6caa56016d991149",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -2290,7 +2306,23 @@
    "positronConsole.traceBackground": "#24294a0d",
    "positronNotebook.cellFooterForeground": "#585c70",
    "positronDataExplorer.invalidFilterBackground": "#f8f5fb",
-   "positronSplitterExpandCollapseButton.foreground": "#7B2CBF"
+   "positronSplitterExpandCollapseButton.foreground": "#7B2CBF",
+   "diffEditor.insertedTextBackgroundFallback": "#06704a20",
+   "diffEditor.removedTextBackgroundFallback": "#c42b7b20",
+   "windsurf.sessionStatus.orange": "#af4900",
+   "windsurf.sessionStatus.green": "#06704A",
+   "windsurf.sessionStatus.blue": "#2B5FD9",
+   "windsurf.sessionStatus.red": "#C42B7B",
+   "windsurf.sessionStatus.purple": "#06704A",
+   "tab.worktreeBorder": "#af4900",
+   "editorWatermark.foreground": "#232747",
+   "positronDataExplorer.sparklineFill": "#2B5FD9",
+   "positronDataExplorer.sparklineStroke": "#2B5FD9",
+   "positronDataExplorer.sparklineHover": "#C25100",
+   "positronDataExplorer.sparklineAxis": "#787a86",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C42B7B",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#585c70",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#787a86"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#6D7291|italic",
@@ -2518,11 +2550,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "936b27144088def2",
+  "colors": "e83315c7d849aeee",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -3546,7 +3578,23 @@
    "positronConsole.traceBackground": "#dde1e80d",
    "positronNotebook.cellFooterForeground": "#999ca3",
    "positronDataExplorer.invalidFilterBackground": "#251516",
-   "positronSplitterExpandCollapseButton.foreground": "#AF9CF9"
+   "positronSplitterExpandCollapseButton.foreground": "#AF9CF9",
+   "diffEditor.insertedTextBackgroundFallback": "#7ce85c20",
+   "diffEditor.removedTextBackgroundFallback": "#fa624520",
+   "windsurf.sessionStatus.orange": "#FFC93C",
+   "windsurf.sessionStatus.green": "#7CE85C",
+   "windsurf.sessionStatus.blue": "#4FC3F7",
+   "windsurf.sessionStatus.red": "#FA6245",
+   "windsurf.sessionStatus.purple": "#7CE85C",
+   "tab.worktreeBorder": "#FFC93C",
+   "editorWatermark.foreground": "#DDE1E8",
+   "positronDataExplorer.sparklineFill": "#4FC3F7",
+   "positronDataExplorer.sparklineStroke": "#4FC3F7",
+   "positronDataExplorer.sparklineHover": "#FFC93C",
+   "positronDataExplorer.sparklineAxis": "#696c72",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FA6245",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#999ca3",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#696c72"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#727A88|italic",
@@ -3774,11 +3822,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "327a2d48381ac2ea",
+  "colors": "4df7b794255e5797",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -4802,7 +4850,23 @@
    "positronConsole.traceBackground": "#1b1d220d",
    "positronNotebook.cellFooterForeground": "#5e5f61",
    "positronDataExplorer.invalidFilterBackground": "#f9f4ef",
-   "positronSplitterExpandCollapseButton.foreground": "#3A2FC9"
+   "positronSplitterExpandCollapseButton.foreground": "#3A2FC9",
+   "diffEditor.insertedTextBackgroundFallback": "#3d7a1f20",
+   "diffEditor.removedTextBackgroundFallback": "#c13a1a20",
+   "windsurf.sessionStatus.orange": "#8b5f00",
+   "windsurf.sessionStatus.green": "#3D7A1F",
+   "windsurf.sessionStatus.blue": "#0D6FA8",
+   "windsurf.sessionStatus.red": "#C13A1A",
+   "windsurf.sessionStatus.purple": "#3D7A1F",
+   "tab.worktreeBorder": "#8b5f00",
+   "editorWatermark.foreground": "#1B1D22",
+   "positronDataExplorer.sparklineFill": "#0D6FA8",
+   "positronDataExplorer.sparklineStroke": "#0D6FA8",
+   "positronDataExplorer.sparklineHover": "#9A6A00",
+   "positronDataExplorer.sparklineAxis": "#767676",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C13A1A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5e5f61",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#767676"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#6A6C70|italic",
@@ -5030,11 +5094,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "118ba1af15ecc58f",
+  "colors": "c08d16733385aa92",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -6058,7 +6122,23 @@
    "positronConsole.traceBackground": "#dce0d80d",
    "positronNotebook.cellFooterForeground": "#999c96",
    "positronDataExplorer.invalidFilterBackground": "#271711",
-   "positronSplitterExpandCollapseButton.foreground": "#7FE33F"
+   "positronSplitterExpandCollapseButton.foreground": "#7FE33F",
+   "diffEditor.insertedTextBackgroundFallback": "#7fe33f25",
+   "diffEditor.removedTextBackgroundFallback": "#ff6b4a25",
+   "windsurf.sessionStatus.orange": "#FFB742",
+   "windsurf.sessionStatus.green": "#7FE33F",
+   "windsurf.sessionStatus.blue": "#8FB8FF",
+   "windsurf.sessionStatus.red": "#FF6B4A",
+   "windsurf.sessionStatus.purple": "#7FE33F",
+   "tab.worktreeBorder": "#FFB742",
+   "editorWatermark.foreground": "#DCE0D8",
+   "positronDataExplorer.sparklineFill": "#8FB8FF",
+   "positronDataExplorer.sparklineStroke": "#8FB8FF",
+   "positronDataExplorer.sparklineHover": "#FF6B4A",
+   "positronDataExplorer.sparklineAxis": "#6a6c68",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF6B4A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#999c96",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6a6c68"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#7C8178|italic",
@@ -6286,11 +6366,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "938b26f40dce28b3",
+  "colors": "1aad1429a4320522",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -7314,7 +7394,23 @@
    "positronConsole.traceBackground": "#1c1f1a0d",
    "positronNotebook.cellFooterForeground": "#5d5f5b",
    "positronDataExplorer.invalidFilterBackground": "#f5f2ee",
-   "positronSplitterExpandCollapseButton.foreground": "#3D7A14"
+   "positronSplitterExpandCollapseButton.foreground": "#3D7A14",
+   "diffEditor.insertedTextBackgroundFallback": "#3a74132e",
+   "diffEditor.removedTextBackgroundFallback": "#b8402a2e",
+   "windsurf.sessionStatus.orange": "#8A5A00",
+   "windsurf.sessionStatus.green": "#3a7413",
+   "windsurf.sessionStatus.blue": "#1A6E96",
+   "windsurf.sessionStatus.red": "#B8402A",
+   "windsurf.sessionStatus.purple": "#3D7A14",
+   "tab.worktreeBorder": "#8A5A00",
+   "editorWatermark.foreground": "#1C1F1A",
+   "positronDataExplorer.sparklineFill": "#1A6E96",
+   "positronDataExplorer.sparklineStroke": "#1A6E96",
+   "positronDataExplorer.sparklineHover": "#B8402A",
+   "positronDataExplorer.sparklineAxis": "#747672",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#B8402A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5d5f5b",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#747672"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#676A63|italic",
@@ -7542,11 +7638,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f878ba3bf768f0c1",
+  "colors": "7cd09925183d3b63",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -8570,7 +8666,23 @@
    "positronConsole.traceBackground": "#e2e2e40d",
    "positronNotebook.cellFooterForeground": "#9e9e9f",
    "positronDataExplorer.invalidFilterBackground": "#251914",
-   "positronSplitterExpandCollapseButton.foreground": "#E8B54A"
+   "positronSplitterExpandCollapseButton.foreground": "#E8B54A",
+   "diffEditor.insertedTextBackgroundFallback": "#39b8712e",
+   "diffEditor.removedTextBackgroundFallback": "#e07a452e",
+   "windsurf.sessionStatus.orange": "#E8B54A",
+   "windsurf.sessionStatus.green": "#39B871",
+   "windsurf.sessionStatus.blue": "#75ADE2",
+   "windsurf.sessionStatus.red": "#E07A45",
+   "windsurf.sessionStatus.purple": "#39B871",
+   "tab.worktreeBorder": "#E8B54A",
+   "editorWatermark.foreground": "#E2E2E4",
+   "positronDataExplorer.sparklineFill": "#75ADE2",
+   "positronDataExplorer.sparklineStroke": "#75ADE2",
+   "positronDataExplorer.sparklineHover": "#E07A45",
+   "positronDataExplorer.sparklineAxis": "#6e6e6f",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#E07A45",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#9e9e9f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6e6e6f"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#7E7E82|italic",
@@ -8798,11 +8910,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b0ae0e6e4ac9bc49",
+  "colors": "067188e6bbb562b2",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -9826,7 +9938,23 @@
    "positronConsole.traceBackground": "#1d1d200d",
    "positronNotebook.cellFooterForeground": "#5e5e60",
    "positronDataExplorer.invalidFilterBackground": "#f6f3f2",
-   "positronSplitterExpandCollapseButton.foreground": "#8A5A00"
+   "positronSplitterExpandCollapseButton.foreground": "#8A5A00",
+   "diffEditor.insertedTextBackgroundFallback": "#22683f2b",
+   "diffEditor.removedTextBackgroundFallback": "#a74c1d2b",
+   "windsurf.sessionStatus.orange": "#8A5A00",
+   "windsurf.sessionStatus.green": "#22683F",
+   "windsurf.sessionStatus.blue": "#2A5FA8",
+   "windsurf.sessionStatus.red": "#a74c1d",
+   "windsurf.sessionStatus.purple": "#22683F",
+   "tab.worktreeBorder": "#8A5A00",
+   "editorWatermark.foreground": "#1D1D20",
+   "positronDataExplorer.sparklineFill": "#2A5FA8",
+   "positronDataExplorer.sparklineStroke": "#2A5FA8",
+   "positronDataExplorer.sparklineHover": "#B0501F",
+   "positronDataExplorer.sparklineAxis": "#757577",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#a74c1d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5e5e60",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#757577"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#66666A|italic",
@@ -10054,11 +10182,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "35e8d3613cf6c765",
+  "colors": "ef1c38bb33ea0048",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -11082,7 +11210,23 @@
    "positronConsole.traceBackground": "#c9ced60d",
    "positronNotebook.cellFooterForeground": "#909398",
    "positronDataExplorer.invalidFilterBackground": "#211010",
-   "positronSplitterExpandCollapseButton.foreground": "#16DFF4"
+   "positronSplitterExpandCollapseButton.foreground": "#16DFF4",
+   "diffEditor.insertedTextBackgroundFallback": "#0ef4772b",
+   "diffEditor.removedTextBackgroundFallback": "#f46b572b",
+   "windsurf.sessionStatus.orange": "#F4D00C",
+   "windsurf.sessionStatus.green": "#0EF477",
+   "windsurf.sessionStatus.blue": "#4E97F4",
+   "windsurf.sessionStatus.red": "#F46B57",
+   "windsurf.sessionStatus.purple": "#0EF477",
+   "tab.worktreeBorder": "#F4D00C",
+   "editorWatermark.foreground": "#C9CED6",
+   "positronDataExplorer.sparklineFill": "#C891F9",
+   "positronDataExplorer.sparklineStroke": "#C891F9",
+   "positronDataExplorer.sparklineHover": "#F46B57",
+   "positronDataExplorer.sparklineAxis": "#686a6d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F46B57",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#909398",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#686a6d"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#7D8189|italic",
@@ -11310,11 +11454,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5d6ba1b57c8ee64c",
+  "colors": "40506ccb528d0d34",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -12338,7 +12482,23 @@
    "positronConsole.traceBackground": "#16181c0d",
    "positronNotebook.cellFooterForeground": "#5b5c5f",
    "positronDataExplorer.invalidFilterBackground": "#fcf6f7",
-   "positronSplitterExpandCollapseButton.foreground": "#0A5B64"
+   "positronSplitterExpandCollapseButton.foreground": "#0A5B64",
+   "diffEditor.insertedTextBackgroundFallback": "#0a683030",
+   "diffEditor.removedTextBackgroundFallback": "#cf151a30",
+   "windsurf.sessionStatus.orange": "#716008",
+   "windsurf.sessionStatus.green": "#0A6830",
+   "windsurf.sessionStatus.blue": "#0C67B5",
+   "windsurf.sessionStatus.red": "#CF151A",
+   "windsurf.sessionStatus.purple": "#716008",
+   "tab.worktreeBorder": "#716008",
+   "editorWatermark.foreground": "#16181C",
+   "positronDataExplorer.sparklineFill": "#7C39C4",
+   "positronDataExplorer.sparklineStroke": "#7C39C4",
+   "positronDataExplorer.sparklineHover": "#CF151A",
+   "positronDataExplorer.sparklineAxis": "#7d7e7f",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#CF151A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5b5c5f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7d7e7f"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#63676E|italic",
@@ -12566,11 +12726,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "612f77751573bb08",
+  "colors": "bb22e7ef9514f8f4",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
-   1023,
+   1039,
    99,
    58
   ],
@@ -13597,7 +13757,23 @@
    "positronConsole.traceBackground": "#ffffff0d",
    "positronNotebook.cellFooterForeground": "#FFFFFF",
    "positronDataExplorer.invalidFilterBackground": "#1f1111",
-   "positronSplitterExpandCollapseButton.foreground": "#12EBFF"
+   "positronSplitterExpandCollapseButton.foreground": "#12EBFF",
+   "diffEditor.insertedTextBackgroundFallback": "#10ff7d36",
+   "diffEditor.removedTextBackgroundFallback": "#ff8a8a36",
+   "windsurf.sessionStatus.orange": "#FFE20E",
+   "windsurf.sessionStatus.green": "#10FF7D",
+   "windsurf.sessionStatus.blue": "#BAD2FF",
+   "windsurf.sessionStatus.red": "#FF8A8A",
+   "windsurf.sessionStatus.purple": "#FFE20E",
+   "tab.worktreeBorder": "#FFE20E",
+   "editorWatermark.foreground": "#FFFFFF",
+   "positronDataExplorer.sparklineFill": "#E9C3FF",
+   "positronDataExplorer.sparklineStroke": "#E9C3FF",
+   "positronDataExplorer.sparklineHover": "#FFA05C",
+   "positronDataExplorer.sparklineAxis": "#818181",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF8A8A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#adadad",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#818181"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#9F9F9F|italic",
@@ -13825,11 +14001,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1a0c3509b99131b7",
+  "colors": "fefc7e105b8bceeb",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
-   1023,
+   1039,
    99,
    58
   ],
@@ -14856,7 +15032,23 @@
    "positronConsole.traceBackground": "#0000000d",
    "positronNotebook.cellFooterForeground": "#000000",
    "positronDataExplorer.invalidFilterBackground": "#fdf7f8",
-   "positronSplitterExpandCollapseButton.foreground": "#00616C"
+   "positronSplitterExpandCollapseButton.foreground": "#00616C",
+   "diffEditor.insertedTextBackgroundFallback": "#00672733",
+   "diffEditor.removedTextBackgroundFallback": "#b5000533",
+   "windsurf.sessionStatus.orange": "#695500",
+   "windsurf.sessionStatus.green": "#006727",
+   "windsurf.sessionStatus.blue": "#0059A6",
+   "windsurf.sessionStatus.red": "#B50005",
+   "windsurf.sessionStatus.purple": "#006727",
+   "tab.worktreeBorder": "#695500",
+   "editorWatermark.foreground": "#000000",
+   "positronDataExplorer.sparklineFill": "#6F00F5",
+   "positronDataExplorer.sparklineStroke": "#6F00F5",
+   "positronDataExplorer.sparklineHover": "#B50005",
+   "positronDataExplorer.sparklineAxis": "#6a6a6a",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#B50005",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#525252",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6a6a6a"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#686868|italic",
@@ -15084,11 +15276,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e63348cb98c76025",
+  "colors": "d93b98cad116e1b6",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -16112,7 +16304,23 @@
    "positronConsole.traceBackground": "#d4d1dc0d",
    "positronNotebook.cellFooterForeground": "#94919a",
    "positronDataExplorer.invalidFilterBackground": "#271419",
-   "positronSplitterExpandCollapseButton.foreground": "#F976E7"
+   "positronSplitterExpandCollapseButton.foreground": "#F976E7",
+   "diffEditor.insertedTextBackgroundFallback": "#20d12e30",
+   "diffEditor.removedTextBackgroundFallback": "#f4646930",
+   "windsurf.sessionStatus.orange": "#F2B486",
+   "windsurf.sessionStatus.green": "#20D12E",
+   "windsurf.sessionStatus.blue": "#6E90FA",
+   "windsurf.sessionStatus.red": "#F46469",
+   "windsurf.sessionStatus.purple": "#20D12E",
+   "tab.worktreeBorder": "#F2B486",
+   "editorWatermark.foreground": "#D4D1DC",
+   "positronDataExplorer.sparklineFill": "#12B6E8",
+   "positronDataExplorer.sparklineStroke": "#12B6E8",
+   "positronDataExplorer.sparklineHover": "#F46469",
+   "positronDataExplorer.sparklineAxis": "#6f6d74",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F46469",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#94919a",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6f6d74"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#85828F|italic",
@@ -16340,11 +16548,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1a03b2b027189e04",
+  "colors": "9949f0ad92340aa8",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -17368,7 +17576,23 @@
    "positronConsole.traceBackground": "#2221280d",
    "positronNotebook.cellFooterForeground": "#5e5d61",
    "positronDataExplorer.invalidFilterBackground": "#fbf4f7",
-   "positronSplitterExpandCollapseButton.foreground": "#B70CA8"
+   "positronSplitterExpandCollapseButton.foreground": "#B70CA8",
+   "diffEditor.insertedTextBackgroundFallback": "#0b691228",
+   "diffEditor.removedTextBackgroundFallback": "#d20b3828",
+   "windsurf.sessionStatus.orange": "#81440A",
+   "windsurf.sessionStatus.green": "#0B6912",
+   "windsurf.sessionStatus.blue": "#0C68DF",
+   "windsurf.sessionStatus.red": "#D20B38",
+   "windsurf.sessionStatus.purple": "#0B6912",
+   "tab.worktreeBorder": "#81440A",
+   "editorWatermark.foreground": "#222128",
+   "positronDataExplorer.sparklineFill": "#0B6886",
+   "positronDataExplorer.sparklineStroke": "#0B6886",
+   "positronDataExplorer.sparklineHover": "#D20B38",
+   "positronDataExplorer.sparklineAxis": "#78777b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#D20B38",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5e5d61",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#78777b"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#6B6874|italic",
@@ -17596,11 +17820,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c06cc8a9fc61500c",
+  "colors": "87bed4e2efa98c52",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -18624,7 +18848,23 @@
    "positronConsole.traceBackground": "#c6dce10d",
    "positronNotebook.cellFooterForeground": "#889ca2",
    "positronDataExplorer.invalidFilterBackground": "#1c2029",
-   "positronSplitterExpandCollapseButton.foreground": "#97CCF2"
+   "positronSplitterExpandCollapseButton.foreground": "#97CCF2",
+   "diffEditor.insertedTextBackgroundFallback": "#0cc6812e",
+   "diffEditor.removedTextBackgroundFallback": "#ca828b2e",
+   "windsurf.sessionStatus.orange": "#B69F4B",
+   "windsurf.sessionStatus.green": "#0CC681",
+   "windsurf.sessionStatus.blue": "#97CCF2",
+   "windsurf.sessionStatus.red": "#CA828B",
+   "windsurf.sessionStatus.purple": "#B69F4B",
+   "tab.worktreeBorder": "#B69F4B",
+   "editorWatermark.foreground": "#C6DCE1",
+   "positronDataExplorer.sparklineFill": "#0FCDD2",
+   "positronDataExplorer.sparklineStroke": "#0FCDD2",
+   "positronDataExplorer.sparklineHover": "#CB8661",
+   "positronDataExplorer.sparklineAxis": "#66767d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#CA828B",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#889ca2",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#66767d"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#768B90|italic",
@@ -18852,11 +19092,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "76a70c9c68fc5b87",
+  "colors": "ccdcc1ee19f5e9d5",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -19880,7 +20120,23 @@
    "positronConsole.traceBackground": "#1522250d",
    "positronNotebook.cellFooterForeground": "#545d5f",
    "positronDataExplorer.invalidFilterBackground": "#f3f5f7",
-   "positronSplitterExpandCollapseButton.foreground": "#0A587B"
+   "positronSplitterExpandCollapseButton.foreground": "#0A587B",
+   "diffEditor.insertedTextBackgroundFallback": "#0a6d4628",
+   "diffEditor.removedTextBackgroundFallback": "#97566128",
+   "windsurf.sessionStatus.orange": "#76630E",
+   "windsurf.sessionStatus.green": "#0A6D46",
+   "windsurf.sessionStatus.blue": "#0A587B",
+   "windsurf.sessionStatus.red": "#975661",
+   "windsurf.sessionStatus.purple": "#76630E",
+   "tab.worktreeBorder": "#76630E",
+   "editorWatermark.foreground": "#152225",
+   "positronDataExplorer.sparklineFill": "#0E6365",
+   "positronDataExplorer.sparklineStroke": "#0E6365",
+   "positronDataExplorer.sparklineHover": "#915431",
+   "positronDataExplorer.sparklineAxis": "#72777a",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#975661",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#545d5f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#72777a"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#586C71|italic",
@@ -20108,11 +20364,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "41f8cef634af1463",
+  "colors": "87d93768b9445fcb",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -21136,7 +21392,23 @@
    "positronConsole.traceBackground": "#ded2cd0d",
    "positronNotebook.cellFooterForeground": "#9c938e",
    "positronDataExplorer.invalidFilterBackground": "#2b1c18",
-   "positronSplitterExpandCollapseButton.foreground": "#F28F83"
+   "positronSplitterExpandCollapseButton.foreground": "#F28F83",
+   "diffEditor.insertedTextBackgroundFallback": "#0ccea030",
+   "diffEditor.removedTextBackgroundFallback": "#f28f8330",
+   "windsurf.sessionStatus.orange": "#F2BA24",
+   "windsurf.sessionStatus.green": "#0CCEA0",
+   "windsurf.sessionStatus.blue": "#47AFFA",
+   "windsurf.sessionStatus.red": "#F28F83",
+   "windsurf.sessionStatus.purple": "#F2BA24",
+   "tab.worktreeBorder": "#F2BA24",
+   "editorWatermark.foreground": "#DED2CD",
+   "positronDataExplorer.sparklineFill": "#47AFFA",
+   "positronDataExplorer.sparklineStroke": "#47AFFA",
+   "positronDataExplorer.sparklineHover": "#FA54AC",
+   "positronDataExplorer.sparklineAxis": "#766f6b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F28F83",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#9c938e",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#766f6b"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#90827B|italic",
@@ -21364,11 +21636,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5af53fa20fbc43d3",
+  "colors": "590ba2c09ff67b09",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -22392,7 +22664,23 @@
    "positronConsole.traceBackground": "#251d190d",
    "positronNotebook.cellFooterForeground": "#5f5955",
    "positronDataExplorer.invalidFilterBackground": "#f8f0ea",
-   "positronSplitterExpandCollapseButton.foreground": "#BC0D22"
+   "positronSplitterExpandCollapseButton.foreground": "#BC0D22",
+   "diffEditor.insertedTextBackgroundFallback": "#0c644c25",
+   "diffEditor.removedTextBackgroundFallback": "#bc0d2225",
+   "windsurf.sessionStatus.orange": "#674D0A",
+   "windsurf.sessionStatus.green": "#0C644C",
+   "windsurf.sessionStatus.blue": "#0A699D",
+   "windsurf.sessionStatus.red": "#BC0D22",
+   "windsurf.sessionStatus.purple": "#674D0A",
+   "tab.worktreeBorder": "#674D0A",
+   "editorWatermark.foreground": "#251D19",
+   "positronDataExplorer.sparklineFill": "#0A699D",
+   "positronDataExplorer.sparklineStroke": "#0A699D",
+   "positronDataExplorer.sparklineHover": "#CB0B82",
+   "positronDataExplorer.sparklineAxis": "#797471",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#BC0D22",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5f5955",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#797471"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#72655E|italic",
@@ -22620,11 +22908,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "86ea740ef0dcba8a",
+  "colors": "161509a788125b05",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -23648,7 +23936,23 @@
    "positronConsole.traceBackground": "#d7dce50d",
    "positronNotebook.cellFooterForeground": "#999ca5",
    "positronDataExplorer.invalidFilterBackground": "#302026",
-   "positronSplitterExpandCollapseButton.foreground": "#77ABF9"
+   "positronSplitterExpandCollapseButton.foreground": "#77ABF9",
+   "diffEditor.insertedTextBackgroundFallback": "#60d53d28",
+   "diffEditor.removedTextBackgroundFallback": "#f2726e28",
+   "windsurf.sessionStatus.orange": "#F2C17A",
+   "windsurf.sessionStatus.green": "#60D53D",
+   "windsurf.sessionStatus.blue": "#77ABF9",
+   "windsurf.sessionStatus.red": "#F2726E",
+   "windsurf.sessionStatus.purple": "#60D53D",
+   "tab.worktreeBorder": "#F2C17A",
+   "editorWatermark.foreground": "#D7DCE5",
+   "positronDataExplorer.sparklineFill": "#13C5B5",
+   "positronDataExplorer.sparklineStroke": "#13C5B5",
+   "positronDataExplorer.sparklineHover": "#F2726E",
+   "positronDataExplorer.sparklineAxis": "#75787e",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F2726E",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#999ca5",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#75787e"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#838A96|italic",
@@ -23876,11 +24180,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0ad5bfebda25d060",
+  "colors": "8dbe5c7e45dceb0f",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -24904,7 +25208,23 @@
    "positronConsole.traceBackground": "#251f190d",
    "positronNotebook.cellFooterForeground": "#5f5b55",
    "positronDataExplorer.invalidFilterBackground": "#faf2ea",
-   "positronSplitterExpandCollapseButton.foreground": "#0A66B2"
+   "positronSplitterExpandCollapseButton.foreground": "#0A66B2",
+   "diffEditor.insertedTextBackgroundFallback": "#1f660b25",
+   "diffEditor.removedTextBackgroundFallback": "#cf0b3025",
+   "windsurf.sessionStatus.orange": "#6E4C0A",
+   "windsurf.sessionStatus.green": "#1F660B",
+   "windsurf.sessionStatus.blue": "#0A66B2",
+   "windsurf.sessionStatus.red": "#CF0B30",
+   "windsurf.sessionStatus.purple": "#1F660B",
+   "tab.worktreeBorder": "#6E4C0A",
+   "editorWatermark.foreground": "#251F19",
+   "positronDataExplorer.sparklineFill": "#0C6A61",
+   "positronDataExplorer.sparklineStroke": "#0C6A61",
+   "positronDataExplorer.sparklineHover": "#CF0B30",
+   "positronDataExplorer.sparklineAxis": "#797671",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#CF0B30",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5f5b55",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#797671"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#71675E|italic",
@@ -25132,11 +25452,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f131258c41398d30",
+  "colors": "c17d63585ad33f09",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -26160,7 +26480,23 @@
    "positronConsole.traceBackground": "#dbd2ce0d",
    "positronNotebook.cellFooterForeground": "#99928f",
    "positronDataExplorer.invalidFilterBackground": "#291615",
-   "positronSplitterExpandCollapseButton.foreground": "#0FCBB7"
+   "positronSplitterExpandCollapseButton.foreground": "#0FCBB7",
+   "diffEditor.insertedTextBackgroundFallback": "#41bf7633",
+   "diffEditor.removedTextBackgroundFallback": "#f4657733",
+   "windsurf.sessionStatus.orange": "#E4BF39",
+   "windsurf.sessionStatus.green": "#41BF76",
+   "windsurf.sessionStatus.blue": "#2AA2C8",
+   "windsurf.sessionStatus.red": "#F46577",
+   "windsurf.sessionStatus.purple": "#E4BF39",
+   "tab.worktreeBorder": "#E4BF39",
+   "editorWatermark.foreground": "#DBD2CE",
+   "positronDataExplorer.sparklineFill": "#B09BFA",
+   "positronDataExplorer.sparklineStroke": "#B09BFA",
+   "positronDataExplorer.sparklineHover": "#F46577",
+   "positronDataExplorer.sparklineAxis": "#746f6b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F46577",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#99928f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#746f6b"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#8F817D|italic",
@@ -26388,11 +26724,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d201e0b938081d81",
+  "colors": "a9f8829f23b28a53",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -27416,7 +27752,23 @@
    "positronConsole.traceBackground": "#211b180d",
    "positronNotebook.cellFooterForeground": "#5b5653",
    "positronDataExplorer.invalidFilterBackground": "#f5eee8",
-   "positronSplitterExpandCollapseButton.foreground": "#0C6157"
+   "positronSplitterExpandCollapseButton.foreground": "#0C6157",
+   "diffEditor.insertedTextBackgroundFallback": "#0b6a3a2b",
+   "diffEditor.removedTextBackgroundFallback": "#be2a492b",
+   "windsurf.sessionStatus.orange": "#5F4E0B",
+   "windsurf.sessionStatus.green": "#0B6A3A",
+   "windsurf.sessionStatus.blue": "#0C728F",
+   "windsurf.sessionStatus.red": "#BE2A49",
+   "windsurf.sessionStatus.purple": "#5F4E0B",
+   "tab.worktreeBorder": "#5F4E0B",
+   "editorWatermark.foreground": "#211B18",
+   "positronDataExplorer.sparklineFill": "#6354B0",
+   "positronDataExplorer.sparklineStroke": "#6354B0",
+   "positronDataExplorer.sparklineHover": "#BE2A49",
+   "positronDataExplorer.sparklineAxis": "#76736f",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#BE2A49",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5b5653",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#76736f"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#70635F|italic",
@@ -27644,11 +27996,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "04118f1fb8356a2b",
+  "colors": "d1bd47232a264e85",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -28672,7 +29024,23 @@
    "positronConsole.traceBackground": "#cadee60d",
    "positronNotebook.cellFooterForeground": "#8b9ea9",
    "positronDataExplorer.invalidFilterBackground": "#222333",
-   "positronSplitterExpandCollapseButton.foreground": "#EE7DFA"
+   "positronSplitterExpandCollapseButton.foreground": "#EE7DFA",
+   "diffEditor.insertedTextBackgroundFallback": "#4fbe6f30",
+   "diffEditor.removedTextBackgroundFallback": "#f2898730",
+   "windsurf.sessionStatus.orange": "#CAA20A",
+   "windsurf.sessionStatus.green": "#4FBE6F",
+   "windsurf.sessionStatus.blue": "#3AB2F8",
+   "windsurf.sessionStatus.red": "#F28987",
+   "windsurf.sessionStatus.purple": "#4FBE6F",
+   "tab.worktreeBorder": "#CAA20A",
+   "editorWatermark.foreground": "#CADEE6",
+   "positronDataExplorer.sparklineFill": "#3AB2F8",
+   "positronDataExplorer.sparklineStroke": "#3AB2F8",
+   "positronDataExplorer.sparklineHover": "#15C6EC",
+   "positronDataExplorer.sparklineAxis": "#697885",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F28987",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#8b9ea9",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#697885"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#798C93|italic",
@@ -28900,11 +29268,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dd4b85ea74659ea8",
+  "colors": "20e213fa52d59c13",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -29928,7 +30296,23 @@
    "positronConsole.traceBackground": "#1521250d",
    "positronNotebook.cellFooterForeground": "#545c5f",
    "positronDataExplorer.invalidFilterBackground": "#f4f1f7",
-   "positronSplitterExpandCollapseButton.foreground": "#B61CCB"
+   "positronSplitterExpandCollapseButton.foreground": "#B61CCB",
+   "diffEditor.insertedTextBackgroundFallback": "#0c763820",
+   "diffEditor.removedTextBackgroundFallback": "#c70a3520",
+   "windsurf.sessionStatus.orange": "#79610A",
+   "windsurf.sessionStatus.green": "#0C7638",
+   "windsurf.sessionStatus.blue": "#0b6fa1",
+   "windsurf.sessionStatus.red": "#C70A35",
+   "windsurf.sessionStatus.purple": "#0C7638",
+   "tab.worktreeBorder": "#79610A",
+   "editorWatermark.foreground": "#152125",
+   "positronDataExplorer.sparklineFill": "#0C75A9",
+   "positronDataExplorer.sparklineStroke": "#0c73a6",
+   "positronDataExplorer.sparklineHover": "#0D6377",
+   "positronDataExplorer.sparklineAxis": "#71777a",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C70A35",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#545c5f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#71777a"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#586B71|italic",
@@ -30156,11 +30540,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "feba04c094892b3d",
+  "colors": "69eddaddb78979b4",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -31184,7 +31568,23 @@
    "positronConsole.traceBackground": "#c6d8df0d",
    "positronNotebook.cellFooterForeground": "#8a979d",
    "positronDataExplorer.invalidFilterBackground": "#261a20",
-   "positronSplitterExpandCollapseButton.foreground": "#F2A47A"
+   "positronSplitterExpandCollapseButton.foreground": "#F2A47A",
+   "diffEditor.insertedTextBackgroundFallback": "#66a56736",
+   "diffEditor.removedTextBackgroundFallback": "#f2788436",
+   "windsurf.sessionStatus.orange": "#F2A47A",
+   "windsurf.sessionStatus.green": "#66A567",
+   "windsurf.sessionStatus.blue": "#54B2F2",
+   "windsurf.sessionStatus.red": "#F27884",
+   "windsurf.sessionStatus.purple": "#66A567",
+   "tab.worktreeBorder": "#F2A47A",
+   "editorWatermark.foreground": "#C6D8DF",
+   "positronDataExplorer.sparklineFill": "#54B2F2",
+   "positronDataExplorer.sparklineStroke": "#54B2F2",
+   "positronDataExplorer.sparklineHover": "#F27884",
+   "positronDataExplorer.sparklineAxis": "#6a7277",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F27884",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#8a979d",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6a7277"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#75888F|italic",
@@ -31412,11 +31812,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a8d2a8af4780ce03",
+  "colors": "5c1c0f83814a8145",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -32440,7 +32840,23 @@
    "positronConsole.traceBackground": "#251c180d",
    "positronNotebook.cellFooterForeground": "#5f5853",
    "positronDataExplorer.invalidFilterBackground": "#f9efe7",
-   "positronSplitterExpandCollapseButton.foreground": "#913E0A"
+   "positronSplitterExpandCollapseButton.foreground": "#913E0A",
+   "diffEditor.insertedTextBackgroundFallback": "#39773d28",
+   "diffEditor.removedTextBackgroundFallback": "#c40a4328",
+   "windsurf.sessionStatus.orange": "#913E0A",
+   "windsurf.sessionStatus.green": "#39773D",
+   "windsurf.sessionStatus.blue": "#0F638F",
+   "windsurf.sessionStatus.red": "#C40A43",
+   "windsurf.sessionStatus.purple": "#39773D",
+   "tab.worktreeBorder": "#913E0A",
+   "editorWatermark.foreground": "#251C18",
+   "positronDataExplorer.sparklineFill": "#0F638F",
+   "positronDataExplorer.sparklineStroke": "#0F638F",
+   "positronDataExplorer.sparklineHover": "#C40A43",
+   "positronDataExplorer.sparklineAxis": "#79746e",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C40A43",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5f5853",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#79746e"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#74645D|italic",
@@ -32668,11 +33084,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c1101ee5dc928f95",
+  "colors": "094ab9d56eb4e273",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -33696,7 +34112,23 @@
    "positronConsole.traceBackground": "#c3d4db0d",
    "positronNotebook.cellFooterForeground": "#869298",
    "positronDataExplorer.invalidFilterBackground": "#22101e",
-   "positronSplitterExpandCollapseButton.foreground": "#40D0ED"
+   "positronSplitterExpandCollapseButton.foreground": "#40D0ED",
+   "diffEditor.insertedTextBackgroundFallback": "#5cb8a533",
+   "diffEditor.removedTextBackgroundFallback": "#f955ab33",
+   "windsurf.sessionStatus.orange": "#CE8C54",
+   "windsurf.sessionStatus.green": "#5CB8A5",
+   "windsurf.sessionStatus.blue": "#7CACDD",
+   "windsurf.sessionStatus.red": "#F955AB",
+   "windsurf.sessionStatus.purple": "#CE8C54",
+   "tab.worktreeBorder": "#CE8C54",
+   "editorWatermark.foreground": "#C3D4DB",
+   "positronDataExplorer.sparklineFill": "#7CACDD",
+   "positronDataExplorer.sparklineStroke": "#7CACDD",
+   "positronDataExplorer.sparklineHover": "#F955AB",
+   "positronDataExplorer.sparklineAxis": "#666d72",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F955AB",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#869298",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#666d72"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#72858C|italic",
@@ -33924,11 +34356,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d6ece28d2423e369",
+  "colors": "620812aeb4d44a5d",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -34952,7 +35384,23 @@
    "positronConsole.traceBackground": "#1622270d",
    "positronNotebook.cellFooterForeground": "#555d60",
    "positronDataExplorer.invalidFilterBackground": "#f7f3f9",
-   "positronSplitterExpandCollapseButton.foreground": "#0C5B6A"
+   "positronSplitterExpandCollapseButton.foreground": "#0C5B6A",
+   "diffEditor.insertedTextBackgroundFallback": "#0b635528",
+   "diffEditor.removedTextBackgroundFallback": "#cc0c8228",
+   "windsurf.sessionStatus.orange": "#8F5621",
+   "windsurf.sessionStatus.green": "#0B6355",
+   "windsurf.sessionStatus.blue": "#3C709E",
+   "windsurf.sessionStatus.red": "#CC0C82",
+   "windsurf.sessionStatus.purple": "#8F5621",
+   "tab.worktreeBorder": "#8F5621",
+   "editorWatermark.foreground": "#162227",
+   "positronDataExplorer.sparklineFill": "#3C709E",
+   "positronDataExplorer.sparklineStroke": "#3C709E",
+   "positronDataExplorer.sparklineHover": "#CC0C82",
+   "positronDataExplorer.sparklineAxis": "#73777a",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#CC0C82",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#555d60",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#73777a"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#5A6C73|italic",
@@ -35180,11 +35628,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "02d320f02510ac8e",
+  "colors": "cb58b61073318df0",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -36208,7 +36656,23 @@
    "positronConsole.traceBackground": "#c4d5d40d",
    "positronNotebook.cellFooterForeground": "#879494",
    "positronDataExplorer.invalidFilterBackground": "#221314",
-   "positronSplitterExpandCollapseButton.foreground": "#11D9A9"
+   "positronSplitterExpandCollapseButton.foreground": "#11D9A9",
+   "diffEditor.insertedTextBackgroundFallback": "#11d9a92e",
+   "diffEditor.removedTextBackgroundFallback": "#fa60512e",
+   "windsurf.sessionStatus.orange": "#AEBD0F",
+   "windsurf.sessionStatus.green": "#11D9A9",
+   "windsurf.sessionStatus.blue": "#3AB2F2",
+   "windsurf.sessionStatus.red": "#FA6051",
+   "windsurf.sessionStatus.purple": "#AEBD0F",
+   "tab.worktreeBorder": "#AEBD0F",
+   "editorWatermark.foreground": "#C4D5D4",
+   "positronDataExplorer.sparklineFill": "#AEBD0F",
+   "positronDataExplorer.sparklineStroke": "#AEBD0F",
+   "positronDataExplorer.sparklineHover": "#FA6051",
+   "positronDataExplorer.sparklineAxis": "#666f70",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FA6051",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#879494",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#666f70"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#728786|italic",
@@ -36436,11 +36900,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "40c1ed65b7d00ee6",
+  "colors": "d0876b67cad1407d",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -37464,7 +37928,23 @@
    "positronConsole.traceBackground": "#1722210d",
    "positronNotebook.cellFooterForeground": "#555d5c",
    "positronDataExplorer.invalidFilterBackground": "#f4f3f3",
-   "positronSplitterExpandCollapseButton.foreground": "#0C5E48"
+   "positronSplitterExpandCollapseButton.foreground": "#0C5E48",
+   "diffEditor.insertedTextBackgroundFallback": "#0c5e4828",
+   "diffEditor.removedTextBackgroundFallback": "#d70e2128",
+   "windsurf.sessionStatus.orange": "#565D0B",
+   "windsurf.sessionStatus.green": "#0C5E48",
+   "windsurf.sessionStatus.blue": "#0C658E",
+   "windsurf.sessionStatus.red": "#D70E21",
+   "windsurf.sessionStatus.purple": "#565D0B",
+   "tab.worktreeBorder": "#565D0B",
+   "editorWatermark.foreground": "#172221",
+   "positronDataExplorer.sparklineFill": "#565D0B",
+   "positronDataExplorer.sparklineStroke": "#565D0B",
+   "positronDataExplorer.sparklineHover": "#D70E21",
+   "positronDataExplorer.sparklineAxis": "#727777",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#D70E21",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#555d5c",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#727777"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#5A6C6B|italic",
@@ -37692,11 +38172,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3c945c2b77d9bac5",
+  "colors": "3d07aa6ca9dbd9af",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -38720,7 +39200,23 @@
    "positronConsole.traceBackground": "#ddcfcd0d",
    "positronNotebook.cellFooterForeground": "#9f9593",
    "positronDataExplorer.invalidFilterBackground": "#281312",
-   "positronSplitterExpandCollapseButton.foreground": "#E8CC6A"
+   "positronSplitterExpandCollapseButton.foreground": "#E8CC6A",
+   "diffEditor.insertedTextBackgroundFallback": "#0ab84c36",
+   "diffEditor.removedTextBackgroundFallback": "#f7616a36",
+   "windsurf.sessionStatus.orange": "#F2A854",
+   "windsurf.sessionStatus.green": "#0AB84C",
+   "windsurf.sessionStatus.blue": "#12A3E0",
+   "windsurf.sessionStatus.red": "#F7616A",
+   "windsurf.sessionStatus.purple": "#E8CC6A",
+   "tab.worktreeBorder": "#F2A854",
+   "editorWatermark.foreground": "#DDCFCD",
+   "positronDataExplorer.sparklineFill": "#F2A854",
+   "positronDataExplorer.sparklineStroke": "#F2A854",
+   "positronDataExplorer.sparklineHover": "#F95A93",
+   "positronDataExplorer.sparklineAxis": "#746c6b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F7616A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#9f9593",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#746c6b"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#907F7D|italic",
@@ -38948,11 +39444,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "386a7887191d3875",
+  "colors": "763a121328f53586",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -39976,7 +40472,23 @@
    "positronConsole.traceBackground": "#251c1b0d",
    "positronNotebook.cellFooterForeground": "#5f5856",
    "positronDataExplorer.invalidFilterBackground": "#f9efec",
-   "positronSplitterExpandCollapseButton.foreground": "#574A0A"
+   "positronSplitterExpandCollapseButton.foreground": "#574A0A",
+   "diffEditor.insertedTextBackgroundFallback": "#0a732e23",
+   "diffEditor.removedTextBackgroundFallback": "#c90a3823",
+   "windsurf.sessionStatus.orange": "#7A4B0A",
+   "windsurf.sessionStatus.green": "#0A732E",
+   "windsurf.sessionStatus.blue": "#0F6A92",
+   "windsurf.sessionStatus.red": "#c90a38",
+   "windsurf.sessionStatus.purple": "#574A0A",
+   "tab.worktreeBorder": "#7A4B0A",
+   "editorWatermark.foreground": "#251C1B",
+   "positronDataExplorer.sparklineFill": "#7A4B0A",
+   "positronDataExplorer.sparklineStroke": "#7A4B0A",
+   "positronDataExplorer.sparklineHover": "#D30B6B",
+   "positronDataExplorer.sparklineAxis": "#797472",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#c90a38",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#5f5856",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#797472"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#746461|italic",
@@ -40204,11 +40716,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "da5f8af7db773f16",
+  "colors": "92e444e6bb4effb8",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -41232,7 +41744,23 @@
    "positronConsole.traceBackground": "#f0dcbe0d",
    "positronNotebook.cellFooterForeground": "#c0b19c",
    "positronDataExplorer.invalidFilterBackground": "#442414",
-   "positronSplitterExpandCollapseButton.foreground": "#FFF6E4"
+   "positronSplitterExpandCollapseButton.foreground": "#FFF6E4",
+   "diffEditor.insertedTextBackgroundFallback": "#d8c49a20",
+   "diffEditor.removedTextBackgroundFallback": "#ff6b4a20",
+   "windsurf.sessionStatus.orange": "#FFC24A",
+   "windsurf.sessionStatus.green": "#D8C49A",
+   "windsurf.sessionStatus.blue": "#FFF6E4",
+   "windsurf.sessionStatus.red": "#FF6B4A",
+   "windsurf.sessionStatus.purple": "#FFF6E4",
+   "tab.worktreeBorder": "#FFC24A",
+   "editorWatermark.foreground": "#F0DCBE",
+   "positronDataExplorer.sparklineFill": "#EBD3AE",
+   "positronDataExplorer.sparklineStroke": "#EBD3AE",
+   "positronDataExplorer.sparklineHover": "#FF9463",
+   "positronDataExplorer.sparklineAxis": "#887E6E",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF6B4A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#c0b19c",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#887E6E"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#9C8665|italic",
@@ -41460,11 +41988,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e54c170f4120e9f5",
+  "colors": "b684ecfbd01f77d2",
   "tokenColors": "fe87ba0d5d2b68ad",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -42488,7 +43016,23 @@
    "positronConsole.traceBackground": "#2c23180d",
    "positronNotebook.cellFooterForeground": "#564d43",
    "positronDataExplorer.invalidFilterBackground": "#ebe1d0",
-   "positronSplitterExpandCollapseButton.foreground": "#1A130A"
+   "positronSplitterExpandCollapseButton.foreground": "#1A130A",
+   "diffEditor.insertedTextBackgroundFallback": "#4a5a2a28",
+   "diffEditor.removedTextBackgroundFallback": "#a8321a28",
+   "windsurf.sessionStatus.orange": "#7A5A10",
+   "windsurf.sessionStatus.green": "#4A5A2A",
+   "windsurf.sessionStatus.blue": "#1A130A",
+   "windsurf.sessionStatus.red": "#A8321A",
+   "windsurf.sessionStatus.purple": "#6f5f42",
+   "tab.worktreeBorder": "#7A5A10",
+   "editorWatermark.foreground": "#282016",
+   "positronDataExplorer.sparklineFill": "#463A26",
+   "positronDataExplorer.sparklineStroke": "#463A26",
+   "positronDataExplorer.sparklineHover": "#8A3D12",
+   "positronDataExplorer.sparklineAxis": "#6F6356",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#A8321A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#564d43",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6F6356"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#75664A|italic",
@@ -42716,11 +43260,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dbdc6b32c9ce36e9",
+  "colors": "72b73156853afbdd",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -43744,7 +44288,23 @@
    "positronConsole.traceBackground": "#c4d2ce0d",
    "positronNotebook.cellFooterForeground": "#8e9997",
    "positronDataExplorer.invalidFilterBackground": "#251c1f",
-   "positronSplitterExpandCollapseButton.foreground": "#3FE8BE"
+   "positronSplitterExpandCollapseButton.foreground": "#3FE8BE",
+   "diffEditor.insertedTextBackgroundFallback": "#14bfa02b",
+   "diffEditor.removedTextBackgroundFallback": "#ff6e922b",
+   "windsurf.sessionStatus.orange": "#D8C07A",
+   "windsurf.sessionStatus.green": "#14BFA0",
+   "windsurf.sessionStatus.blue": "#3FE8BE",
+   "windsurf.sessionStatus.red": "#FF6E92",
+   "windsurf.sessionStatus.purple": "#3FE8BE",
+   "tab.worktreeBorder": "#D8C07A",
+   "editorWatermark.foreground": "#C4D2CE",
+   "positronDataExplorer.sparklineFill": "#14BFA0",
+   "positronDataExplorer.sparklineStroke": "#14BFA0",
+   "positronDataExplorer.sparklineHover": "#F658AE",
+   "positronDataExplorer.sparklineAxis": "#6C7975",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF6E92",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#8e9997",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6C7975"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#728781|italic",
@@ -43972,11 +44532,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c1b37097f92f45c0",
+  "colors": "2038a0a5fbbfcc83",
   "tokenColors": "5de49dd831dde586",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -45000,7 +45560,23 @@
    "positronConsole.traceBackground": "#1e23210d",
    "positronNotebook.cellFooterForeground": "#505654",
    "positronDataExplorer.invalidFilterBackground": "#f3e7ee",
-   "positronSplitterExpandCollapseButton.foreground": "#065246"
+   "positronSplitterExpandCollapseButton.foreground": "#065246",
+   "diffEditor.insertedTextBackgroundFallback": "#0c726320",
+   "diffEditor.removedTextBackgroundFallback": "#a8134620",
+   "windsurf.sessionStatus.orange": "#6E6410",
+   "windsurf.sessionStatus.green": "#0C7263",
+   "windsurf.sessionStatus.blue": "#065246",
+   "windsurf.sessionStatus.red": "#A81346",
+   "windsurf.sessionStatus.purple": "#065246",
+   "tab.worktreeBorder": "#6E6410",
+   "editorWatermark.foreground": "#1E2321",
+   "positronDataExplorer.sparklineFill": "#076659",
+   "positronDataExplorer.sparklineStroke": "#076659",
+   "positronDataExplorer.sparklineHover": "#AC136E",
+   "positronDataExplorer.sparklineAxis": "#666C6A",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#A81346",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#505654",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#666C6A"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#606F6B|italic",
@@ -45228,11 +45804,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "83ff718af28dcfd2",
+  "colors": "eef81ccbc5e27f30",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
-   1020,
+   1036,
    42,
    62
   ],
@@ -46256,7 +46832,23 @@
    "positronConsole.traceBackground": "#c6c8cc0d",
    "positronNotebook.cellFooterForeground": "#a3a5a9",
    "positronDataExplorer.invalidFilterBackground": "#322629",
-   "positronSplitterExpandCollapseButton.foreground": "#F0B75A"
+   "positronSplitterExpandCollapseButton.foreground": "#F0B75A",
+   "diffEditor.insertedTextBackgroundFallback": "#9eb0961d",
+   "diffEditor.removedTextBackgroundFallback": "#eb786d1d",
+   "windsurf.sessionStatus.orange": "#F0B75A",
+   "windsurf.sessionStatus.green": "#9EB096",
+   "windsurf.sessionStatus.blue": "#6FC7E0",
+   "windsurf.sessionStatus.red": "#EB786D",
+   "windsurf.sessionStatus.purple": "#A8B8A0",
+   "tab.worktreeBorder": "#F0B75A",
+   "editorWatermark.foreground": "#C6C8CC",
+   "positronDataExplorer.sparklineFill": "#F0B75A",
+   "positronDataExplorer.sparklineStroke": "#F0B75A",
+   "positronDataExplorer.sparklineHover": "#B9A6E8",
+   "positronDataExplorer.sparklineAxis": "#7C7D81",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#EB786D",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#a3a5a9",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7C7D81"
   },
   "rules": [
    "Everything you wrote|variable, variable.other, variable.other.readwrite, meta.definition.variable.name, variable.other.property, variable.other.object.property, meta.object-literal.key, support.type.property-name, variable.other.member, meta.function-call.generic, variable.function, entity.name.label, source, entity|#C6C8CC|",
@@ -46453,11 +47045,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "07d28283cfea6ba2",
+  "colors": "06fba7b47bef01f0",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
-   1020,
+   1036,
    42,
    62
   ],
@@ -47481,7 +48073,23 @@
    "positronConsole.traceBackground": "#2e30360d",
    "positronNotebook.cellFooterForeground": "#55575E",
    "positronDataExplorer.invalidFilterBackground": "#f2ece7",
-   "positronSplitterExpandCollapseButton.foreground": "#855606"
+   "positronSplitterExpandCollapseButton.foreground": "#855606",
+   "diffEditor.insertedTextBackgroundFallback": "#5a6c5220",
+   "diffEditor.removedTextBackgroundFallback": "#b03a2e20",
+   "windsurf.sessionStatus.orange": "#855606",
+   "windsurf.sessionStatus.green": "#5A6C52",
+   "windsurf.sessionStatus.blue": "#0F6480",
+   "windsurf.sessionStatus.red": "#B03A2E",
+   "windsurf.sessionStatus.purple": "#4A5C42",
+   "tab.worktreeBorder": "#855606",
+   "editorWatermark.foreground": "#24262b",
+   "positronDataExplorer.sparklineFill": "#855606",
+   "positronDataExplorer.sparklineStroke": "#855606",
+   "positronDataExplorer.sparklineHover": "#5B48A0",
+   "positronDataExplorer.sparklineAxis": "#6A6C73",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#B03A2E",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#55575E",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6A6C73"
   },
   "rules": [
    "Everything you wrote|variable, variable.other, variable.other.readwrite, meta.definition.variable.name, variable.other.property, variable.other.object.property, meta.object-literal.key, support.type.property-name, variable.other.member, meta.function-call.generic, variable.function, entity.name.label, source, entity|#2E3036|",
@@ -47678,11 +48286,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e39980e7fdd1eceb",
+  "colors": "dd24cf5253ea6e60",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
-   1020,
+   1036,
    86,
    49
   ],
@@ -48706,7 +49314,23 @@
    "positronConsole.traceBackground": "#e4daca0d",
    "positronNotebook.cellFooterForeground": "#a19a8e",
    "positronDataExplorer.invalidFilterBackground": "#2c1f18",
-   "positronSplitterExpandCollapseButton.foreground": "#C39B54"
+   "positronSplitterExpandCollapseButton.foreground": "#C39B54",
+   "diffEditor.insertedTextBackgroundFallback": "#93a46820",
+   "diffEditor.removedTextBackgroundFallback": "#d9866b20",
+   "windsurf.sessionStatus.orange": "#C99C55",
+   "windsurf.sessionStatus.green": "#93A468",
+   "windsurf.sessionStatus.blue": "#8E96A8",
+   "windsurf.sessionStatus.red": "#D9866B",
+   "windsurf.sessionStatus.purple": "#F5E9CE",
+   "tab.worktreeBorder": "#C99C55",
+   "editorWatermark.foreground": "#E4DACA",
+   "positronDataExplorer.sparklineFill": "#F5E9CE",
+   "positronDataExplorer.sparklineStroke": "#F5E9CE",
+   "positronDataExplorer.sparklineHover": "#D2BC94",
+   "positronDataExplorer.sparklineAxis": "#7a746c",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#D9866B",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#a19a8e",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7a746c"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#7F7667|italic",
@@ -48947,11 +49571,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "23e64ff29a4fffb2",
+  "colors": "adb9db4789c82c49",
   "tokenColors": "eb5d1273f421986f",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
-   1020,
+   1036,
    86,
    49
   ],
@@ -49975,7 +50599,23 @@
    "positronConsole.traceBackground": "#241f160d",
    "positronNotebook.cellFooterForeground": "#514d44",
    "positronDataExplorer.invalidFilterBackground": "#ede4d6",
-   "positronSplitterExpandCollapseButton.foreground": "#8A5F1E"
+   "positronSplitterExpandCollapseButton.foreground": "#8A5F1E",
+   "diffEditor.insertedTextBackgroundFallback": "#4c6a2a1d",
+   "diffEditor.removedTextBackgroundFallback": "#a0421e1d",
+   "windsurf.sessionStatus.orange": "#7B5E1B",
+   "windsurf.sessionStatus.green": "#4C6A2A",
+   "windsurf.sessionStatus.blue": "#2A5A78",
+   "windsurf.sessionStatus.red": "#A0421E",
+   "windsurf.sessionStatus.purple": "#3E3418",
+   "tab.worktreeBorder": "#7B5E1B",
+   "editorWatermark.foreground": "#241F16",
+   "positronDataExplorer.sparklineFill": "#1E1808",
+   "positronDataExplorer.sparklineStroke": "#1E1808",
+   "positronDataExplorer.sparklineHover": "#31280F",
+   "positronDataExplorer.sparklineAxis": "#6c6860",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#A0421E",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#514d44",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6c6860"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#77705E|italic",
@@ -50216,11 +50856,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "10ae391ade4b2cf1",
+  "colors": "d0b9261f9267f75e",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
-   1020,
+   1036,
    86,
    54
   ],
@@ -51244,7 +51884,23 @@
    "positronConsole.traceBackground": "#c8cdd60d",
    "positronNotebook.cellFooterForeground": "#94979f",
    "positronDataExplorer.invalidFilterBackground": "#2e1e23",
-   "positronSplitterExpandCollapseButton.foreground": "#F09A18"
+   "positronSplitterExpandCollapseButton.foreground": "#F09A18",
+   "diffEditor.insertedTextBackgroundFallback": "#66c07020",
+   "diffEditor.removedTextBackgroundFallback": "#fa636220",
+   "windsurf.sessionStatus.orange": "#F09A18",
+   "windsurf.sessionStatus.green": "#66C070",
+   "windsurf.sessionStatus.blue": "#64AEF9",
+   "windsurf.sessionStatus.red": "#FA6362",
+   "windsurf.sessionStatus.purple": "#66C070",
+   "tab.worktreeBorder": "#F09A18",
+   "editorWatermark.foreground": "#C8CDD6",
+   "positronDataExplorer.sparklineFill": "#EAECF0",
+   "positronDataExplorer.sparklineStroke": "#EAECF0",
+   "positronDataExplorer.sparklineHover": "#F09A18",
+   "positronDataExplorer.sparklineAxis": "#6e7278",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FA6362",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#94979f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6e7278"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#767D89|italic",
@@ -51460,11 +52116,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8181768282b90fdc",
+  "colors": "171975bdafad68e8",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
-   1020,
+   1036,
    86,
    54
   ],
@@ -52488,7 +53144,23 @@
    "positronConsole.traceBackground": "#22262e0d",
    "positronNotebook.cellFooterForeground": "#57595e",
    "positronDataExplorer.invalidFilterBackground": "#f3eff2",
-   "positronSplitterExpandCollapseButton.foreground": "#8A5A00"
+   "positronSplitterExpandCollapseButton.foreground": "#8A5A00",
+   "diffEditor.insertedTextBackgroundFallback": "#2c662020",
+   "diffEditor.removedTextBackgroundFallback": "#c00a1820",
+   "windsurf.sessionStatus.orange": "#9A5A00",
+   "windsurf.sessionStatus.green": "#2C6620",
+   "windsurf.sessionStatus.blue": "#0C5FA8",
+   "windsurf.sessionStatus.red": "#C00A18",
+   "windsurf.sessionStatus.purple": "#2C6620",
+   "tab.worktreeBorder": "#9A5A00",
+   "editorWatermark.foreground": "#22262E",
+   "positronDataExplorer.sparklineFill": "#141820",
+   "positronDataExplorer.sparklineStroke": "#141820",
+   "positronDataExplorer.sparklineHover": "#9A5A00",
+   "positronDataExplorer.sparklineAxis": "#75777b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C00A18",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#57595e",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#75777b"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#6B7280|italic",
@@ -52704,11 +53376,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "88685d8666386901",
+  "colors": "40f5af6609e63e97",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
-   1020,
+   1036,
    86,
    48
   ],
@@ -53732,7 +54404,23 @@
    "positronConsole.traceBackground": "#e8e1d20d",
    "positronNotebook.cellFooterForeground": "#a6a095",
    "positronDataExplorer.invalidFilterBackground": "#2f221b",
-   "positronSplitterExpandCollapseButton.foreground": "#D9A94A"
+   "positronSplitterExpandCollapseButton.foreground": "#D9A94A",
+   "diffEditor.insertedTextBackgroundFallback": "#9aa87c1d",
+   "diffEditor.removedTextBackgroundFallback": "#cf7a5e1d",
+   "windsurf.sessionStatus.orange": "#C9A24A",
+   "windsurf.sessionStatus.green": "#9AA87C",
+   "windsurf.sessionStatus.blue": "#8FA0B8",
+   "windsurf.sessionStatus.red": "#CF7A5E",
+   "windsurf.sessionStatus.purple": "#F5EEDE",
+   "tab.worktreeBorder": "#C9A24A",
+   "editorWatermark.foreground": "#E8E1D2",
+   "positronDataExplorer.sparklineFill": "#F5EEDE",
+   "positronDataExplorer.sparklineStroke": "#F5EEDE",
+   "positronDataExplorer.sparklineHover": "#D9A94A",
+   "positronDataExplorer.sparklineAxis": "#7e7a73",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#CF7A5E",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#a6a095",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7e7a73"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#837A6C|italic",
@@ -53936,11 +54624,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "94a8336addfa82b3",
+  "colors": "162a8f53f40a93fd",
   "tokenColors": "57d38482132cbae6",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
-   1020,
+   1036,
    86,
    48
   ],
@@ -54964,7 +55652,23 @@
    "positronConsole.traceBackground": "#2a241a0d",
    "positronNotebook.cellFooterForeground": "#4e493f",
    "positronDataExplorer.invalidFilterBackground": "#eadfc9",
-   "positronSplitterExpandCollapseButton.foreground": "#7E5B0E"
+   "positronSplitterExpandCollapseButton.foreground": "#7E5B0E",
+   "diffEditor.insertedTextBackgroundFallback": "#4e602820",
+   "diffEditor.removedTextBackgroundFallback": "#8a3a2220",
+   "windsurf.sessionStatus.orange": "#7D5910",
+   "windsurf.sessionStatus.green": "#4E6028",
+   "windsurf.sessionStatus.blue": "#2E5474",
+   "windsurf.sessionStatus.red": "#8A3A22",
+   "windsurf.sessionStatus.purple": "#665e4d",
+   "tab.worktreeBorder": "#7D5910",
+   "editorWatermark.foreground": "#262017",
+   "positronDataExplorer.sparklineFill": "#16120C",
+   "positronDataExplorer.sparklineStroke": "#16120C",
+   "positronDataExplorer.sparklineHover": "#7E5B0E",
+   "positronDataExplorer.sparklineAxis": "#6d675b",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#8A3A22",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#4e493f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6d675b"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#716A58|italic",
@@ -55168,11 +55872,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8ee51ca76c31668b",
+  "colors": "d89cc4c589b08b8f",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
-   1020,
+   1036,
    86,
    49
   ],
@@ -56196,7 +56900,23 @@
    "positronConsole.traceBackground": "#d2d2d60d",
    "positronNotebook.cellFooterForeground": "#9c9c9f",
    "positronDataExplorer.invalidFilterBackground": "#302628",
-   "positronSplitterExpandCollapseButton.foreground": "#93A6BC"
+   "positronSplitterExpandCollapseButton.foreground": "#93A6BC",
+   "diffEditor.insertedTextBackgroundFallback": "#8fb8941b",
+   "diffEditor.removedTextBackgroundFallback": "#d080801b",
+   "windsurf.sessionStatus.orange": "#C8B084",
+   "windsurf.sessionStatus.green": "#8FB894",
+   "windsurf.sessionStatus.blue": "#90A8C8",
+   "windsurf.sessionStatus.red": "#D08080",
+   "windsurf.sessionStatus.purple": "#F0F0F4",
+   "tab.worktreeBorder": "#C8B084",
+   "editorWatermark.foreground": "#D2D2D6",
+   "positronDataExplorer.sparklineFill": "#F0F0F4",
+   "positronDataExplorer.sparklineStroke": "#F0F0F4",
+   "positronDataExplorer.sparklineHover": "#C8C8CE",
+   "positronDataExplorer.sparklineAxis": "#767679",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#D08080",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#9c9c9f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#767679"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#7E7E84|italic",
@@ -56437,11 +57157,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "04be77349aa549a1",
+  "colors": "0ec4eea5959385d8",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
-   1020,
+   1036,
    86,
    49
   ],
@@ -57465,7 +58185,23 @@
    "positronConsole.traceBackground": "#26262a0d",
    "positronNotebook.cellFooterForeground": "#504f51",
    "positronDataExplorer.invalidFilterBackground": "#e5e1dc",
-   "positronSplitterExpandCollapseButton.foreground": "#4E627A"
+   "positronSplitterExpandCollapseButton.foreground": "#4E627A",
+   "diffEditor.insertedTextBackgroundFallback": "#3a5c4020",
+   "diffEditor.removedTextBackgroundFallback": "#8a3a3220",
+   "windsurf.sessionStatus.orange": "#6A5220",
+   "windsurf.sessionStatus.green": "#3A5C40",
+   "windsurf.sessionStatus.blue": "#3E5478",
+   "windsurf.sessionStatus.red": "#8A3A32",
+   "windsurf.sessionStatus.purple": "#141418",
+   "tab.worktreeBorder": "#6A5220",
+   "editorWatermark.foreground": "#202024",
+   "positronDataExplorer.sparklineFill": "#141418",
+   "positronDataExplorer.sparklineStroke": "#141418",
+   "positronDataExplorer.sparklineHover": "#2C2C32",
+   "positronDataExplorer.sparklineAxis": "#6a6868",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#8A3A32",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#504f51",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6a6868"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#6C6C72|italic",
@@ -57706,11 +58442,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "656e854e9ca4dc79",
+  "colors": "9b4c901efeaa9808",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -58734,7 +59470,23 @@
    "positronConsole.traceBackground": "#dedcd60d",
    "positronNotebook.cellFooterForeground": "#adabaa",
    "positronDataExplorer.invalidFilterBackground": "#211717",
-   "positronSplitterExpandCollapseButton.foreground": "#D8A83C"
+   "positronSplitterExpandCollapseButton.foreground": "#D8A83C",
+   "diffEditor.insertedTextBackgroundFallback": "#8fb08030",
+   "diffEditor.removedTextBackgroundFallback": "#d5877930",
+   "windsurf.sessionStatus.orange": "#D8A83C",
+   "windsurf.sessionStatus.green": "#8FB080",
+   "windsurf.sessionStatus.blue": "#8FA6C0",
+   "windsurf.sessionStatus.red": "#D58779",
+   "windsurf.sessionStatus.purple": "#A8B0A0",
+   "tab.worktreeBorder": "#D8A83C",
+   "editorWatermark.foreground": "#DEDCD6",
+   "positronDataExplorer.sparklineFill": "#E4DFD2",
+   "positronDataExplorer.sparklineStroke": "#E4DFD2",
+   "positronDataExplorer.sparklineHover": "#D89A6A",
+   "positronDataExplorer.sparklineAxis": "#898988",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#D58779",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#adabaa",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#898988"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#83807A|italic",
@@ -58962,11 +59714,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "23ba305fb9ae9bee",
+  "colors": "4bc64a55668928b5",
   "tokenColors": "b877f71b31ff9f08",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -59990,7 +60742,23 @@
    "positronConsole.traceBackground": "#1f1e1a0d",
    "positronNotebook.cellFooterForeground": "#424240",
    "positronDataExplorer.invalidFilterBackground": "#faf7f5",
-   "positronSplitterExpandCollapseButton.foreground": "#8A5F12"
+   "positronSplitterExpandCollapseButton.foreground": "#8A5F12",
+   "diffEditor.insertedTextBackgroundFallback": "#3e5a2e36",
+   "diffEditor.removedTextBackgroundFallback": "#953e2f36",
+   "windsurf.sessionStatus.orange": "#785310",
+   "windsurf.sessionStatus.green": "#3E5A2E",
+   "windsurf.sessionStatus.blue": "#33507A",
+   "windsurf.sessionStatus.red": "#953E2F",
+   "windsurf.sessionStatus.purple": "#26241E",
+   "tab.worktreeBorder": "#785310",
+   "editorWatermark.foreground": "#1F1E1A",
+   "positronDataExplorer.sparklineFill": "#26241E",
+   "positronDataExplorer.sparklineStroke": "#26241E",
+   "positronDataExplorer.sparklineHover": "#8A4A18",
+   "positronDataExplorer.sparklineAxis": "#605f5e",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#953E2F",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#424240",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#605f5e"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#6E6A60|italic",
@@ -60218,11 +60986,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8147252402826175",
+  "colors": "ebfd351d5c7d9aed",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
-   1020,
+   1036,
    86,
    50
   ],
@@ -61246,7 +62014,23 @@
    "positronConsole.traceBackground": "#c6d2cc0d",
    "positronNotebook.cellFooterForeground": "#89948f",
    "positronDataExplorer.invalidFilterBackground": "#251915",
-   "positronSplitterExpandCollapseButton.foreground": "#FF5C4D"
+   "positronSplitterExpandCollapseButton.foreground": "#FF5C4D",
+   "diffEditor.insertedTextBackgroundFallback": "#5fd8c01b",
+   "diffEditor.removedTextBackgroundFallback": "#ff5c4d1b",
+   "windsurf.sessionStatus.orange": "#FFA03C",
+   "windsurf.sessionStatus.green": "#5FD8C0",
+   "windsurf.sessionStatus.blue": "#8E9CBE",
+   "windsurf.sessionStatus.red": "#FF5C4D",
+   "windsurf.sessionStatus.purple": "#74857e",
+   "tab.worktreeBorder": "#FFA03C",
+   "editorWatermark.foreground": "#C6D2CC",
+   "positronDataExplorer.sparklineFill": "#5FD8C0",
+   "positronDataExplorer.sparklineStroke": "#5FD8C0",
+   "positronDataExplorer.sparklineHover": "#FF5C4D",
+   "positronDataExplorer.sparklineAxis": "#68716d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF5C4D",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#89948f",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#68716d"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#6E7B76|italic",
@@ -61438,11 +62222,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b6d9258216bc10c0",
+  "colors": "598b961bd2ac27db",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
-   1020,
+   1036,
    86,
    50
   ],
@@ -62466,7 +63250,23 @@
    "positronConsole.traceBackground": "#1d26220d",
    "positronNotebook.cellFooterForeground": "#525957",
    "positronDataExplorer.invalidFilterBackground": "#f2f2ee",
-   "positronSplitterExpandCollapseButton.foreground": "#C22A18"
+   "positronSplitterExpandCollapseButton.foreground": "#C22A18",
+   "diffEditor.insertedTextBackgroundFallback": "#0a6e5e28",
+   "diffEditor.removedTextBackgroundFallback": "#c22a1828",
+   "windsurf.sessionStatus.orange": "#9A5200",
+   "windsurf.sessionStatus.green": "#0A6E5E",
+   "windsurf.sessionStatus.blue": "#2E5C78",
+   "windsurf.sessionStatus.red": "#C22A18",
+   "windsurf.sessionStatus.purple": "#5E6E68",
+   "tab.worktreeBorder": "#9A5200",
+   "editorWatermark.foreground": "#1D2622",
+   "positronDataExplorer.sparklineFill": "#0A6E5E",
+   "positronDataExplorer.sparklineStroke": "#0A6E5E",
+   "positronDataExplorer.sparklineHover": "#C22A18",
+   "positronDataExplorer.sparklineAxis": "#737875",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#C22A18",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#525957",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#737875"
   },
   "rules": [
    "Comments|comment, punctuation.definition.comment, string.comment|#65736E|italic",
@@ -62658,11 +63458,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "93b1923e62312289",
+  "colors": "8b582171433d7950",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -63686,7 +64486,23 @@
    "positronConsole.traceBackground": "#edd6da0d",
    "positronNotebook.cellFooterForeground": "#aa9599",
    "positronDataExplorer.invalidFilterBackground": "#37191f",
-   "positronSplitterExpandCollapseButton.foreground": "#FF5E7A"
+   "positronSplitterExpandCollapseButton.foreground": "#FF5E7A",
+   "diffEditor.insertedTextBackgroundFallback": "#8fc9a428",
+   "diffEditor.removedTextBackgroundFallback": "#f9879428",
+   "windsurf.sessionStatus.orange": "#E8B54A",
+   "windsurf.sessionStatus.green": "#8FC9A4",
+   "windsurf.sessionStatus.blue": "#B49BE8",
+   "windsurf.sessionStatus.red": "#F98794",
+   "windsurf.sessionStatus.purple": "#8FC9A4",
+   "tab.worktreeBorder": "#E8B54A",
+   "editorWatermark.foreground": "#EDD6DA",
+   "positronDataExplorer.sparklineFill": "#FFA6B6",
+   "positronDataExplorer.sparklineStroke": "#FFA6B6",
+   "positronDataExplorer.sparklineHover": "#FF8A5C",
+   "positronDataExplorer.sparklineAxis": "#827074",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F98794",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#aa9599",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#827074"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#9A7A82|italic",
@@ -63914,11 +64730,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "62d9bcad44d1939e",
+  "colors": "92162dfd7dd70a82",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -64942,7 +65758,23 @@
    "positronConsole.traceBackground": "#2a161b0d",
    "positronNotebook.cellFooterForeground": "#625356",
    "positronDataExplorer.invalidFilterBackground": "#f9ebed",
-   "positronSplitterExpandCollapseButton.foreground": "#B01238"
+   "positronSplitterExpandCollapseButton.foreground": "#B01238",
+   "diffEditor.insertedTextBackgroundFallback": "#1e6a462e",
+   "diffEditor.removedTextBackgroundFallback": "#b012382e",
+   "windsurf.sessionStatus.orange": "#8A5A00",
+   "windsurf.sessionStatus.green": "#1E6A46",
+   "windsurf.sessionStatus.blue": "#5B48A0",
+   "windsurf.sessionStatus.red": "#B01238",
+   "windsurf.sessionStatus.purple": "#1E6A46",
+   "tab.worktreeBorder": "#8A5A00",
+   "editorWatermark.foreground": "#2A161B",
+   "positronDataExplorer.sparklineFill": "#8A2050",
+   "positronDataExplorer.sparklineStroke": "#8A2050",
+   "positronDataExplorer.sparklineHover": "#A64414",
+   "positronDataExplorer.sparklineAxis": "#7a7172",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#B01238",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#625356",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7a7172"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#7C6268|italic",
@@ -65170,11 +66002,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2d9b800a480cc3c7",
+  "colors": "a0f5d6cbf7bdf97d",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -66198,7 +67030,23 @@
    "positronConsole.traceBackground": "#dceaf20d",
    "positronNotebook.cellFooterForeground": "#9eacb5",
    "positronDataExplorer.invalidFilterBackground": "#34323d",
-   "positronSplitterExpandCollapseButton.foreground": "#0ECCCB"
+   "positronSplitterExpandCollapseButton.foreground": "#0ECCCB",
+   "diffEditor.insertedTextBackgroundFallback": "#6becbe25",
+   "diffEditor.removedTextBackgroundFallback": "#f67f8725",
+   "windsurf.sessionStatus.orange": "#F6B464",
+   "windsurf.sessionStatus.green": "#6BECBE",
+   "windsurf.sessionStatus.blue": "#9BD0F6",
+   "windsurf.sessionStatus.red": "#F67F87",
+   "windsurf.sessionStatus.purple": "#6BECBE",
+   "tab.worktreeBorder": "#F6B464",
+   "editorWatermark.foreground": "#DCEAF2",
+   "positronDataExplorer.sparklineFill": "#9BD0F6",
+   "positronDataExplorer.sparklineStroke": "#9BD0F6",
+   "positronDataExplorer.sparklineHover": "#F6B464",
+   "positronDataExplorer.sparklineAxis": "#7a868f",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#F67F87",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#9eacb5",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#7a868f"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#8AA0B0|italic",
@@ -66426,11 +67274,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "08ea0672fa201dd8",
+  "colors": "586a106f6543615e",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -67454,7 +68302,23 @@
    "positronConsole.traceBackground": "#18262f0d",
    "positronNotebook.cellFooterForeground": "#555f66",
    "positronDataExplorer.invalidFilterBackground": "#f0f4f8",
-   "positronSplitterExpandCollapseButton.foreground": "#0A6B6C"
+   "positronSplitterExpandCollapseButton.foreground": "#0A6B6C",
+   "diffEditor.insertedTextBackgroundFallback": "#094b3025",
+   "diffEditor.removedTextBackgroundFallback": "#b2405125",
+   "windsurf.sessionStatus.orange": "#804E08",
+   "windsurf.sessionStatus.green": "#094B30",
+   "windsurf.sessionStatus.blue": "#0B5475",
+   "windsurf.sessionStatus.red": "#b24051",
+   "windsurf.sessionStatus.purple": "#094B30",
+   "tab.worktreeBorder": "#804E08",
+   "editorWatermark.foreground": "#18262F",
+   "positronDataExplorer.sparklineFill": "#0B5475",
+   "positronDataExplorer.sparklineStroke": "#0B5475",
+   "positronDataExplorer.sparklineHover": "#804E08",
+   "positronDataExplorer.sparklineAxis": "#71797d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#b24051",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#555f66",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#71797d"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#5E7382|italic",
@@ -67682,11 +68546,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "744e676f66b64eb4",
+  "colors": "1575423b6bb836c8",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -68710,7 +69574,23 @@
    "positronConsole.traceBackground": "#d6deec0d",
    "positronNotebook.cellFooterForeground": "#989da9",
    "positronDataExplorer.invalidFilterBackground": "#2c2027",
-   "positronSplitterExpandCollapseButton.foreground": "#AE9FCD"
+   "positronSplitterExpandCollapseButton.foreground": "#AE9FCD",
+   "diffEditor.insertedTextBackgroundFallback": "#80ba8f20",
+   "diffEditor.removedTextBackgroundFallback": "#df7f8420",
+   "windsurf.sessionStatus.orange": "#DDAC7B",
+   "windsurf.sessionStatus.green": "#80BA8F",
+   "windsurf.sessionStatus.blue": "#60B4E4",
+   "windsurf.sessionStatus.red": "#DF7F84",
+   "windsurf.sessionStatus.purple": "#D58075",
+   "tab.worktreeBorder": "#DDAC7B",
+   "editorWatermark.foreground": "#D6DEEC",
+   "positronDataExplorer.sparklineFill": "#BDD4E0",
+   "positronDataExplorer.sparklineStroke": "#BDD4E0",
+   "positronDataExplorer.sparklineHover": "#D17F90",
+   "positronDataExplorer.sparklineAxis": "#747780",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#DF7F84",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#989da9",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#747780"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#807A8A|italic",
@@ -68938,11 +69818,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "333945185e439e06",
+  "colors": "8b4ec7e40f41c324",
   "tokenColors": "2d957ea2aa59b7ee",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -69966,7 +70846,23 @@
    "positronConsole.traceBackground": "#1e1c220d",
    "positronNotebook.cellFooterForeground": "#59565a",
    "positronDataExplorer.invalidFilterBackground": "#f3edeb",
-   "positronSplitterExpandCollapseButton.foreground": "#60537D"
+   "positronSplitterExpandCollapseButton.foreground": "#60537D",
+   "diffEditor.insertedTextBackgroundFallback": "#30674125",
+   "diffEditor.removedTextBackgroundFallback": "#a2495125",
+   "windsurf.sessionStatus.orange": "#795225",
+   "windsurf.sessionStatus.green": "#306741",
+   "windsurf.sessionStatus.blue": "#0D688D",
+   "windsurf.sessionStatus.red": "#A24951",
+   "windsurf.sessionStatus.purple": "#9f524a",
+   "tab.worktreeBorder": "#795225",
+   "editorWatermark.foreground": "#1E1C22",
+   "positronDataExplorer.sparklineFill": "#31454F",
+   "positronDataExplorer.sparklineStroke": "#31454F",
+   "positronDataExplorer.sparklineHover": "#9F5263",
+   "positronDataExplorer.sparklineAxis": "#747273",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#A24951",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#59565a",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#747273"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#736C7C|italic",
@@ -70194,11 +71090,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5a28dc64d040a2e9",
+  "colors": "a06a901781ccef90",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -71222,7 +72118,23 @@
    "positronConsole.traceBackground": "#e8e2d40d",
    "positronNotebook.cellFooterForeground": "#a5a095",
    "positronDataExplorer.invalidFilterBackground": "#322014",
-   "positronSplitterExpandCollapseButton.foreground": "#FF63B4"
+   "positronSplitterExpandCollapseButton.foreground": "#FF63B4",
+   "diffEditor.insertedTextBackgroundFallback": "#3fc97e20",
+   "diffEditor.removedTextBackgroundFallback": "#ff7f4220",
+   "windsurf.sessionStatus.orange": "#FFEE3C",
+   "windsurf.sessionStatus.green": "#3FC97E",
+   "windsurf.sessionStatus.blue": "#A289DB",
+   "windsurf.sessionStatus.red": "#FF7F42",
+   "windsurf.sessionStatus.purple": "#FFEE3C",
+   "tab.worktreeBorder": "#FFEE3C",
+   "editorWatermark.foreground": "#E8E2D4",
+   "positronDataExplorer.sparklineFill": "#FFEE3C",
+   "positronDataExplorer.sparklineStroke": "#FFEE3C",
+   "positronDataExplorer.sparklineHover": "#FF7F42",
+   "positronDataExplorer.sparklineAxis": "#757169",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FF7F42",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#a5a095",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#757169"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#847C6C|italic",
@@ -71450,11 +72362,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc998fb77d3e329e",
+  "colors": "f8b3c185ff20486d",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
-   1020,
+   1036,
    99,
    58
   ],
@@ -72478,7 +73390,23 @@
    "positronConsole.traceBackground": "#211e160d",
    "positronNotebook.cellFooterForeground": "#56524b",
    "positronDataExplorer.invalidFilterBackground": "#f3ebde",
-   "positronSplitterExpandCollapseButton.foreground": "#C4157E"
+   "positronSplitterExpandCollapseButton.foreground": "#C4157E",
+   "diffEditor.insertedTextBackgroundFallback": "#0a6e421d",
+   "diffEditor.removedTextBackgroundFallback": "#ab430d1d",
+   "windsurf.sessionStatus.orange": "#7A6000",
+   "windsurf.sessionStatus.green": "#0A6E42",
+   "windsurf.sessionStatus.blue": "#5A4694",
+   "windsurf.sessionStatus.red": "#ab430d",
+   "windsurf.sessionStatus.purple": "#7A6000",
+   "tab.worktreeBorder": "#7A6000",
+   "editorWatermark.foreground": "#211E16",
+   "positronDataExplorer.sparklineFill": "#7A6000",
+   "positronDataExplorer.sparklineStroke": "#7A6000",
+   "positronDataExplorer.sparklineHover": "#B4470E",
+   "positronDataExplorer.sparklineAxis": "#6d6a63",
+   "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#ab430d",
+   "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#56524b",
+   "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#6d6a63"
   },
   "rules": [
    "Comment|comment, punctuation.definition.comment, string.comment|#7C7462|italic",

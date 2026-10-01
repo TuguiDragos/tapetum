@@ -1023,7 +1023,23 @@
     "positronConsole.traceBackground": "#c4d5d40d",
     "positronNotebook.cellFooterForeground": "#879494",
     "positronDataExplorer.invalidFilterBackground": "#221314",
-    "positronSplitterExpandCollapseButton.foreground": "#11D9A9"
+    "positronSplitterExpandCollapseButton.foreground": "#11D9A9",
+    "diffEditor.insertedTextBackgroundFallback": "#11d9a92e",
+    "diffEditor.removedTextBackgroundFallback": "#fa60512e",
+    "windsurf.sessionStatus.orange": "#AEBD0F",
+    "windsurf.sessionStatus.green": "#11D9A9",
+    "windsurf.sessionStatus.blue": "#3AB2F2",
+    "windsurf.sessionStatus.red": "#FA6051",
+    "windsurf.sessionStatus.purple": "#AEBD0F",
+    "tab.worktreeBorder": "#AEBD0F",
+    "editorWatermark.foreground": "#C4D5D4",
+    "positronDataExplorer.sparklineFill": "#AEBD0F",
+    "positronDataExplorer.sparklineStroke": "#AEBD0F",
+    "positronDataExplorer.sparklineHover": "#FA6051",
+    "positronDataExplorer.sparklineAxis": "#666f70",
+    "positronDataExplorer.columnNullPercentGraphBackgroundFill": "#FA6051",
+    "positronDataExplorer.columnNullPercentGraphBackgroundStroke": "#879494",
+    "positronDataExplorer.columnNullPercentGraphIndicatorFill": "#666f70"
   },
   "tokenColors": [
     {
