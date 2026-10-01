@@ -37,7 +37,6 @@ const DELIBERATE = [
   { re: /^terminal\.selectionBackground$/, why: 'the terminal selection is weaker than the editor selection, otherwise it drowns the ANSI colours' },
   { re: /^menu\.background$/, why: 'menus are elevated surfaces, not input fields' },
   { re: /^editorMarkerNavigation\.background$/, why: 'the marker navigation widget is a widget and takes the elevated surface, like the hovers' },
-  { re: /^editorStickyScroll(Gutter)?\.background$/, why: 'sticky scroll sits half a step above the editor, so the pinned lines read as a header' },
   { re: /^inactiveSessionView\.background$/, why: 'inactive session views recede to the chrome surface, like the inactive tab and title bar' },
   { re: /^panel\.background$/, why: 'the panel is an elevated surface and the terminal follows it' },
   { re: /^editorGutter\.deletedBackground$/, why: 'the git gutter marks take the status colour at full strength; the error foreground is the softened variant for squiggles' },

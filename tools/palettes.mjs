@@ -5,7 +5,7 @@ export const FAMILIES = [
     dark: {
       bg: '#0B0E1A', bgElev: '#141827', bgChrome: '#070911', fg: '#C8D3F5',
       keyword: '#CD8FF9', func: '#8AB4FF', string: '#4DE0D0', type: '#6EE7A8',
-      number: '#FF9F45', tag: '#FF6E9C', comment: '#6B739B', op: '#8E97BC',
+      number: '#FF9F45', tag: '#FF6E9C', comment: '#6E769E', op: '#8E97BC',
       ansi: { red: '#FF6E7F', green: '#5FD98C', yellow: '#FFC24A', blue: '#8AB4FF', magenta: '#C77DFF', cyan: '#4DE0D0' },
     },
     light: {
@@ -306,7 +306,7 @@ export const FAMILIES = [
       bg: '#14110D', bgElev: '#1F1B16', bgChrome: '#0E0C09', fg: '#E4DACA',
       accent: '#C39B54',
       keyword: '#BFA77B', func: '#F5E9CE', string: '#D8C298', type: '#A7946E',
-      number: '#D2BC94', tag: '#A69574', comment: '#7E7566', op: '#938977',
+      number: '#D2BC94', tag: '#A69574', comment: '#7F7667', op: '#938977',
       depth: ['#E0D3B0', '#C99C55', '#C4674A', '#93A468', '#8E96A8', '#B18FC0'],
       status: { error: '#D9866B', warn: '#C99C55', info: '#8E96A8', ok: '#93A468' },
       ansi: { red: '#DE7D5E', green: '#93A468', yellow: '#C99C55', blue: '#9098AA', magenta: '#B18FC0', cyan: '#7FA89C' },

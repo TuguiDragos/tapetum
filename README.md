@@ -634,7 +634,7 @@ teal from that idea: a small set of exact positions rather than a smooth range.
 | type | `#6EE7A8` | `#06704A` |
 | number | `#FF9F45` | `#C25100` |
 | tag | `#FF6E9C` | `#C42B7B` |
-| comment | `#6B739B` | `#6D7291` |
+| comment | `#6E769E` | `#6D7291` |
 
 </details>
 
@@ -735,7 +735,7 @@ you are without counting.
 | type slot | `#A7946E` | `#6E6040` |
 | number slot | `#D2BC94` | `#31280F` |
 | tag slot | `#A69574` | `#6F6141` |
-| comment slot | `#7E7566` | `#77705E` |
+| comment slot | `#7F7667` | `#77705E` |
 | nesting depth | `#E0D3B0` `#C99C55` `#C4674A` `#93A468` `#8E96A8` `#B18FC0` | `#8A6A1E` `#A0521E` `#4C6A2A` `#2A5A78` `#6B3F8A` `#7A4A2A` |
 
 The tone scheme decides what each slot paints, so a slot's name is not the role it colours here.
@@ -849,9 +849,9 @@ What a machine is good for is catching what a person misses. On all
 
 | | |
 | --- | --- |
-| **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1 and comments 4.0, the lowest at 4.07; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0 |
+| **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1, and deprecated symbols, struck through, and comments 4.0, the lowest at 4.07; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0, and 4.5 in the high contrast themes |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all 987 colour keys VS Code 1.140.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 3 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
+| **Coverage** | all 987 colour keys VS Code 1.140.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 4 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
 | **Editors** | verified one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, on the last Void build, and on the macOS, Linux and Windows builds of VS Code 1.140.0 |
 
 None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
@@ -940,7 +940,7 @@ parameters, imports, decorators and a few more. To switch it off in all
 58 themes at once, paste this into your settings. VS Code matches a
 theme scope that ends in `*` against every theme whose name starts that way, so
 each of the 6 schemes gets 1 entry for its own families, stating what
-stays once italic is gone: nothing, bold or underline. The 326 scopes and
+stays once italic is gone: nothing, bold or underline. The 325 scopes and
 24 semantic selectors are read from the rules themselves, so the
 list stays complete when the rules change:
 
@@ -1037,7 +1037,7 @@ list stays complete when the rules change:
             "entity.scope", "keyword.control.as", "keyword.control.default",
             "keyword.control.export", "keyword.control.from",
             "keyword.control.import", "keyword.other.this", "keyword.type",
-            "log.warning", "markup.deleted", "markup.italic", "markup.quote",
+            "markup.deleted", "markup.italic", "markup.quote",
             "meta.attribute", "meta.decorator", "meta.diff.header.from-file",
             "meta.parameter", "meta.require", "punctuation.decorator",
             "punctuation.definition.comment",

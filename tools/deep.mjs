@@ -116,6 +116,7 @@ const COMPOSED = [
   { fg: (c) => c['textLink.foreground'], grounds: (c) => [over(c['editorHoverWidget.statusBarBackground'], c['editorHoverWidget.background'])], floor: 4.5, what: 'link on the status bar of a hover' },
   { fg: (c) => c['textLink.foreground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'link in a Settings description, which VS Code shows at 90%' },
   { fg: (c) => c['textLink.activeForeground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'hovered link in a Settings description, which VS Code shows at 90%' },
+  { fg: (c) => c['textLink.activeForeground'], grounds: (c) => [over(c['list.hoverBackground'], mix(c['editorWidget.background'], c.foreground, 0.04))], floor: 4.5, what: 'hovered name on a featured card of the customization discovery' },
   { fg: (c) => c['sideBar.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['sideBar.background'])], floor: 4.5, what: 'a match in the search view, the side bar text on the find highlight' },
   { fg: (c) => c['editor.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['editor.background'])], floor: 4.5, what: 'text on a find highlight in the editor' },
   { fg: (c) => c['quickInputList.focusHighlightForeground'], grounds: (c) => [over(c['quickInputList.focusBackground'], c['quickInput.background'])], floor: 4.5, what: 'match highlight on the focused row of the command palette' },
@@ -126,6 +127,16 @@ const DECORATED_NAMES = [...['added', 'modified', 'deleted', 'renamed', 'stageMo
 const LINE_NUMBER_GROUNDS = ['editor.background', 'editorStickyScrollGutter.background', 'peekViewEditorGutter.background', 'peekViewEditorStickyScrollGutter.background'];
 // sticky scroll paints every number in editorLineNumber.foreground, so the active one shows only in the editor and peek gutters
 const ACTIVE_LINE_NUMBER_GROUNDS = ['editor.background', 'editorGutter.background', 'peekViewEditorGutter.background'];
+// high contrast lines: rulers and guides 3.0 where they lie, the guides of the active block 4.5
+const HC_LINES = [['editorRuler.foreground', 'editor.background', 3.0], ['tree.inactiveIndentGuidesStroke', 'sideBar.background', 3.0], ['tree.indentGuidesStroke', 'sideBar.background', 4.5],
+  ...[1, 2, 3, 4, 5, 6].flatMap((i) => [[`editorIndentGuide.background${i}`, 'editor.background', 3.0], [`editorIndentGuide.activeBackground${i}`, 'editor.background', 4.5]])];
+// the quieter text of high contrast, on the surface each is written on
+const HC_QUIET = [['titleBar.inactiveForeground', 'titleBar.inactiveBackground'], ['activityBar.inactiveForeground', 'activityBar.background'],
+  ['activityBarTop.inactiveForeground', 'activityBar.background'], ['tab.unfocusedInactiveForeground', 'tab.unfocusedInactiveBackground'],
+  ['panelTitle.inactiveForeground', 'panel.background'], ['disabledForeground', 'editor.background'], ['list.deemphasizedForeground', 'sideBar.background'],
+  ['input.placeholderForeground', 'input.background'], ['inlineChatInput.placeholderForeground', 'inlineChatInput.background'],
+  ['agentsChatInput.placeholderForeground', 'agentsChatInput.background'], ['editor.placeholder.foreground', 'editor.background'],
+  ['editor.foldPlaceholderForeground', 'editor.background'], ['commandCenter.inactiveForeground', 'commandCenter.background', 'titleBar.inactiveBackground']];
 // a figure under a floor, cut rather than rounded, so 3.1996 does not read as 3.20
 const down = (x) => (Math.floor(x * 100) / 100).toFixed(2);
 const hueDist = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
@@ -175,6 +186,10 @@ function analyse(fam, v) {
 
   let stackWorst = 99, stackAt = '';
   const sel = c['editor.selectionBackground'];
+  if (!hc) for (const r of ['keyword', 'func', 'string', 'type', 'number', 'tag']) {
+    const cr = contrast(p[r], over(sel, eb));
+    if (cr < 3.0) bad('layers', `${r} on editor.selectionBackground at ${down(cr)}, under 3.0`);
+  }
   const selFg = c['editor.selectionForeground'];
   for (const o of ['editor.wordHighlightStrongBackground', 'editor.findMatchHighlightBackground', 'editor.lineHighlightBackground']) {
     const ground = over(c[o], over(sel, eb));
@@ -268,7 +283,7 @@ function analyse(fam, v) {
   out.merge = { split: mergeSplit, presence: mergePresence, text: mergeText };
   if (mergeText < 3.0) bad('conflict', `text at ${down(mergeText)} over the conflict blocks, under 3.0`);
   if (mergePresence < 3) bad('conflict', `the blocks do not show on the background, ${mergePresence.toFixed(1)} dE`);
-  if (mergeSplit < 3) bad('conflict', `current and incoming at ${mergeSplit.toFixed(1)} dE`);
+  if (mergeSplit < 8) bad('conflict', `current and incoming at ${down(mergeSplit)} dE, under 8`);
 
   out.diff = { deltaE: deltaE(insLine, delLine), text: diffText, comment: diffComment, mark: diffMark };
   if (out.diff.deltaE < 2.5) bad('diff', `inserted and removed at ${out.diff.deltaE.toFixed(1)} dE`);
@@ -306,6 +321,10 @@ function analyse(fam, v) {
     if (cr < floor) bad('textmate', `${r.name} at ${cr.toFixed(2)}, under ${floor}`);
   }
   out.textmate = { rules: rules.length, worst: tmWorst, worstKey: tmKey };
+  const logRule = (scope) => rules.filter((r) => [].concat(r.scope).includes(scope)).pop();
+  const [logError, logWarning] = [logRule('log.error'), logRule('log.warning')];
+  if (!logError || !logWarning) bad('textmate', 'log files get no colour for errors or warnings');
+  else if (deltaE(logError.settings.foreground, logWarning.settings.foreground) < 12) bad('textmate', `log errors and warnings ${down(deltaE(logError.settings.foreground, logWarning.settings.foreground))} dE apart, under 12`);
 
   const syntaxCr = R.map((r) => contrast(p[r], p.bg));
   out.syntax = { min: Math.min(...syntaxCr), mean: syntaxCr.reduce((a, b) => a + b) / 6 };
@@ -334,6 +353,9 @@ function analyse(fam, v) {
     const cr = contrast(over(c['list.focusAndSelectionOutline'], ground), ground);
     if (cr < 3) bad('focus', `list.focusAndSelectionOutline on the selection over ${s} at ${cr.toFixed(2)}, under 3:1`);
   }
+  const sideBar = c['sideBar.background'];
+  const dotted = contrast(over(c['list.inactiveFocusOutline'], sideBar), sideBar);
+  if (dotted < 3) bad('focus', `list.inactiveFocusOutline on sideBar.background at ${down(dotted)}, under 3:1`);
   for (const k of ['focusBorder', 'list.focusOutline']) for (const s of WASH_SURFACES) {
     const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const cr = contrast(over(c[k], ground), ground);
@@ -369,6 +391,12 @@ function analyse(fam, v) {
   for (const k of DECORATED_NAMES) {
     const cr = contrast(over(c[k], c['sideBar.background']), c['sideBar.background']);
     if (cr < 4.5) bad('surface', `${k}, a decorated file name in the side bar, at ${cr.toFixed(2)}, under 4.5`);
+    if (k === 'list.invalidItemForeground') continue;
+    const strip = c['editorGroupHeader.tabsBackground'];
+    const onTab = contrast(over(c[k], strip), strip);
+    // hand placed status colours stay as their palette writes them
+    if (p.status) pend('decorated names on the tab strip, in the palettes with hand placed status colours (4.5)', onTab, 4.5);
+    else if (onTab < 4.5) bad('surface', `${k}, a decorated name on a tab, at ${down(onTab)}, under 4.5`);
   }
   for (const g of LINE_NUMBER_GROUNDS) {
     const floor = hc ? 4.5 : 3.0;
@@ -382,18 +410,33 @@ function analyse(fam, v) {
   }
   for (const k of ['diffEditorGutter.insertedLineBackground', 'diffEditorGutter.removedLineBackground']) {
     const ground = over(c[k], eb);
-    pend('line numbers on the diff gutter (3.0, high contrast 4.5)', contrast(over(c['editorLineNumber.foreground'], ground), ground), hc ? 4.5 : 3.0);
-    pend('the active line number on the diff gutter (4.5)', contrast(over(c['editorLineNumber.activeForeground'], ground), ground), 4.5);
+    const floor = hc ? 4.5 : 3.0;
+    const cr = contrast(over(c['editorLineNumber.foreground'], ground), ground);
+    if (cr < floor) bad('surface', `editorLineNumber.foreground on ${k} at ${down(cr)}, under ${floor}`);
+    const act = contrast(over(c['editorLineNumber.activeForeground'], ground), ground);
+    if (act < 4.5) bad('surface', `editorLineNumber.activeForeground on ${k} at ${down(act)}, under 4.5`);
   }
   const cell = over(c['notebook.cellEditorBackground'] || eb, eb);
-  pend('line numbers in a notebook cell (3.0, high contrast 4.5)', contrast(over(c['editorLineNumber.foreground'], cell), cell), hc ? 4.5 : 3.0);
+  const inCell = contrast(over(c['editorLineNumber.foreground'], cell), cell);
+  if (inCell < (hc ? 4.5 : 3.0)) bad('surface', `editorLineNumber.foreground on notebook.cellEditorBackground at ${down(inCell)}, under ${hc ? 4.5 : 3.0}`);
+  for (let i = 1; i <= 6; i++) for (const k of [`editorBracketPairGuide.background${i}`, `editorBracketPairGuide.activeBackground${i}`])
+    if (c[k].slice(0, 7).toLowerCase() !== c[`editorBracketHighlight.foreground${i}`].slice(0, 7).toLowerCase()) bad('brackets', `${k} is not the colour of the brackets it joins`);
   const sticky = over(c['editorStickyScroll.background'], eb);
-  for (const ground of [sticky, over(c['editorStickyScrollHover.background'], sticky)]) for (const r of rules) {
-    const floor = syntaxFloor(r);
-    pend('syntax on sticky scroll and its hovered line (4.5, comments 4.0)', contrast(over(r.settings.foreground, ground), ground), floor);
+  for (const r of rules) {
+    const cr = contrast(over(r.settings.foreground, sticky), sticky);
+    if (cr < syntaxFloor(r)) bad('surface', `${r.name} on editorStickyScroll.background at ${down(cr)}, under ${syntaxFloor(r)}`);
+    const hover = over(c['editorStickyScrollHover.background'], sticky);
+    pend('syntax on the hovered line of sticky scroll (4.5, comments 4.0)', contrast(over(r.settings.foreground, hover), hover), syntaxFloor(r));
   }
-  if (hc) for (const k of ['editorRuler.foreground', 'editorIndentGuide.background1', 'editorIndentGuide.activeBackground1', 'tree.indentGuidesStroke'])
-    pend('rulers and indent guides in high contrast (3.0)', contrast(over(c[k], eb), eb), 3.0);
+  if (hc) for (const [k, g, under] of HC_QUIET) {
+    const ground = over(c[g], under ? c[under] : eb);
+    const cr = contrast(over(c[k], ground), ground);
+    if (cr < 4.5) bad('surface', `${k} on ${g} at ${down(cr)}, under 4.5 in high contrast`);
+  }
+  if (hc) for (const [k, g, floor] of HC_LINES) {
+    const cr = contrast(over(c[k], c[g]), c[g]);
+    if (cr < floor) bad('surface', `${k} on ${g} at ${down(cr)}, under ${floor} in high contrast`);
+  }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
     const shown = share ? mix(ground, fg(c, t.type === 'light'), share) : over(fg(c, t.type === 'light'), ground);

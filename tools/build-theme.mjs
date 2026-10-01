@@ -32,12 +32,18 @@ function tokens(s) {
     return best;
   };
   const dimBase = legible(s.fgDim || mix(fg, bg, 0.32), hard, 5.2);
-  const faint = legible(s.fgFaint || mix(fg, bg, 0.58), hard, 3.4);
+  const field = dark ? mix(bg, fg, 0.08) : '#ffffff';
+  // high contrast keeps its quieter text at 4.5 on every surface it is written on, the command center wash included
+  const faint = hc ? [hard, field, composite(alpha(fg, 0.05), chrome)].reduce((c, g) => legible(c, g, 4.5), s.fgFaint || mix(fg, bg, 0.58)) : legible(s.fgFaint || mix(fg, bg, 0.58), hard, 3.4);
   const ghost = legible(mix(fg, bg, 0.68), hard, 2.6);
   const line = mix(bg, fg, 0.13);
   const line2 = mix(bg, fg, 0.24);
   const acc = s.accent || s.syntax.keyword;
-  const sel = alpha(acc, dark ? 0.3 : 0.24);
+  // VS Code keeps the syntax colours on the selection outside high contrast, so the selection eases until they read 3.0 on it
+  const onSel = (k) => Math.min(...[s.syntax.keyword, s.syntax.func, s.syntax.string, s.syntax.type, s.syntax.number, s.syntax.tag].map((c) => contrast(c, composite(alpha(acc, k / 100), bg))));
+  let selK = dark ? 30 : 24;
+  while (selK > 0 && onSel(selK) < 3.0) selK--;
+  const sel = alpha(acc, selK / 100);
   const selSoft = alpha(acc, dark ? 0.16 : 0.13);
   const dim = [hard, strip].reduce((d, g) => legible(d, composite(selSoft, g), 4.0), dimBase);
   let findAlpha = 0.38;
@@ -46,7 +52,6 @@ function tokens(s) {
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   const findGround = [bg, elev, chrome, strip].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
-  const field = dark ? mix(bg, fg, 0.08) : '#ffffff';
   const stripHover = hc ? elev : reach(strip, strip, fg, 3.0);
   const whitespace = mix(bg, fg, 0.2);
   // the search view shows each match in the side bar's text on the find highlight, so the highlight eases off until that text reads
@@ -89,11 +94,20 @@ function tokens(s) {
   const shadowInk = dark ? '#000000' : '#1a1a2e';
   const sh = (k) => alpha(shadowInk, dark ? k : k * 0.45);
   const shadow = sh(0.28);
+  // the diff gutter lays the added and removed colours over the editor, and the line numbers sit on them
+  const gutterK = 0.14;
+  const gutterGrounds = [st.added, st.deleted].map((c) => composite(alpha(c, gutterK), bg));
 
   const y = s.syntax;
   const trio = bracketTrio({ y: s.syntax, bg, legible, declared: s.depth });
+  // a bracket pair guide takes the colour of the brackets it joins, which cycle through the trio
+  const pairGuides = {};
+  for (let i = 1; i <= 6; i++) {
+    pairGuides[`editorBracketPairGuide.background${i}`] = alpha(trio[(i - 1) % 3], 0.28);
+    pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
+  }
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -109,7 +123,8 @@ function tokens(s) {
 
     // links also sit on the status bar of a hover, which is the overlay surface
     'textLink.foreground': faded(readsOn(legible(legible(y.func, bg, 4.5), elev, 4.5), over, 4.5), bg, 0.9, 4.5),
-    'textLink.activeForeground': faded(legible(legible(y.string, bg, 4.5), elev, 4.5), bg, 0.9, 4.5),
+    // a hovered link also names a hovered card of the customization discovery, the list hover over 4% of the text on the widget
+    'textLink.activeForeground': faded(readsOn(legible(legible(y.string, bg, 4.5), elev, 4.5), composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), 4.5), bg, 0.9, 4.5),
     'textPreformat.foreground': legible(y.number, mix(hard, y.number, 0.12), 5.4),
     'textPreformat.background': alpha(y.number, 0.10),
     'textBlockQuote.background': elev,
@@ -119,9 +134,9 @@ function tokens(s) {
 
     'editor.background': bg,
     'editor.foreground': fg,
-    // line numbers also sit on sticky scroll and in the peek view, half way to the raised surface
-    'editorLineNumber.foreground': readsOn(legible(ghost, bg, hc ? 4.5 : 3.0), mix(bg, elev, 0.5), hc ? 4.5 : 3.0),
-    'editorLineNumber.activeForeground': readsOn(acc, mix(bg, elev, 0.5), 4.5),
+    // line numbers also sit in the peek view, half way to the raised surface, and in a notebook cell
+    'editorLineNumber.foreground': [mix(bg, elev, 0.5), ...gutterGrounds, cellFill(bg, fg, 2.2)].reduce((c, g) => readsOn(c, g, hc ? 4.5 : 3.0), legible(ghost, bg, hc ? 4.5 : 3.0)),
+    'editorLineNumber.activeForeground': [mix(bg, elev, 0.5), ...gutterGrounds].reduce((c, g) => readsOn(c, g, 4.5), acc),
     'editorLineNumber.dimmedForeground': mix(faint, bg, 0.55),
     'editorCursor.foreground': acc,
     'editorCursor.background': bg,
@@ -168,18 +183,7 @@ function tokens(s) {
     'editorBracketHighlight.foreground5': trio[1],
     'editorBracketHighlight.foreground6': trio[2],
     'editorBracketHighlight.unexpectedBracket.foreground': st.error,
-    'editorBracketPairGuide.background1': alpha(trio[0], 0.28),
-    'editorBracketPairGuide.background2': alpha(trio[1], 0.28),
-    'editorBracketPairGuide.background3': alpha(depth[2], 0.28),
-    'editorBracketPairGuide.background4': alpha(depth[3], 0.28),
-    'editorBracketPairGuide.background5': alpha(depth[4], 0.28),
-    'editorBracketPairGuide.background6': alpha(depth[5], 0.28),
-    'editorBracketPairGuide.activeBackground1': alpha(depth[0], 0.6),
-    'editorBracketPairGuide.activeBackground2': alpha(depth[1], 0.6),
-    'editorBracketPairGuide.activeBackground3': alpha(depth[2], 0.6),
-    'editorBracketPairGuide.activeBackground4': alpha(depth[3], 0.6),
-    'editorBracketPairGuide.activeBackground5': alpha(depth[4], 0.6),
-    'editorBracketPairGuide.activeBackground6': alpha(depth[5], 0.6),
+    ...pairGuides,
 
     'editorError.foreground': softStatus(st.error),
     'editorWarning.foreground': softStatus(st.warn),
@@ -242,10 +246,11 @@ function tokens(s) {
     'editorGhostText.foreground': legible(mix(y.comment, fg, 0.1), bg, 3.2),
     'editorGhostText.border': '#00000000',
     'editorGhostText.background': '#00000000',
-    'editorStickyScroll.background': mix(bg, elev, 0.5),
+    // sticky scroll shows code, so it keeps the editor ground and is set apart by its line and shadow
+    'editorStickyScroll.background': bg,
     'editorStickyScroll.border': line,
     'editorStickyScroll.shadow': sh(0.10),
-    'editorStickyScrollHover.background': apart(over, mix(bg, elev, 0.5), dark ? '#ffffff' : '#000000', 3.0),
+    'editorStickyScrollHover.background': apart(over, bg, dark ? '#ffffff' : '#000000', 3.0),
     'editorInlayHint.background': alpha(acc, 0.08),
     'editorInlayHint.foreground': legible(mix(fg, bg, 0.18), mix(bg, acc, 0.1), 5.0),
     'editorInlayHint.typeBackground': alpha(y.type, 0.08),
@@ -271,6 +276,9 @@ function chrome(t) {
   const listHover = alphaOf(fg, 0.06);
   const activeWash = alphaOf(fg, 0.10);
   const selectedWash = alphaOf(fg, 0.06);
+  let outlineK = 22;
+  while (outlineK < 100 && contrast(composite(alphaOf(fg, outlineK / 100), elev), elev) < 3.0) outlineK++;
+  const inactiveOutline = alphaOf(fg, outlineK / 100);
   return {
     'titleBar.activeBackground': ch,
     'titleBar.activeForeground': legible(dim, ch, 4.5),
@@ -351,10 +359,11 @@ function chrome(t) {
     'list.focusAndSelectionOutline': focusStrong,
     'list.focusHighlightForeground': focusHighlight,
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
-    'list.inactiveFocusOutline': alphaOf(fg, 0.22),
+    'list.inactiveFocusOutline': inactiveOutline,
     'list.highlightForeground': t.highlight,
-    'list.errorForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
-    'list.warningForeground': t.handStatus ? st.warn : readsOn(st.warn, elev, 4.5),
+    // decorated names sit on the side bar and, on a tab, on the strip
+    'list.errorForeground': t.handStatus ? st.error : readsOn(readsOn(st.error, elev, 4.5), strip, 4.5),
+    'list.warningForeground': t.handStatus ? st.warn : readsOn(readsOn(st.warn, elev, 4.5), strip, 4.5),
     'list.deemphasizedForeground': faint,
     'list.invalidItemForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
     'list.dropBackground': alphaOf(acc, 0.16),
@@ -381,7 +390,7 @@ function chrome(t) {
     'editorGroupHeader.connectedTabsBackground': strip,
     'editorGroupHeader.tabsBorder': line,
     'editorGroupHeader.noTabsBackground': bg,
-    'editorGroupHeader.border': line,
+    'editorGroupHeader.border': t.hc ? line : undefined,
 
     'tab.activeBackground': bg,
     'tab.activeForeground': fg,
@@ -682,8 +691,8 @@ function integrations(t) {
     'diffEditor.moveActive.border': y.number,
     'diffEditorOverview.insertedForeground': alphaOf(st.added, 0.6),
     'diffEditorOverview.removedForeground': alphaOf(st.deleted, 0.6),
-    'diffEditorGutter.insertedLineBackground': alphaOf(st.added, 0.2),
-    'diffEditorGutter.removedLineBackground': alphaOf(st.deleted, 0.2),
+    'diffEditorGutter.insertedLineBackground': alphaOf(st.added, t.gutterK),
+    'diffEditorGutter.removedLineBackground': alphaOf(st.deleted, t.gutterK),
     'multiDiffEditor.headerBackground': elev,
     'multiDiffEditor.background': bg,
     'multiDiffEditor.border': line,
@@ -1081,7 +1090,7 @@ function tail(t) {
     'editorMarkerNavigationWarning.background': st.warn,
     'editorMarkerNavigationInfo.background': st.info,
     'editorPane.background': bg,
-    'editorStickyScrollGutter.background': mixOf(bg, elev, 0.5),
+    'editorStickyScrollGutter.background': bg,
     'peekViewEditorStickyScrollGutter.background': mixOf(bg, elev, 0.5),
     'editorSuggestWidget.focusOutline': acc,
     'mergeEditor.conflict.input1.background': alphaOf(y.type, 0.16),
@@ -1219,7 +1228,7 @@ function gitDecorations(t) {
   const renamed = pick(taken);
   const submodule = pick([...taken, renamed]);
   // hand placed status colours stay as their palette writes them
-  const name = (c) => readsOn(c, t.elev, 4.5);
+  const name = (c) => readsOn(readsOn(c, t.elev, 4.5), t.strip, 4.5);
   const status = (c) => (t.handStatus ? c : name(c));
   return {
     'gitDecoration.addedResourceForeground': status(st.added),
@@ -1375,25 +1384,33 @@ function mergeSides(t) {
   const reads = (ground) => Math.min(...faint.map((c) => contrast(c, ground)));
   const SEPARATION = 12, PRESENCE = 9, FLOOR = 3.0;
 
-  let contentK = 0;
-  for (let i = 6; i <= 40; i++) {
-    const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
-    if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
-    contentK = i / 100;
-    if (deltaE(cg, ig) >= SEPARATION && Math.min(deltaE(cg, bg), deltaE(ig, bg)) >= PRESENCE) break;
-  }
-  if (!contentK) contentK = 0.06;
-
-  let headerK = contentK;
-  const headerCap = Math.min(contentK * 1.6, 0.5);
-  for (let i = Math.round(contentK * 100) + 1; i / 100 <= headerCap; i++) {
-    const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
-    if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
-    headerK = i / 100;
+  const fit = (current, incoming) => {
+    let contentK = 0;
+    for (let i = 6; i <= 40; i++) {
+      const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
+      if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
+      contentK = i / 100;
+      if (deltaE(cg, ig) >= SEPARATION && Math.min(deltaE(cg, bg), deltaE(ig, bg)) >= PRESENCE) break;
+    }
+    if (!contentK) contentK = 0.06;
+    let headerK = contentK;
+    const headerCap = Math.min(contentK * 1.6, 0.5);
+    for (let i = Math.round(contentK * 100) + 1; i / 100 <= headerCap; i++) {
+      const cg = composite(alpha(current, i / 100), bg), ig = composite(alpha(incoming, i / 100), bg);
+      if (Math.min(reads(cg), reads(ig)) < FLOOR) break;
+      headerK = i / 100;
+    }
+    return { current, incoming, contentK, headerK, sep: deltaE(composite(alpha(current, contentK), bg), composite(alpha(incoming, contentK), bg)) };
+  };
+  let sides = fit(current, incoming);
+  // sides that cannot stand 8 dE apart in the theme's own colours take a warm and a cool tint
+  if (sides.sep < 8) {
+    const L = Math.min(96, Math.max(6, hex2lch(bg)[0] + (dark ? 40 : -40)));
+    sides = fit(lch2hex(L, 18, 60), lch2hex(L, 18, 250));
   }
 
   const common = lch2hex(hex2lch(bg)[0] + (dark ? 30 : -30), 4, hex2lch(bg)[2]);
-  return { current, incoming, common, contentK, headerK };
+  return { current: sides.current, incoming: sides.incoming, common, contentK: sides.contentK, headerK: sides.headerK };
 }
 
 function bracketTrio(t) {
@@ -1509,8 +1526,6 @@ const HC = {
 // borders the high contrast pass leaves as the family sets them, and why
 const HC_KEEPS = {
   'editorOverviewRuler.border': "a quiet line beside the scrollbar, as in VS Code's own high contrast themes",
-  'merge.border': 'conflict blocks are marked by their header and content washes, not a frame',
-  'editorGroup.dropIntoPromptBorder': 'a quiet line, like the rulers and guides of the high contrast themes',
 };
 // borders whose colour says what happened keep the status colour the family gives them, as VS Code's HC defaults do
 const MEANING = /^(debugExceptionWidget\.border|editorUnicodeHighlight\.border|inlineEdit\.(modified|original)Border|mergeEditor\.conflict\.\w+\.border)$/;
@@ -1549,6 +1564,17 @@ function applyHighContrast(all, t) {
   all['chat.workingProgressInsidersIconForeground'] = c.active;
   all['widget.shadow'] = '#00000000';
   all['scrollbar.shadow'] = '#00000000';
+  // rulers and guides reach 3.0 where they lie, the guides of the active block 4.5; translucent ones rise by opacity and keep their hue
+  const lineOn = (k, ground, target) => {
+    const { a } = parse(all[k]);
+    let i = Math.round(a * 100);
+    while (i < 100 && contrast(composite(alpha(all[k], i / 100), ground), ground) < target) i++;
+    all[k] = i < 100 ? alpha(all[k], i / 100) : readsOn(alpha(all[k], 1), ground, target);
+  };
+  lineOn('editorRuler.foreground', t.bg, 3.0);
+  for (let i = 1; i <= 6; i++) { lineOn(`editorIndentGuide.background${i}`, t.bg, 3.0); lineOn(`editorIndentGuide.activeBackground${i}`, t.bg, 4.5); }
+  lineOn('tree.inactiveIndentGuidesStroke', t.elev, 3.0);
+  lineOn('tree.indentGuidesStroke', t.elev, 4.5);
 }
 
 function scmGraphColors(t) {
