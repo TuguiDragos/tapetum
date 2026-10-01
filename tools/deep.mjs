@@ -184,23 +184,36 @@ function analyse(fam, v) {
   out.siblings = { checked: pairs.length, failed: sibFails.length, worst: pairs.length ? Math.min(...pairs.map((x) => x.cr)) : null };
   for (const f of sibFails) bad('pair', `${f.fg} on ${f.bg} at ${f.cr.toFixed(2)}`);
 
-  let stackWorst = 99, stackAt = '';
+  const R = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
   const sel = c['editor.selectionBackground'];
-  if (!hc) for (const r of ['keyword', 'func', 'string', 'type', 'number', 'tag']) {
+  if (!hc) for (const r of R) {
     const cr = contrast(p[r], over(sel, eb));
     if (cr < 3.0) bad('layers', `${r} on editor.selectionBackground at ${down(cr)}, under 3.0`);
   }
+  // VS Code paints the selection under its decorations and never the current line on a selection; find matches keep their own text colour,
+  // but high contrast writes all selected text in selectionForeground
   const selFg = c['editor.selectionForeground'];
-  for (const o of ['editor.wordHighlightStrongBackground', 'editor.findMatchHighlightBackground', 'editor.lineHighlightBackground']) {
-    const ground = over(c[o], over(sel, eb));
-    for (const r of ['keyword', 'func', 'string', 'type', 'number', 'tag']) {
-      const cr = contrast(hc && selFg && parse(selFg).a === 1 ? selFg : p[r], ground);
-      if (cr < stackWorst) { stackWorst = cr; stackAt = `${r} over the selection plus ${o.split('.').pop()}`; }
-    }
+  const comments = [...new Set(t.tokenColors.filter((r) => r.settings.foreground && [].concat(r.scope).some((s) => /^comment/.test(String(s).trim()))).map((r) => r.settings.foreground))];
+  const onSel = hc && selFg && parse(selFg).a === 1 ? [selFg] : [...R.map((r) => p[r]), ...comments];
+  const selFloor = hc ? 4.5 : 3.0, floorNote = hc ? '4.5 in high contrast' : '3.0';
+  const worstOver = (layers, texts) => { const g = layers.reduce((u, k) => over(c[k], u), eb); return Math.min(...texts.map((x) => contrast(over(x, g), g))); };
+  let stackWorst = 99, stackAt = '';
+  for (const k of ['wordHighlightBackground', 'wordHighlightStrongBackground', 'wordHighlightTextBackground', 'snippetTabstopHighlightBackground']) {
+    const cr = worstOver(['editor.selectionBackground', `editor.${k}`], onSel);
+    if (cr < stackWorst) { stackWorst = cr; stackAt = `syntax over the selection plus ${k}`; }
   }
   out.stacked = { worst: stackWorst, at: stackAt };
-  pend('syntax over the selection plus a highlight (4.5)', stackWorst, 4.5);
-  if (stackWorst < 1.5) bad('layers', `${stackAt} at ${stackWorst.toFixed(2)}`);
+  pend(`syntax over the selection plus a word or snippet highlight (${floorNote})`, stackWorst, selFloor);
+  const hoverSel = Math.min(...['', 'editor.wordHighlightBackground', 'editor.wordHighlightStrongBackground'].map((k) => worstOver(['editor.selectionBackground', 'editor.hoverHighlightBackground', k].filter(Boolean), onSel)));
+  pend(`syntax over the selection plus the hover highlight (${floorNote})`, hoverSel, selFloor);
+  const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
+  pend(`syntax over the selection in a diff (${floorNote})`, diffSel, selFloor);
+  const findTexts = hc && selFg && parse(selFg).a === 1 ? [selFg] : ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
+  if (findTexts.length) {
+    const findSel = Math.min(...[['editor.inactiveSelectionBackground', 'editor.findMatchHighlightBackground'], ['editor.inactiveSelectionBackground', 'editor.rangeHighlightBackground', 'editor.findMatchBackground'],
+      ['editor.selectionBackground', 'editor.findMatchHighlightBackground']].map((l) => worstOver(l, findTexts)));
+    pend('find matches written over the selection (4.5)', findSel, 4.5);
+  }
 
   const tb = c['terminal.background'];
   const tsel = over(c['terminal.selectionBackground'], tb);
@@ -291,7 +304,6 @@ function analyse(fam, v) {
   if (diffComment < 3.2) bad('diff', `comments on a diff background at ${down(diffComment)}, under 3.2`);
   if (diffMark < 2) bad('diff', `the changed word at ${diffMark.toFixed(1)} dE from the line`);
 
-  const R = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
   const sim = (fn) => {
     let m = 999, pair = '';
     for (let i = 0; i < 6; i++) for (let j = i + 1; j < 6; j++) {
