@@ -1288,20 +1288,27 @@ function apart(colour, ground, toward, minDE) {
   return toward;
 }
 
+// steps of the original colour away from the ground's lightness; the other way only when that side cannot read
+function away(colour, ground, reads, steps) {
+  const walk = (up) => {
+    let c = colour;
+    for (let i = 1; i <= steps && !reads(c); i++) c = up ? lighten(colour, i / 100) : darken(colour, i / 100);
+    return c;
+  };
+  const first = walk(relLum(colour) > relLum(ground));
+  if (reads(first)) return first;
+  const second = walk(relLum(colour) <= relLum(ground));
+  return reads(second) ? second : first;
+}
+
 // a colour VS Code writes as text on a surface, moved just enough to read there
 function readsOn(colour, ground, target) {
-  const dark = relLum(ground) < 0.5;
-  let c = colour;
-  for (let i = 1; i <= 95 && contrast(c, ground) < target; i++) c = dark ? lighten(colour, i / 100) : darken(colour, i / 100);
-  return c;
+  return away(colour, ground, (c) => contrast(c, ground) >= target, 95);
 }
 
 // the Settings editor shows its descriptions at 90% opacity, links included
 function faded(colour, ground, share, target) {
-  const dark = relLum(ground) < 0.5;
-  const at = (c) => contrast(mix(ground, c, share), ground);
-  for (let i = 0; i <= 90 && at(colour) < target; i++) colour = dark ? lighten(colour, 0.01) : darken(colour, 0.01);
-  return colour;
+  return away(colour, ground, (c) => contrast(mix(ground, c, share), ground) >= target, 90);
 }
 
 // VS Code writes white text on this colour, so it darkens just until white reads at 4.5
