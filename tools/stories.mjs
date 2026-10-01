@@ -128,8 +128,8 @@ what is yours and what is borrowed.`,
 
   stratum: `A road cut through sediment is read by depth, not by content. Each band is a
 different million years. Stratum takes the colour off the syntax entirely and
-puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and all
-6 real colours are spent on bracket levels and indent guides. You see how deep
+puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and its
+3 real colours are spent on bracket levels and indent guides. You see how deep
 you are without counting.`,
 
   borrow: `Rust made a whole language out of one question: can this change, and who is
@@ -147,9 +147,10 @@ the screen recedes on purpose.`,
 
   silverpoint: `Silverpoint is drawing with a silver stylus on prepared paper. There is no
 colour, only line and tone, and no way to erase. Leonardo and Durer worked in
-it. This family has no hue in the code at all: 6 greys, plus weight and italic
-doing the work that colour usually does. The interface keeps a single silver
-blue accent so you can still find your cursor.`,
+it. This family keeps hue out of the syntax: 6 greys, plus weight and italic
+doing the work that colour usually does. Hue is left for signals: errors and
+warnings, the 2 sides of a merge conflict, every third bracket level, and the
+single silver blue accent that helps you find your cursor.`,
 
   passepartout: `A passepartout is the card mat around a framed photograph. It is not decoration,
 it is what makes the eye fall on the picture. Every theme puts the interface at
@@ -208,7 +209,7 @@ export const SOURCES = {
   stratum: 'Sedimentary layers. Colour sits on nesting depth',
   borrow: 'Whether a thing can change, and where it is written to',
   palimpsest: 'A scraped and rewritten manuscript',
-  silverpoint: 'A silver stylus on prepared paper. No hue anywhere',
+  silverpoint: 'A silver stylus on prepared paper. Grey code, hue kept for signals',
   passepartout: 'The mat around a framed photograph',
   effect: 'Which code touches the world and which only computes',
   cochineal: 'Carminic acid, the first real scarlet Europe had',

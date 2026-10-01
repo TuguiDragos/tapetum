@@ -691,12 +691,13 @@ the red of the filter itself, kept for literals.
 
 Silverpoint is drawing with a silver stylus on prepared paper. There is no
 colour, only line and tone, and no way to erase. Leonardo and Durer worked in
-it. This family has no hue in the code at all: 6 greys, plus weight and italic
-doing the work that colour usually does. The interface keeps a single silver
-blue accent so you can still find your cursor.
+it. This family keeps hue out of the syntax: 6 greys, plus weight and italic
+doing the work that colour usually does. Hue is left for signals: errors and
+warnings, the 2 sides of a merge conflict, every third bracket level, and the
+single silver blue accent that helps you find your cursor.
 
 <details>
-<summary>A silver stylus on prepared paper. No hue anywhere &nbsp;<code>tone</code> scheme</summary>
+<summary>A silver stylus on prepared paper. Grey code, hue kept for signals &nbsp;<code>tone</code> scheme</summary>
 
 | | `Tapetum Silverpoint` | `Tapetum Silverpoint Light` |
 | --- | --- | --- |
@@ -718,8 +719,8 @@ The tone scheme decides what each slot paints, so a slot's name is not the role 
 
 A road cut through sediment is read by depth, not by content. Each band is a
 different million years. Stratum takes the colour off the syntax entirely and
-puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and all
-6 real colours are spent on bracket levels and indent guides. You see how deep
+puts it on nesting depth: the code itself is 1 sandstone in 6 tones, and its
+3 real colours are spent on bracket levels and indent guides. You see how deep
 you are without counting.
 
 <details>
@@ -839,7 +840,8 @@ from the other 6 without washing all of them out.
 
 ## How they are checked
 
-Colour is a judgement call, so every value here was placed by hand. An earlier
+Colour is a judgement call, so every palette here was placed by hand, and the
+interface colours follow from it by rules that measure them. An earlier
 version let an optimiser choose them and it converged on something worse: 2 of
 the families came out under 2 dE apart, and it had bleached the keywords to near
 grey chasing its own objective.
