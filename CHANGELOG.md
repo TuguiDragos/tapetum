@@ -1,5 +1,120 @@
 # Changelog
 
+## [1.1.1]
+
+VS Code 1.140 gave the connected tab strip a key of its own, registered 3 keys
+and drew a line around the active connected tab. This version sets the 3 keys,
+fixes what a full audit of every theme against 1.140 and the 10 editors
+Tapetum is checked on turned up, and settles the design questions it raised.
+
+### Fixed
+
+**The terminal's active find match.** xterm draws the active match without its
+transparency, so it covered the text in a solid colour that the text did not
+clear in any theme, and in some it nearly vanished. The match now carries the
+colour it had over the terminal, and terminal text reads on it at 4.5.
+
+**A type alias no longer turns bold.** In Stratum, Silverpoint, Palimpsest,
+Borrow and Provenance, every token of a TypeScript type alias took the bold,
+or bold italic, meant for its name. Only the name keeps it now.
+
+**High contrast keeps its meanings.** In both high contrast themes:
+
+- Inactive and unfocused borders took the focus colour, so an inactive window
+  looked focused. They are neutral now, as in VS Code.
+- Error, warning and info boxes, inserted and removed text and the states of a
+  merge conflict all took the same blue. They take their status colours.
+- The focus outline of lists, the suggest widget and the list filter take the
+  focus colour, and a hovered toolbar button gets the outline high contrast
+  gives it. Positron's data grid follows.
+- Rulers and indent guides reach 3 to 1, the guides of the block you are in
+  4.5, and coloured guides keep their hue. Merge conflicts and the drop prompt
+  get the high contrast border.
+- Quiet text, such as an inactive window title, inactive tabs, panel titles,
+  disabled items and placeholders, reads at 4.5.
+
+**Text that fell short.** All of these clear 4.5 now:
+
+- Links on the status bar of a hover, in 7 light themes.
+- Names, numbers, strings and types in the debug views, links in notifications
+  and the active parameter of parameter hints, in 9 light themes.
+- The current find match. VS Code paints the 2 find text colours crosswise, so
+  the one tuned for the current match went to the others; both are tuned now,
+  in 3 dark themes.
+- The active line number in the peek view, in Stratum Light.
+- File names marked by errors, warnings or git on the tab strip, in 18 themes.
+  Palettes that place their status colours by hand keep them.
+- A hovered name in the Customizations view, in 11 themes.
+- Code pinned by sticky scroll, in 12 themes: its lines sat half a step toward
+  the side bar and now share the editor's background, set apart by their line
+  and shadow.
+
+**Easier to read, easier to tell apart.**
+
+- The gutter of a diff lays the added and removed colours at 14% instead of
+  20%, and line numbers read 3 to 1 on it, the active one 4.5. They read in
+  notebook cells too.
+- Outside high contrast VS Code keeps the syntax colours on a selection. In 6
+  themes the selection took code under 3 to 1; it eases until code reads.
+- The errors and warnings of a log file had one colour in Borrow, Effect,
+  Palimpsest, Silverpoint and Stratum, and none in Provenance. They take the
+  status colours, as in the other families.
+- The 2 sides of a merge conflict stood barely apart in Palimpsest and
+  Silverpoint. When a theme's own colours cannot part them, they take a warm
+  and a cool tint.
+
+**Small steps that stopped short.** The searches that ease a colour until it
+reads stepped by fractions and skipped their last step. 58 values in 28 themes
+move by about 1 dE at most, and the comments on a diff in Quantum reach their
+floor.
+
+### Added
+
+**The 3 keys of 1.140.** The connected strip and the Agents detail pane take
+the colours VS Code already derived for them. The MCP compatibility warning
+takes the family's warning colour instead of VS Code's fixed yellow, which
+read under 4.5 in 10 themes.
+
+**Markdown, C and Rust in every scheme.** Struck through Markdown is struck in
+the 6 families of the other schemes, predefined macros such as `__LINE__` take
+each scheme's macro colour, and rust-analyzer's punctuation, braces and the
+`!` of a macro call have rules of their own.
+
+**The editors' own colours.** In Devin and Antigravity the review of an AI
+edit takes the family diff washes instead of a fixed green and red. Devin's
+session states, Cursor's worktree tab border and empty editor watermark, and
+the charts of Positron's data explorer take family colours that read.
+
+### Changed
+
+**The registry is VS Code 1.140.0.** 997 keys, 987 of them live, the same from
+the macOS, Linux and Windows builds. 4 keys are gone:
+`chat.inputWorkingBorderColor2` and `3`, which none of the 12 editors reads
+any more, and 2 Positron welcome keys Positron no longer has.
+
+**Smaller changes.**
+
+- `editorGroupHeader.border` is left unset outside high contrast, as VS Code
+  does, so no line crosses the whole editor under the tabs or the breadcrumbs.
+- With `editor.guides.bracketPairs` on, each guide takes the colour of the
+  brackets it joins; most levels used another.
+- The focused row of a list without focus keeps a dotted outline you can find,
+  at 3 to 1.
+- Quantum and Stratum lift their comment colour just enough to meet the APCA
+  floor for comments.
+
+**Publishing and checks.** Open VSX receives each release by trusted
+publishing, so the repository keeps no Open VSX token, and a registry that
+refuses a release no longer stops the other one or the download on the
+release. The workflow tools come from a lockfile. The checks paint 10 lines of
+real TypeScript and guard everything above; CI rebuilds every theme and the
+README and expects no change; the monthly registry check fails, and opens an
+issue, when it should.
+
+**A correction.** The notes for 1.0.9 said the themes were checked on TRAE
+SOLO with 0 problems. That check read its files, but TRAE SOLO loads no
+extensions installed by users, so Tapetum cannot be installed there.
+
 ## [1.1.0]
 
 VS Code 1.139 turned the modern UI on by default, with tabs that join the
