@@ -215,7 +215,7 @@ function analyse(fam, v) {
   if (findTexts.length) {
     const findSel = Math.min(...[['editor.inactiveSelectionBackground', 'editor.findMatchHighlightBackground'], ['editor.inactiveSelectionBackground', 'editor.rangeHighlightBackground', 'editor.findMatchBackground'],
       ['editor.selectionBackground', 'editor.findMatchHighlightBackground']].map((l) => worstOver(l, findTexts)));
-    pend('find matches written over the selection (4.5)', findSel, 4.5);
+    if (findSel < 4.5) bad('layers', `find matches written over the selection at ${down(findSel)}, under 4.5`);
   }
 
   const tb = c['terminal.background'];
