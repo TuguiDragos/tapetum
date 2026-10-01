@@ -263,7 +263,8 @@ from the other 6 without washing all of them out.
 
 ## How they are checked
 
-Colour is a judgement call, so every value here was placed by hand. An earlier
+Colour is a judgement call, so every palette here was placed by hand, and the
+interface colours follow from it by rules that measure them. An earlier
 version let an optimiser choose them and it converged on something worse: 2 of
 the families came out under 2 dE apart, and it had bleached the keywords to near
 grey chasing its own objective.
