@@ -25,6 +25,13 @@ jobs:
         with:
           node-version: 24
 
+      - name: Rebuild the themes and the README and find nothing to change
+        run: |
+          node tools/build-all.mjs
+          node tools/build-readme.mjs
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
+
       - name: Verify every theme against the committed registry
         run: node tools/analyze.mjs
 
@@ -40,8 +47,11 @@ jobs:
       - name: Check the APCA implementation
         run: node tools/apca-check.mjs
 
-      - name: Install the tokenizer VS Code uses
-        run: npm install --no-save --no-package-lock vscode-textmate@9.3.2 vscode-oniguruma@1.7.0
+      - name: Install the workflow tools from their lockfile
+        run: |
+          npm ci --prefix .github/tools --ignore-scripts --no-audit --no-fund
+          echo "$GITHUB_WORKSPACE/.github/tools/node_modules/.bin" >> "$GITHUB_PATH"
+          echo "NODE_PATH=$GITHUB_WORKSPACE/.github/tools/node_modules" >> "$GITHUB_ENV"
 
       - name: Check that every rule is painted as it says
         run: node tools/paint-check.mjs

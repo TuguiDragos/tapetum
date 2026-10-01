@@ -7,3 +7,14 @@ updates:
       day: monday
     commit-message:
       prefix: "workflows:"
+  - package-ecosystem: npm
+    directory: /.github/tools
+    schedule:
+      interval: weekly
+      day: monday
+    commit-message:
+      prefix: "workflows:"
+    ignore:
+      # they follow the versions VS Code itself declares, which the Registry workflow compares
+      - dependency-name: vscode-textmate
+      - dependency-name: vscode-oniguruma
