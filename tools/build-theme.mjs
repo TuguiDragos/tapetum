@@ -59,6 +59,9 @@ function tokens(s) {
   let matchAlpha = 0.24;
   const matchText = (a) => Math.min(contrast(sideText, composite(alpha(s.syntax.string, a), elev)), contrast(fg, composite(alpha(s.syntax.string, a), bg)));
   while (matchAlpha > 0.1 && matchText(matchAlpha) < 4.5) matchAlpha = Math.round((matchAlpha - 0.01) * 100) / 100;
+  // a match also lies on the selection: the current one on the line's range highlight, the others inside a wider selection
+  const findText = [findGround, composite(findWash, composite(alpha(acc, 0.1), composite(selSoft, bg))), ...[sel, selSoft].map((k) => composite(alpha(s.syntax.string, matchAlpha), composite(k, bg)))]
+    .reduce((c, g) => legible(c, g, 4.6), fg);
   const lineHighlight = presence(bg, dark ? '#ffffff' : '#000000', dark ? 0.035 : 0.02, 3.0);
   const commentRange = composite(alpha(fg, 0.06), bg);
   const sliders = {
@@ -155,8 +158,8 @@ function tokens(s) {
     'editor.findMatchBorder': y.number,
     'editor.findMatchHighlightBackground': alpha(y.string, matchAlpha),
     // VS Code paints findMatchHighlightForeground on the current match and findMatchForeground on the others, so both read on the current one
-    'editor.findMatchForeground': legible(fg, findGround, 4.6),
-    'editor.findMatchHighlightForeground': legible(fg, findGround, 4.6),
+    'editor.findMatchForeground': findText,
+    'editor.findMatchHighlightForeground': findText,
     'editor.findRangeHighlightBackground': alpha(acc, 0.1),
     'editor.hoverHighlightBackground': alpha(acc, 0.14),
     'editor.lineHighlightBackground': lineHighlight,
