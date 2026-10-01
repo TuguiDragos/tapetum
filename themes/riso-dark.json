@@ -146,7 +146,7 @@
     "editorStickyScroll.background": "#16130E",
     "editorStickyScroll.border": "#312e28",
     "editorStickyScroll.shadow": "#0000001a",
-    "editorStickyScrollHover.background": "#2d2b26",
+    "editorStickyScrollHover.background": "#1A110F",
     "editorInlayHint.background": "#ff63b414",
     "editorInlayHint.foreground": "#c2bdb0",
     "editorInlayHint.typeBackground": "#5fbcc414",
