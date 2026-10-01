@@ -36,7 +36,7 @@ for (const fam of FAMILIES) {
       name: label, variant: spec.type, hc: spec.hc, scheme: fam.scheme, palette: p,
       bg: p.bg, fg: p.fg, bgElev: p.bgElev, bgChrome: p.bgChrome,
       fgDim: p.fgDim, fgFaint: p.fgFaint, depth: p.depth,
-      accent: p.accent || p.keyword, syntax, ansi: p.ansi, status,
+      accent: p.accent || p.keyword, syntax, ansi: p.ansi, status, handStatus: !!p.status,
     });
     const file = `${fam.id}-${variant}.json`;
     fs.writeFileSync(path.join(THEMES, file), JSON.stringify(theme, null, 2) + '\n');

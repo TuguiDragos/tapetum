@@ -4,7 +4,7 @@ import * as borrow from './scheme-borrow.mjs';
 import * as effect from './scheme-effect.mjs';
 import * as signal from './scheme-signal.mjs';
 import * as tone from './scheme-tone.mjs';
-import { hex2lch, lch2hex, contrast, mix, readable } from './color.mjs';
+import { hex2lch, contrast, mix, readable } from './color.mjs';
 import { outputRules } from './scheme-kit.mjs';
 
 const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
@@ -196,6 +196,7 @@ export function buildSemantic(y) {
     label: y.type,
     constant: y.number, builtinConstant: y.number,
     punctuations: y.op, parenthesis: y.op, bracket: y.op, curlybrace: y.op, semicolon: y.op, colon: y.op,
+    punctuation: y.op, brace: y.op, macroBang: y.tag,
     'function.declaration': { fontStyle: 'bold' }, 'method.declaration': { fontStyle: 'bold' },
     'class.declaration': { fontStyle: 'bold' }, 'interface.declaration': { fontStyle: 'bold' },
     'enum.declaration': { fontStyle: 'bold' }, 'struct.declaration': { fontStyle: 'bold' },
@@ -205,7 +206,6 @@ export function buildSemantic(y) {
     '*.static': { fontStyle: 'italic' }, '*.abstract': { fontStyle: 'italic' },
     '*.documentation': it(y.comment), '*.builtin': it(y.tag), '*.typeHint': y.type,
     '*.async': { fontStyle: 'italic' },
-    enumMember: y.number, 'variable.defaultLibrary': it(y.tag),
   };
 }
 
@@ -220,8 +220,8 @@ function capToBody(accent, body, bg) {
   const ceiling = contrast(body, bg);
   if (contrast(accent, bg) <= ceiling) return accent;
   let best = accent;
-  for (let k = 0.02; k <= 0.9; k += 0.02) {
-    best = mix(accent, bg, k);
+  for (let i = 1; i <= 45; i++) {
+    best = mix(accent, bg, i / 50);
     if (contrast(best, bg) <= ceiling) return best;
   }
   return best;
@@ -240,7 +240,7 @@ function tameHeadings(rules, body, bg) {
 
 export function emitTheme(spec) {
   const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark', spec.ansi);
-  const full = { ...spec, status: st, handStatus: !!spec.status, ansi: spec.ansi };
+  const full = { ...spec, status: st, handStatus: !!spec.handStatus, ansi: spec.ansi };
   const y = {};
   for (const [k, v] of Object.entries(spec.syntax)) y[k] = typeof v === 'string' ? v : v.hex;
   y.st = st;

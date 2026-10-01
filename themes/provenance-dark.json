@@ -45,7 +45,7 @@
     "editor.findMatchBorder": "#B9A6E8",
     "editor.findMatchHighlightBackground": "#9eb09633",
     "editor.findMatchForeground": "#d7d9db",
-    "editor.findMatchHighlightForeground": "#C6C8CC",
+    "editor.findMatchHighlightForeground": "#d7d9db",
     "editor.findRangeHighlightBackground": "#f0b75a1a",
     "editor.hoverHighlightBackground": "#f0b75a24",
     "editor.lineHighlightBackground": "#23252a",
@@ -259,6 +259,7 @@
     "editorGroup.dropIntoPromptForeground": "#C6C8CC",
     "editorGroup.dropIntoPromptBorder": "#434549",
     "editorGroupHeader.tabsBackground": "#26292f",
+    "editorGroupHeader.connectedTabsBackground": "#26292f",
     "editorGroupHeader.tabsBorder": "#2f3136",
     "editorGroupHeader.noTabsBackground": "#191B20",
     "editorGroupHeader.border": "#2f3136",
@@ -474,7 +475,7 @@
     "terminal.border": "#2f3136",
     "terminal.dropBackground": "#f0b75a24",
     "terminal.tab.activeBorder": "#F0B75A",
-    "terminal.findMatchBackground": "#b9a6e861",
+    "terminal.findMatchBackground": "#56516b",
     "terminal.findMatchBorder": "#B9A6E8",
     "terminal.findMatchHighlightBackground": "#9eb0963d",
     "terminal.hoverHighlightBackground": "#f0b75a24",
@@ -640,13 +641,12 @@
     "chat.linesAddedForeground": "#9EB096",
     "chat.linesRemovedForeground": "#EB786D",
     "chat.editedFileForeground": "#6FC7E0",
+    "chat.mcpCompatibilityWarningForeground": "#F0B75A",
     "chat.findMatchBackground": "#b9a6e852",
     "chat.findMatchHighlightBackground": "#9eb09638",
     "chat.thinkingShimmer": "#f0b75a8c",
     "chat.dictationActiveMicGlow": "#6fc7e099",
     "chat.inputWorkingBorderColor1": "#8E939E",
-    "chat.inputWorkingBorderColor2": "#9EB096",
-    "chat.inputWorkingBorderColor3": "#6FC7E0",
     "chat.checkpointSeparator": "#434549",
     "chat.sessionStateIndicator.inProgressBorder": "#F0B75A",
     "chat.sessionStateIndicator.unvisitedBorder": "#9EB096",
@@ -663,6 +663,7 @@
     "inlineChatDiff.inserted": "#9eb0961f",
     "inlineChatDiff.removed": "#eb786d1f",
     "agents.background": "#191B20",
+    "agentsDetail.background": "#191B20",
     "agentsPanel.background": "#22252B",
     "agentsPanel.border": "#2f3136",
     "agentsPanel.foreground": "#C6C8CC",
@@ -1003,13 +1004,11 @@
     "positronModalDialog.textInputSelectionForeground": "#101014",
     "positronDataGrid.cursorBorder": "#f0b75a99",
     "positronDataGrid.selectionBorder": "#f0b75a99",
-    "positronDataGrid.selectionInnerBorder": "#f0b75a80",
+    "positronDataGrid.selectionInnerBorder": "#f0b75a4d",
     "positronDataGrid.selectionBackground": "#f0b75a4d",
     "positronRuntime.stateIconActive": "#6FC7E0",
     "positronRuntime.stateIconIdle": "#9EB096",
     "positronRuntime.stateIconDisconnected": "#EB786D",
-    "positronWelcome.foreground": "#F0B75A",
-    "positronWelcome.secondaryForeground": "#a3a5a9",
     "positronActionBar.textInputBackground": "#27292e",
     "positronActionBar.textInputBorder": "#434549",
     "positronActionBar.separator": "#434549",
@@ -1085,7 +1084,7 @@
         "entity.name.type.interface",
         "entity.name.type.enum",
         "entity.name.type.alias",
-        "meta.type.declaration",
+        "meta.type.declaration entity.name.type",
         "entity.name.scope-resolution",
         "entity.name.tag",
         "entity.name.tag.jsx-component",
@@ -1382,6 +1381,16 @@
       }
     },
     {
+      "name": "Markup strikethrough",
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "foreground": "#7C808A",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
       "name": "Markup code",
       "scope": [
         "markup.inline.raw",
@@ -1451,6 +1460,17 @@
       "settings": {
         "foreground": "#83888F",
         "fontStyle": "strikethrough"
+      }
+    },
+    {
+      "name": "Preprocessor macros",
+      "scope": [
+        "entity.name.other.preprocessor",
+        "entity.name.other.preprocessor.macro",
+        "entity.name.other.preprocessor.macro.include"
+      ],
+      "settings": {
+        "foreground": "#F0B75A"
       }
     },
     {
@@ -1616,6 +1636,9 @@
     "curlybrace": "#83888F",
     "semicolon": "#83888F",
     "colon": "#83888F",
+    "punctuation": "#83888F",
+    "brace": "#83888F",
+    "macroBang": "#F0B75A",
     "*.abstract": {
       "fontStyle": "italic"
     },

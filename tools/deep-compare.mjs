@@ -57,9 +57,10 @@ function measure(name, colors, tokens) {
   }
   r.ansi = { set: aSet, onBg: aSet ? aWorst : null, onSel: tsel && aSet ? aSel : null };
 
-  const br = [1, 2, 3, 4, 5, 6].map((i) => c[`editorBracketHighlight.foreground${i}`]).filter(Boolean);
+  // VS Code cycles through the colours that are not transparent, so each must differ from the next
+  const br = [1, 2, 3, 4, 5, 6].map((i) => c[`editorBracketHighlight.foreground${i}`]).filter((v) => v && parse(v).a > 0);
   let bMin = 999;
-  for (let i = 0; i < br.length; i++) for (let j = i + 1; j < br.length; j++) bMin = Math.min(bMin, deltaE(br[i], br[j]));
+  for (let i = 0; i < br.length; i++) bMin = Math.min(bMin, deltaE(br[i], br[(i + 1) % br.length]));
   r.brackets = { set: br.length, minDeltaE: br.length > 1 ? bMin : null };
 
   const sel = c['editor.selectionBackground'];
@@ -82,7 +83,7 @@ function measure(name, colors, tokens) {
 }
 
 const rows = [];
-for (const fam of (await import('./palettes.mjs')).FAMILIES) for (const v of ['dark', 'light']) {
+for (const fam of (await import('./palettes.mjs')).FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => fam[k])) {
   const p = path.join(ROOT, `themes/${fam.id}-${v}.json`);
   const j = JSON.parse(fs.readFileSync(p, 'utf8'));
   rows.push({ mine: true, ...measure(j.name, j.colors, j.tokenColors) });
@@ -126,15 +127,15 @@ const line = (r) => r.name.padEnd(30) + String(r.keys).padStart(5) + String(r.si
 const agg = (list, f) => { const v = list.map(f).filter((x) => x !== null && x !== undefined && isFinite(x)); return v.length ? v : null; };
 for (const r of off.sort((a, b) => a.name.localeCompare(b.name))) console.log(line(r));
 console.log('-'.repeat(120));
-console.log('MINE, extremes over all 56');
+console.log(`MINE, extremes over all ${mine.length}`);
 const worstMine = { keys: Math.min(...mine.map((r) => r.keys)), sib: Math.min(...agg(mine, (r) => r.siblings.worst)),
   fail: Math.max(...mine.map((r) => r.siblings.failed)), ansi: Math.min(...agg(mine, (r) => r.ansi.onBg)),
   sel: Math.min(...agg(mine, (r) => r.ansi.onSel)), br: Math.min(...agg(mine, (r) => r.brackets.minDeltaE)),
   st: Math.min(...agg(mine, (r) => r.stacked)), diff: Math.min(...agg(mine, (r) => r.diff)) };
-console.log('weakest of 56'.padEnd(30) + String(worstMine.keys).padStart(5) + String(mine[0].siblings.checked).padStart(9)
+console.log(`weakest of ${mine.length}`.padEnd(30) + String(worstMine.keys).padStart(5) + String(mine[0].siblings.checked).padStart(9)
   + String(worstMine.fail).padStart(6) + num(worstMine.sib).padStart(16) + num(worstMine.ansi).padStart(7)
   + num(worstMine.sel).padStart(10) + num(worstMine.br, 1).padStart(14) + num(worstMine.st).padStart(9)
-  + num(worstMine.diff, 1).padStart(9) + '   10');
+  + num(worstMine.diff, 1).padStart(9) + String(Math.min(...mine.map((r) => r.gitSet))).padStart(5));
 const oa = (f, agg2 = Math.min) => { const v = agg(off, f); return v ? agg2(...v) : null; };
 console.log('weakest of the official ones'.padEnd(30) + String(Math.min(...off.map((r) => r.keys))).padStart(5)
   + ''.padStart(9) + String(Math.max(...off.map((r) => r.siblings.failed))).padStart(6)

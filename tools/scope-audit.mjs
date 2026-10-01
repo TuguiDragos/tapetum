@@ -19,12 +19,15 @@ try {
 }
 const OUTPUT_CHANNEL_SCOPES = ['token.info-token', 'token.warn-token', 'token.error-token', 'token.debug-token'];
 REAL = [...REAL, ...OUTPUT_CHANNEL_SCOPES];
+const ANY = [...new Set([...REAL, ...[...byLang.values()].flatMap((set) => [...set])])];
 const VARIANT_KEYS = (f) => ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k]);
 
 const selectorsOf = (rule) => [].concat(rule.scope).map((s) => s.trim()).filter(Boolean);
-const leaf = (sel) => (sel.includes(' ') ? sel.split(/\s+/).pop() : sel);
-const matches = (sel, scope) => { const l = leaf(sel); return scope === l || scope.startsWith(l + '.'); };
-const specificity = (sel) => leaf(sel).split('.').length;
+const prefixOf = (part, scope) => scope === part || scope.startsWith(part + '.');
+// a selector with a parent part needs that parent around the scope, so it never matches a scope on its own
+const contextual = (sel) => /\s/.test(sel);
+const matches = (sel, scope) => !contextual(sel) && prefixOf(sel, scope);
+const specificity = (sel) => sel.split('.').length;
 
 function winnerFor(rules, scope) {
   let best = null;
@@ -49,15 +52,17 @@ function auditTheme(name, rules, editorBg) {
   }
   const dead = [];
   const shadowed = [];
+  const inContext = [];
   rules.forEach((r, i) => {
-    if (!wins.has(i)) {
-      const anyMatch = REAL.some((s) => selectorsOf(r).some((sel) => matches(sel, s)));
-      (anyMatch ? shadowed : dead).push(r.name || selectorsOf(r)[0]);
-    }
+    if (wins.has(i)) return;
+    if (selectorsOf(r).every(contextual)) { inContext.push(r.name || selectorsOf(r)[0]); return; }
+    const anyMatch = REAL.some((s) => selectorsOf(r).some((sel) => matches(sel, s)));
+    (anyMatch ? shadowed : dead).push(r.name || selectorsOf(r)[0]);
   });
   const deadScopes = [];
   for (const r of rules) for (const sel of selectorsOf(r)) {
-    if (!REAL.some((s) => matches(sel, s))) deadScopes.push(sel);
+    const found = contextual(sel) ? ANY : REAL;
+    if (!sel.split(/\s+/).every((part) => found.some((s) => prefixOf(part, s)))) deadScopes.push(sel);
   }
   const noColor = rules.filter((r) => !r.settings || (!r.settings.foreground && !r.settings.fontStyle)).map((r) => r.name);
   const badStyle = rules.filter((r) => r.settings?.fontStyle !== undefined
@@ -70,7 +75,7 @@ function auditTheme(name, rules, editorBg) {
   }
   return { name, rules: rules.length, scopes: rules.reduce((n, r) => n + selectorsOf(r).length, 0),
     covered: covered.length, pct: (covered.length / REAL.length) * 100,
-    dead, shadowed, deadScopes: [...new Set(deadScopes)], noColor, badStyle: badStyle.length,
+    dead, shadowed, inContext, deadScopes: [...new Set(deadScopes)], noColor, badStyle: badStyle.length,
     worst, worstName };
 }
 
@@ -169,6 +174,7 @@ if (process.argv.includes('--dead')) {
     console.log(`\nscheme ${s}`);
     if (r.dead.length) console.log('  rules that never win: ' + r.dead.join(', '));
     if (r.shadowed.length) console.log('  rules always shadowed: ' + r.shadowed.join(', '));
+    if (r.inContext.length) console.log('  rules that apply only inside another scope: ' + r.inContext.join(', '));
     if (r.deadScopes.length) console.log('  scopes no shipped grammar emits:\n    ' + r.deadScopes.join('\n    '));
   }
 }

@@ -5,6 +5,7 @@ import { FAMILIES } from './palettes.mjs';
 import { contrast, deltaE } from './color.mjs';
 import { STORIES, SOURCES, SHOTS, README_ORDER } from './stories.mjs';
 import { leftUnset } from './unset.mjs';
+import { FORK_KEYS } from './forks.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
@@ -31,6 +32,8 @@ for (const v of ['dark', 'light']) {
 }
 const FAMILY_GAP = Math.floor(closest);
 const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
+// the VS Code build last checked on macOS, Linux and Windows with tools/fork-check.mjs; set by hand after that check
+const VERIFIED = '1.140.0';
 const KEY_COUNT = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
 const UNSET_REGULAR = leftUnset('vs-dark').size;
 const UNSET_HC = leftUnset('hc-black').size;
@@ -55,7 +58,9 @@ function family(fam) {
   const cols = VARIANTS.filter((v) => fam[v]);
   const head = `| | ${cols.map((v) => `\`Tapetum ${fam.label}${{ dark: '', light: ' Light', hcDark: ' High Contrast', hcLight: ' High Contrast Light' }[v]}\``).join(' | ')} |`;
   const sep = `| --- | ${cols.map(() => '---').join(' | ')} |`;
-  const rows = ROWS.map(([label, key]) => `| ${label} | ${cols.map((v) => `\`${fam[v][key]}\``).join(' | ')} |`).join('\n');
+  // outside the grammar scheme the palette slots are not syntax roles, so the table names them as slots
+  const slots = fam.scheme && fam.scheme !== 'grammar';
+  const rows = ROWS.map(([label, key]) => `| ${slots && !['bg', 'fg'].includes(key) ? `${label} slot` : label} | ${cols.map((v) => `\`${fam[v][key]}\``).join(' | ')} |`).join('\n');
   const depth = fam.dark.depth
     ? `\n| nesting depth | ${cols.map((v) => (fam[v].depth || []).map((d) => `\`${d}\``).join(' ') || '-').join(' | ')} |`
     : '';
@@ -70,7 +75,7 @@ ${shots ? shots + '\n\n' : ''}${STORIES[fam.id].trim()}
 ${head}
 ${sep}
 ${rows}${depth}
-
+${slots ? `\nThe ${SCHEME[fam.scheme]} scheme decides what each slot paints, so a slot's name is not the role it colours here.\n` : ''}
 </details>`;
 }
 
@@ -271,7 +276,7 @@ ${THEME_COUNT} variants:
 | **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1 and comments 4.0, the lowest at ${LOWEST}; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
 | **Coverage** | all ${KEY_COUNT} colour keys VS Code ${REGISTRY.vscode} registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, ${UNSET_REGULAR} in the regular themes and ${UNSET_HC} in the high contrast ones, which \`tools/unset.mjs\` lists with the reason |
-| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code ${REGISTRY.vscode} |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, on the last Void build, and on the macOS, Linux and Windows builds of VS Code ${VERIFIED} |
 
 None of that comes from a hand written list. \`tools/extract-keys.mjs\` reads the
 colour registry out of every window bundle of the installed editor, including the
@@ -282,29 +287,32 @@ by the share of each colour, so what gets checked is what the editor actually
 paints together. \`tools/extract-derivations.mjs\` reads
 the keys whose default is another key, which catches the class of bug where a
 value quietly contradicts the surface beneath it. \`tools/paint-check.mjs\`
-tokenizes every selector of every rule with \`vscode-textmate\`, the library VS
-Code itself uses to colour code, so a rule that inherits a style from a rule
-above it, or loses its colour to a rule below it, is caught before it ships.
+tokenizes every selector of every rule that has no parent part, and 10 lines of
+real TypeScript, with \`vscode-textmate\`, the library VS Code itself uses to
+colour code, so a rule that inherits a style from a rule above it, a scope that
+lends its style to the tokens inside it, or a rule that loses its colour to a rule
+below it, is caught before it ships.
 \`tools/deep.mjs\` measures what the stylesheets set apart: the colours VS Code
 paints on whatever surface a component sits on, read on every one of those
-surfaces, text whose surface comes from another rule, and the tab strip, whose
-difference from the editor is the only outline the active tab has in the
-connected tabs of VS Code 1.139.
-The 3 files the extractors write are committed, checked in CI against every
-theme, and refreshed by a monthly workflow
-that downloads the current VS Code build, so a new surface is noticed by a
-machine rather than by a person.
+surfaces, text whose surface comes from another rule, and the tab strip, which
+with the line VS Code 1.140 draws around the active connected tab is what sets
+that tab apart from the rest.
+The files the extractors write are committed, checked in CI against every
+theme, and checked again by a monthly workflow that downloads the current VS Code
+build, extracts them anew and opens an issue when anything moved, so a new
+surface is noticed by a machine rather than by a person.
 
-The same measurements run against the editors that install from Open VSX, and
-against the other platforms. The current VSCodium, Cursor, Windsurf, code-server,
-Positron, Kiro, Trae, Antigravity and Void builds were each read the same way,
+The same measurements run against the other editors built on VS Code, and
+against the other platforms. The current VSCodium, Cursor, Devin, code-server,
+Positron, Kiro, Trae and Antigravity builds, and the last build of Void, which was
+discontinued in 2025, were each read the same way,
 registry, stylesheets and derivations, and every theme checked on every one of
-them; the keys their older cores do not know yet are ignored by them, and the 35
+them; the keys their older cores do not know yet are ignored by them, and the ${FORK_KEYS.length}
 surfaces those editors paint in colours of their own, listed with their reasons
 in \`tools/forks.mjs\`, take the family's colour instead; \`tools/fork-check.mjs\`
 repeats those measurements on any editor from 1 command, and confirms that its
 core accepts the VS Code version the manifest asks for. The registry, pairs and
-derivations extracted from the Linux and Windows builds of VS Code ${REGISTRY.vscode}
+derivations extracted from the Linux and Windows builds of VS Code ${VERIFIED}
 are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 
@@ -323,9 +331,9 @@ code --install-extension tuguidragos.tapetum
 \`\`\`
 
 Or from [the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum),
-or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), which is where
-VSCodium, Cursor, Windsurf, Positron, Kiro, Trae, Antigravity, Void, Gitpod,
-code-server and Theia install from.
+or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), the gallery
+VSCodium, Kiro, Trae, Antigravity and code-server install from, and Positron
+through its mirror. Cursor and Devin run galleries of their own.
 
 Press \`Cmd K\` then \`Cmd T\`, or \`Ctrl K\` then \`Ctrl T\` on Windows and Linux, and
 type a family name to filter. Every family is \`Tapetum <Family>\` for the dark

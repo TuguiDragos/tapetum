@@ -5,6 +5,16 @@ import { bundles, registerFunction, registrations } from './extract-keys.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const NAME = /^[A-Za-z_$][\w$]*$/;
+const QUOTED = /^"([A-Za-z][\w.]*)"$/;
+
+// The default as 1 other key: a binding, a quoted key name, or the same 1 of those for dark and light.
+function sourceOf(defaults) {
+  if (NAME.test(defaults) || QUOTED.test(defaults)) return defaults;
+  const m = /^\{([^{}]*)\}$/.exec(defaults);
+  if (!m) return null;
+  const kinds = Object.fromEntries(m[1].split(',').map((p) => p.split(':').map((x) => x.trim())).filter((p) => p.length === 2));
+  return kinds.dark && kinds.dark === kinds.light && (NAME.test(kinds.dark) || QUOTED.test(kinds.dark)) ? kinds.dark : null;
+}
 
 const perBundle = [];
 let read = 0;
@@ -17,9 +27,13 @@ for (const file of bundles()) {
   const byName = new Map();
   for (const [id, r] of regs) if (r.binding) (byName.get(r.binding) || byName.set(r.binding, []).get(r.binding)).push({ key: id, pos: r.pos });
   const resolved = new Map();
+  const ids = new Set(regs.map(([id]) => id));
   for (const [id, r] of regs) {
-    if (!NAME.test(r.defaults)) continue;
-    const seen = byName.get(r.defaults) || [];
+    const src = sourceOf(r.defaults);
+    if (!src) continue;
+    const quoted = QUOTED.exec(src);
+    if (quoted) { if (ids.has(quoted[1]) && quoted[1] !== id) resolved.set(id, { source: quoted[1], ambiguous: false }); continue; }
+    const seen = byName.get(src) || [];
     let latest = null;
     for (const b of seen) if (b.pos < r.pos) latest = b;
     if (latest) resolved.set(id, { source: latest.key, ambiguous: seen.length > 1 });
@@ -38,6 +52,10 @@ for (const key of [...keys].sort()) {
   else ambiguous++;
 }
 
+if (!read || !Object.keys(alias).length) {
+  console.error('no derivations: no registration was read, nothing written');
+  process.exit(1);
+}
 fs.writeFileSync(path.join(HERE, 'derivations.json'), JSON.stringify(alias, null, 2) + '\n');
 console.log(`keys read from the bundles: ${read}`);
 console.log(`keys whose default is another key: ${Object.keys(alias).length}`);

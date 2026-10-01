@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const ctSize = (packed) => (packed & 0x80 ? 3 * (1 << ((packed & 7) + 1)) : 0);
 
@@ -47,6 +48,8 @@ export function parse(buf) {
 }
 
 export function slim(buf, { keepEvery = 2, maxDelay = 400, force = false } = {}) {
+  if (!Number.isInteger(keepEvery) || keepEvery < 1) throw new RangeError(`keepEvery must be a whole number from 1, not ${keepEvery}`);
+  if (!Number.isInteger(maxDelay) || maxDelay < 1 || maxDelay > 65535) throw new RangeError(`maxDelay must be whole hundredths from 1 to 65535, not ${maxDelay}`);
   const g = parse(buf);
   const partial = g.frames.filter((f) => f.w !== g.width || f.h !== g.height).length;
   const keeps = g.frames.filter((f) => f.disposal === 1).length;
@@ -76,11 +79,16 @@ export function slim(buf, { keepEvery = 2, maxDelay = 400, force = false } = {})
   return { buffer: Buffer.concat(out), kept, total: g.frames.length };
 }
 
-const args = process.argv.slice(2);
+const main = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const args = main ? process.argv.slice(2) : [];
 if (args.length) {
   const apply = args.includes('--apply');
   const every = Number((args.find((a) => a.startsWith('--every=')) || '--every=2').split('=')[1]);
   const cap = Number((args.find((a) => a.startsWith('--cap=')) || '--cap=400').split('=')[1]);
+  if (!Number.isInteger(every) || every < 1 || !Number.isInteger(cap) || cap < 1 || cap > 65535) {
+    console.error('--every takes a whole number from 1 and --cap whole hundredths from 1 to 65535');
+    process.exit(2);
+  }
   for (const file of args.filter((a) => !a.startsWith('--'))) {
     const buf = fs.readFileSync(file);
     const g = parse(buf);
@@ -108,7 +116,7 @@ if (args.length) {
     }
   }
   if (!apply) console.log('\nrun with --apply to write the files');
-} else {
+} else if (main) {
   console.error('usage: node tools/gif-slim.mjs <file.gif> [more files] [--every=N] [--cap=HUNDREDTHS] [--apply] [--force]');
   process.exit(2);
 }

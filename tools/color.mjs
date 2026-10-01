@@ -1,6 +1,7 @@
 export const parse = (h) => {
+  if (typeof h !== 'string' || !/^#?([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(h)) throw new Error(`not a colour: ${h}`);
   const s = h.replace('#', '');
-  const n = s.length === 3 ? s.split('').map((c) => c + c).join('') : s;
+  const n = s.length <= 4 ? s.split('').map((c) => c + c).join('') : s;
   return { r: parseInt(n.slice(0, 2), 16), g: parseInt(n.slice(2, 4), 16), b: parseInt(n.slice(4, 6), 16),
     a: n.length === 8 ? parseInt(n.slice(6, 8), 16) / 255 : 1 };
 };
@@ -30,7 +31,7 @@ export const deltaE = (h1, h2) => {
   let dhp = 0; if (Cp1 * Cp2 !== 0) { dhp = h2p - h1p; if (dhp > 180) dhp -= 360; else if (dhp < -180) dhp += 360; }
   const dHp = 2 * Math.sqrt(Cp1 * Cp2) * Math.sin((dhp * rad) / 2);
   const Lbp = (L1 + L2) / 2, Cbp = (Cp1 + Cp2) / 2;
-  let hbp = h1p + h2p; if (Cp1 * Cp2 !== 0) { if (Math.abs(h1p - h2p) > 180) hbp = (hbp + 360) / 2; else hbp /= 2; }
+  let hbp = h1p + h2p; if (Cp1 * Cp2 !== 0) { if (Math.abs(h1p - h2p) <= 180) hbp /= 2; else hbp = hbp < 360 ? (hbp + 360) / 2 : (hbp - 360) / 2; }
   const T = 1 - 0.17 * Math.cos((hbp - 30) * rad) + 0.24 * Math.cos(2 * hbp * rad)
     + 0.32 * Math.cos((3 * hbp + 6) * rad) - 0.2 * Math.cos((4 * hbp - 63) * rad);
   const Sl = 1 + (0.015 * (Lbp - 50) ** 2) / Math.sqrt(20 + (Lbp - 50) ** 2);
@@ -60,7 +61,8 @@ export const mix = (a, b, t) => {
 
 export const alpha = (c, a) => {
   const { r, g, b } = parse(c);
-  return '#' + hex2(r) + hex2(g) + hex2(b) + hex2(Math.round(a * 255));
+  const aa = hex2(Math.round(a * 255));
+  return '#' + hex2(r) + hex2(g) + hex2(b) + (aa === 'ff' ? '' : aa);
 };
 
 export const lighten = (c, t) => mix(c, '#ffffff', t);
@@ -72,8 +74,8 @@ export const readable = (c, bg, target = 4.5) => {
   if (contrast(c, bg) >= target) return c;
   const up = isDark(bg);
   let best = c;
-  for (let t = 0.05; t <= 0.95; t += 0.05) {
-    best = up ? lighten(c, t) : darken(c, t);
+  for (let i = 1; i <= 19; i++) {
+    best = up ? lighten(c, i / 20) : darken(c, i / 20);
     if (contrast(best, bg) >= target) return best;
   }
   return best;

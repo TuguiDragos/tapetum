@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, toLab, parse, mix, alpha } from './color.mjs';
+import { contrast, over, deltaE, toLab } from './color.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
 import { leftUnset } from './unset.mjs';
+import { syntaxFloor } from './scheme-kit.mjs';
+import { ACCEPTED, accepted, describe, FLOOR, surfacesFor, textOn } from './pairs.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const R = (f) => JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8'));
@@ -39,77 +41,27 @@ const DELIBERATE = [
   { re: /^inactiveSessionView\.background$/, why: 'inactive session views recede to the chrome surface, like the inactive tab and title bar' },
   { re: /^panel\.background$/, why: 'the panel is an elevated surface and the terminal follows it' },
   { re: /^editorGutter\.deletedBackground$/, why: 'the git gutter marks take the status colour at full strength; the error foreground is the softened variant for squiggles' },
+  { re: /^testing\.(un)?coveredBackground$/, why: 'coverage takes the ok and error status at 14%; the diff text washes VS Code reuses are tuned for syntax on changed lines' },
+  { re: /^notebook\.selectedCellBackground$/, why: 'a selected cell is marked by notebook.selectedCellBorder and the focused one by notebook.focusedCellBorder; its background stays clear' },
+  { re: /^notebook\.cellEditorBackground$/, why: 'the code cell takes a fill computed from the editor background, so it stands out in the notebook rather than taking the side bar colour' },
+  { re: /^menubar\.selectionBackground$/, why: 'an open menubar entry takes the 10% wash of an active control; the toolbar hover takes 6%' },
+  { re: /^list\.filterMatchBackground$/, why: 'filter matches in lists take the number colour at 30% and are measured with their highlight text; the editor find highlight uses the string colour' },
+  { re: /^list\.dropBetweenBackground$/, why: 'the line between rows while dragging takes the accent, like the other drop indicators' },
+  { re: /^extensionButton\.(hover)?[Bb]ackground$/, why: 'the extension install button takes the primary button fill, as extensionButton.prominentBackground does' },
+  { re: /^editor\.symbolHighlightBackground$/, why: 'the symbol highlight takes the type colour at 20%, apart from find matches' },
+  { re: /^button\.secondaryBackground$/, why: 'secondary buttons take the raised surface as a solid fill rather than the list hover wash' },
+  { re: /^terminal\.findMatch(Highlight)?Background$/, why: 'the terminal sits on the panel surface, so its find washes start from the editor colours and ease until the terminal text reads 4.5 on its own ground' },
+  { re: /^chat\.findMatchHighlightBackground$/, why: 'chat find matches keep the string colour at 22%; the editor eases its own from 24% until the search text reads 4.5' },
 ];
 const isDeliberate = (k) => DELIBERATE.some((d) => d.re.test(k));
 const DEPRECATED = new Set(REG.deprecated);
+const REGISTERED = new Set(REG.confirmedReal);
 const KEPT = new Set(KEPT_DEPRECATED.map((k) => k.key));
 const ALL_KEYS = REG.confirmedReal.filter((k) => !DEPRECATED.has(k));
 
 const HEX = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 const SEL = /^(\*|[a-zA-Z][a-zA-Z0-9]*)(\.[a-zA-Z][a-zA-Z0-9]*)*(:[a-zA-Z][a-zA-Z0-9_-]*)?$/;
 const STYLE = /^(|italic|bold|underline|strikethrough)( (italic|bold|underline|strikethrough))*$/;
-
-// An entry with bgAlpha matches only the variant of the pair painted at that share of its strength.
-const ACCEPTED = [
-  {
-    fg: 'descriptionForeground', bg: 'badge.background',
-    why: 'appears only in .chat-debug-wirelog-badge. Grey text on a coloured badge is an inherent conflict: the themes shipped with VS Code measure 1.35 in 2026-dark and 1.17 in 2026-light, so it cannot be fixed without changing the badge colour across the whole interface.',
-  },
-  {
-    fg: 'badge.foreground', bg: 'badge.background', bgAlpha: 0.5,
-    why: 'the disabled plugin status of the sessions window is the badge at half strength under the ordinary badge text. It reads only when the text is white on a dark badge over a dark surface, the 1 combination a light theme cannot have: VS Code\'s own 2026-light measures 2.20, and Light Modern passes only because its badge is grey. The alternative is a grey badge across the whole interface.',
-  },
-];
-const accepted = (p) => ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg && a.bgAlpha === p.bgAlpha);
-
-const SURFACES = ['editor.background', 'sideBar.background', 'panel.background',
-  'editorWidget.background', 'titleBar.activeBackground', 'activityBar.background',
-  'editorGroupHeader.tabsBackground', 'menu.background', 'quickInput.background'];
-
-const RIDES_ANYWHERE = {
-  'keybindingLabel.background': ['button.background', 'badge.background', 'list.activeSelectionBackground', 'notifications.background'],
-};
-
-const isTranslucent = (c) => parse(c).a < 1;
-
-// A key painted at a share of its strength (a color-mix with transparent) is that key with its alpha scaled.
-const faded = (c, share) => (share === undefined ? c : alpha(c, parse(c).a * share));
-
-function worstSurface(t, bgKey, share) {
-  if (!t.colors[bgKey]) return null;
-  const bg = faded(t.colors[bgKey], share);
-  if (!isTranslucent(bg)) return [{ under: null, resolved: bg }];
-  const extra = RIDES_ANYWHERE[bgKey] || [];
-  return [...SURFACES, ...extra].filter((s) => t.colors[s] && !isTranslucent(t.colors[s]))
-    .map((s) => ({ under: s, resolved: over(bg, t.colors[s]) }));
-}
-
-// The surfaces a pair's text sits on: the background key, or, when the rule blends 2 keys, the
-// dominant key with the other riding on it at its share, both composited on the same ground first.
-function surfacesFor(t, p) {
-  const base = worstSurface(t, p.bg, p.bgAlpha);
-  if (!base || !p.bgMix) return base;
-  const other = t.colors[p.bgMix.key];
-  if (!other) return null;
-  return base.map(({ under, resolved }) => ({ under, resolved: mix(resolved, over(other, under ? t.colors[under] : resolved), p.bgMix.share) }));
-}
-
-const textOn = (t, p, surface) => {
-  const fg = over(faded(t.colors[p.fg], p.fgAlpha), surface);
-  if (!p.fgMix || !t.colors[p.fgMix.key]) return fg;
-  return mix(fg, over(t.colors[p.fgMix.key], surface), p.fgMix.share);
-};
-
-const describe = (p) => {
-  const part = (key, share, blend) => `${key}${share !== undefined ? ` at ${Math.round(share * 100)}%` : ''}${blend ? ` blended ${Math.round(blend.share * 100)}% with ${blend.key}` : ''}`;
-  return `${part(p.fg, p.fgAlpha, p.fgMix)} on ${part(p.bg, p.bgAlpha, p.bgMix)}`;
-};
-
-const FLOOR = (fgKey) => {
-  if (/placeholder|inactive|ghost|disabled|dimmed|unnecessary|lineNumber(?!\.active)/i.test(fgKey)) return 3.0;
-  if (/description|comment/i.test(fgKey)) return 4.0;
-  return 4.5;
-};
 
 function analyze(entry) {
   const file = path.join(HERE, '..', entry.path.slice(2));
@@ -145,13 +97,19 @@ function analyze(entry) {
     const fg = r.settings?.foreground;
     if (!fg) continue;
     const c = contrast(over(fg, eb), eb);
-    const floor = /Comment|strikethrough|quote/i.test(r.name) ? 4.0 : 4.5;
+    const floor = syntaxFloor(r);
     if (c < floor) found.push({ sev: 'contrast', msg: `syntax ${c.toFixed(2)} under ${floor} in "${r.name}"` });
   }
 
   for (const p of PAIRS) {
-    if (!t.colors[p.fg] || !t.colors[p.bg]) continue;
     if (accepted(p)) continue;
+    const absent = [p.fg, p.bg].filter((k) => !t.colors[k]);
+    if (absent.length) {
+      const why = absent.map((k) => `${k} ${REGISTERED.has(k) ? 'left unset' : 'is not a registered key'}`).join(', ');
+      (skipped[`${describe(p)}: ${why}`] ||= []).push(entry.label);
+      continue;
+    }
+    measured++;
     const floor = FLOOR(p.fg);
     for (const { under, resolved } of surfacesFor(t, p) || []) {
       const c = contrast(textOn(t, p, resolved), resolved);
@@ -197,18 +155,21 @@ function analyze(entry) {
 }
 
 const pkg = R('../package.json');
+const skipped = {};
+let measured = 0;
 let total = 0;
 const bySeverity = {};
 for (const entry of pkg.contributes.themes) {
   const found = analyze(entry);
   total += found.length;
   for (const f of found) bySeverity[f.sev] = (bySeverity[f.sev] || 0) + 1;
-  const n = Object.keys(R('../' + entry.path.slice(2)).colors).length;
-  if (!found.length) { console.log(`${entry.label.padEnd(26)} ${n} keys   clean`); continue; }
+  if (!found.length) { console.log(`${entry.label.padEnd(26)} ${Object.keys(R('../' + entry.path.slice(2)).colors).length} keys   clean`); continue; }
   console.log(`\n${entry.label}   ${found.length} problems`);
   for (const f of found) console.log(`   [${f.sev}] ${f.msg}`);
 }
-console.log(`\npairs checked per theme: ${PAIRS.length - ACCEPTED.length} of ${PAIRS.length} extracted from the CSS`);
+console.log(`\npairs extracted from the CSS: ${PAIRS.length}; accepted exceptions: ${ACCEPTED.length}; pairs measured: ${measured} of ${(PAIRS.length - ACCEPTED.length) * pkg.contributes.themes.length} across ${pkg.contributes.themes.length} themes`);
+for (const [p, themes] of Object.entries(skipped))
+  console.log(`not measured in ${themes.length === pkg.contributes.themes.length ? 'any theme' : themes.join(', ')}: ${p}`);
 for (const a of ACCEPTED) console.log(`accepted exception: ${a.fg} on ${a.bg}${a.bgAlpha !== undefined ? ` at ${Math.round(a.bgAlpha * 100)}%` : ''}\n   ${a.why}`);
 console.log(`documented divergent seams: ${DELIBERATE.length}`);
 console.log(total ? `TOTAL ${total} problems  ${JSON.stringify(bySeverity)}` : `ALL ${pkg.contributes.themes.length} PASS`);

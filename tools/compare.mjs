@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { contrast, over, deltaE, toLab, parse, mix, alpha } from './color.mjs';
+import { contrast, over, deltaE, toLab } from './color.mjs';
 import { bundledExtensions } from './vscode-path.mjs';
+import { accepted, FLOOR, surfacesFor, textOn } from './pairs.mjs';
+import { syntaxFloor } from './scheme-kit.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EXT = bundledExtensions();
@@ -12,18 +14,36 @@ const ALL = REG.confirmedReal.filter((k) => !REG.deprecated.includes(k));
 
 const strip = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '').replace(/,(\s*[}\]])/g, '$1');
 
+const KIND = { 'vs-dark': 'dark', vs: 'light', 'hc-black': 'hcDark', 'hc-light': 'hcLight' };
+
+// a theme with its includes resolved, as VS Code loads it
+function resolve(file) {
+  let colors = {}, tokenColors = [], name;
+  for (let cur = file, seen = new Set(); cur && !seen.has(cur); ) {
+    seen.add(cur);
+    const j = JSON.parse(strip(fs.readFileSync(cur, 'utf8')));
+    colors = { ...(j.colors || {}), ...colors };
+    tokenColors = [...(j.tokenColors || []), ...tokenColors];
+    name ??= j.name;
+    cur = j.include ? path.join(path.dirname(cur), j.include) : null;
+  }
+  return { colors, tokenColors, name };
+}
+
+const skipped = [];
 function loadOfficial() {
   const out = [];
   for (const ext of fs.readdirSync(EXT)) {
-    const td = path.join(EXT, ext, 'themes');
-    if (!fs.existsSync(td)) continue;
-    for (const f of fs.readdirSync(td)) {
-      if (!f.endsWith('.json') || f.includes('icon')) continue;
-      try {
-        const raw = JSON.parse(strip(fs.readFileSync(path.join(td, f), 'utf8')));
-        if (!raw.colors || !raw.colors['editor.background']) continue;
-        out.push({ name: raw.name || f.replace('.json', ''), file: f, colors: raw.colors, tokenColors: raw.tokenColors || [], type: raw.type });
-      } catch (e) { /* include-based themes skipped */ }
+    const pj = path.join(EXT, ext, 'package.json');
+    if (!fs.existsSync(pj)) continue;
+    const man = JSON.parse(fs.readFileSync(pj, 'utf8'));
+    const nlsFile = path.join(EXT, ext, 'package.nls.json');
+    const nls = fs.existsSync(nlsFile) ? JSON.parse(fs.readFileSync(nlsFile, 'utf8')) : {};
+    for (const e of man.contributes?.themes || []) {
+      const t = resolve(path.join(EXT, ext, e.path));
+      const label = /^%.*%$/.test(e.label || '') ? nls[e.label.slice(1, -1)] : e.label;
+      if (!t.colors['editor.background']) { skipped.push(`${label || e.path}: no editor.background, even through its includes`); continue; }
+      out.push({ name: label || t.name || path.basename(e.path, '.json'), file: path.basename(e.path), colors: t.colors, tokenColors: t.tokenColors, type: KIND[e.uiTheme] });
     }
   }
   return out;
@@ -37,12 +57,7 @@ function loadMine() {
   });
 }
 
-const isTrans = (c) => parse(c).a < 1;
-const SURF = ['editor.background', 'sideBar.background', 'panel.background', 'editorWidget.background',
-  'titleBar.activeBackground', 'activityBar.background', 'editorGroupHeader.tabsBackground'];
-
-const pid = (p) => p.fg + '|' + p.bg + (p.bgAlpha !== undefined ? '@' + p.bgAlpha : '');
-const ACCEPTED = new Set(['descriptionForeground|badge.background', 'badge.foreground|badge.background@0.5']);
+const pid = (p) => JSON.stringify([p.fg, p.bg, p.fgAlpha, p.bgAlpha, p.fgMix, p.bgMix]);
 
 function score(t, onlyPairs) {
   const c = t.colors;
@@ -50,20 +65,12 @@ function score(t, onlyPairs) {
 
   let checked = 0, failed = 0, worst = { c: 99, what: '' };
   for (const p of PAIRS) {
-    if (ACCEPTED.has(pid(p))) continue;
+    if (accepted(p)) continue;
     if (onlyPairs && !onlyPairs.has(pid(p))) continue;
-    if (!c[p.fg] || !c[p.bg] || (p.bgMix && !c[p.bgMix.key]) || (p.fgMix && !c[p.fgMix.key])) continue;
-    const fade = (col, share) => (share === undefined ? col : alpha(col, parse(col).a * share));
-    const fg = fade(c[p.fg], p.fgAlpha), bg = fade(c[p.bg], p.bgAlpha);
-    const floor = /placeholder|inactive|ghost|disabled|dimmed/i.test(p.fg) ? 3.0
-      : /description|comment/i.test(p.fg) ? 4.0 : 4.5;
-    const grounds = isTrans(bg)
-      ? SURF.filter((s) => c[s] && !isTrans(c[s])).map((s) => ({ ground: c[s], surface: over(bg, c[s]) }))
-      : [{ ground: bg, surface: bg }];
-    for (const { ground, surface } of grounds) {
-      const s = p.bgMix ? mix(surface, over(c[p.bgMix.key], ground), p.bgMix.share) : surface;
-      const text = p.fgMix ? mix(over(fg, s), over(c[p.fgMix.key], s), p.fgMix.share) : fg;
-      const v = contrast(over(text, s), s);
+    if (!c[p.fg] || !c[p.bg]) continue;
+    const floor = FLOOR(p.fg);
+    for (const { resolved } of surfacesFor(t, p) || []) {
+      const v = contrast(textOn(t, p, resolved), resolved);
       checked++;
       if (v < floor) failed++;
       if (v < worst.c) worst = { c: v, what: `${p.fg} on ${p.bg}` };
@@ -78,7 +85,7 @@ function score(t, onlyPairs) {
     const v = contrast(over(fg, eb), eb);
     synChecked++;
     if (v < synWorst) synWorst = v;
-    if (v < 4.0) synFailed++;
+    if (v < syntaxFloor(r)) synFailed++;
   }
 
   const N = ['Red', 'Green', 'Yellow', 'Blue', 'Magenta', 'Cyan'];
@@ -119,9 +126,10 @@ const row = (t, s, mark) => `${mark}${t.name.slice(0, 25).padEnd(26)}${(t.type |
 for (const t of mine) console.log(row(t, score(t), '* '));
 console.log();
 for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) console.log(row(t, score(t), '  '));
+for (const why of skipped) console.log(`  not measured: ${why}`);
 
 console.log('\n\nMEASURED ON THE COMMON SUBSET, that is only the pairs BOTH set');
-console.log('  ' + 'official theme'.padEnd(28) + 'pairs'.padStart(7) + 'it fails'.padStart(10) + 'mine fail on average'.padStart(20));
+console.log('  ' + 'official theme'.padEnd(28) + 'pairs'.padStart(7) + 'it fails'.padStart(10) + 'mine fail on average'.padStart(23));
 console.log('-'.repeat(82));
 for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) {
   const common = commonWith(t);
@@ -129,7 +137,7 @@ for (const t of official.sort((a, b) => a.name.localeCompare(b.name))) {
   const theirs = score(t, common);
   const mineOnSame = mine.map((m) => score(m, common).failed);
   const avgMine = mineOnSame.reduce((a,b)=>a+b,0) / mineOnSame.length;
-  console.log('  ' + t.name.slice(0,25).padEnd(28) + String(theirs.checked).padStart(7) + String(theirs.failed).padStart(10) + avgMine.toFixed(1).padStart(20));
+  console.log('  ' + t.name.slice(0,25).padEnd(28) + String(theirs.checked).padStart(7) + String(theirs.failed).padStart(10) + avgMine.toFixed(1).padStart(23));
 }
 
 const ms = mine.map((t) => score(t)), os = official.map((t) => score(t));

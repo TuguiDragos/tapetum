@@ -259,6 +259,7 @@
     "editorGroup.dropIntoPromptForeground": "#E8E1D2",
     "editorGroup.dropIntoPromptBorder": "#4b4740",
     "editorGroupHeader.tabsBackground": "#26221b",
+    "editorGroupHeader.connectedTabsBackground": "#26221b",
     "editorGroupHeader.tabsBorder": "#34302b",
     "editorGroupHeader.noTabsBackground": "#191612",
     "editorGroupHeader.border": "#34302b",
@@ -474,7 +475,7 @@
     "terminal.border": "#34302b",
     "terminal.dropBackground": "#d9a94a24",
     "terminal.tab.activeBorder": "#D9A94A",
-    "terminal.findMatchBackground": "#d9a94a61",
+    "terminal.findMatchBackground": "#69542c",
     "terminal.findMatchBorder": "#D9A94A",
     "terminal.findMatchHighlightBackground": "#d9a94a3d",
     "terminal.hoverHighlightBackground": "#d9a94a24",
@@ -640,13 +641,12 @@
     "chat.linesAddedForeground": "#9AA87C",
     "chat.linesRemovedForeground": "#CF7A5E",
     "chat.editedFileForeground": "#8FA0B8",
+    "chat.mcpCompatibilityWarningForeground": "#C9A24A",
     "chat.findMatchBackground": "#d9a94a52",
     "chat.findMatchHighlightBackground": "#d9a94a38",
     "chat.thinkingShimmer": "#d9a94a8c",
     "chat.dictationActiveMicGlow": "#d6816499",
     "chat.inputWorkingBorderColor1": "#8A8173",
-    "chat.inputWorkingBorderColor2": "#D9A94A",
-    "chat.inputWorkingBorderColor3": "#D68164",
     "chat.checkpointSeparator": "#4b4740",
     "chat.sessionStateIndicator.inProgressBorder": "#C9A24A",
     "chat.sessionStateIndicator.unvisitedBorder": "#9AA87C",
@@ -663,6 +663,7 @@
     "inlineChatDiff.inserted": "#9aa87c1f",
     "inlineChatDiff.removed": "#cf7a5e1f",
     "agents.background": "#191612",
+    "agentsDetail.background": "#191612",
     "agentsPanel.background": "#242019",
     "agentsPanel.border": "#34302b",
     "agentsPanel.foreground": "#E8E1D2",
@@ -1003,13 +1004,11 @@
     "positronModalDialog.textInputSelectionForeground": "#101014",
     "positronDataGrid.cursorBorder": "#d9a94a99",
     "positronDataGrid.selectionBorder": "#d9a94a99",
-    "positronDataGrid.selectionInnerBorder": "#d9a94a80",
+    "positronDataGrid.selectionInnerBorder": "#d9a94a4d",
     "positronDataGrid.selectionBackground": "#d9a94a4d",
     "positronRuntime.stateIconActive": "#8FA0B8",
     "positronRuntime.stateIconIdle": "#9AA87C",
     "positronRuntime.stateIconDisconnected": "#CF7A5E",
-    "positronWelcome.foreground": "#F5EEDE",
-    "positronWelcome.secondaryForeground": "#a6a095",
     "positronActionBar.textInputBackground": "#2a2621",
     "positronActionBar.textInputBorder": "#4b4740",
     "positronActionBar.separator": "#4b4740",
@@ -1115,7 +1114,7 @@
         "entity.name.type.interface",
         "entity.name.type.enum",
         "entity.name.type.alias",
-        "meta.type.declaration",
+        "meta.type.declaration entity.name.type",
         "entity.name.scope-resolution"
       ],
       "settings": {
@@ -1572,6 +1571,16 @@
       }
     },
     {
+      "name": "Markup strikethrough",
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "foreground": "#837A6C",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
       "name": "Markup code",
       "scope": [
         "markup.inline.raw",
@@ -1715,6 +1724,18 @@
       ],
       "settings": {
         "foreground": "#8A8173"
+      }
+    },
+    {
+      "name": "Preprocessor macros",
+      "scope": [
+        "entity.name.other.preprocessor",
+        "entity.name.other.preprocessor.macro",
+        "entity.name.other.preprocessor.macro.include"
+      ],
+      "settings": {
+        "foreground": "#F5EEDE",
+        "fontStyle": "bold"
       }
     },
     {
@@ -2092,6 +2113,12 @@
     "curlybrace": "#8A8173",
     "semicolon": "#8A8173",
     "colon": "#8A8173",
+    "punctuation": "#8A8173",
+    "brace": "#8A8173",
+    "macroBang": {
+      "foreground": "#F5EEDE",
+      "fontStyle": "bold"
+    },
     "*.static": "#D9A94A",
     "*.abstract": {
       "foreground": "#A19788",

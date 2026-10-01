@@ -1,27 +1,27 @@
 {
- "vscode": "1.139.1",
+ "vscode": "1.140.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
-   "registerFunction": "pe",
-   "registrations": 895,
+   "registerFunction": "me",
+   "registrations": 898,
    "deprecated": 10,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
-   "registerFunction": "se",
-   "registrations": 963,
+   "registerFunction": "ae",
+   "registrations": 966,
    "deprecated": 10,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 983,
+  "registered": 986,
   "contributedByExtensions": 11,
-  "confirmedReal": 994,
+  "confirmedReal": 997,
   "deprecated": 10,
-  "microsoftThemes": 349
+  "microsoftThemes": 350
  },
  "confirmedReal": [
   "actionBar.toggledBackground",
@@ -64,6 +64,7 @@
   "agentsChatInput.focusBorder",
   "agentsChatInput.foreground",
   "agentsChatInput.placeholderForeground",
+  "agentsDetail.background",
   "agentsGradient.tintColor",
   "agentsMobileDiff.addedForeground",
   "agentsMobileDiff.deletedForeground",
@@ -124,6 +125,7 @@
   "chat.inputWorkingBorderColor3",
   "chat.linesAddedForeground",
   "chat.linesRemovedForeground",
+  "chat.mcpCompatibilityWarningForeground",
   "chat.requestBackground",
   "chat.requestBorder",
   "chat.requestBubbleBackground",
@@ -313,6 +315,7 @@
   "editorGroup.emptyBackground",
   "editorGroup.focusedEmptyBorder",
   "editorGroupHeader.border",
+  "editorGroupHeader.connectedTabsBackground",
   "editorGroupHeader.noTabsBackground",
   "editorGroupHeader.tabsBackground",
   "editorGroupHeader.tabsBorder",

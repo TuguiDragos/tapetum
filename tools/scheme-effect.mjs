@@ -18,7 +18,7 @@ export function tokenColors(p) {
     heading: styled(r.cool, 'bold'), link: styled(r.still, 'underline'),
     emphasis: styled(r.fg, 'italic'), strong: styled(r.fg, 'bold'), quote: styled(r.comment, 'italic'),
     code: r.calm, list: r.op, added: r.calm, deleted: r.hot, diffHeader: r.still,
-    shellVar: r.warm, invalid: styled(r.hot, 'underline'), deprecated: styled(r.op, 'strikethrough'),
+    shellVar: r.warm, invalid: styled(r.hot, 'underline'), deprecated: styled(r.op, 'strikethrough'), macro: r.warm,
   };
   return [...buildFrom((slot) => map[slot]), ...outputRules(p.st, p.op, p.bg)];
 }
@@ -38,7 +38,8 @@ export function semanticTokenColors(p) {
     typeParameter: it(r.still), namespace: r.still, macro: r.warm, decorator: it(r.warm), event: r.warm,
     label: r.fg, constant: r.calm, builtinConstant: it(r.still),
     punctuations: r.op, parenthesis: r.op, bracket: r.op, curlybrace: r.op, semicolon: r.op, colon: r.op,
-    '*.declaration': bold(r.cool), '*.static': r.calm, '*.abstract': it(r.still), '*.documentation': it(r.comment),
+    punctuation: r.op, brace: r.op, macroBang: r.warm,
+    '*.declaration': bold(r.cool), '*.abstract': it(r.still), '*.documentation': it(r.comment),
     '*.builtin': it(r.still), '*.typeHint': r.still,
     keyword: r.dim, modifier: r.dim, operator: r.op,
     string: r.calm, number: r.calm, regexp: r.calm, comment: it(r.comment),

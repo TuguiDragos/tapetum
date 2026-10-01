@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contrast, over, deltaE, parse, deuter, protan, relLum, hex2lch, mix, alpha } from './color.mjs';
 import { FAMILIES } from './palettes.mjs';
+import { syntaxFloor } from './scheme-kit.mjs';
 const VARIANT_KEYS = (f) => ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k]);
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -73,21 +74,31 @@ const PRESENCE = [
 ];
 const COMMENT_GLYPHS = ['editorGutter.commentGlyphForeground', 'editorGutter.commentUnresolvedGlyphForeground',
   'editorGutter.commentDraftGlyphForeground'];
-const FORK_PAIRS = [
+// text on a wash over every surface; the find foregrounds both ways, since VS Code paints them crosswise to their descriptions
+const WASH_PAIRS = [
   ['descriptionForeground', 'editor.inactiveSelectionBackground', 4.0],
   ['editor.selectionForeground', 'editor.inactiveSelectionBackground', 4.5],
   ['list.focusHighlightForeground', 'list.filterMatchBackground', 4.5],
   ['editor.findMatchForeground', 'editor.findMatchBackground', 4.5],
+  ['editor.findMatchHighlightForeground', 'editor.findMatchBackground', 4.5],
+  ['editor.findMatchForeground', 'editor.findMatchHighlightBackground', 4.5],
+  ['editor.findMatchHighlightForeground', 'editor.findMatchHighlightBackground', 4.5],
 ];
 // colours VS Code paints on whatever surface a component sits on, so each one has to read on all of them
 const TEXT_SURFACES = ['editor.background', 'sideBar.background', 'panel.background', 'editorWidget.background', 'menu.background',
   'quickInput.background', 'editorHoverWidget.background', 'notifications.background', 'surface.background', 'agentsPanel.background'];
 const ON_ANY_SURFACE = [
   ['foreground', 4.5], ['descriptionForeground', 4.0], ['errorForeground', 4.5], ['textLink.foreground', 4.5],
-  ['textLink.activeForeground', 4.5], ['icon.foreground', 3.0], ['editorError.foreground', 3.0], ['editorWarning.foreground', 3.0],
+  ['textLink.activeForeground', 4.5], ['chat.mcpCompatibilityWarningForeground', 4.5], ['icon.foreground', 3.0], ['editorError.foreground', 3.0], ['editorWarning.foreground', 3.0],
   ['editorInfo.foreground', 3.0], ['problemsErrorIcon.foreground', 3.0], ['problemsWarningIcon.foreground', 3.0],
   ['problemsInfoIcon.foreground', 3.0], ['testing.iconFailed', 3.0], ['testing.iconPassed', 3.0], ['testing.iconQueued', 3.0],
   ['chat.workingProgressStableIconForeground', 3.0], ['chat.workingProgressInsidersIconForeground', 3.0],
+];
+// text VS Code paints on a known surface without a stylesheet pair: the debug views, notifications, parameter hints
+const ON_ITS_SURFACE = [
+  ...['name', 'value', 'string', 'number', 'boolean', 'error', 'type'].map((k) => [`debugTokenExpression.${k}`, ['sideBar.background', 'panel.background', 'editorHoverWidget.background']]),
+  ['notificationLink.foreground', ['notifications.background']],
+  ['editorHoverWidget.highlightForeground', ['editorHoverWidget.background']],
 ];
 // text and surface set in different rules of the stylesheets, which tools/extract-pairs.mjs cannot pair
 const multiDiffHeaders = (c) => {
@@ -102,15 +113,21 @@ const COMPOSED = [
   { fg: (c) => c.foreground, grounds: multiDiffHeaders, floor: 4.5, what: 'file name on a multi diff card header' },
   { fg: (c, light) => alpha(c.foreground, light ? 0.95 : 0.7), grounds: multiDiffHeaders, floor: 4.0, what: 'description on a multi diff card header' },
   { fg: () => '#ffffff', grounds: (c) => [over(c['extensionIcon.preReleaseForeground'], c['editor.background'])], floor: 4.5, what: 'the white text VS Code writes on the pre-release badge' },
+  { fg: (c) => c['textLink.foreground'], grounds: (c) => [over(c['editorHoverWidget.statusBarBackground'], c['editorHoverWidget.background'])], floor: 4.5, what: 'link on the status bar of a hover' },
   { fg: (c) => c['textLink.foreground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'link in a Settings description, which VS Code shows at 90%' },
   { fg: (c) => c['textLink.activeForeground'], share: 0.9, grounds: (c) => [c['editor.background']], floor: 4.5, what: 'hovered link in a Settings description, which VS Code shows at 90%' },
   { fg: (c) => c['sideBar.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['sideBar.background'])], floor: 4.5, what: 'a match in the search view, the side bar text on the find highlight' },
   { fg: (c) => c['editor.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['editor.background'])], floor: 4.5, what: 'text on a find highlight in the editor' },
   { fg: (c) => c['quickInputList.focusHighlightForeground'], grounds: (c) => [over(c['quickInputList.focusBackground'], c['quickInput.background'])], floor: 4.5, what: 'match highlight on the focused row of the command palette' },
+  { fg: (c) => c['terminal.foreground'], grounds: (c) => [c['terminal.findMatchBackground'].slice(0, 7), over(c['terminal.findMatchHighlightBackground'], c['terminal.background'])], floor: 4.5, what: 'terminal text on its find matches, the active one drawn by xterm without alpha' },
 ];
 const DECORATED_NAMES = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule']
   .map((s) => `gitDecoration.${s}ResourceForeground`), 'list.errorForeground', 'list.warningForeground', 'list.invalidItemForeground'];
 const LINE_NUMBER_GROUNDS = ['editor.background', 'editorStickyScrollGutter.background', 'peekViewEditorGutter.background', 'peekViewEditorStickyScrollGutter.background'];
+// sticky scroll paints every number in editorLineNumber.foreground, so the active one shows only in the editor and peek gutters
+const ACTIVE_LINE_NUMBER_GROUNDS = ['editor.background', 'editorGutter.background', 'peekViewEditorGutter.background'];
+// a figure under a floor, cut rather than rounded, so 3.1996 does not read as 3.20
+const down = (x) => (Math.floor(x * 100) / 100).toFixed(2);
 const hueDist = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
 
 function analyse(fam, v) {
@@ -120,6 +137,12 @@ function analyse(fam, v) {
   const p = fam[v];
   const out = { label: t.name, findings: [] };
   const bad = (sev, msg) => out.findings.push({ sev, msg });
+  out.pending = {};
+  const pend = (what, cr, floor) => {
+    const q = (out.pending[what] ||= { worst: 99, under: false });
+    q.worst = Math.min(q.worst, cr);
+    q.under ||= cr < floor;
+  };
   const hc = t.type === 'hcDark' || t.type === 'hcLight';
 
   const sem = Object.entries(t.semanticTokenColors || {})
@@ -161,6 +184,7 @@ function analyse(fam, v) {
     }
   }
   out.stacked = { worst: stackWorst, at: stackAt };
+  pend('syntax over the selection plus a highlight (4.5)', stackWorst, 4.5);
   if (stackWorst < 1.5) bad('layers', `${stackAt} at ${stackWorst.toFixed(2)}`);
 
   const tb = c['terminal.background'];
@@ -242,14 +266,14 @@ function analyse(fam, v) {
   const mergeSplit = deltaE(curContent, incContent);
   const mergePresence = Math.min(deltaE(curContent, eb), deltaE(incContent, eb));
   out.merge = { split: mergeSplit, presence: mergePresence, text: mergeText };
-  if (mergeText < 2.95) bad('conflict', `text at ${mergeText.toFixed(2)} over the conflict blocks`);
+  if (mergeText < 3.0) bad('conflict', `text at ${down(mergeText)} over the conflict blocks, under 3.0`);
   if (mergePresence < 3) bad('conflict', `the blocks do not show on the background, ${mergePresence.toFixed(1)} dE`);
   if (mergeSplit < 3) bad('conflict', `current and incoming at ${mergeSplit.toFixed(1)} dE`);
 
   out.diff = { deltaE: deltaE(insLine, delLine), text: diffText, comment: diffComment, mark: diffMark };
   if (out.diff.deltaE < 2.5) bad('diff', `inserted and removed at ${out.diff.deltaE.toFixed(1)} dE`);
-  if (diffText < 3.4) bad('diff', `syntax on a diff background at ${diffText.toFixed(2)}`);
-  if (diffComment < 3.19) bad('diff', `comments on a diff background at ${diffComment.toFixed(2)}`);
+  if (diffText < 3.4) bad('diff', `syntax on a diff background at ${down(diffText)}, under 3.4`);
+  if (diffComment < 3.2) bad('diff', `comments on a diff background at ${down(diffComment)}, under 3.2`);
   if (diffMark < 2) bad('diff', `the changed word at ${diffMark.toFixed(1)} dE from the line`);
 
   const R = ['keyword', 'func', 'string', 'type', 'number', 'tag'];
@@ -278,7 +302,7 @@ function analyse(fam, v) {
   for (const r of rules) {
     const cr = contrast(over(r.settings.foreground, eb), eb);
     if (cr < tmWorst) { tmWorst = cr; tmKey = r.name; }
-    const floor = /Comment|strikethrough|quote/i.test(r.name) ? 4.0 : 4.5;
+    const floor = syntaxFloor(r);
     if (cr < floor) bad('textmate', `${r.name} at ${cr.toFixed(2)}, under ${floor}`);
   }
   out.textmate = { rules: rules.length, worst: tmWorst, worstKey: tmKey };
@@ -325,7 +349,7 @@ function analyse(fam, v) {
     const d = deltaE(over(c[k], ground), ground);
     if (d < min) bad('presence', `${k} at ${d.toFixed(2)} dE from ${groundKey}, under ${min}`);
   }
-  for (const [fgKey, washKey, floor] of FORK_PAIRS) for (const s of WASH_SURFACES) {
+  for (const [fgKey, washKey, floor] of WASH_PAIRS) for (const s of WASH_SURFACES) {
     const surface = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const ground = over(c[washKey], surface);
     const cr = contrast(over(c[fgKey], ground), ground);
@@ -337,6 +361,11 @@ function analyse(fam, v) {
     const cr = contrast(over(c[k], ground), ground);
     if (cr < floor) bad('surface', `${k} on ${s} at ${cr.toFixed(2)}, under ${floor}`);
   }
+  for (const [k, grounds] of ON_ITS_SURFACE) for (const g of grounds) {
+    const ground = over(c[g], eb);
+    const cr = contrast(over(c[k], ground), ground);
+    if (cr < 4.5) bad('surface', `${k} on ${g} at ${down(cr)}, under 4.5`);
+  }
   for (const k of DECORATED_NAMES) {
     const cr = contrast(over(c[k], c['sideBar.background']), c['sideBar.background']);
     if (cr < 4.5) bad('surface', `${k}, a decorated file name in the side bar, at ${cr.toFixed(2)}, under 4.5`);
@@ -346,6 +375,25 @@ function analyse(fam, v) {
     const cr = contrast(over(c['editorLineNumber.foreground'], c[g]), c[g]);
     if (cr < floor) bad('surface', `editorLineNumber.foreground on ${g} at ${cr.toFixed(2)}, under ${floor}`);
   }
+  for (const g of ACTIVE_LINE_NUMBER_GROUNDS) {
+    const ground = over(c[g] || eb, eb);
+    const cr = contrast(over(c['editorLineNumber.activeForeground'], ground), ground);
+    if (cr < 4.5) bad('surface', `editorLineNumber.activeForeground on ${g} at ${cr.toFixed(2)}, under 4.5`);
+  }
+  for (const k of ['diffEditorGutter.insertedLineBackground', 'diffEditorGutter.removedLineBackground']) {
+    const ground = over(c[k], eb);
+    pend('line numbers on the diff gutter (3.0, high contrast 4.5)', contrast(over(c['editorLineNumber.foreground'], ground), ground), hc ? 4.5 : 3.0);
+    pend('the active line number on the diff gutter (4.5)', contrast(over(c['editorLineNumber.activeForeground'], ground), ground), 4.5);
+  }
+  const cell = over(c['notebook.cellEditorBackground'] || eb, eb);
+  pend('line numbers in a notebook cell (3.0, high contrast 4.5)', contrast(over(c['editorLineNumber.foreground'], cell), cell), hc ? 4.5 : 3.0);
+  const sticky = over(c['editorStickyScroll.background'], eb);
+  for (const ground of [sticky, over(c['editorStickyScrollHover.background'], sticky)]) for (const r of rules) {
+    const floor = syntaxFloor(r);
+    pend('syntax on sticky scroll and its hovered line (4.5, comments 4.0)', contrast(over(r.settings.foreground, ground), ground), floor);
+  }
+  if (hc) for (const k of ['editorRuler.foreground', 'editorIndentGuide.background1', 'editorIndentGuide.activeBackground1', 'tree.indentGuidesStroke'])
+    pend('rulers and indent guides in high contrast (3.0)', contrast(over(c[k], eb), eb), 3.0);
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
     const shown = share ? mix(ground, fg(c, t.type === 'light'), share) : over(fg(c, t.type === 'light'), ground);
@@ -353,7 +401,7 @@ function analyse(fam, v) {
     if (cr < floor) bad('surface', `${what} at ${cr.toFixed(2)}, under ${floor}`);
   }
   if (!hc) {
-    const strip = over(c['editorGroupHeader.tabsBackground'], eb);
+    const strip = over(c['editorGroupHeader.connectedTabsBackground'] ?? c['editorGroupHeader.tabsBackground'], eb);
     const sep = deltaE(strip, eb);
     if (sep < TAB_STRIP_DE) bad('tabs', `the tab strip at ${sep.toFixed(2)} dE from the editor, under ${TAB_STRIP_DE}`);
     const texts = [
@@ -374,6 +422,15 @@ function analyse(fam, v) {
       if (d < 1.5) bad('tabs', `an active ${item} at ${d.toFixed(2)} dE from a hovered one on ${s}, under 1.5`);
     }
   }
+  if (hc) for (const [a, b] of [['editorError.border', 'editorWarning.border'], ['editorError.border', 'editorInfo.border'], ['editorWarning.border', 'editorInfo.border'], ['diffEditor.insertedTextBorder', 'diffEditor.removedTextBorder']]) {
+    const d = deltaE(c[a], c[b]);
+    if (d < 12) bad('status', `${a} and ${b} at ${d.toFixed(1)} dE, the meaning is lost`);
+  }
+  if (hc) for (const k of ['list.focusOutline', 'list.focusAndSelectionOutline', 'listFilterWidget.outline', 'editorSuggestWidget.focusOutline', 'toolbar.hoverOutline'])
+    if (c[k]?.toLowerCase() !== c.focusBorder.toLowerCase()) bad('focus', `${k} = ${c[k]}, while high contrast marks focus with ${c.focusBorder}`);
+  if (hc) for (const [k, v] of Object.entries(c))
+    if (/(inactive|Inactive|unfocused|Unfocused).*(\.border|Border)$/.test(k) && k !== 'notebook.inactiveSelectedCellBorder' && v.toLowerCase() === c.focusBorder.toLowerCase())
+      bad('focus', `${k}, an inactive or unfocused border, carries the focus colour ${v}`);
   for (const k of COMMENT_GLYPHS) {
     const strip = c['editorGutter.commentRangeForeground'];
     const cr = contrast(over(c[k], strip), strip);
@@ -421,13 +478,19 @@ console.log('-'.repeat(160));
 const agg = (fn) => Math.min(...rows.map(fn));
 console.log(`minimums across the package: syntax ${agg((r) => r.syntax.min).toFixed(2)}, separation ${agg((r) => r.syntax.separation).toFixed(1)}, TextMate ${agg((r) => r.textmate.worst).toFixed(2)}, semantic ${agg((r) => r.semantic.worst).toFixed(2)}, overlay ${agg((r) => r.overlay.worst).toFixed(2)}, stacked ${agg((r) => r.stacked.worst).toFixed(2)}, ANSI ${agg((r) => r.terminal.worst).toFixed(2)}, git ${agg((r) => r.git.minDeltaE).toFixed(1)}, brackets ${agg((r) => r.brackets.minDeltaE).toFixed(1)}, diff ${agg((r) => r.diff.deltaE).toFixed(1)}`);
 console.log(`sibling pairs checked per theme: ${rows[0].siblings.checked}, TextMate rules ${rows[0].textmate.rules}, semantic selectors ${rows[0].semantic.count}`);
-console.log(`on every text surface: ${ON_ANY_SURFACE.length} colours on ${TEXT_SURFACES.length} surfaces, ${COMPOSED.length} composed surfaces, ${DECORATED_NAMES.length} decorated file names on the side bar, line numbers on ${LINE_NUMBER_GROUNDS.length} surfaces, the tab strip at ${TAB_STRIP_DE} dE with ${rows.find((r) => r.tabTexts).tabTexts} tab texts`);
+console.log(`on every text surface: ${ON_ANY_SURFACE.length} colours on ${TEXT_SURFACES.length} surfaces, ${COMPOSED.length} composed surfaces, ${DECORATED_NAMES.length} decorated file names on the side bar, line numbers on ${LINE_NUMBER_GROUNDS.length} surfaces and the active one on ${ACTIVE_LINE_NUMBER_GROUNDS.length}, the tab strip at ${TAB_STRIP_DE} dE with ${rows.find((r) => r.tabTexts).tabTexts} tab texts`);
 if (issues || detail) {
   for (const r of rows) {
     if (!r.findings.length) continue;
     console.log(`\n${r.label}  ${r.findings.length} problems`);
     for (const f of r.findings) console.log(`   [${f.sev}] ${f.msg}`);
   }
+}
+console.log('\nwaiting for the maintainer\'s decision, measured but not counted as problems:');
+for (const what of [...new Set(rows.flatMap((r) => Object.keys(r.pending)))]) {
+  const hit = rows.filter((r) => r.pending[what]);
+  const low = hit.reduce((a, b) => (b.pending[what].worst < a.pending[what].worst ? b : a));
+  console.log(`   ${what}: under the floor in ${hit.filter((r) => r.pending[what].under).length} of ${hit.length} themes, lowest ${low.pending[what].worst.toFixed(2)} in ${low.label}`);
 }
 console.log(issues ? `\nTOTAL ${issues} problems` : '\nNO PROBLEM IN THE DEEP AUDIT');
 process.exit(issues ? 1 : 0);

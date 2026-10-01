@@ -111,13 +111,15 @@ signature.
 | --- | --- | --- |
 | background | `#07100D` | `#F3F8F5` |
 | foreground | `#C6D2CC` | `#1D2622` |
-| keyword | `#6E8079` | `#5E6E68` |
-| function | `#5FD8C0` | `#0A6E5E` |
-| string | `#93B4CA` | `#2E5C78` |
-| type | `#8E9CBE` | `#3E4E80` |
-| number | `#FF5C4D` | `#C22A18` |
-| tag | `#FFA03C` | `#9A5200` |
-| comment | `#6E7B76` | `#65736E` |
+| keyword slot | `#6E8079` | `#5E6E68` |
+| function slot | `#5FD8C0` | `#0A6E5E` |
+| string slot | `#93B4CA` | `#2E5C78` |
+| type slot | `#8E9CBE` | `#3E4E80` |
+| number slot | `#FF5C4D` | `#C22A18` |
+| tag slot | `#FFA03C` | `#9A5200` |
+| comment slot | `#6E7B76` | `#65736E` |
+
+The effect scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -265,13 +267,15 @@ seeing it.
 | --- | --- | --- |
 | background | `#12151A` | `#F5F6F9` |
 | foreground | `#C8CDD6` | `#22262E` |
-| keyword | `#64AEF9` | `#0C5FA8` |
-| function | `#EAECF0` | `#141820` |
-| string | `#66C070` | `#2C6620` |
-| type | `#A585EC` | `#6A2FC0` |
-| number | `#F09A18` | `#9A5A00` |
-| tag | `#FA6362` | `#C00A18` |
-| comment | `#767D89` | `#6B7280` |
+| keyword slot | `#64AEF9` | `#0C5FA8` |
+| function slot | `#EAECF0` | `#141820` |
+| string slot | `#66C070` | `#2C6620` |
+| type slot | `#A585EC` | `#6A2FC0` |
+| number slot | `#F09A18` | `#9A5A00` |
+| tag slot | `#FA6362` | `#C00A18` |
+| comment slot | `#767D89` | `#6B7280` |
+
+The borrow scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -520,13 +524,15 @@ the screen recedes on purpose.
 | --- | --- | --- |
 | background | `#191612` | `#EDE4CE` |
 | foreground | `#E8E1D2` | `#2A241A` |
-| keyword | `#8A8173` | `#6B6352` |
-| function | `#F5EEDE` | `#16120C` |
-| string | `#D9A94A` | `#7E5B0E` |
-| type | `#A19788` | `#6A6250` |
-| number | `#D9A94A` | `#7E5B0E` |
-| tag | `#D68164` | `#8A3A22` |
-| comment | `#837A6C` | `#716A58` |
+| keyword slot | `#8A8173` | `#6B6352` |
+| function slot | `#F5EEDE` | `#16120C` |
+| string slot | `#D9A94A` | `#7E5B0E` |
+| type slot | `#A19788` | `#6A6250` |
+| number slot | `#D9A94A` | `#7E5B0E` |
+| tag slot | `#D68164` | `#8A3A22` |
+| comment slot | `#837A6C` | `#716A58` |
+
+The signal scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -595,13 +601,15 @@ what is yours and what is borrowed.
 | --- | --- | --- |
 | background | `#191B20` | `#F4F2ED` |
 | foreground | `#C6C8CC` | `#2E3036` |
-| keyword | `#8E939E` | `#6A6E76` |
-| function | `#F0B75A` | `#855606` |
-| string | `#9EB096` | `#4A5C42` |
-| type | `#A8B8A0` | `#5A6C52` |
-| number | `#B9A6E8` | `#5B48A0` |
-| tag | `#6FC7E0` | `#0F6480` |
-| comment | `#7C808A` | `#70747C` |
+| keyword slot | `#8E939E` | `#6A6E76` |
+| function slot | `#F0B75A` | `#855606` |
+| string slot | `#9EB096` | `#4A5C42` |
+| type slot | `#A8B8A0` | `#5A6C52` |
+| number slot | `#B9A6E8` | `#5B48A0` |
+| tag slot | `#6FC7E0` | `#0F6480` |
+| comment slot | `#7C808A` | `#70747C` |
+
+The provenance scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -694,13 +702,15 @@ blue accent so you can still find your cursor.
 | --- | --- | --- |
 | background | `#1A1A1C` | `#E8E6E1` |
 | foreground | `#D2D2D6` | `#26262A` |
-| keyword | `#AAAAB0` | `#5E5E64` |
-| function | `#F0F0F4` | `#141418` |
-| string | `#BEBEC4` | `#3E3E44` |
-| type | `#AAAAB0` | `#4E4E54` |
-| number | `#C8C8CE` | `#2C2C32` |
-| tag | `#97979D` | `#64646A` |
-| comment | `#7E7E84` | `#6C6C72` |
+| keyword slot | `#AAAAB0` | `#5E5E64` |
+| function slot | `#F0F0F4` | `#141418` |
+| string slot | `#BEBEC4` | `#3E3E44` |
+| type slot | `#AAAAB0` | `#4E4E54` |
+| number slot | `#C8C8CE` | `#2C2C32` |
+| tag slot | `#97979D` | `#64646A` |
+| comment slot | `#7E7E84` | `#6C6C72` |
+
+The tone scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -719,14 +729,16 @@ you are without counting.
 | --- | --- | --- |
 | background | `#14110D` | `#EFE9DC` |
 | foreground | `#E4DACA` | `#241F16` |
-| keyword | `#BFA77B` | `#5C4E32` |
-| function | `#F5E9CE` | `#1E1808` |
-| string | `#D8C298` | `#3E3418` |
-| type | `#A7946E` | `#6E6040` |
-| number | `#D2BC94` | `#31280F` |
-| tag | `#A69574` | `#6F6141` |
-| comment | `#7E7566` | `#77705E` |
+| keyword slot | `#BFA77B` | `#5C4E32` |
+| function slot | `#F5E9CE` | `#1E1808` |
+| string slot | `#D8C298` | `#3E3418` |
+| type slot | `#A7946E` | `#6E6040` |
+| number slot | `#D2BC94` | `#31280F` |
+| tag slot | `#A69574` | `#6F6141` |
+| comment slot | `#7E7566` | `#77705E` |
 | nesting depth | `#E0D3B0` `#C99C55` `#C4674A` `#93A468` `#8E96A8` `#B18FC0` | `#8A6A1E` `#A0521E` `#4C6A2A` `#2A5A78` `#6B3F8A` `#7A4A2A` |
+
+The tone scheme decides what each slot paints, so a slot's name is not the role it colours here.
 
 </details>
 
@@ -839,8 +851,8 @@ What a machine is good for is catching what a person misses. On all
 | --- | --- |
 | **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1 and comments 4.0, the lowest at 4.07; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0 |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all 984 colour keys VS Code 1.139.1 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 3 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
-| **Editors** | verified one by one on the current VSCodium, Cursor, Windsurf, code-server, Positron, Kiro, Trae, Antigravity and Void, and on the macOS, Linux and Windows builds of VS Code 1.139.1 |
+| **Coverage** | all 987 colour keys VS Code 1.140.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 3 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, on the last Void build, and on the macOS, Linux and Windows builds of VS Code 1.140.0 |
 
 None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
 colour registry out of every window bundle of the installed editor, including the
@@ -851,29 +863,32 @@ by the share of each colour, so what gets checked is what the editor actually
 paints together. `tools/extract-derivations.mjs` reads
 the keys whose default is another key, which catches the class of bug where a
 value quietly contradicts the surface beneath it. `tools/paint-check.mjs`
-tokenizes every selector of every rule with `vscode-textmate`, the library VS
-Code itself uses to colour code, so a rule that inherits a style from a rule
-above it, or loses its colour to a rule below it, is caught before it ships.
+tokenizes every selector of every rule that has no parent part, and 10 lines of
+real TypeScript, with `vscode-textmate`, the library VS Code itself uses to
+colour code, so a rule that inherits a style from a rule above it, a scope that
+lends its style to the tokens inside it, or a rule that loses its colour to a rule
+below it, is caught before it ships.
 `tools/deep.mjs` measures what the stylesheets set apart: the colours VS Code
 paints on whatever surface a component sits on, read on every one of those
-surfaces, text whose surface comes from another rule, and the tab strip, whose
-difference from the editor is the only outline the active tab has in the
-connected tabs of VS Code 1.139.
-The 3 files the extractors write are committed, checked in CI against every
-theme, and refreshed by a monthly workflow
-that downloads the current VS Code build, so a new surface is noticed by a
-machine rather than by a person.
+surfaces, text whose surface comes from another rule, and the tab strip, which
+with the line VS Code 1.140 draws around the active connected tab is what sets
+that tab apart from the rest.
+The files the extractors write are committed, checked in CI against every
+theme, and checked again by a monthly workflow that downloads the current VS Code
+build, extracts them anew and opens an issue when anything moved, so a new
+surface is noticed by a machine rather than by a person.
 
-The same measurements run against the editors that install from Open VSX, and
-against the other platforms. The current VSCodium, Cursor, Windsurf, code-server,
-Positron, Kiro, Trae, Antigravity and Void builds were each read the same way,
+The same measurements run against the other editors built on VS Code, and
+against the other platforms. The current VSCodium, Cursor, Devin, code-server,
+Positron, Kiro, Trae and Antigravity builds, and the last build of Void, which was
+discontinued in 2025, were each read the same way,
 registry, stylesheets and derivations, and every theme checked on every one of
-them; the keys their older cores do not know yet are ignored by them, and the 35
+them; the keys their older cores do not know yet are ignored by them, and the 33
 surfaces those editors paint in colours of their own, listed with their reasons
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
 repeats those measurements on any editor from 1 command, and confirms that its
 core accepts the VS Code version the manifest asks for. The registry, pairs and
-derivations extracted from the Linux and Windows builds of VS Code 1.139.1
+derivations extracted from the Linux and Windows builds of VS Code 1.140.0
 are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 
@@ -892,9 +907,9 @@ code --install-extension tuguidragos.tapetum
 ```
 
 Or from [the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum),
-or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), which is where
-VSCodium, Cursor, Windsurf, Positron, Kiro, Trae, Antigravity, Void, Gitpod,
-code-server and Theia install from.
+or [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum), the gallery
+VSCodium, Kiro, Trae, Antigravity and code-server install from, and Positron
+through its mirror. Cursor and Devin run galleries of their own.
 
 Press `Cmd K` then `Cmd T`, or `Ctrl K` then `Ctrl T` on Windows and Linux, and
 type a family name to filter. Every family is `Tapetum <Family>` for the dark
@@ -1049,7 +1064,8 @@ list stays complete when the rules change:
             "entity.name.type.enum", "entity.name.type.instance.jsdoc",
             "entity.name.type.interface", "keyword.codetag",
             "markup.bold markup.italic", "markup.italic markup.bold",
-            "meta.type.declaration", "storage.type.class.jsdoc"
+            "meta.type.declaration entity.name.type",
+            "storage.type.class.jsdoc"
           ],
           "settings": { "fontStyle": "bold" }
         }

@@ -1,18 +1,29 @@
 import fs from 'node:fs';
 
-const ROLE_FROM_TOKEN = {
-  keyword: 'Keywords',
-  string: 'Strings',
-  func: 'Functions and methods',
-  type: 'Types and classes',
-  number: 'Numbers and language constants',
-  comment: 'Comment',
-  param: 'Parameters',
-  prop: 'Properties',
-  tag: 'Tags',
-  op: 'Operators and punctuation',
-  variable: 'Variables',
-  regexp: 'Regular expressions',
+const ROLE_SCOPE = {
+  keyword: 'keyword.control',
+  string: 'string.quoted',
+  func: 'entity.name.function',
+  type: 'entity.name.type',
+  number: 'constant.numeric',
+  comment: 'comment',
+  param: 'variable.parameter',
+  prop: 'variable.other.property',
+  tag: 'entity.name.tag',
+  op: 'keyword.operator',
+  variable: 'variable.other.readwrite',
+  regexp: 'string.regexp',
+};
+
+// the rule TextMate gives a lone scope: the selector with the most matching segments, the later rule on a tie
+const ruleFor = (rules, scope) => {
+  let best = null, depth = 0;
+  for (const r of rules) for (const sel of [].concat(r.scope || [])) {
+    if (sel.includes(' ') || !(scope === sel || scope.startsWith(sel + '.'))) continue;
+    const d = sel.split('.').length;
+    if (d >= depth && r.settings?.foreground) { best = r; depth = d; }
+  }
+  return best;
 };
 
 const UI = ['editor.background', 'editor.foreground', 'editor.lineHighlightBackground',
@@ -29,9 +40,9 @@ const UI = ['editor.background', 'editor.foreground', 'editor.lineHighlightBackg
 export function extract(file) {
   const t = JSON.parse(fs.readFileSync(file, 'utf8'));
   const syntax = {};
-  for (const [role, ruleName] of Object.entries(ROLE_FROM_TOKEN)) {
-    const rule = (t.tokenColors || []).find((r) => r.name === ruleName);
-    if (rule?.settings?.foreground) {
+  for (const [role, scope] of Object.entries(ROLE_SCOPE)) {
+    const rule = ruleFor(t.tokenColors || [], scope);
+    if (rule) {
       syntax[role] = { hex: rule.settings.foreground, italic: /italic/.test(rule.settings.fontStyle || ''), bold: /bold/.test(rule.settings.fontStyle || '') };
     }
   }
