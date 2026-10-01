@@ -1472,7 +1472,15 @@ function diffWashes(t) {
 }
 
 function forkKeys(all, t) {
-  const { st, fg, acc, bg, legible, onColor } = t;
+  const { st, fg, acc, bg, elev, strip, faint, dim, y, legible, onColor } = t;
+  const on = (c, grounds, target) => grounds.reduce((x, g) => readsOn(x, g, target), c);
+  const hueOf = (c) => hex2lch(c)[2];
+  const nearest = (h) => [y.keyword, y.func, y.string, y.type, y.number, y.tag].reduce((a, b) => (Math.abs(((hueOf(b) - h + 540) % 360) - 180) > Math.abs(((hueOf(a) - h + 540) % 360) - 180) ? b : a));
+  const fill = on(y.func, [bg, elev], 3.0);
+  // Cursor shows its watermark at half opacity, so the colour moves toward the text end until half of it reads 3.0
+  const half = (c) => contrast(mix(bg, c, 0.5), bg);
+  let watermark = fg;
+  for (let i = 1; i <= 100 && half(watermark) < 3.0; i++) watermark = mix(fg, relLum(bg) < 0.5 ? '#ffffff' : '#000000', i / 100);
   return {
     'diffEditor.windsurfRemovedTextBackground': alpha(st.deleted, 0.12),
     'void.greenBG': all['diffEditor.insertedLineBackground'],
@@ -1508,6 +1516,22 @@ function forkKeys(all, t) {
     'positronNotebook.cellFooterForeground': all.descriptionForeground,
     'positronDataExplorer.invalidFilterBackground': all['inputValidation.errorBackground'],
     'positronSplitterExpandCollapseButton.foreground': legible(acc, bg, 3.0),
+    'diffEditor.insertedTextBackgroundFallback': all['diffEditor.insertedTextBackground'],
+    'diffEditor.removedTextBackgroundFallback': all['diffEditor.removedTextBackground'],
+    'windsurf.sessionStatus.orange': on(st.warn, [all['quickInput.background']], 4.5),
+    'windsurf.sessionStatus.green': on(st.ok, [all['quickInput.background']], 4.5),
+    'windsurf.sessionStatus.blue': on(st.info, [all['quickInput.background']], 4.5),
+    'windsurf.sessionStatus.red': on(st.error, [all['quickInput.background']], 4.5),
+    'windsurf.sessionStatus.purple': on(nearest(300), [all['quickInput.background']], 4.5),
+    'tab.worktreeBorder': on(st.warn, [bg, strip], 3.0),
+    'editorWatermark.foreground': watermark,
+    'positronDataExplorer.sparklineFill': fill,
+    'positronDataExplorer.sparklineStroke': on(fill, [bg, elev], 4.5),
+    'positronDataExplorer.sparklineHover': on(y.number, [bg, elev], 3.0),
+    'positronDataExplorer.sparklineAxis': faint,
+    'positronDataExplorer.columnNullPercentGraphBackgroundFill': on(st.error, [bg, elev], 3.0),
+    'positronDataExplorer.columnNullPercentGraphBackgroundStroke': dim,
+    'positronDataExplorer.columnNullPercentGraphIndicatorFill': faint,
   };
 }
 

@@ -30,6 +30,19 @@ const GROUPS = [
       'positronModalDialog.buttonDestructiveForeground', 'positronCheckbox.background', 'positronCheckbox.border', 'positronCheckbox.foreground',
       'positronToolTip.background', 'positronToolTip.border', 'positronConsole.traceBackground', 'positronNotebook.cellFooterForeground',
       'positronDataExplorer.invalidFilterBackground', 'positronSplitterExpandCollapseButton.foreground'] },
+  { editor: 'Devin and Antigravity',
+    why: 'the washes of the AI edit review; both weigh the theme diff text washes against a grey and, when they are quiet, fall back to a fixed green and red, so the fallbacks take the family diff text washes',
+    keys: ['diffEditor.insertedTextBackgroundFallback', 'diffEditor.removedTextBackgroundFallback'] },
+  { editor: 'Devin',
+    why: 'the state of a session in its quick pick; Devin defaults them to fixed orange, green, blue, red and purple that fall under 4.5 on many surfaces, so they take the family status colours and the role nearest purple, read at 4.5',
+    keys: ['windsurf.sessionStatus.orange', 'windsurf.sessionStatus.green', 'windsurf.sessionStatus.blue', 'windsurf.sessionStatus.red', 'windsurf.sessionStatus.purple'] },
+  { editor: 'Cursor',
+    why: 'the border of a worktree tab and the empty editor watermark; Cursor defaults them to the warning colour at 40% and the text at 60%, shown at half opacity, so they take the warning colour at 3.0 and a text colour that reads 3.0 at half',
+    keys: ['tab.worktreeBorder', 'editorWatermark.foreground'] },
+  { editor: 'Positron',
+    why: 'the histograms and the missing values bar of the data explorer; Positron fills them with fixed blues, oranges and greys, near white on a light theme, so they take the family function, number and error colours at 3.0 and the quiet text colours',
+    keys: ['positronDataExplorer.sparklineFill', 'positronDataExplorer.sparklineStroke', 'positronDataExplorer.sparklineHover', 'positronDataExplorer.sparklineAxis',
+      'positronDataExplorer.columnNullPercentGraphBackgroundFill', 'positronDataExplorer.columnNullPercentGraphBackgroundStroke', 'positronDataExplorer.columnNullPercentGraphIndicatorFill'] },
 ];
 
 export const FORK_KEYS = GROUPS.flatMap((g) => g.keys.map((key) => ({ key, editor: g.editor, why: g.why })));
