@@ -32,6 +32,9 @@ const ANSI_HUE = { Red: 25, Yellow: 85, Green: 140, Cyan: 200, Blue: 265, Magent
 const ANSI_EXEMPT = [
   { family: 'safelight', slot: 'Magenta', why: 'the darkroom has no magenta; the slot takes the salmon of the filter, as placed in the palette' },
 ];
+const PRESENCE_EXEMPT = [
+  { family: 'quantum', variant: 'light', key: 'editorStickyScrollHover.background', why: 'its syntax reads at 1.009 of the floor on the editor, so a hovered line that keeps every floor moves only 0.80 dE' },
+];
 const FOCUS_SURFACES = ['editor.background', 'sideBar.background', 'editorWidget.background', 'panel.background',
   'statusBar.background', 'titleBar.activeBackground'];
 const WASH_SURFACES = [...FOCUS_SURFACES, 'editorGroupHeader.tabsBackground'];
@@ -385,6 +388,7 @@ function analyse(fam, v) {
   if (!hc) for (const k of ['editor.wordHighlightBorder', 'editor.wordHighlightStrongBorder', 'editor.wordHighlightTextBorder', 'editor.snippetTabstopHighlightBorder'])
     for (const g of [eb, over(sel, eb)]) if (deltaE(over(c[k], g), g) < 10) bad('presence', `${k} at ${deltaE(over(c[k], g), g).toFixed(2)} dE from ${g === eb ? 'editor.background' : 'the selection'}, under 10`);
   if (!hc) for (const [k, groundKey, min] of PRESENCE) {
+    if (PRESENCE_EXEMPT.some((e) => e.family === fam.id && e.variant === v && e.key === k)) continue;
     const ground = isAlpha(c[groundKey]) ? over(c[groundKey], eb) : c[groundKey];
     const d = deltaE(over(c[k], ground), ground);
     if (d < min) bad('presence', `${k} at ${d.toFixed(2)} dE from ${groundKey}, under ${min}`);
@@ -444,7 +448,8 @@ function analyse(fam, v) {
     const cr = contrast(over(r.settings.foreground, sticky), sticky);
     if (cr < syntaxFloor(r)) bad('surface', `${r.name} on editorStickyScroll.background at ${down(cr)}, under ${syntaxFloor(r)}`);
     const hover = over(c['editorStickyScrollHover.background'], sticky);
-    pend('syntax on the hovered line of sticky scroll (4.5, comments 4.0)', contrast(over(r.settings.foreground, hover), hover), syntaxFloor(r));
+    const onHover = contrast(over(r.settings.foreground, hover), hover);
+    if (onHover < syntaxFloor(r)) bad('surface', `${r.name} on editorStickyScrollHover.background at ${down(onHover)}, under ${syntaxFloor(r)}`);
   }
   if (hc) for (const [k, g, under] of HC_QUIET) {
     const ground = over(c[g], under ? c[under] : eb);

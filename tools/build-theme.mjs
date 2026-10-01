@@ -254,7 +254,7 @@ function tokens(s) {
     'editorStickyScroll.background': bg,
     'editorStickyScroll.border': line,
     'editorStickyScroll.shadow': sh(0.10),
-    'editorStickyScrollHover.background': apart(over, bg, dark ? '#ffffff' : '#000000', 3.0),
+    'editorStickyScrollHover.background': hc ? apart(over, bg, dark ? '#ffffff' : '#000000', 3.0) : tintAway(bg, acc, 3.0, dark, Object.entries(y).filter(([k, c]) => typeof c === 'string' && k !== 'bg').map(([k, c]) => [c, k === 'comment' ? 4.0 : 4.5]).concat([[fg, 4.5]])),
     'editorInlayHint.background': alpha(acc, 0.08),
     'editorInlayHint.foreground': legible(mix(fg, bg, 0.18), mix(bg, acc, 0.1), 5.0),
     'editorInlayHint.typeBackground': alpha(y.type, 0.08),
@@ -1290,6 +1290,24 @@ function apart(colour, ground, toward, minDE) {
     if (deltaE(c, ground) >= minDE) return c;
   }
   return toward;
+}
+
+// a hover that differs in hue at the ground's lightness, or further from the text; only when that is not enough
+// does it step toward the texts written on it, as far as each keeps its floor
+function tintAway(ground, hue, minDE, dark, texts) {
+  const [L, C, h] = hex2lch(ground), ha = hex2lch(hue)[2], y0 = relLum(ground);
+  let best = ground, most = 0;
+  for (const side of [1, -1]) for (let dL = 0; dL <= 12; dL += 0.25) for (let k = 0; k <= 40; k += 0.25) {
+    const a = C * Math.cos((h * Math.PI) / 180) + k * Math.cos((ha * Math.PI) / 180), b = C * Math.sin((h * Math.PI) / 180) + k * Math.sin((ha * Math.PI) / 180);
+    const Lt = L + (dark ? -1 : 1) * side * dL, Ct = Math.hypot(a, b), c = lch2hex(Lt, Ct, ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360);
+    const [L2, C2] = hex2lch(c);
+    if (Math.abs(L2 - Lt) >= 0.6 || Math.abs(C2 - Ct) >= 0.8) continue;
+    if (side === 1 ? (dark ? relLum(c) > y0 : relLum(c) < y0) : texts.some(([t, f]) => contrast(t, c) < f)) continue;
+    const d = deltaE(c, ground);
+    if (d >= minDE) return c.toUpperCase();
+    if (d > most) { most = d; best = c; }
+  }
+  return best.toUpperCase();
 }
 
 // steps of the original colour away from the ground's lightness; the other way only when that side cannot read

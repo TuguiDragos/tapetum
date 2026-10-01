@@ -6,7 +6,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c00642d058725221",
+  "colors": "f83a0388f4a1dbe7",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
@@ -157,7 +157,7 @@
    "editorStickyScroll.background": "#0B0E1A",
    "editorStickyScroll.border": "#242836",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#232631",
+   "editorStickyScrollHover.background": "#0E0C1E",
    "editorInlayHint.background": "#cd8ff914",
    "editorInlayHint.foreground": "#a6b0ce",
    "editorInlayHint.typeBackground": "#6ee7a814",
@@ -1278,7 +1278,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ee69d84b0dbbeb7b",
+  "colors": "bfa4ca0a0dea091e",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1429,7 +1429,7 @@
    "editorStickyScroll.background": "#FAFBFF",
    "editorStickyScroll.border": "#dee0e7",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e1e2e6",
+   "editorStickyScrollHover.background": "#FAFAFF",
    "editorInlayHint.background": "#7b2cbf14",
    "editorInlayHint.foreground": "#4b4f6b",
    "editorInlayHint.typeBackground": "#06704a14",
@@ -2550,7 +2550,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ffb9a3cb504acb27",
+  "colors": "47921dc7fcab2108",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
@@ -2701,7 +2701,7 @@
    "editorStickyScroll.background": "#080A10",
    "editorStickyScroll.border": "#24262c",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#212328",
+   "editorStickyScrollHover.background": "#0A0816",
    "editorInlayHint.background": "#af9cf914",
    "editorInlayHint.foreground": "#b7bac1",
    "editorInlayHint.typeBackground": "#00e5c014",
@@ -3822,7 +3822,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e0b3998446ee95c9",
+  "colors": "db26c9af40b103ec",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3973,7 +3973,7 @@
    "editorStickyScroll.background": "#FBFAF6",
    "editorStickyScroll.border": "#deddda",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e2e1dd",
+   "editorStickyScrollHover.background": "#FDF9FC",
    "editorInlayHint.background": "#3a2fc914",
    "editorInlayHint.foreground": "#434548",
    "editorInlayHint.typeBackground": "#007a6614",
@@ -5094,7 +5094,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "71ff740807b9765f",
+  "colors": "fc88d6ad951547e5",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
@@ -5245,7 +5245,7 @@
    "editorStickyScroll.background": "#0A0B09",
    "editorStickyScroll.border": "#252724",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#232322",
+   "editorStickyScrollHover.background": "#080C03",
    "editorInlayHint.background": "#7fe33f14",
    "editorInlayHint.foreground": "#b6bab3",
    "editorInlayHint.typeBackground": "#4ecfc014",
@@ -6366,7 +6366,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c0e64d074c0d6bdd",
+  "colors": "3c3a1a476a6acfc2",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6517,7 +6517,7 @@
    "editorStickyScroll.background": "#F7F8F4",
    "editorStickyScroll.border": "#dbdcd8",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dedfdc",
+   "editorStickyScrollHover.background": "#F4FAED",
    "editorInlayHint.background": "#3d7a1414",
    "editorInlayHint.foreground": "#434641",
    "editorInlayHint.typeBackground": "#00786b14",
@@ -7638,7 +7638,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f8424d97b12bdb72",
+  "colors": "7dc82f38d3224c71",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
@@ -7789,7 +7789,7 @@
    "editorStickyScroll.background": "#0C0C0D",
    "editorStickyScroll.border": "#282829",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#242425",
+   "editorStickyScrollHover.background": "#100B05",
    "editorInlayHint.background": "#e8b54a14",
    "editorInlayHint.foreground": "#bbbbbd",
    "editorInlayHint.typeBackground": "#39b87114",
@@ -8910,7 +8910,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "86c0f599a5d00cb6",
+  "colors": "cf03df9f34517cfe",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9061,7 +9061,7 @@
    "editorStickyScroll.background": "#F8F8F9",
    "editorStickyScroll.border": "#dcdcdd",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dfdfe0",
+   "editorStickyScrollHover.background": "#FEF7F2",
    "editorInlayHint.background": "#8a5a0014",
    "editorInlayHint.foreground": "#444447",
    "editorInlayHint.typeBackground": "#22683f14",
@@ -10182,7 +10182,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "639163d2b93016d0",
+  "colors": "fc3b068f1205daf9",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
@@ -10333,7 +10333,7 @@
    "editorStickyScroll.background": "#040406",
    "editorStickyScroll.border": "#1e1e21",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#1d1d1f",
+   "editorStickyScrollHover.background": "#00090C",
    "editorInlayHint.background": "#16dff414",
    "editorInlayHint.foreground": "#a6aab1",
    "editorInlayHint.typeBackground": "#f4d00c14",
@@ -11454,7 +11454,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e5e5cf63ed839df3",
+  "colors": "2825268e682eb829",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -11605,7 +11605,7 @@
    "editorStickyScroll.background": "#FDFDFE",
    "editorStickyScroll.border": "#dfdfe1",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e4e4e5",
+   "editorStickyScrollHover.background": "#F7FFFF",
    "editorInlayHint.background": "#0a5b6414",
    "editorInlayHint.foreground": "#404145",
    "editorInlayHint.typeBackground": "#71600814",
@@ -15276,7 +15276,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d1388599acb9f942",
+  "colors": "4c59a4b57beb0ee6",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
@@ -15427,7 +15427,7 @@
    "editorStickyScroll.background": "#0B090E",
    "editorStickyScroll.border": "#252329",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#232226",
+   "editorStickyScrollHover.background": "#0F0710",
    "editorInlayHint.background": "#f976e714",
    "editorInlayHint.foreground": "#b0adb7",
    "editorInlayHint.typeBackground": "#f2b48614",
@@ -16548,7 +16548,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "30c0ac976067f7f5",
+  "colors": "3fadcb08a03aec73",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -16699,7 +16699,7 @@
    "editorStickyScroll.background": "#FCFBFD",
    "editorStickyScroll.border": "#e0dfe1",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e3e2e4",
+   "editorStickyScrollHover.background": "#FFF9FF",
    "editorInlayHint.background": "#b70ca814",
    "editorInlayHint.foreground": "#49484e",
    "editorInlayHint.typeBackground": "#81440a14",
@@ -17820,7 +17820,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d7c28c5965f38cc0",
+  "colors": "a32b1067fd877646",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -17971,7 +17971,7 @@
    "editorStickyScroll.background": "#04131C",
    "editorStickyScroll.border": "#1d2d36",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#1d2b33",
+   "editorStickyScrollHover.background": "#001524",
    "editorInlayHint.background": "#97ccf214",
    "editorInlayHint.foreground": "#a3b8be",
    "editorInlayHint.typeBackground": "#b69f4b14",
@@ -19092,7 +19092,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5ee8b2b8d564c36d",
+  "colors": "4ff2fa1d42edc896",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19243,7 +19243,7 @@
    "editorStickyScroll.background": "#F6FAFC",
    "editorStickyScroll.border": "#d9dee0",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dde1e3",
+   "editorStickyScrollHover.background": "#EEF9FF",
    "editorInlayHint.background": "#0a587b14",
    "editorInlayHint.foreground": "#3e494c",
    "editorInlayHint.typeBackground": "#76630e14",
@@ -20364,7 +20364,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d9689da6860126ce",
+  "colors": "4ccc778b2178b164",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
@@ -20515,7 +20515,7 @@
    "editorStickyScroll.background": "#100C09",
    "editorStickyScroll.border": "#2b2622",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#282422",
+   "editorStickyScrollHover.background": "#150A06",
    "editorInlayHint.background": "#f28f8314",
    "editorInlayHint.foreground": "#b9aeaa",
    "editorInlayHint.typeBackground": "#f2ba2414",
@@ -21636,7 +21636,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e15e945842a5b676",
+  "colors": "978efd5ca264b545",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -21787,7 +21787,7 @@
    "editorStickyScroll.background": "#FAF7F0",
    "editorStickyScroll.border": "#dedbd4",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e1ded8",
+   "editorStickyScrollHover.background": "#FFF5ED",
    "editorInlayHint.background": "#bc0d2214",
    "editorInlayHint.foreground": "#4b4440",
    "editorInlayHint.typeBackground": "#674d0a14",
@@ -22908,7 +22908,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e4e738d7264595f2",
+  "colors": "0a6e085fe41048b4",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
@@ -23059,7 +23059,7 @@
    "editorStickyScroll.background": "#15151C",
    "editorStickyScroll.border": "#2e2f36",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#2c2c33",
+   "editorStickyScrollHover.background": "#121521",
    "editorInlayHint.background": "#77abf914",
    "editorInlayHint.foreground": "#b4b8c1",
    "editorInlayHint.typeBackground": "#60d53d14",
@@ -24180,7 +24180,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fe7b4538495072a3",
+  "colors": "31d68f63df832771",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24331,7 +24331,7 @@
    "editorStickyScroll.background": "#FBF9F0",
    "editorStickyScroll.border": "#dfddd4",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e2e0d8",
+   "editorStickyScrollHover.background": "#F9F9F7",
    "editorInlayHint.background": "#0a66b214",
    "editorInlayHint.foreground": "#4c4640",
    "editorInlayHint.typeBackground": "#1f660b14",
@@ -25452,7 +25452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ddbc89f1034cf2b4",
+  "colors": "9d8d49dba5ae8428",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
@@ -25603,7 +25603,7 @@
    "editorStickyScroll.background": "#0D0B08",
    "editorStickyScroll.border": "#282522",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#252321",
+   "editorStickyScrollHover.background": "#050D08",
    "editorInlayHint.background": "#0fcbb714",
    "editorInlayHint.foreground": "#b6aeaa",
    "editorInlayHint.typeBackground": "#41bf7614",
@@ -26724,7 +26724,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "27a0321a905c4e5f",
+  "colors": "febdb4b0d6b65014",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -26875,7 +26875,7 @@
    "editorStickyScroll.background": "#F7F4ED",
    "editorStickyScroll.border": "#dbd8d1",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dedcd5",
+   "editorStickyScrollHover.background": "#F2F6ED",
    "editorInlayHint.background": "#0c615714",
    "editorInlayHint.foreground": "#48423e",
    "editorInlayHint.typeBackground": "#0b6a3a14",
@@ -27996,7 +27996,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6fddd8eb0dd8bbc1",
+  "colors": "f5badf875064ee1b",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
@@ -28147,7 +28147,7 @@
    "editorStickyScroll.background": "#061527",
    "editorStickyScroll.border": "#1f2f40",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#1f2c3d",
+   "editorStickyScrollHover.background": "#0B132B",
    "editorInlayHint.background": "#ee7dfa14",
    "editorInlayHint.foreground": "#a7bac4",
    "editorInlayHint.typeBackground": "#4fbe6f14",
@@ -29268,7 +29268,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "532fe1a7ac3dadba",
+  "colors": "c484ebbb6bf0a3eb",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29419,7 +29419,7 @@
    "editorStickyScroll.background": "#F5F8FD",
    "editorStickyScroll.border": "#d8dce1",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dddfe4",
+   "editorStickyScrollHover.background": "#F9F7FF",
    "editorInlayHint.background": "#b61ccb14",
    "editorInlayHint.foreground": "#3d484c",
    "editorInlayHint.typeBackground": "#0c763814",
@@ -30540,7 +30540,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "32ed3acc9d3a370c",
+  "colors": "074585e0310314f5",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
@@ -30691,7 +30691,7 @@
    "editorStickyScroll.background": "#0A0D12",
    "editorStickyScroll.border": "#22272d",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#23252a",
+   "editorStickyScrollHover.background": "#110B0D",
    "editorInlayHint.background": "#f2a47a14",
    "editorInlayHint.foreground": "#a4b3ba",
    "editorInlayHint.typeBackground": "#a187e914",
@@ -31812,7 +31812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8ef00269ece854cc",
+  "colors": "575a5a25d02d562b",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -31963,7 +31963,7 @@
    "editorStickyScroll.background": "#FBF6EC",
    "editorStickyScroll.border": "#dfdad0",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e2ddd4",
+   "editorStickyScrollHover.background": "#FFFFF4",
    "editorInlayHint.background": "#913e0a14",
    "editorInlayHint.foreground": "#4c433e",
    "editorInlayHint.typeBackground": "#6d57b414",
@@ -33084,7 +33084,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c5b4838b7c08a06a",
+  "colors": "de4b7407940af8d5",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
@@ -33235,7 +33235,7 @@
    "editorStickyScroll.background": "#05070B",
    "editorStickyScroll.border": "#1e2226",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#1e2023",
+   "editorStickyScrollHover.background": "#000B10",
    "editorInlayHint.background": "#40d0ed14",
    "editorInlayHint.foreground": "#a1afb6",
    "editorInlayHint.typeBackground": "#ce8c5414",
@@ -34356,7 +34356,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8e840aa9c217141a",
+  "colors": "f97c762338af05fc",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -34507,7 +34507,7 @@
    "editorStickyScroll.background": "#F8FAFD",
    "editorStickyScroll.border": "#dbdee1",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dfe1e4",
+   "editorStickyScrollHover.background": "#F1FCFF",
    "editorInlayHint.background": "#0c5b6a14",
    "editorInlayHint.foreground": "#3f494e",
    "editorInlayHint.typeBackground": "#8f562114",
@@ -35628,7 +35628,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bdc62e6f7807e766",
+  "colors": "98a5550ffa8f19a2",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
@@ -35779,7 +35779,7 @@
    "editorStickyScroll.background": "#04090C",
    "editorStickyScroll.border": "#1d2426",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#1d2224",
+   "editorStickyScrollHover.background": "#000C0C",
    "editorInlayHint.background": "#11d9a914",
    "editorInlayHint.foreground": "#a1b0b0",
    "editorInlayHint.typeBackground": "#9291f214",
@@ -36900,7 +36900,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fe4d675e36555f5e",
+  "colors": "2213595189fb7524",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37051,7 +37051,7 @@
    "editorStickyScroll.background": "#F5FAFA",
    "editorStickyScroll.border": "#d8dede",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dde1e1",
+   "editorStickyScrollHover.background": "#F0FCF9",
    "editorInlayHint.background": "#0c5e4814",
    "editorInlayHint.foreground": "#3f4948",
    "editorInlayHint.typeBackground": "#3657dd14",
@@ -38172,7 +38172,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d56b3b89d1e362f0",
+  "colors": "51ae325dd0d77ff2",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
@@ -38323,7 +38323,7 @@
    "editorStickyScroll.background": "#0C0806",
    "editorStickyScroll.border": "#272220",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#24211f",
+   "editorStickyScrollHover.background": "#100A00",
    "editorInlayHint.background": "#e8cc6a14",
    "editorInlayHint.foreground": "#b7aba9",
    "editorInlayHint.typeBackground": "#f7616a14",
@@ -39444,7 +39444,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "710aaba44b87a4cc",
+  "colors": "c593d1e921bb5128",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -39595,7 +39595,7 @@
    "editorStickyScroll.background": "#FAF6F2",
    "editorStickyScroll.border": "#dedad6",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e1ddda",
+   "editorStickyScrollHover.background": "#FDF6EB",
    "editorInlayHint.background": "#574a0a14",
    "editorInlayHint.foreground": "#4b4342",
    "editorInlayHint.typeBackground": "#d40b3b14",
@@ -40716,7 +40716,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "03df715f02e32cf7",
+  "colors": "be142aaea70b28f9",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
@@ -40867,7 +40867,7 @@
    "editorStickyScroll.background": "#2A1A0D",
    "editorStickyScroll.border": "#443324",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#3f3125",
+   "editorStickyScrollHover.background": "#2B1A03",
    "editorInlayHint.background": "#fff6e414",
    "editorInlayHint.foreground": "#ccb99e",
    "editorInlayHint.typeBackground": "#cfb48a14",
@@ -41988,7 +41988,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "746b3c305fc96a7b",
+  "colors": "852664faa8985c7b",
   "tokenColors": "fe87ba0d5d2b68ad",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -42139,7 +42139,7 @@
    "editorStickyScroll.background": "#EDE6D6",
    "editorStickyScroll.border": "#d4cdbd",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#d5cfc1",
+   "editorStickyScrollHover.background": "#F3E5CE",
    "editorInlayHint.background": "#1a130a14",
    "editorInlayHint.foreground": "#4f463a",
    "editorInlayHint.typeBackground": "#6a5a3e14",
@@ -43260,7 +43260,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9756c5856ce362bf",
+  "colors": "ee24181df79ba8f3",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -43411,7 +43411,7 @@
    "editorStickyScroll.background": "#07110F",
    "editorStickyScroll.border": "#202a28",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#202927",
+   "editorStickyScrollHover.background": "#00120D",
    "editorInlayHint.background": "#3fe8be14",
    "editorInlayHint.foreground": "#a2afac",
    "editorInlayHint.typeBackground": "#31a89214",
@@ -44532,7 +44532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6ea13330b624a5e6",
+  "colors": "3e75bc0ae5ebd9e5",
   "tokenColors": "5de49dd831dde586",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
@@ -44683,7 +44683,7 @@
    "editorStickyScroll.background": "#F5EEF3",
    "editorStickyScroll.border": "#d9d4d8",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#ddd6db",
+   "editorStickyScrollHover.background": "#F0F0F3",
    "editorInlayHint.background": "#06524614",
    "editorInlayHint.foreground": "#454847",
    "editorInlayHint.typeBackground": "#09786914",
@@ -45804,7 +45804,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b851480f9e340552",
+  "colors": "014f8e4d0bab1cd0",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
@@ -45955,7 +45955,7 @@
    "editorStickyScroll.background": "#191B20",
    "editorStickyScroll.border": "#2f3136",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#303236",
+   "editorStickyScrollHover.background": "#1D1A1B",
    "editorInlayHint.background": "#f0b75a14",
    "editorInlayHint.foreground": "#a7a9ad",
    "editorInlayHint.typeBackground": "#a8b8a014",
@@ -47045,7 +47045,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2a0e95d467b88c31",
+  "colors": "c7a97394e3465c0d",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47196,7 +47196,7 @@
    "editorStickyScroll.background": "#F4F2ED",
    "editorStickyScroll.border": "#dad9d5",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dcdad5",
+   "editorStickyScrollHover.background": "#FAF1E5",
    "editorInlayHint.background": "#85560614",
    "editorInlayHint.foreground": "#525357",
    "editorInlayHint.typeBackground": "#5a6c5214",
@@ -48286,7 +48286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "895e5378a848204e",
+  "colors": "b2031266028e345f",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -48437,7 +48437,7 @@
    "editorStickyScroll.background": "#14110D",
    "editorStickyScroll.border": "#2f2b26",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#2c2925",
+   "editorStickyScrollHover.background": "#171004",
    "editorInlayHint.background": "#c39b5414",
    "editorInlayHint.foreground": "#bfb6a8",
    "editorInlayHint.typeBackground": "#a7946e14",
@@ -49571,7 +49571,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "839e7619b2975c89",
+  "colors": "0e598f773e4617d0",
   "tokenColors": "eb5d1273f421986f",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -49722,7 +49722,7 @@
    "editorStickyScroll.background": "#EFE9DC",
    "editorStickyScroll.border": "#d5cfc2",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#d7d2c6",
+   "editorStickyScrollHover.background": "#F5E8D4",
    "editorInlayHint.background": "#8a5f1e14",
    "editorInlayHint.foreground": "#49433a",
    "editorInlayHint.typeBackground": "#6e604014",
@@ -50856,7 +50856,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "521c2b70e299b822",
+  "colors": "5e6d4cd932f2d684",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
@@ -51007,7 +51007,7 @@
    "editorStickyScroll.background": "#12151A",
    "editorStickyScroll.border": "#2a2d32",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#2a2c31",
+   "editorStickyScrollHover.background": "#161416",
    "editorInlayHint.background": "#f09a1814",
    "editorInlayHint.foreground": "#a7acb4",
    "editorInlayHint.typeBackground": "#a585ec14",
@@ -52116,7 +52116,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "319c90692bdd0580",
+  "colors": "eb6bc8026552663c",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -52267,7 +52267,7 @@
    "editorStickyScroll.background": "#F5F6F9",
    "editorStickyScroll.border": "#dadbdf",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dddde0",
+   "editorStickyScrollHover.background": "#FBF5F2",
    "editorInlayHint.background": "#8a5a0014",
    "editorInlayHint.foreground": "#484b53",
    "editorInlayHint.typeBackground": "#6a2fc014",
@@ -53376,7 +53376,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9fefa24780c58b83",
+  "colors": "2b28bef81da8fea0",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
@@ -53527,7 +53527,7 @@
    "editorStickyScroll.background": "#191612",
    "editorStickyScroll.border": "#34302b",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#302d2a",
+   "editorStickyScrollHover.background": "#1C1509",
    "editorInlayHint.background": "#d9a94a14",
    "editorInlayHint.foreground": "#c3bcaf",
    "editorInlayHint.typeBackground": "#a1978814",
@@ -54624,7 +54624,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d60873529d270bcf",
+  "colors": "a42429f59b141a63",
   "tokenColors": "57d38482132cbae6",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -54775,7 +54775,7 @@
    "editorStickyScroll.background": "#EDE4CE",
    "editorStickyScroll.border": "#d4cbb7",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#d5cdb9",
+   "editorStickyScrollHover.background": "#F3E3C4",
    "editorInlayHint.background": "#7e5b0e14",
    "editorInlayHint.foreground": "#4d473a",
    "editorInlayHint.typeBackground": "#6a625014",
@@ -55872,7 +55872,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "203896aac7b6060d",
+  "colors": "a1860eb338b4dfbd",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -56023,7 +56023,7 @@
    "editorStickyScroll.background": "#1A1A1C",
    "editorStickyScroll.border": "#323234",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#313133",
+   "editorStickyScrollHover.background": "#171A21",
    "editorInlayHint.background": "#93a6bc14",
    "editorInlayHint.foreground": "#b1b1b5",
    "editorInlayHint.typeBackground": "#aaaab014",
@@ -57157,7 +57157,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e976b839cf330ac4",
+  "colors": "84a51d117e466dd7",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -57308,7 +57308,7 @@
    "editorStickyScroll.background": "#E8E6E1",
    "editorStickyScroll.border": "#cfcdc9",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#d1cfcb",
+   "editorStickyScrollHover.background": "#E4E7E9",
    "editorInlayHint.background": "#4e627a14",
    "editorInlayHint.foreground": "#49494b",
    "editorInlayHint.typeBackground": "#4e4e5414",
@@ -58442,7 +58442,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bf5f870cec073a80",
+  "colors": "74203521efb29eb4",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -58593,7 +58593,7 @@
    "editorStickyScroll.background": "#08080A",
    "editorStickyScroll.border": "#242425",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#212123",
+   "editorStickyScrollHover.background": "#0D0702",
    "editorInlayHint.background": "#d8a83c14",
    "editorInlayHint.foreground": "#b7b6b1",
    "editorInlayHint.typeBackground": "#a8b0a014",
@@ -59714,7 +59714,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "214e1b049bc62994",
+  "colors": "fdeb5949270327e7",
   "tokenColors": "b877f71b31ff9f08",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -59865,7 +59865,7 @@
    "editorStickyScroll.background": "#FDFDFB",
    "editorStickyScroll.border": "#e0e0de",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e4e4e2",
+   "editorStickyScrollHover.background": "#FFFEF5",
    "editorInlayHint.background": "#8a5f1214",
    "editorInlayHint.foreground": "#474643",
    "editorInlayHint.typeBackground": "#3e504014",
@@ -60986,7 +60986,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dc63e4010df4fb1c",
+  "colors": "b16d844e735b1064",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
@@ -61137,7 +61137,7 @@
    "editorStickyScroll.background": "#07100D",
    "editorStickyScroll.border": "#202926",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#202825",
+   "editorStickyScrollHover.background": "#0F0E09",
    "editorInlayHint.background": "#ff5c4d14",
    "editorInlayHint.foreground": "#a4afaa",
    "editorInlayHint.typeBackground": "#8e9cbe14",
@@ -62222,7 +62222,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2e9f46fb2cbb1744",
+  "colors": "eeac15969237f4fb",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -62373,7 +62373,7 @@
    "editorStickyScroll.background": "#F3F8F5",
    "editorStickyScroll.border": "#d7ddda",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dbdfdd",
+   "editorStickyScrollHover.background": "#F9F7F2",
    "editorInlayHint.background": "#c22a1814",
    "editorInlayHint.foreground": "#444c48",
    "editorInlayHint.typeBackground": "#3e4e8014",
@@ -63458,7 +63458,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "436963ac03e53321",
+  "colors": "060513910741751a",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
@@ -63609,7 +63609,7 @@
    "editorStickyScroll.background": "#1C0A0F",
    "editorStickyScroll.border": "#372529",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#332327",
+   "editorStickyScrollHover.background": "#20070D",
    "editorInlayHint.background": "#ff5e7a14",
    "editorInlayHint.foreground": "#c7b1b5",
    "editorInlayHint.typeBackground": "#8fc9a414",
@@ -64730,7 +64730,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3d2716fe7167a6a7",
+  "colors": "c323b416fb0ad335",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -64881,7 +64881,7 @@
    "editorStickyScroll.background": "#FBF2F3",
    "editorStickyScroll.border": "#e0d5d7",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#e2dadb",
+   "editorStickyScrollHover.background": "#FFEEEF",
    "editorInlayHint.background": "#b0123814",
    "editorInlayHint.foreground": "#503e42",
    "editorInlayHint.typeBackground": "#1e6a4614",
@@ -66002,7 +66002,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3bb94a927ffe6659",
+  "colors": "68a14d05b5d18b9b",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -66153,7 +66153,7 @@
    "editorStickyScroll.background": "#1A2733",
    "editorStickyScroll.border": "#33404c",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#313d47",
+   "editorStickyScrollHover.background": "#122834",
    "editorInlayHint.background": "#0ecccb14",
    "editorInlayHint.foreground": "#b9c7d0",
    "editorInlayHint.typeBackground": "#aea0f014",
@@ -67274,7 +67274,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "686a2166c206e537",
+  "colors": "db18a0ad8dfb6ae3",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -67425,7 +67425,7 @@
    "editorStickyScroll.background": "#F2FAFD",
    "editorStickyScroll.border": "#d6dee2",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dae1e4",
+   "editorStickyScrollHover.background": "#ECFCFF",
    "editorInlayHint.background": "#0a6b6c14",
    "editorInlayHint.foreground": "#3f4c54",
    "editorInlayHint.typeBackground": "#5461ad14",
@@ -68546,7 +68546,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "47a04c3e12a39e49",
+  "colors": "33d1e1cf1405856b",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -68697,7 +68697,7 @@
    "editorStickyScroll.background": "#14131A",
    "editorStickyScroll.border": "#2d2d35",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#2c2b31",
+   "editorStickyScrollHover.background": "#15121E",
    "editorInlayHint.background": "#ae9fcd14",
    "editorInlayHint.foreground": "#b3b9c6",
    "editorInlayHint.typeBackground": "#bd86ad14",
@@ -69818,7 +69818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4971d6ad4a5012aa",
+  "colors": "d9ac4966c48d09b5",
   "tokenColors": "2d957ea2aa59b7ee",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
@@ -69969,7 +69969,7 @@
    "editorStickyScroll.background": "#F5F2F0",
    "editorStickyScroll.border": "#d9d6d5",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#dddad8",
+   "editorStickyScrollHover.background": "#F7F1F6",
    "editorInlayHint.background": "#60537d14",
    "editorInlayHint.foreground": "#454347",
    "editorInlayHint.typeBackground": "#86527714",
@@ -71090,7 +71090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bb7bcf9a23228337",
+  "colors": "57bbda6ae30ddfed",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -71241,7 +71241,7 @@
    "editorStickyScroll.background": "#16130E",
    "editorStickyScroll.border": "#312e28",
    "editorStickyScroll.shadow": "#0000001a",
-   "editorStickyScrollHover.background": "#2d2b26",
+   "editorStickyScrollHover.background": "#1A110F",
    "editorInlayHint.background": "#ff63b414",
    "editorInlayHint.foreground": "#c2bdb0",
    "editorInlayHint.typeBackground": "#5fbcc414",
@@ -72362,7 +72362,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8ffd18aaf4a8a1ff",
+  "colors": "db0099c5b31e7913",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72513,7 +72513,7 @@
    "editorStickyScroll.background": "#F5F0E4",
    "editorStickyScroll.border": "#d9d5c9",
    "editorStickyScroll.shadow": "#1a1a2e0b",
-   "editorStickyScrollHover.background": "#ddd8cd",
+   "editorStickyScrollHover.background": "#FAEFE5",
    "editorInlayHint.background": "#c4157e14",
    "editorInlayHint.foreground": "#47443b",
    "editorInlayHint.typeBackground": "#0e606814",
