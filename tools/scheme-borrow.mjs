@@ -1,4 +1,4 @@
-import { buildFrom, styled, outputRules } from './scheme-kit.mjs';
+import { buildFrom, styled, outputRules, logRules } from './scheme-kit.mjs';
 
 const roles = (p) => ({
   frozen: p.keyword, mutable: p.number, borrowed: p.string, written: p.tag,
@@ -22,7 +22,7 @@ export function tokenColors(p) {
     added: r.borrowed, deleted: r.written, diffHeader: r.lib, shellVar: r.mutable,
     invalid: styled(r.written, 'underline'), deprecated: styled(r.op, 'strikethrough'), macro: r.own,
   };
-  return [...buildFrom((slot) => map[slot]), ...outputRules(p.st, p.op, p.bg)];
+  return [...buildFrom((slot) => map[slot]), ...outputRules(p.st, p.op, p.bg), ...logRules(p.st, p.bg)];
 }
 
 export function semanticTokenColors(p) {

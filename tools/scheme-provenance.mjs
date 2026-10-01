@@ -1,4 +1,4 @@
-import { outputRules } from './scheme-kit.mjs';
+import { outputRules, logRules } from './scheme-kit.mjs';
 
 const S = (scope, foreground, fontStyle) => ({ scope, settings: fontStyle ? { foreground, fontStyle } : { foreground } });
 
@@ -71,6 +71,7 @@ export function tokenColors(p) {
     { name: 'Shell variables', ...S(['variable.other.normal.shell', 'punctuation.definition.variable.shell'], frozen) },
     { name: 'YAML keys', ...S(['entity.name.tag.yaml', 'support.type.property-name.yaml'], def) },
     ...outputRules(p.st, op, p.bg),
+    ...logRules(p.st, p.bg),
   ];
 }
 

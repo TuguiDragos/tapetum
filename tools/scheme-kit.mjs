@@ -87,8 +87,6 @@ export const SLOTS = [
     'entity.name.section.group-title'] },
   { name: 'Lists and tables', slot: 'list', scope: ['markup.list.unnumbered', 'markup.list.numbered', 'markup.table',
     'markup.underline'] },
-  { name: 'Log errors', slot: 'invalid', scope: ['log.error', 'log.exception', 'log.exceptiontype'] },
-  { name: 'Log warnings', slot: 'deleted', scope: ['log.warning'] },
   { name: 'Log info and dates', slot: 'operator', scope: ['log.info', 'log.date', 'log.verbose', 'log.debug'] },
   { name: 'Log values', slot: 'string', scope: ['log.constant', 'log.string'] },
   { name: 'Operators by name', slot: 'operator', scope: ['entity.name.operator', 'entity.name.operator.type',
@@ -166,4 +164,11 @@ export const outputRules = (st, op, bg) => [
   { name: 'Output warnings', scope: 'token.warn-token', settings: { foreground: readable(st.warn, bg) } },
   { name: 'Output errors', scope: 'token.error-token', settings: { foreground: readable(st.error, bg) } },
   { name: 'Output debug', scope: 'token.debug-token', settings: { foreground: op } },
+];
+
+// log files mark errors and warnings with the status colours, as the grammar themes and the output panel do;
+// the log grammar also gives them markup.deleted and strong, whose style they do not take
+export const logRules = (st, bg) => [
+  { name: 'Log errors', scope: ['log.error', 'log.exception', 'log.exceptiontype'], settings: { foreground: readable(st.error, bg), fontStyle: '' } },
+  { name: 'Log warnings', scope: ['log.warning'], settings: { foreground: readable(st.warn, bg), fontStyle: '' } },
 ];
