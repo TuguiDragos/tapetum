@@ -413,12 +413,24 @@ function analyse(fam, v) {
   for (const k of DECORATED_NAMES) {
     const cr = contrast(over(c[k], c['sideBar.background']), c['sideBar.background']);
     if (cr < 4.5) bad('surface', `${k}, a decorated file name in the side bar, at ${cr.toFixed(2)}, under 4.5`);
+    const apart = deltaE(c[k], c['sideBar.foreground']);
+    if (p.status) pend('decorated names apart from the plain names of the side bar, in the palettes with hand placed status colours (10 dE)', apart, 10);
+    else if (apart < 10) bad('surface', `${k}, a decorated file name, at ${apart.toFixed(1)} dE from the plain names, under 10`);
+    for (const row of ['list.hoverBackground', 'list.inactiveSelectionBackground']) {
+      const ground = over(c[row], c['sideBar.background']);
+      pend('decorated names on hovered and inactive selected side bar rows (4.5)', contrast(over(c[k], ground), ground), 4.5);
+    }
     if (k === 'list.invalidItemForeground') continue;
     const strip = c['editorGroupHeader.tabsBackground'];
     const onTab = contrast(over(c[k], strip), strip);
+    if (onTab < 4.5) bad('surface', `${k}, a decorated name on a tab, at ${down(onTab)}, under 4.5`);
+    // VS Code 1.140 paints a hovered connected tab as color-mix(foreground 6%, strip); high contrast gives it no fill
+    if (hc) continue;
+    const hovered = mix(over(strip, eb), c.foreground, 0.06);
+    const onHovered = contrast(over(c[k], hovered), hovered);
     // hand placed status colours stay as their palette writes them
-    if (p.status) pend('decorated names on the tab strip, in the palettes with hand placed status colours (4.5)', onTab, 4.5);
-    else if (onTab < 4.5) bad('surface', `${k}, a decorated name on a tab, at ${down(onTab)}, under 4.5`);
+    if (p.status) pend('decorated names on a hovered tab, in the palettes with hand placed status colours (4.5)', onHovered, 4.5);
+    else if (onHovered < 4.5) bad('surface', `${k}, a decorated name on a hovered tab, at ${down(onHovered)}, under 4.5`);
   }
   for (const g of LINE_NUMBER_GROUNDS) {
     const floor = hc ? 4.5 : 3.0;

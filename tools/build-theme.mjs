@@ -365,9 +365,9 @@ function chrome(t) {
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
     'list.inactiveFocusOutline': inactiveOutline,
     'list.highlightForeground': t.highlight,
-    // decorated names sit on the side bar and, on a tab, on the strip
-    'list.errorForeground': t.handStatus ? st.error : readsOn(readsOn(st.error, elev, 4.5), strip, 4.5),
-    'list.warningForeground': t.handStatus ? st.warn : readsOn(readsOn(st.warn, elev, 4.5), strip, 4.5),
+    // decorated names sit on the side bar and, on a tab, on the strip, which a hovered tab turns 6% toward the foreground
+    'list.errorForeground': t.handStatus ? st.error : [elev, strip, mix(strip, fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), st.error),
+    'list.warningForeground': t.handStatus ? st.warn : [elev, strip, mix(strip, fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), st.warn),
     'list.deemphasizedForeground': faint,
     'list.invalidItemForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
     'list.dropBackground': alphaOf(acc, 0.16),
@@ -1231,8 +1231,9 @@ function gitDecorations(t) {
   };
   const renamed = pick(taken);
   const submodule = pick([...taken, renamed]);
+  // connected tabs paint a hovered tab as the foreground at 6% over the strip, and the names are written on it
+  const name = (c) => [t.elev, t.strip, mix(t.strip, t.fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), c);
   // hand placed status colours stay as their palette writes them
-  const name = (c) => readsOn(readsOn(c, t.elev, 4.5), t.strip, 4.5);
   const status = (c) => (t.handStatus ? c : name(c));
   return {
     'gitDecoration.addedResourceForeground': status(st.added),
