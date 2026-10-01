@@ -41,13 +41,20 @@ or bold italic, meant for its name. Only the name keeps it now.
 - The current find match. VS Code paints the 2 find text colours crosswise, so
   the one tuned for the current match went to the others; both are tuned now,
   in 3 dark themes.
+- Find matches lying on the selection, as the current one always does, in 13
+  themes.
 - The active line number in the peek view, in Stratum Light.
-- File names marked by errors, warnings or git on the tab strip, in 18 themes.
-  Palettes that place their status colours by hand keep them.
+- File names marked by errors, warnings or git, on the tab strip in 24 themes
+  and on a hovered tab, which VS Code paints as the text at 6% over the strip,
+  in 23. Palettes that place their status colours by hand keep their own; in 6
+  light ones they are darkened at the source just enough to read on the strip.
 - A hovered name in the Customizations view, in 11 themes.
 - Code pinned by sticky scroll, in 12 themes: its lines sat half a step toward
   the side bar and now share the editor's background, set apart by their line
   and shadow.
+- The line of sticky scroll under the pointer, in 45 themes. It lit up toward
+  the text; now it takes a tint of the accent at the editor's lightness. In
+  Quantum Light, whose code sits right at its floor, the tint is faint.
 
 **Easier to read, easier to tell apart.**
 
@@ -55,7 +62,12 @@ or bold italic, meant for its name. Only the name keeps it now.
   20%, and line numbers read 3 to 1 on it, the active one 4.5. They read in
   notebook cells too.
 - Outside high contrast VS Code keeps the syntax colours on a selection. In 6
-  themes the selection took code under 3 to 1; it eases until code reads.
+  themes the selection took code under 3 to 1, and in 29 it took comments; it
+  eases until both read. The same colour selects text across the window.
+- The highlight VS Code puts on every use of the word at the cursor, and on a
+  snippet placeholder, was a tint, and on a selected word it pulled code under
+  3 to 1 in 54 themes. Outside high contrast it is an outline at half strength
+  now, so a selected word reads as the rest of the selection.
 - The errors and warnings of a log file had one colour in Borrow, Effect,
   Palimpsest, Silverpoint and Stratum, and none in Provenance. They take the
   status colours, as in the other families.
@@ -66,7 +78,9 @@ or bold italic, meant for its name. Only the name keeps it now.
 **Small steps that stopped short.** The searches that ease a colour until it
 reads stepped by fractions and skipped their last step. 58 values in 28 themes
 move by about 1 dE at most, and the comments on a diff in Quantum reach their
-floor.
+floor. They also step from the colour they start with and move away from the
+ground first, which changes no theme today but keeps a palette with a ground
+of middle lightness from stalling.
 
 ### Added
 
