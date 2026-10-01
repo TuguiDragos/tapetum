@@ -40,7 +40,7 @@ function tokens(s) {
   const line2 = mix(bg, fg, 0.24);
   const acc = s.accent || s.syntax.keyword;
   // VS Code keeps the syntax colours on the selection outside high contrast, so the selection eases until they read 3.0 on it
-  const onSel = (k) => Math.min(...[s.syntax.keyword, s.syntax.func, s.syntax.string, s.syntax.type, s.syntax.number, s.syntax.tag].map((c) => contrast(c, composite(alpha(acc, k / 100), bg))));
+  const onSel = (k) => Math.min(...[s.syntax.keyword, s.syntax.func, s.syntax.string, s.syntax.type, s.syntax.number, s.syntax.tag, s.syntax.comment].map((c) => contrast(c, composite(alpha(acc, k / 100), bg))));
   let selK = dark ? 30 : 24;
   while (selK > 0 && onSel(selK) < 3.0) selK--;
   const sel = alpha(acc, selK / 100);
@@ -147,9 +147,10 @@ function tokens(s) {
     'editor.inactiveSelectionBackground': selSoft,
     'editor.selectionHighlightBackground': selSoft,
     'editor.selectionHighlightBorder': '#00000000',
-    'editor.wordHighlightBackground': alpha(y.func, 0.18),
-    'editor.wordHighlightStrongBackground': alpha(y.type, 0.2),
-    'editor.wordHighlightTextBackground': alpha(y.func, 0.18),
+    // VS Code keeps the syntax colours on these words, also inside a selection, so they are drawn as outlines
+    'editor.wordHighlightBackground': hc ? alpha(y.func, 0.18) : '#00000000',
+    'editor.wordHighlightStrongBackground': hc ? alpha(y.type, 0.2) : '#00000000',
+    'editor.wordHighlightTextBackground': hc ? alpha(y.func, 0.18) : '#00000000',
     'editor.findMatchBackground': findWash,
     'editor.findMatchBorder': y.number,
     'editor.findMatchHighlightBackground': alpha(y.string, matchAlpha),
@@ -1037,8 +1038,8 @@ function remainder(t) {
     'editor.compositionBorder': acc,
     'editor.findMatchHighlightBorder': '#00000000',
     'editor.linkedEditingBackground': alphaOf(y.tag, 0.14),
-    'editor.snippetTabstopHighlightBackground': alphaOf(acc, 0.16),
-    'editor.snippetTabstopHighlightBorder': '#00000000',
+    'editor.snippetTabstopHighlightBackground': t.hc ? alphaOf(acc, 0.16) : '#00000000',
+    'editor.snippetTabstopHighlightBorder': alphaOf(t.legible(acc, t.bg, 3.0), 0.5),
     'editor.snippetFinalTabstopHighlightBackground': alphaOf(y.type, 0.16),
     'editor.snippetFinalTabstopHighlightBorder': y.type,
     'editor.placeholder.foreground': faint,
@@ -1078,9 +1079,9 @@ function tail(t) {
     'editor.inlineValuesForeground': t.legible(mixOf(y.number, fg, 0.25), mixOf(t.hard, y.number, 0.12), 4.7),
     'editor.rangeHighlightBorder': '#00000000',
     'editor.symbolHighlightBorder': '#00000000',
-    'editor.wordHighlightBorder': '#00000000',
-    'editor.wordHighlightStrongBorder': '#00000000',
-    'editor.wordHighlightTextBorder': '#00000000',
+    'editor.wordHighlightBorder': alphaOf(t.legible(y.func, t.bg, 3.0), 0.5),
+    'editor.wordHighlightStrongBorder': alphaOf(t.legible(y.type, t.bg, 3.0), 0.5),
+    'editor.wordHighlightTextBorder': alphaOf(t.legible(y.func, t.bg, 3.0), 0.5),
     'editorError.border': '#00000000',
     'editorWarning.border': '#00000000',
     'editorInfo.border': '#00000000',

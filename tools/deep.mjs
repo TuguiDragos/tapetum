@@ -56,11 +56,10 @@ const PRESENCE = [
   ['editorStickyScrollHover.background', 'editorStickyScroll.background', 3.0],
   ['terminalStickyScrollHover.background', 'terminalStickyScroll.background', 3.0],
   ...['editor.selectionBackground', 'editor.inactiveSelectionBackground', 'editor.selectionHighlightBackground',
-    'editor.wordHighlightBackground', 'editor.wordHighlightStrongBackground', 'editor.wordHighlightTextBackground',
     'editor.findMatchBackground', 'editor.findMatchHighlightBackground', 'editor.findRangeHighlightBackground',
     'editor.hoverHighlightBackground', 'editor.rangeHighlightBackground', 'editor.symbolHighlightBackground',
     'editor.foldBackground', 'editorBracketMatch.background', 'editor.linkedEditingBackground',
-    'editor.snippetTabstopHighlightBackground', 'editor.stackFrameHighlightBackground',
+    'editor.stackFrameHighlightBackground',
     'editor.focusedStackFrameHighlightBackground', 'toolbar.hoverBackground'].map((k) => [k, 'editor.background', 2.0]),
   ...['list.hoverBackground', 'list.activeSelectionBackground', 'list.inactiveSelectionBackground', 'list.focusBackground']
     .map((k) => [k, 'sideBar.background', 2.0]),
@@ -197,13 +196,17 @@ function analyse(fam, v) {
   const onSel = hc && selFg && parse(selFg).a === 1 ? [selFg] : [...R.map((r) => p[r]), ...comments];
   const selFloor = hc ? 4.5 : 3.0, floorNote = hc ? '4.5 in high contrast' : '3.0';
   const worstOver = (layers, texts) => { const g = layers.reduce((u, k) => over(c[k], u), eb); return Math.min(...texts.map((x) => contrast(over(x, g), g))); };
+  if (!hc) for (const x of comments) {
+    const cr = contrast(x, over(sel, eb));
+    if (cr < 3.0) bad('layers', `comments (${x}) on editor.selectionBackground at ${down(cr)}, under 3.0`);
+  }
   let stackWorst = 99, stackAt = '';
   for (const k of ['wordHighlightBackground', 'wordHighlightStrongBackground', 'wordHighlightTextBackground', 'snippetTabstopHighlightBackground']) {
     const cr = worstOver(['editor.selectionBackground', `editor.${k}`], onSel);
     if (cr < stackWorst) { stackWorst = cr; stackAt = `syntax over the selection plus ${k}`; }
   }
   out.stacked = { worst: stackWorst, at: stackAt };
-  pend(`syntax over the selection plus a word or snippet highlight (${floorNote})`, stackWorst, selFloor);
+  if (stackWorst < selFloor) bad('layers', `${stackAt} at ${down(stackWorst)}, under ${floorNote}`);
   const hoverSel = Math.min(...['', 'editor.wordHighlightBackground', 'editor.wordHighlightStrongBackground'].map((k) => worstOver(['editor.selectionBackground', 'editor.hoverHighlightBackground', k].filter(Boolean), onSel)));
   pend(`syntax over the selection plus the hover highlight (${floorNote})`, hoverSel, selFloor);
   const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
@@ -378,6 +381,9 @@ function analyse(fam, v) {
     const cr = contrast(over(c[k], ground), ground);
     if (cr < 3) bad('frame', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
   }
+  // word and snippet highlights are outlines, so it is the 1px line that has to stand out, on the editor and on the selection
+  if (!hc) for (const k of ['editor.wordHighlightBorder', 'editor.wordHighlightStrongBorder', 'editor.wordHighlightTextBorder', 'editor.snippetTabstopHighlightBorder'])
+    for (const g of [eb, over(sel, eb)]) if (deltaE(over(c[k], g), g) < 10) bad('presence', `${k} at ${deltaE(over(c[k], g), g).toFixed(2)} dE from ${g === eb ? 'editor.background' : 'the selection'}, under 10`);
   if (!hc) for (const [k, groundKey, min] of PRESENCE) {
     const ground = isAlpha(c[groundKey]) ? over(c[groundKey], eb) : c[groundKey];
     const d = deltaE(over(c[k], ground), ground);
