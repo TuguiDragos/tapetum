@@ -46,8 +46,11 @@ function tokens(s) {
   const sel = alpha(acc, selK / 100);
   const selSoft = alpha(acc, dark ? 0.16 : 0.13);
   const dim = [hard, strip].reduce((d, g) => legible(d, composite(selSoft, g), 4.0), dimBase);
+  // the current match lies on the line's range highlight, over the selection when the editor keeps the focus (F3, Cmd+G)
+  const onCurrent = (wash) => composite(wash, composite(alpha(acc, 0.1), composite(sel, bg)));
   let findAlpha = 0.38;
-  while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
+  while (findAlpha > 0.2 && (contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5
+    || contrast(dark ? '#ffffff' : '#000000', onCurrent(alpha(s.syntax.number, findAlpha))) < 4.5)) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
   const findWash = alpha(s.syntax.number, findAlpha);
   // Insiders draws the quick input, menus, hovers, dialogs and notifications (all on elev) as frosted glass, from 50% to 100% of
   // the surface over whatever lies under it, so text on them also reads with half of the editor, the strip or the chrome, and
@@ -79,8 +82,10 @@ function tokens(s) {
   const matchText = (a) => Math.min(contrast(sideText, composite(alpha(s.syntax.string, a), elev)), contrast(fg, composite(alpha(s.syntax.string, a), bg)));
   while (matchAlpha > 0.1 && matchText(matchAlpha) < 4.5) matchAlpha = Math.round((matchAlpha - 0.01) * 100) / 100;
   // a match also lies on the selection: the current one on the line's range highlight, the others inside a wider selection
-  const findText = [findGround, composite(findWash, composite(alpha(acc, 0.1), composite(selSoft, bg))), ...[sel, selSoft].map((k) => composite(alpha(s.syntax.string, matchAlpha), composite(k, bg)))]
+  const findTextOff = [findGround, composite(findWash, composite(alpha(acc, 0.1), composite(selSoft, bg))), ...[sel, selSoft].map((k) => composite(alpha(s.syntax.string, matchAlpha), composite(k, bg)))]
     .reduce((c, g) => legible(c, g, 4.6), fg);
+  let findText = findTextOff;
+  for (let i = 1; i <= 100 && contrast(findText, onCurrent(findWash)) < 4.5; i++) findText = dark ? lighten(findTextOff, i / 100) : darken(findTextOff, i / 100);
   const lineHighlight = presence(bg, dark ? '#ffffff' : '#000000', dark ? 0.035 : 0.02, 3.0);
   const commentRange = composite(alpha(fg, 0.06), bg);
   const sliders = {
@@ -1047,6 +1052,7 @@ export function buildColors(spec) {
   const all = { ...t.editor, ...chrome(t), ...controls(t), ...integrations(t), ...assistant(t), ...remainder(t), ...tail(t), ...addendum(t) };
   if (t.hc) applyHighContrast(all, t);
   else onGlass(all, t);
+  findInTrees(all, t);
   Object.assign(all, forkKeys(all, t));
   for (const k of Object.keys(all)) if (all[k] === undefined) delete all[k];
   return all;
@@ -1566,6 +1572,23 @@ function onGlass(all, t) {
   const grounds = [...t.glass, ...washes.flatMap((w) => [w, mix(w, t.fg, 0.12)]).map((w) => mix(w, t.elev, 0.8))];
   for (const [k, floor] of GLASS_TEXT) all[k] = grounds.reduce((x, g) => readsOn(x, g, floor), all[k]);
   for (const [k, floor, wash] of GLASS_WASHED) all[k] = grounds.reduce((x, g) => readsOn(x, typeof wash === 'function' ? wash(all, g) : composite(all[wash], g), floor), all[k]);
+}
+
+// a find in a tree (Explorer, SCM, Outline, Debug) unsets the colour of the matched letters, so they keep the name's own colour on
+// the filter match wash, on every row: the wash eases off until plain names read 4.5 and decorated names 3.0 (4.5 in high contrast)
+function findInTrees(all, t) {
+  const sb = all['sideBar.background'], hex = all['list.filterMatchBackground'].slice(0, 7);
+  const rows = [[null, 'sideBar.foreground'], ['list.hoverBackground', 'list.hoverForeground'], ['list.inactiveSelectionBackground', 'list.inactiveSelectionForeground'],
+    ['list.inactiveFocusBackground', 'sideBar.foreground'], ['list.focusBackground', 'list.focusForeground'], ['list.activeSelectionBackground', 'list.activeSelectionForeground']];
+  const decorated = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule'].map((s) => `gitDecoration.${s}ResourceForeground`),
+    'list.errorForeground', 'list.warningForeground'];
+  const reads = (a) => rows.every(([row, text]) => {
+    const g = composite(alpha(hex, a), row && all[row] ? composite(all[row], sb) : sb);
+    return contrast(composite(all[text] || all['sideBar.foreground'], g), g) >= 4.5 && decorated.every((k) => contrast(composite(all[k], g), g) >= (t.hc ? 4.5 : 3.0));
+  });
+  let a = parse(all['list.filterMatchBackground']).a;
+  while (a > 0.1 && !reads(a)) a = Math.round(a * 100 - 1) / 100;
+  all['list.filterMatchBackground'] = alpha(hex, a);
 }
 
 function forkKeys(all, t) {

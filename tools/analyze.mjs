@@ -44,7 +44,7 @@ const DELIBERATE = [
   { re: /^notebook\.selectedCellBackground$/, why: 'a selected cell is marked by notebook.selectedCellBorder and the focused one by notebook.focusedCellBorder; its background stays clear' },
   { re: /^notebook\.cellEditorBackground$/, why: 'the code cell takes a fill computed from the editor background, so it stands out in the notebook rather than taking the side bar colour' },
   { re: /^menubar\.selectionBackground$/, why: 'an open menubar entry takes the 10% wash of an active control; the toolbar hover takes 6%' },
-  { re: /^list\.filterMatchBackground$/, why: 'filter matches in lists take the number colour at 30% and are measured with their highlight text; the editor find highlight uses the string colour' },
+  { re: /^list\.filterMatchBackground$/, why: 'a find in a tree keeps the name colours on this wash (the number colour, eased until they read; deep checks every row); the editor find highlight uses the string colour' },
   { re: /^list\.dropBetweenBackground$/, why: 'the line between rows while dragging takes the accent, like the other drop indicators' },
   { re: /^extensionButton\.(hover)?[Bb]ackground$/, why: 'the extension install button takes the primary button fill, as extensionButton.prominentBackground does' },
   { re: /^editor\.symbolHighlightBackground$/, why: 'the symbol highlight takes the type colour at 20%, apart from find matches' },
