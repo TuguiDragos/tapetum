@@ -637,7 +637,7 @@
     "chat.avatarForeground": "#251C18",
     "chat.slashCommandBackground": "#913e0a24",
     "chat.slashCommandForeground": "#7b3509",
-    "chat.linesAddedForeground": "#39773D",
+    "chat.linesAddedForeground": "#38753c",
     "chat.linesRemovedForeground": "#C40A43",
     "chat.editedFileForeground": "#0F638F",
     "chat.mcpCompatibilityWarningForeground": "#913E0A",

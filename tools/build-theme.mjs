@@ -132,6 +132,7 @@ function tokens(s) {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
+    // also the heading of the integrated browser's certificate hover, on glass
     errorForeground: glass.reduce((x, g) => readsOn(x, g, 4.5), legible(legible(st.error, bg, 4.5), elev, 4.5)),
     focusBorder: focusRing,
     'icon.foreground': dim,
@@ -214,8 +215,8 @@ function tokens(s) {
     'editorError.background': alpha(st.error, 0.08),
     'editorWarning.background': alpha(st.warn, 0.08),
     'editorInfo.background': alpha(st.info, 0.08),
+    'problemsErrorIcon.foreground': softStatus(st.error),
     // also text: the warnings and notes of the chat pickers and of the agent permissions, written on menus that Insiders turns to glass
-    'problemsErrorIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.error)),
     'problemsWarningIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
     'problemsInfoIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info),
 
@@ -255,7 +256,7 @@ function tokens(s) {
     'editorHoverWidget.background': elev,
     'editorHoverWidget.foreground': fg,
     'editorHoverWidget.border': line2,
-    'editorHoverWidget.highlightForeground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), y.string),
+    'editorHoverWidget.highlightForeground': readsOn(y.string, elev, 4.5),
     'editorHoverWidget.statusBarBackground': over,
     'editorSuggestWidget.background': elev,
     'editorSuggestWidget.border': line2,
@@ -793,7 +794,8 @@ function integrations(t) {
     'debugExceptionWidget.background': mixOf(bg, st.error, 0.18),
     'debugExceptionWidget.border': st.error,
     // the debug views show their tokens on the raised surface, not on the editor
-    'debugTokenExpression.name': readsOn(y.func, elev, 4.5),
+    // also the labels of a chat attachment's hover, on glass
+    'debugTokenExpression.name': [elev, ...t.glass].reduce((x, g) => readsOn(x, g, 4.5), y.func),
     'debugTokenExpression.value': fg,
     'debugTokenExpression.string': readsOn(y.string, elev, 4.5),
     'debugTokenExpression.number': readsOn(y.number, elev, 4.5),
@@ -828,8 +830,9 @@ function assistant(t) {
     'chat.avatarForeground': fg,
     'chat.slashCommandBackground': alphaOf(acc, 0.14),
     'chat.slashCommandForeground': legible(acc, mixOf(t.hard, acc, 0.16), 5.2),
-    'chat.linesAddedForeground': st.added,
-    'chat.linesRemovedForeground': st.deleted,
+    // also written on the glass hover of an agent session
+    'chat.linesAddedForeground': t.glass.reduce((x, g) => readsOn(x, g, 4.5), st.added),
+    'chat.linesRemovedForeground': t.glass.reduce((x, g) => readsOn(x, g, 4.5), st.deleted),
     'chat.editedFileForeground': st.modified,
     'chat.mcpCompatibilityWarningForeground': t.handStatus ? st.warn : readsOn(st.warn, elev, 4.5),
     'chat.findMatchBackground': alphaOf(y.number, 0.32),

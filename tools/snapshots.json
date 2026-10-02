@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "381e01f1a1bbce6a",
+  "colors": "775b39cacf238ea7",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3980,7 +3980,7 @@
    "editorHoverWidget.background": "#F2F1EC",
    "editorHoverWidget.foreground": "#1B1D22",
    "editorHoverWidget.border": "#c5c5c3",
-   "editorHoverWidget.highlightForeground": "#3b781f",
+   "editorHoverWidget.highlightForeground": "#3D7A1F",
    "editorHoverWidget.statusBarBackground": "#e2e1dd",
    "editorSuggestWidget.background": "#F2F1EC",
    "editorSuggestWidget.border": "#c5c5c3",
@@ -4488,7 +4488,7 @@
    "chat.avatarForeground": "#1B1D22",
    "chat.slashCommandBackground": "#3a2fc924",
    "chat.slashCommandForeground": "#3A2FC9",
-   "chat.linesAddedForeground": "#3D7A1F",
+   "chat.linesAddedForeground": "#3b781f",
    "chat.linesRemovedForeground": "#C13A1A",
    "chat.editedFileForeground": "#0D6FA8",
    "chat.mcpCompatibilityWarningForeground": "#8b5f00",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5d0a1cd2243ff595",
+  "colors": "9555b93d0cf186aa",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -30070,7 +30070,7 @@
    "debugConsoleInputIcon.foreground": "#B61CCB",
    "debugExceptionWidget.background": "#edcdd9",
    "debugExceptionWidget.border": "#C70A35",
-   "debugTokenExpression.name": "#0c73a6",
+   "debugTokenExpression.name": "#0c71a3",
    "debugTokenExpression.value": "#152125",
    "debugTokenExpression.string": "#0A3934",
    "debugTokenExpression.number": "#0D6377",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8c94c75661447f26",
+  "colors": "0dc1cffa444f82a5",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32654,7 +32654,7 @@
    "chat.avatarForeground": "#251C18",
    "chat.slashCommandBackground": "#913e0a24",
    "chat.slashCommandForeground": "#7b3509",
-   "chat.linesAddedForeground": "#39773D",
+   "chat.linesAddedForeground": "#38753c",
    "chat.linesRemovedForeground": "#C40A43",
    "chat.editedFileForeground": "#0F638F",
    "chat.mcpCompatibilityWarningForeground": "#913E0A",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "12863f4bb0beb250",
+  "colors": "06cf59a4eec1f6e4",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -35190,7 +35190,7 @@
    "debugConsoleInputIcon.foreground": "#0C5B6A",
    "debugExceptionWidget.background": "#f0cfe7",
    "debugExceptionWidget.border": "#CC0C82",
-   "debugTokenExpression.name": "#3C709E",
+   "debugTokenExpression.name": "#3b6f9c",
    "debugTokenExpression.value": "#162227",
    "debugTokenExpression.string": "#0B6355",
    "debugTokenExpression.number": "#CC0C82",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0ba26b19925e0a88",
+  "colors": "a36afff67c0ccccd",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37229,7 +37229,7 @@
    "editorError.background": "#d70e2114",
    "editorWarning.background": "#565d0b14",
    "editorInfo.background": "#0c658e14",
-   "problemsErrorIcon.foreground": "#ac4d42",
+   "problemsErrorIcon.foreground": "#ae4e43",
    "problemsWarningIcon.foreground": "#565D0B",
    "problemsInfoIcon.foreground": "#0C658E",
    "editorGutter.background": "#F5FAFA",
@@ -37775,7 +37775,7 @@
    "chat.slashCommandBackground": "#0c5e4824",
    "chat.slashCommandForeground": "#0b5944",
    "chat.linesAddedForeground": "#0C5E48",
-   "chat.linesRemovedForeground": "#D70E21",
+   "chat.linesRemovedForeground": "#d50e21",
    "chat.editedFileForeground": "#0C658E",
    "chat.mcpCompatibilityWarningForeground": "#565D0B",
    "chat.findMatchBackground": "#d70e2152",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f48c55b463495fdd",
+  "colors": "72c1e3f664b1d414",
   "tokenColors": "2b3eabd48492e344",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -42386,7 +42386,7 @@
    "editorHoverWidget.background": "#E4DCC9",
    "editorHoverWidget.foreground": "#2C2318",
    "editorHoverWidget.border": "#bfb7a8",
-   "editorHoverWidget.highlightForeground": "#a63916",
+   "editorHoverWidget.highlightForeground": "#A83A16",
    "editorHoverWidget.statusBarBackground": "#d5cfc1",
    "editorSuggestWidget.background": "#E4DCC9",
    "editorSuggestWidget.border": "#bfb7a8",
@@ -47341,7 +47341,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e68a971854f077d4",
+  "colors": "0320c5f7f6260b20",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47983,7 +47983,7 @@
    "chat.avatarForeground": "#2E3036",
    "chat.slashCommandBackground": "#85560624",
    "chat.slashCommandForeground": "#644105",
-   "chat.linesAddedForeground": "#5A6C52",
+   "chat.linesAddedForeground": "#576950",
    "chat.linesRemovedForeground": "#B03A2E",
    "chat.editedFileForeground": "#0F6480",
    "chat.mcpCompatibilityWarningForeground": "#855606",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "15ae2af3881b9204",
+  "colors": "28d9ffcf97639067",
   "tokenColors": "7f0bfb0dcb364090",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55102,7 +55102,7 @@
    "editorHoverWidget.background": "#E3D9C0",
    "editorHoverWidget.foreground": "#2A241A",
    "editorHoverWidget.border": "#beb6a3",
-   "editorHoverWidget.highlightForeground": "#76550d",
+   "editorHoverWidget.highlightForeground": "#7b590e",
    "editorHoverWidget.statusBarBackground": "#d5cdb9",
    "editorSuggestWidget.background": "#E3D9C0",
    "editorSuggestWidget.border": "#beb6a3",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "747d09f230e222aa",
+  "colors": "aff9d9882bd0b4e1",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72915,7 +72915,7 @@
    "editorError.background": "#ab430d14",
    "editorWarning.background": "#7a600014",
    "editorInfo.background": "#5a469414",
-   "problemsErrorIcon.foreground": "#994e2a",
+   "problemsErrorIcon.foreground": "#9b4f2a",
    "problemsWarningIcon.foreground": "#79600d",
    "problemsInfoIcon.foreground": "#5A4694",
    "editorGutter.background": "#F5F0E4",
@@ -73461,7 +73461,7 @@
    "chat.slashCommandBackground": "#c4157e24",
    "chat.slashCommandForeground": "#7f0e52",
    "chat.linesAddedForeground": "#0A6E42",
-   "chat.linesRemovedForeground": "#ab430d",
+   "chat.linesRemovedForeground": "#a9420d",
    "chat.editedFileForeground": "#5A4694",
    "chat.mcpCompatibilityWarningForeground": "#7A6000",
    "chat.findMatchBackground": "#b4470e52",

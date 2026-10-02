@@ -613,7 +613,7 @@
     "debugConsoleInputIcon.foreground": "#0C5B6A",
     "debugExceptionWidget.background": "#f0cfe7",
     "debugExceptionWidget.border": "#CC0C82",
-    "debugTokenExpression.name": "#3C709E",
+    "debugTokenExpression.name": "#3b6f9c",
     "debugTokenExpression.value": "#162227",
     "debugTokenExpression.string": "#0B6355",
     "debugTokenExpression.number": "#CC0C82",

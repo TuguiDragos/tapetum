@@ -104,23 +104,37 @@ const ON_ITS_SURFACE = [
   ['notificationLink.foreground', ['notifications.background']],
   ['editorHoverWidget.highlightForeground', ['editorHoverWidget.background']],
   ['pickerGroup.foreground', ['dropdown.listBackground']],
-  ...['problemsErrorIcon.foreground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => [k, ['menu.background', 'input.background']]),
+  ...['problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => [k, ['menu.background', 'input.background']]),
 ];
 // Insiders draws these surfaces as frosted glass, 50% to 100% of the surface over what lies under it, blurred: text on them,
-// with the wash it sits on, and the surfaces of the theme that can lie under the glass
+// with the wash it sits on (a key, or a share of one over the glass), and the surfaces of the theme that can lie under the glass
+const tint = (k, share) => (c, glass) => mix(glass, over(c[k], glass), share);
 const GLASS = {
-  'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5],
+  'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5], ['icon.foreground', 3.0],
     ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'], ['quickInputList.focusForeground', 4.5, 'quickInputList.focusBackground'],
-    ['quickInputList.focusHighlightForeground', 4.5, 'quickInputList.focusBackground']],
-  'menu.background': [['menu.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'],
-    ['list.hoverForeground', 4.5, 'list.hoverBackground'], ['descriptionForeground', 4.0, 'list.hoverBackground'], ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'],
+    ['quickInputList.focusHighlightForeground', 4.5, 'quickInputList.focusBackground'],
+    // Quick Chat lays a chat on it
+    ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['textPreformat.foreground', 4.5, 'textPreformat.background'],
+    ['foreground', 4.5, 'chat.requestBubbleBackground'], ['chat.linesAddedForeground', 4.5], ['chat.linesRemovedForeground', 4.5]],
+  // the action widget, and the context menus through a style Insiders injects
+  'menu.background': [['menu.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'], ['list.hoverForeground', 4.5, 'list.hoverBackground'], ['descriptionForeground', 4.0, 'list.hoverBackground'], ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'],
     ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5],
-    ['badge.foreground', 4.5, 'badge.background'], ['input.foreground', 4.5, 'input.background']],
-  'editorHoverWidget.background': [['editorHoverWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5],
-    ['editorHoverWidget.highlightForeground', 4.5], ['errorForeground', 4.5], ['editorHoverWidget.foreground', 4.5, 'textCodeBlock.background'],
-    ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground'], ['textPreformat.foreground', 4.5, 'textPreformat.background']],
-  'editorWidget.background': [['editorWidget.foreground', 4.5], ['descriptionForeground', 4.0]],
-  'notifications.background': [['notifications.foreground', 4.5], ['descriptionForeground', 4.0], ['notificationLink.foreground', 4.5],
+    ['badge.foreground', 4.5, 'badge.background'], ['input.foreground', 4.5, 'input.background'], ['icon.foreground', 3.0],
+    // the model picker of chat
+    ['modernTab.activeForeground', 4.5, 'modernTab.activeBackground'], ['modernTab.hoverForeground', 4.5, 'modernTab.hoverBackground'],
+    ['foreground', 4.5, 'toolbar.hoverBackground'], ['foreground', 4.5, 'chat.requestBubbleBackground'], ['foreground', 4.5, tint('button.background', 0.18)],
+    ['descriptionForeground', 4.0, tint('foreground', 0.10)], ['foreground', 4.5, tint('foreground', 0.10)], ['foreground', 4.5, tint('charts.green', 0.22)],
+    ['foreground', 4.5, tint('editorWarning.foreground', 0.22)]],
+  'editorHoverWidget.background': [['editorHoverWidget.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5],
+    ['textLink.activeForeground', 4.5], ['icon.foreground', 3.0], ['editorHoverWidget.foreground', 4.5, 'textCodeBlock.background'],
+    ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground'],
+    // the hovers of a page with a bad certificate, an agent session, a chat attachment, a pull request or an issue, a chat model
+    ['errorForeground', 4.5], ['chat.linesAddedForeground', 4.5], ['chat.linesRemovedForeground', 4.5], ['debugTokenExpression.name', 4.5], ['editor.foreground', 4.5],
+    ['editor.foreground', 4.5, 'textCodeBlock.background'], ['textLink.foreground', 4.5, 'textCodeBlock.background'], ['descriptionForeground', 4.0, 'textCodeBlock.background'],
+    ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0], ['extensionIcon.verifiedForeground', 3.0],
+    ...['testing.iconFailed', 'testing.iconPassed', 'testing.iconQueued', 'charts.green', 'charts.purple', 'charts.red'].map((k) => [k, 3.0, 'textCodeBlock.background'])],
+  'editorWidget.background': [['editorWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['icon.foreground', 3.0]],
+  'notifications.background': [['notifications.foreground', 4.5], ['descriptionForeground', 4.0], ['notificationLink.foreground', 4.5], ['icon.foreground', 3.0],
     ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]],
 };
 const UNDER_GLASS = ['editor.background', 'sideBar.background', 'panel.background', 'statusBar.background', 'titleBar.activeBackground', 'activityBar.background',
@@ -525,12 +539,12 @@ function analyse(fam, v) {
   }
   if (!hc) for (const [s, texts] of Object.entries(GLASS)) for (const [k, floor, wash] of texts) {
     for (const u of UNDER_GLASS) {
-      const glass = mix(over(c[u], eb), over(c[s], eb), 0.5), ground = wash ? over(c[wash], glass) : glass;
+      const glass = mix(over(c[u], eb), over(c[s], eb), 0.5), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
       const cr = contrast(over(c[k], ground), ground);
-      if (cr < floor) bad('glass', `${k}${wash ? ` on ${wash}` : ''} on ${s} as glass at half over ${u}, at ${down(cr)}, under ${floor}`);
+      if (cr < floor) bad('glass', `${k}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at half over ${u}, at ${down(cr)}, under ${floor}`);
     }
     // over content the theme does not paint, a white page under a dark theme or a black image under a light one, at the default 80%
-    const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = wash ? over(c[wash], glass) : glass;
+    const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
     pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(over(c[k], ground), ground), floor);
   }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
