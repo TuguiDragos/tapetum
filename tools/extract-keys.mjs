@@ -5,7 +5,7 @@ import { appRoot, outDir } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = appRoot();
-const ID = '[a-zA-Z][A-Za-z0-9]*(?:\\.[A-Za-z0-9]+)*';
+const ID = '[a-zA-Z][A-Za-z0-9-]*(?:\\.[A-Za-z0-9-]+)*';
 const LOCALIZE = '[A-Za-z_$][\\w$]*\\(\\d+,\\s*null\\)';
 const LOCALIZED = new RegExp(`^${LOCALIZE}`);
 
@@ -57,8 +57,8 @@ export function registrations(src, fn) {
     if (a.length < 3) return;
     found.set(id, { binding: binding || null, defaults: a[1], deprecated: a.length >= 5 && LOCALIZED.test(a[4]), pos: m.index });
   };
-  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*"(${ID})"\\s*,`, 'g');
-  for (const m of src.matchAll(re)) add(m[2], m, m[1]);
+  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*(["\`])(${ID})\\2\\s*,`, 'g');
+  for (const m of src.matchAll(re)) add(m[3], m, m[1]);
   // a few editors pass the id through a constant bound once to a string: X="a.b";…;fn(X,…,"description")
   const constants = new Map();
   for (const m of src.matchAll(new RegExp(`(?<![\\w$.])([A-Za-z_$][\\w$]*)\\s*=\\s*"(${ID}\\.${ID})"`, 'g'))) constants.set(m[1], constants.has(m[1]) ? null : m[2]);

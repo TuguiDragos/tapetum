@@ -41,7 +41,8 @@ function resolveApp(p) {
 const app = resolveApp(given);
 const product = JSON.parse(fs.readFileSync(path.join(app, 'product.json'), 'utf8'));
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
-const core = product.vscodeVersion || product.vsCodeVersion;
+const own = product.positronVersion || product.windsurfVersion || product.ideVersion || product.appVersion || product.voidVersion || product.version;
+const core = product.vscodeVersion || product.vsCodeVersion || (own !== product.version ? product.version : undefined);
 const RUN = fs.mkdtempSync(path.join(os.tmpdir(), `tapetum-${name}-`));
 const SKIP = new Set(['.git', 'node_modules', '.vscode-test', '_shots']);
 fs.cpSync(ROOT, RUN, {
@@ -60,7 +61,7 @@ const env = { ...process.env, VSCODE_APP: app };
 const run = (tool) => spawnSync(process.execPath, [path.join(RUN, 'tools', tool)], { env, encoding: 'utf8', cwd: RUN, maxBuffer: 64 * 1024 * 1024 });
 const list = (arr, max = 12) => (arr.length ? arr.slice(0, max).join(', ') + (arr.length > max ? `, and ${arr.length - max} more` : '') : 'none');
 
-console.log(`${name}: ${product.nameLong} ${product.version}${core && core !== product.version ? ` on VS Code ${core}` : ''}${product.date ? `, built ${product.date.slice(0, 10)}` : ''}`);
+console.log(`${name}: ${product.nameLong} ${own}${core && core !== own ? ` on VS Code ${core}` : ''}${product.date ? `, built ${product.date.slice(0, 10)}` : ''}`);
 console.log(`Tapetum ${pkg.version}, the working tree, copied to ${RUN}\n`);
 
 for (const t of ['extract-keys.mjs', 'extract-pairs.mjs', 'extract-derivations.mjs']) {
@@ -70,7 +71,8 @@ for (const t of ['extract-keys.mjs', 'extract-pairs.mjs', 'extract-derivations.m
     cleanup();
     process.exit(1);
   }
-  console.log(r.stdout.trim().split('\n').slice(0, 3).join('\n'));
+  const lines = r.stdout.trim().split('\n'), end = lines.findIndex((l) => /^\s+contributed/.test(l));
+  console.log(lines.slice(0, end > 0 ? end : 3).join('\n'));
 }
 
 const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/vscode-color-keys-full.json'), 'utf8'));
@@ -167,6 +169,6 @@ const realTotal = sum(real.analyze) + sum(real.audit) + sum(real.deep) + (instal
 const ran = Object.keys(VERDICT).every((t) => verdicts[t] !== undefined && (exits[t] === 0) === verdicts[t]);
 for (const t of Object.keys(VERDICT)) if (verdicts[t] === undefined || (exits[t] === 0) !== verdicts[t]) console.log(`${t} did not run to the end: exit ${exits[t]}, verdict ${verdicts[t] === undefined ? 'missing' : verdicts[t] ? 'pass' : 'fail'}`);
 const complete = seen === pkg.contributes.themes.length && ran;
-console.log(`\n${realTotal === 0 && complete ? 'PASS' : 'FAIL'} on ${product.nameLong} ${product.version}: ${realTotal} real problems${complete ? '' : ', and a check did not run to the end'}`);
+console.log(`\n${realTotal === 0 && complete ? 'PASS' : 'FAIL'} on ${product.nameLong} ${own}: ${realTotal} real problems${complete ? '' : ', and a check did not run to the end'}`);
 cleanup();
 process.exit(realTotal === 0 && complete ? 0 : 1);
