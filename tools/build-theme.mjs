@@ -59,8 +59,11 @@ function tokens(s) {
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   // links also sit on the status bar of a hover, which is the overlay surface; a hovered link also names a hovered card of the
   // customization discovery, the list hover over 4% of the text on the widget
-  const linkOf = (c) => faded([over, ...glass].reduce((x, g) => readsOn(x, g, 4.5), legible(legible(c, bg, 4.5), elev, 4.5)), bg, 0.9, 4.5);
-  const activeLinkOf = (c) => faded(readsOn(legible(legible(c, bg, 4.5), elev, 4.5), composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), 4.5), bg, 0.9, 4.5);
+  // a link written as code lies on the code wash (the number colour at 10%) in chat answers and dropdown descriptions, and a hovered
+  // code block pill puts it on the list hover (6% of the text)
+  const onCode = [bg, elev].map((g) => composite(alpha(s.syntax.number, 0.10), g));
+  const linkOf = (c) => faded([over, ...glass, ...onCode, mix(bg, fg, 0.06), mix(elev, fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), legible(legible(c, bg, 4.5), elev, 4.5)), bg, 0.9, 4.5);
+  const activeLinkOf = (c) => faded([composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), onCode[1]].reduce((x, g) => readsOn(x, g, 4.5), legible(legible(c, bg, 4.5), elev, 4.5)), bg, 0.9, 4.5);
   // a link is told from the text beside it by its colour alone, so where the function colour sits on the text it takes the family accent
   const apartFromText = (c) => deltaE(c, fg) >= 12;
   const linkSource = [s.syntax.func, acc, s.syntax.keyword, s.syntax.string, s.syntax.type, s.syntax.number, s.syntax.tag].find((c) => apartFromText(linkOf(c))) || acc;
@@ -141,7 +144,8 @@ function tokens(s) {
     // also the heading of the integrated browser's certificate hover, on glass
     errorForeground: glass.reduce((x, g) => readsOn(x, g, 4.5), legible(legible(st.error, bg, 4.5), elev, 4.5)),
     focusBorder: focusRing,
-    'icon.foreground': dim,
+    // also the + and - of a diff, at 70% on the gutter washes, and the label of a chat picker on the pane or the input, plain or open
+    'icon.foreground': hc ? dim : [elev, field, bg].flatMap((g) => [g, mix(g, fg, 0.06)]).reduce((x, g) => readsOn(x, g, 4.5), gutterGrounds.reduce((x, g) => faded(x, g, 0.7, 3.0), dim)),
     'selection.background': sel,
     'widget.border': line2,
     'widget.shadow': sh(0.26),
@@ -493,7 +497,8 @@ function chrome(t) {
 
     'statusBar.background': ch,
     'statusBar.inactiveBackground': ch,
-    'statusBar.foreground': legible(dim, ch, 4.5),
+    // also beside a hovered compact entry, which VS Code paints with the hover background, high contrast aside
+    'statusBar.foreground': t.hc ? legible(dim, ch, 4.5) : readsOn(legible(dim, ch, 4.5), composite(alphaOf(fg, 0.1), ch), 4.5),
     'statusBar.border': line,
     'statusBar.debuggingBackground': st.warn,
     'statusBar.debuggingForeground': onColor(st.warn),
@@ -509,7 +514,8 @@ function chrome(t) {
     'statusBarItem.prominentBackground': alphaOf(fg, 0.14),
     'statusBarItem.prominentForeground': fg,
     'statusBarItem.prominentHoverBackground': alphaOf(fg, 0.2),
-    'statusBarItem.prominentHoverForeground': fg,
+    // its hover wash lies over the item's own
+    'statusBarItem.prominentHoverForeground': readsOn(fg, composite(alphaOf(fg, 0.2), composite(alphaOf(fg, 0.14), ch)), 4.5),
     ...remoteIndicator(t),
     'statusBarItem.errorBackground': st.error,
     'statusBarItem.errorForeground': onColor(st.error),
@@ -664,6 +670,9 @@ function integrations(t) {
     return lighten(c, 0.02);
   };
   const { sh, bg, elev, over, fg, dim, faint, line, line2, acc, st, y, dark } = t;
+  // the matched word of a reference in the peek keeps the text colour on its wash, the row plain, selected or hovered (6%)
+  let refK = 0.3;
+  while (refK > 0.1 && [elev, over, mix(elev, fg, 0.06)].some((g) => contrast(fg, composite(alphaOf(y.number, refK), g)) < 4.5)) refK = Math.round(refK * 100 - 1) / 100;
   const termWash = (c, start, floor, step) => {
     let a = start;
     while (a > floor && contrast(fg, composite(alpha(c, a / 100), termBg)) < 4.5) a -= step;
@@ -759,7 +768,7 @@ function integrations(t) {
     'peekViewResult.background': elev,
     'peekViewResult.fileForeground': fg,
     'peekViewResult.lineForeground': dim,
-    'peekViewResult.matchHighlightBackground': alphaOf(y.number, 0.3),
+    'peekViewResult.matchHighlightBackground': alphaOf(y.number, refK),
     'peekViewResult.selectionBackground': over,
     'peekViewResult.selectionForeground': fg,
     'peekViewTitle.background': elev,

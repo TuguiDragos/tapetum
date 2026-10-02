@@ -344,7 +344,7 @@
     "statusBarItem.prominentBackground": "#dedcd624",
     "statusBarItem.prominentForeground": "#DEDCD6",
     "statusBarItem.prominentHoverBackground": "#dedcd633",
-    "statusBarItem.prominentHoverForeground": "#DEDCD6",
+    "statusBarItem.prominentHoverForeground": "#e0ded8",
     "statusBarItem.remoteBackground": "#93AAC4",
     "statusBarItem.remoteForeground": "#101014",
     "statusBarItem.remoteHoverBackground": "#a0b4cb",

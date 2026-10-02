@@ -572,7 +572,7 @@
     "peekViewResult.background": "#242427",
     "peekViewResult.fileForeground": "#D2D2D6",
     "peekViewResult.lineForeground": "#9c9c9f",
-    "peekViewResult.matchHighlightBackground": "#c8c8ce4d",
+    "peekViewResult.matchHighlightBackground": "#c8c8ce45",
     "peekViewResult.selectionBackground": "#313133",
     "peekViewResult.selectionForeground": "#D2D2D6",
     "peekViewTitle.background": "#242427",
