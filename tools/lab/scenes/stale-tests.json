@@ -1,0 +1,45 @@
+{
+ "settings": {
+  "testing.gutterEnabled": true
+ },
+ "setup": [
+  {
+   "op": "open",
+   "path": "checks.test.js"
+  },
+  {
+   "op": "tests",
+   "path": "checks.test.js",
+   "retire": true
+  },
+  {
+   "op": "wait",
+   "ms": 1200
+  },
+  {
+   "op": "exec",
+   "id": "workbench.view.testing.focus"
+  },
+  {
+   "op": "wait",
+   "ms": 1200
+  }
+ ],
+ "scenes": [
+  {
+   "name": "stale-tests_passepartout-light",
+   "theme": "Tapetum Passepartout Light",
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const icon = (e) => ({ class: e.className, color: getComputedStyle(e).color, box: box(e) }); return { tree: [...document.querySelectorAll('.test-explorer .computed-state.retired')].map(icon), gutter: [...document.querySelectorAll('.testing-run-glyph.retired')].map(icon) }; })()"
+  },
+  {
+   "name": "stale-tests_passepartout",
+   "theme": "Tapetum Passepartout",
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const icon = (e) => ({ class: e.className, color: getComputedStyle(e).color, box: box(e) }); return { tree: [...document.querySelectorAll('.test-explorer .computed-state.retired')].map(icon), gutter: [...document.querySelectorAll('.testing-run-glyph.retired')].map(icon) }; })()"
+  },
+  {
+   "name": "stale-tests_hadal-light",
+   "theme": "Tapetum Hadal Light",
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const icon = (e) => ({ class: e.className, color: getComputedStyle(e).color, box: box(e) }); return { tree: [...document.querySelectorAll('.test-explorer .computed-state.retired')].map(icon), gutter: [...document.querySelectorAll('.testing-run-glyph.retired')].map(icon) }; })()"
+  }
+ ]
+}

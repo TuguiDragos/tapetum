@@ -1,0 +1,16 @@
+/* Stylesheet for the lab */
+:root {
+  --accent: #3a7bd5;
+  --radius: 6px;
+}
+
+.card {
+  display: flex;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  color: rgb(40 40 40);
+}
+
+.card:hover {
+  outline: 2px solid var(--accent);
+}

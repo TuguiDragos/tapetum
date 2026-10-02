@@ -1,0 +1,69 @@
+{
+ "settings": {
+  "chat.agentsControl.enabled": false
+ },
+ "scenes": [
+  {
+   "name": "inactive-window_coherence-light",
+   "theme": "Tapetum Coherence Light",
+   "actions": [
+    {
+     "op": "focusEmulation",
+     "enabled": false
+    },
+    {
+     "op": "blurWindow"
+    },
+    {
+     "op": "wait",
+     "ms": 1500
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const bar = document.querySelector('.part.titlebar'), center = document.querySelector('.command-center .action-item.command-center-center'); return { inactive: bar.classList.contains('inactive'), focused: document.hasFocus(), bar: getComputedStyle(bar).backgroundColor, center: center && { color: getComputedStyle(center).color, background: getComputedStyle(center).backgroundColor, box: box(center) } }; })()",
+   "after": [
+    {
+     "op": "focusWindow"
+    },
+    {
+     "op": "focusEmulation",
+     "enabled": true
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "name": "inactive-window_riso",
+   "theme": "Tapetum Riso",
+   "actions": [
+    {
+     "op": "focusEmulation",
+     "enabled": false
+    },
+    {
+     "op": "blurWindow"
+    },
+    {
+     "op": "wait",
+     "ms": 1500
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const bar = document.querySelector('.part.titlebar'), center = document.querySelector('.command-center .action-item.command-center-center'); return { inactive: bar.classList.contains('inactive'), focused: document.hasFocus(), bar: getComputedStyle(bar).backgroundColor, center: center && { color: getComputedStyle(center).color, background: getComputedStyle(center).backgroundColor, box: box(center) } }; })()",
+   "after": [
+    {
+     "op": "focusWindow"
+    },
+    {
+     "op": "focusEmulation",
+     "enabled": true
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    }
+   ]
+  }
+ ]
+}

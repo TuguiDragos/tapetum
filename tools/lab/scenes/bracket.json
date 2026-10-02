@@ -1,0 +1,56 @@
+{
+ "scenes": [
+  {
+   "name": "bracket_palimpsest",
+   "theme": "Tapetum Palimpsest",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 4
+    },
+    {
+     "op": "cursor",
+     "line": 4,
+     "col": 24
+    },
+    {
+     "op": "wait",
+     "ms": 1000
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays .bracket-match')].map((b) => ({ color: getComputedStyle(b).backgroundColor, under: [...b.parentElement.children].map((c) => c.className), box: box(b) })); })()"
+  },
+  {
+   "name": "bracket_stratum-light",
+   "theme": "Tapetum Stratum Light",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 4
+    },
+    {
+     "op": "cursor",
+     "line": 4,
+     "col": 24
+    },
+    {
+     "op": "wait",
+     "ms": 1000
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays .bracket-match')].map((b) => ({ color: getComputedStyle(b).backgroundColor, under: [...b.parentElement.children].map((c) => c.className), box: box(b) })); })()"
+  }
+ ]
+}

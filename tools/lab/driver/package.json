@@ -1,0 +1,11 @@
+{
+  "name": "tapetum-lab-driver",
+  "displayName": "Tapetum Lab Driver",
+  "description": "Drives an editor for the Tapetum lab: themes, settings, commands, editors and test runs, from command files.",
+  "publisher": "tapetum-lab",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "vscode": "^1.99.0" },
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"]
+}
