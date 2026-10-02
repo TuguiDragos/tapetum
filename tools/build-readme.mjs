@@ -296,9 +296,9 @@ below it, is caught before it ships.
 \`tools/deep.mjs\` measures what the stylesheets set apart: the colours VS Code
 paints on whatever surface a component sits on, read on every one of those
 surfaces, text whose surface comes from another rule, text on the frosted glass
-of VS Code Insiders over every surface of the theme, and the tab strip, which
-with the line VS Code 1.140 draws around the active connected tab is what sets
-that tab apart from the rest.
+of VS Code Insiders over each surface of the theme that lies under it, and the
+tab strip, which with the line VS Code 1.140 draws around the active connected
+tab is what sets that tab apart from the rest.
 The files the extractors write are committed, checked in CI against every
 theme, and checked again by a monthly workflow that downloads the current VS Code
 build, extracts them anew and opens an issue when anything moved, so a new

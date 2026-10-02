@@ -47,8 +47,11 @@ or bold italic, meant for its name. Only the name keeps it now.
 - File names marked by errors, warnings or git: on the tab strip in 24 themes,
   on a hovered tab, which VS Code paints as the text at 6% over the strip, in
   34, and on a hovered, inactive selected or focused row of the side bar in
-  25. Palettes that place their status colours by hand keep their own, moved
-  at the source just enough to read, by about 3 dE.
+  32. Palettes that place their status colours by hand keep their own, moved
+  at the source just enough to read, by about 3 dE. The letter VS Code writes
+  beside such a name at 75%, the only status mark of the source control view,
+  keeps 3 to 1 on the side bar, its rows and the tab strip, hovered or not;
+  it fell short in 29 themes, as low as 2.44.
 - The default marked beside an option of a Settings dropdown, which took the
   accent as it is, in 4 light themes.
 - A hovered name in the Customizations view, in 11 themes.
@@ -76,8 +79,8 @@ or bold italic, meant for its name. Only the name keeps it now.
   regular themes. It takes the selection's own colour now, as VS Code draws
   it, and looks the same on the editor; on a selection it adds nothing.
 - A link is told from the text beside it by its colour alone, and in the 13
-  themes with grey or nearly grey syntax it took the function colour, which
-  sits on the text. It takes the family accent there now, Safelight its
+  themes whose function colour is grey or nearly grey it took that colour,
+  which sits on the text. It takes the family accent there now, Safelight its
   salmon, at least 12 dE from the text.
 - A renamed file or a submodule took a colour close to plain names in 5 quiet
   themes, and so did a new file in Safelight. Each stands 10 dE apart now.
@@ -113,16 +116,17 @@ Antigravity no longer trades them for a grey or white variant of its own.
 Devin's session states, Cursor's worktree tab border and empty editor
 watermark, the charts of Positron's data explorer, Trae's secondary text and
 the accent of Kiro's agent chat take family colours that read. Void's inline
-review, where the wash is the only mark of an edited line, takes the diff
-washes at the strength of a changed word, so added and removed lines stand
-apart in every theme.
+review, where in the text the wash is the only mark of an edited line, takes
+the diff washes at the strength of a changed word, so added and removed lines
+stand apart in every theme.
 
 **Frosted glass.** VS Code Insiders draws the quick input, menus, hovers,
 dialogs and notifications as frosted glass. Their text keeps its floor over
-every surface of the theme, at any strength the setting allows, which moves
-links, errors, highlights and the text of warnings a little in 13 light
-themes. Over a white page or a black image under the glass, no theme can
-promise it.
+the editor, the side bar, the panel, the bars, the tab strip and the terminal
+beneath, at any strength the setting allows, which moves links, errors,
+warnings, notes, the lines of a chat session and debug names a little in 15
+light themes. Over a selection, a button, a white page or a black image under
+the glass, it can fall short.
 
 ### Changed
 
