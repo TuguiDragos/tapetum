@@ -1,0 +1,4 @@
+[
+  { "id": 1, "name": "lamp", "price": 24.5, "tags": ["home"] },
+  { "id": 2, "name": "desk", "price": 180, "tags": ["office", "wood"] }
+]

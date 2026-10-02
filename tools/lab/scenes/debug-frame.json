@@ -1,0 +1,147 @@
+{
+ "settings": {
+  "debug.openDebug": "neverOpen",
+  "debug.internalConsoleOptions": "neverOpen",
+  "debug.toolBarLocation": "docked"
+ },
+ "scenes": [
+  {
+   "name": "top-frame_riso",
+   "theme": "Tapetum Riso",
+   "actions": [
+    {
+     "op": "open",
+     "path": "stop.js"
+    },
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.start"
+    },
+    {
+     "op": "wait",
+     "ms": 9000
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()"
+  },
+  {
+   "name": "focused-frame_riso",
+   "theme": "Tapetum Riso",
+   "actions": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.callStackDown"
+    },
+    {
+     "op": "wait",
+     "ms": 2500
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()",
+   "after": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.stop"
+    },
+    {
+     "op": "wait",
+     "ms": 3000
+    }
+   ]
+  },
+  {
+   "name": "top-frame_quantum",
+   "theme": "Tapetum Quantum",
+   "actions": [
+    {
+     "op": "open",
+     "path": "stop.js"
+    },
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.start"
+    },
+    {
+     "op": "wait",
+     "ms": 9000
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()"
+  },
+  {
+   "name": "focused-frame_quantum",
+   "theme": "Tapetum Quantum",
+   "actions": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.callStackDown"
+    },
+    {
+     "op": "wait",
+     "ms": 2500
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()",
+   "after": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.stop"
+    },
+    {
+     "op": "wait",
+     "ms": 3000
+    }
+   ]
+  },
+  {
+   "name": "top-frame_stratum-light",
+   "theme": "Tapetum Stratum Light",
+   "actions": [
+    {
+     "op": "open",
+     "path": "stop.js"
+    },
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.start"
+    },
+    {
+     "op": "wait",
+     "ms": 9000
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()"
+  },
+  {
+   "name": "focused-frame_stratum-light",
+   "theme": "Tapetum Stratum Light",
+   "actions": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.callStackDown"
+    },
+    {
+     "op": "wait",
+     "ms": 2500
+    }
+   ],
+   "settle": 1500,
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; const lines = [...document.querySelectorAll('.view-overlays .debug-top-stack-frame-line, .view-overlays .debug-focused-stack-frame-line')]; return lines.map((l) => ({ class: l.className, color: getComputedStyle(l).backgroundColor, under: [...l.parentElement.children].map((c) => c.className), box: box(l) })); })()",
+   "after": [
+    {
+     "op": "execNoWait",
+     "id": "workbench.action.debug.stop"
+    },
+    {
+     "op": "wait",
+     "ms": 3000
+    }
+   ]
+  }
+ ]
+}

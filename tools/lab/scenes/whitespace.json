@@ -1,0 +1,112 @@
+{
+ "scenes": [
+  {
+   "name": "whitespace_safelight-light",
+   "theme": "Tapetum Safelight Light",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 17
+    },
+    {
+     "op": "cursor",
+     "line": 17,
+     "col": 1,
+     "endCol": 30
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays svg')].map((s) => ({ fill: s.getAttribute('fill'), box: box(s) })); })()"
+  },
+  {
+   "name": "whitespace_safelight",
+   "theme": "Tapetum Safelight",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 17
+    },
+    {
+     "op": "cursor",
+     "line": 17,
+     "col": 1,
+     "endCol": 30
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays svg')].map((s) => ({ fill: s.getAttribute('fill'), box: box(s) })); })()"
+  },
+  {
+   "name": "whitespace_hadal",
+   "theme": "Tapetum Hadal",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 17
+    },
+    {
+     "op": "cursor",
+     "line": 17,
+     "col": 1,
+     "endCol": 30
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays svg')].map((s) => ({ fill: s.getAttribute('fill'), box: box(s) })); })()"
+  },
+  {
+   "name": "whitespace_silverpoint-light",
+   "theme": "Tapetum Silverpoint Light",
+   "actions": [
+    {
+     "op": "open",
+     "path": "src/app.ts",
+     "line": 17
+    },
+    {
+     "op": "cursor",
+     "line": 17,
+     "col": 1,
+     "endCol": 30
+    },
+    {
+     "op": "wait",
+     "ms": 800
+    },
+    {
+     "op": "mouse",
+     "x": 1400,
+     "y": 900
+    }
+   ],
+   "probe": "(() => { const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }; return [...document.querySelectorAll('.view-overlays svg')].map((s) => ({ fill: s.getAttribute('fill'), box: box(s) })); })()"
+  }
+ ]
+}

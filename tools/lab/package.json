@@ -1,0 +1,8 @@
+{
+  "name": "tapetum-lab",
+  "private": true,
+  "description": "Runs Tapetum's themes in an isolated editor and measures the pixels it paints.",
+  "dependencies": {
+    "playwright-core": "1.63.0"
+  }
+}
