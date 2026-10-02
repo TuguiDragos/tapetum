@@ -523,7 +523,7 @@
     "scmGraph.historyItemBaseRefColor": "#915431",
     "scmGraph.historyItemHoverLabelForeground": "#EBF2F6",
     "scmGraph.historyItemHoverAdditionsForeground": "#0A6D46",
-    "scmGraph.historyItemHoverDeletionsForeground": "#975661",
+    "scmGraph.historyItemHoverDeletionsForeground": "#92535e",
     "diffEditor.insertedLineBackground": "#0a6d4613",
     "diffEditor.removedLineBackground": "#97566113",
     "diffEditor.insertedTextBackground": "#0a6d4628",

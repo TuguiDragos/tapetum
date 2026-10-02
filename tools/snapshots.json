@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "969873931c9d2ae2",
+  "colors": "2b0dfe406994a6a3",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1814,7 +1814,7 @@
    "scmGraph.historyItemBaseRefColor": "#af4900",
    "scmGraph.historyItemHoverLabelForeground": "#F0F2F9",
    "scmGraph.historyItemHoverAdditionsForeground": "#06704A",
-   "scmGraph.historyItemHoverDeletionsForeground": "#C42B7B",
+   "scmGraph.historyItemHoverDeletionsForeground": "#bc2977",
    "diffEditor.insertedLineBackground": "#06704a0f",
    "diffEditor.removedLineBackground": "#c42b7b0f",
    "diffEditor.insertedTextBackground": "#06704a20",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "359fa9096bad4d7f",
+  "colors": "ef9a944aa492c459",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -4373,8 +4373,8 @@
    "scmGraph.historyItemRemoteRefColor": "#3A2FC9",
    "scmGraph.historyItemBaseRefColor": "#C13A1A",
    "scmGraph.historyItemHoverLabelForeground": "#F2F1EC",
-   "scmGraph.historyItemHoverAdditionsForeground": "#3D7A1F",
-   "scmGraph.historyItemHoverDeletionsForeground": "#C13A1A",
+   "scmGraph.historyItemHoverAdditionsForeground": "#39741d",
+   "scmGraph.historyItemHoverDeletionsForeground": "#b93819",
    "diffEditor.insertedLineBackground": "#3d7a1f0f",
    "diffEditor.removedLineBackground": "#c13a1a0f",
    "diffEditor.insertedTextBackground": "#3d7a1f20",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "96744e7d7b8dd6a4",
+  "colors": "d356a3dfc800fa78",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6933,8 +6933,8 @@
    "scmGraph.historyItemRemoteRefColor": "#6B3FA8",
    "scmGraph.historyItemBaseRefColor": "#B8402A",
    "scmGraph.historyItemHoverLabelForeground": "#EEEFEA",
-   "scmGraph.historyItemHoverAdditionsForeground": "#3a7413",
-   "scmGraph.historyItemHoverDeletionsForeground": "#B8402A",
+   "scmGraph.historyItemHoverAdditionsForeground": "#397213",
+   "scmGraph.historyItemHoverDeletionsForeground": "#b23e29",
    "diffEditor.insertedLineBackground": "#3a741316",
    "diffEditor.removedLineBackground": "#b8402a16",
    "diffEditor.insertedTextBackground": "#3a74132e",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d90f3e2607f2a44a",
+  "colors": "b61d0c4769631950",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9494,7 +9494,7 @@
    "scmGraph.historyItemBaseRefColor": "#a74c1d",
    "scmGraph.historyItemHoverLabelForeground": "#EFEFF1",
    "scmGraph.historyItemHoverAdditionsForeground": "#22683F",
-   "scmGraph.historyItemHoverDeletionsForeground": "#a74c1d",
+   "scmGraph.historyItemHoverDeletionsForeground": "#a54b1d",
    "diffEditor.insertedLineBackground": "#22683f14",
    "diffEditor.removedLineBackground": "#a74c1d14",
    "diffEditor.insertedTextBackground": "#22683f2b",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "85dc2fde9db54566",
+  "colors": "634bb6e35a1bb03f",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -12054,7 +12054,7 @@
    "scmGraph.historyItemBaseRefColor": "#CF151A",
    "scmGraph.historyItemHoverLabelForeground": "#F3F4F6",
    "scmGraph.historyItemHoverAdditionsForeground": "#0A6830",
-   "scmGraph.historyItemHoverDeletionsForeground": "#CF151A",
+   "scmGraph.historyItemHoverDeletionsForeground": "#cd151a",
    "diffEditor.insertedLineBackground": "#0a683017",
    "diffEditor.removedLineBackground": "#cf151a17",
    "diffEditor.insertedTextBackground": "#0a683030",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7726c100b677cee1",
+  "colors": "d602e07f85ed8c13",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -17180,7 +17180,7 @@
    "scmGraph.historyItemBaseRefColor": "#D20B38",
    "scmGraph.historyItemHoverLabelForeground": "#F3F1F6",
    "scmGraph.historyItemHoverAdditionsForeground": "#0B6912",
-   "scmGraph.historyItemHoverDeletionsForeground": "#D20B38",
+   "scmGraph.historyItemHoverDeletionsForeground": "#cc0b36",
    "diffEditor.insertedLineBackground": "#0b691213",
    "diffEditor.removedLineBackground": "#d20b3813",
    "diffEditor.insertedTextBackground": "#0b691228",
@@ -17932,7 +17932,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f74a22c18026c0a5",
+  "colors": "f7c6386bbd476edf",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -17942,7 +17942,7 @@
   ],
   "values": {
    "foreground": "#C6DCE1",
-   "descriptionForeground": "#8a9ea4",
+   "descriptionForeground": "#8c9fa5",
    "disabledForeground": "#66767d",
    "errorForeground": "#CA828B",
    "focusBorder": "#97ccf299",
@@ -18959,7 +18959,7 @@
    "positronToolTip.background": "#0C1F2B",
    "positronToolTip.border": "#33434b",
    "positronConsole.traceBackground": "#c6dce10d",
-   "positronNotebook.cellFooterForeground": "#8a9ea4",
+   "positronNotebook.cellFooterForeground": "#8c9fa5",
    "positronDataExplorer.invalidFilterBackground": "#1c2029",
    "positronSplitterExpandCollapseButton.foreground": "#97CCF2",
    "diffEditor.insertedTextBackgroundFallback": "#0cc6812e",
@@ -18973,9 +18973,9 @@
    "windsurf.sessionStatus.blue": "#97CCF2",
    "windsurf.sessionStatus.red": "#CA828B",
    "windsurf.sessionStatus.purple": "#B69F4B",
-   "icube.colorGrayText": "#8a9ea4",
-   "icube.colorTextGray": "#8a9ea4",
-   "icube--text-text-secondary": "#8a9ea4",
+   "icube.colorGrayText": "#8c9fa5",
+   "icube.colorTextGray": "#8c9fa5",
+   "icube--text-text-secondary": "#8c9fa5",
    "tab.worktreeBorder": "#B69F4B",
    "editorWatermark.foreground": "#C6DCE1",
    "positronDataExplorer.sparklineFill": "#0FCDD2",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "49b54793a3e92b62",
+  "colors": "bc91542af6910c29",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19740,7 +19740,7 @@
    "scmGraph.historyItemBaseRefColor": "#915431",
    "scmGraph.historyItemHoverLabelForeground": "#EBF2F6",
    "scmGraph.historyItemHoverAdditionsForeground": "#0A6D46",
-   "scmGraph.historyItemHoverDeletionsForeground": "#975661",
+   "scmGraph.historyItemHoverDeletionsForeground": "#92535e",
    "diffEditor.insertedLineBackground": "#0a6d4613",
    "diffEditor.removedLineBackground": "#97566113",
    "diffEditor.insertedTextBackground": "#0a6d4628",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1c4ac4e96951ee8d",
+  "colors": "62b202457ec74104",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24860,7 +24860,7 @@
    "scmGraph.historyItemBaseRefColor": "#CF0B30",
    "scmGraph.historyItemHoverLabelForeground": "#F3F0E4",
    "scmGraph.historyItemHoverAdditionsForeground": "#1F660B",
-   "scmGraph.historyItemHoverDeletionsForeground": "#CF0B30",
+   "scmGraph.historyItemHoverDeletionsForeground": "#cb0b2f",
    "diffEditor.insertedLineBackground": "#1f660b12",
    "diffEditor.removedLineBackground": "#cf0b3012",
    "diffEditor.insertedTextBackground": "#1f660b25",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d8c18757c77c2c02",
+  "colors": "df1b0040f855b7fe",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -27420,7 +27420,7 @@
    "scmGraph.historyItemBaseRefColor": "#BE2A49",
    "scmGraph.historyItemHoverLabelForeground": "#EEEAE1",
    "scmGraph.historyItemHoverAdditionsForeground": "#0B6A3A",
-   "scmGraph.historyItemHoverDeletionsForeground": "#BE2A49",
+   "scmGraph.historyItemHoverDeletionsForeground": "#b82947",
    "diffEditor.insertedLineBackground": "#0b6a3a14",
    "diffEditor.removedLineBackground": "#be2a4914",
    "diffEditor.insertedTextBackground": "#0b6a3a2b",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc7d367458fd1acb",
+  "colors": "b792e7ff9e52bc73",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29979,7 +29979,7 @@
    "scmGraph.historyItemRemoteRefColor": "#0B4496",
    "scmGraph.historyItemBaseRefColor": "#ad1bc1",
    "scmGraph.historyItemHoverLabelForeground": "#EAF0F8",
-   "scmGraph.historyItemHoverAdditionsForeground": "#0C7638",
+   "scmGraph.historyItemHoverAdditionsForeground": "#0c7537",
    "scmGraph.historyItemHoverDeletionsForeground": "#C70A35",
    "diffEditor.insertedLineBackground": "#0c76380f",
    "diffEditor.removedLineBackground": "#c70a350f",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2662b6cde3f5c7c2",
+  "colors": "98228e5e36bbdaf8",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32539,7 +32539,7 @@
    "scmGraph.historyItemRemoteRefColor": "#6D57B4",
    "scmGraph.historyItemBaseRefColor": "#913E0A",
    "scmGraph.historyItemHoverLabelForeground": "#F2ECDF",
-   "scmGraph.historyItemHoverAdditionsForeground": "#39773D",
+   "scmGraph.historyItemHoverAdditionsForeground": "#346f38",
    "scmGraph.historyItemHoverDeletionsForeground": "#C40A43",
    "diffEditor.insertedLineBackground": "#39773d13",
    "diffEditor.removedLineBackground": "#c40a4313",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b856ebe355db2d46",
+  "colors": "440b13da22751590",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -35100,7 +35100,7 @@
    "scmGraph.historyItemBaseRefColor": "#8F5621",
    "scmGraph.historyItemHoverLabelForeground": "#EEF2F7",
    "scmGraph.historyItemHoverAdditionsForeground": "#0B6355",
-   "scmGraph.historyItemHoverDeletionsForeground": "#CC0C82",
+   "scmGraph.historyItemHoverDeletionsForeground": "#c40c7c",
    "diffEditor.insertedLineBackground": "#0b635513",
    "diffEditor.removedLineBackground": "#cc0c8213",
    "diffEditor.insertedTextBackground": "#0b635528",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a0931bb4fdd1cf79",
+  "colors": "9ce46c9c19039390",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37660,7 +37660,7 @@
    "scmGraph.historyItemBaseRefColor": "#D70E21",
    "scmGraph.historyItemHoverLabelForeground": "#EBF2F2",
    "scmGraph.historyItemHoverAdditionsForeground": "#0C5E48",
-   "scmGraph.historyItemHoverDeletionsForeground": "#D70E21",
+   "scmGraph.historyItemHoverDeletionsForeground": "#cb0e1f",
    "diffEditor.insertedLineBackground": "#0c5e4813",
    "diffEditor.removedLineBackground": "#d70e2113",
    "diffEditor.insertedTextBackground": "#0c5e4828",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cd2fbf724065c32f",
+  "colors": "abb11fc18311f61e",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -40220,7 +40220,7 @@
    "scmGraph.historyItemBaseRefColor": "#AE350A",
    "scmGraph.historyItemHoverLabelForeground": "#F1ECE6",
    "scmGraph.historyItemHoverAdditionsForeground": "#0A732E",
-   "scmGraph.historyItemHoverDeletionsForeground": "#c90a38",
+   "scmGraph.historyItemHoverDeletionsForeground": "#c70a37",
    "diffEditor.insertedLineBackground": "#0a732e11",
    "diffEditor.removedLineBackground": "#c90a3811",
    "diffEditor.insertedTextBackground": "#0a732e23",
@@ -43532,7 +43532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dcdd9e1575e34662",
+  "colors": "e070baf0ddbeecf2",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -43542,7 +43542,7 @@
   ],
   "values": {
    "foreground": "#C4D2CE",
-   "descriptionForeground": "#8e9997",
+   "descriptionForeground": "#919c9a",
    "disabledForeground": "#6C7975",
    "errorForeground": "#FF6E92",
    "focusBorder": "#3fe8be99",
@@ -44559,7 +44559,7 @@
    "positronToolTip.background": "#0F1C19",
    "positronToolTip.border": "#343f3d",
    "positronConsole.traceBackground": "#c4d2ce0d",
-   "positronNotebook.cellFooterForeground": "#8e9997",
+   "positronNotebook.cellFooterForeground": "#919c9a",
    "positronDataExplorer.invalidFilterBackground": "#251c1f",
    "positronSplitterExpandCollapseButton.foreground": "#3FE8BE",
    "diffEditor.insertedTextBackgroundFallback": "#14bfa02b",
@@ -44573,9 +44573,9 @@
    "windsurf.sessionStatus.blue": "#3FE8BE",
    "windsurf.sessionStatus.red": "#FF6E92",
    "windsurf.sessionStatus.purple": "#3FE8BE",
-   "icube.colorGrayText": "#8e9997",
-   "icube.colorTextGray": "#8e9997",
-   "icube--text-text-secondary": "#8e9997",
+   "icube.colorGrayText": "#919c9a",
+   "icube.colorTextGray": "#919c9a",
+   "icube--text-text-secondary": "#919c9a",
    "tab.worktreeBorder": "#D8C07A",
    "editorWatermark.foreground": "#C4D2CE",
    "positronDataExplorer.sparklineFill": "#14BFA0",
@@ -47342,7 +47342,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c151f49e507178bb",
+  "colors": "d778799a67c15a4d",
   "tokenColors": "afc07bc0064373d1",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47869,8 +47869,8 @@
    "scmGraph.historyItemRemoteRefColor": "#5B48A0",
    "scmGraph.historyItemBaseRefColor": "#B03A2E",
    "scmGraph.historyItemHoverLabelForeground": "#EAE7E0",
-   "scmGraph.historyItemHoverAdditionsForeground": "#5A6C52",
-   "scmGraph.historyItemHoverDeletionsForeground": "#B03A2E",
+   "scmGraph.historyItemHoverAdditionsForeground": "#54664e",
+   "scmGraph.historyItemHoverDeletionsForeground": "#ac392d",
    "diffEditor.insertedLineBackground": "#5a6c520f",
    "diffEditor.removedLineBackground": "#b03a2e0f",
    "diffEditor.insertedTextBackground": "#5a6c5220",
@@ -58812,7 +58812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7c3727fc6203f6c2",
+  "colors": "0c22525789dcd9ed",
   "tokenColors": "22e9640b633482b5",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -58822,7 +58822,7 @@
   ],
   "values": {
    "foreground": "#DEDCD6",
-   "descriptionForeground": "#b5b3b3",
+   "descriptionForeground": "#b5b3b2",
    "disabledForeground": "#898988",
    "errorForeground": "#e19586",
    "focusBorder": "#d8a83c99",
@@ -59339,8 +59339,8 @@
    "scmGraph.historyItemRemoteRefColor": "#D89A6A",
    "scmGraph.historyItemBaseRefColor": "#D8A83C",
    "scmGraph.historyItemHoverLabelForeground": "#33333A",
-   "scmGraph.historyItemHoverAdditionsForeground": "#90B181",
-   "scmGraph.historyItemHoverDeletionsForeground": "#E19485",
+   "scmGraph.historyItemHoverAdditionsForeground": "#91b282",
+   "scmGraph.historyItemHoverDeletionsForeground": "#e19586",
    "diffEditor.insertedLineBackground": "#90b18117",
    "diffEditor.removedLineBackground": "#e1948517",
    "diffEditor.insertedTextBackground": "#90b18130",
@@ -59839,7 +59839,7 @@
    "positronToolTip.background": "#33333A",
    "positronToolTip.border": "#3b3b3b",
    "positronConsole.traceBackground": "#dedcd60d",
-   "positronNotebook.cellFooterForeground": "#b5b3b3",
+   "positronNotebook.cellFooterForeground": "#b5b3b2",
    "positronDataExplorer.invalidFilterBackground": "#221919",
    "positronSplitterExpandCollapseButton.foreground": "#D8A83C",
    "diffEditor.insertedTextBackgroundFallback": "#90b18130",
@@ -59853,9 +59853,9 @@
    "windsurf.sessionStatus.blue": "#93AAC4",
    "windsurf.sessionStatus.red": "#E19485",
    "windsurf.sessionStatus.purple": "#A8B0A0",
-   "icube.colorGrayText": "#b5b3b3",
-   "icube.colorTextGray": "#b5b3b3",
-   "icube--text-text-secondary": "#b5b3b3",
+   "icube.colorGrayText": "#b5b3b2",
+   "icube.colorTextGray": "#b5b3b2",
+   "icube--text-text-secondary": "#b5b3b2",
    "tab.worktreeBorder": "#D8A83C",
    "editorWatermark.foreground": "#DEDCD6",
    "positronDataExplorer.sparklineFill": "#E4DFD2",
@@ -62616,7 +62616,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "803d6a6f80d539d5",
+  "colors": "8bdeb331e3e3751f",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -63144,7 +63144,7 @@
    "scmGraph.historyItemBaseRefColor": "#9A5200",
    "scmGraph.historyItemHoverLabelForeground": "#E8EFEB",
    "scmGraph.historyItemHoverAdditionsForeground": "#0A6E5E",
-   "scmGraph.historyItemHoverDeletionsForeground": "#C22A18",
+   "scmGraph.historyItemHoverDeletionsForeground": "#be2918",
    "diffEditor.insertedLineBackground": "#0a6e5e13",
    "diffEditor.removedLineBackground": "#c22a1813",
    "diffEditor.insertedTextBackground": "#0a6e5e28",
@@ -66420,7 +66420,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cca819bbc3855a29",
+  "colors": "b8cc50b10ba479f4",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -66948,7 +66948,7 @@
    "scmGraph.historyItemBaseRefColor": "#F67F87",
    "scmGraph.historyItemHoverLabelForeground": "#243343",
    "scmGraph.historyItemHoverAdditionsForeground": "#6BECBE",
-   "scmGraph.historyItemHoverDeletionsForeground": "#F67F87",
+   "scmGraph.historyItemHoverDeletionsForeground": "#f6858d",
    "diffEditor.insertedLineBackground": "#6becbe12",
    "diffEditor.removedLineBackground": "#f67f8712",
    "diffEditor.insertedTextBackground": "#6becbe25",
@@ -67700,7 +67700,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "acb9b901f5ea72a3",
+  "colors": "3538254a8ea791c1",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -68228,7 +68228,7 @@
    "scmGraph.historyItemBaseRefColor": "#b24051",
    "scmGraph.historyItemHoverLabelForeground": "#E6F2F8",
    "scmGraph.historyItemHoverAdditionsForeground": "#094B30",
-   "scmGraph.historyItemHoverDeletionsForeground": "#b24051",
+   "scmGraph.historyItemHoverDeletionsForeground": "#ae3f4f",
    "diffEditor.insertedLineBackground": "#094b3012",
    "diffEditor.removedLineBackground": "#b2405112",
    "diffEditor.insertedTextBackground": "#094b3025",
@@ -72820,7 +72820,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d3d6008c29307ad7",
+  "colors": "2cbcad990659c5ee",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -73347,8 +73347,8 @@
    "scmGraph.historyItemRemoteRefColor": "#5A4694",
    "scmGraph.historyItemBaseRefColor": "#ab430d",
    "scmGraph.historyItemHoverLabelForeground": "#ECE5D5",
-   "scmGraph.historyItemHoverAdditionsForeground": "#0A6E42",
-   "scmGraph.historyItemHoverDeletionsForeground": "#ab430d",
+   "scmGraph.historyItemHoverAdditionsForeground": "#0a6d41",
+   "scmGraph.historyItemHoverDeletionsForeground": "#a4400d",
    "diffEditor.insertedLineBackground": "#0a6e420e",
    "diffEditor.removedLineBackground": "#ab430d0e",
    "diffEditor.insertedTextBackground": "#0a6e421d",

@@ -139,7 +139,8 @@ function tokens(s) {
   const sides = mergeSides({ y: s.syntax, bg, dark, legible, faint });
   return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, glass, linkSource, rowGrounds, nameGrounds, letterOn, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
-    descriptionForeground: dim,
+    // also the cost badge of the checked model in the chat model picker, on 18% of the button over the menu
+    descriptionForeground: readsOn(dim, mix(elev, fill, 0.18), 4.0),
     disabledForeground: faint,
     // also the heading of the integrated browser's certificate hover, on glass
     errorForeground: glass.reduce((x, g) => readsOn(x, g, 4.5), legible(legible(st.error, bg, 4.5), elev, 4.5)),
@@ -1558,6 +1559,7 @@ const GLASS_TEXT = [['quickInput.foreground', 4.5], ['menu.foreground', 4.5], ['
   ['notifications.foreground', 4.5], ['foreground', 4.5], ['editor.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5],
   ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['notificationLink.foreground', 4.5], ['errorForeground', 4.5],
   ['chat.linesAddedForeground', 4.5], ['chat.linesRemovedForeground', 4.5], ['debugTokenExpression.name', 4.5],
+  ['scmGraph.historyItemHoverAdditionsForeground', 4.5], ['scmGraph.historyItemHoverDeletionsForeground', 4.5],
   ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5], ['icon.foreground', 3.0], ['extensionIcon.verifiedForeground', 3.0],
   ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]];
 const tintOf = (k, share) => (all, g) => mix(g, composite(all[k], g), share);
