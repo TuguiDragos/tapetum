@@ -51,7 +51,7 @@
     "editor.lineHighlightBackground": "#e6e7ea",
     "editor.lineHighlightBorder": "#00000000",
     "editor.rangeHighlightBackground": "#8a5a001a",
-    "editor.symbolHighlightBackground": "#6a2fc033",
+    "editor.symbolHighlightBackground": "#6a2fc02b",
     "editor.foldBackground": "#8a5a0014",
     "editor.foldPlaceholderForeground": "#75777b",
     "editorLink.activeForeground": "#2C6620",

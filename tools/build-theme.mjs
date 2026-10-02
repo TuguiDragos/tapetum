@@ -1074,7 +1074,7 @@ export function buildColors(spec) {
   if (t.hc) applyHighContrast(all, t);
   else onGlass(all, t);
   findInTrees(all, t);
-  framesOnCurrentLine(all, t);
+  marksOnCurrentLine(all, t);
   Object.assign(all, forkKeys(all, t));
   for (const k of Object.keys(all)) if (all[k] === undefined) delete all[k];
   return all;
@@ -1614,14 +1614,18 @@ function findInTrees(all, t) {
   all['list.filterMatchBackground'] = alpha(hex, a);
 }
 
-// a program stopped in the debugger leaves the cursor on its frame line, so the frame lies over the current line, focused or not
-function framesOnCurrentLine(all, t) {
+// marks that lie on the cursor's line, so over the current line, focused or not: the frame of a stopped program, a symbol Go to
+// Symbol reveals, the active comment thread, coverage, a failed test's line, and the bracket beside the cursor in its pair colours
+function marksOnCurrentLine(all, t) {
   const { y } = t, eb = all['editor.background'], code = [y.comment, y.keyword, y.func, y.string, y.type, y.number, y.tag].filter(Boolean);
+  const brackets = [1, 2, 3, 4, 5, 6].map((i) => all[`editorBracketHighlight.foreground${i}`]).filter(Boolean);
   const grounds = [eb, ...['editor.lineHighlightBackground', 'editor.inactiveLineHighlightBackground'].map((k) => composite(all[k], eb))];
-  for (const k of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground']) {
-    const hex = all[k].slice(0, 7);
+  for (const k of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground', 'editor.symbolHighlightBackground',
+    'editorCommentsWidget.rangeActiveBackground', 'testing.coveredBackground', 'testing.uncoveredBackground', 'testing.message.error.lineBackground', 'editorBracketMatch.background']) {
+    const hex = all[k].slice(0, 7), texts = k === 'editorBracketMatch.background' ? brackets : code;
     let a = parse(all[k]).a;
-    while (a > 0.05 && grounds.some((g) => code.some((c) => contrast(c, composite(alpha(hex, a), g)) < 3.0))) a = Math.round(a * 100 - 1) / 100;
+    if (a >= 1) continue;
+    while (a > 0.05 && grounds.some((g) => texts.some((c) => contrast(c, composite(alpha(hex, a), g)) < 3.0))) a = Math.round(a * 100 - 1) / 100;
     all[k] = alpha(hex, a);
   }
 }

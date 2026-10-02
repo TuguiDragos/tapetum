@@ -178,8 +178,8 @@ for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight']
   }
 }
 
-const OVER = ['editor.selectionBackground', 'editor.findMatchBackground', 'editor.wordHighlightStrongBackground',
-  'editorBracketMatch.background', 'editor.snippetTabstopHighlightBackground'];
+// a find match writes the find text colour and a matched bracket its pair colour, which deep reads, so code lies only on these
+const OVER = ['editor.selectionBackground', 'editor.wordHighlightStrongBackground', 'editor.snippetTabstopHighlightBackground'];
 let worstOverlay = { c: 99 };
 for (const f of FAMILIES) for (const v of ['dark', 'light']) {
   const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
