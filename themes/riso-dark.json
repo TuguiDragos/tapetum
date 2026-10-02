@@ -851,7 +851,7 @@
     "editor.snippetTabstopHighlightBorder": "#ff63b480",
     "editor.snippetFinalTabstopHighlightBackground": "#5fbcc429",
     "editor.snippetFinalTabstopHighlightBorder": "#5FBCC4",
-    "editor.placeholder.foreground": "#7c7871",
+    "editor.placeholder.foreground": "#76726b",
     "editorUnicodeHighlight.background": "#ffee3c24",
     "editorUnicodeHighlight.border": "#FFEE3C",
     "editorGutter.addedSecondaryBackground": "#3fc97e80",

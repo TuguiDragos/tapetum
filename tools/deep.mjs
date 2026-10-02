@@ -107,7 +107,8 @@ const ON_ITS_SURFACE = [
   ...['problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => [k, ['menu.background', 'input.background']]),
 ];
 // Insiders draws these surfaces as frosted glass, 50% to 100% of the surface over what lies under it, blurred: text on them,
-// with the wash it sits on (a key, or a share of one over the glass), and the surfaces of the theme that can lie under the glass
+// with the wash it sits on (a key, or a share of one over the glass) and the opacity VS Code draws it at when it dims it,
+// and the surfaces of the theme that can lie under the glass
 const tint = (k, share) => (c, glass) => mix(glass, over(c[k], glass), share);
 const GLASS = {
   'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5], ['icon.foreground', 3.0],
@@ -159,7 +160,7 @@ const washesUnderGlass = (c) => {
     'editor.findMatchBackground': mix(eb, on('editor.findMatchBackground', eb), 0.55), 'terminal.findMatchBackground': mix(term, on('terminal.findMatchBackground', term), 0.55),
   };
 };
-// the text of the surfaces under the glass, which its 12px blur keeps at about 12% (measured on the pixels of dense lines)
+// the text of the surfaces under the glass, which its 12px blur keeps at about 12% where the lines are dense
 const TEXT_UNDER_GLASS = { 'editor.background': 'editor.foreground', 'sideBar.background': 'sideBar.foreground', 'panel.background': 'foreground', 'terminal.background': 'terminal.foreground' };
 const withText = (c, ground, text) => mix(ground, over(c[text], c['editor.background']), 0.12);
 const UNDER_GLASS = ['editor.background', 'sideBar.background', 'panel.background', 'statusBar.background', 'titleBar.activeBackground', 'activityBar.background',
@@ -216,6 +217,7 @@ const HC_QUIET = [['titleBar.inactiveForeground', 'titleBar.inactiveBackground']
   ['activityBarTop.inactiveForeground', 'activityBar.background'], ['tab.unfocusedInactiveForeground', 'tab.unfocusedInactiveBackground'],
   ['panelTitle.inactiveForeground', 'panel.background'], ['disabledForeground', 'editor.background'], ['list.deemphasizedForeground', 'sideBar.background'],
   ['input.placeholderForeground', 'input.background'], ['inlineChatInput.placeholderForeground', 'inlineChatInput.background'],
+  ...['input.background', 'inlineChat.background', 'editorCommentsWidget.replyInputBackground'].map((g) => ['editor.placeholder.foreground', g]),
   ['agentsChatInput.placeholderForeground', 'agentsChatInput.background'], ['editor.placeholder.foreground', 'editor.background'],
   ['editor.foldPlaceholderForeground', 'editor.background'], ['commandCenter.inactiveForeground', 'commandCenter.background', 'titleBar.inactiveBackground']];
 // a figure under a floor, cut rather than rounded, so 3.1996 does not read as 3.20
@@ -323,6 +325,7 @@ function analyse(fam, v) {
       return [pane, input].flatMap((g) => [g, over(c['toolbar.hoverBackground'], g), over(c['toolbar.activeBackground'], g)]); });
     for (const k of ['descriptionForeground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'])
       pend(`${k}, the summary of an agent host's permissions at 85% beside the chat pickers (4.0)`, at(k, 0.85, pickers), 4.0);
+    pend('the arrow of a submenu in the chat model picker, the description at 60% on a hovered row (3.0)', at('descriptionForeground', 0.6, unders, 'list.hoverBackground'), 3.0);
   }
   // what VS Code itself writes at part strength, high contrast aside: the line badge of the call stack at 60%, the empty message of the
   // outline at 50%, the name on an inactive pill tab at 50% of the text, a description on an inactive tab, and a terminal icon a user colours
@@ -629,10 +632,14 @@ function analyse(fam, v) {
     const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
     pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(shown(ground), ground), floor);
   }
-  // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search, on the title bar
-  for (const k of ['commandCenter.foreground', 'commandCenter.activeForeground']) {
-    const tb = over(c['titleBar.activeBackground'], eb), cr = contrast(mix(tb, c[k], 0.6), tb), floor = hc ? 4.5 : 3.2;
-    if (cr < floor) bad('surface', `${k}, the workspace name in the command center at 60%, at ${down(cr)}, under ${floor}`);
+  // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search, on the title bar, or with
+  // the modern UI off on the wash of its input, plain or hovered
+  for (const [k, wash] of [['commandCenter.foreground', 'agentStatusIndicator.background'], ['commandCenter.activeForeground', 'commandCenter.activeBackground']]) {
+    const tb = over(c['titleBar.activeBackground'], eb), floor = hc ? 4.5 : 3.2;
+    for (const g of [tb, over(c[wash], tb)]) {
+      const cr = contrast(mix(g, c[k], 0.6), g);
+      if (cr < floor) bad('surface', `${k}, the workspace name in the command center at 60%${g === tb ? '' : ` on ${wash}`}, at ${down(cr)}, under ${floor}`);
+    }
   }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
