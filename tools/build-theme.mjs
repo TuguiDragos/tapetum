@@ -1216,25 +1216,28 @@ function gitDecorations(t) {
   const pool = vivid.length ? vivid : roles;
   const ansiPool = ansi ? ['blue', 'magenta', 'cyan', 'yellow', 'green', 'red'].map((k) => ansi[k]) : [];
   const apartFrom = (c, used) => Math.min(...used.map((u) => deltaE(c, u)));
+  const name = (c) => t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), c);
+  // a renamed file or a submodule also has to stand apart from the plain names beside it, as it is written
+  const fits = (c) => deltaE(name(c), t.sideText) >= 10;
   const pick = (used) => {
     const scored = pool.map((c) => ({ c, near: apartFrom(c, used) }))
       .sort((a, b) => b.near - a.near);
-    if (scored[0].near >= 10) return scored[0].c;
-    for (const c of ansiPool) if (apartFrom(c, used) >= 10) return c;
+    const top = scored.find((x) => x.near >= 10 && fits(x.c));
+    if (top) return top.c;
+    for (const c of ansiPool) if (apartFrom(c, used) >= 10 && fits(c)) return c;
     const [L, C, h] = hex2lch(scored[0].c);
     for (const dL of [14, -14, 26, -26]) {
       const cand = lch2hex(Math.min(96, Math.max(6, L + dL)), C, h).toUpperCase();
-      if (apartFrom(cand, used) >= 10) return cand;
+      if (apartFrom(cand, used) >= 10 && fits(cand)) return cand;
     }
     for (let turn = 30; turn <= 330; turn += 30) {
       const cand = lch2hex(L, Math.max(C, 30), (h + turn) % 360).toUpperCase();
-      if (Math.min(...used.map((u) => deltaE(cand, u))) >= 12) return cand;
+      if (Math.min(...used.map((u) => deltaE(cand, u))) >= 12 && fits(cand)) return cand;
     }
     return scored[0].c;
   };
   const renamed = pick(taken);
   const submodule = pick([...taken, renamed]);
-  const name = (c) => t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), c);
   // hand placed status colours stay as their palette writes them
   const status = (c) => (t.handStatus ? c : name(c));
   return {
