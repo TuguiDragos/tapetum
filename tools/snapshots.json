@@ -6,11 +6,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f83a0388f4a1dbe7",
+  "colors": "ebbad76cb0a574c2",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -1037,6 +1037,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#CD8FF9",
    "diffEditor.insertedTextBackgroundFallback": "#6ee7a818",
    "diffEditor.removedTextBackgroundFallback": "#ff6e9c18",
+   "diffEditor.insertedTextBackgroundDarker": "#6ee7a818",
+   "diffEditor.insertedTextBackgroundLighter": "#6ee7a818",
+   "diffEditor.removedTextBackgroundDarker": "#ff6e9c18",
+   "diffEditor.removedTextBackgroundLighter": "#ff6e9c18",
    "windsurf.sessionStatus.orange": "#FF9F45",
    "windsurf.sessionStatus.green": "#6EE7A8",
    "windsurf.sessionStatus.blue": "#8AB4FF",
@@ -1278,11 +1282,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ec51b877879c8db2",
+  "colors": "8a61ee0ca1c12290",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -2309,6 +2313,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#7B2CBF",
    "diffEditor.insertedTextBackgroundFallback": "#06704a20",
    "diffEditor.removedTextBackgroundFallback": "#c42b7b20",
+   "diffEditor.insertedTextBackgroundDarker": "#06704a20",
+   "diffEditor.insertedTextBackgroundLighter": "#06704a20",
+   "diffEditor.removedTextBackgroundDarker": "#c42b7b20",
+   "diffEditor.removedTextBackgroundLighter": "#c42b7b20",
    "windsurf.sessionStatus.orange": "#af4900",
    "windsurf.sessionStatus.green": "#06704A",
    "windsurf.sessionStatus.blue": "#2B5FD9",
@@ -2550,11 +2558,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "47921dc7fcab2108",
+  "colors": "b5997f797354cbb6",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -3581,6 +3589,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#AF9CF9",
    "diffEditor.insertedTextBackgroundFallback": "#7ce85c20",
    "diffEditor.removedTextBackgroundFallback": "#fa624520",
+   "diffEditor.insertedTextBackgroundDarker": "#7ce85c20",
+   "diffEditor.insertedTextBackgroundLighter": "#7ce85c20",
+   "diffEditor.removedTextBackgroundDarker": "#fa624520",
+   "diffEditor.removedTextBackgroundLighter": "#fa624520",
    "windsurf.sessionStatus.orange": "#FFC93C",
    "windsurf.sessionStatus.green": "#7CE85C",
    "windsurf.sessionStatus.blue": "#4FC3F7",
@@ -3822,11 +3834,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "41a59e8a7e41e15e",
+  "colors": "1343acb316c7f2c4",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -4853,6 +4865,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#3A2FC9",
    "diffEditor.insertedTextBackgroundFallback": "#3d7a1f20",
    "diffEditor.removedTextBackgroundFallback": "#c13a1a20",
+   "diffEditor.insertedTextBackgroundDarker": "#3d7a1f20",
+   "diffEditor.insertedTextBackgroundLighter": "#3d7a1f20",
+   "diffEditor.removedTextBackgroundDarker": "#c13a1a20",
+   "diffEditor.removedTextBackgroundLighter": "#c13a1a20",
    "windsurf.sessionStatus.orange": "#8b5f00",
    "windsurf.sessionStatus.green": "#3D7A1F",
    "windsurf.sessionStatus.blue": "#0D6FA8",
@@ -5094,11 +5110,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc88d6ad951547e5",
+  "colors": "8002e91395c40b4d",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -6125,6 +6141,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#7FE33F",
    "diffEditor.insertedTextBackgroundFallback": "#7fe33f25",
    "diffEditor.removedTextBackgroundFallback": "#ff6b4a25",
+   "diffEditor.insertedTextBackgroundDarker": "#7fe33f25",
+   "diffEditor.insertedTextBackgroundLighter": "#7fe33f25",
+   "diffEditor.removedTextBackgroundDarker": "#ff6b4a25",
+   "diffEditor.removedTextBackgroundLighter": "#ff6b4a25",
    "windsurf.sessionStatus.orange": "#FFB742",
    "windsurf.sessionStatus.green": "#7FE33F",
    "windsurf.sessionStatus.blue": "#8FB8FF",
@@ -6366,11 +6386,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "06d6feadfa707e58",
+  "colors": "80a1ac10b32f0b76",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -7397,6 +7417,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#3D7A14",
    "diffEditor.insertedTextBackgroundFallback": "#3a74132e",
    "diffEditor.removedTextBackgroundFallback": "#b8402a2e",
+   "diffEditor.insertedTextBackgroundDarker": "#3a74132e",
+   "diffEditor.insertedTextBackgroundLighter": "#3a74132e",
+   "diffEditor.removedTextBackgroundDarker": "#b8402a2e",
+   "diffEditor.removedTextBackgroundLighter": "#b8402a2e",
    "windsurf.sessionStatus.orange": "#8A5A00",
    "windsurf.sessionStatus.green": "#3a7413",
    "windsurf.sessionStatus.blue": "#1A6E96",
@@ -7638,11 +7662,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7dc82f38d3224c71",
+  "colors": "21a406b3543e06f6",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -8669,6 +8693,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#E8B54A",
    "diffEditor.insertedTextBackgroundFallback": "#39b8712e",
    "diffEditor.removedTextBackgroundFallback": "#e07a452e",
+   "diffEditor.insertedTextBackgroundDarker": "#39b8712e",
+   "diffEditor.insertedTextBackgroundLighter": "#39b8712e",
+   "diffEditor.removedTextBackgroundDarker": "#e07a452e",
+   "diffEditor.removedTextBackgroundLighter": "#e07a452e",
    "windsurf.sessionStatus.orange": "#E8B54A",
    "windsurf.sessionStatus.green": "#39B871",
    "windsurf.sessionStatus.blue": "#75ADE2",
@@ -8910,11 +8938,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "13436571b5adbea7",
+  "colors": "48e2520cd90393f2",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -9941,6 +9969,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#8A5A00",
    "diffEditor.insertedTextBackgroundFallback": "#22683f2b",
    "diffEditor.removedTextBackgroundFallback": "#a74c1d2b",
+   "diffEditor.insertedTextBackgroundDarker": "#22683f2b",
+   "diffEditor.insertedTextBackgroundLighter": "#22683f2b",
+   "diffEditor.removedTextBackgroundDarker": "#a74c1d2b",
+   "diffEditor.removedTextBackgroundLighter": "#a74c1d2b",
    "windsurf.sessionStatus.orange": "#8A5A00",
    "windsurf.sessionStatus.green": "#22683F",
    "windsurf.sessionStatus.blue": "#2A5FA8",
@@ -10182,11 +10214,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc3b068f1205daf9",
+  "colors": "340ac09c8cb2711c",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -11213,6 +11245,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#16DFF4",
    "diffEditor.insertedTextBackgroundFallback": "#0ef4772b",
    "diffEditor.removedTextBackgroundFallback": "#f46b572b",
+   "diffEditor.insertedTextBackgroundDarker": "#0ef4772b",
+   "diffEditor.insertedTextBackgroundLighter": "#0ef4772b",
+   "diffEditor.removedTextBackgroundDarker": "#f46b572b",
+   "diffEditor.removedTextBackgroundLighter": "#f46b572b",
    "windsurf.sessionStatus.orange": "#F4D00C",
    "windsurf.sessionStatus.green": "#0EF477",
    "windsurf.sessionStatus.blue": "#4E97F4",
@@ -11454,11 +11490,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fd32fd5e7307599f",
+  "colors": "aaba18d69e7c3a34",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -12485,6 +12521,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0A5B64",
    "diffEditor.insertedTextBackgroundFallback": "#0a683030",
    "diffEditor.removedTextBackgroundFallback": "#cf151a30",
+   "diffEditor.insertedTextBackgroundDarker": "#0a683030",
+   "diffEditor.insertedTextBackgroundLighter": "#0a683030",
+   "diffEditor.removedTextBackgroundDarker": "#cf151a30",
+   "diffEditor.removedTextBackgroundLighter": "#cf151a30",
    "windsurf.sessionStatus.orange": "#716008",
    "windsurf.sessionStatus.green": "#0A6830",
    "windsurf.sessionStatus.blue": "#0C67B5",
@@ -12726,11 +12766,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bb22e7ef9514f8f4",
+  "colors": "7d341d419d413c5b",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
-   1039,
+   1043,
    99,
    58
   ],
@@ -13760,6 +13800,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#12EBFF",
    "diffEditor.insertedTextBackgroundFallback": "#10ff7d36",
    "diffEditor.removedTextBackgroundFallback": "#ff8a8a36",
+   "diffEditor.insertedTextBackgroundDarker": "#10ff7d36",
+   "diffEditor.insertedTextBackgroundLighter": "#10ff7d36",
+   "diffEditor.removedTextBackgroundDarker": "#ff8a8a36",
+   "diffEditor.removedTextBackgroundLighter": "#ff8a8a36",
    "windsurf.sessionStatus.orange": "#FFE20E",
    "windsurf.sessionStatus.green": "#10FF7D",
    "windsurf.sessionStatus.blue": "#BAD2FF",
@@ -14001,11 +14045,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fefc7e105b8bceeb",
+  "colors": "321698ea3aad3252",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
-   1039,
+   1043,
    99,
    58
   ],
@@ -15035,6 +15079,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#00616C",
    "diffEditor.insertedTextBackgroundFallback": "#00672733",
    "diffEditor.removedTextBackgroundFallback": "#b5000533",
+   "diffEditor.insertedTextBackgroundDarker": "#00672733",
+   "diffEditor.insertedTextBackgroundLighter": "#00672733",
+   "diffEditor.removedTextBackgroundDarker": "#b5000533",
+   "diffEditor.removedTextBackgroundLighter": "#b5000533",
    "windsurf.sessionStatus.orange": "#695500",
    "windsurf.sessionStatus.green": "#006727",
    "windsurf.sessionStatus.blue": "#0059A6",
@@ -15276,11 +15324,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4c59a4b57beb0ee6",
+  "colors": "99dbeaae806eb0e4",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -16307,6 +16355,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#F976E7",
    "diffEditor.insertedTextBackgroundFallback": "#20d12e30",
    "diffEditor.removedTextBackgroundFallback": "#f4646930",
+   "diffEditor.insertedTextBackgroundDarker": "#20d12e30",
+   "diffEditor.insertedTextBackgroundLighter": "#20d12e30",
+   "diffEditor.removedTextBackgroundDarker": "#f4646930",
+   "diffEditor.removedTextBackgroundLighter": "#f4646930",
    "windsurf.sessionStatus.orange": "#F2B486",
    "windsurf.sessionStatus.green": "#20D12E",
    "windsurf.sessionStatus.blue": "#6E90FA",
@@ -16548,11 +16600,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fbb8cb609ac913b3",
+  "colors": "cddc997752f28140",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -17579,6 +17631,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#B70CA8",
    "diffEditor.insertedTextBackgroundFallback": "#0b691228",
    "diffEditor.removedTextBackgroundFallback": "#d20b3828",
+   "diffEditor.insertedTextBackgroundDarker": "#0b691228",
+   "diffEditor.insertedTextBackgroundLighter": "#0b691228",
+   "diffEditor.removedTextBackgroundDarker": "#d20b3828",
+   "diffEditor.removedTextBackgroundLighter": "#d20b3828",
    "windsurf.sessionStatus.orange": "#81440A",
    "windsurf.sessionStatus.green": "#0B6912",
    "windsurf.sessionStatus.blue": "#0C68DF",
@@ -17820,11 +17876,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a32b1067fd877646",
+  "colors": "533d0005193c2ba3",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -18851,6 +18907,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#97CCF2",
    "diffEditor.insertedTextBackgroundFallback": "#0cc6812e",
    "diffEditor.removedTextBackgroundFallback": "#ca828b2e",
+   "diffEditor.insertedTextBackgroundDarker": "#0cc6812e",
+   "diffEditor.insertedTextBackgroundLighter": "#0cc6812e",
+   "diffEditor.removedTextBackgroundDarker": "#ca828b2e",
+   "diffEditor.removedTextBackgroundLighter": "#ca828b2e",
    "windsurf.sessionStatus.orange": "#B69F4B",
    "windsurf.sessionStatus.green": "#0CC681",
    "windsurf.sessionStatus.blue": "#97CCF2",
@@ -19092,11 +19152,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0cef1fc27c174733",
+  "colors": "c678b3a155a7a633",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -20123,6 +20183,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0A587B",
    "diffEditor.insertedTextBackgroundFallback": "#0a6d4628",
    "diffEditor.removedTextBackgroundFallback": "#97566128",
+   "diffEditor.insertedTextBackgroundDarker": "#0a6d4628",
+   "diffEditor.insertedTextBackgroundLighter": "#0a6d4628",
+   "diffEditor.removedTextBackgroundDarker": "#97566128",
+   "diffEditor.removedTextBackgroundLighter": "#97566128",
    "windsurf.sessionStatus.orange": "#76630E",
    "windsurf.sessionStatus.green": "#0A6D46",
    "windsurf.sessionStatus.blue": "#0A587B",
@@ -20364,11 +20428,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4ccc778b2178b164",
+  "colors": "51476d8e6aa1ac6e",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -21395,6 +21459,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#F28F83",
    "diffEditor.insertedTextBackgroundFallback": "#0ccea030",
    "diffEditor.removedTextBackgroundFallback": "#f28f8330",
+   "diffEditor.insertedTextBackgroundDarker": "#0ccea030",
+   "diffEditor.insertedTextBackgroundLighter": "#0ccea030",
+   "diffEditor.removedTextBackgroundDarker": "#f28f8330",
+   "diffEditor.removedTextBackgroundLighter": "#f28f8330",
    "windsurf.sessionStatus.orange": "#F2BA24",
    "windsurf.sessionStatus.green": "#0CCEA0",
    "windsurf.sessionStatus.blue": "#47AFFA",
@@ -21636,11 +21704,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d07fc9d1c6a4263a",
+  "colors": "cc75d661592030ef",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -22667,6 +22735,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#BC0D22",
    "diffEditor.insertedTextBackgroundFallback": "#0c644c25",
    "diffEditor.removedTextBackgroundFallback": "#bc0d2225",
+   "diffEditor.insertedTextBackgroundDarker": "#0c644c25",
+   "diffEditor.insertedTextBackgroundLighter": "#0c644c25",
+   "diffEditor.removedTextBackgroundDarker": "#bc0d2225",
+   "diffEditor.removedTextBackgroundLighter": "#bc0d2225",
    "windsurf.sessionStatus.orange": "#674D0A",
    "windsurf.sessionStatus.green": "#0C644C",
    "windsurf.sessionStatus.blue": "#0A699D",
@@ -22908,11 +22980,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0a6e085fe41048b4",
+  "colors": "4d59808b92f71d90",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -23939,6 +24011,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#77ABF9",
    "diffEditor.insertedTextBackgroundFallback": "#60d53d28",
    "diffEditor.removedTextBackgroundFallback": "#f2726e28",
+   "diffEditor.insertedTextBackgroundDarker": "#60d53d28",
+   "diffEditor.insertedTextBackgroundLighter": "#60d53d28",
+   "diffEditor.removedTextBackgroundDarker": "#f2726e28",
+   "diffEditor.removedTextBackgroundLighter": "#f2726e28",
    "windsurf.sessionStatus.orange": "#F2C17A",
    "windsurf.sessionStatus.green": "#60D53D",
    "windsurf.sessionStatus.blue": "#77ABF9",
@@ -24180,11 +24256,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ffe1c699545290b1",
+  "colors": "59ee4cedda6a9c77",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -25211,6 +25287,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0A66B2",
    "diffEditor.insertedTextBackgroundFallback": "#1f660b25",
    "diffEditor.removedTextBackgroundFallback": "#cf0b3025",
+   "diffEditor.insertedTextBackgroundDarker": "#1f660b25",
+   "diffEditor.insertedTextBackgroundLighter": "#1f660b25",
+   "diffEditor.removedTextBackgroundDarker": "#cf0b3025",
+   "diffEditor.removedTextBackgroundLighter": "#cf0b3025",
    "windsurf.sessionStatus.orange": "#6E4C0A",
    "windsurf.sessionStatus.green": "#1F660B",
    "windsurf.sessionStatus.blue": "#0A66B2",
@@ -25452,11 +25532,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9d8d49dba5ae8428",
+  "colors": "1ba8097b78c66f90",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -26483,6 +26563,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0FCBB7",
    "diffEditor.insertedTextBackgroundFallback": "#41bf7633",
    "diffEditor.removedTextBackgroundFallback": "#f4657733",
+   "diffEditor.insertedTextBackgroundDarker": "#41bf7633",
+   "diffEditor.insertedTextBackgroundLighter": "#41bf7633",
+   "diffEditor.removedTextBackgroundDarker": "#f4657733",
+   "diffEditor.removedTextBackgroundLighter": "#f4657733",
    "windsurf.sessionStatus.orange": "#E4BF39",
    "windsurf.sessionStatus.green": "#41BF76",
    "windsurf.sessionStatus.blue": "#2AA2C8",
@@ -26724,11 +26808,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "95fe2734e7247b44",
+  "colors": "33ae389090d011cf",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -27755,6 +27839,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0C6157",
    "diffEditor.insertedTextBackgroundFallback": "#0b6a3a2b",
    "diffEditor.removedTextBackgroundFallback": "#be2a492b",
+   "diffEditor.insertedTextBackgroundDarker": "#0b6a3a2b",
+   "diffEditor.insertedTextBackgroundLighter": "#0b6a3a2b",
+   "diffEditor.removedTextBackgroundDarker": "#be2a492b",
+   "diffEditor.removedTextBackgroundLighter": "#be2a492b",
    "windsurf.sessionStatus.orange": "#5F4E0B",
    "windsurf.sessionStatus.green": "#0B6A3A",
    "windsurf.sessionStatus.blue": "#0C728F",
@@ -27996,11 +28084,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f5badf875064ee1b",
+  "colors": "2c016fca87231827",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -29027,6 +29115,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#EE7DFA",
    "diffEditor.insertedTextBackgroundFallback": "#4fbe6f30",
    "diffEditor.removedTextBackgroundFallback": "#f2898730",
+   "diffEditor.insertedTextBackgroundDarker": "#4fbe6f30",
+   "diffEditor.insertedTextBackgroundLighter": "#4fbe6f30",
+   "diffEditor.removedTextBackgroundDarker": "#f2898730",
+   "diffEditor.removedTextBackgroundLighter": "#f2898730",
    "windsurf.sessionStatus.orange": "#CAA20A",
    "windsurf.sessionStatus.green": "#4FBE6F",
    "windsurf.sessionStatus.blue": "#3AB2F8",
@@ -29268,11 +29360,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2b9ee6c8520301b0",
+  "colors": "6018f8634d91ba5a",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -30299,6 +30391,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#B61CCB",
    "diffEditor.insertedTextBackgroundFallback": "#0c763820",
    "diffEditor.removedTextBackgroundFallback": "#c70a3520",
+   "diffEditor.insertedTextBackgroundDarker": "#0c763820",
+   "diffEditor.insertedTextBackgroundLighter": "#0c763820",
+   "diffEditor.removedTextBackgroundDarker": "#c70a3520",
+   "diffEditor.removedTextBackgroundLighter": "#c70a3520",
    "windsurf.sessionStatus.orange": "#79610A",
    "windsurf.sessionStatus.green": "#0C7638",
    "windsurf.sessionStatus.blue": "#0b6fa1",
@@ -30540,11 +30636,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "074585e0310314f5",
+  "colors": "6894ca01eff24e18",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -31571,6 +31667,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#F2A47A",
    "diffEditor.insertedTextBackgroundFallback": "#66a56736",
    "diffEditor.removedTextBackgroundFallback": "#f2788436",
+   "diffEditor.insertedTextBackgroundDarker": "#66a56736",
+   "diffEditor.insertedTextBackgroundLighter": "#66a56736",
+   "diffEditor.removedTextBackgroundDarker": "#f2788436",
+   "diffEditor.removedTextBackgroundLighter": "#f2788436",
    "windsurf.sessionStatus.orange": "#F2A47A",
    "windsurf.sessionStatus.green": "#66A567",
    "windsurf.sessionStatus.blue": "#54B2F2",
@@ -31812,11 +31912,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f59dbe4e882cb2bb",
+  "colors": "d0b3939e743b6c09",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -32843,6 +32943,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#913E0A",
    "diffEditor.insertedTextBackgroundFallback": "#39773d28",
    "diffEditor.removedTextBackgroundFallback": "#c40a4328",
+   "diffEditor.insertedTextBackgroundDarker": "#39773d28",
+   "diffEditor.insertedTextBackgroundLighter": "#39773d28",
+   "diffEditor.removedTextBackgroundDarker": "#c40a4328",
+   "diffEditor.removedTextBackgroundLighter": "#c40a4328",
    "windsurf.sessionStatus.orange": "#913E0A",
    "windsurf.sessionStatus.green": "#39773D",
    "windsurf.sessionStatus.blue": "#0F638F",
@@ -33084,11 +33188,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "de4b7407940af8d5",
+  "colors": "cdaf6e46d5c577f8",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -34115,6 +34219,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#40D0ED",
    "diffEditor.insertedTextBackgroundFallback": "#5cb8a533",
    "diffEditor.removedTextBackgroundFallback": "#f955ab33",
+   "diffEditor.insertedTextBackgroundDarker": "#5cb8a533",
+   "diffEditor.insertedTextBackgroundLighter": "#5cb8a533",
+   "diffEditor.removedTextBackgroundDarker": "#f955ab33",
+   "diffEditor.removedTextBackgroundLighter": "#f955ab33",
    "windsurf.sessionStatus.orange": "#CE8C54",
    "windsurf.sessionStatus.green": "#5CB8A5",
    "windsurf.sessionStatus.blue": "#7CACDD",
@@ -34356,11 +34464,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "27059387422efcad",
+  "colors": "535c9ea8b2731804",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -35387,6 +35495,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0C5B6A",
    "diffEditor.insertedTextBackgroundFallback": "#0b635528",
    "diffEditor.removedTextBackgroundFallback": "#cc0c8228",
+   "diffEditor.insertedTextBackgroundDarker": "#0b635528",
+   "diffEditor.insertedTextBackgroundLighter": "#0b635528",
+   "diffEditor.removedTextBackgroundDarker": "#cc0c8228",
+   "diffEditor.removedTextBackgroundLighter": "#cc0c8228",
    "windsurf.sessionStatus.orange": "#8F5621",
    "windsurf.sessionStatus.green": "#0B6355",
    "windsurf.sessionStatus.blue": "#3C709E",
@@ -35628,11 +35740,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "98a5550ffa8f19a2",
+  "colors": "f2089a7489e6bc88",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -36659,6 +36771,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#11D9A9",
    "diffEditor.insertedTextBackgroundFallback": "#11d9a92e",
    "diffEditor.removedTextBackgroundFallback": "#fa60512e",
+   "diffEditor.insertedTextBackgroundDarker": "#11d9a92e",
+   "diffEditor.insertedTextBackgroundLighter": "#11d9a92e",
+   "diffEditor.removedTextBackgroundDarker": "#fa60512e",
+   "diffEditor.removedTextBackgroundLighter": "#fa60512e",
    "windsurf.sessionStatus.orange": "#AEBD0F",
    "windsurf.sessionStatus.green": "#11D9A9",
    "windsurf.sessionStatus.blue": "#3AB2F2",
@@ -36900,11 +37016,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b53eddb49e1c440a",
+  "colors": "586241832e6bbd53",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -37931,6 +38047,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0C5E48",
    "diffEditor.insertedTextBackgroundFallback": "#0c5e4828",
    "diffEditor.removedTextBackgroundFallback": "#d70e2128",
+   "diffEditor.insertedTextBackgroundDarker": "#0c5e4828",
+   "diffEditor.insertedTextBackgroundLighter": "#0c5e4828",
+   "diffEditor.removedTextBackgroundDarker": "#d70e2128",
+   "diffEditor.removedTextBackgroundLighter": "#d70e2128",
    "windsurf.sessionStatus.orange": "#565D0B",
    "windsurf.sessionStatus.green": "#0C5E48",
    "windsurf.sessionStatus.blue": "#0C658E",
@@ -38172,11 +38292,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "51ae325dd0d77ff2",
+  "colors": "114aced3564f4bfd",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -39203,6 +39323,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#E8CC6A",
    "diffEditor.insertedTextBackgroundFallback": "#0ab84c36",
    "diffEditor.removedTextBackgroundFallback": "#f7616a36",
+   "diffEditor.insertedTextBackgroundDarker": "#0ab84c36",
+   "diffEditor.insertedTextBackgroundLighter": "#0ab84c36",
+   "diffEditor.removedTextBackgroundDarker": "#f7616a36",
+   "diffEditor.removedTextBackgroundLighter": "#f7616a36",
    "windsurf.sessionStatus.orange": "#F2A854",
    "windsurf.sessionStatus.green": "#0AB84C",
    "windsurf.sessionStatus.blue": "#12A3E0",
@@ -39444,11 +39568,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "43d90f472cb2ec11",
+  "colors": "ad24bede97fbb7d5",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -40475,6 +40599,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#574A0A",
    "diffEditor.insertedTextBackgroundFallback": "#0a732e23",
    "diffEditor.removedTextBackgroundFallback": "#c90a3823",
+   "diffEditor.insertedTextBackgroundDarker": "#0a732e23",
+   "diffEditor.insertedTextBackgroundLighter": "#0a732e23",
+   "diffEditor.removedTextBackgroundDarker": "#c90a3823",
+   "diffEditor.removedTextBackgroundLighter": "#c90a3823",
    "windsurf.sessionStatus.orange": "#7A4B0A",
    "windsurf.sessionStatus.green": "#0A732E",
    "windsurf.sessionStatus.blue": "#0F6A92",
@@ -40716,11 +40844,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0e78da7da75ffad5",
+  "colors": "f0e06603fef4adac",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -41747,6 +41875,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#FFF6E4",
    "diffEditor.insertedTextBackgroundFallback": "#d8c49a20",
    "diffEditor.removedTextBackgroundFallback": "#ff6b4a20",
+   "diffEditor.insertedTextBackgroundDarker": "#d8c49a20",
+   "diffEditor.insertedTextBackgroundLighter": "#d8c49a20",
+   "diffEditor.removedTextBackgroundDarker": "#ff6b4a20",
+   "diffEditor.removedTextBackgroundLighter": "#ff6b4a20",
    "windsurf.sessionStatus.orange": "#FFC24A",
    "windsurf.sessionStatus.green": "#D8C49A",
    "windsurf.sessionStatus.blue": "#FFF6E4",
@@ -41988,11 +42120,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "36daacc3e45ea290",
+  "colors": "7400da8dfa27dea4",
   "tokenColors": "c3adc3f9a88869bf",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -43019,6 +43151,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#1A130A",
    "diffEditor.insertedTextBackgroundFallback": "#4a5a2a28",
    "diffEditor.removedTextBackgroundFallback": "#a5311928",
+   "diffEditor.insertedTextBackgroundDarker": "#4a5a2a28",
+   "diffEditor.insertedTextBackgroundLighter": "#4a5a2a28",
+   "diffEditor.removedTextBackgroundDarker": "#a5311928",
+   "diffEditor.removedTextBackgroundLighter": "#a5311928",
    "windsurf.sessionStatus.orange": "#73550F",
    "windsurf.sessionStatus.green": "#4A5A2A",
    "windsurf.sessionStatus.blue": "#1A130A",
@@ -43260,11 +43396,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ee24181df79ba8f3",
+  "colors": "aa6a91b2522f731e",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -44291,6 +44427,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#3FE8BE",
    "diffEditor.insertedTextBackgroundFallback": "#14bfa02b",
    "diffEditor.removedTextBackgroundFallback": "#ff6e922b",
+   "diffEditor.insertedTextBackgroundDarker": "#14bfa02b",
+   "diffEditor.insertedTextBackgroundLighter": "#14bfa02b",
+   "diffEditor.removedTextBackgroundDarker": "#ff6e922b",
+   "diffEditor.removedTextBackgroundLighter": "#ff6e922b",
    "windsurf.sessionStatus.orange": "#D8C07A",
    "windsurf.sessionStatus.green": "#14BFA0",
    "windsurf.sessionStatus.blue": "#3FE8BE",
@@ -44532,11 +44672,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f5b9bb75c411c329",
+  "colors": "e0c616deb33513fa",
   "tokenColors": "098dfb7cd385529a",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -45563,6 +45703,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#065246",
    "diffEditor.insertedTextBackgroundFallback": "#0b6b5d20",
    "diffEditor.removedTextBackgroundFallback": "#a8134620",
+   "diffEditor.insertedTextBackgroundDarker": "#0b6b5d20",
+   "diffEditor.insertedTextBackgroundLighter": "#0b6b5d20",
+   "diffEditor.removedTextBackgroundDarker": "#a8134620",
+   "diffEditor.removedTextBackgroundLighter": "#a8134620",
    "windsurf.sessionStatus.orange": "#695F0F",
    "windsurf.sessionStatus.green": "#0B6B5D",
    "windsurf.sessionStatus.blue": "#065246",
@@ -45804,11 +45948,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "004a3314e56eb83f",
+  "colors": "f42c6150a7edd5ba",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
-   1036,
+   1040,
    42,
    62
   ],
@@ -46835,6 +46979,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#F0B75A",
    "diffEditor.insertedTextBackgroundFallback": "#9eb0961d",
    "diffEditor.removedTextBackgroundFallback": "#eb786d1d",
+   "diffEditor.insertedTextBackgroundDarker": "#9eb0961d",
+   "diffEditor.insertedTextBackgroundLighter": "#9eb0961d",
+   "diffEditor.removedTextBackgroundDarker": "#eb786d1d",
+   "diffEditor.removedTextBackgroundLighter": "#eb786d1d",
    "windsurf.sessionStatus.orange": "#F0B75A",
    "windsurf.sessionStatus.green": "#9EB096",
    "windsurf.sessionStatus.blue": "#6FC7E0",
@@ -47045,11 +47193,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "16adcce7fc487afa",
+  "colors": "9f5dea48c9bfeeb1",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
-   1036,
+   1040,
    42,
    62
   ],
@@ -48076,6 +48224,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#855606",
    "diffEditor.insertedTextBackgroundFallback": "#5a6c5220",
    "diffEditor.removedTextBackgroundFallback": "#b03a2e20",
+   "diffEditor.insertedTextBackgroundDarker": "#5a6c5220",
+   "diffEditor.insertedTextBackgroundLighter": "#5a6c5220",
+   "diffEditor.removedTextBackgroundDarker": "#b03a2e20",
+   "diffEditor.removedTextBackgroundLighter": "#b03a2e20",
    "windsurf.sessionStatus.orange": "#855606",
    "windsurf.sessionStatus.green": "#5A6C52",
    "windsurf.sessionStatus.blue": "#0F6480",
@@ -48286,11 +48438,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b2031266028e345f",
+  "colors": "0e44a01242070cde",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
-   1036,
+   1040,
    86,
    49
   ],
@@ -49317,6 +49469,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#C39B54",
    "diffEditor.insertedTextBackgroundFallback": "#93a46820",
    "diffEditor.removedTextBackgroundFallback": "#d9866b20",
+   "diffEditor.insertedTextBackgroundDarker": "#93a46820",
+   "diffEditor.insertedTextBackgroundLighter": "#93a46820",
+   "diffEditor.removedTextBackgroundDarker": "#d9866b20",
+   "diffEditor.removedTextBackgroundLighter": "#d9866b20",
    "windsurf.sessionStatus.orange": "#C99C55",
    "windsurf.sessionStatus.green": "#93A468",
    "windsurf.sessionStatus.blue": "#8E96A8",
@@ -49571,11 +49727,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2b14ec63618fb466",
+  "colors": "5c75b16876e9a17c",
   "tokenColors": "3f5a7079bd6c36e5",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
-   1036,
+   1040,
    86,
    49
   ],
@@ -50602,6 +50758,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#8A5F1E",
    "diffEditor.insertedTextBackgroundFallback": "#4763271d",
    "diffEditor.removedTextBackgroundFallback": "#983f1d1d",
+   "diffEditor.insertedTextBackgroundDarker": "#4763271d",
+   "diffEditor.insertedTextBackgroundLighter": "#4763271d",
+   "diffEditor.removedTextBackgroundDarker": "#983f1d1d",
+   "diffEditor.removedTextBackgroundLighter": "#983f1d1d",
    "windsurf.sessionStatus.orange": "#725719",
    "windsurf.sessionStatus.green": "#476327",
    "windsurf.sessionStatus.blue": "#2A5A78",
@@ -50856,11 +51016,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5e6d4cd932f2d684",
+  "colors": "7083e41a033c8c0b",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
-   1036,
+   1040,
    86,
    54
   ],
@@ -51887,6 +52047,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#F09A18",
    "diffEditor.insertedTextBackgroundFallback": "#66c07020",
    "diffEditor.removedTextBackgroundFallback": "#fa636220",
+   "diffEditor.insertedTextBackgroundDarker": "#66c07020",
+   "diffEditor.insertedTextBackgroundLighter": "#66c07020",
+   "diffEditor.removedTextBackgroundDarker": "#fa636220",
+   "diffEditor.removedTextBackgroundLighter": "#fa636220",
    "windsurf.sessionStatus.orange": "#F09A18",
    "windsurf.sessionStatus.green": "#66C070",
    "windsurf.sessionStatus.blue": "#64AEF9",
@@ -52116,11 +52280,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "90e96da3118397cb",
+  "colors": "de0682abfbc37b8e",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
-   1036,
+   1040,
    86,
    54
   ],
@@ -53147,6 +53311,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#8A5A00",
    "diffEditor.insertedTextBackgroundFallback": "#2c662020",
    "diffEditor.removedTextBackgroundFallback": "#c00a1820",
+   "diffEditor.insertedTextBackgroundDarker": "#2c662020",
+   "diffEditor.insertedTextBackgroundLighter": "#2c662020",
+   "diffEditor.removedTextBackgroundDarker": "#c00a1820",
+   "diffEditor.removedTextBackgroundLighter": "#c00a1820",
    "windsurf.sessionStatus.orange": "#9A5A00",
    "windsurf.sessionStatus.green": "#2C6620",
    "windsurf.sessionStatus.blue": "#0C5FA8",
@@ -53376,11 +53544,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2b28bef81da8fea0",
+  "colors": "4b806012b8d87454",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
-   1036,
+   1040,
    86,
    48
   ],
@@ -54407,6 +54575,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#D9A94A",
    "diffEditor.insertedTextBackgroundFallback": "#9aa87c1d",
    "diffEditor.removedTextBackgroundFallback": "#cf7a5e1d",
+   "diffEditor.insertedTextBackgroundDarker": "#9aa87c1d",
+   "diffEditor.insertedTextBackgroundLighter": "#9aa87c1d",
+   "diffEditor.removedTextBackgroundDarker": "#cf7a5e1d",
+   "diffEditor.removedTextBackgroundLighter": "#cf7a5e1d",
    "windsurf.sessionStatus.orange": "#C9A24A",
    "windsurf.sessionStatus.green": "#9AA87C",
    "windsurf.sessionStatus.blue": "#8FA0B8",
@@ -54624,11 +54796,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bce0bb6c7f4e6505",
+  "colors": "6fa0e3c59d75caae",
   "tokenColors": "b919a495ee1519e5",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
-   1036,
+   1040,
    86,
    48
   ],
@@ -55655,6 +55827,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#7E5B0E",
    "diffEditor.insertedTextBackgroundFallback": "#4b5c2620",
    "diffEditor.removedTextBackgroundFallback": "#8a3a2220",
+   "diffEditor.insertedTextBackgroundDarker": "#4b5c2620",
+   "diffEditor.insertedTextBackgroundLighter": "#4b5c2620",
+   "diffEditor.removedTextBackgroundDarker": "#8a3a2220",
+   "diffEditor.removedTextBackgroundLighter": "#8a3a2220",
    "windsurf.sessionStatus.orange": "#71500E",
    "windsurf.sessionStatus.green": "#4B5C26",
    "windsurf.sessionStatus.blue": "#2E5474",
@@ -55872,11 +56048,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "42ea9485648d3193",
+  "colors": "b1a38185b569ddd2",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
-   1036,
+   1040,
    86,
    49
   ],
@@ -56903,6 +57079,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#93A6BC",
    "diffEditor.insertedTextBackgroundFallback": "#8fb8941b",
    "diffEditor.removedTextBackgroundFallback": "#d080801b",
+   "diffEditor.insertedTextBackgroundDarker": "#8fb8941b",
+   "diffEditor.insertedTextBackgroundLighter": "#8fb8941b",
+   "diffEditor.removedTextBackgroundDarker": "#d080801b",
+   "diffEditor.removedTextBackgroundLighter": "#d080801b",
    "windsurf.sessionStatus.orange": "#C8B084",
    "windsurf.sessionStatus.green": "#8FB894",
    "windsurf.sessionStatus.blue": "#90A8C8",
@@ -57157,11 +57337,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "84a51d117e466dd7",
+  "colors": "18257711db0f9726",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
-   1036,
+   1040,
    86,
    49
   ],
@@ -58188,6 +58368,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#4E627A",
    "diffEditor.insertedTextBackgroundFallback": "#3a5c4020",
    "diffEditor.removedTextBackgroundFallback": "#8a3a3220",
+   "diffEditor.insertedTextBackgroundDarker": "#3a5c4020",
+   "diffEditor.insertedTextBackgroundLighter": "#3a5c4020",
+   "diffEditor.removedTextBackgroundDarker": "#8a3a3220",
+   "diffEditor.removedTextBackgroundLighter": "#8a3a3220",
    "windsurf.sessionStatus.orange": "#6A5220",
    "windsurf.sessionStatus.green": "#3A5C40",
    "windsurf.sessionStatus.blue": "#3E5478",
@@ -58442,11 +58626,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "74203521efb29eb4",
+  "colors": "dec420c99a76eda1",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -59473,6 +59657,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#D8A83C",
    "diffEditor.insertedTextBackgroundFallback": "#8fb08030",
    "diffEditor.removedTextBackgroundFallback": "#d5877930",
+   "diffEditor.insertedTextBackgroundDarker": "#8fb08030",
+   "diffEditor.insertedTextBackgroundLighter": "#8fb08030",
+   "diffEditor.removedTextBackgroundDarker": "#d5877930",
+   "diffEditor.removedTextBackgroundLighter": "#d5877930",
    "windsurf.sessionStatus.orange": "#D8A83C",
    "windsurf.sessionStatus.green": "#8FB080",
    "windsurf.sessionStatus.blue": "#8FA6C0",
@@ -59714,11 +59902,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "723b877547d7d4c6",
+  "colors": "0e05a09ecb7410b6",
   "tokenColors": "7b68d79e017deb02",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -60745,6 +60933,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#8A5F12",
    "diffEditor.insertedTextBackgroundFallback": "#3c562c33",
    "diffEditor.removedTextBackgroundFallback": "#83372933",
+   "diffEditor.insertedTextBackgroundDarker": "#3c562c33",
+   "diffEditor.insertedTextBackgroundLighter": "#3c562c33",
+   "diffEditor.removedTextBackgroundDarker": "#83372933",
+   "diffEditor.removedTextBackgroundLighter": "#83372933",
    "windsurf.sessionStatus.orange": "#6A490E",
    "windsurf.sessionStatus.green": "#3C562C",
    "windsurf.sessionStatus.blue": "#33507A",
@@ -60986,11 +61178,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b16d844e735b1064",
+  "colors": "4d87d0fc94b747b7",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
-   1036,
+   1040,
    86,
    50
   ],
@@ -62017,6 +62209,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#FF5C4D",
    "diffEditor.insertedTextBackgroundFallback": "#5fd8c01b",
    "diffEditor.removedTextBackgroundFallback": "#ff5c4d1b",
+   "diffEditor.insertedTextBackgroundDarker": "#5fd8c01b",
+   "diffEditor.insertedTextBackgroundLighter": "#5fd8c01b",
+   "diffEditor.removedTextBackgroundDarker": "#ff5c4d1b",
+   "diffEditor.removedTextBackgroundLighter": "#ff5c4d1b",
    "windsurf.sessionStatus.orange": "#FFA03C",
    "windsurf.sessionStatus.green": "#5FD8C0",
    "windsurf.sessionStatus.blue": "#8E9CBE",
@@ -62222,11 +62418,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "885e7f9d4aba4820",
+  "colors": "03ecef8bc3bf3232",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
-   1036,
+   1040,
    86,
    50
   ],
@@ -63253,6 +63449,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#C22A18",
    "diffEditor.insertedTextBackgroundFallback": "#0a6e5e28",
    "diffEditor.removedTextBackgroundFallback": "#c22a1828",
+   "diffEditor.insertedTextBackgroundDarker": "#0a6e5e28",
+   "diffEditor.insertedTextBackgroundLighter": "#0a6e5e28",
+   "diffEditor.removedTextBackgroundDarker": "#c22a1828",
+   "diffEditor.removedTextBackgroundLighter": "#c22a1828",
    "windsurf.sessionStatus.orange": "#9A5200",
    "windsurf.sessionStatus.green": "#0A6E5E",
    "windsurf.sessionStatus.blue": "#2E5C78",
@@ -63458,11 +63658,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "060513910741751a",
+  "colors": "70f7deeae2eda331",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -64489,6 +64689,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#FF5E7A",
    "diffEditor.insertedTextBackgroundFallback": "#8fc9a428",
    "diffEditor.removedTextBackgroundFallback": "#f9879428",
+   "diffEditor.insertedTextBackgroundDarker": "#8fc9a428",
+   "diffEditor.insertedTextBackgroundLighter": "#8fc9a428",
+   "diffEditor.removedTextBackgroundDarker": "#f9879428",
+   "diffEditor.removedTextBackgroundLighter": "#f9879428",
    "windsurf.sessionStatus.orange": "#E8B54A",
    "windsurf.sessionStatus.green": "#8FC9A4",
    "windsurf.sessionStatus.blue": "#B49BE8",
@@ -64730,11 +64934,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4ee7ac068c3794f8",
+  "colors": "1d8bf316b6827eb5",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -65761,6 +65965,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#B01238",
    "diffEditor.insertedTextBackgroundFallback": "#1e6a462e",
    "diffEditor.removedTextBackgroundFallback": "#b012382e",
+   "diffEditor.insertedTextBackgroundDarker": "#1e6a462e",
+   "diffEditor.insertedTextBackgroundLighter": "#1e6a462e",
+   "diffEditor.removedTextBackgroundDarker": "#b012382e",
+   "diffEditor.removedTextBackgroundLighter": "#b012382e",
    "windsurf.sessionStatus.orange": "#8A5A00",
    "windsurf.sessionStatus.green": "#1E6A46",
    "windsurf.sessionStatus.blue": "#5B48A0",
@@ -66002,11 +66210,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "85cafcae091f61f6",
+  "colors": "f2e17af991a952f8",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -67033,6 +67241,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0ECCCB",
    "diffEditor.insertedTextBackgroundFallback": "#6becbe25",
    "diffEditor.removedTextBackgroundFallback": "#f67f8725",
+   "diffEditor.insertedTextBackgroundDarker": "#6becbe25",
+   "diffEditor.insertedTextBackgroundLighter": "#6becbe25",
+   "diffEditor.removedTextBackgroundDarker": "#f67f8725",
+   "diffEditor.removedTextBackgroundLighter": "#f67f8725",
    "windsurf.sessionStatus.orange": "#F6B464",
    "windsurf.sessionStatus.green": "#6BECBE",
    "windsurf.sessionStatus.blue": "#9BD0F6",
@@ -67274,11 +67486,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ebc17b048208291c",
+  "colors": "3f451283b0d46df3",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -68305,6 +68517,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#0A6B6C",
    "diffEditor.insertedTextBackgroundFallback": "#094b3025",
    "diffEditor.removedTextBackgroundFallback": "#b2405125",
+   "diffEditor.insertedTextBackgroundDarker": "#094b3025",
+   "diffEditor.insertedTextBackgroundLighter": "#094b3025",
+   "diffEditor.removedTextBackgroundDarker": "#b2405125",
+   "diffEditor.removedTextBackgroundLighter": "#b2405125",
    "windsurf.sessionStatus.orange": "#804E08",
    "windsurf.sessionStatus.green": "#094B30",
    "windsurf.sessionStatus.blue": "#0B5475",
@@ -68546,11 +68762,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "33d1e1cf1405856b",
+  "colors": "6c6420ef8ce3062a",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -69577,6 +69793,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#AE9FCD",
    "diffEditor.insertedTextBackgroundFallback": "#80ba8f20",
    "diffEditor.removedTextBackgroundFallback": "#df7f8420",
+   "diffEditor.insertedTextBackgroundDarker": "#80ba8f20",
+   "diffEditor.insertedTextBackgroundLighter": "#80ba8f20",
+   "diffEditor.removedTextBackgroundDarker": "#df7f8420",
+   "diffEditor.removedTextBackgroundLighter": "#df7f8420",
    "windsurf.sessionStatus.orange": "#DDAC7B",
    "windsurf.sessionStatus.green": "#80BA8F",
    "windsurf.sessionStatus.blue": "#60B4E4",
@@ -69818,11 +70038,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bd36af819584947d",
+  "colors": "a991a0453aa05348",
   "tokenColors": "331b1630f0d9933c",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -70849,6 +71069,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#60537D",
    "diffEditor.insertedTextBackgroundFallback": "#30674125",
    "diffEditor.removedTextBackgroundFallback": "#9a454d25",
+   "diffEditor.insertedTextBackgroundDarker": "#30674125",
+   "diffEditor.insertedTextBackgroundLighter": "#30674125",
+   "diffEditor.removedTextBackgroundDarker": "#9a454d25",
+   "diffEditor.removedTextBackgroundLighter": "#9a454d25",
    "windsurf.sessionStatus.orange": "#795225",
    "windsurf.sessionStatus.green": "#306741",
    "windsurf.sessionStatus.blue": "#0D678C",
@@ -71090,11 +71314,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "57bbda6ae30ddfed",
+  "colors": "169fb2f34410b7cc",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -72121,6 +72345,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#FF63B4",
    "diffEditor.insertedTextBackgroundFallback": "#3fc97e20",
    "diffEditor.removedTextBackgroundFallback": "#ff7f4220",
+   "diffEditor.insertedTextBackgroundDarker": "#3fc97e20",
+   "diffEditor.insertedTextBackgroundLighter": "#3fc97e20",
+   "diffEditor.removedTextBackgroundDarker": "#ff7f4220",
+   "diffEditor.removedTextBackgroundLighter": "#ff7f4220",
    "windsurf.sessionStatus.orange": "#FFEE3C",
    "windsurf.sessionStatus.green": "#3FC97E",
    "windsurf.sessionStatus.blue": "#A289DB",
@@ -72362,11 +72590,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "766f45f0c0301998",
+  "colors": "e414a9791379c34d",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
-   1036,
+   1040,
    99,
    58
   ],
@@ -73393,6 +73621,10 @@
    "positronSplitterExpandCollapseButton.foreground": "#C4157E",
    "diffEditor.insertedTextBackgroundFallback": "#0a6e421d",
    "diffEditor.removedTextBackgroundFallback": "#ab430d1d",
+   "diffEditor.insertedTextBackgroundDarker": "#0a6e421d",
+   "diffEditor.insertedTextBackgroundLighter": "#0a6e421d",
+   "diffEditor.removedTextBackgroundDarker": "#ab430d1d",
+   "diffEditor.removedTextBackgroundLighter": "#ab430d1d",
    "windsurf.sessionStatus.orange": "#7A6000",
    "windsurf.sessionStatus.green": "#0A6E42",
    "windsurf.sessionStatus.blue": "#5A4694",
