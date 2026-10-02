@@ -37,16 +37,8 @@ export function appRoot() {
 
 export const bundledExtensions = () => path.join(appRoot(), 'extensions');
 export const outDir = () => path.join(appRoot(), 'out');
-// some editors ship the workbench under another name (TRAE SOLO: workbench.desktop.main.solo-lite.js)
-const workbench = (ext) => {
-  const dir = path.join(appRoot(), 'out/vs/workbench');
-  const exact = path.join(dir, `workbench.desktop.main.${ext}`);
-  if (fs.existsSync(exact)) return exact;
-  const other = fs.existsSync(dir) && fs.readdirSync(dir).filter((f) => f.startsWith('workbench.desktop.main') && f.endsWith(`.${ext}`)).sort()[0];
-  return other ? path.join(dir, other) : exact;
-};
-export const workbenchCss = () => workbench('css');
-export const workbenchJs = () => workbench('js');
+export const workbenchCss = () => path.join(appRoot(), 'out/vs/workbench/workbench.desktop.main.css');
+export const workbenchJs = () => path.join(appRoot(), 'out/vs/workbench/workbench.desktop.main.js');
 
 // installed extensions only when asked for, so a measurement never depends on the machine it runs on
 const userExtensionRoots = () => (process.env.VSCODE_USER_EXTENSIONS ? [process.env.VSCODE_USER_EXTENSIONS] : []).filter((r) => fs.existsSync(r));
