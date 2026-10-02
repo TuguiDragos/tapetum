@@ -885,7 +885,7 @@ against the other platforms. The current VSCodium, Cursor, Devin, code-server,
 Positron, Kiro, Trae and Antigravity builds, and the last build of Void, which was
 discontinued in 2025, were each read the same way,
 registry, stylesheets and derivations, and every theme checked on every one of
-them; the keys their older cores do not know yet are ignored by them, and the 49
+them; the keys their older cores do not know yet are ignored by them, and the 53
 surfaces those editors paint in colours of their own, listed with their reasons
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
 repeats those measurements on any editor from 1 command, and confirms that its
