@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "621de07cc727cc9b",
+  "colors": "e1157f322ba1b2fa",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1529,7 +1529,7 @@
    "list.errorForeground": "#b32770",
    "list.warningForeground": "#a34400",
    "list.deemphasizedForeground": "#787a86",
-   "list.invalidItemForeground": "#C42B7B",
+   "list.invalidItemForeground": "#b82874",
    "list.dropBackground": "#7b2cbf29",
    "list.dropBetweenBackground": "#7B2CBF",
    "list.filterMatchBackground": "#c251004d",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "55c0293dc7cbb958",
+  "colors": "77b28fd7ad969ac2",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -4089,7 +4089,7 @@
    "list.errorForeground": "#ae3417",
    "list.warningForeground": "#805700",
    "list.deemphasizedForeground": "#767676",
-   "list.invalidItemForeground": "#C13A1A",
+   "list.invalidItemForeground": "#b53719",
    "list.dropBackground": "#3a2fc929",
    "list.dropBetweenBackground": "#3A2FC9",
    "list.filterMatchBackground": "#9a6a004d",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8a266613e694ba00",
+  "colors": "f6b2817f5885b476",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6649,7 +6649,7 @@
    "list.errorForeground": "#a63a26",
    "list.warningForeground": "#825500",
    "list.deemphasizedForeground": "#747672",
-   "list.invalidItemForeground": "#B8402A",
+   "list.invalidItemForeground": "#ad3c27",
    "list.dropBackground": "#3d7a1429",
    "list.dropBetweenBackground": "#3D7A14",
    "list.filterMatchBackground": "#b8402a4d",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c404a845370b1671",
+  "colors": "137376cba43d7af2",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9209,7 +9209,7 @@
    "list.errorForeground": "#99461b",
    "list.warningForeground": "#825500",
    "list.deemphasizedForeground": "#757577",
-   "list.invalidItemForeground": "#a74c1d",
+   "list.invalidItemForeground": "#a1491b",
    "list.dropBackground": "#8a5a0029",
    "list.dropBetweenBackground": "#8A5A00",
    "list.filterMatchBackground": "#b0501f4d",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6e1c555147978461",
+  "colors": "e1529ea599e4ca57",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -11769,7 +11769,7 @@
    "list.errorForeground": "#c11418",
    "list.warningForeground": "#716008",
    "list.deemphasizedForeground": "#7d7e7f",
-   "list.invalidItemForeground": "#CF151A",
+   "list.invalidItemForeground": "#cb151a",
    "list.dropBackground": "#0a5b6429",
    "list.dropBetweenBackground": "#0A5B64",
    "list.filterMatchBackground": "#cf151a4d",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "78e4b116fbdc23d4",
+  "colors": "46df52167b728114",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -16895,7 +16895,7 @@
    "list.errorForeground": "#c10a33",
    "list.warningForeground": "#81440A",
    "list.deemphasizedForeground": "#78777b",
-   "list.invalidItemForeground": "#D20B38",
+   "list.invalidItemForeground": "#ca0b35",
    "list.dropBackground": "#b70ca829",
    "list.dropBetweenBackground": "#B70CA8",
    "list.filterMatchBackground": "#d20b384d",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b39f162f7b78c91a",
+  "colors": "7522dcf3a5669d14",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19455,7 +19455,7 @@
    "list.errorForeground": "#8c505a",
    "list.warningForeground": "#72600e",
    "list.deemphasizedForeground": "#72777a",
-   "list.invalidItemForeground": "#975661",
+   "list.invalidItemForeground": "#8f515c",
    "list.dropBackground": "#0a587b29",
    "list.dropBetweenBackground": "#0A587B",
    "list.filterMatchBackground": "#9154314d",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "61301107f43d5107",
+  "colors": "a55c6732c568db3a",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24575,7 +24575,7 @@
    "list.errorForeground": "#bf0a2d",
    "list.warningForeground": "#6E4C0A",
    "list.deemphasizedForeground": "#797671",
-   "list.invalidItemForeground": "#CF0B30",
+   "list.invalidItemForeground": "#c70b2e",
    "list.dropBackground": "#0a66b229",
    "list.dropBetweenBackground": "#0A66B2",
    "list.filterMatchBackground": "#cf0b304d",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d7cb082ec55c3fe4",
+  "colors": "ab9faa534e62db68",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -27135,7 +27135,7 @@
    "list.errorForeground": "#ab2642",
    "list.warningForeground": "#5F4E0B",
    "list.deemphasizedForeground": "#76736f",
-   "list.invalidItemForeground": "#BE2A49",
+   "list.invalidItemForeground": "#b62946",
    "list.dropBackground": "#0c615729",
    "list.dropBetweenBackground": "#0C6157",
    "list.filterMatchBackground": "#be2a494d",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c270c9bd2e28fa7b",
+  "colors": "fb3b137e0831b907",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29695,7 +29695,7 @@
    "list.errorForeground": "#bf0a33",
    "list.warningForeground": "#745d0a",
    "list.deemphasizedForeground": "#71777a",
-   "list.invalidItemForeground": "#C70A35",
+   "list.invalidItemForeground": "#c50a34",
    "list.dropBackground": "#b61ccb29",
    "list.dropBetweenBackground": "#B61CCB",
    "list.filterMatchBackground": "#0d63774d",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4cf8e3d86d18b465",
+  "colors": "b5e1e34cdd04cf53",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32255,7 +32255,7 @@
    "list.errorForeground": "#ba0a40",
    "list.warningForeground": "#913E0A",
    "list.deemphasizedForeground": "#79746e",
-   "list.invalidItemForeground": "#C40A43",
+   "list.invalidItemForeground": "#c20a42",
    "list.dropBackground": "#913e0a29",
    "list.dropBetweenBackground": "#913E0A",
    "list.filterMatchBackground": "#c40a434d",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d6f7cc9a550ad0fc",
+  "colors": "a6c11fd750179450",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -34815,7 +34815,7 @@
    "list.errorForeground": "#ba0b76",
    "list.warningForeground": "#8c5420",
    "list.deemphasizedForeground": "#73777a",
-   "list.invalidItemForeground": "#CC0C82",
+   "list.invalidItemForeground": "#be0c79",
    "list.dropBackground": "#0c5b6a29",
    "list.dropBetweenBackground": "#0C5B6A",
    "list.filterMatchBackground": "#cc0c824d",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9b5e0bb7abd73ba1",
+  "colors": "9b17c737649994e3",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37375,7 +37375,7 @@
    "list.errorForeground": "#c20c1e",
    "list.warningForeground": "#565D0B",
    "list.deemphasizedForeground": "#727777",
-   "list.invalidItemForeground": "#D70E21",
+   "list.invalidItemForeground": "#c80d1e",
    "list.dropBackground": "#0c5e4829",
    "list.dropBetweenBackground": "#0C5E48",
    "list.filterMatchBackground": "#d70e214d",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c2961cd6a8f80f8e",
+  "colors": "04a14c94d9afc028",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -39935,7 +39935,7 @@
    "list.errorForeground": "#bb0934",
    "list.warningForeground": "#7A4B0A",
    "list.deemphasizedForeground": "#797472",
-   "list.invalidItemForeground": "#c90a38",
+   "list.invalidItemForeground": "#c30a36",
    "list.dropBackground": "#574a0a29",
    "list.dropBetweenBackground": "#574A0A",
    "list.filterMatchBackground": "#d30b6b4d",
@@ -47341,7 +47341,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c3347d6e5c809713",
+  "colors": "995331c04e3c1e04",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47584,7 +47584,7 @@
    "list.errorForeground": "#a0352a",
    "list.warningForeground": "#7d5106",
    "list.deemphasizedForeground": "#6A6C73",
-   "list.invalidItemForeground": "#B03A2E",
+   "list.invalidItemForeground": "#aa382d",
    "list.dropBackground": "#85560629",
    "list.dropBetweenBackground": "#855606",
    "list.filterMatchBackground": "#5b48a04d",
@@ -62614,7 +62614,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9e4c82ffcb3de144",
+  "colors": "ff6be2f63b9f6228",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -62857,7 +62857,7 @@
    "list.errorForeground": "#b42717",
    "list.warningForeground": "#914d00",
    "list.deemphasizedForeground": "#737875",
-   "list.invalidItemForeground": "#C22A18",
+   "list.invalidItemForeground": "#bc2918",
    "list.dropBackground": "#c22a1829",
    "list.dropBetweenBackground": "#C22A18",
    "list.filterMatchBackground": "#c22a184d",
@@ -66418,7 +66418,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "74115b67bc64b98d",
+  "colors": "0467047178454b6b",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -66661,7 +66661,7 @@
    "list.errorForeground": "#f7878e",
    "list.warningForeground": "#F6B464",
    "list.deemphasizedForeground": "#7a868f",
-   "list.invalidItemForeground": "#F67F87",
+   "list.invalidItemForeground": "#f6858d",
    "list.dropBackground": "#0ecccb29",
    "list.dropBetweenBackground": "#0ECCCB",
    "list.filterMatchBackground": "#f6b4644d",
@@ -67698,7 +67698,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8395e32bb0fc893f",
+  "colors": "f98ab701dd9f12a5",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -67941,7 +67941,7 @@
    "list.errorForeground": "#a43b4b",
    "list.warningForeground": "#804E08",
    "list.deemphasizedForeground": "#71797d",
-   "list.invalidItemForeground": "#b24051",
+   "list.invalidItemForeground": "#a93d4d",
    "list.dropBackground": "#0a6b6c29",
    "list.dropBetweenBackground": "#0A6B6C",
    "list.filterMatchBackground": "#804e084d",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f8743919f64c4bfc",
+  "colors": "3a29d1ae3c386c47",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -73061,7 +73061,7 @@
    "list.errorForeground": "#953b0b",
    "list.warningForeground": "#6c5500",
    "list.deemphasizedForeground": "#6d6a63",
-   "list.invalidItemForeground": "#ab430d",
+   "list.invalidItemForeground": "#a23f0c",
    "list.dropBackground": "#c4157e29",
    "list.dropBetweenBackground": "#C4157E",
    "list.filterMatchBackground": "#b4470e4d",

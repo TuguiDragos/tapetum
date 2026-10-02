@@ -238,7 +238,7 @@
     "list.errorForeground": "#b42717",
     "list.warningForeground": "#914d00",
     "list.deemphasizedForeground": "#737875",
-    "list.invalidItemForeground": "#C22A18",
+    "list.invalidItemForeground": "#bc2918",
     "list.dropBackground": "#c22a1829",
     "list.dropBetweenBackground": "#C22A18",
     "list.filterMatchBackground": "#c22a184d",

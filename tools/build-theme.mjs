@@ -53,6 +53,10 @@ function tokens(s) {
   const findGround = [bg, elev, chrome, strip].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
   const stripHover = hc ? elev : reach(strip, strip, fg, 3.0);
+  // a decorated file name sits on the side bar, the strip, a hovered tab, the hovered and inactive selected rows (the text at 6%)
+  // and the focused row a keyboard moves to, which keeps the name's own colour until it is selected
+  const rowGrounds = [mix(elev, fg, 0.06), over];
+  const nameGrounds = [elev, strip, mix(strip, fg, 0.06), ...rowGrounds];
   const whitespace = mix(bg, fg, 0.2);
   // the search view shows each match in the side bar's text on the find highlight, so the highlight eases off until that text reads
   const sideText = legible(mix(fg, elev, 0.18), elev, 4.5);
@@ -110,7 +114,7 @@ function tokens(s) {
     pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
   }
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -365,11 +369,10 @@ function chrome(t) {
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
     'list.inactiveFocusOutline': inactiveOutline,
     'list.highlightForeground': t.highlight,
-    // decorated names sit on the side bar and, on a tab, on the strip, which a hovered tab turns 6% toward the foreground
-    'list.errorForeground': t.handStatus ? st.error : [elev, strip, mix(strip, fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), st.error),
-    'list.warningForeground': t.handStatus ? st.warn : [elev, strip, mix(strip, fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), st.warn),
+    'list.errorForeground': t.handStatus ? st.error : t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.error),
+    'list.warningForeground': t.handStatus ? st.warn : t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.warn),
     'list.deemphasizedForeground': faint,
-    'list.invalidItemForeground': t.handStatus ? st.error : readsOn(st.error, elev, 4.5),
+    'list.invalidItemForeground': t.handStatus ? st.error : [elev, ...t.rowGrounds].reduce((x, g) => readsOn(x, g, 4.5), st.error),
     'list.dropBackground': alphaOf(acc, 0.16),
     'list.dropBetweenBackground': acc,
     'list.filterMatchBackground': filterWash,
@@ -1231,8 +1234,7 @@ function gitDecorations(t) {
   };
   const renamed = pick(taken);
   const submodule = pick([...taken, renamed]);
-  // connected tabs paint a hovered tab as the foreground at 6% over the strip, and the names are written on it
-  const name = (c) => [t.elev, t.strip, mix(t.strip, t.fg, 0.06)].reduce((x, g) => readsOn(x, g, 4.5), c);
+  const name = (c) => t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), c);
   // hand placed status colours stay as their palette writes them
   const status = (c) => (t.handStatus ? c : name(c));
   return {
