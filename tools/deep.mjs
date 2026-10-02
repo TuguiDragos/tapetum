@@ -162,6 +162,18 @@ const COMPOSED = [
   // the warning or note label of a chat picker sits on the chat pane, in the side bar, the panel or an editor; hovered or open it takes the toolbar hover
   ...['problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => ({ fg: (c) => c[k], floor: 4.5, what: `${k}, the label of a chat picker on the chat pane, plain, hovered or open`,
     grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], c['editor.background']); return [pane, over(c['toolbar.hoverBackground'], pane)]; }) })),
+  // VS Code writes the source, code and position of a problem at 70%, on the selected, focused and hovered rows too
+  ...[[null, null], ['list.activeSelectionForeground', 'list.activeSelectionBackground'], ['list.inactiveSelectionForeground', 'list.inactiveSelectionBackground'],
+    ['list.focusForeground', 'list.focusBackground'], ['list.hoverForeground', 'list.hoverBackground']].map(([k, row]) => ({
+    fg: (c) => c[k] || c.foreground, share: 0.7, floor: 4.0, what: `the source of a problem at 70%${row ? ` on ${row}` : ' on the panel'}`,
+    grounds: (c) => { const pane = over(c['panel.background'], c['editor.background']); return [row ? over(c[row], pane) : pane]; } })),
+  // and a description beside a name in a list at 70% (95% in light themes), plain or hovered; focused and selected rows show it whole
+  { fg: (c, light) => alpha(c['sideBar.foreground'], light ? 0.95 : 0.7), grounds: (c) => [c['sideBar.background']], floor: 4.0, what: 'a description in a side bar list' },
+  { fg: (c, light) => alpha(c['list.hoverForeground'], light ? 0.95 : 0.7), grounds: (c) => [over(c['list.hoverBackground'], c['sideBar.background'])], floor: 4.0, what: 'a description on a hovered row of a side bar list' },
+  // the placeholders of inputs and of the editors inside them: the source control message, the chat input, inline chat, a comment reply
+  { fg: (c) => c['input.placeholderForeground'], grounds: (c) => [c['input.background']], floor: 3.2, what: 'the placeholder of an input' },
+  { fg: (c) => c['editor.placeholder.foreground'], floor: 3.2, what: 'the placeholder of an editor in an input',
+    grounds: (c) => [c['input.background'], over(c['inlineChat.background'], c['editor.background']), over(c['editorCommentsWidget.replyInputBackground'], c['editor.background'])] },
   { fg: (c) => c['terminal.foreground'], grounds: (c) => [c['terminal.findMatchBackground'].slice(0, 7), over(c['terminal.findMatchHighlightBackground'], c['terminal.background'])], floor: 4.5, what: 'terminal text on its find matches, the active one drawn by xterm without alpha' },
 ];
 const DECORATED_NAMES = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule']
@@ -273,6 +285,18 @@ function analyse(fam, v) {
   }
   const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
   pend(`syntax over the selection in a diff (${floorNote})`, diffSel, selFloor);
+  // what VS Code itself writes at part strength, high contrast aside: the line badge of the call stack at 60%, the empty message of the
+  // outline at 50%, the name on an inactive pill tab at 50% of the text, a description on an inactive tab, and a terminal icon a user colours
+  // black or white
+  if (!hc) {
+    const sb = c['sideBar.background'], pane = over(c['panel.background'], eb), light = t.type === 'light';
+    const badge = over(alpha(c['badge.background'], 0.6), sb), pill = over(c['modernEditorTab.inactiveBackground'], eb), tabs = over(c['editorGroupHeader.connectedTabsBackground'], eb);
+    pend('the line badge of the call stack, at 60% (4.5)', contrast(over(alpha(c['badge.foreground'], 0.6), badge), badge), 4.5);
+    pend('the empty message of the outline, at 50% (4.5)', contrast(mix(sb, c['sideBar.foreground'], 0.5), sb), 4.5);
+    pend('the name on an inactive pill tab, the text at 50% (4.5)', contrast(mix(pill, c.foreground, 0.5), pill), 4.5);
+    pend(`a description on an inactive tab, at ${light ? 95 : 70}% (4.0)`, contrast(mix(tabs, c['tab.inactiveForeground'], light ? 0.95 : 0.7), tabs), 4.0);
+    pend('a terminal icon coloured black or white (3.0)', Math.min(...['terminal.ansiBlack', 'terminal.ansiWhite'].map((k) => contrast(c[k], pane))), 3.0);
+  }
   const findTexts = hc && selFg && parse(selFg).a === 1 ? [selFg] : ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
   if (findTexts.length) {
     const findSel = Math.min(...[['editor.inactiveSelectionBackground', 'editor.findMatchHighlightBackground'], ['editor.inactiveSelectionBackground', 'editor.rangeHighlightBackground', 'editor.findMatchBackground'],

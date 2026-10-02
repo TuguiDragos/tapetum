@@ -1069,7 +1069,8 @@ function remainder(t) {
     'editor.snippetTabstopHighlightBorder': alphaOf(t.legible(acc, t.bg, 3.0), 0.5),
     'editor.snippetFinalTabstopHighlightBackground': alphaOf(y.type, 0.16),
     'editor.snippetFinalTabstopHighlightBorder': y.type,
-    'editor.placeholder.foreground': faint,
+    // the placeholder of the source control message and of the chat input, both editors on the input background
+    'editor.placeholder.foreground': t.legible(faint, t.field, 3.2),
     'editorUnicodeHighlight.background': alphaOf(st.warn, 0.14),
     'editorUnicodeHighlight.border': st.warn,
     'editorGutter.addedSecondaryBackground': alphaOf(st.added, 0.5),
