@@ -44,10 +44,13 @@ or bold italic, meant for its name. Only the name keeps it now.
 - Find matches lying on the selection, as the current one always does, in 13
   themes.
 - The active line number in the peek view, in Stratum Light.
-- File names marked by errors, warnings or git, on the tab strip in 24 themes
-  and on a hovered tab, which VS Code paints as the text at 6% over the strip,
-  in 23. Palettes that place their status colours by hand keep their own; in 6
-  light ones they are darkened at the source just enough to read on the strip.
+- File names marked by errors, warnings or git: on the tab strip in 24 themes,
+  on a hovered tab, which VS Code paints as the text at 6% over the strip, in
+  34, and on a hovered, inactive selected or focused row of the side bar in
+  25. Palettes that place their status colours by hand keep their own, moved
+  at the source just enough to read, by about 3 dE.
+- The default marked beside an option of a Settings dropdown, which took the
+  accent as it is, in 4 light themes.
 - A hovered name in the Customizations view, in 11 themes.
 - Code pinned by sticky scroll, in 12 themes: its lines sat half a step toward
   the side bar and now share the editor's background, set apart by their line
@@ -68,6 +71,16 @@ or bold italic, meant for its name. Only the name keeps it now.
   snippet placeholder, was a tint, and on a selected word it pulled code under
   3 to 1 in 54 themes. Outside high contrast it is an outline at half strength
   now, so a selected word reads as the rest of the selection.
+- The highlight under a hovered symbol pulled code under 3 to 1 where it lay
+  on the selection, a changed word of a diff or the current line, in all 56
+  regular themes. It takes the selection's own colour now, as VS Code draws
+  it, and looks the same on the editor; on a selection it adds nothing.
+- A link is told from the text beside it by its colour alone, and in the 13
+  themes with grey or nearly grey syntax it took the function colour, which
+  sits on the text. It takes the family accent there now, Safelight its
+  salmon, at least 12 dE from the text.
+- A renamed file or a submodule took a colour close to plain names in 5 quiet
+  themes, and so did a new file in Safelight. Each stands 10 dE apart now.
 - The errors and warnings of a log file shared a colour in Borrow, Effect,
   Palimpsest, Silverpoint and Stratum, and none in Provenance. They take the
   status colours, as in the other families.
@@ -99,7 +112,17 @@ edit takes the family diff washes instead of a fixed green and red, and
 Antigravity no longer trades them for a grey or white variant of its own.
 Devin's session states, Cursor's worktree tab border and empty editor
 watermark, the charts of Positron's data explorer, Trae's secondary text and
-the accent of Kiro's agent chat take family colours that read.
+the accent of Kiro's agent chat take family colours that read. Void's inline
+review, where the wash is the only mark of an edited line, takes the diff
+washes at the strength of a changed word, so added and removed lines stand
+apart in every theme.
+
+**Frosted glass.** VS Code Insiders draws the quick input, menus, hovers,
+dialogs and notifications as frosted glass. Their text keeps its floor over
+every surface of the theme, at any strength the setting allows, which moves
+links, errors, highlights and the text of warnings a little in 13 light
+themes. Over a white page or a black image under the glass, no theme can
+promise it.
 
 ### Changed
 
