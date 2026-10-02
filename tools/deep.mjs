@@ -485,6 +485,13 @@ function analyse(fam, v) {
   if (out.diff.deltaE < 2.5) bad('diff', `inserted and removed at ${out.diff.deltaE.toFixed(1)} dE`);
   if (diffText < 3.4) bad('diff', `syntax on a diff background at ${down(diffText)}, under 3.4`);
   if (diffComment < 3.2) bad('diff', `comments on a diff background at ${down(diffComment)}, under 3.2`);
+  // the merge editor lays a changed word over its changed line, in the inputs and the result and, in red, in the base
+  const mergeEditorGrounds = [['mergeEditor.change.background', 'mergeEditor.change.word.background'], ['mergeEditor.changeBase.background', 'mergeEditor.changeBase.word.background']]
+    .flatMap(([line, word]) => { const l = over(c[line], eb); return [l, over(c[word], l)]; });
+  const mergeEditorText = Math.min(...mergeEditorGrounds.flatMap((g) => diffSyntax.map((r) => contrast(p[r], g))));
+  const mergeEditorComment = p.comment ? Math.min(...mergeEditorGrounds.map((g) => contrast(p.comment, g))) : 99;
+  if (mergeEditorText < 3.4) bad('diff', `syntax in the merge editor at ${down(mergeEditorText)}, under 3.4`);
+  if (mergeEditorComment < 3.2) bad('diff', `comments in the merge editor at ${down(mergeEditorComment)}, under 3.2`);
   if (diffMark < 2) bad('diff', `the changed word at ${diffMark.toFixed(1)} dE from the line`);
 
   const sim = (fn) => {

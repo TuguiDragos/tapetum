@@ -670,6 +670,7 @@ function integrations(t) {
     return lighten(c, 0.02);
   };
   const { sh, bg, elev, over, fg, dim, faint, line, line2, acc, st, y, dark } = t;
+  const diff = diffWashes(t);
   // the matched word of a reference in the peek keeps the text colour on its wash, the row plain, selected or hovered (6%)
   let refK = 0.3;
   while (refK > 0.1 && [elev, over, mix(elev, fg, 0.06)].some((g) => contrast(fg, composite(alphaOf(y.number, refK), g)) < 4.5)) refK = Math.round(refK * 100 - 1) / 100;
@@ -723,7 +724,7 @@ function integrations(t) {
     'scmGraph.historyItemHoverAdditionsForeground': st.added,
     'scmGraph.historyItemHoverDeletionsForeground': st.deleted,
 
-    ...diffWashes(t),
+    ...diff,
     'diffEditor.border': line,
     'diffEditor.diagonalFill': line2,
     'diffEditor.unchangedRegionBackground': elev,
@@ -747,10 +748,11 @@ function integrations(t) {
     'merge.commonHeaderBackground': alphaOf(faint, sides.commonHeaderK),
     'merge.commonContentBackground': alphaOf(faint, sides.commonContentK),
     'merge.border': '#00000000',
-    'mergeEditor.change.background': alphaOf(st.added, 0.12),
-    'mergeEditor.change.word.background': alphaOf(st.added, 0.22),
-    'mergeEditor.changeBase.background': alphaOf(st.deleted, 0.12),
-    'mergeEditor.changeBase.word.background': alphaOf(st.deleted, 0.22),
+    // the merge editor shows its changes as the diff editor does, on the washes that keep the code readable
+    'mergeEditor.change.background': diff['diffEditor.insertedLineBackground'],
+    'mergeEditor.change.word.background': diff['diffEditor.insertedTextBackground'],
+    'mergeEditor.changeBase.background': diff['diffEditor.removedLineBackground'],
+    'mergeEditor.changeBase.word.background': diff['diffEditor.removedTextBackground'],
     'mergeEditor.conflict.unhandledUnfocused.border': alphaOf(st.warn, 0.5),
     'mergeEditor.conflict.unhandledFocused.border': st.warn,
     'mergeEditor.conflict.handledUnfocused.border': alphaOf(st.ok, 0.35),
