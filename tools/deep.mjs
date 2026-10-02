@@ -420,7 +420,8 @@ function analyse(fam, v) {
   const incContent = over(c['merge.incomingContentBackground'], eb);
   const curHeader = over(c['merge.currentHeaderBackground'], eb);
   const incHeader = over(c['merge.incomingHeaderBackground'], eb);
-  const mergeGrounds = [curContent, incContent, curHeader, incHeader];
+  // a diff3 conflict adds the common ancestor block between them
+  const mergeGrounds = [curContent, incContent, curHeader, incHeader, ...['merge.commonContentBackground', 'merge.commonHeaderBackground'].map((k) => over(c[k], eb))];
   const mergeText = Math.min(...mergeGrounds.flatMap((g) => diffSyntax.concat('comment').map((r) => contrast(p[r], g))));
   const mergeSplit = deltaE(curContent, incContent);
   const mergePresence = Math.min(deltaE(curContent, eb), deltaE(incContent, eb));

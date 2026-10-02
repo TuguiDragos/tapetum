@@ -53712,7 +53712,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "deed476f0366777f",
+  "colors": "04b47ed3e692a58f",
   "tokenColors": "31821723928daef3",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
@@ -54266,8 +54266,8 @@
    "merge.currentContentBackground": "#886a574a",
    "merge.incomingHeaderBackground": "#51758d4f",
    "merge.incomingContentBackground": "#51758d4a",
-   "merge.commonHeaderBackground": "#7e7a734f",
-   "merge.commonContentBackground": "#7e7a734a",
+   "merge.commonHeaderBackground": "#7e7a7347",
+   "merge.commonContentBackground": "#7e7a7347",
    "merge.border": "#00000000",
    "mergeEditor.change.background": "#9aa87c1f",
    "mergeEditor.change.word.background": "#9aa87c38",
@@ -56224,7 +56224,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b9aed9d67e3d1568",
+  "colors": "72b99981b5aa25d6",
   "tokenColors": "33d40469d09a91e7",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -56778,8 +56778,8 @@
    "merge.currentContentBackground": "#8d6f5b4d",
    "merge.incomingHeaderBackground": "#567a924d",
    "merge.incomingContentBackground": "#567a924d",
-   "merge.commonHeaderBackground": "#7676794d",
-   "merge.commonContentBackground": "#7676794d",
+   "merge.commonHeaderBackground": "#7676794a",
+   "merge.commonContentBackground": "#7676794a",
    "merge.border": "#00000000",
    "mergeEditor.change.background": "#8fb8941f",
    "mergeEditor.change.word.background": "#8fb89438",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0e93fdcb7fa62221",
+  "colors": "6852d4adf7322f2c",
   "tokenColors": "c2bacbe284ec3fb3",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -58071,8 +58071,8 @@
    "merge.currentContentBackground": "#9374604d",
    "merge.incomingHeaderBackground": "#5b7f974d",
    "merge.incomingContentBackground": "#5b7f974d",
-   "merge.commonHeaderBackground": "#6a68684d",
-   "merge.commonContentBackground": "#6a68684d",
+   "merge.commonHeaderBackground": "#6a686842",
+   "merge.commonContentBackground": "#6a686842",
    "merge.border": "#00000000",
    "mergeEditor.change.background": "#34563a1f",
    "mergeEditor.change.word.background": "#34563a38",
