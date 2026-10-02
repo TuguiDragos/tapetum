@@ -147,6 +147,8 @@ const GLASS = {
     ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground'],
     // the hovers of a page with a bad certificate, an agent session, a chat attachment, a pull request or an issue, a chat model
     ['errorForeground', 4.5], ['chat.linesAddedForeground', 4.5], ['chat.linesRemovedForeground', 4.5], ['debugTokenExpression.name', 4.5], ['editor.foreground', 4.5],
+    // the insertions and deletions the git extension writes into a commit hover of the Source Control Graph
+    ['scmGraph.historyItemHoverAdditionsForeground', 4.5], ['scmGraph.historyItemHoverDeletionsForeground', 4.5],
     ['editor.foreground', 4.5, 'textCodeBlock.background'], ['textLink.foreground', 4.5, 'textCodeBlock.background'], ['descriptionForeground', 4.0, 'textCodeBlock.background'],
     ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0], ['extensionIcon.verifiedForeground', 3.0],
     ...['testing.iconFailed', 'testing.iconPassed', 'testing.iconQueued', 'charts.green', 'charts.purple', 'charts.red'].map((k) => [k, 3.0, 'textCodeBlock.background'])],
@@ -213,6 +215,9 @@ const COMPOSED = [
     grounds: (c) => [over(c['textPreformat.background'], over(c['dropdown.listBackground'], c['editor.background']))] },
   { fg: (c) => c['textLink.foreground'], floor: 4.5, what: 'textLink.foreground, a hovered code block pill in chat',
     grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].map((s) => over(c['list.hoverBackground'], over(c[s], c['editor.background']))) },
+  // the cost badge of the checked model in the chat model picker: the description on that row's 18% of the button, on the solid menu
+  { fg: (c) => c.descriptionForeground, floor: 4.0, what: 'descriptionForeground, the cost badge of the checked model in the chat model picker',
+    grounds: (c) => { const menu = over(c['menu.background'], c['editor.background']); return [mix(menu, over(c['button.background'], menu), 0.18)]; } },
   // the label of a chat picker (the mode, the model) is text in icon.foreground, on the chat pane or the input, plain or open
   { fg: (c) => c['icon.foreground'], floor: 4.5, what: 'icon.foreground, the label of a chat picker, plain or open',
     grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], c['editor.background']), input = over(c['input.background'], pane);
@@ -351,6 +356,8 @@ function analyse(fam, v) {
       ...Object.entries(TEXT_UNDER_GLASS).map(([u, text]) => mix(withText(c, over(c[u], eb), text), menu, 0.5)), ...Object.values(washesUnderGlass(c)).map((w) => mix(w, menu, 0.8))];
     const at = (k, share, grounds, wash) => Math.min(...grounds.map((g) => { const ground = wash ? over(c[wash], g) : g; return contrast(mix(ground, c[k], share), ground); }));
     pend('a detail of the action widget, the description at 80% (4.0)', at('descriptionForeground', 0.8, unders), 4.0);
+    // the cost badge of the checked model as glass: lifting it would move every description of 28 dark themes
+    pend('the cost badge of the checked model in the chat model picker, as glass (4.0)', Math.min(...unders.map((g) => { const r = mix(g, over(c['button.background'], g), 0.18); return contrast(over(c.descriptionForeground, r), r); })), 4.0);
     for (const k of ['descriptionForeground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'])
       pend(`${k}, a permission of an agent host at 85% on the menu, on its row and focused (4.0)`, Math.min(at(k, 0.85, unders), at(k, 0.85, unders, 'list.hoverBackground')), 4.0);
     const pickers = ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], eb), input = over(c['input.background'], pane);
@@ -375,6 +382,16 @@ function analyse(fam, v) {
   if (!hc) {
     const bubble = ['sideBar.background', 'panel.background'].map((s) => over(c['textPreformat.background'], over(c['chat.requestBubbleBackground'], over(c[s], eb))));
     pend('textLink.foreground, a link written as code in the request bubble of chat (4.5)', Math.min(...bubble.map((g) => contrast(over(c['textLink.foreground'], g), g))), 4.5);
+  }
+  // a description beside a tab whose text VS Code already quiets: an unfocused group (the classic tabs, hovered or active) and, in high
+  // contrast, every tab, at 70% (95% under .vs); lifting them would narrow the gap between the focused group and the others
+  {
+    const strip = over(c['editorGroupHeader.tabsBackground'], eb), share = t.type === 'light' ? 0.95 : 0.7;
+    const at = (fg, bg) => { const g = over(c[bg] || '#00000000', strip); return contrast(mix(g, over(c[fg], g), share), g); };
+    const pairs = hc ? [['tab.inactiveForeground', 'tab.inactiveBackground'], ['tab.unfocusedInactiveForeground', 'tab.unfocusedInactiveBackground'],
+      ['tab.unfocusedHoverForeground', 'tab.unfocusedHoverBackground'], ['tab.unfocusedActiveForeground', 'tab.unfocusedActiveBackground']]
+      : [['tab.unfocusedHoverForeground', 'tab.unfocusedHoverBackground'], ['tab.unfocusedActiveForeground', 'tab.unfocusedActiveBackground']];
+    pend(`a description on a tab ${hc ? 'in high contrast' : 'of an unfocused group, hovered or active'}, at ${share * 100}% (4.0)`, Math.min(...pairs.map(([f, b]) => at(f, b))), 4.0);
   }
   // a description beside a decorated name (the folder of a duplicate name, a search result) takes the decoration colour, at 70%
   // (95% in light themes), on the side bar, its rows and the tabs; lifting it would move every git and problem colour of the dark themes
@@ -690,6 +707,15 @@ function analyse(fam, v) {
       if (cr < syntaxFloor(r)) bad('surface', `${name} in the Output view, through ${r.name}, on outputView.background at ${down(cr)}, under ${syntaxFloor(r)}`);
     }
   }
+  // the code block of a hover, suggest details and parameter hints draw the token colours straight on the widget surface, solid or
+  // as glass; lifting them would move the syntax of the hand placed palettes, so they are measured
+  if (!hc) {
+    const hover = over(c['editorHoverWidget.background'], eb), glass = mix(eb, hover, 0.8);
+    for (const [where, g] of [['solid', hover], ['as glass at 80% over the editor', glass]]) for (const recedes of [false, true]) {
+      const set = rules.filter((r) => (syntaxFloor(r) === 4.0) === recedes);
+      if (set.length) pend(`code in a hover's code block, ${where} (${recedes ? '4.0' : '4.5'})`, Math.min(...set.map((r) => contrast(over(r.settings.foreground, g), g))), recedes ? 4.0 : 4.5);
+    }
+  }
   const sticky = over(c['editorStickyScroll.background'], eb);
   for (const r of rules) {
     const cr = contrast(over(r.settings.foreground, sticky), sticky);
@@ -709,6 +735,11 @@ function analyse(fam, v) {
   }
   if (!hc) for (const [s, texts] of Object.entries(GLASS)) for (const [k, floor, wash, share] of texts) {
     const shown = (ground) => (share ? mix(ground, c[k], share) : over(c[k], ground));
+    // the surface itself, solid at 100% and in VS Code without the glass
+    {
+      const solid = over(c[s], eb), ground = typeof wash === 'function' ? wash(c, solid) : wash ? over(c[wash], solid) : solid, cr = contrast(shown(ground), ground);
+      if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s}, solid, at ${down(cr)}, under ${floor}`);
+    }
     for (const u of UNDER_GLASS) for (const text of [null, TEXT_UNDER_GLASS[u]]) {
       if (text === undefined) continue;
       const under = text ? withText(c, over(c[u], eb), text) : over(c[u], eb);
