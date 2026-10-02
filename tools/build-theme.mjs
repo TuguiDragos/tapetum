@@ -218,9 +218,9 @@ function tokens(s) {
     'editorInfo.background': alpha(st.info, 0.08),
     'problemsErrorIcon.foreground': softStatus(st.error),
     // also text: the labels of the chat pickers, on the chat pane or its toolbar hover (6% of the text), and the agent
-    // permissions, on menus that Insiders turns to glass, their focused row with the same 6% over it
-    'problemsWarningIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass, ...glass.map((g) => mix(g, fg, 0.06))].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
-    'problemsInfoIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass, ...glass.map((g) => mix(g, fg, 0.06))].reduce((x, g) => readsOn(x, g, 4.5), st.info),
+    // permissions on menus, which Insiders turns to glass
+    'problemsWarningIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
+    'problemsInfoIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info),
 
     'editorGutter.background': bg,
     'editorGutter.modifiedBackground': st.modified,
@@ -313,11 +313,12 @@ function chrome(t) {
     'titleBar.border': line,
 
     'commandCenter.background': alphaOf(fg, 0.05),
-    // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search
-    'commandCenter.foreground': faded(legible(dim, t.hard, 5.0), ch, 0.6, t.hc ? 4.5 : 3.2),
+    // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search, on the title bar or,
+    // with the modern UI off, on the 5% wash of its input (10% hovered)
+    'commandCenter.foreground': [ch, composite(alphaOf(fg, 0.05), ch)].reduce((x, g) => faded(x, g, 0.6, t.hc ? 4.5 : 3.2), legible(dim, t.hard, 5.0)),
     'commandCenter.border': line2,
     'commandCenter.activeBackground': alphaOf(fg, 0.1),
-    'commandCenter.activeForeground': fg,
+    'commandCenter.activeForeground': faded(fg, composite(alphaOf(fg, 0.1), ch), 0.6, t.hc ? 4.5 : 3.2),
     'commandCenter.activeBorder': acc,
     'commandCenter.inactiveBorder': line,
     'commandCenter.debuggingBackground': alphaOf(acc, 0.2),
@@ -1072,8 +1073,8 @@ function remainder(t) {
     'editor.snippetTabstopHighlightBorder': alphaOf(t.legible(acc, t.bg, 3.0), 0.5),
     'editor.snippetFinalTabstopHighlightBackground': alphaOf(y.type, 0.16),
     'editor.snippetFinalTabstopHighlightBorder': y.type,
-    // the placeholder of the source control message and of the chat input, both editors on the input background
-    'editor.placeholder.foreground': t.legible(faint, t.field, 3.2),
+    // the placeholder of the editors in an input: the source control message, the chat input, inline chat, a comment reply
+    'editor.placeholder.foreground': readsOn(faint, t.field, t.hc ? 4.5 : 3.2),
     'editorUnicodeHighlight.background': alphaOf(st.warn, 0.14),
     'editorUnicodeHighlight.border': st.warn,
     'editorGutter.addedSecondaryBackground': alphaOf(st.added, 0.5),
@@ -1359,7 +1360,8 @@ function readsOn(colour, ground, target) {
   return away(colour, ground, (c) => contrast(c, ground) >= target, 95);
 }
 
-// the Settings editor shows its descriptions at 90% opacity, links included
+// a colour VS Code writes at a share of its strength (Settings descriptions at 90%, the command center's workspace name at 60%),
+// moved until that share reads
 function faded(colour, ground, share, target) {
   return away(colour, ground, (c) => contrast(mix(ground, c, share), ground) >= target, 90);
 }

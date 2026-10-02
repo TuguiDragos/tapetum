@@ -6,7 +6,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "13c96fe723eaaf31",
+  "colors": "23a11a98662828fc",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
@@ -176,7 +176,7 @@
    "titleBar.inactiveForeground": "#6b7184",
    "titleBar.border": "#242836",
    "commandCenter.background": "#c8d3f50d",
-   "commandCenter.foreground": "#949bb5",
+   "commandCenter.foreground": "#959cb6",
    "commandCenter.border": "#383d4f",
    "commandCenter.activeBackground": "#c8d3f51a",
    "commandCenter.activeForeground": "#C8D3F5",
@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "453fef58469342d4",
+  "colors": "17044a8fa78d9e8c",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1385,7 +1385,7 @@
    "editorInfo.background": "#2b5fd914",
    "problemsErrorIcon.foreground": "#ad4976",
    "problemsWarningIcon.foreground": "#934e27",
-   "problemsInfoIcon.foreground": "#2858cb",
+   "problemsInfoIcon.foreground": "#2958cb",
    "editorGutter.background": "#FAFBFF",
    "editorGutter.modifiedBackground": "#2B5FD9",
    "editorGutter.addedBackground": "#06704A",
@@ -1456,7 +1456,7 @@
    "titleBar.inactiveForeground": "#787a86",
    "titleBar.border": "#dee0e7",
    "commandCenter.background": "#24294a0d",
-   "commandCenter.foreground": "#393c49",
+   "commandCenter.foreground": "#343743",
    "commandCenter.border": "#c7c9d4",
    "commandCenter.activeBackground": "#24294a1a",
    "commandCenter.activeForeground": "#24294A",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ee867381826d80d2",
+  "colors": "410b5197f6d9dd99",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3944,7 +3944,7 @@
    "editorWarning.background": "#8b5f0014",
    "editorInfo.background": "#0d6fa814",
    "problemsErrorIcon.foreground": "#a85138",
-   "problemsWarningIcon.foreground": "#7c5817",
+   "problemsWarningIcon.foreground": "#7d5817",
    "problemsInfoIcon.foreground": "#0c6496",
    "editorGutter.background": "#FBFAF6",
    "editorGutter.modifiedBackground": "#0D6FA8",
@@ -4016,7 +4016,7 @@
    "titleBar.inactiveForeground": "#767676",
    "titleBar.border": "#deddda",
    "commandCenter.background": "#1b1d220d",
-   "commandCenter.foreground": "#3b3c3d",
+   "commandCenter.foreground": "#363738",
    "commandCenter.border": "#c5c5c3",
    "commandCenter.activeBackground": "#1b1d221a",
    "commandCenter.activeForeground": "#1B1D22",
@@ -5126,7 +5126,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9bc51e7e7e247ae8",
+  "colors": "1b08cb7f8c5c15db",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
@@ -5296,7 +5296,7 @@
    "titleBar.inactiveForeground": "#6a6c68",
    "titleBar.border": "#252724",
    "commandCenter.background": "#dce0d80d",
-   "commandCenter.foreground": "#9a9d97",
+   "commandCenter.foreground": "#9b9e98",
    "commandCenter.border": "#3c3e3b",
    "commandCenter.activeBackground": "#dce0d81a",
    "commandCenter.activeForeground": "#DCE0D8",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "12646e6cb37b0885",
+  "colors": "12a98899b7794593",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6576,7 +6576,7 @@
    "titleBar.inactiveForeground": "#747672",
    "titleBar.border": "#dbdcd8",
    "commandCenter.background": "#1c1f1a0d",
-   "commandCenter.foreground": "#3a3b38",
+   "commandCenter.foreground": "#353634",
    "commandCenter.border": "#c2c4c0",
    "commandCenter.activeBackground": "#1c1f1a1a",
    "commandCenter.activeForeground": "#1C1F1A",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "814e218648d89b90",
+  "colors": "5a8bc93f896975dd",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9136,7 +9136,7 @@
    "titleBar.inactiveForeground": "#757577",
    "titleBar.border": "#dcdcdd",
    "commandCenter.background": "#1d1d200d",
-   "commandCenter.foreground": "#3a3a3c",
+   "commandCenter.foreground": "#373739",
    "commandCenter.border": "#c3c3c5",
    "commandCenter.activeBackground": "#1d1d201a",
    "commandCenter.activeForeground": "#1D1D20",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d0819aa9b008d3a3",
+  "colors": "722c84460f2dc819",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -11696,7 +11696,7 @@
    "titleBar.inactiveForeground": "#7d7e7f",
    "titleBar.border": "#dfdfe1",
    "commandCenter.background": "#16181c0d",
-   "commandCenter.foreground": "#3b3c3e",
+   "commandCenter.foreground": "#37383a",
    "commandCenter.border": "#c6c6c8",
    "commandCenter.activeBackground": "#16181c1a",
    "commandCenter.activeForeground": "#16181C",
@@ -14089,7 +14089,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b6d6b9e18c6b80e3",
+  "colors": "039e026bae61f42e",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
@@ -14259,7 +14259,7 @@
    "titleBar.inactiveForeground": "#6a6a6a",
    "titleBar.border": "#0F4A85",
    "commandCenter.background": "#0000000d",
-   "commandCenter.foreground": "#1b1b1b",
+   "commandCenter.foreground": "#161616",
    "commandCenter.border": "#0F4A85",
    "commandCenter.activeBackground": "#0000001a",
    "commandCenter.activeForeground": "#000000",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "963c6706c0888a0b",
+  "colors": "2ba7f42d3cdea1d6",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -16822,7 +16822,7 @@
    "titleBar.inactiveForeground": "#78777b",
    "titleBar.border": "#e0dfe1",
    "commandCenter.background": "#2221280d",
-   "commandCenter.foreground": "#3b3b3d",
+   "commandCenter.foreground": "#373739",
    "commandCenter.border": "#c8c7ca",
    "commandCenter.activeBackground": "#2221281a",
    "commandCenter.activeForeground": "#222128",
@@ -17932,7 +17932,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "62a911b582048e71",
+  "colors": "d27621b10f6421bb",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -18102,7 +18102,7 @@
    "titleBar.inactiveForeground": "#66767d",
    "titleBar.border": "#1d2d36",
    "commandCenter.background": "#c6dce10d",
-   "commandCenter.foreground": "#8c9fa5",
+   "commandCenter.foreground": "#8ea1a7",
    "commandCenter.border": "#33434b",
    "commandCenter.activeBackground": "#c6dce11a",
    "commandCenter.activeForeground": "#C6DCE1",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2dd2e06f01d6cc66",
+  "colors": "4d027796782005f4",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19382,7 +19382,7 @@
    "titleBar.inactiveForeground": "#72777a",
    "titleBar.border": "#d9dee0",
    "commandCenter.background": "#1522250d",
-   "commandCenter.foreground": "#373c3e",
+   "commandCenter.foreground": "#33383a",
    "commandCenter.border": "#c0c6c8",
    "commandCenter.activeBackground": "#1522251a",
    "commandCenter.activeForeground": "#152225",
@@ -21772,7 +21772,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2ddf32706bd5d3bd",
+  "colors": "8a8264121fe3ee91",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -21942,7 +21942,7 @@
    "titleBar.inactiveForeground": "#797471",
    "titleBar.border": "#dedbd4",
    "commandCenter.background": "#251d190d",
-   "commandCenter.foreground": "#3c3836",
+   "commandCenter.foreground": "#383432",
    "commandCenter.border": "#c7c3bc",
    "commandCenter.activeBackground": "#251d191a",
    "commandCenter.activeForeground": "#251D19",
@@ -23052,7 +23052,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bc0ba204ca28dfea",
+  "colors": "fea8f5a04984ac69",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
@@ -23222,7 +23222,7 @@
    "titleBar.inactiveForeground": "#75787e",
    "titleBar.border": "#2e2f36",
    "commandCenter.background": "#d7dce50d",
-   "commandCenter.foreground": "#999ca5",
+   "commandCenter.foreground": "#9c9fa8",
    "commandCenter.border": "#44454c",
    "commandCenter.activeBackground": "#d7dce51a",
    "commandCenter.activeForeground": "#D7DCE5",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bda5f3b5fdbcb9b1",
+  "colors": "ee4dfcdcba4f5f09",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24502,7 +24502,7 @@
    "titleBar.inactiveForeground": "#797671",
    "titleBar.border": "#dfddd4",
    "commandCenter.background": "#251f190d",
-   "commandCenter.foreground": "#3c3936",
+   "commandCenter.foreground": "#383633",
    "commandCenter.border": "#c8c5bc",
    "commandCenter.activeBackground": "#251f191a",
    "commandCenter.activeForeground": "#251F19",
@@ -25612,7 +25612,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9421dc226e6c6a45",
+  "colors": "54f5025e07bf916e",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
@@ -25782,7 +25782,7 @@
    "titleBar.inactiveForeground": "#746f6b",
    "titleBar.border": "#282522",
    "commandCenter.background": "#dbd2ce0d",
-   "commandCenter.foreground": "#a19b98",
+   "commandCenter.foreground": "#a29c99",
    "commandCenter.border": "#3e3b38",
    "commandCenter.activeBackground": "#dbd2ce1a",
    "commandCenter.activeForeground": "#DBD2CE",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "32d203b271ef8cf0",
+  "colors": "86dd0d3ef2f5df2a",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -27062,7 +27062,7 @@
    "titleBar.inactiveForeground": "#76736f",
    "titleBar.border": "#dbd8d1",
    "commandCenter.background": "#211b180d",
-   "commandCenter.foreground": "#3a3735",
+   "commandCenter.foreground": "#353230",
    "commandCenter.border": "#c4c0ba",
    "commandCenter.activeBackground": "#211b181a",
    "commandCenter.activeForeground": "#211B18",
@@ -28172,7 +28172,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "76abd7bd1f0d7c31",
+  "colors": "081a391b1f69b78d",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
@@ -28342,7 +28342,7 @@
    "titleBar.inactiveForeground": "#697885",
    "titleBar.border": "#1f2f40",
    "commandCenter.background": "#cadee60d",
-   "commandCenter.foreground": "#8c9faa",
+   "commandCenter.foreground": "#8ea1ac",
    "commandCenter.border": "#354555",
    "commandCenter.activeBackground": "#cadee61a",
    "commandCenter.activeForeground": "#CADEE6",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "52190c642f787050",
+  "colors": "0fd34d7ab168165d",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29622,7 +29622,7 @@
    "titleBar.inactiveForeground": "#71777a",
    "titleBar.border": "#d8dce1",
    "commandCenter.background": "#1521250d",
-   "commandCenter.foreground": "#373c3e",
+   "commandCenter.foreground": "#333739",
    "commandCenter.border": "#bfc4c9",
    "commandCenter.activeBackground": "#1521251a",
    "commandCenter.activeForeground": "#152125",
@@ -30732,7 +30732,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9fb8ffc8da34c450",
+  "colors": "ddfca7f5fc7e8f65",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
@@ -30902,7 +30902,7 @@
    "titleBar.inactiveForeground": "#6a7277",
    "titleBar.border": "#22272d",
    "commandCenter.background": "#c6d8df0d",
-   "commandCenter.foreground": "#929ea4",
+   "commandCenter.foreground": "#939fa5",
    "commandCenter.border": "#373e43",
    "commandCenter.activeBackground": "#c6d8df1a",
    "commandCenter.activeForeground": "#C6D8DF",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2ffc970b107c2038",
+  "colors": "64643707b0b641b1",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32182,7 +32182,7 @@
    "titleBar.inactiveForeground": "#79746e",
    "titleBar.border": "#dfdad0",
    "commandCenter.background": "#251c180d",
-   "commandCenter.foreground": "#3d3835",
+   "commandCenter.foreground": "#383330",
    "commandCenter.border": "#c8c2b9",
    "commandCenter.activeBackground": "#251c181a",
    "commandCenter.activeForeground": "#251C18",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6d2fb9f7bc0e15ff",
+  "colors": "55716b1fe9b7ebcc",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -34742,7 +34742,7 @@
    "titleBar.inactiveForeground": "#73777a",
    "titleBar.border": "#dbdee1",
    "commandCenter.background": "#1622270d",
-   "commandCenter.foreground": "#373c3e",
+   "commandCenter.foreground": "#333739",
    "commandCenter.border": "#c2c6ca",
    "commandCenter.activeBackground": "#1622271a",
    "commandCenter.activeForeground": "#162227",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8b71b300aa0c4e7c",
+  "colors": "a41aedd81f8a1f99",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37302,7 +37302,7 @@
    "titleBar.inactiveForeground": "#727777",
    "titleBar.border": "#d8dede",
    "commandCenter.background": "#1722210d",
-   "commandCenter.foreground": "#363c3b",
+   "commandCenter.foreground": "#333837",
    "commandCenter.border": "#c0c6c6",
    "commandCenter.activeBackground": "#1722211a",
    "commandCenter.activeForeground": "#172221",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9118ac61b4452d4f",
+  "colors": "6f2d32b77ae3c42f",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -39862,7 +39862,7 @@
    "titleBar.inactiveForeground": "#797472",
    "titleBar.border": "#dedad6",
    "commandCenter.background": "#251c1b0d",
-   "commandCenter.foreground": "#3c3736",
+   "commandCenter.foreground": "#373231",
    "commandCenter.border": "#c7c2be",
    "commandCenter.activeBackground": "#251c1b1a",
    "commandCenter.activeForeground": "#251C1B",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "14e8cd521b252536",
+  "colors": "e2048b54d9195945",
   "tokenColors": "b1bad2f521ea37ef",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -42422,7 +42422,7 @@
    "titleBar.inactiveForeground": "#6F6356",
    "titleBar.border": "#d4cdbd",
    "commandCenter.background": "#2c23180d",
-   "commandCenter.foreground": "#35302a",
+   "commandCenter.foreground": "#312c27",
    "commandCenter.border": "#bfb7a8",
    "commandCenter.activeBackground": "#2c23181a",
    "commandCenter.activeForeground": "#2C2318",
@@ -43532,7 +43532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bb7856a35dfa50af",
+  "colors": "45bf537fc3a3e3a2",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -43702,7 +43702,7 @@
    "titleBar.inactiveForeground": "#6C7975",
    "titleBar.border": "#202a28",
    "commandCenter.background": "#c4d2ce0d",
-   "commandCenter.foreground": "#939d9b",
+   "commandCenter.foreground": "#959f9d",
    "commandCenter.border": "#343f3d",
    "commandCenter.activeBackground": "#c4d2ce1a",
    "commandCenter.activeForeground": "#C4D2CE",
@@ -44812,7 +44812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cab85f9db8b6f36d",
+  "colors": "d30edb9c30e0101d",
   "tokenColors": "bffa2047076974ee",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
@@ -44982,7 +44982,7 @@
    "titleBar.inactiveForeground": "#666C6A",
    "titleBar.border": "#d9d4d8",
    "commandCenter.background": "#1e23210d",
-   "commandCenter.foreground": "#313433",
+   "commandCenter.foreground": "#2e302f",
    "commandCenter.border": "#c1bdc1",
    "commandCenter.activeBackground": "#1e23211a",
    "commandCenter.activeForeground": "#1E2321",
@@ -47341,7 +47341,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e069c29e298e36d8",
+  "colors": "aea85747bdc5cee3",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47511,10 +47511,10 @@
    "titleBar.inactiveForeground": "#6A6C73",
    "titleBar.border": "#dad9d5",
    "commandCenter.background": "#2e30360d",
-   "commandCenter.foreground": "#343539",
+   "commandCenter.foreground": "#303135",
    "commandCenter.border": "#c4c3c1",
    "commandCenter.activeBackground": "#2e30361a",
-   "commandCenter.activeForeground": "#2E3036",
+   "commandCenter.activeForeground": "#2c2e34",
    "commandCenter.activeBorder": "#855606",
    "commandCenter.inactiveBorder": "#dad9d5",
    "commandCenter.debuggingBackground": "#85560633",
@@ -48590,7 +48590,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2c96f9fa7c658fe3",
+  "colors": "c59cfd1df2a02fdd",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -48760,7 +48760,7 @@
    "titleBar.inactiveForeground": "#7a746c",
    "titleBar.border": "#2f2b26",
    "commandCenter.background": "#e4daca0d",
-   "commandCenter.foreground": "#a29b8f",
+   "commandCenter.foreground": "#a59e92",
    "commandCenter.border": "#46413a",
    "commandCenter.activeBackground": "#e4daca1a",
    "commandCenter.activeForeground": "#E4DACA",
@@ -49883,7 +49883,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f0843d5d03cdca73",
+  "colors": "0dcd16b3e7e1d63c",
   "tokenColors": "5d7c605186cc1ac7",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -50053,7 +50053,7 @@
    "titleBar.inactiveForeground": "#6c6860",
    "titleBar.border": "#d5cfc2",
    "commandCenter.background": "#241f160d",
-   "commandCenter.foreground": "#34312c",
+   "commandCenter.foreground": "#302d28",
    "commandCenter.border": "#beb9ac",
    "commandCenter.activeBackground": "#241f161a",
    "commandCenter.activeForeground": "#241F16",
@@ -51176,7 +51176,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "286e3a1e44e28c06",
+  "colors": "62c6461925ac443f",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
@@ -51346,7 +51346,7 @@
    "titleBar.inactiveForeground": "#6e7278",
    "titleBar.border": "#2a2d32",
    "commandCenter.background": "#c8cdd60d",
-   "commandCenter.foreground": "#999ca4",
+   "commandCenter.foreground": "#9c9fa7",
    "commandCenter.border": "#3e4147",
    "commandCenter.activeBackground": "#c8cdd61a",
    "commandCenter.activeForeground": "#C8CDD6",
@@ -52444,7 +52444,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cc43cb10ac17b358",
+  "colors": "c21289767fe3e673",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -52542,7 +52542,7 @@
    "editorWarning.background": "#9a5a0014",
    "editorInfo.background": "#0c5fa814",
    "problemsErrorIcon.foreground": "#9e4236",
-   "problemsWarningIcon.foreground": "#83511b",
+   "problemsWarningIcon.foreground": "#82511a",
    "problemsInfoIcon.foreground": "#0c5ea6",
    "editorGutter.background": "#F5F6F9",
    "editorGutter.modifiedBackground": "#0C5FA8",
@@ -52614,7 +52614,7 @@
    "titleBar.inactiveForeground": "#75777b",
    "titleBar.border": "#dadbdf",
    "commandCenter.background": "#22262e0d",
-   "commandCenter.foreground": "#38393c",
+   "commandCenter.foreground": "#343437",
    "commandCenter.border": "#c2c4c8",
    "commandCenter.activeBackground": "#22262e1a",
    "commandCenter.activeForeground": "#22262E",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "877f720378faebbd",
+  "colors": "a0b65ae348f6db6d",
   "tokenColors": "50532f43fa45eec9",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55138,7 +55138,7 @@
    "titleBar.inactiveForeground": "#6d675b",
    "titleBar.border": "#d4cbb7",
    "commandCenter.background": "#2a241a0d",
-   "commandCenter.foreground": "#302d27",
+   "commandCenter.foreground": "#2c2924",
    "commandCenter.border": "#beb6a3",
    "commandCenter.activeBackground": "#2a241a1a",
    "commandCenter.activeForeground": "#2A241A",
@@ -56224,7 +56224,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "68e9ca7674af72bd",
+  "colors": "b9aed9d67e3d1568",
   "tokenColors": "33d40469d09a91e7",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -56394,7 +56394,7 @@
    "titleBar.inactiveForeground": "#767679",
    "titleBar.border": "#323234",
    "commandCenter.background": "#d2d2d60d",
-   "commandCenter.foreground": "#9c9c9f",
+   "commandCenter.foreground": "#a1a1a4",
    "commandCenter.border": "#464649",
    "commandCenter.activeBackground": "#d2d2d61a",
    "commandCenter.activeForeground": "#D2D2D6",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c285cf643d4e0408",
+  "colors": "0e93fdcb7fa62221",
   "tokenColors": "c2bacbe284ec3fb3",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -57687,7 +57687,7 @@
    "titleBar.inactiveForeground": "#6a6868",
    "titleBar.border": "#cfcdc9",
    "commandCenter.background": "#26262a0d",
-   "commandCenter.foreground": "#302f31",
+   "commandCenter.foreground": "#2c2b2d",
    "commandCenter.border": "#b9b8b5",
    "commandCenter.activeBackground": "#26262a1a",
    "commandCenter.activeForeground": "#26262A",
@@ -58810,7 +58810,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "806922ff3345a138",
+  "colors": "398e8be3a64d8135",
   "tokenColors": "c096d036240f4cec",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -58908,8 +58908,8 @@
    "editorWarning.background": "#d8a83c14",
    "editorInfo.background": "#93aac414",
    "problemsErrorIcon.foreground": "#E19485",
-   "problemsWarningIcon.foreground": "#d5b16a",
-   "problemsInfoIcon.foreground": "#a4b8ce",
+   "problemsWarningIcon.foreground": "#d5b068",
+   "problemsInfoIcon.foreground": "#a3b7cd",
    "editorGutter.background": "#08080A",
    "editorGutter.modifiedBackground": "#93AAC4",
    "editorGutter.addedBackground": "#90B181",
@@ -58980,7 +58980,7 @@
    "titleBar.inactiveForeground": "#898988",
    "titleBar.border": "#242425",
    "commandCenter.background": "#dedcd60d",
-   "commandCenter.foreground": "#adabaa",
+   "commandCenter.foreground": "#b7b5b4",
    "commandCenter.border": "#3b3b3b",
    "commandCenter.activeBackground": "#dedcd61a",
    "commandCenter.activeForeground": "#DEDCD6",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "db7c890124a268c8",
+  "colors": "65c690023950d257",
   "tokenColors": "bba6bb44c345bb2d",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -60260,7 +60260,7 @@
    "titleBar.inactiveForeground": "#605f5e",
    "titleBar.border": "#e0e0de",
    "commandCenter.background": "#1f1e1a0d",
-   "commandCenter.foreground": "#292928",
+   "commandCenter.foreground": "#242424",
    "commandCenter.border": "#c8c7c5",
    "commandCenter.activeBackground": "#1f1e1a1a",
    "commandCenter.activeForeground": "#1F1E1A",
@@ -61370,7 +61370,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "86c08f42d49cc11f",
+  "colors": "a7785d3da0cab5a5",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
@@ -61540,7 +61540,7 @@
    "titleBar.inactiveForeground": "#68716d",
    "titleBar.border": "#202926",
    "commandCenter.background": "#c6d2cc0d",
-   "commandCenter.foreground": "#949e99",
+   "commandCenter.foreground": "#959f9a",
    "commandCenter.border": "#353f3b",
    "commandCenter.activeBackground": "#c6d2cc1a",
    "commandCenter.activeForeground": "#C6D2CC",
@@ -62614,7 +62614,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cc381b27bc511214",
+  "colors": "691b52204935ae40",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -62784,7 +62784,7 @@
    "titleBar.inactiveForeground": "#737875",
    "titleBar.border": "#d7ddda",
    "commandCenter.background": "#1d26220d",
-   "commandCenter.foreground": "#353a39",
+   "commandCenter.foreground": "#313534",
    "commandCenter.border": "#c0c6c2",
    "commandCenter.activeBackground": "#1d26221a",
    "commandCenter.activeForeground": "#1D2622",
@@ -63858,7 +63858,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4a14bc2a3b539b0d",
+  "colors": "a5377c366cefc3e5",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
@@ -64028,7 +64028,7 @@
    "titleBar.inactiveForeground": "#827074",
    "titleBar.border": "#372529",
    "commandCenter.background": "#edd6da0d",
-   "commandCenter.foreground": "#ab969a",
+   "commandCenter.foreground": "#ae999d",
    "commandCenter.border": "#4e3b40",
    "commandCenter.activeBackground": "#edd6da1a",
    "commandCenter.activeForeground": "#EDD6DA",
@@ -65138,7 +65138,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8926c3b850c01cdb",
+  "colors": "6023218722c5c221",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -65308,7 +65308,7 @@
    "titleBar.inactiveForeground": "#7a7172",
    "titleBar.border": "#e0d5d7",
    "commandCenter.background": "#2a161b0d",
-   "commandCenter.foreground": "#3d3335",
+   "commandCenter.foreground": "#382e30",
    "commandCenter.border": "#c9bdbf",
    "commandCenter.activeBackground": "#2a161b1a",
    "commandCenter.activeForeground": "#2A161B",
@@ -67698,7 +67698,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5c0c555e9d40b2a1",
+  "colors": "84848cbb0bdec711",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -67868,7 +67868,7 @@
    "titleBar.inactiveForeground": "#71797d",
    "titleBar.border": "#d6dee2",
    "commandCenter.background": "#18262f0d",
-   "commandCenter.foreground": "#353b3f",
+   "commandCenter.foreground": "#32373b",
    "commandCenter.border": "#bec7cc",
    "commandCenter.activeBackground": "#18262f1a",
    "commandCenter.activeForeground": "#18262F",
@@ -68978,7 +68978,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5a8f00b1fc393426",
+  "colors": "21ca950682db92c8",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -69148,7 +69148,7 @@
    "titleBar.inactiveForeground": "#747780",
    "titleBar.border": "#2d2d35",
    "commandCenter.background": "#d6deec0d",
-   "commandCenter.foreground": "#989da9",
+   "commandCenter.foreground": "#9ba0ac",
    "commandCenter.border": "#43444c",
    "commandCenter.activeBackground": "#d6deec1a",
    "commandCenter.activeForeground": "#D6DEEC",
@@ -70258,7 +70258,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b80f6a9d6a8aa45b",
+  "colors": "5f2a421226a387b2",
   "tokenColors": "0e0193adc4e55d86",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
@@ -70428,7 +70428,7 @@
    "titleBar.inactiveForeground": "#747273",
    "titleBar.border": "#d9d6d5",
    "commandCenter.background": "#1e1c220d",
-   "commandCenter.foreground": "#363437",
+   "commandCenter.foreground": "#323033",
    "commandCenter.border": "#c1bfbf",
    "commandCenter.activeBackground": "#1e1c221a",
    "commandCenter.activeForeground": "#1E1C22",
@@ -71538,7 +71538,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2f797e5923e4d90c",
+  "colors": "3f593c3cb705334c",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -72394,7 +72394,7 @@
    "editor.snippetTabstopHighlightBorder": "#ff63b480",
    "editor.snippetFinalTabstopHighlightBackground": "#5fbcc429",
    "editor.snippetFinalTabstopHighlightBorder": "#5FBCC4",
-   "editor.placeholder.foreground": "#7c7871",
+   "editor.placeholder.foreground": "#76726b",
    "editorUnicodeHighlight.background": "#ffee3c24",
    "editorUnicodeHighlight.border": "#FFEE3C",
    "editorGutter.addedSecondaryBackground": "#3fc97e80",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "231af539ff6dd397",
+  "colors": "c0ddd201102f1cae",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72916,7 +72916,7 @@
    "editorWarning.background": "#7a600014",
    "editorInfo.background": "#5a469414",
    "problemsErrorIcon.foreground": "#9b4f2a",
-   "problemsWarningIcon.foreground": "#6c550c",
+   "problemsWarningIcon.foreground": "#6d550c",
    "problemsInfoIcon.foreground": "#5A4694",
    "editorGutter.background": "#F5F0E4",
    "editorGutter.modifiedBackground": "#5A4694",
@@ -72988,7 +72988,7 @@
    "titleBar.inactiveForeground": "#6d6a63",
    "titleBar.border": "#d9d5c9",
    "commandCenter.background": "#211e160d",
-   "commandCenter.foreground": "#35332f",
+   "commandCenter.foreground": "#312f2c",
    "commandCenter.border": "#c2beb3",
    "commandCenter.activeBackground": "#211e161a",
    "commandCenter.activeForeground": "#211E16",
