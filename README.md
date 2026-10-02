@@ -873,7 +873,9 @@ below it, is caught before it ships.
 `tools/deep.mjs` measures what the stylesheets set apart: the colours VS Code
 paints on whatever surface a component sits on, read on every one of those
 surfaces, text whose surface comes from another rule, text on the frosted glass
-of VS Code Insiders over each surface of the theme that lies under it, and the
+of VS Code Insiders over every surface of the theme and the text on it, over
+its selections, diffs and search matches, and on a dialog over the dimmed
+window, and the
 tab strip, which with the line VS Code 1.140 draws around the active connected
 tab is what sets that tab apart from the rest.
 The files the extractors write are committed, checked in CI against every
@@ -887,7 +889,7 @@ Positron, Kiro, Trae and Antigravity builds, and the last build of Void, which w
 discontinued in 2025, were each read the same way,
 registry, stylesheets and derivations, and every theme checked on every one of
 them; the keys their older cores do not know yet are ignored by them, and the 57
-surfaces those editors paint in colours of their own, listed with their reasons
+keys of what those editors paint in colours of their own, listed with their reasons
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
 repeats those measurements on any editor from 1 command, and confirms that its
 core accepts the VS Code version the manifest asks for. The registry, pairs and
