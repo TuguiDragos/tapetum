@@ -64,6 +64,7 @@ jobs:
           exit $status
 
       - name: Open an issue if anything moved
+        id: issue
         if: ${{ !cancelled() && steps.vscode.outcome == 'success' }}
         env:
           GH_TOKEN: ${{ github.token }}
@@ -75,6 +76,7 @@ jobs:
             echo "registry unchanged, every theme passes"
             exit 0
           fi
+          echo "moved=true" >> "$GITHUB_OUTPUT"
           title="VS Code $VERSION moved the colour registry"
           if [ -n "$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')" ]; then
             echo "issue already open"
@@ -101,3 +103,9 @@ jobs:
             done
           } > body.md
           gh issue create --title "$title" --body-file body.md
+
+      - name: Fail the run when the registry moved or a check failed
+        if: ${{ !cancelled() && steps.issue.outputs.moved == 'true' }}
+        run: |
+          echo "VS Code moved the colour registry or a check failed; the issue says what"
+          exit 1
