@@ -4,7 +4,7 @@
 
 VS Code 1.140 gave the connected tab strip a key of its own, registered 3 keys
 and drew a line around the active connected tab. This version sets the 3 keys,
-fixes what a full audit of every theme against 1.140 and the 9 editors
+fixes what a full audit of every theme against 1.140 and the 10 editors
 Tapetum is checked on turned up, and settles the design questions it raised.
 
 ### Fixed
@@ -30,60 +30,73 @@ or bold italic, meant for its name. Only the name keeps it now.
 - Rulers and indent guides reach 3 to 1, the guides of the block you are in
   4.5, and coloured guides keep their hue. Merge conflicts and the drop prompt
   get the high contrast border.
-- Quiet text, such as an inactive window title, inactive tabs, panel titles,
-  disabled items and placeholders, reads at 4.5.
+- Quiet text, such as panel titles, disabled items, placeholders and the
+  inactive tabs of the classic layout, reads at 4.5.
 
-**Text that fell short.** All of these clear 4.5 now:
+**Text that fell short.** These read now:
 
-- Links on the status bar of a hover, in 7 light themes.
-- Names, numbers, strings and types in the debug views, links in notifications
-  and the active parameter of parameter hints, in 9 light themes.
-- The current find match. VS Code paints the 2 find text colours crosswise, so
-  the one tuned for the current match went to the others; both are tuned now,
-  in 3 dark themes.
-- Find matches lying on the selection, as the current one always does, in 13
+- Links on the status bar of a hover, and links written as code in chat and
+  in dropdowns, in 14 themes.
+- Names, numbers, booleans, strings and types in the debug views, links in
+  notifications and the active parameter of parameter hints, in 9 light
   themes.
-- The active line number in the peek view, in Stratum Light.
+- Find matches on the selection, the current one included, in 31 themes.
+  VS Code paints the 2 find text colours crosswise, so the one tuned for the
+  current match went to the others; both are tuned now.
 - File names marked by errors, warnings or git: on the tab strip in 24 themes,
-  on a hovered tab, which VS Code paints as the text at 6% over the strip, in
-  34, and on a hovered, inactive selected or focused row of the side bar in
-  32. Palettes that place their status colours by hand keep their own, moved
-  at the source just enough to read, by about 3 dE. The letter VS Code writes
-  beside such a name at 75%, the only status mark of the source control view,
-  keeps 3 to 1 on the side bar, its rows and the tab strip, hovered or not;
-  it fell short in 29 themes, as low as 2.44.
+  on a hovered tab, connected or classic, in 34, and on a hovered, inactive
+  selected or focused row of the side bar in 32. Palettes that place their
+  status colours by hand keep their own, moved at the source just enough to
+  read. The letter VS Code writes beside such a name at 75%, the only status
+  mark of the source control view, keeps 3 to 1 on the side bar, its rows and
+  the tab strip, hovered or not; it fell short in 29 themes.
+- A name found by typing in a tree, on the highlight of the match, in 44
+  themes.
+- The workspace name in the command center, which VS Code writes at 60%, in
+  51 themes.
+- A warning or note on a chat picker, hovered or open, and the cost of the
+  checked model in the model picker, in 19 themes.
+- The text beside a hovered entry of the status bar, in 15 light themes.
 - The default marked beside an option of a Settings dropdown, which took the
   accent as it is, in 4 light themes.
-- A warning or note on a chat picker, hovered or open, in 16 themes.
 - A hovered name in the Customizations view, in 11 themes.
-- Code pinned by sticky scroll, in 12 themes: its lines sat half a step toward
-  the side bar and now share the editor's background, set apart by their line
-  and shadow.
-- The line of sticky scroll under the pointer, in 45 themes. It lit up toward
-  the text; now it takes a tint of the accent at the editor's lightness. In
-  Quantum Light, whose code sits right at its floor, the tint is faint.
+- The lines of a log in the Output view, which lies on the panel, in 5
+  themes, and a few states of the peek view and the status bar in 4 more.
+- Code pinned by sticky scroll, in 12 themes, and its line under the pointer,
+  in 46. The pinned lines share the editor's background now, set apart by
+  their line and shadow, and the hovered one takes a tint of the accent.
 
-**Easier to read, easier to tell apart.**
+**Code on its marks.**
 
+- The selection took code under 3 to 1 in 6 themes, and comments in 29. It
+  eases until both read, and the same colour selects text across the window.
+- The highlight on every use of the word at the cursor, and on a snippet
+  placeholder, pulled a selected word under 3 to 1 in 54 themes. Outside high
+  contrast it is an outline at half strength now.
+- The highlight under a hovered symbol pulled code under 3 to 1 on the
+  selection, a changed word or the current line, in all 56 regular themes. It
+  takes the selection's own colour now, as VS Code draws it.
+- The marks that lie on the line of the cursor, such as the frame of a stopped
+  program, the symbol you jumped to, the active comment thread, coverage, a
+  failed test and the bracket at the cursor, pulled code under 3 to 1, alone
+  or over the current line, in 42 themes. They ease until it reads.
+- The merge editor took washes of its own, under which code fell short in 57
+  themes. It takes the diff editor's now, so a change looks the same in both.
+- Code in a notebook cell and in the peek editor, which VS Code tints, fell
+  under its floor in 39 themes. The tints ease until it reads.
 - The gutter of a diff lays the added and removed colours at 14% instead of
-  20%, and line numbers read 3 to 1 on it, the active one 4.5. They read in
+  20%. Line numbers read 3 to 1 on it, the active one 4.5, and so do the signs
+  VS Code draws there at 70%, which fell short in 37 themes. They read in
   notebook cells too.
-- Outside high contrast VS Code keeps the syntax colours on a selection. In 6
-  themes the selection took code under 3 to 1, and in 29 it took comments; it
-  eases until both read. The same colour selects text across the window.
-- The highlight VS Code puts on every use of the word at the cursor, and on a
-  snippet placeholder, was a tint, and on a selected word it pulled code under
-  3 to 1 in 54 themes. Outside high contrast it is an outline at half strength
-  now, so a selected word reads as the rest of the selection.
-- The highlight under a hovered symbol pulled code under 3 to 1 where it lay
-  on the selection, a changed word of a diff or the current line, in all 56
-  regular themes. It takes the selection's own colour now, as VS Code draws
-  it, and looks the same on the editor; on a selection it adds nothing.
-- A link is told from the text beside it by its colour alone, and in the 13
-  themes whose function colour is grey or nearly grey it took that colour,
-  which sits on the text. It takes the family accent there now, Safelight its
-  salmon, at least 12 dE from the text.
-- A renamed file or a submodule took a colour close to plain names in 5 quiet
+- The dots VS Code draws for spaces on a selection stood faint in 10 themes.
+  They stand as far from the selection as in VS Code's own themes now.
+
+**Easier to tell apart.**
+
+- A link is told from the text beside it by its colour alone, and in 13 themes
+  it took the function colour, which sits close to the text. It takes the
+  family accent there now, Safelight its salmon, at least 12 dE from the text.
+- A renamed file or a submodule took a colour close to plain names in 5
   themes, and so did a new file in Safelight. Each stands 10 dE apart now.
 - The errors and warnings of a log file shared a colour in Borrow, Effect,
   Palimpsest, Silverpoint and Stratum, and none in Provenance. They take the
@@ -91,20 +104,19 @@ or bold italic, meant for its name. Only the name keeps it now.
 - The 2 sides of a merge conflict stood barely apart in Palimpsest and
   Silverpoint. When a theme's own colours cannot part them, they take a warm
   and a cool tint.
-
-**Small steps that stopped short.** The searches that ease a colour until it
-reads stepped by fractions and skipped their last step. 58 values in 28 themes
-move by about 1 dE at most, and the comments on a diff in Quantum reach their
-floor. They also step from the colour they start with and move away from the
-ground first, which changes no theme today but keeps a palette with a ground
-of middle lightness from stalling.
+- VS Code also draws a few icons in the focus colour on a hover, such as the
+  tunnel status beside the chat input. They keep 3 to 1 now, in 13 themes, and
+  the focus ring grows a little stronger there.
+- A failed test from a stale run, faded to half its colour, nearly vanished in
+  56 themes. It keeps 3 to 1 now in the Test Explorer and the gutter, still
+  fainter than a fresh result.
 
 ### Added
 
 **The 3 keys of 1.140.** The connected strip and the Agents detail pane take
 the colours VS Code already derived for them. The MCP compatibility warning
 takes the family's warning colour instead of VS Code's fixed yellow, which
-read under 4.5 in 10 themes.
+fell short on its row or a hovered one in 29 themes.
 
 **Markdown, C and Rust in every scheme.** Struck through Markdown is struck in
 the 6 families of the other schemes, predefined macros such as `__LINE__` take
@@ -114,27 +126,29 @@ each scheme's macro colour, and rust-analyzer's punctuation, braces and the
 **The editors' own colours.** In Devin and Antigravity the review of an AI
 edit takes the family diff washes instead of a fixed green and red, and
 Antigravity no longer trades them for a grey or white variant of its own.
-Devin's session states, Cursor's worktree tab border and empty editor
-watermark, the charts of Positron's data explorer, Trae's secondary text and
-the accent of Kiro's agent chat take family colours that read. Void's inline
-review, where in the text the wash is the only mark of an edited line, takes
-the diff washes at the strength of a changed word, so added and removed lines
-stand apart in every theme.
+Devin's session states, on its quick pick rows too, Cursor's worktree tab
+border and empty editor watermark, the charts of Positron's data explorer,
+Trae's secondary text and the accent of Kiro's agent chat take family colours
+that read. Void's inline review, where in the text the wash is the only mark
+of an edited line, takes the diff washes at the strength of a changed word, so
+added and removed lines stand apart in every theme.
 
 **Frosted glass.** VS Code Insiders draws the quick input, menus, hovers,
-dialogs and notifications as frosted glass. Their text keeps its floor over
-the editor, the side bar, the panel, the bars, the tab strip and the terminal
-beneath, at any strength the setting allows, which moves links, errors, the
-lines of a chat session and debug names a little in 12 light themes. Over a
-selection, a button, a white page or a black image under the glass, it can
-fall short.
+dialogs and notifications as frosted glass, from 50% to 100% of their colour.
+Their text keeps its floor over the editor, the side bar, the panel, the bars,
+the tab strip and the terminal beneath, and over the text on them, and at the
+default 80% over a selection, a diff or a search match too; it fell short in
+41 themes. A dialog also lies on the window VS Code dims under it: its icons
+read there, but its links can fall short in the light themes, and its
+description at the lowest strength. So can text over a white page or a black
+image under the glass.
 
 ### Changed
 
 **The registry is VS Code 1.140.0.** 997 keys, 987 of them live, the same from
 the macOS, Linux and Windows builds. 4 keys are gone:
-`chat.inputWorkingBorderColor2` and `3`, which none of the 11 editors reads
-any more, and 2 Positron welcome keys Positron no longer has.
+`chat.inputWorkingBorderColor2` and `3`, which no editor paints, and 2
+Positron welcome keys Positron no longer has.
 
 **Smaller changes.**
 
