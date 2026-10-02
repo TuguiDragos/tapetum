@@ -6,11 +6,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ebbad76cb0a574c2",
+  "colors": "7c8e978ead47ac05",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -1046,6 +1046,9 @@
    "windsurf.sessionStatus.blue": "#8AB4FF",
    "windsurf.sessionStatus.red": "#FF6E9C",
    "windsurf.sessionStatus.purple": "#6EE7A8",
+   "icube.colorGrayText": "#8c94af",
+   "icube.colorTextGray": "#8c94af",
+   "icube--text-text-secondary": "#8c94af",
    "tab.worktreeBorder": "#FF9F45",
    "editorWatermark.foreground": "#C8D3F5",
    "positronDataExplorer.sparklineFill": "#8AB4FF",
@@ -1282,11 +1285,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8a61ee0ca1c12290",
+  "colors": "ad27a9d28fafc0df",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -2322,6 +2325,9 @@
    "windsurf.sessionStatus.blue": "#2B5FD9",
    "windsurf.sessionStatus.red": "#C42B7B",
    "windsurf.sessionStatus.purple": "#06704A",
+   "icube.colorGrayText": "#585c70",
+   "icube.colorTextGray": "#585c70",
+   "icube--text-text-secondary": "#585c70",
    "tab.worktreeBorder": "#af4900",
    "editorWatermark.foreground": "#232747",
    "positronDataExplorer.sparklineFill": "#2B5FD9",
@@ -2558,11 +2564,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b5997f797354cbb6",
+  "colors": "6bcca66a2c5df106",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -3598,6 +3604,9 @@
    "windsurf.sessionStatus.blue": "#4FC3F7",
    "windsurf.sessionStatus.red": "#FA6245",
    "windsurf.sessionStatus.purple": "#7CE85C",
+   "icube.colorGrayText": "#999ca3",
+   "icube.colorTextGray": "#999ca3",
+   "icube--text-text-secondary": "#999ca3",
    "tab.worktreeBorder": "#FFC93C",
    "editorWatermark.foreground": "#DDE1E8",
    "positronDataExplorer.sparklineFill": "#4FC3F7",
@@ -3834,11 +3843,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1343acb316c7f2c4",
+  "colors": "1db28cf6cd7c2db7",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -4874,6 +4883,9 @@
    "windsurf.sessionStatus.blue": "#0D6FA8",
    "windsurf.sessionStatus.red": "#C13A1A",
    "windsurf.sessionStatus.purple": "#3D7A1F",
+   "icube.colorGrayText": "#5e5f61",
+   "icube.colorTextGray": "#5e5f61",
+   "icube--text-text-secondary": "#5e5f61",
    "tab.worktreeBorder": "#8b5f00",
    "editorWatermark.foreground": "#1B1D22",
    "positronDataExplorer.sparklineFill": "#0D6FA8",
@@ -5110,11 +5122,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8002e91395c40b4d",
+  "colors": "d8e872841f2190c5",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -6150,6 +6162,9 @@
    "windsurf.sessionStatus.blue": "#8FB8FF",
    "windsurf.sessionStatus.red": "#FF6B4A",
    "windsurf.sessionStatus.purple": "#7FE33F",
+   "icube.colorGrayText": "#999c96",
+   "icube.colorTextGray": "#999c96",
+   "icube--text-text-secondary": "#999c96",
    "tab.worktreeBorder": "#FFB742",
    "editorWatermark.foreground": "#DCE0D8",
    "positronDataExplorer.sparklineFill": "#8FB8FF",
@@ -6386,11 +6401,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "80a1ac10b32f0b76",
+  "colors": "bbcbba25d4610c78",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -7426,6 +7441,9 @@
    "windsurf.sessionStatus.blue": "#1A6E96",
    "windsurf.sessionStatus.red": "#B8402A",
    "windsurf.sessionStatus.purple": "#3D7A14",
+   "icube.colorGrayText": "#5d5f5b",
+   "icube.colorTextGray": "#5d5f5b",
+   "icube--text-text-secondary": "#5d5f5b",
    "tab.worktreeBorder": "#8A5A00",
    "editorWatermark.foreground": "#1C1F1A",
    "positronDataExplorer.sparklineFill": "#1A6E96",
@@ -7662,11 +7680,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "21a406b3543e06f6",
+  "colors": "22b4b0a2ede84144",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -8702,6 +8720,9 @@
    "windsurf.sessionStatus.blue": "#75ADE2",
    "windsurf.sessionStatus.red": "#E07A45",
    "windsurf.sessionStatus.purple": "#39B871",
+   "icube.colorGrayText": "#9e9e9f",
+   "icube.colorTextGray": "#9e9e9f",
+   "icube--text-text-secondary": "#9e9e9f",
    "tab.worktreeBorder": "#E8B54A",
    "editorWatermark.foreground": "#E2E2E4",
    "positronDataExplorer.sparklineFill": "#75ADE2",
@@ -8938,11 +8959,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "48e2520cd90393f2",
+  "colors": "87d6107bb4a76483",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -9978,6 +9999,9 @@
    "windsurf.sessionStatus.blue": "#2A5FA8",
    "windsurf.sessionStatus.red": "#a74c1d",
    "windsurf.sessionStatus.purple": "#22683F",
+   "icube.colorGrayText": "#5e5e60",
+   "icube.colorTextGray": "#5e5e60",
+   "icube--text-text-secondary": "#5e5e60",
    "tab.worktreeBorder": "#8A5A00",
    "editorWatermark.foreground": "#1D1D20",
    "positronDataExplorer.sparklineFill": "#2A5FA8",
@@ -10214,11 +10238,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "340ac09c8cb2711c",
+  "colors": "fb98ff3a00381e0c",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -11254,6 +11278,9 @@
    "windsurf.sessionStatus.blue": "#4E97F4",
    "windsurf.sessionStatus.red": "#F46B57",
    "windsurf.sessionStatus.purple": "#0EF477",
+   "icube.colorGrayText": "#909398",
+   "icube.colorTextGray": "#909398",
+   "icube--text-text-secondary": "#909398",
    "tab.worktreeBorder": "#F4D00C",
    "editorWatermark.foreground": "#C9CED6",
    "positronDataExplorer.sparklineFill": "#C891F9",
@@ -11490,11 +11517,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "aaba18d69e7c3a34",
+  "colors": "60f34bb28a325d2f",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -12530,6 +12557,9 @@
    "windsurf.sessionStatus.blue": "#0C67B5",
    "windsurf.sessionStatus.red": "#CF151A",
    "windsurf.sessionStatus.purple": "#716008",
+   "icube.colorGrayText": "#5b5c5f",
+   "icube.colorTextGray": "#5b5c5f",
+   "icube--text-text-secondary": "#5b5c5f",
    "tab.worktreeBorder": "#716008",
    "editorWatermark.foreground": "#16181C",
    "positronDataExplorer.sparklineFill": "#7C39C4",
@@ -12766,11 +12796,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7d341d419d413c5b",
+  "colors": "504a53d14630de9c",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
-   1043,
+   1046,
    99,
    58
   ],
@@ -13809,6 +13839,9 @@
    "windsurf.sessionStatus.blue": "#BAD2FF",
    "windsurf.sessionStatus.red": "#FF8A8A",
    "windsurf.sessionStatus.purple": "#FFE20E",
+   "icube.colorGrayText": "#FFFFFF",
+   "icube.colorTextGray": "#FFFFFF",
+   "icube--text-text-secondary": "#FFFFFF",
    "tab.worktreeBorder": "#FFE20E",
    "editorWatermark.foreground": "#FFFFFF",
    "positronDataExplorer.sparklineFill": "#E9C3FF",
@@ -14045,11 +14078,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "321698ea3aad3252",
+  "colors": "8e8480498fb9d316",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
-   1043,
+   1046,
    99,
    58
   ],
@@ -15088,6 +15121,9 @@
    "windsurf.sessionStatus.blue": "#0059A6",
    "windsurf.sessionStatus.red": "#B50005",
    "windsurf.sessionStatus.purple": "#006727",
+   "icube.colorGrayText": "#000000",
+   "icube.colorTextGray": "#000000",
+   "icube--text-text-secondary": "#000000",
    "tab.worktreeBorder": "#695500",
    "editorWatermark.foreground": "#000000",
    "positronDataExplorer.sparklineFill": "#6F00F5",
@@ -15324,11 +15360,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "99dbeaae806eb0e4",
+  "colors": "5a15abf491505122",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -16364,6 +16400,9 @@
    "windsurf.sessionStatus.blue": "#6E90FA",
    "windsurf.sessionStatus.red": "#F46469",
    "windsurf.sessionStatus.purple": "#20D12E",
+   "icube.colorGrayText": "#94919a",
+   "icube.colorTextGray": "#94919a",
+   "icube--text-text-secondary": "#94919a",
    "tab.worktreeBorder": "#F2B486",
    "editorWatermark.foreground": "#D4D1DC",
    "positronDataExplorer.sparklineFill": "#12B6E8",
@@ -16600,11 +16639,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cddc997752f28140",
+  "colors": "a993df6bf822f5f6",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -17640,6 +17679,9 @@
    "windsurf.sessionStatus.blue": "#0C68DF",
    "windsurf.sessionStatus.red": "#D20B38",
    "windsurf.sessionStatus.purple": "#0B6912",
+   "icube.colorGrayText": "#5e5d61",
+   "icube.colorTextGray": "#5e5d61",
+   "icube--text-text-secondary": "#5e5d61",
    "tab.worktreeBorder": "#81440A",
    "editorWatermark.foreground": "#222128",
    "positronDataExplorer.sparklineFill": "#0B6886",
@@ -17876,11 +17918,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "533d0005193c2ba3",
+  "colors": "2f054ddb4d4429d6",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -18916,6 +18958,9 @@
    "windsurf.sessionStatus.blue": "#97CCF2",
    "windsurf.sessionStatus.red": "#CA828B",
    "windsurf.sessionStatus.purple": "#B69F4B",
+   "icube.colorGrayText": "#889ca2",
+   "icube.colorTextGray": "#889ca2",
+   "icube--text-text-secondary": "#889ca2",
    "tab.worktreeBorder": "#B69F4B",
    "editorWatermark.foreground": "#C6DCE1",
    "positronDataExplorer.sparklineFill": "#0FCDD2",
@@ -19152,11 +19197,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c678b3a155a7a633",
+  "colors": "0ee5af4938083d8d",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -20192,6 +20237,9 @@
    "windsurf.sessionStatus.blue": "#0A587B",
    "windsurf.sessionStatus.red": "#975661",
    "windsurf.sessionStatus.purple": "#76630E",
+   "icube.colorGrayText": "#545d5f",
+   "icube.colorTextGray": "#545d5f",
+   "icube--text-text-secondary": "#545d5f",
    "tab.worktreeBorder": "#76630E",
    "editorWatermark.foreground": "#152225",
    "positronDataExplorer.sparklineFill": "#0E6365",
@@ -20428,11 +20476,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "51476d8e6aa1ac6e",
+  "colors": "4bdd5fed3f009288",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -21468,6 +21516,9 @@
    "windsurf.sessionStatus.blue": "#47AFFA",
    "windsurf.sessionStatus.red": "#F28F83",
    "windsurf.sessionStatus.purple": "#F2BA24",
+   "icube.colorGrayText": "#9c938e",
+   "icube.colorTextGray": "#9c938e",
+   "icube--text-text-secondary": "#9c938e",
    "tab.worktreeBorder": "#F2BA24",
    "editorWatermark.foreground": "#DED2CD",
    "positronDataExplorer.sparklineFill": "#47AFFA",
@@ -21704,11 +21755,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cc75d661592030ef",
+  "colors": "94491f38a6d1952d",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -22744,6 +22795,9 @@
    "windsurf.sessionStatus.blue": "#0A699D",
    "windsurf.sessionStatus.red": "#BC0D22",
    "windsurf.sessionStatus.purple": "#674D0A",
+   "icube.colorGrayText": "#5f5955",
+   "icube.colorTextGray": "#5f5955",
+   "icube--text-text-secondary": "#5f5955",
    "tab.worktreeBorder": "#674D0A",
    "editorWatermark.foreground": "#251D19",
    "positronDataExplorer.sparklineFill": "#0A699D",
@@ -22980,11 +23034,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4d59808b92f71d90",
+  "colors": "6ed43a067982fc66",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -24020,6 +24074,9 @@
    "windsurf.sessionStatus.blue": "#77ABF9",
    "windsurf.sessionStatus.red": "#F2726E",
    "windsurf.sessionStatus.purple": "#60D53D",
+   "icube.colorGrayText": "#999ca5",
+   "icube.colorTextGray": "#999ca5",
+   "icube--text-text-secondary": "#999ca5",
    "tab.worktreeBorder": "#F2C17A",
    "editorWatermark.foreground": "#D7DCE5",
    "positronDataExplorer.sparklineFill": "#13C5B5",
@@ -24256,11 +24313,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "59ee4cedda6a9c77",
+  "colors": "5895413ac839dfff",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -25296,6 +25353,9 @@
    "windsurf.sessionStatus.blue": "#0A66B2",
    "windsurf.sessionStatus.red": "#CF0B30",
    "windsurf.sessionStatus.purple": "#1F660B",
+   "icube.colorGrayText": "#5f5b55",
+   "icube.colorTextGray": "#5f5b55",
+   "icube--text-text-secondary": "#5f5b55",
    "tab.worktreeBorder": "#6E4C0A",
    "editorWatermark.foreground": "#251F19",
    "positronDataExplorer.sparklineFill": "#0C6A61",
@@ -25532,11 +25592,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1ba8097b78c66f90",
+  "colors": "263a06153666b880",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -26572,6 +26632,9 @@
    "windsurf.sessionStatus.blue": "#2AA2C8",
    "windsurf.sessionStatus.red": "#F46577",
    "windsurf.sessionStatus.purple": "#E4BF39",
+   "icube.colorGrayText": "#99928f",
+   "icube.colorTextGray": "#99928f",
+   "icube--text-text-secondary": "#99928f",
    "tab.worktreeBorder": "#E4BF39",
    "editorWatermark.foreground": "#DBD2CE",
    "positronDataExplorer.sparklineFill": "#B09BFA",
@@ -26808,11 +26871,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "33ae389090d011cf",
+  "colors": "76878437de35bb0f",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -27848,6 +27911,9 @@
    "windsurf.sessionStatus.blue": "#0C728F",
    "windsurf.sessionStatus.red": "#BE2A49",
    "windsurf.sessionStatus.purple": "#5F4E0B",
+   "icube.colorGrayText": "#5b5653",
+   "icube.colorTextGray": "#5b5653",
+   "icube--text-text-secondary": "#5b5653",
    "tab.worktreeBorder": "#5F4E0B",
    "editorWatermark.foreground": "#211B18",
    "positronDataExplorer.sparklineFill": "#6354B0",
@@ -28084,11 +28150,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2c016fca87231827",
+  "colors": "87e26ef275525bea",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -29124,6 +29190,9 @@
    "windsurf.sessionStatus.blue": "#3AB2F8",
    "windsurf.sessionStatus.red": "#F28987",
    "windsurf.sessionStatus.purple": "#4FBE6F",
+   "icube.colorGrayText": "#8b9ea9",
+   "icube.colorTextGray": "#8b9ea9",
+   "icube--text-text-secondary": "#8b9ea9",
    "tab.worktreeBorder": "#CAA20A",
    "editorWatermark.foreground": "#CADEE6",
    "positronDataExplorer.sparklineFill": "#3AB2F8",
@@ -29360,11 +29429,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6018f8634d91ba5a",
+  "colors": "3f897301f92ffad3",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -30400,6 +30469,9 @@
    "windsurf.sessionStatus.blue": "#0b6fa1",
    "windsurf.sessionStatus.red": "#C70A35",
    "windsurf.sessionStatus.purple": "#0C7638",
+   "icube.colorGrayText": "#545c5f",
+   "icube.colorTextGray": "#545c5f",
+   "icube--text-text-secondary": "#545c5f",
    "tab.worktreeBorder": "#79610A",
    "editorWatermark.foreground": "#152125",
    "positronDataExplorer.sparklineFill": "#0C75A9",
@@ -30636,11 +30708,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6894ca01eff24e18",
+  "colors": "a5e9862ca7cf09b8",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -31676,6 +31748,9 @@
    "windsurf.sessionStatus.blue": "#54B2F2",
    "windsurf.sessionStatus.red": "#F27884",
    "windsurf.sessionStatus.purple": "#66A567",
+   "icube.colorGrayText": "#8a979d",
+   "icube.colorTextGray": "#8a979d",
+   "icube--text-text-secondary": "#8a979d",
    "tab.worktreeBorder": "#F2A47A",
    "editorWatermark.foreground": "#C6D8DF",
    "positronDataExplorer.sparklineFill": "#54B2F2",
@@ -31912,11 +31987,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d0b3939e743b6c09",
+  "colors": "91c482b3267a41d9",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -32952,6 +33027,9 @@
    "windsurf.sessionStatus.blue": "#0F638F",
    "windsurf.sessionStatus.red": "#C40A43",
    "windsurf.sessionStatus.purple": "#39773D",
+   "icube.colorGrayText": "#5f5853",
+   "icube.colorTextGray": "#5f5853",
+   "icube--text-text-secondary": "#5f5853",
    "tab.worktreeBorder": "#913E0A",
    "editorWatermark.foreground": "#251C18",
    "positronDataExplorer.sparklineFill": "#0F638F",
@@ -33188,11 +33266,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cdaf6e46d5c577f8",
+  "colors": "9cefa1485dbc0c9f",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -34228,6 +34306,9 @@
    "windsurf.sessionStatus.blue": "#7CACDD",
    "windsurf.sessionStatus.red": "#F955AB",
    "windsurf.sessionStatus.purple": "#CE8C54",
+   "icube.colorGrayText": "#869298",
+   "icube.colorTextGray": "#869298",
+   "icube--text-text-secondary": "#869298",
    "tab.worktreeBorder": "#CE8C54",
    "editorWatermark.foreground": "#C3D4DB",
    "positronDataExplorer.sparklineFill": "#7CACDD",
@@ -34464,11 +34545,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "535c9ea8b2731804",
+  "colors": "f1f90be82127ad48",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -35504,6 +35585,9 @@
    "windsurf.sessionStatus.blue": "#3C709E",
    "windsurf.sessionStatus.red": "#CC0C82",
    "windsurf.sessionStatus.purple": "#8F5621",
+   "icube.colorGrayText": "#555d60",
+   "icube.colorTextGray": "#555d60",
+   "icube--text-text-secondary": "#555d60",
    "tab.worktreeBorder": "#8F5621",
    "editorWatermark.foreground": "#162227",
    "positronDataExplorer.sparklineFill": "#3C709E",
@@ -35740,11 +35824,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f2089a7489e6bc88",
+  "colors": "287a5d7e03a4c4d1",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -36780,6 +36864,9 @@
    "windsurf.sessionStatus.blue": "#3AB2F2",
    "windsurf.sessionStatus.red": "#FA6051",
    "windsurf.sessionStatus.purple": "#AEBD0F",
+   "icube.colorGrayText": "#879494",
+   "icube.colorTextGray": "#879494",
+   "icube--text-text-secondary": "#879494",
    "tab.worktreeBorder": "#AEBD0F",
    "editorWatermark.foreground": "#C4D5D4",
    "positronDataExplorer.sparklineFill": "#AEBD0F",
@@ -37016,11 +37103,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "586241832e6bbd53",
+  "colors": "c58538f5dee92be1",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -38056,6 +38143,9 @@
    "windsurf.sessionStatus.blue": "#0C658E",
    "windsurf.sessionStatus.red": "#D70E21",
    "windsurf.sessionStatus.purple": "#565D0B",
+   "icube.colorGrayText": "#555d5c",
+   "icube.colorTextGray": "#555d5c",
+   "icube--text-text-secondary": "#555d5c",
    "tab.worktreeBorder": "#565D0B",
    "editorWatermark.foreground": "#172221",
    "positronDataExplorer.sparklineFill": "#565D0B",
@@ -38292,11 +38382,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "114aced3564f4bfd",
+  "colors": "b77f58451b26e415",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -39332,6 +39422,9 @@
    "windsurf.sessionStatus.blue": "#12A3E0",
    "windsurf.sessionStatus.red": "#F7616A",
    "windsurf.sessionStatus.purple": "#E8CC6A",
+   "icube.colorGrayText": "#9f9593",
+   "icube.colorTextGray": "#9f9593",
+   "icube--text-text-secondary": "#9f9593",
    "tab.worktreeBorder": "#F2A854",
    "editorWatermark.foreground": "#DDCFCD",
    "positronDataExplorer.sparklineFill": "#F2A854",
@@ -39568,11 +39661,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ad24bede97fbb7d5",
+  "colors": "54c310a58c9b3400",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -40608,6 +40701,9 @@
    "windsurf.sessionStatus.blue": "#0F6A92",
    "windsurf.sessionStatus.red": "#c90a38",
    "windsurf.sessionStatus.purple": "#574A0A",
+   "icube.colorGrayText": "#5f5856",
+   "icube.colorTextGray": "#5f5856",
+   "icube--text-text-secondary": "#5f5856",
    "tab.worktreeBorder": "#7A4B0A",
    "editorWatermark.foreground": "#251C1B",
    "positronDataExplorer.sparklineFill": "#7A4B0A",
@@ -40844,11 +40940,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f0e06603fef4adac",
+  "colors": "6e94c3012adba4dc",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -41884,6 +41980,9 @@
    "windsurf.sessionStatus.blue": "#FFF6E4",
    "windsurf.sessionStatus.red": "#FF6B4A",
    "windsurf.sessionStatus.purple": "#FFF6E4",
+   "icube.colorGrayText": "#c0b19c",
+   "icube.colorTextGray": "#c0b19c",
+   "icube--text-text-secondary": "#c0b19c",
    "tab.worktreeBorder": "#FFC24A",
    "editorWatermark.foreground": "#F0DCBE",
    "positronDataExplorer.sparklineFill": "#EBD3AE",
@@ -42120,11 +42219,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7400da8dfa27dea4",
+  "colors": "11e4827a41b238d5",
   "tokenColors": "c3adc3f9a88869bf",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -43160,6 +43259,9 @@
    "windsurf.sessionStatus.blue": "#1A130A",
    "windsurf.sessionStatus.red": "#A53119",
    "windsurf.sessionStatus.purple": "#6f5f42",
+   "icube.colorGrayText": "#564d43",
+   "icube.colorTextGray": "#564d43",
+   "icube--text-text-secondary": "#564d43",
    "tab.worktreeBorder": "#73550F",
    "editorWatermark.foreground": "#282016",
    "positronDataExplorer.sparklineFill": "#463A26",
@@ -43396,11 +43498,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "aa6a91b2522f731e",
+  "colors": "e24238b48fa412b0",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -44436,6 +44538,9 @@
    "windsurf.sessionStatus.blue": "#3FE8BE",
    "windsurf.sessionStatus.red": "#FF6E92",
    "windsurf.sessionStatus.purple": "#3FE8BE",
+   "icube.colorGrayText": "#8e9997",
+   "icube.colorTextGray": "#8e9997",
+   "icube--text-text-secondary": "#8e9997",
    "tab.worktreeBorder": "#D8C07A",
    "editorWatermark.foreground": "#C4D2CE",
    "positronDataExplorer.sparklineFill": "#14BFA0",
@@ -44672,11 +44777,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e0c616deb33513fa",
+  "colors": "ba0c9ddc3b078fce",
   "tokenColors": "098dfb7cd385529a",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -45712,6 +45817,9 @@
    "windsurf.sessionStatus.blue": "#065246",
    "windsurf.sessionStatus.red": "#A81346",
    "windsurf.sessionStatus.purple": "#065246",
+   "icube.colorGrayText": "#505654",
+   "icube.colorTextGray": "#505654",
+   "icube--text-text-secondary": "#505654",
    "tab.worktreeBorder": "#695F0F",
    "editorWatermark.foreground": "#1E2321",
    "positronDataExplorer.sparklineFill": "#076659",
@@ -45948,11 +46056,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f42c6150a7edd5ba",
+  "colors": "5b1c69a135eaf0de",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
-   1040,
+   1043,
    42,
    62
   ],
@@ -46988,6 +47096,9 @@
    "windsurf.sessionStatus.blue": "#6FC7E0",
    "windsurf.sessionStatus.red": "#EB786D",
    "windsurf.sessionStatus.purple": "#A8B8A0",
+   "icube.colorGrayText": "#a3a5a9",
+   "icube.colorTextGray": "#a3a5a9",
+   "icube--text-text-secondary": "#a3a5a9",
    "tab.worktreeBorder": "#F0B75A",
    "editorWatermark.foreground": "#C6C8CC",
    "positronDataExplorer.sparklineFill": "#F0B75A",
@@ -47193,11 +47304,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9f5dea48c9bfeeb1",
+  "colors": "3cae56d9f841462e",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
-   1040,
+   1043,
    42,
    62
   ],
@@ -48233,6 +48344,9 @@
    "windsurf.sessionStatus.blue": "#0F6480",
    "windsurf.sessionStatus.red": "#B03A2E",
    "windsurf.sessionStatus.purple": "#4A5C42",
+   "icube.colorGrayText": "#55575E",
+   "icube.colorTextGray": "#55575E",
+   "icube--text-text-secondary": "#55575E",
    "tab.worktreeBorder": "#855606",
    "editorWatermark.foreground": "#24262b",
    "positronDataExplorer.sparklineFill": "#855606",
@@ -48438,11 +48552,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0e44a01242070cde",
+  "colors": "6b09bc4b94eb6db7",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
-   1040,
+   1043,
    86,
    49
   ],
@@ -49478,6 +49592,9 @@
    "windsurf.sessionStatus.blue": "#8E96A8",
    "windsurf.sessionStatus.red": "#D9866B",
    "windsurf.sessionStatus.purple": "#F5E9CE",
+   "icube.colorGrayText": "#a19a8e",
+   "icube.colorTextGray": "#a19a8e",
+   "icube--text-text-secondary": "#a19a8e",
    "tab.worktreeBorder": "#C99C55",
    "editorWatermark.foreground": "#E4DACA",
    "positronDataExplorer.sparklineFill": "#F5E9CE",
@@ -49727,11 +49844,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5c75b16876e9a17c",
+  "colors": "8569d2528fe8c148",
   "tokenColors": "3f5a7079bd6c36e5",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
-   1040,
+   1043,
    86,
    49
   ],
@@ -50767,6 +50884,9 @@
    "windsurf.sessionStatus.blue": "#2A5A78",
    "windsurf.sessionStatus.red": "#983F1D",
    "windsurf.sessionStatus.purple": "#3E3418",
+   "icube.colorGrayText": "#514d44",
+   "icube.colorTextGray": "#514d44",
+   "icube--text-text-secondary": "#514d44",
    "tab.worktreeBorder": "#725719",
    "editorWatermark.foreground": "#241F16",
    "positronDataExplorer.sparklineFill": "#1E1808",
@@ -51016,11 +51136,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7083e41a033c8c0b",
+  "colors": "fbdbe23806a5a08f",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
-   1040,
+   1043,
    86,
    54
   ],
@@ -52056,6 +52176,9 @@
    "windsurf.sessionStatus.blue": "#64AEF9",
    "windsurf.sessionStatus.red": "#FA6362",
    "windsurf.sessionStatus.purple": "#66C070",
+   "icube.colorGrayText": "#94979f",
+   "icube.colorTextGray": "#94979f",
+   "icube--text-text-secondary": "#94979f",
    "tab.worktreeBorder": "#F09A18",
    "editorWatermark.foreground": "#C8CDD6",
    "positronDataExplorer.sparklineFill": "#EAECF0",
@@ -52280,11 +52403,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "de0682abfbc37b8e",
+  "colors": "ac752d6154c9e4f5",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
-   1040,
+   1043,
    86,
    54
   ],
@@ -53320,6 +53443,9 @@
    "windsurf.sessionStatus.blue": "#0C5FA8",
    "windsurf.sessionStatus.red": "#C00A18",
    "windsurf.sessionStatus.purple": "#2C6620",
+   "icube.colorGrayText": "#57595e",
+   "icube.colorTextGray": "#57595e",
+   "icube--text-text-secondary": "#57595e",
    "tab.worktreeBorder": "#9A5A00",
    "editorWatermark.foreground": "#22262E",
    "positronDataExplorer.sparklineFill": "#141820",
@@ -53544,11 +53670,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4b806012b8d87454",
+  "colors": "254dd50025e3224d",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
-   1040,
+   1043,
    86,
    48
   ],
@@ -54584,6 +54710,9 @@
    "windsurf.sessionStatus.blue": "#8FA0B8",
    "windsurf.sessionStatus.red": "#CF7A5E",
    "windsurf.sessionStatus.purple": "#F5EEDE",
+   "icube.colorGrayText": "#a6a095",
+   "icube.colorTextGray": "#a6a095",
+   "icube--text-text-secondary": "#a6a095",
    "tab.worktreeBorder": "#C9A24A",
    "editorWatermark.foreground": "#E8E1D2",
    "positronDataExplorer.sparklineFill": "#F5EEDE",
@@ -54796,11 +54925,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6fa0e3c59d75caae",
+  "colors": "a05b28b833518bf3",
   "tokenColors": "b919a495ee1519e5",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
-   1040,
+   1043,
    86,
    48
   ],
@@ -55836,6 +55965,9 @@
    "windsurf.sessionStatus.blue": "#2E5474",
    "windsurf.sessionStatus.red": "#8A3A22",
    "windsurf.sessionStatus.purple": "#665e4d",
+   "icube.colorGrayText": "#4e493f",
+   "icube.colorTextGray": "#4e493f",
+   "icube--text-text-secondary": "#4e493f",
    "tab.worktreeBorder": "#71500E",
    "editorWatermark.foreground": "#262017",
    "positronDataExplorer.sparklineFill": "#16120C",
@@ -56048,11 +56180,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b1a38185b569ddd2",
+  "colors": "f59efbddc7dc0fa1",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
-   1040,
+   1043,
    86,
    49
   ],
@@ -57088,6 +57220,9 @@
    "windsurf.sessionStatus.blue": "#90A8C8",
    "windsurf.sessionStatus.red": "#D08080",
    "windsurf.sessionStatus.purple": "#F0F0F4",
+   "icube.colorGrayText": "#9c9c9f",
+   "icube.colorTextGray": "#9c9c9f",
+   "icube--text-text-secondary": "#9c9c9f",
    "tab.worktreeBorder": "#C8B084",
    "editorWatermark.foreground": "#D2D2D6",
    "positronDataExplorer.sparklineFill": "#F0F0F4",
@@ -57337,11 +57472,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "18257711db0f9726",
+  "colors": "db189e7eca6a0ce7",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
-   1040,
+   1043,
    86,
    49
   ],
@@ -58377,6 +58512,9 @@
    "windsurf.sessionStatus.blue": "#3E5478",
    "windsurf.sessionStatus.red": "#8A3A32",
    "windsurf.sessionStatus.purple": "#141418",
+   "icube.colorGrayText": "#504f51",
+   "icube.colorTextGray": "#504f51",
+   "icube--text-text-secondary": "#504f51",
    "tab.worktreeBorder": "#6A5220",
    "editorWatermark.foreground": "#202024",
    "positronDataExplorer.sparklineFill": "#141418",
@@ -58626,11 +58764,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dec420c99a76eda1",
+  "colors": "16e3da6b46e1265c",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -59666,6 +59804,9 @@
    "windsurf.sessionStatus.blue": "#8FA6C0",
    "windsurf.sessionStatus.red": "#D58779",
    "windsurf.sessionStatus.purple": "#A8B0A0",
+   "icube.colorGrayText": "#adabaa",
+   "icube.colorTextGray": "#adabaa",
+   "icube--text-text-secondary": "#adabaa",
    "tab.worktreeBorder": "#D8A83C",
    "editorWatermark.foreground": "#DEDCD6",
    "positronDataExplorer.sparklineFill": "#E4DFD2",
@@ -59902,11 +60043,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0e05a09ecb7410b6",
+  "colors": "10297f32ab663c05",
   "tokenColors": "7b68d79e017deb02",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -60942,6 +61083,9 @@
    "windsurf.sessionStatus.blue": "#33507A",
    "windsurf.sessionStatus.red": "#833729",
    "windsurf.sessionStatus.purple": "#26241E",
+   "icube.colorGrayText": "#424240",
+   "icube.colorTextGray": "#424240",
+   "icube--text-text-secondary": "#424240",
    "tab.worktreeBorder": "#6A490E",
    "editorWatermark.foreground": "#1F1E1A",
    "positronDataExplorer.sparklineFill": "#26241E",
@@ -61178,11 +61322,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4d87d0fc94b747b7",
+  "colors": "ffcecad9ea791204",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
-   1040,
+   1043,
    86,
    50
   ],
@@ -62218,6 +62362,9 @@
    "windsurf.sessionStatus.blue": "#8E9CBE",
    "windsurf.sessionStatus.red": "#FF5C4D",
    "windsurf.sessionStatus.purple": "#74857e",
+   "icube.colorGrayText": "#89948f",
+   "icube.colorTextGray": "#89948f",
+   "icube--text-text-secondary": "#89948f",
    "tab.worktreeBorder": "#FFA03C",
    "editorWatermark.foreground": "#C6D2CC",
    "positronDataExplorer.sparklineFill": "#5FD8C0",
@@ -62418,11 +62565,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "03ecef8bc3bf3232",
+  "colors": "3c4804f53544846f",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
-   1040,
+   1043,
    86,
    50
   ],
@@ -63458,6 +63605,9 @@
    "windsurf.sessionStatus.blue": "#2E5C78",
    "windsurf.sessionStatus.red": "#C22A18",
    "windsurf.sessionStatus.purple": "#5E6E68",
+   "icube.colorGrayText": "#525957",
+   "icube.colorTextGray": "#525957",
+   "icube--text-text-secondary": "#525957",
    "tab.worktreeBorder": "#9A5200",
    "editorWatermark.foreground": "#1D2622",
    "positronDataExplorer.sparklineFill": "#0A6E5E",
@@ -63658,11 +63808,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "70f7deeae2eda331",
+  "colors": "2e265203ce7086a9",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -64698,6 +64848,9 @@
    "windsurf.sessionStatus.blue": "#B49BE8",
    "windsurf.sessionStatus.red": "#F98794",
    "windsurf.sessionStatus.purple": "#8FC9A4",
+   "icube.colorGrayText": "#aa9599",
+   "icube.colorTextGray": "#aa9599",
+   "icube--text-text-secondary": "#aa9599",
    "tab.worktreeBorder": "#E8B54A",
    "editorWatermark.foreground": "#EDD6DA",
    "positronDataExplorer.sparklineFill": "#FFA6B6",
@@ -64934,11 +65087,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1d8bf316b6827eb5",
+  "colors": "52cb0f75c4b21954",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -65974,6 +66127,9 @@
    "windsurf.sessionStatus.blue": "#5B48A0",
    "windsurf.sessionStatus.red": "#B01238",
    "windsurf.sessionStatus.purple": "#1E6A46",
+   "icube.colorGrayText": "#625356",
+   "icube.colorTextGray": "#625356",
+   "icube--text-text-secondary": "#625356",
    "tab.worktreeBorder": "#8A5A00",
    "editorWatermark.foreground": "#2A161B",
    "positronDataExplorer.sparklineFill": "#8A2050",
@@ -66210,11 +66366,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f2e17af991a952f8",
+  "colors": "0d09651f12d111f2",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -67250,6 +67406,9 @@
    "windsurf.sessionStatus.blue": "#9BD0F6",
    "windsurf.sessionStatus.red": "#F67F87",
    "windsurf.sessionStatus.purple": "#6BECBE",
+   "icube.colorGrayText": "#9eacb5",
+   "icube.colorTextGray": "#9eacb5",
+   "icube--text-text-secondary": "#9eacb5",
    "tab.worktreeBorder": "#F6B464",
    "editorWatermark.foreground": "#DCEAF2",
    "positronDataExplorer.sparklineFill": "#9BD0F6",
@@ -67486,11 +67645,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3f451283b0d46df3",
+  "colors": "175bceb5a6b4b3ee",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -68526,6 +68685,9 @@
    "windsurf.sessionStatus.blue": "#0B5475",
    "windsurf.sessionStatus.red": "#b24051",
    "windsurf.sessionStatus.purple": "#094B30",
+   "icube.colorGrayText": "#555f66",
+   "icube.colorTextGray": "#555f66",
+   "icube--text-text-secondary": "#555f66",
    "tab.worktreeBorder": "#804E08",
    "editorWatermark.foreground": "#18262F",
    "positronDataExplorer.sparklineFill": "#0B5475",
@@ -68762,11 +68924,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6c6420ef8ce3062a",
+  "colors": "0f43e16978dec637",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -69802,6 +69964,9 @@
    "windsurf.sessionStatus.blue": "#60B4E4",
    "windsurf.sessionStatus.red": "#DF7F84",
    "windsurf.sessionStatus.purple": "#D58075",
+   "icube.colorGrayText": "#989da9",
+   "icube.colorTextGray": "#989da9",
+   "icube--text-text-secondary": "#989da9",
    "tab.worktreeBorder": "#DDAC7B",
    "editorWatermark.foreground": "#D6DEEC",
    "positronDataExplorer.sparklineFill": "#BDD4E0",
@@ -70038,11 +70203,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a991a0453aa05348",
+  "colors": "9e2c3e3e5dffd994",
   "tokenColors": "331b1630f0d9933c",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -71078,6 +71243,9 @@
    "windsurf.sessionStatus.blue": "#0D678C",
    "windsurf.sessionStatus.red": "#9A454D",
    "windsurf.sessionStatus.purple": "#9f524a",
+   "icube.colorGrayText": "#59565a",
+   "icube.colorTextGray": "#59565a",
+   "icube--text-text-secondary": "#59565a",
    "tab.worktreeBorder": "#795225",
    "editorWatermark.foreground": "#1E1C22",
    "positronDataExplorer.sparklineFill": "#31454F",
@@ -71314,11 +71482,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "169fb2f34410b7cc",
+  "colors": "9906d1db1495532e",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -72354,6 +72522,9 @@
    "windsurf.sessionStatus.blue": "#A289DB",
    "windsurf.sessionStatus.red": "#FF7F42",
    "windsurf.sessionStatus.purple": "#FFEE3C",
+   "icube.colorGrayText": "#a5a095",
+   "icube.colorTextGray": "#a5a095",
+   "icube--text-text-secondary": "#a5a095",
    "tab.worktreeBorder": "#FFEE3C",
    "editorWatermark.foreground": "#E8E2D4",
    "positronDataExplorer.sparklineFill": "#FFEE3C",
@@ -72590,11 +72761,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e414a9791379c34d",
+  "colors": "b693c6ac3095d4bc",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
-   1040,
+   1043,
    99,
    58
   ],
@@ -73630,6 +73801,9 @@
    "windsurf.sessionStatus.blue": "#5A4694",
    "windsurf.sessionStatus.red": "#ab430d",
    "windsurf.sessionStatus.purple": "#7A6000",
+   "icube.colorGrayText": "#56524b",
+   "icube.colorTextGray": "#56524b",
+   "icube--text-text-secondary": "#56524b",
    "tab.worktreeBorder": "#7A6000",
    "editorWatermark.foreground": "#211E16",
    "positronDataExplorer.sparklineFill": "#7A6000",
