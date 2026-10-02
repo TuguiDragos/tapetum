@@ -510,6 +510,16 @@ function analyse(fam, v) {
   const voidText = Math.min(...voidWashes.flatMap((g) => diffSyntax.map((r) => contrast(p[r], g))));
   const voidComment = p.comment ? Math.min(...voidWashes.map((g) => contrast(p.comment, g))) : 99;
   if (voidText < 3.4 || voidComment < 3.2) bad('diff', `syntax at ${down(voidText)} and comments at ${down(voidComment)} on the Void washes, under 3.4 and 3.2`);
+  // Devin writes a session's status in its own colour on the quick pick rows, focused or hovered: the standard focus and hover fills,
+  // and the restyled rows' tint, the foreground taken halfway to black or white at 6% (5% on dark)
+  {
+    const qi = over(c['quickInput.background'], eb), darkUi = /dark|black/i.test(t.type), to = darkUi ? '#ffffff' : '#000000';
+    const rows = [qi, mix(qi, mix(c.foreground.slice(0, 7), to, 0.5), darkUi ? 0.05 : 0.06), over(c['quickInputList.focusBackground'], qi), over(c['list.hoverBackground'], qi)];
+    for (const s of ['orange', 'green', 'blue', 'red', 'purple']) {
+      const k = `windsurf.sessionStatus.${s}`, cr = Math.min(...rows.map((g) => contrast(over(c[k], g), g)));
+      if (cr < 4.5) bad('surface', `${k}, a session status on Devin's quick pick rows, at ${down(cr)}, under 4.5`);
+    }
+  }
   if (out.diff.deltaE < 2.5) bad('diff', `inserted and removed at ${out.diff.deltaE.toFixed(1)} dE`);
   if (diffText < 3.4) bad('diff', `syntax on a diff background at ${down(diffText)}, under 3.4`);
   if (diffComment < 3.2) bad('diff', `comments on a diff background at ${down(diffComment)}, under 3.2`);
@@ -590,6 +600,17 @@ function analyse(fam, v) {
     const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const cr = contrast(over(c[k], ground), ground);
     if (cr < 3) bad('focus', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
+  }
+  // VS Code also draws focusBorder as an icon: the tunnel icon beside the chat input on a toolbar hover, the chevron of a prompt
+  // timeline card on a hovered row, and the icon of the quota callout on color-mix(focusBorder 6%, editorWidget.background)
+  {
+    const panes = ['sideBar.background', 'panel.background', 'editor.background'].map((s) => over(c[s], eb)), ring = parse(c.focusBorder), w = parse(c['editorWidget.background']);
+    const tint = ['r', 'g', 'b'].map((k) => (ring[k] * ring.a * 0.06 + w[k] * w.a * 0.94) / (ring.a * 0.06 + w.a * 0.94));
+    const callout = over(alpha('#' + tint.map((v) => Math.round(v).toString(16).padStart(2, '0')).join(''), ring.a * 0.06 + w.a * 0.94), over(c['editorWidget.background'], eb));
+    const grounds = [...panes.flatMap((p) => [p, over(c['input.background'], p)]).map((g) => over(c['toolbar.hoverBackground'], g)),
+      ...panes.map((p) => over(c['list.hoverBackground'], p)), callout];
+    const cr = Math.min(...grounds.map((g) => contrast(over(c.focusBorder, g), g)));
+    if (cr < 3) bad('focus', `focusBorder as an icon on a toolbar hover, a hovered row or the quota callout at ${down(cr)}, under 3:1`);
   }
   for (const k of SESSION_FRAMES) for (const s of FOCUS_SURFACES) {
     const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
@@ -783,6 +804,32 @@ function analyse(fam, v) {
       const cr = contrast(mix(g, c[k], 0.6), g);
       if (cr < floor) bad('surface', `${k}, the workspace name in the command center at 60%${g === tb ? '' : ` on ${wash}`}, at ${down(cr)}, under ${floor}`);
     }
+  }
+  // an inactive window draws its whole title bar at 60%, as an inactive window dims its title on purpose: the title, the classic
+  // command center's label and its search icon at 80%, and the workspace name of the agent status at 60%
+  {
+    const tb = over(c['titleBar.inactiveBackground'], eb), cc = over(c['commandCenter.background'], tb), pill = over(c['agentStatusIndicator.background'], tb);
+    const dim = (x, g) => contrast(mix(tb, x, 0.6), mix(tb, g, 0.6)), title = (g) => over(c['titleBar.inactiveForeground'], g);
+    pend('the title of an inactive window, at 60% (3.0)', dim(title(tb), tb), 3.0);
+    pend('the label of the classic command center in an inactive window, at 60% (3.0)', dim(title(cc), cc), 3.0);
+    pend('the search icon of the classic command center in an inactive window, at 80% of 60% (3.0)', dim(mix(cc, title(cc), 0.8), cc), 3.0);
+    pend('the workspace name of the agent status in an inactive window, at 60% of 60% (3.0)', Math.min(...[tb, pill].map((g) => dim(mix(g, c['commandCenter.foreground'], 0.6), g))), 3.0);
+  }
+  // the kind of an agent feedback comment, in charts.purple on 22% of itself: a colour on its own tint, and chart ink besides
+  {
+    const w = over(c['editorWidget.background'], eb), kind = over(c['charts.purple'], w);
+    pend('the kind label of an agent feedback review, charts.purple on 22% of itself (4.5)', contrast(kind, mix(w, kind, 0.22)), 4.5);
+  }
+  // the compatibility message of an MCP server for an agent host, warning or unsupported, on its row, hovered or not
+  for (const k of ['chat.mcpCompatibilityWarningForeground', 'errorForeground']) for (const s of ['sideBar.background', 'editor.background']) {
+    const g = over(c['list.hoverBackground'], over(c[s], eb)), cr = contrast(over(c[k], g), g);
+    if (cr < 4.5) bad('surface', `${k}, the compatibility message of an MCP server on a hovered row over ${s}, at ${down(cr)}, under 4.5`);
+  }
+  // the Uninstall button of the AI customization editor writes errorForeground, and hovered it takes the secondary button's fill;
+  // lifting it would move every error text
+  {
+    const g = over(c['button.secondaryHoverBackground'], eb);
+    pend('errorForeground, the hovered Uninstall button of the AI customization editor (4.5)', contrast(over(c.errorForeground, g), g), 4.5);
   }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it

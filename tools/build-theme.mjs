@@ -101,7 +101,10 @@ function tokens(s) {
   };
   let ringBase = acc;
   for (const surface of [bg, elev, chrome, strip]) if (contrast(ringBase, surface) < 3) ringBase = legible(ringBase, surface, 3.0);
-  const ringK = ringLevel(ringBase, [bg, elev, chrome, strip], 3.0);
+  // VS Code also draws the ring's colour as an icon on a toolbar or row hover, beside the chat input and in the chat
+  const hovers = [bg, elev, field].map((g) => composite(alpha(fg, 0.06), composite(g, elev)));
+  let ringK = ringLevel(ringBase, [bg, elev, chrome, strip], 3.0);
+  while (ringK < 1 && hovers.some((g) => contrast(composite(alpha(ringBase, ringK), g), g) < 3.0)) ringK = Math.round(ringK * 100 + 1) / 100;
   const focusRing = alpha(ringBase, ringK);
   const strongBase = legible(ringBase, over, 3.0);
   const focusStrong = alpha(strongBase, Math.max(0.7, ringK, ringLevel(strongBase, [over], 3.0)));
@@ -858,7 +861,8 @@ function assistant(t) {
     'chat.linesAddedForeground': t.glass.reduce((x, g) => readsOn(x, g, 4.5), st.added),
     'chat.linesRemovedForeground': t.glass.reduce((x, g) => readsOn(x, g, 4.5), st.deleted),
     'chat.editedFileForeground': st.modified,
-    'chat.mcpCompatibilityWarningForeground': t.handStatus ? st.warn : readsOn(st.warn, elev, 4.5),
+    // on its row in the side bar or the customization editor, hovered or not
+    'chat.mcpCompatibilityWarningForeground': t.handStatus ? st.warn : [elev, bg].flatMap((g) => [g, mix(g, fg, 0.06)]).reduce((x, g) => readsOn(x, g, 4.5), st.warn),
     'chat.findMatchBackground': alphaOf(y.number, 0.32),
     'chat.findMatchHighlightBackground': alphaOf(y.string, 0.22),
     'chat.thinkingShimmer': alphaOf(acc, 0.55),
@@ -1626,6 +1630,10 @@ function forkKeys(all, t) {
   const hueOf = (c) => hex2lch(c)[2];
   const nearest = (h) => [y.keyword, y.func, y.string, y.type, y.number, y.tag].reduce((a, b) => (Math.abs(((hueOf(b) - h + 540) % 360) - 180) > Math.abs(((hueOf(a) - h + 540) % 360) - 180) ? b : a));
   const fill = on(y.func, [bg, elev], 3.0);
+  // Devin writes a session's status on its quick pick rows, focused or hovered: the focus and hover fills, or the restyled rows' tint of the
+  // foreground taken halfway to black or white at 6% (5% on dark)
+  const qi = all['quickInput.background'];
+  const quickRows = [qi, mix(qi, mix(all.foreground, t.dark ? '#ffffff' : '#000000', 0.5), t.dark ? 0.05 : 0.06), composite(all['quickInputList.focusBackground'], qi), composite(all['list.hoverBackground'], qi)];
   // Cursor shows its watermark at half opacity, so the colour moves toward the text end until half of it reads 3.0
   const half = (c) => contrast(mix(bg, c, 0.5), bg);
   // Void marks an edited line with these washes alone, so they take the strength of a changed word in the diff editor,
@@ -1681,11 +1689,11 @@ function forkKeys(all, t) {
     'diffEditor.insertedTextBackgroundLighter': all['diffEditor.insertedTextBackground'],
     'diffEditor.removedTextBackgroundDarker': all['diffEditor.removedTextBackground'],
     'diffEditor.removedTextBackgroundLighter': all['diffEditor.removedTextBackground'],
-    'windsurf.sessionStatus.orange': on(st.warn, [all['quickInput.background']], 4.5),
-    'windsurf.sessionStatus.green': on(st.ok, [all['quickInput.background']], 4.5),
-    'windsurf.sessionStatus.blue': on(st.info, [all['quickInput.background']], 4.5),
-    'windsurf.sessionStatus.red': on(st.error, [all['quickInput.background']], 4.5),
-    'windsurf.sessionStatus.purple': on(nearest(300), [all['quickInput.background']], 4.5),
+    'windsurf.sessionStatus.orange': on(st.warn, quickRows, 4.5),
+    'windsurf.sessionStatus.green': on(st.ok, quickRows, 4.5),
+    'windsurf.sessionStatus.blue': on(st.info, quickRows, 4.5),
+    'windsurf.sessionStatus.red': on(st.error, quickRows, 4.5),
+    'windsurf.sessionStatus.purple': on(nearest(300), quickRows, 4.5),
     'icube.colorGrayText': all.descriptionForeground,
     'icube.colorTextGray': all.descriptionForeground,
     'icube--text-text-secondary': all.descriptionForeground,
