@@ -323,6 +323,7 @@ node tools/audit.mjs      # structure, schemes, manifest, files and this README
 node tools/paint-check.mjs   # every rule painted as written, with VS Code's own tokenizer
 node tools/compare.mjs    # against every theme Microsoft ships
 node tools/fork-check.mjs kiro <resources/app>   # the same checks, on another editor
+node tools/live-check.mjs <editor> --vsix <file>   # every theme loaded in a running editor, value by value
 \`\`\`
 
 ## Install
