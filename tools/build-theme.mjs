@@ -50,6 +50,15 @@ function tokens(s) {
   while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
   const findWash = alpha(s.syntax.number, findAlpha);
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
+  // links also sit on the status bar of a hover, which is the overlay surface; a hovered link also names a hovered card of the
+  // customization discovery, the list hover over 4% of the text on the widget
+  const linkOf = (c) => faded(readsOn(legible(legible(c, bg, 4.5), elev, 4.5), over, 4.5), bg, 0.9, 4.5);
+  const activeLinkOf = (c) => faded(readsOn(legible(legible(c, bg, 4.5), elev, 4.5), composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), 4.5), bg, 0.9, 4.5);
+  // a link is told from the text beside it by its colour alone, so where the function colour sits on the text it takes the family accent
+  const apartFromText = (c) => deltaE(c, fg) >= 12;
+  const linkSource = [s.syntax.func, acc, s.syntax.keyword, s.syntax.string, s.syntax.type, s.syntax.number, s.syntax.tag].find((c) => apartFromText(linkOf(c))) || acc;
+  const link = linkOf(linkSource);
+  const activeLink = apartFromText(activeLinkOf(s.syntax.string)) ? activeLinkOf(s.syntax.string) : activeLinkOf(linkSource);
   const findGround = [bg, elev, chrome, strip].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
   const stripHover = hc ? elev : reach(strip, strip, fg, 3.0);
@@ -114,7 +123,7 @@ function tokens(s) {
     pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
   }
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, linkSource, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -128,10 +137,8 @@ function tokens(s) {
     'toolbar.hoverBackground': alpha(fg, 0.06),
     'toolbar.activeBackground': alpha(fg, 0.10),
 
-    // links also sit on the status bar of a hover, which is the overlay surface
-    'textLink.foreground': faded(readsOn(legible(legible(y.func, bg, 4.5), elev, 4.5), over, 4.5), bg, 0.9, 4.5),
-    // a hovered link also names a hovered card of the customization discovery, the list hover over 4% of the text on the widget
-    'textLink.activeForeground': faded(readsOn(legible(legible(y.string, bg, 4.5), elev, 4.5), composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), 4.5), bg, 0.9, 4.5),
+    'textLink.foreground': link,
+    'textLink.activeForeground': activeLink,
     'textPreformat.foreground': legible(y.number, mix(hard, y.number, 0.12), 5.4),
     'textPreformat.background': alpha(y.number, 0.10),
     'textBlockQuote.background': elev,
@@ -746,7 +753,7 @@ function integrations(t) {
     'notifications.background': elev,
     'notifications.foreground': fg,
     'notifications.border': line,
-    'notificationLink.foreground': readsOn(y.func, elev, 4.5),
+    'notificationLink.foreground': readsOn(t.linkSource, elev, 4.5),
     'notificationsErrorIcon.foreground': st.error,
     'notificationsWarningIcon.foreground': st.warn,
     'notificationsInfoIcon.foreground': st.info,

@@ -41,6 +41,8 @@ const WASH_SURFACES = [...FOCUS_SURFACES, 'editorGroupHeader.tabsBackground'];
 const SESSION_FRAMES = ['chat.sessionStateIndicator.inProgressBorder', 'chat.sessionStateIndicator.unvisitedBorder',
   'chat.sessionStateIndicator.needsInputBorder'];
 const TAB_STRIP_DE = 4.3;
+// a link and the text beside it; every theme with colourful syntax stands 13 dE apart or more
+const LINK_DE = 12;
 const PRESENCE = [
   ['editor.lineHighlightBackground', 'editor.background', 3.0],
   ['editor.inactiveLineHighlightBackground', 'editor.background', 2.0],
@@ -151,7 +153,11 @@ function analyse(fam, v) {
   const out = { label: t.name, findings: [] };
   const bad = (sev, msg) => out.findings.push({ sev, msg });
   out.pending = {};
-  out.linkGap = deltaE(over(c['textLink.foreground'], eb), over(c.foreground, eb));
+  // a link is told from the text beside it by its colour alone: in a hover, a notification, the Settings and the markdown preview
+  for (const k of ['textLink.foreground', 'notificationLink.foreground']) {
+    const d = deltaE(over(c[k], eb), over(c.foreground, eb));
+    if (d < LINK_DE) bad('links', `${k} at ${d.toFixed(1)} dE from the text beside it, under ${LINK_DE}`);
+  }
   const pend = (what, cr, floor) => {
     const q = (out.pending[what] ||= { worst: 99, under: false });
     q.worst = Math.min(q.worst, cr);
@@ -573,7 +579,5 @@ for (const what of [...new Set(rows.flatMap((r) => Object.keys(r.pending)))]) {
   const low = hit.reduce((a, b) => (b.pending[what].worst < a.pending[what].worst ? b : a));
   console.log(`   ${what}: under the floor in ${hit.filter((r) => r.pending[what].under).length} of ${hit.length} themes, lowest ${low.pending[what].worst.toFixed(2)} in ${low.label}`);
 }
-const near = rows.filter((r) => r.linkGap < 10), nearest = rows.reduce((a, b) => (b.linkGap < a.linkGap ? b : a));
-console.log(`\nmeasured, kept by the maintainer's choice: a link under 10 dE from the text beside it in ${near.length} of ${rows.length} themes, lowest ${nearest.linkGap.toFixed(1)} in ${nearest.label}`);
 console.log(issues ? `\nTOTAL ${issues} problems` : '\nNO PROBLEM IN THE DEEP AUDIT');
 process.exit(issues ? 1 : 0);
