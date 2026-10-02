@@ -218,7 +218,9 @@ function css(v) {
   }
   try { return parse(v); } catch { return null; }
 }
-const same = (a, b) => !!a && !!b && a.r === b.r && a.g === b.g && a.b === b.b && Math.abs(a.a - b.a) <= 0.0051;
+// VS Code keeps an alpha to 3 decimals and writes it with 2, so 70/255 (0.2745) is written 0.28
+const written = (a) => +(Math.round(a * 1000) / 1000).toFixed(2);
+const same = (a, b) => !!a && !!b && a.r === b.r && a.g === b.g && a.b === b.b && (Math.abs(a.a - b.a) <= 0.0051 || written(a.a) === b.a || written(b.a) === a.a);
 const KIND = { vs: 'vs', 'vs-dark': 'vs-dark', 'hc-black': 'hc-black', 'hc-light': 'hc-light' };
 const shot = async (file) => {
   const s = await send('Page.captureScreenshot', { format: 'png' });
