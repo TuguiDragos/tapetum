@@ -54,6 +54,7 @@ or bold italic, meant for its name. Only the name keeps it now.
   it fell short in 29 themes, as low as 2.44.
 - The default marked beside an option of a Settings dropdown, which took the
   accent as it is, in 4 light themes.
+- A warning or note on a chat picker, hovered or open, in 16 themes.
 - A hovered name in the Customizations view, in 11 themes.
 - Code pinned by sticky scroll, in 12 themes: its lines sat half a step toward
   the side bar and now share the editor's background, set apart by their line
@@ -123,10 +124,10 @@ stand apart in every theme.
 **Frosted glass.** VS Code Insiders draws the quick input, menus, hovers,
 dialogs and notifications as frosted glass. Their text keeps its floor over
 the editor, the side bar, the panel, the bars, the tab strip and the terminal
-beneath, at any strength the setting allows, which moves links, errors,
-warnings, notes, the lines of a chat session and debug names a little in 15
-light themes. Over a selection, a button, a white page or a black image under
-the glass, it can fall short.
+beneath, at any strength the setting allows, which moves links, errors, the
+lines of a chat session and debug names a little in 12 light themes. Over a
+selection, a button, a white page or a black image under the glass, it can
+fall short.
 
 ### Changed
 
