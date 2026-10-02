@@ -93,7 +93,7 @@
     "editorWarning.background": "#9a520014",
     "editorInfo.background": "#2e5c7814",
     "problemsErrorIcon.foreground": "#a44b37",
-    "problemsWarningIcon.foreground": "#88501c",
+    "problemsWarningIcon.foreground": "#834e1b",
     "problemsInfoIcon.foreground": "#2E5C78",
     "editorGutter.background": "#F3F8F5",
     "editorGutter.modifiedBackground": "#2E5C78",

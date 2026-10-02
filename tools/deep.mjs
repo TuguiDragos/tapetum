@@ -152,7 +152,9 @@ const GLASS = {
     ['editor.foreground', 4.5, 'textCodeBlock.background'], ['textLink.foreground', 4.5, 'textCodeBlock.background'], ['descriptionForeground', 4.0, 'textCodeBlock.background'],
     ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0], ['extensionIcon.verifiedForeground', 3.0],
     ...['testing.iconFailed', 'testing.iconPassed', 'testing.iconQueued', 'charts.green', 'charts.purple', 'charts.red'].map((k) => [k, 3.0, 'textCodeBlock.background'])],
-  'editorWidget.background': [['editorWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['icon.foreground', 3.0]],
+  // a dialog, the one surface that takes editorWidget.background as glass, with its detail, links, close button and icons
+  'editorWidget.background': [['editorWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['icon.foreground', 3.0],
+    ['problemsErrorIcon.foreground', 3.0], ['problemsWarningIcon.foreground', 3.0], ['problemsInfoIcon.foreground', 3.0]],
   'notifications.background': [['notifications.foreground', 4.5], ['descriptionForeground', 4.0], ['notificationLink.foreground', 4.5], ['icon.foreground', 3.0],
     ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]],
 };
@@ -772,17 +774,23 @@ function analyse(fam, v) {
       const solid = over(c[s], eb), ground = typeof wash === 'function' ? wash(c, solid) : wash ? over(c[wash], solid) : solid, cr = contrast(shown(ground), ground);
       if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s}, solid, at ${down(cr)}, under ${floor}`);
     }
+    // a dialog lies on the window VS Code dims with #00000080; there the descriptions, links and error icon are measured, since
+    // lifting them would move every description, link and error icon of the light themes
+    const dialog = s === 'editorWidget.background', dim = (g) => (dialog ? mix(g, '#000000', 0.5) : g);
+    const measured = dialog && ['descriptionForeground', 'textLink.foreground', 'problemsErrorIcon.foreground'].includes(k);
     for (const u of UNDER_GLASS) for (const text of [null, TEXT_UNDER_GLASS[u]]) {
       if (text === undefined) continue;
-      const under = text ? withText(c, over(c[u], eb), text) : over(c[u], eb);
+      const under = dim(text ? withText(c, over(c[u], eb), text) : over(c[u], eb));
       const glass = mix(under, over(c[s], eb), 0.5), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
       const cr = contrast(shown(ground), ground);
-      if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at half over ${u}${text ? ' and its text' : ''}, at ${down(cr)}, under ${floor}`);
+      if (measured) pend(`${k} in a dialog as glass at half over the dimmed window (${floor.toFixed(1)})`, cr, floor);
+      else if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at half over ${u}${text ? ' and its text' : ''}, at ${down(cr)}, under ${floor}`);
     }
     for (const [w, plain] of Object.entries(washesUnderGlass(c))) for (const under of [plain, withText(c, plain, /^terminal/.test(w) ? 'terminal.foreground' : /^(chat|list)\./.test(w) ? 'sideBar.foreground' : 'editor.foreground')]) {
-      const glass = mix(under, over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
+      const glass = mix(dim(under), over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
       const cr = contrast(shown(ground), ground);
-      if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at 80% over ${w}${under === plain ? '' : ' and its text'}, at ${down(cr)}, under ${floor}`);
+      if (measured) pend(`${k} in a dialog as glass at 80% over the dimmed window and its washes (${floor.toFixed(1)})`, cr, floor);
+      else if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at 80% over ${w}${under === plain ? '' : ' and its text'}, at ${down(cr)}, under ${floor}`);
     }
     // over content the theme does not paint, a white page under a dark theme or a black image under a light one, at the default 80%
     const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
@@ -814,6 +822,16 @@ function analyse(fam, v) {
     pend('the label of the classic command center in an inactive window, at 60% (3.0)', dim(title(cc), cc), 3.0);
     pend('the search icon of the classic command center in an inactive window, at 80% of 60% (3.0)', dim(mix(cc, title(cc), 0.8), cc), 3.0);
     pend('the workspace name of the agent status in an inactive window, at 60% of 60% (3.0)', Math.min(...[tb, pill].map((g) => dim(mix(g, c['commandCenter.foreground'], 0.6), g))), 3.0);
+  }
+  // VS Code writes a timeline date and the / between compact folders at 50% on their rows, in high contrast too, where the outline's
+  // empty message also stays at 50%; black at 50% on white reads 4.00, so high contrast light has no colour that reaches 4.5
+  {
+    const sb = over(c['sideBar.background'], eb), half = (k, g) => contrast(mix(g, over(c[k] || c['sideBar.foreground'], g), 0.5), g);
+    const onRows = Math.min(half('sideBar.foreground', sb), half('list.inactiveSelectionForeground', over(c['list.inactiveSelectionBackground'], sb)),
+      half('list.activeSelectionForeground', over(c['list.activeSelectionBackground'], sb)));
+    pend('a timeline date, at 50% on its row (4.5)', onRows, 4.5);
+    pend('the / between compact folders, at 50% on its row (4.5)', Math.min(onRows, half('gitDecoration.submoduleResourceForeground', sb)), 4.5);
+    if (hc) pend('the empty message of the outline, at 50%, in high contrast (4.5)', half('sideBar.foreground', sb), 4.5);
   }
   // the kind of an agent feedback comment, in charts.purple on 22% of itself: a colour on its own tint, and chart ink besides
   {

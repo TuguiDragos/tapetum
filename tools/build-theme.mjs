@@ -56,6 +56,8 @@ function tokens(s) {
   // the surface over whatever lies under it, so text on them also reads with half of the editor, the strip or the chrome, and
   // with the text of the editor and the side bar, which its 12px blur keeps at about 12%
   const glass = [bg, chrome, strip, mix(bg, fg, 0.12), mix(elev, fg, 0.12)].map((u) => mix(u, elev, 0.5));
+  // a dialog's glass lies on the window VS Code dims with #00000080
+  const dialogGlass = [bg, chrome, strip, elev, mix(bg, fg, 0.12), mix(elev, fg, 0.12)].map((u) => mix(mix(u, '#000000', 0.5), elev, 0.5));
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   // links also sit on the status bar of a hover, which is the overlay surface; a hovered link also names a hovered card of the
   // customization discovery, the list hover over 4% of the text on the widget
@@ -235,8 +237,8 @@ function tokens(s) {
     'problemsErrorIcon.foreground': softStatus(st.error),
     // also text: the labels of the chat pickers, on the chat pane or its toolbar hover (6% of the text), and the agent
     // permissions on menus, which Insiders turns to glass
-    'problemsWarningIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
-    'problemsInfoIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info),
+    'problemsWarningIcon.foreground': dialogGlass.reduce((x, g) => readsOn(x, g, 3.0), [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn))),
+    'problemsInfoIcon.foreground': dialogGlass.reduce((x, g) => readsOn(x, g, 3.0), [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info)),
 
     'editorGutter.background': bg,
     'editorGutter.modifiedBackground': st.modified,
