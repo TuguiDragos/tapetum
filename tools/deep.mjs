@@ -76,13 +76,17 @@ const PRESENCE = [
   ['terminal.inactiveSelectionBackground', 'terminal.background', 2.0],
   ['peekViewResult.selectionBackground', 'peekViewResult.background', 2.0],
 ];
+// the rows of a tree and the name colour VS Code writes on each, the list focused or not
+const TREE_ROWS = [[null, 'sideBar.foreground'], ['list.hoverBackground', 'list.hoverForeground'], ['list.inactiveSelectionBackground', 'list.inactiveSelectionForeground'],
+  ['list.inactiveFocusBackground', 'sideBar.foreground'], ['list.focusBackground', 'list.focusForeground'], ['list.activeSelectionBackground', 'list.activeSelectionForeground']];
+const TREE_DECORATED = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule'].map((s) => `gitDecoration.${s}ResourceForeground`),
+  'list.errorForeground', 'list.warningForeground'];
 const COMMENT_GLYPHS = ['editorGutter.commentGlyphForeground', 'editorGutter.commentUnresolvedGlyphForeground',
   'editorGutter.commentDraftGlyphForeground'];
 // text on a wash over every surface; the find foregrounds both ways, since VS Code paints them crosswise to their descriptions
 const WASH_PAIRS = [
   ['descriptionForeground', 'editor.inactiveSelectionBackground', 4.0],
   ['editor.selectionForeground', 'editor.inactiveSelectionBackground', 4.5],
-  ['list.focusHighlightForeground', 'list.filterMatchBackground', 4.5],
   ['editor.findMatchForeground', 'editor.findMatchBackground', 4.5],
   ['editor.findMatchHighlightForeground', 'editor.findMatchBackground', 4.5],
   ['editor.findMatchForeground', 'editor.findMatchHighlightBackground', 4.5],
@@ -342,7 +346,7 @@ function analyse(fam, v) {
   const findTexts = hc && selFg && parse(selFg).a === 1 ? [selFg] : ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
   if (findTexts.length) {
     const findSel = Math.min(...[['editor.inactiveSelectionBackground', 'editor.findMatchHighlightBackground'], ['editor.inactiveSelectionBackground', 'editor.rangeHighlightBackground', 'editor.findMatchBackground'],
-      ['editor.selectionBackground', 'editor.findMatchHighlightBackground']].map((l) => worstOver(l, findTexts)));
+      ['editor.selectionBackground', 'editor.findMatchHighlightBackground'], ['editor.selectionBackground', 'editor.rangeHighlightBackground', 'editor.findMatchBackground']].map((l) => worstOver(l, findTexts)));
     if (findSel < 4.5) bad('layers', `find matches written over the selection at ${down(findSel)}, under 4.5`);
   }
 
@@ -524,6 +528,15 @@ function analyse(fam, v) {
     const ground = isAlpha(c[groundKey]) ? over(c[groundKey], eb) : c[groundKey];
     const d = deltaE(over(c[k], ground), ground);
     if (d < min) bad('presence', `${k} at ${d.toFixed(2)} dE from ${groundKey}, under ${min}`);
+  }
+  // a find in a tree (Explorer, SCM, Outline, Debug) unsets the colour of the matched letters, so they keep the name's own colour on
+  // the filter match wash: plain names at 4.5 on every row, decorated names at 3.0, which VS Code's own themes do not keep either
+  for (const [row, text] of TREE_ROWS) {
+    const sb = c['sideBar.background'], g = over(c['list.filterMatchBackground'], row && c[row] ? over(c[row], sb) : sb);
+    const plain = contrast(over(c[text] || c['sideBar.foreground'], g), g);
+    if (plain < 4.5) bad('surface', `a name found in a tree, ${c[text] ? text : 'sideBar.foreground'} on the filter match${row ? ` over ${row}` : ''}, at ${down(plain)}, under 4.5`);
+    const floor = hc ? 4.5 : 3.0, decorated = Math.min(...TREE_DECORATED.map((k) => contrast(over(c[k], g), g)));
+    if (decorated < floor) bad('surface', `a decorated name found in a tree, on the filter match${row ? ` over ${row}` : ''}, at ${down(decorated)}, under ${floor}`);
   }
   for (const [fgKey, washKey, floor] of WASH_PAIRS) for (const s of WASH_SURFACES) {
     const surface = isAlpha(c[s]) ? over(c[s], eb) : c[s];

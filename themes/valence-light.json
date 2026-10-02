@@ -241,7 +241,7 @@
     "list.invalidItemForeground": "#ca0b35",
     "list.dropBackground": "#b70ca829",
     "list.dropBetweenBackground": "#B70CA8",
-    "list.filterMatchBackground": "#d20b384d",
+    "list.filterMatchBackground": "#d20b384a",
     "list.filterMatchBorder": "#D20B38",
     "listFilterWidget.background": "#e3e2e4",
     "listFilterWidget.outline": "#B70CA8",
