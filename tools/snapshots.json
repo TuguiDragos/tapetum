@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "653ae4782010ea0d",
+  "colors": "49486443c0718ef5",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1384,8 +1384,8 @@
    "editorWarning.background": "#af490014",
    "editorInfo.background": "#2b5fd914",
    "problemsErrorIcon.foreground": "#ad4976",
-   "problemsWarningIcon.foreground": "#934e27",
-   "problemsInfoIcon.foreground": "#2858cb",
+   "problemsWarningIcon.foreground": "#8e4c27",
+   "problemsInfoIcon.foreground": "#2755c4",
    "editorGutter.background": "#FAFBFF",
    "editorGutter.modifiedBackground": "#2B5FD9",
    "editorGutter.addedBackground": "#06704A",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c017bd6b9d4a79c3",
+  "colors": "544484bf3623e8a5",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3944,8 +3944,8 @@
    "editorWarning.background": "#8b5f0014",
    "editorInfo.background": "#0d6fa814",
    "problemsErrorIcon.foreground": "#a85138",
-   "problemsWarningIcon.foreground": "#7d5817",
-   "problemsInfoIcon.foreground": "#0c6496",
+   "problemsWarningIcon.foreground": "#7a5516",
+   "problemsInfoIcon.foreground": "#0c6191",
    "editorGutter.background": "#FBFAF6",
    "editorGutter.modifiedBackground": "#0D6FA8",
    "editorGutter.addedBackground": "#3D7A1F",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "306009eb2f0d4928",
+  "colors": "d8ff46d959140c37",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6504,8 +6504,8 @@
    "editorWarning.background": "#8a5a0014",
    "editorInfo.background": "#1a6e9614",
    "problemsErrorIcon.foreground": "#a84e3a",
-   "problemsWarningIcon.foreground": "#7f5514",
-   "problemsInfoIcon.foreground": "#196487",
+   "problemsWarningIcon.foreground": "#7b5213",
+   "problemsInfoIcon.foreground": "#176184",
    "editorGutter.background": "#F7F8F4",
    "editorGutter.modifiedBackground": "#1A6E96",
    "editorGutter.addedBackground": "#3a7413",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "23f0a43600fe1784",
+  "colors": "948b9c37e9e29f9a",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9064,8 +9064,8 @@
    "editorWarning.background": "#8a5a0014",
    "editorInfo.background": "#2a5fa814",
    "problemsErrorIcon.foreground": "#9e522b",
-   "problemsWarningIcon.foreground": "#7f5514",
-   "problemsInfoIcon.foreground": "#295da5",
+   "problemsWarningIcon.foreground": "#7c5313",
+   "problemsInfoIcon.foreground": "#295ba1",
    "editorGutter.background": "#F8F8F9",
    "editorGutter.modifiedBackground": "#2A5FA8",
    "editorGutter.addedBackground": "#22683F",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a94574a8d3a6026a",
+  "colors": "ff7dfec470c470b5",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -11624,8 +11624,8 @@
    "editorWarning.background": "#71600814",
    "editorInfo.background": "#0c67b514",
    "problemsErrorIcon.foreground": "#a94c3d",
-   "problemsWarningIcon.foreground": "#705f09",
-   "problemsInfoIcon.foreground": "#0c62ac",
+   "problemsWarningIcon.foreground": "#6e5d09",
+   "problemsInfoIcon.foreground": "#0c60a8",
    "editorGutter.background": "#FDFDFE",
    "editorGutter.modifiedBackground": "#0C67B5",
    "editorGutter.addedBackground": "#0A6830",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "48cbc2f278c4b96e",
+  "colors": "01184555e551ca19",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -16751,7 +16751,7 @@
    "editorInfo.background": "#0c68df14",
    "problemsErrorIcon.foreground": "#ae494b",
    "problemsWarningIcon.foreground": "#80450e",
-   "problemsInfoIcon.foreground": "#0b5bc4",
+   "problemsInfoIcon.foreground": "#0b59c0",
    "editorGutter.background": "#FCFBFD",
    "editorGutter.modifiedBackground": "#0C68DF",
    "editorGutter.addedBackground": "#0B6912",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8d8b9ec0e21588e1",
+  "colors": "1dcf9f8a55356d47",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19310,7 +19310,7 @@
    "editorWarning.background": "#76630e14",
    "editorInfo.background": "#0a587b14",
    "problemsErrorIcon.foreground": "#975661",
-   "problemsWarningIcon.foreground": "#6f5d0e",
+   "problemsWarningIcon.foreground": "#6e5b0e",
    "problemsInfoIcon.foreground": "#0A587B",
    "editorGutter.background": "#F6FAFC",
    "editorGutter.modifiedBackground": "#0A587B",
@@ -21772,7 +21772,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cbbf994319c7c942",
+  "colors": "19726bcc01fe37e6",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -21871,7 +21871,7 @@
    "editorInfo.background": "#0a699d14",
    "problemsErrorIcon.foreground": "#9e3f38",
    "problemsWarningIcon.foreground": "#674D0A",
-   "problemsInfoIcon.foreground": "#0a6292",
+   "problemsInfoIcon.foreground": "#0a608f",
    "editorGutter.background": "#FAF7F0",
    "editorGutter.modifiedBackground": "#0A699D",
    "editorGutter.addedBackground": "#0C644C",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0745b2c6c93b8094",
+  "colors": "0272b426cfe42fbc",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24431,7 +24431,7 @@
    "editorInfo.background": "#0a66b214",
    "problemsErrorIcon.foreground": "#ab4846",
    "problemsWarningIcon.foreground": "#6E4C0A",
-   "problemsInfoIcon.foreground": "#0a60a8",
+   "problemsInfoIcon.foreground": "#0a5ea3",
    "editorGutter.background": "#FBF9F0",
    "editorGutter.modifiedBackground": "#0A66B2",
    "editorGutter.addedBackground": "#1F660B",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0c97d1d63aa54ef3",
+  "colors": "5390ecfb2aea9e09",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -26991,7 +26991,7 @@
    "editorInfo.background": "#0c728f14",
    "problemsErrorIcon.foreground": "#aa4250",
    "problemsWarningIcon.foreground": "#5F4E0B",
-   "problemsInfoIcon.foreground": "#0b637b",
+   "problemsInfoIcon.foreground": "#0b617a",
    "editorGutter.background": "#F7F4ED",
    "editorGutter.modifiedBackground": "#0C728F",
    "editorGutter.addedBackground": "#0B6A3A",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b08a55d6f52953cf",
+  "colors": "53c75845134c1665",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29550,8 +29550,8 @@
    "editorWarning.background": "#79610a14",
    "editorInfo.background": "#0b6fa114",
    "problemsErrorIcon.foreground": "#a74346",
-   "problemsWarningIcon.foreground": "#725b0d",
-   "problemsInfoIcon.foreground": "#0b6490",
+   "problemsWarningIcon.foreground": "#70590d",
+   "problemsInfoIcon.foreground": "#0b618c",
    "editorGutter.background": "#F5F8FD",
    "editorGutter.modifiedBackground": "#0b6fa1",
    "editorGutter.addedBackground": "#0C7638",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cc3fe3ab7292db92",
+  "colors": "4d530442456e7df4",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32111,7 +32111,7 @@
    "editorInfo.background": "#0f638f14",
    "problemsErrorIcon.foreground": "#a73f4d",
    "problemsWarningIcon.foreground": "#8a431a",
-   "problemsInfoIcon.foreground": "#0f628e",
+   "problemsInfoIcon.foreground": "#0f5f89",
    "editorGutter.background": "#FBF6EC",
    "editorGutter.modifiedBackground": "#0F638F",
    "editorGutter.addedBackground": "#39773D",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c6bccaa24260b2e6",
+  "colors": "8702db04b80045c3",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -34670,8 +34670,8 @@
    "editorWarning.background": "#8f562114",
    "editorInfo.background": "#3c709e14",
    "problemsErrorIcon.foreground": "#aa4979",
-   "problemsWarningIcon.foreground": "#89521f",
-   "problemsInfoIcon.foreground": "#35638c",
+   "problemsWarningIcon.foreground": "#87501f",
+   "problemsInfoIcon.foreground": "#336088",
    "editorGutter.background": "#F8FAFD",
    "editorGutter.modifiedBackground": "#3C709E",
    "editorGutter.addedBackground": "#0B6355",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2d8bda31522ff59c",
+  "colors": "be575cfa0e9d0bb1",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37231,7 +37231,7 @@
    "editorInfo.background": "#0c658e14",
    "problemsErrorIcon.foreground": "#ae4e43",
    "problemsWarningIcon.foreground": "#565D0B",
-   "problemsInfoIcon.foreground": "#0C658E",
+   "problemsInfoIcon.foreground": "#0c638c",
    "editorGutter.background": "#F5FAFA",
    "editorGutter.modifiedBackground": "#0C658E",
    "editorGutter.addedBackground": "#0C5E48",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "426b5412737c1bc1",
+  "colors": "b7e18e66f8131225",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -39791,7 +39791,7 @@
    "editorInfo.background": "#0f6a9214",
    "problemsErrorIcon.foreground": "#a94348",
    "problemsWarningIcon.foreground": "#7A4B0A",
-   "problemsInfoIcon.foreground": "#0f6388",
+   "problemsInfoIcon.foreground": "#0e6084",
    "editorGutter.background": "#FAF6F2",
    "editorGutter.modifiedBackground": "#0F6A92",
    "editorGutter.addedBackground": "#0A732E",
@@ -47342,7 +47342,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a8b1eef8d96a0444",
+  "colors": "940e5e046eaa619d",
   "tokenColors": "afc07bc0064373d1",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47440,8 +47440,8 @@
    "editorWarning.background": "#85560614",
    "editorInfo.background": "#0f648014",
    "problemsErrorIcon.foreground": "#a34639",
-   "problemsWarningIcon.foreground": "#7c5210",
-   "problemsInfoIcon.foreground": "#0f627d",
+   "problemsWarningIcon.foreground": "#784f10",
+   "problemsInfoIcon.foreground": "#0f5f7a",
    "editorGutter.background": "#F4F2ED",
    "editorGutter.modifiedBackground": "#0F6480",
    "editorGutter.addedBackground": "#5A6C52",
@@ -52446,7 +52446,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3de8b714bd8ee65a",
+  "colors": "02dc9f734bd8665e",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -52544,8 +52544,8 @@
    "editorWarning.background": "#9a5a0014",
    "editorInfo.background": "#0c5fa814",
    "problemsErrorIcon.foreground": "#9e4236",
-   "problemsWarningIcon.foreground": "#82511a",
-   "problemsInfoIcon.foreground": "#0c5ea6",
+   "problemsWarningIcon.foreground": "#804f1a",
+   "problemsInfoIcon.foreground": "#0c5ca3",
    "editorGutter.background": "#F5F6F9",
    "editorGutter.modifiedBackground": "#0C5FA8",
    "editorGutter.addedBackground": "#2C6620",
@@ -62616,7 +62616,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d72252f62a5a8f15",
+  "colors": "f63c5f6b74214588",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -62714,7 +62714,7 @@
    "editorWarning.background": "#9a520014",
    "editorInfo.background": "#2e5c7814",
    "problemsErrorIcon.foreground": "#a44b37",
-   "problemsWarningIcon.foreground": "#88501c",
+   "problemsWarningIcon.foreground": "#834e1b",
    "problemsInfoIcon.foreground": "#2E5C78",
    "editorGutter.background": "#F3F8F5",
    "editorGutter.modifiedBackground": "#2E5C78",
@@ -65140,7 +65140,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b96a543a63ef8b30",
+  "colors": "61a76cd1f6822cdc",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -65238,7 +65238,7 @@
    "editorWarning.background": "#8a5a0014",
    "editorInfo.background": "#5b48a014",
    "problemsErrorIcon.foreground": "#9b3641",
-   "problemsWarningIcon.foreground": "#7a5111",
+   "problemsWarningIcon.foreground": "#785012",
    "problemsInfoIcon.foreground": "#5B48A0",
    "editorGutter.background": "#FBF2F3",
    "editorGutter.modifiedBackground": "#5B48A0",
@@ -72820,7 +72820,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e88fd4118a014f1c",
+  "colors": "6a984aaed427ccf6",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72918,7 +72918,7 @@
    "editorWarning.background": "#7a600014",
    "editorInfo.background": "#5a469414",
    "problemsErrorIcon.foreground": "#9b4f2a",
-   "problemsWarningIcon.foreground": "#6d550c",
+   "problemsWarningIcon.foreground": "#69530b",
    "problemsInfoIcon.foreground": "#5A4694",
    "editorGutter.background": "#F5F0E4",
    "editorGutter.modifiedBackground": "#5A4694",
