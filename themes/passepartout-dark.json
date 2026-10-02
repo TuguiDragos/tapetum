@@ -1757,7 +1757,7 @@
         "log.debug"
       ],
       "settings": {
-        "foreground": "#9A968E",
+        "foreground": "#9f9b94",
         "fontStyle": "italic"
       }
     },
@@ -2192,7 +2192,7 @@
       "name": "Output debug",
       "scope": "token.debug-token",
       "settings": {
-        "foreground": "#9A968E"
+        "foreground": "#9f9b94"
       }
     }
   ],

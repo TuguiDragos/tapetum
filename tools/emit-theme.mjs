@@ -4,8 +4,8 @@ import * as borrow from './scheme-borrow.mjs';
 import * as effect from './scheme-effect.mjs';
 import * as signal from './scheme-signal.mjs';
 import * as tone from './scheme-tone.mjs';
-import { hex2lch, contrast, mix, readable } from './color.mjs';
-import { outputRules } from './scheme-kit.mjs';
+import { hex2lch, contrast, mix, readable, deltaE, over, lighten, darken } from './color.mjs';
+import { outputRules, syntaxFloor } from './scheme-kit.mjs';
 
 const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
@@ -238,6 +238,55 @@ function tameHeadings(rules, body, bg) {
   });
 }
 
+// the code cell of a notebook, the peek editor and the walkthrough's editor are tinted editors: each tint stops where a token
+// would read under its floor, so it keeps as much of its own strength as the code allows
+function easeTints(colors, tokenColors) {
+  const bg = colors['editor.background'];
+  const fits = (g) => tokenColors.every((r) => !r.settings?.foreground || contrast(over(r.settings.foreground, g), g) >= syntaxFloor(r));
+  // the peek's gutter and sticky scroll take the peek's own colour
+  const peek = ['peekViewEditor.background', 'peekViewEditorGutter.background', 'peekViewEditorStickyScroll.background', 'peekViewEditorStickyScrollGutter.background'];
+  for (const [keys, toward] of [[['notebook.cellEditorBackground'], colors['editor.foreground']], [peek, colors['sideBar.background']],
+    [['walkThrough.embeddedEditorBackground'], colors['sideBar.background']]]) {
+    const k = keys[0], full = colors[k];
+    if (!full || fits(full)) continue;
+    let best = bg;
+    for (let j = 1; j <= 200; j++) {
+      const g = mix(bg, toward, j / 200);
+      if (!fits(g) || deltaE(g, bg) > deltaE(full, bg)) break;
+      best = g;
+    }
+    for (const x of keys) if (colors[x] === full) colors[x] = best;
+  }
+  return colors;
+}
+
+// the Output view paints its log lines on outputView.background: each log scope keeps its floor there and on the editor, through the
+// rule VS Code would pick (the deepest selector); a log line that would take a general rule gets its own rule in that colour
+const LOG_SCOPES = ['comment log.date', 'comment log.verbose', 'constant.language log.constant', 'markup.changed log.debug', 'markup.deleted log.warning',
+  'markup.inserted log.info', 'string log.string', 'string.key emphasis log.exception', 'string.regexp emphasis log.exceptiontype', 'string.regexp strong log.error',
+  'token.info-token', 'token.warn-token', 'token.error-token', 'token.debug-token'];
+const ruleFor = (rules, scopes) => { let best = null, score = -1;
+  for (const r of rules) for (const sel of [].concat(r.scope || [])) for (const s of scopes) if (!sel.includes(' ') && (s === sel || s.startsWith(sel + '.')) && sel.split('.').length >= score) { score = sel.split('.').length; best = r; }
+  return best; };
+function logOnOutput(colors, tokenColors, dark) {
+  const grounds = [colors['editor.background'], over(colors['outputView.background'] || colors['editor.background'], colors['editor.background'])];
+  const reads = (x, floor) => grounds.every((g) => contrast(over(x, g), g) >= floor);
+  const lift = (x, floor) => { let y = x; for (let i = 1; i <= 100 && !reads(y, floor); i++) y = dark ? lighten(x, i / 100) : darken(x, i / 100); return y; };
+  const rules = tokenColors.map((r) => ({ ...r, settings: { ...r.settings } }));
+  for (const name of LOG_SCOPES) {
+    const scopes = name.split(' '), r = ruleFor(rules.filter((x) => x.settings.foreground), scopes);
+    if (!r || reads(r.settings.foreground, syntaxFloor(r))) continue;
+    if ([].concat(r.scope).every((s) => /^(log|token)\./.test(s))) r.settings.foreground = lift(r.settings.foreground, syntaxFloor(r));
+    else {
+      const own = scopes.find((s) => /^log\./.test(s)), added = rules.find((x) => x.name === 'Log lines on the Output view');
+      const floor = syntaxFloor({ scope: own }), colour = lift(r.settings.foreground, floor);
+      if (added && added.settings.foreground === colour) added.scope.push(own);
+      else rules.push({ name: 'Log lines on the Output view', scope: [own], settings: { foreground: colour } });
+    }
+  }
+  return rules;
+}
+
 export function emitTheme(spec) {
   const st = spec.status || deriveStatus(spec.syntax, spec.bg, spec.variant === 'dark', spec.ansi);
   const full = { ...spec, status: st, handStatus: !!spec.handStatus, ansi: spec.ansi };
@@ -247,13 +296,15 @@ export function emitTheme(spec) {
   y.bg = spec.bg;
   y.heading = capToBody(y.keyword, spec.fg, spec.bg);
   const scheme = SCHEMES[spec.scheme || 'grammar'];
+  const colors = buildColors({ ...full, syntax: y });
+  const tokenColors = logOnOutput(colors, tameHeadings(scheme.tokenColors(y, spec.palette), spec.fg, spec.bg), spec.variant === 'dark' || spec.variant === 'hcDark');
   return {
     $schema: 'vscode://schemas/color-theme',
     name: spec.name,
     type: spec.variant,
     semanticHighlighting: true,
-    colors: buildColors({ ...full, syntax: y }),
-    tokenColors: tameHeadings(scheme.tokenColors(y, spec.palette), spec.fg, spec.bg),
+    colors: easeTints(colors, tokenColors),
+    tokenColors,
     semanticTokenColors: scheme.semanticTokenColors(y, spec.palette),
   };
 }

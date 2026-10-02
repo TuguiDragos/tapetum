@@ -81,6 +81,13 @@ const TREE_ROWS = [[null, 'sideBar.foreground'], ['list.hoverBackground', 'list.
   ['list.inactiveFocusBackground', 'sideBar.foreground'], ['list.focusBackground', 'list.focusForeground'], ['list.activeSelectionBackground', 'list.activeSelectionForeground']];
 const TREE_DECORATED = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule'].map((s) => `gitDecoration.${s}ResourceForeground`),
   'list.errorForeground', 'list.warningForeground'];
+// the scopes the log grammar gives a line of the Output view, and the rule VS Code paints it with: the deepest selector that matches
+const LOG_SCOPES = ['comment log.date', 'comment log.verbose', 'constant.language log.constant', 'markup.changed log.debug', 'markup.deleted log.warning',
+  'markup.inserted log.info', 'string log.string', 'string.key emphasis log.exception', 'string.regexp emphasis log.exceptiontype', 'string.regexp strong log.error',
+  'token.info-token', 'token.warn-token', 'token.error-token', 'token.debug-token'];
+const ruleFor = (rules, scopes) => { let best = null, score = -1;
+  for (const r of rules) for (const sel of [].concat(r.scope || [])) for (const s of scopes) if (!sel.includes(' ') && (s === sel || s.startsWith(sel + '.')) && sel.split('.').length >= score) { score = sel.split('.').length; best = r; }
+  return best; };
 const COMMENT_GLYPHS = ['editorGutter.commentGlyphForeground', 'editorGutter.commentUnresolvedGlyphForeground',
   'editorGutter.commentDraftGlyphForeground'];
 // text on a wash over every surface; the find foregrounds both ways, since VS Code paints them crosswise to their descriptions
@@ -648,6 +655,34 @@ function analyse(fam, v) {
   if (inCell < (hc ? 4.5 : 3.0)) bad('surface', `editorLineNumber.foreground on notebook.cellEditorBackground at ${down(inCell)}, under ${hc ? 4.5 : 3.0}`);
   for (let i = 1; i <= 6; i++) for (const k of [`editorBracketPairGuide.background${i}`, `editorBracketPairGuide.activeBackground${i}`])
     if (c[k].slice(0, 7).toLowerCase() !== c[`editorBracketHighlight.foreground${i}`].slice(0, 7).toLowerCase()) bad('brackets', `${k} is not the colour of the brackets it joins`);
+  // the code cell of a notebook, the peek editor and the walkthrough's editor are tinted editors: every token keeps its floor there
+  for (const k of ['notebook.cellEditorBackground', 'peekViewEditor.background', 'walkThrough.embeddedEditorBackground']) {
+    const g = over(c[k] || eb, eb);
+    for (const r of rules) {
+      const cr = contrast(over(r.settings.foreground, g), g);
+      if (cr < syntaxFloor(r)) bad('surface', `${r.name} on ${k} at ${down(cr)}, under ${syntaxFloor(r)}`);
+    }
+  }
+  // what VS Code stacks on them, which no tint lifts: the selection in the peek and the reference match there, and in a notebook
+  // the highlight of the selected text, which VS Code also lays on the selection itself
+  if (!hc) {
+    const code = [...['keyword', 'func', 'string', 'type', 'number', 'tag'].map((r) => p[r]), p.comment].filter(Boolean);
+    const peek = over(c['peekViewEditor.background'], eb), cell = over(c['notebook.cellEditorBackground'] || eb, eb);
+    const on = (g) => Math.min(...code.map((x) => contrast(x, g)));
+    pend('code selected in the peek editor (3.0)', on(over(c['editor.selectionBackground'], peek)), 3.0);
+    pend('code on a reference match in the peek editor (3.0)', on(over(c['peekViewEditor.matchHighlightBackground'], peek)), 3.0);
+    pend('code selected in a notebook cell, under the highlight of the selected text (3.0)', on(over(c['editor.selectionHighlightBackground'], over(c['editor.selectionBackground'], cell))), 3.0);
+  }
+  // the Output view paints its log lines on outputView.background
+  {
+    const out = over(c['outputView.background'] || eb, eb);
+    for (const name of LOG_SCOPES) {
+      const r = ruleFor(rules, name.split(' '));
+      if (!r) continue;
+      const cr = contrast(over(r.settings.foreground, out), out);
+      if (cr < syntaxFloor(r)) bad('surface', `${name} in the Output view, through ${r.name}, on outputView.background at ${down(cr)}, under ${syntaxFloor(r)}`);
+    }
+  }
   const sticky = over(c['editorStickyScroll.background'], eb);
   for (const r of rules) {
     const cr = contrast(over(r.settings.foreground, sticky), sticky);

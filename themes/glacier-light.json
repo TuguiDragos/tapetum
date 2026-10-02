@@ -727,7 +727,7 @@
     "testing.coverCountBadgeForeground": "#ffffff",
     "notebook.editorBackground": "#F2FAFD",
     "notebook.cellBorderColor": "#c7d1d5",
-    "notebook.cellEditorBackground": "#e7eff3",
+    "notebook.cellEditorBackground": "#e9f2f5",
     "notebook.cellHoverBackground": "#00000000",
     "notebook.cellInsertionIndicator": "#0A6B6C",
     "notebook.cellStatusBarItemHoverBackground": "#18262f1a",

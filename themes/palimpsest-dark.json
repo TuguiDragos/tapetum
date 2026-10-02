@@ -564,11 +564,11 @@
     "mergeEditor.conflict.unhandled.minimapOverViewRuler": "#C9A24A",
     "mergeEditor.conflictingLines.background": "#c9a24a29",
     "peekView.border": "#D9A94A",
-    "peekViewEditor.background": "#1f1b16",
+    "peekViewEditor.background": "#1d1914",
     "peekViewEditor.matchHighlightBackground": "#d9a94a4d",
     "peekViewEditor.matchHighlightBorder": "#00000000",
-    "peekViewEditorGutter.background": "#1f1b16",
-    "peekViewEditorStickyScroll.background": "#1f1b16",
+    "peekViewEditorGutter.background": "#1d1914",
+    "peekViewEditorStickyScroll.background": "#1d1914",
     "peekViewResult.background": "#242019",
     "peekViewResult.fileForeground": "#E8E1D2",
     "peekViewResult.lineForeground": "#a6a095",
@@ -727,7 +727,7 @@
     "testing.coverCountBadgeForeground": "#101014",
     "notebook.editorBackground": "#191612",
     "notebook.cellBorderColor": "#37332e",
-    "notebook.cellEditorBackground": "#201d19",
+    "notebook.cellEditorBackground": "#1d1a16",
     "notebook.cellHoverBackground": "#00000000",
     "notebook.cellInsertionIndicator": "#D9A94A",
     "notebook.cellStatusBarItemHoverBackground": "#e8e1d21a",
@@ -817,7 +817,7 @@
     "welcomePage.tileBorder": "#34302b",
     "welcomePage.progress.background": "#2a2621",
     "welcomePage.progress.foreground": "#D9A94A",
-    "walkThrough.embeddedEditorBackground": "#1f1b16",
+    "walkThrough.embeddedEditorBackground": "#1d1914",
     "walkthrough.stepTitle.foreground": "#E8E1D2",
     "ports.iconRunningProcessForeground": "#9AA87C",
     "searchEditor.textInputBorder": "#4b4740",
@@ -895,7 +895,7 @@
     "editorMarkerNavigationInfo.background": "#8FA0B8",
     "editorPane.background": "#191612",
     "editorStickyScrollGutter.background": "#191612",
-    "peekViewEditorStickyScrollGutter.background": "#1f1b16",
+    "peekViewEditorStickyScrollGutter.background": "#1d1914",
     "editorSuggestWidget.focusOutline": "#D9A94A",
     "mergeEditor.conflict.input1.background": "#a1978829",
     "mergeEditor.conflict.input2.background": "#f5eede29",
@@ -1703,7 +1703,7 @@
         "log.debug"
       ],
       "settings": {
-        "foreground": "#8A8173"
+        "foreground": "#8f8679"
       }
     },
     {
@@ -2046,7 +2046,7 @@
       "name": "Output debug",
       "scope": "token.debug-token",
       "settings": {
-        "foreground": "#8A8173"
+        "foreground": "#8f8679"
       }
     },
     {
