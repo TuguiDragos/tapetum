@@ -606,7 +606,9 @@ function controls(t) {
     'quickInputList.focusIconForeground': acc,
     'quickInputTitle.background': over,
     'pickerGroup.border': line,
-    'pickerGroup.foreground': acc,
+    // VS Code writes it as the right hand text of a dropdown option, such as the default of a Settings enum; the group labels of the
+    // quick input take descriptionForeground, whose rule outweighs this one
+    'pickerGroup.foreground': readsOn(acc, elev, 4.5),
     'keybindingLabel.background': dark ? mixOf(bg, fg, 0.16) : mixOf(bg, fg, 0.10),
     'keybindingLabel.foreground': legible(fg, dark ? mixOf(bg, fg, 0.16) : mixOf(bg, fg, 0.10), 7),
     'keybindingLabel.border': dark ? mixOf(bg, fg, 0.26) : mixOf(bg, fg, 0.20),

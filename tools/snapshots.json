@@ -49883,7 +49883,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "19d5da52194c1220",
+  "colors": "a223bae189b7789e",
   "tokenColors": "dc138d193b9e871c",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -50334,7 +50334,7 @@
    "quickInputList.focusIconForeground": "#8A5F1E",
    "quickInputTitle.background": "#d7d2c6",
    "pickerGroup.border": "#d5cfc2",
-   "pickerGroup.foreground": "#8A5F1E",
+   "pickerGroup.foreground": "#835a1d",
    "keybindingLabel.background": "#dbd5c8",
    "keybindingLabel.foreground": "#241F16",
    "keybindingLabel.border": "#c6c1b4",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "11fbe2ba55d4485b",
+  "colors": "ada00be32587e2cf",
   "tokenColors": "cf80f37bf82edf61",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55419,7 +55419,7 @@
    "quickInputList.focusIconForeground": "#7E5B0E",
    "quickInputTitle.background": "#d5cdb9",
    "pickerGroup.border": "#d4cbb7",
-   "pickerGroup.foreground": "#7E5B0E",
+   "pickerGroup.foreground": "#7b590e",
    "keybindingLabel.background": "#dad1bc",
    "keybindingLabel.foreground": "#2A241A",
    "keybindingLabel.border": "#c6beaa",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4d1a6e8547b8d547",
+  "colors": "3e512149afff1af4",
   "tokenColors": "4ff2fdc208526b0a",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -60541,7 +60541,7 @@
    "quickInputList.focusIconForeground": "#8A5F12",
    "quickInputTitle.background": "#e4e4e2",
    "pickerGroup.border": "#e0e0de",
-   "pickerGroup.foreground": "#8A5F12",
+   "pickerGroup.foreground": "#785310",
    "keybindingLabel.background": "#e7e7e5",
    "keybindingLabel.foreground": "#1F1E1A",
    "keybindingLabel.border": "#d1d0ce",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4a699939363848b6",
+  "colors": "f87196ccb4b9ee93",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -73269,7 +73269,7 @@
    "quickInputList.focusIconForeground": "#C4157E",
    "quickInputTitle.background": "#ddd8cd",
    "pickerGroup.border": "#d9d5c9",
-   "pickerGroup.foreground": "#C4157E",
+   "pickerGroup.foreground": "#c2157d",
    "keybindingLabel.background": "#e0dbcf",
    "keybindingLabel.foreground": "#211E16",
    "keybindingLabel.border": "#cbc6bb",

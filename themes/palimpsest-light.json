@@ -446,7 +446,7 @@
     "quickInputList.focusIconForeground": "#7E5B0E",
     "quickInputTitle.background": "#d5cdb9",
     "pickerGroup.border": "#d4cbb7",
-    "pickerGroup.foreground": "#7E5B0E",
+    "pickerGroup.foreground": "#7b590e",
     "keybindingLabel.background": "#dad1bc",
     "keybindingLabel.foreground": "#2A241A",
     "keybindingLabel.border": "#c6beaa",
