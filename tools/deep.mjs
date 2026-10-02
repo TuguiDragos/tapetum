@@ -134,8 +134,8 @@ const GLASS = {
   'menu.background': [['menu.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'], ['list.hoverForeground', 4.5, 'list.hoverBackground'], ['descriptionForeground', 4.0, 'list.hoverBackground'], ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'],
     ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5],
     ['problemsWarningIcon.foreground', 4.5, 'list.hoverBackground'], ['problemsInfoIcon.foreground', 4.5, 'list.hoverBackground'],
-    // the arrow of a submenu, at 60%
-    ['menu.foreground', 3.0, null, 0.6],
+    // the arrow of a submenu at 60%, the keybinding of a context menu row at 70%, and the icon of the action widget's focused row
+    ['menu.foreground', 3.0, null, 0.6], ['menu.foreground', 4.0, null, 0.7], ['list.inactiveSelectionIconForeground', 3.0, 'list.hoverBackground'],
     ['badge.foreground', 4.5, 'badge.background'], ['input.foreground', 4.5, 'input.background'], ['icon.foreground', 3.0],
     // the model picker of chat
     ['modernTab.activeForeground', 4.5, 'modernTab.activeBackground'], ['modernTab.hoverForeground', 4.5, 'modernTab.hoverBackground'],
@@ -175,7 +175,8 @@ const washesUnderGlass = (c) => {
     'editor.findMatchBackground': mix(eb, on('editor.findMatchBackground', eb), 0.55), 'terminal.findMatchBackground': mix(term, on('terminal.findMatchBackground', term), 0.55),
   };
 };
-// the text of the surfaces under the glass, which its 12px blur keeps at about 12% where the lines are dense
+// the text of the surfaces under the glass, which its 12px blur keeps at about 12% where the lines are dense: the median share,
+// since a denser patch of code keeps 20% to 30%
 const TEXT_UNDER_GLASS = { 'editor.background': 'editor.foreground', 'sideBar.background': 'sideBar.foreground', 'panel.background': 'foreground', 'terminal.background': 'terminal.foreground' };
 const withText = (c, ground, text) => mix(ground, over(c[text], c['editor.background']), 0.12);
 const UNDER_GLASS = ['editor.background', 'sideBar.background', 'panel.background', 'statusBar.background', 'titleBar.activeBackground', 'activityBar.background',
@@ -344,12 +345,21 @@ function analyse(fam, v) {
     const floor = Math.min(3.0, worstOver(layers, onSel)), cr = worstOver([...layers, 'editor.hoverHighlightBackground'], onSel);
     if (cr < floor - 0.005) bad('layers', `syntax under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under ${floor.toFixed(2)}`);
   }
-  // a program stopped in the debugger leaves the cursor on its frame line, so the frame wash lies over the current line
-  for (const f of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground'])
+  // marks that lie on the cursor's line, so over the current line: the frame of a stopped program, a symbol Go to Symbol reveals,
+  // the active comment thread, coverage, a failed test's line, and the bracket beside the cursor in its pair colours
+  const brackets = [1, 2, 3, 4, 5, 6].map((i) => c[`editorBracketHighlight.foreground${i}`]).filter(Boolean);
+  for (const f of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground', 'editor.symbolHighlightBackground',
+    'editorCommentsWidget.rangeActiveBackground', 'testing.coveredBackground', 'testing.uncoveredBackground', 'testing.message.error.lineBackground', 'editorBracketMatch.background'])
     for (const layers of [[f], ['editor.lineHighlightBackground', f], ['editor.inactiveLineHighlightBackground', f]]) {
-      const cr = worstOver(layers, [...R.map((r) => p[r]), ...comments]);
+      const cr = worstOver(layers, f === 'editorBracketMatch.background' ? brackets : [...R.map((r) => p[r]), ...comments]);
       if (cr < 3.0) bad('layers', `syntax on ${layers.join(' plus ')} at ${down(cr)}, under 3.0`);
     }
+  // an inline edit lays its changed word over its changed line; lifting the washes would move 94 values
+  if (!hc) for (const s of ['original', 'modified']) {
+    const layers = [`inlineEdit.${s}ChangedLineBackground`, `inlineEdit.${s}ChangedTextBackground`];
+    pend('syntax on an inline edit, the changed word over its line (3.4)', worstOver(layers, R.map((r) => p[r])), 3.4);
+    pend('comments on an inline edit, the changed word over its line (3.2)', worstOver(layers, comments), 3.2);
+  }
   // whitespace shows only on a selection by default, and its dots keep the 6 dE VS Code's own themes keep there, focused or not
   for (const s of ['editor.selectionBackground', 'editor.inactiveSelectionBackground']) {
     const g = over(c[s], eb), d = deltaE(over(c['editorWhitespace.foreground'], g), g);
@@ -388,6 +398,7 @@ function analyse(fam, v) {
     pend('the line badge of the call stack, at 60% (4.5)', contrast(over(alpha(c['badge.foreground'], 0.6), badge), badge), 4.5);
     pend('the empty message of the outline, at 50% (4.5)', contrast(mix(sb, c['sideBar.foreground'], 0.5), sb), 4.5);
     pend('the name on an inactive pill tab, the text at 50% (4.5)', contrast(mix(pill, c.foreground, 0.5), pill), 4.5);
+    pend('a description on an inactive pill tab, the text at 50% of 70% (95% in light) (4.0)', contrast(mix(pill, c.foreground, 0.5 * (light ? 0.95 : 0.7)), pill), 4.0);
     pend(`a description on an inactive tab, at ${light ? 95 : 70}% (4.0)`, contrast(mix(tabs, c['tab.inactiveForeground'], light ? 0.95 : 0.7), tabs), 4.0);
     pend('a terminal icon coloured black or white (3.0)', Math.min(...['terminal.ansiBlack', 'terminal.ansiWhite'].map((k) => contrast(c[k], pane))), 3.0);
   }
@@ -686,6 +697,18 @@ function analyse(fam, v) {
     const hovered = mix(over(strip, eb), c.foreground, 0.06);
     const onHovered = contrast(over(c[k], hovered), hovered);
     if (onHovered < 4.5) bad('surface', `${k}, a decorated name on a hovered tab, at ${down(onHovered)}, under 4.5`);
+    // a selected tab, the pill tabs active, hovered and both, and the active connected tab, the name and its letter at 75%
+    for (const [where, ground] of [['a selected tab', over(c['tab.selectedBackground'], over(strip, eb))], ['the active pill', over(c['modernEditorTab.activeBackground'], eb)],
+      ['a hovered pill', over(c['modernEditorTab.hoverBackground'], eb)], ['the hovered active pill', over(c['modernEditorTab.activeHoverBackground'], eb)], ['the active connected tab', eb]]) {
+      const name = contrast(over(c[k], ground), ground), letter = contrast(mix(ground, over(c[k], ground), 0.75), ground);
+      if (name < 4.5) bad('surface', `${k}, a decorated name on ${where}, at ${down(name)}, under 4.5`);
+      if (letter < 3.0) bad('surface', `${k}, the letter of a decoration at 75% on ${where}, at ${down(letter)}, under 3.0`);
+    }
+  }
+  // the description beside a hovered connected tab's name, at 70%
+  if (!hc) {
+    const hovered = mix(over(c['editorGroupHeader.tabsBackground'], eb), c.foreground, 0.06), cr = contrast(mix(hovered, over(c['modernEditorTab.hoverForeground'], hovered), 0.7), hovered);
+    if (cr < 4.0) bad('tabs', `modernEditorTab.hoverForeground, a description on a hovered tab at 70%, at ${down(cr)}, under 4.0`);
   }
   for (const g of LINE_NUMBER_GROUNDS) {
     const floor = hc ? 4.5 : 3.0;
@@ -842,6 +865,50 @@ function analyse(fam, v) {
   for (const k of ['chat.mcpCompatibilityWarningForeground', 'errorForeground']) for (const s of ['sideBar.background', 'editor.background']) {
     const g = over(c['list.hoverBackground'], over(c[s], eb)), cr = contrast(over(c[k], g), g);
     if (cr < 4.5) bad('surface', `${k}, the compatibility message of an MCP server on a hovered row over ${s}, at ${down(cr)}, under 4.5`);
+  }
+  // what VS Code writes at part strength: the source and code of a problem in its peek at 60%, with the code link, the details of a chat
+  // answer, a request's time, a progress origin and a subagent's model at 70%, and the chat's MCP and hooks messages at 80%
+  {
+    const peek = over(c['editorMarkerNavigation.background'], eb), part = (k, share, g) => contrast(mix(g, over(c[k], g), share), g);
+    pend('the source and code of a problem in its peek, the text at 60% (4.0)', part('editor.foreground', 0.6, peek), 4.0);
+    pend('the code link of a problem in its peek, at 60% (4.0)', part('textLink.activeForeground', 0.6, peek), 4.0);
+    const panes = ['sideBar.background', 'panel.background', 'editor.background'].map((s) => over(c[s], eb));
+    pend('a chat detail, the description at 70% (4.0)', Math.min(...panes.map((g) => part('descriptionForeground', 0.7, g))), 4.0);
+    pend('a chat message, the description at 80% (4.0)', Math.min(...panes.map((g) => part('descriptionForeground', 0.8, g))), 4.0);
+    const green = over(alpha(c['terminal.ansiGreen'].slice(0, 7), parse(c['terminal.ansiGreen']).a * 0.5), eb);
+    pend('the running status of a plugin, editor.background on half of the ANSI green (4.5)', contrast(eb, green), 4.5);
+  }
+  // in a group that is not focused VS Code draws the tab icons at 50%: the dirty dot, the pin and the close buttons, in every layout;
+  // and high contrast keeps the modern tabs' inactive name at 50% of the text, with no colour of the theme to lift it
+  {
+    const strip = over(c['editorGroupHeader.connectedTabsBackground'] ?? c['editorGroupHeader.tabsBackground'], eb), half = (k, g) => contrast(mix(g, over(c[k], g), 0.5), g);
+    const pill = over(c['modernEditorTab.activeBackground'], eb), classic = over(c['editorGroupHeader.tabsBackground'], eb);
+    pend('an icon on a connected tab of an unfocused group, at 50% (3.0)', Math.min(half('icon.foreground', strip), half('icon.foreground', eb), half('modernEditorTab.activeForeground', eb)), 3.0);
+    pend('an icon on a pill tab of an unfocused group, at 50% (3.0)', Math.min(half('icon.foreground', over(c['modernEditorTab.inactiveBackground'], eb)), half('modernEditorTab.activeForeground', pill)), 3.0);
+    pend('an icon on a classic tab of an unfocused group, at 50% (3.0)', Math.min(...['tab.unfocusedInactiveBackground', 'tab.unfocusedHoverBackground', 'tab.unfocusedActiveBackground']
+      .map((k) => half('icon.foreground', over(c[k], classic)))), 3.0);
+    if (hc) pend('the name on an inactive modern tab in high contrast, the text at 50% (4.5)', Math.min(half('foreground', strip), half('foreground', eb)), 4.5);
+    if (hc) pend('a description on an inactive modern tab in high contrast, the text at 50% of 70% (4.0)', Math.min(...[strip, eb].map((g) => contrast(mix(g, c.foreground, 0.35), g))), 4.0);
+  }
+  // the hover of a problem writes its source and code at 60%, and a linked code in textLink at 60%, solid and as glass at half
+  if (!hc) {
+    const solid = over(c['editorHoverWidget.background'], eb), grounds = [solid, ...UNDER_GLASS.flatMap((u) => [null, TEXT_UNDER_GLASS[u]].filter((x) => x !== undefined)
+      .map((text) => mix(text ? withText(c, over(c[u], eb), text) : over(c[u], eb), solid, 0.5)))];
+    const at60 = (k) => Math.min(...grounds.map((g) => contrast(mix(g, over(c[k], g), 0.6), g)));
+    pend('the source and code of a problem in its hover, the text at 60%, solid and as glass (4.0)', at60('editorHoverWidget.foreground'), 4.0);
+    pend('a linked code of a problem in its hover, textLink at 60%, solid and as glass (4.0)', at60('textLink.foreground'), 4.0);
+  }
+  // the test icons of a stale run, faded on purpose, in the Test Explorer and the editor's gutter; VS Code's own keep a failure at 4.0
+  {
+    const grounds = [eb, over(c['sideBar.background'], eb)], icon = (ks) => Math.min(...ks.flatMap((k) => grounds.map((g) => contrast(over(c[`testing.icon${k}.retired`], g), g))));
+    pend('a failed or errored test icon from a stale run (3.0)', icon(['Failed', 'Errored']), 3.0);
+    pend('a passed or queued test icon from a stale run (3.0)', icon(['Passed', 'Queued']), 3.0);
+  }
+  // unused code at the theme's editorUnnecessaryCode opacity, and the shortcut hint on the issue reporter's primary button at 70%
+  {
+    const unused = parse(c['editorUnnecessaryCode.opacity']).a, button = over(c['button.background'], eb);
+    pend('unused code at editorUnnecessaryCode.opacity (3.0)', Math.min(...[...R.map((r) => p[r]), ...comments].map((x) => contrast(mix(eb, x, unused), eb))), 3.0);
+    pend('the shortcut hint on the primary button of the issue reporter, at 70% (4.0)', contrast(mix(button, over(c['button.foreground'], button), 0.7), button), 4.0);
   }
   // the Uninstall button of the AI customization editor writes errorForeground, and hovered it takes the secondary button's fill;
   // lifting it would move every error text
