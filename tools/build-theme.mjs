@@ -212,9 +212,10 @@ function tokens(s) {
     'editorError.background': alpha(st.error, 0.08),
     'editorWarning.background': alpha(st.warn, 0.08),
     'editorInfo.background': alpha(st.info, 0.08),
-    'problemsErrorIcon.foreground': softStatus(st.error),
-    'problemsWarningIcon.foreground': softStatus(st.warn),
-    'problemsInfoIcon.foreground': st.info,
+    // also text: the warnings and notes of the chat pickers and of the agent permissions, written on menus that Insiders turns to glass
+    'problemsErrorIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.error)),
+    'problemsWarningIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
+    'problemsInfoIcon.foreground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info),
 
     'editorGutter.background': bg,
     'editorGutter.modifiedBackground': st.modified,

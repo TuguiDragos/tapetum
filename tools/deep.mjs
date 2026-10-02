@@ -104,6 +104,7 @@ const ON_ITS_SURFACE = [
   ['notificationLink.foreground', ['notifications.background']],
   ['editorHoverWidget.highlightForeground', ['editorHoverWidget.background']],
   ['pickerGroup.foreground', ['dropdown.listBackground']],
+  ...['problemsErrorIcon.foreground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => [k, ['menu.background', 'input.background']]),
 ];
 // Insiders draws these surfaces as frosted glass, 50% to 100% of the surface over what lies under it, blurred: text on them,
 // with the wash it sits on, and the surfaces of the theme that can lie under the glass
@@ -111,8 +112,10 @@ const GLASS = {
   'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5],
     ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'], ['quickInputList.focusForeground', 4.5, 'quickInputList.focusBackground'],
     ['quickInputList.focusHighlightForeground', 4.5, 'quickInputList.focusBackground']],
-  'menu.background': [['menu.foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'],
-    ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background']],
+  'menu.background': [['menu.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'],
+    ['list.hoverForeground', 4.5, 'list.hoverBackground'], ['descriptionForeground', 4.0, 'list.hoverBackground'], ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'],
+    ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5],
+    ['badge.foreground', 4.5, 'badge.background'], ['input.foreground', 4.5, 'input.background']],
   'editorHoverWidget.background': [['editorHoverWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5],
     ['editorHoverWidget.highlightForeground', 4.5], ['errorForeground', 4.5], ['editorHoverWidget.foreground', 4.5, 'textCodeBlock.background'],
     ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground'], ['textPreformat.foreground', 4.5, 'textPreformat.background']],
