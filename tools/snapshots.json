@@ -6,11 +6,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7c8e978ead47ac05",
+  "colors": "e643e81ca8da8022",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -1007,6 +1007,7 @@
    "void.redBG": "#ff6e9c0b",
    "inlineDiffToolbar.hotkeyBackground": "#c597e4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#8AB4FF",
    "walkthroughActivityBarBadge.background": "#c597e4",
    "positronActionBar.textInputSelectionBackground": "#c597e4",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -1285,11 +1286,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ad27a9d28fafc0df",
+  "colors": "621de07cc727cc9b",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -2286,6 +2287,7 @@
    "void.redBG": "#c42b7b0f",
    "inlineDiffToolbar.hotkeyBackground": "#6f478d",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#2a5cd2",
    "walkthroughActivityBarBadge.background": "#6f478d",
    "positronActionBar.textInputSelectionBackground": "#6f478d",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -2564,11 +2566,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6bcca66a2c5df106",
+  "colors": "a5e4f36d225fe38c",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -3565,6 +3567,7 @@
    "void.redBG": "#fa62450f",
    "inlineDiffToolbar.hotkeyBackground": "#af9eef",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#4FC3F7",
    "walkthroughActivityBarBadge.background": "#af9eef",
    "positronActionBar.textInputSelectionBackground": "#af9eef",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -3843,11 +3846,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1db28cf6cd7c2db7",
+  "colors": "55c0293dc7cbb958",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -4844,6 +4847,7 @@
    "void.redBG": "#c13a1a0f",
    "inlineDiffToolbar.hotkeyBackground": "#514087",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0c69a0",
    "walkthroughActivityBarBadge.background": "#514087",
    "positronActionBar.textInputSelectionBackground": "#514087",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -5122,11 +5126,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d8e872841f2190c5",
+  "colors": "aa8ce2c58c06dccb",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -6123,6 +6127,7 @@
    "void.redBG": "#ff6b4a12",
    "inlineDiffToolbar.hotkeyBackground": "#abd889",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#8FB8FF",
    "walkthroughActivityBarBadge.background": "#abd889",
    "positronActionBar.textInputSelectionBackground": "#abd889",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -6401,11 +6406,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bbcbba25d4610c78",
+  "colors": "8a266613e694ba00",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -7402,6 +7407,7 @@
    "void.redBG": "#b8402a16",
    "inlineDiffToolbar.hotkeyBackground": "#4a732d",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#19698f",
    "walkthroughActivityBarBadge.background": "#4a732d",
    "positronActionBar.textInputSelectionBackground": "#4a732d",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -7680,11 +7686,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "22b4b0a2ede84144",
+  "colors": "110d03c6033239f3",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -8681,6 +8687,7 @@
    "void.redBG": "#e07a4516",
    "inlineDiffToolbar.hotkeyBackground": "#e0b769",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#75ADE2",
    "walkthroughActivityBarBadge.background": "#e0b769",
    "positronActionBar.textInputSelectionBackground": "#e0b769",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -8959,11 +8966,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "87d6107bb4a76483",
+  "colors": "c404a845370b1671",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -9960,6 +9967,7 @@
    "void.redBG": "#a74c1d14",
    "inlineDiffToolbar.hotkeyBackground": "#875b17",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#2A5FA8",
    "walkthroughActivityBarBadge.background": "#875b17",
    "positronActionBar.textInputSelectionBackground": "#875b17",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -10238,11 +10246,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fb98ff3a00381e0c",
+  "colors": "78bb86fd8cfeabd2",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -11239,6 +11247,7 @@
    "void.redBG": "#f46b5714",
    "inlineDiffToolbar.hotkeyBackground": "#16DFF4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#C891F9",
    "walkthroughActivityBarBadge.background": "#16DFF4",
    "positronActionBar.textInputSelectionBackground": "#16DFF4",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -11517,11 +11526,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "60f34bb28a325d2f",
+  "colors": "6e1c555147978461",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -12518,6 +12527,7 @@
    "void.redBG": "#cf151a17",
    "inlineDiffToolbar.hotkeyBackground": "#0A5B64",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#7C39C4",
    "walkthroughActivityBarBadge.background": "#0A5B64",
    "positronActionBar.textInputSelectionBackground": "#0A5B64",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -12796,11 +12806,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "504a53d14630de9c",
+  "colors": "b2483946aca5106c",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
-   1046,
+   1047,
    99,
    58
   ],
@@ -13800,6 +13810,7 @@
    "void.redBG": "#ff8a8a1a",
    "inlineDiffToolbar.hotkeyBackground": "#12EBFF",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#E9C3FF",
    "walkthroughActivityBarBadge.background": "#12EBFF",
    "positronActionBar.textInputSelectionBackground": "#12EBFF",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -14078,11 +14089,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8e8480498fb9d316",
+  "colors": "5a4d9c3bf6abe0ec",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
-   1046,
+   1047,
    99,
    58
   ],
@@ -15082,6 +15093,7 @@
    "void.redBG": "#b5000518",
    "inlineDiffToolbar.hotkeyBackground": "#00616C",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#6F00F5",
    "walkthroughActivityBarBadge.background": "#00616C",
    "positronActionBar.textInputSelectionBackground": "#00616C",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -15360,11 +15372,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5a15abf491505122",
+  "colors": "8455b9e9780f9e42",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -16361,6 +16373,7 @@
    "void.redBG": "#f4646917",
    "inlineDiffToolbar.hotkeyBackground": "#dc8dcf",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#12B6E8",
    "walkthroughActivityBarBadge.background": "#dc8dcf",
    "positronActionBar.textInputSelectionBackground": "#dc8dcf",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -16639,11 +16652,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a993df6bf822f5f6",
+  "colors": "78e4b116fbdc23d4",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -17640,6 +17653,7 @@
    "void.redBG": "#d20b3813",
    "inlineDiffToolbar.hotkeyBackground": "#944b89",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0B6886",
    "walkthroughActivityBarBadge.background": "#944b89",
    "positronActionBar.textInputSelectionBackground": "#944b89",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -17918,11 +17932,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2f054ddb4d4429d6",
+  "colors": "7f3a856730c731d4",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -18919,6 +18933,7 @@
    "void.redBG": "#ca828b16",
    "inlineDiffToolbar.hotkeyBackground": "#97CCF2",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#0FCDD2",
    "walkthroughActivityBarBadge.background": "#97CCF2",
    "positronActionBar.textInputSelectionBackground": "#97CCF2",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -19197,11 +19212,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0ee5af4938083d8d",
+  "colors": "b39f162f7b78c91a",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -20198,6 +20213,7 @@
    "void.redBG": "#97566113",
    "inlineDiffToolbar.hotkeyBackground": "#0A587B",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0E6365",
    "walkthroughActivityBarBadge.background": "#0A587B",
    "positronActionBar.textInputSelectionBackground": "#0A587B",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -20476,11 +20492,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4bdd5fed3f009288",
+  "colors": "9015fa9bf9abeaaf",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -21477,6 +21493,7 @@
    "void.redBG": "#f28f8317",
    "inlineDiffToolbar.hotkeyBackground": "#F28F83",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#47AFFA",
    "walkthroughActivityBarBadge.background": "#F28F83",
    "positronActionBar.textInputSelectionBackground": "#F28F83",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -21755,11 +21772,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "94491f38a6d1952d",
+  "colors": "e25070b53a8124d2",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -22756,6 +22773,7 @@
    "void.redBG": "#bc0d2212",
    "inlineDiffToolbar.hotkeyBackground": "#9d4039",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0a689b",
    "walkthroughActivityBarBadge.background": "#9d4039",
    "positronActionBar.textInputSelectionBackground": "#9d4039",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -23034,11 +23052,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6ed43a067982fc66",
+  "colors": "6eb2d1daf684ae9f",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -24035,6 +24053,7 @@
    "void.redBG": "#f2726e13",
    "inlineDiffToolbar.hotkeyBackground": "#77ABF9",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#13C5B5",
    "walkthroughActivityBarBadge.background": "#77ABF9",
    "positronActionBar.textInputSelectionBackground": "#77ABF9",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -24313,11 +24332,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5895413ac839dfff",
+  "colors": "61301107f43d5107",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -25314,6 +25333,7 @@
    "void.redBG": "#cf0b3012",
    "inlineDiffToolbar.hotkeyBackground": "#1c66ae",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0C6A61",
    "walkthroughActivityBarBadge.background": "#1c66ae",
    "positronActionBar.textInputSelectionBackground": "#1c66ae",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -25592,11 +25612,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "263a06153666b880",
+  "colors": "fc7d95372341b14f",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -26593,6 +26613,7 @@
    "void.redBG": "#f4657718",
    "inlineDiffToolbar.hotkeyBackground": "#1dcbb7",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#B09BFA",
    "walkthroughActivityBarBadge.background": "#1dcbb7",
    "positronActionBar.textInputSelectionBackground": "#1dcbb7",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -26871,11 +26892,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "76878437de35bb0f",
+  "colors": "d7cb082ec55c3fe4",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -27872,6 +27893,7 @@
    "void.redBG": "#be2a4914",
    "inlineDiffToolbar.hotkeyBackground": "#0C6157",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#6253ae",
    "walkthroughActivityBarBadge.background": "#0C6157",
    "positronActionBar.textInputSelectionBackground": "#0C6157",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -28150,11 +28172,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "87e26ef275525bea",
+  "colors": "ef20489c0b0a22f2",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -29151,6 +29173,7 @@
    "void.redBG": "#f2898717",
    "inlineDiffToolbar.hotkeyBackground": "#d492d9",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#3AB2F8",
    "walkthroughActivityBarBadge.background": "#d492d9",
    "positronActionBar.textInputSelectionBackground": "#d492d9",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -29429,11 +29452,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3f897301f92ffad3",
+  "colors": "c270c9bd2e28fa7b",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -30430,6 +30453,7 @@
    "void.redBG": "#c70a350f",
    "inlineDiffToolbar.hotkeyBackground": "#8f5394",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0a6999",
    "walkthroughActivityBarBadge.background": "#8f5394",
    "positronActionBar.textInputSelectionBackground": "#8f5394",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -30708,11 +30732,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a5e9862ca7cf09b8",
+  "colors": "fca5371c406a07c2",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -31709,6 +31733,7 @@
    "void.redBG": "#f278841a",
    "inlineDiffToolbar.hotkeyBackground": "#F2A47A",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#54B2F2",
    "walkthroughActivityBarBadge.background": "#F2A47A",
    "positronActionBar.textInputSelectionBackground": "#F2A47A",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -31987,11 +32012,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "91c482b3267a41d9",
+  "colors": "4cf8e3d86d18b465",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -32988,6 +33013,7 @@
    "void.redBG": "#c40a4313",
    "inlineDiffToolbar.hotkeyBackground": "#89441c",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0F638F",
    "walkthroughActivityBarBadge.background": "#89441c",
    "positronActionBar.textInputSelectionBackground": "#89441c",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -33266,11 +33292,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9cefa1485dbc0c9f",
+  "colors": "963bf11181fde1ac",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -34267,6 +34293,7 @@
    "void.redBG": "#f955ab18",
    "inlineDiffToolbar.hotkeyBackground": "#40D0ED",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#7CACDD",
    "walkthroughActivityBarBadge.background": "#40D0ED",
    "positronActionBar.textInputSelectionBackground": "#40D0ED",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -34545,11 +34572,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f1f90be82127ad48",
+  "colors": "d6f7cc9a550ad0fc",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -35546,6 +35573,7 @@
    "void.redBG": "#cc0c8213",
    "inlineDiffToolbar.hotkeyBackground": "#0C5B6A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#376791",
    "walkthroughActivityBarBadge.background": "#0C5B6A",
    "positronActionBar.textInputSelectionBackground": "#0C5B6A",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -35824,11 +35852,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "287a5d7e03a4c4d1",
+  "colors": "46575d0c0f3d5c30",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -36825,6 +36853,7 @@
    "void.redBG": "#fa605116",
    "inlineDiffToolbar.hotkeyBackground": "#58d5ae",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#AEBD0F",
    "walkthroughActivityBarBadge.background": "#58d5ae",
    "positronActionBar.textInputSelectionBackground": "#58d5ae",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -37103,11 +37132,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c58538f5dee92be1",
+  "colors": "9b5e0bb7abd73ba1",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -38104,6 +38133,7 @@
    "void.redBG": "#d70e2113",
    "inlineDiffToolbar.hotkeyBackground": "#0C5E48",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#565D0B",
    "walkthroughActivityBarBadge.background": "#0C5E48",
    "positronActionBar.textInputSelectionBackground": "#0C5E48",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -38382,11 +38412,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b77f58451b26e415",
+  "colors": "14caa85ad52f66b9",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -39383,6 +39413,7 @@
    "void.redBG": "#f7616a1a",
    "inlineDiffToolbar.hotkeyBackground": "#e6cc78",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#F2A854",
    "walkthroughActivityBarBadge.background": "#e6cc78",
    "positronActionBar.textInputSelectionBackground": "#e6cc78",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -39661,11 +39692,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "54c310a58c9b3400",
+  "colors": "c2961cd6a8f80f8e",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -40662,6 +40693,7 @@
    "void.redBG": "#c90a3811",
    "inlineDiffToolbar.hotkeyBackground": "#574A0A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#7A4B0A",
    "walkthroughActivityBarBadge.background": "#574A0A",
    "positronActionBar.textInputSelectionBackground": "#574A0A",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -40940,11 +40972,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6e94c3012adba4dc",
+  "colors": "4026e0f18e394369",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -41941,6 +41973,7 @@
    "void.redBG": "#ff6b4a0f",
    "inlineDiffToolbar.hotkeyBackground": "#FFF6E4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#EBD3AE",
    "walkthroughActivityBarBadge.background": "#FFF6E4",
    "positronActionBar.textInputSelectionBackground": "#FFF6E4",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -42219,11 +42252,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "11e4827a41b238d5",
+  "colors": "6fb01fbf221b9cd0",
   "tokenColors": "c3adc3f9a88869bf",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -43220,6 +43253,7 @@
    "void.redBG": "#a5311913",
    "inlineDiffToolbar.hotkeyBackground": "#1A130A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#463A26",
    "walkthroughActivityBarBadge.background": "#1A130A",
    "positronActionBar.textInputSelectionBackground": "#1A130A",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -43498,11 +43532,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e24238b48fa412b0",
+  "colors": "0aece7395ef4a6aa",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -44499,6 +44533,7 @@
    "void.redBG": "#ff6e9214",
    "inlineDiffToolbar.hotkeyBackground": "#63e5c1",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#14BFA0",
    "walkthroughActivityBarBadge.background": "#63e5c1",
    "positronActionBar.textInputSelectionBackground": "#63e5c1",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -44777,11 +44812,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ba0c9ddc3b078fce",
+  "colors": "36881738ae03b1ef",
   "tokenColors": "098dfb7cd385529a",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -45778,6 +45813,7 @@
    "void.redBG": "#a813460f",
    "inlineDiffToolbar.hotkeyBackground": "#065246",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#076659",
    "walkthroughActivityBarBadge.background": "#065246",
    "positronActionBar.textInputSelectionBackground": "#065246",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -46056,11 +46092,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5b1c69a135eaf0de",
+  "colors": "26a3b24d6dd3b8c4",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
-   1043,
+   1044,
    42,
    62
   ],
@@ -47057,6 +47093,7 @@
    "void.redBG": "#eb786d0e",
    "inlineDiffToolbar.hotkeyBackground": "#eab96e",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#F0B75A",
    "walkthroughActivityBarBadge.background": "#eab96e",
    "positronActionBar.textInputSelectionBackground": "#eab96e",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -47304,11 +47341,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3cae56d9f841462e",
+  "colors": "c3347d6e5c809713",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
-   1043,
+   1044,
    42,
    62
   ],
@@ -48305,6 +48342,7 @@
    "void.redBG": "#b03a2e0f",
    "inlineDiffToolbar.hotkeyBackground": "#835713",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#855606",
    "walkthroughActivityBarBadge.background": "#835713",
    "positronActionBar.textInputSelectionBackground": "#835713",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -48552,11 +48590,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6b09bc4b94eb6db7",
+  "colors": "16535216904b2f22",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
-   1043,
+   1044,
    86,
    49
   ],
@@ -49553,6 +49591,7 @@
    "void.redBG": "#d9866b0f",
    "inlineDiffToolbar.hotkeyBackground": "#C39B54",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#F5E9CE",
    "walkthroughActivityBarBadge.background": "#C39B54",
    "positronActionBar.textInputSelectionBackground": "#C39B54",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -49844,11 +49883,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8569d2528fe8c148",
+  "colors": "135b2b7dba89fdcf",
   "tokenColors": "3f5a7079bd6c36e5",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
-   1043,
+   1044,
    86,
    49
   ],
@@ -50845,6 +50884,7 @@
    "void.redBG": "#983f1d0e",
    "inlineDiffToolbar.hotkeyBackground": "#8A5F1E",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#1E1808",
    "walkthroughActivityBarBadge.background": "#8A5F1E",
    "positronActionBar.textInputSelectionBackground": "#8A5F1E",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -51136,11 +51176,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fbdbe23806a5a08f",
+  "colors": "3ce302f0b0467521",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
-   1043,
+   1044,
    86,
    54
   ],
@@ -52137,6 +52177,7 @@
    "void.redBG": "#fa63620f",
    "inlineDiffToolbar.hotkeyBackground": "#dca25f",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#EAECF0",
    "walkthroughActivityBarBadge.background": "#dca25f",
    "positronActionBar.textInputSelectionBackground": "#dca25f",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -52403,11 +52444,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ac752d6154c9e4f5",
+  "colors": "427e32bbaeaf1a05",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
-   1043,
+   1044,
    86,
    54
   ],
@@ -53404,6 +53445,7 @@
    "void.redBG": "#c00a180f",
    "inlineDiffToolbar.hotkeyBackground": "#875b17",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#141820",
    "walkthroughActivityBarBadge.background": "#875b17",
    "positronActionBar.textInputSelectionBackground": "#875b17",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -53670,11 +53712,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "254dd50025e3224d",
+  "colors": "a1f3d870b1d5575d",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
-   1043,
+   1044,
    86,
    48
   ],
@@ -54671,6 +54713,7 @@
    "void.redBG": "#cf7a5e0e",
    "inlineDiffToolbar.hotkeyBackground": "#d4aa5e",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#F5EEDE",
    "walkthroughActivityBarBadge.background": "#d4aa5e",
    "positronActionBar.textInputSelectionBackground": "#d4aa5e",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -54925,11 +54968,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a05b28b833518bf3",
+  "colors": "9dd532bf19081bf5",
   "tokenColors": "b919a495ee1519e5",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
-   1043,
+   1044,
    86,
    48
   ],
@@ -55926,6 +55969,7 @@
    "void.redBG": "#8a3a220f",
    "inlineDiffToolbar.hotkeyBackground": "#7e5b10",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#16120C",
    "walkthroughActivityBarBadge.background": "#7e5b10",
    "positronActionBar.textInputSelectionBackground": "#7e5b10",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -56180,11 +56224,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f59efbddc7dc0fa1",
+  "colors": "ca943c7c4fb0780d",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
-   1043,
+   1044,
    86,
    49
   ],
@@ -57181,6 +57225,7 @@
    "void.redBG": "#d080800d",
    "inlineDiffToolbar.hotkeyBackground": "#93A6BC",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#F0F0F4",
    "walkthroughActivityBarBadge.background": "#93A6BC",
    "positronActionBar.textInputSelectionBackground": "#93A6BC",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -57472,11 +57517,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "db189e7eca6a0ce7",
+  "colors": "a5a9614882ab3be1",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
-   1043,
+   1044,
    86,
    49
   ],
@@ -58473,6 +58518,7 @@
    "void.redBG": "#8a3a320f",
    "inlineDiffToolbar.hotkeyBackground": "#4E627A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#141418",
    "walkthroughActivityBarBadge.background": "#4E627A",
    "positronActionBar.textInputSelectionBackground": "#4E627A",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -58764,11 +58810,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "16e3da6b46e1265c",
+  "colors": "e24f497b83649088",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -59765,6 +59811,7 @@
    "void.redBG": "#d5877917",
    "inlineDiffToolbar.hotkeyBackground": "#d1aa5d",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#E4DFD2",
    "walkthroughActivityBarBadge.background": "#d1aa5d",
    "positronActionBar.textInputSelectionBackground": "#d1aa5d",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -60043,11 +60090,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "10297f32ab663c05",
+  "colors": "8ecaebf1bf69572f",
   "tokenColors": "7b68d79e017deb02",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -61044,6 +61091,7 @@
    "void.redBG": "#83372918",
    "inlineDiffToolbar.hotkeyBackground": "#895f1a",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#26241E",
    "walkthroughActivityBarBadge.background": "#895f1a",
    "positronActionBar.textInputSelectionBackground": "#895f1a",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -61322,11 +61370,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ffcecad9ea791204",
+  "colors": "281d5bc181d261c3",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
-   1043,
+   1044,
    86,
    50
   ],
@@ -62323,6 +62371,7 @@
    "void.redBG": "#ff5c4d0d",
    "inlineDiffToolbar.hotkeyBackground": "#db7869",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#5FD8C0",
    "walkthroughActivityBarBadge.background": "#db7869",
    "positronActionBar.textInputSelectionBackground": "#db7869",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -62565,11 +62614,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3c4804f53544846f",
+  "colors": "9e4c82ffcb3de144",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
-   1043,
+   1044,
    86,
    50
   ],
@@ -63566,6 +63615,7 @@
    "void.redBG": "#c22a1813",
    "inlineDiffToolbar.hotkeyBackground": "#a34b38",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0A6E5E",
    "walkthroughActivityBarBadge.background": "#a34b38",
    "positronActionBar.textInputSelectionBackground": "#a34b38",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -63808,11 +63858,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2e265203ce7086a9",
+  "colors": "b75155a0ad79e9fe",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -64809,6 +64859,7 @@
    "void.redBG": "#f9879413",
    "inlineDiffToolbar.hotkeyBackground": "#e27683",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#FFA6B6",
    "walkthroughActivityBarBadge.background": "#e27683",
    "positronActionBar.textInputSelectionBackground": "#e27683",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -65087,11 +65138,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "52cb0f75c4b21954",
+  "colors": "f2b455022a87a16b",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -66088,6 +66139,7 @@
    "void.redBG": "#b0123816",
    "inlineDiffToolbar.hotkeyBackground": "#9a3741",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#8A2050",
    "walkthroughActivityBarBadge.background": "#9a3741",
    "positronActionBar.textInputSelectionBackground": "#9a3741",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -66366,11 +66418,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0d09651f12d111f2",
+  "colors": "74115b67bc64b98d",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -67367,6 +67419,7 @@
    "void.redBG": "#f67f8712",
    "inlineDiffToolbar.hotkeyBackground": "#0ECCCB",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#9BD0F6",
    "walkthroughActivityBarBadge.background": "#0ECCCB",
    "positronActionBar.textInputSelectionBackground": "#0ECCCB",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -67645,11 +67698,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "175bceb5a6b4b3ee",
+  "colors": "8395e32bb0fc893f",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -68646,6 +68699,7 @@
    "void.redBG": "#b2405112",
    "inlineDiffToolbar.hotkeyBackground": "#0A6B6C",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#0B5475",
    "walkthroughActivityBarBadge.background": "#0A6B6C",
    "positronActionBar.textInputSelectionBackground": "#0A6B6C",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -68924,11 +68978,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0f43e16978dec637",
+  "colors": "a1503d7727d9a9a4",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -69925,6 +69979,7 @@
    "void.redBG": "#df7f840f",
    "inlineDiffToolbar.hotkeyBackground": "#AE9FCD",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#BDD4E0",
    "walkthroughActivityBarBadge.background": "#AE9FCD",
    "positronActionBar.textInputSelectionBackground": "#AE9FCD",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -70203,11 +70258,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9e2c3e3e5dffd994",
+  "colors": "a8e9e115ab7a8c27",
   "tokenColors": "331b1630f0d9933c",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -71204,6 +71259,7 @@
    "void.redBG": "#9a454d12",
    "inlineDiffToolbar.hotkeyBackground": "#60537D",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#31454F",
    "walkthroughActivityBarBadge.background": "#60537D",
    "positronActionBar.textInputSelectionBackground": "#60537D",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -71482,11 +71538,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9906d1db1495532e",
+  "colors": "0886a74cc7bd8676",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -72483,6 +72539,7 @@
    "void.redBG": "#ff7f420f",
    "inlineDiffToolbar.hotkeyBackground": "#e07dac",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
+   "accent": "#FFEE3C",
    "walkthroughActivityBarBadge.background": "#e07dac",
    "positronActionBar.textInputSelectionBackground": "#e07dac",
    "positronActionBar.textInputSelectionForeground": "#101014",
@@ -72761,11 +72818,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b693c6ac3095d4bc",
+  "colors": "f8743919f64c4bfc",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
-   1043,
+   1044,
    99,
    58
   ],
@@ -73762,6 +73819,7 @@
    "void.redBG": "#ab430d0e",
    "inlineDiffToolbar.hotkeyBackground": "#a54776",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+   "accent": "#745b00",
    "walkthroughActivityBarBadge.background": "#a54776",
    "positronActionBar.textInputSelectionBackground": "#a54776",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
