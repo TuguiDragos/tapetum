@@ -4,7 +4,7 @@
 
 VS Code 1.140 gave the connected tab strip a key of its own, registered 3 keys
 and drew a line around the active connected tab. This version sets the 3 keys,
-fixes what a full audit of every theme against 1.140 and the 10 editors
+fixes what a full audit of every theme against 1.140 and the 9 editors
 Tapetum is checked on turned up, and settles the design questions it raised.
 
 ### Fixed
@@ -68,7 +68,7 @@ or bold italic, meant for its name. Only the name keeps it now.
   snippet placeholder, was a tint, and on a selected word it pulled code under
   3 to 1 in 54 themes. Outside high contrast it is an outline at half strength
   now, so a selected word reads as the rest of the selection.
-- The errors and warnings of a log file had one colour in Borrow, Effect,
+- The errors and warnings of a log file shared a colour in Borrow, Effect,
   Palimpsest, Silverpoint and Stratum, and none in Provenance. They take the
   status colours, as in the other families.
 - The 2 sides of a merge conflict stood barely apart in Palimpsest and
@@ -95,15 +95,17 @@ each scheme's macro colour, and rust-analyzer's punctuation, braces and the
 `!` of a macro call have rules of their own.
 
 **The editors' own colours.** In Devin and Antigravity the review of an AI
-edit takes the family diff washes instead of a fixed green and red. Devin's
-session states, Cursor's worktree tab border and empty editor watermark, and
-the charts of Positron's data explorer take family colours that read.
+edit takes the family diff washes instead of a fixed green and red, and
+Antigravity no longer trades them for a grey or white variant of its own.
+Devin's session states, Cursor's worktree tab border and empty editor
+watermark, the charts of Positron's data explorer, Trae's secondary text and
+the accent of Kiro's agent chat take family colours that read.
 
 ### Changed
 
 **The registry is VS Code 1.140.0.** 997 keys, 987 of them live, the same from
 the macOS, Linux and Windows builds. 4 keys are gone:
-`chat.inputWorkingBorderColor2` and `3`, which none of the 12 editors reads
+`chat.inputWorkingBorderColor2` and `3`, which none of the 11 editors reads
 any more, and 2 Positron welcome keys Positron no longer has.
 
 **Smaller changes.**
@@ -123,11 +125,12 @@ refuses a release no longer stops the other one or the download on the
 release. The workflow tools come from a lockfile. The checks paint 10 lines of
 real TypeScript and guard everything above; CI rebuilds every theme and the
 README and expects no change; the monthly registry check fails, and opens an
-issue, when it should.
+issue, when it should. A new tool loads every theme in a running editor and
+compares, value by value, what the editor resolves with the theme files.
 
-**A correction.** The notes for 1.0.9 said the themes were checked on TRAE
-SOLO with 0 problems. That check read its files, but TRAE SOLO loads no
-extensions installed by users, so Tapetum cannot be installed there.
+**A correction.** TRAE SOLO, which the notes for 1.0.9 counted among the
+checked editors, is not supported. It keeps only its own 2 themes and loads
+no extension a user installs, so no theme extension can work there.
 
 ## [1.1.0]
 
