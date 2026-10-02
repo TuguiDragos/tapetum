@@ -6,7 +6,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7eaede5f83b77f9c",
+  "colors": "d13e06c74f72f031",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
@@ -1003,8 +1003,8 @@
    "window.activeBorder": "#383d4f",
    "window.inactiveBorder": "#242836",
    "diffEditor.windsurfRemovedTextBackground": "#ff6e9c1f",
-   "void.greenBG": "#6ee7a80b",
-   "void.redBG": "#ff6e9c0b",
+   "void.greenBG": "#6ee7a821",
+   "void.redBG": "#ff6e9c21",
    "inlineDiffToolbar.hotkeyBackground": "#c597e4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#8AB4FF",
@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4aa4772b876e07ee",
+  "colors": "d47bbb16087370cd",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -2283,8 +2283,8 @@
    "window.activeBorder": "#c7c9d4",
    "window.inactiveBorder": "#dee0e7",
    "diffEditor.windsurfRemovedTextBackground": "#c42b7b1f",
-   "void.greenBG": "#06704a0f",
-   "void.redBG": "#c42b7b0f",
+   "void.greenBG": "#06704a2d",
+   "void.redBG": "#c42b7b2d",
    "inlineDiffToolbar.hotkeyBackground": "#6f478d",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#2a5cd2",
@@ -2566,7 +2566,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9724ac39d5ed0389",
+  "colors": "411d15576e15b6e8",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
@@ -3563,8 +3563,8 @@
    "window.activeBorder": "#3b3e44",
    "window.inactiveBorder": "#24262c",
    "diffEditor.windsurfRemovedTextBackground": "#fa62451f",
-   "void.greenBG": "#7ce85c0f",
-   "void.redBG": "#fa62450f",
+   "void.greenBG": "#7ce85c2d",
+   "void.redBG": "#fa62452d",
    "inlineDiffToolbar.hotkeyBackground": "#af9eef",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#4FC3F7",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "de5d471f332b9d97",
+  "colors": "1631dd7d154f74f9",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -4843,8 +4843,8 @@
    "window.activeBorder": "#c5c5c3",
    "window.inactiveBorder": "#deddda",
    "diffEditor.windsurfRemovedTextBackground": "#c13a1a1f",
-   "void.greenBG": "#3d7a1f0f",
-   "void.redBG": "#c13a1a0f",
+   "void.greenBG": "#3d7a1f2d",
+   "void.redBG": "#c13a1a2d",
    "inlineDiffToolbar.hotkeyBackground": "#514087",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0c69a0",
@@ -5126,7 +5126,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "53047481ab86b7e8",
+  "colors": "cbd59fe0ddb6ba53",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
@@ -6123,8 +6123,8 @@
    "window.activeBorder": "#3c3e3b",
    "window.inactiveBorder": "#252724",
    "diffEditor.windsurfRemovedTextBackground": "#ff6b4a1f",
-   "void.greenBG": "#7fe33f12",
-   "void.redBG": "#ff6b4a12",
+   "void.greenBG": "#7fe33f34",
+   "void.redBG": "#ff6b4a34",
    "inlineDiffToolbar.hotkeyBackground": "#abd889",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#8FB8FF",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a56af4991434abef",
+  "colors": "d36318ea314f842d",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -7403,8 +7403,8 @@
    "window.activeBorder": "#c2c4c0",
    "window.inactiveBorder": "#dbdcd8",
    "diffEditor.windsurfRemovedTextBackground": "#b8402a1f",
-   "void.greenBG": "#3a741316",
-   "void.redBG": "#b8402a16",
+   "void.greenBG": "#3a741340",
+   "void.redBG": "#b8402a40",
    "inlineDiffToolbar.hotkeyBackground": "#4a732d",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#19698f",
@@ -7686,7 +7686,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e67694c45682e7fa",
+  "colors": "f76e7ebf5a09b1b1",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
@@ -8683,8 +8683,8 @@
    "window.activeBorder": "#3f3f41",
    "window.inactiveBorder": "#282829",
    "diffEditor.windsurfRemovedTextBackground": "#e07a451f",
-   "void.greenBG": "#39b87116",
-   "void.redBG": "#e07a4516",
+   "void.greenBG": "#39b87140",
+   "void.redBG": "#e07a4540",
    "inlineDiffToolbar.hotkeyBackground": "#e0b769",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#75ADE2",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "60aaa8a46681900c",
+  "colors": "32ce17fd8fdab486",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9963,8 +9963,8 @@
    "window.activeBorder": "#c3c3c5",
    "window.inactiveBorder": "#dcdcdd",
    "diffEditor.windsurfRemovedTextBackground": "#a74c1d1f",
-   "void.greenBG": "#22683f14",
-   "void.redBG": "#a74c1d14",
+   "void.greenBG": "#22683f3b",
+   "void.redBG": "#a74c1d3b",
    "inlineDiffToolbar.hotkeyBackground": "#875b17",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#2A5FA8",
@@ -10246,7 +10246,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bed8bbee2e933379",
+  "colors": "11a664dfb329f0ba",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
@@ -11243,8 +11243,8 @@
    "window.activeBorder": "#333438",
    "window.inactiveBorder": "#1e1e21",
    "diffEditor.windsurfRemovedTextBackground": "#f46b571f",
-   "void.greenBG": "#0ef47714",
-   "void.redBG": "#f46b5714",
+   "void.greenBG": "#0ef4773b",
+   "void.redBG": "#f46b573b",
    "inlineDiffToolbar.hotkeyBackground": "#16DFF4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#C891F9",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f19572428cf1d8fb",
+  "colors": "bf6f3807d1464761",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -12523,8 +12523,8 @@
    "window.activeBorder": "#c6c6c8",
    "window.inactiveBorder": "#dfdfe1",
    "diffEditor.windsurfRemovedTextBackground": "#cf151a1f",
-   "void.greenBG": "#0a683017",
-   "void.redBG": "#cf151a17",
+   "void.greenBG": "#0a683042",
+   "void.redBG": "#cf151a42",
    "inlineDiffToolbar.hotkeyBackground": "#0A5B64",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#7C39C4",
@@ -12806,7 +12806,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b2483946aca5106c",
+  "colors": "da3690d69f9005b7",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
@@ -13806,8 +13806,8 @@
    "contrastBorder": "#6FC3DF",
    "contrastActiveBorder": "#F38518",
    "diffEditor.windsurfRemovedTextBackground": "#ff8a8a1f",
-   "void.greenBG": "#10ff7d1a",
-   "void.redBG": "#ff8a8a1a",
+   "void.greenBG": "#10ff7d4a",
+   "void.redBG": "#ff8a8a4a",
    "inlineDiffToolbar.hotkeyBackground": "#12EBFF",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#E9C3FF",
@@ -14089,7 +14089,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5a4d9c3bf6abe0ec",
+  "colors": "4269437a1aea35d6",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
@@ -15089,8 +15089,8 @@
    "contrastBorder": "#0F4A85",
    "contrastActiveBorder": "#006BBD",
    "diffEditor.windsurfRemovedTextBackground": "#b500051f",
-   "void.greenBG": "#00672718",
-   "void.redBG": "#b5000518",
+   "void.greenBG": "#00672746",
+   "void.redBG": "#b5000546",
    "inlineDiffToolbar.hotkeyBackground": "#00616C",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#6F00F5",
@@ -15372,7 +15372,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9999748301fb7e3f",
+  "colors": "9b2b1e7a60b9ea92",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
@@ -16369,8 +16369,8 @@
    "window.activeBorder": "#3b393f",
    "window.inactiveBorder": "#252329",
    "diffEditor.windsurfRemovedTextBackground": "#f464691f",
-   "void.greenBG": "#20d12e17",
-   "void.redBG": "#f4646917",
+   "void.greenBG": "#20d12e42",
+   "void.redBG": "#f4646942",
    "inlineDiffToolbar.hotkeyBackground": "#dc8dcf",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#12B6E8",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "09432dc5f94bdf87",
+  "colors": "95ffce04f3af6629",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -17649,8 +17649,8 @@
    "window.activeBorder": "#c8c7ca",
    "window.inactiveBorder": "#e0dfe1",
    "diffEditor.windsurfRemovedTextBackground": "#d20b381f",
-   "void.greenBG": "#0b691213",
-   "void.redBG": "#d20b3813",
+   "void.greenBG": "#0b691238",
+   "void.redBG": "#d20b3838",
    "inlineDiffToolbar.hotkeyBackground": "#944b89",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0B6886",
@@ -17932,7 +17932,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "79a2155f425dce26",
+  "colors": "ab4d0dd31363f9a1",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -18929,8 +18929,8 @@
    "window.activeBorder": "#33434b",
    "window.inactiveBorder": "#1d2d36",
    "diffEditor.windsurfRemovedTextBackground": "#ca828b1f",
-   "void.greenBG": "#0cc68116",
-   "void.redBG": "#ca828b16",
+   "void.greenBG": "#0cc68140",
+   "void.redBG": "#ca828b40",
    "inlineDiffToolbar.hotkeyBackground": "#97CCF2",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#0FCDD2",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc2dd1b8edea1ea0",
+  "colors": "24288acb57ce07a7",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -20209,8 +20209,8 @@
    "window.activeBorder": "#c0c6c8",
    "window.inactiveBorder": "#d9dee0",
    "diffEditor.windsurfRemovedTextBackground": "#9756611f",
-   "void.greenBG": "#0a6d4613",
-   "void.redBG": "#97566113",
+   "void.greenBG": "#0a6d4638",
+   "void.redBG": "#97566138",
    "inlineDiffToolbar.hotkeyBackground": "#0A587B",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0E6365",
@@ -20492,7 +20492,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6780889e7afd38f4",
+  "colors": "3d4cd59248b71441",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
@@ -21489,8 +21489,8 @@
    "window.activeBorder": "#413c38",
    "window.inactiveBorder": "#2b2622",
    "diffEditor.windsurfRemovedTextBackground": "#f28f831f",
-   "void.greenBG": "#0ccea017",
-   "void.redBG": "#f28f8317",
+   "void.greenBG": "#0ccea042",
+   "void.redBG": "#f28f8342",
    "inlineDiffToolbar.hotkeyBackground": "#F28F83",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#47AFFA",
@@ -21772,7 +21772,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "44bef15c52829705",
+  "colors": "b8252986e9b03fa8",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -22769,8 +22769,8 @@
    "window.activeBorder": "#c7c3bc",
    "window.inactiveBorder": "#dedbd4",
    "diffEditor.windsurfRemovedTextBackground": "#bc0d221f",
-   "void.greenBG": "#0c644c12",
-   "void.redBG": "#bc0d2212",
+   "void.greenBG": "#0c644c34",
+   "void.redBG": "#bc0d2234",
    "inlineDiffToolbar.hotkeyBackground": "#9d4039",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0a689b",
@@ -23052,7 +23052,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bc97dc96c2be1b93",
+  "colors": "299569227df07f29",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
@@ -24049,8 +24049,8 @@
    "window.activeBorder": "#44454c",
    "window.inactiveBorder": "#2e2f36",
    "diffEditor.windsurfRemovedTextBackground": "#f2726e1f",
-   "void.greenBG": "#60d53d13",
-   "void.redBG": "#f2726e13",
+   "void.greenBG": "#60d53d38",
+   "void.redBG": "#f2726e38",
    "inlineDiffToolbar.hotkeyBackground": "#77ABF9",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#13C5B5",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b413b87174e002df",
+  "colors": "56db8cd1b2ab7df8",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -25329,8 +25329,8 @@
    "window.activeBorder": "#c8c5bc",
    "window.inactiveBorder": "#dfddd4",
    "diffEditor.windsurfRemovedTextBackground": "#cf0b301f",
-   "void.greenBG": "#1f660b12",
-   "void.redBG": "#cf0b3012",
+   "void.greenBG": "#1f660b34",
+   "void.redBG": "#cf0b3034",
    "inlineDiffToolbar.hotkeyBackground": "#1c66ae",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0C6A61",
@@ -25612,7 +25612,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "54dc8efc98e46970",
+  "colors": "e5f57ff12c1f5e9c",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
@@ -26609,8 +26609,8 @@
    "window.activeBorder": "#3e3b38",
    "window.inactiveBorder": "#282522",
    "diffEditor.windsurfRemovedTextBackground": "#f465771f",
-   "void.greenBG": "#41bf7618",
-   "void.redBG": "#f4657718",
+   "void.greenBG": "#41bf7646",
+   "void.redBG": "#f4657746",
    "inlineDiffToolbar.hotkeyBackground": "#1dcbb7",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#B09BFA",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "02a1d55098c7bd57",
+  "colors": "faa58b7a3331a24f",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -27889,8 +27889,8 @@
    "window.activeBorder": "#c4c0ba",
    "window.inactiveBorder": "#dbd8d1",
    "diffEditor.windsurfRemovedTextBackground": "#be2a491f",
-   "void.greenBG": "#0b6a3a14",
-   "void.redBG": "#be2a4914",
+   "void.greenBG": "#0b6a3a3b",
+   "void.redBG": "#be2a493b",
    "inlineDiffToolbar.hotkeyBackground": "#0C6157",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#6253ae",
@@ -28172,7 +28172,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c323016425932399",
+  "colors": "badb0e7c9b687fe5",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
@@ -29169,8 +29169,8 @@
    "window.activeBorder": "#354555",
    "window.inactiveBorder": "#1f2f40",
    "diffEditor.windsurfRemovedTextBackground": "#f289871f",
-   "void.greenBG": "#4fbe6f17",
-   "void.redBG": "#f2898717",
+   "void.greenBG": "#4fbe6f42",
+   "void.redBG": "#f2898742",
    "inlineDiffToolbar.hotkeyBackground": "#d492d9",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#3AB2F8",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dede8e69cec04fe1",
+  "colors": "38cc4ffc6f5fa7f4",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -30449,8 +30449,8 @@
    "window.activeBorder": "#bfc4c9",
    "window.inactiveBorder": "#d8dce1",
    "diffEditor.windsurfRemovedTextBackground": "#c70a351f",
-   "void.greenBG": "#0c76380f",
-   "void.redBG": "#c70a350f",
+   "void.greenBG": "#0c76382d",
+   "void.redBG": "#c70a352d",
    "inlineDiffToolbar.hotkeyBackground": "#8f5394",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0a6999",
@@ -30732,7 +30732,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "91f35ddf19076f82",
+  "colors": "ece552c0d3df1cec",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
@@ -31729,8 +31729,8 @@
    "window.activeBorder": "#373e43",
    "window.inactiveBorder": "#22272d",
    "diffEditor.windsurfRemovedTextBackground": "#f278841f",
-   "void.greenBG": "#66a5671a",
-   "void.redBG": "#f278841a",
+   "void.greenBG": "#66a5674a",
+   "void.redBG": "#f278844a",
    "inlineDiffToolbar.hotkeyBackground": "#F2A47A",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#54B2F2",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2ab42469fe1ed5c1",
+  "colors": "6da9486f26af563d",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -33009,8 +33009,8 @@
    "window.activeBorder": "#c8c2b9",
    "window.inactiveBorder": "#dfdad0",
    "diffEditor.windsurfRemovedTextBackground": "#c40a431f",
-   "void.greenBG": "#39773d13",
-   "void.redBG": "#c40a4313",
+   "void.greenBG": "#39773d38",
+   "void.redBG": "#c40a4338",
    "inlineDiffToolbar.hotkeyBackground": "#89441c",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0F638F",
@@ -33292,7 +33292,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d978bcb2c17aef2e",
+  "colors": "2638ac5ed56b806b",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
@@ -34289,8 +34289,8 @@
    "window.activeBorder": "#33383d",
    "window.inactiveBorder": "#1e2226",
    "diffEditor.windsurfRemovedTextBackground": "#f955ab1f",
-   "void.greenBG": "#5cb8a518",
-   "void.redBG": "#f955ab18",
+   "void.greenBG": "#5cb8a546",
+   "void.redBG": "#f955ab46",
    "inlineDiffToolbar.hotkeyBackground": "#40D0ED",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#7CACDD",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a3b03ff70d08c3a6",
+  "colors": "ea2624e078848558",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -35569,8 +35569,8 @@
    "window.activeBorder": "#c2c6ca",
    "window.inactiveBorder": "#dbdee1",
    "diffEditor.windsurfRemovedTextBackground": "#cc0c821f",
-   "void.greenBG": "#0b635513",
-   "void.redBG": "#cc0c8213",
+   "void.greenBG": "#0b635538",
+   "void.redBG": "#cc0c8238",
    "inlineDiffToolbar.hotkeyBackground": "#0C5B6A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#376791",
@@ -35852,7 +35852,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fee2a5db75228db6",
+  "colors": "24d359f5a749d1b7",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
@@ -36849,8 +36849,8 @@
    "window.activeBorder": "#323a3c",
    "window.inactiveBorder": "#1d2426",
    "diffEditor.windsurfRemovedTextBackground": "#fa60511f",
-   "void.greenBG": "#11d9a916",
-   "void.redBG": "#fa605116",
+   "void.greenBG": "#11d9a940",
+   "void.redBG": "#fa605140",
    "inlineDiffToolbar.hotkeyBackground": "#58d5ae",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#AEBD0F",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bc46f734e37fe0c7",
+  "colors": "658a552335ef15d4",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -38129,8 +38129,8 @@
    "window.activeBorder": "#c0c6c6",
    "window.inactiveBorder": "#d8dede",
    "diffEditor.windsurfRemovedTextBackground": "#d70e211f",
-   "void.greenBG": "#0c5e4813",
-   "void.redBG": "#d70e2113",
+   "void.greenBG": "#0c5e4838",
+   "void.redBG": "#d70e2138",
    "inlineDiffToolbar.hotkeyBackground": "#0C5E48",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#565D0B",
@@ -38412,7 +38412,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7c39e17a88f30b93",
+  "colors": "ab356752bcc316dd",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
@@ -39409,8 +39409,8 @@
    "window.activeBorder": "#3e3836",
    "window.inactiveBorder": "#272220",
    "diffEditor.windsurfRemovedTextBackground": "#f7616a1f",
-   "void.greenBG": "#0ab84c1a",
-   "void.redBG": "#f7616a1a",
+   "void.greenBG": "#0ab84c4a",
+   "void.redBG": "#f7616a4a",
    "inlineDiffToolbar.hotkeyBackground": "#e6cc78",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#F2A854",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "baf7f63ebafa2201",
+  "colors": "6e24a9748e8d6b05",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -40689,8 +40689,8 @@
    "window.activeBorder": "#c7c2be",
    "window.inactiveBorder": "#dedad6",
    "diffEditor.windsurfRemovedTextBackground": "#c90a381f",
-   "void.greenBG": "#0a732e11",
-   "void.redBG": "#c90a3811",
+   "void.greenBG": "#0a732e31",
+   "void.redBG": "#c90a3831",
    "inlineDiffToolbar.hotkeyBackground": "#574A0A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#7A4B0A",
@@ -40972,7 +40972,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c957c6eef6323de1",
+  "colors": "8adf015170b1312e",
   "tokenColors": "91ea5c0dc49aec9d",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
@@ -41969,8 +41969,8 @@
    "window.activeBorder": "#5a4937",
    "window.inactiveBorder": "#443324",
    "diffEditor.windsurfRemovedTextBackground": "#ff72591f",
-   "void.greenBG": "#e5d1960e",
-   "void.redBG": "#ff72590e",
+   "void.greenBG": "#e5d19629",
+   "void.redBG": "#ff725929",
    "inlineDiffToolbar.hotkeyBackground": "#FFF6E4",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#FA8D6A",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c84f85094c386919",
+  "colors": "3a14a5132349b8f4",
   "tokenColors": "d747d65002eea1a7",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -43249,8 +43249,8 @@
    "window.activeBorder": "#bfb7a8",
    "window.inactiveBorder": "#d4cdbd",
    "diffEditor.windsurfRemovedTextBackground": "#9d2a131f",
-   "void.greenBG": "#49592912",
-   "void.redBG": "#9d2a1312",
+   "void.greenBG": "#49592934",
+   "void.redBG": "#9d2a1334",
    "inlineDiffToolbar.hotkeyBackground": "#1A130A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#9c3614",
@@ -43532,7 +43532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d2787599dbc17852",
+  "colors": "5f21cf3cdf254409",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -44529,8 +44529,8 @@
    "window.activeBorder": "#343f3d",
    "window.inactiveBorder": "#202a28",
    "diffEditor.windsurfRemovedTextBackground": "#ff6e921f",
-   "void.greenBG": "#14bfa014",
-   "void.redBG": "#ff6e9214",
+   "void.greenBG": "#14bfa03b",
+   "void.redBG": "#ff6e923b",
    "inlineDiffToolbar.hotkeyBackground": "#63e5c1",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#14BFA0",
@@ -44812,7 +44812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "efb66e2b07220e56",
+  "colors": "97f728066c5c7f75",
   "tokenColors": "1257a5f771cc2147",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
@@ -45809,8 +45809,8 @@
    "window.activeBorder": "#c1bdc1",
    "window.inactiveBorder": "#d9d4d8",
    "diffEditor.windsurfRemovedTextBackground": "#a813461f",
-   "void.greenBG": "#00644d0f",
-   "void.redBG": "#a813460f",
+   "void.greenBG": "#00644d2d",
+   "void.redBG": "#a813462d",
    "inlineDiffToolbar.hotkeyBackground": "#065246",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#076659",
@@ -46092,7 +46092,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e9fa56c0dbdfd7d0",
+  "colors": "d0799bd6ddf7b3ba",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
@@ -47089,8 +47089,8 @@
    "window.activeBorder": "#434549",
    "window.inactiveBorder": "#2f3136",
    "diffEditor.windsurfRemovedTextBackground": "#eb786d1f",
-   "void.greenBG": "#9eb0960e",
-   "void.redBG": "#eb786d0e",
+   "void.greenBG": "#9eb09629",
+   "void.redBG": "#eb786d29",
    "inlineDiffToolbar.hotkeyBackground": "#eab96e",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#F0B75A",
@@ -47341,7 +47341,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e184500c713f134c",
+  "colors": "011fe6346ceb8f28",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -48338,8 +48338,8 @@
    "window.activeBorder": "#c4c3c1",
    "window.inactiveBorder": "#dad9d5",
    "diffEditor.windsurfRemovedTextBackground": "#b03a2e1f",
-   "void.greenBG": "#5a6c520f",
-   "void.redBG": "#b03a2e0f",
+   "void.greenBG": "#5a6c522d",
+   "void.redBG": "#b03a2e2d",
    "inlineDiffToolbar.hotkeyBackground": "#835713",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#855606",
@@ -48590,7 +48590,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "61052d62d29bd25d",
+  "colors": "b0205c7557371144",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -49587,8 +49587,8 @@
    "window.activeBorder": "#46413a",
    "window.inactiveBorder": "#2f2b26",
    "diffEditor.windsurfRemovedTextBackground": "#d9866b1f",
-   "void.greenBG": "#93a4680f",
-   "void.redBG": "#d9866b0f",
+   "void.greenBG": "#93a4682d",
+   "void.redBG": "#d9866b2d",
    "inlineDiffToolbar.hotkeyBackground": "#C39B54",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#C39B54",
@@ -49883,7 +49883,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d5bf9acfa01e1ee3",
+  "colors": "e04a64ce6a4f3343",
   "tokenColors": "dc138d193b9e871c",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -50880,8 +50880,8 @@
    "window.activeBorder": "#beb9ac",
    "window.inactiveBorder": "#d5cfc2",
    "diffEditor.windsurfRemovedTextBackground": "#8f39181f",
-   "void.greenBG": "#405c210d",
-   "void.redBG": "#8f39180d",
+   "void.greenBG": "#405c2126",
+   "void.redBG": "#8f391826",
    "inlineDiffToolbar.hotkeyBackground": "#8A5F1E",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#79531b",
@@ -51176,7 +51176,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4692c84218c40fec",
+  "colors": "4629ba38a9677c9b",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
@@ -52173,8 +52173,8 @@
    "window.activeBorder": "#3e4147",
    "window.inactiveBorder": "#2a2d32",
    "diffEditor.windsurfRemovedTextBackground": "#fa63621f",
-   "void.greenBG": "#66c0700f",
-   "void.redBG": "#fa63620f",
+   "void.greenBG": "#66c0702d",
+   "void.redBG": "#fa63622d",
    "inlineDiffToolbar.hotkeyBackground": "#dca25f",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#F09A18",
@@ -52444,7 +52444,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1ff6878c52ad38c4",
+  "colors": "f8b1397491ea26f0",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -53441,8 +53441,8 @@
    "window.activeBorder": "#c2c4c8",
    "window.inactiveBorder": "#dadbdf",
    "diffEditor.windsurfRemovedTextBackground": "#c00a181f",
-   "void.greenBG": "#2c66200f",
-   "void.redBG": "#c00a180f",
+   "void.greenBG": "#2c66202d",
+   "void.redBG": "#c00a182d",
    "inlineDiffToolbar.hotkeyBackground": "#875b17",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#875800",
@@ -53712,7 +53712,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "44c85285b189c6c2",
+  "colors": "b238b518ec552eed",
   "tokenColors": "31821723928daef3",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
@@ -54709,8 +54709,8 @@
    "window.activeBorder": "#4b4740",
    "window.inactiveBorder": "#34302b",
    "diffEditor.windsurfRemovedTextBackground": "#d37e621f",
-   "void.greenBG": "#9aa87c0e",
-   "void.redBG": "#d37e620e",
+   "void.greenBG": "#9aa87c29",
+   "void.redBG": "#d37e6229",
    "inlineDiffToolbar.hotkeyBackground": "#d4aa5e",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#D9A94A",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "611e53d5a2914f17",
+  "colors": "b5f291aa480470f9",
   "tokenColors": "cf80f37bf82edf61",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55965,8 +55965,8 @@
    "window.activeBorder": "#beb6a3",
    "window.inactiveBorder": "#d4cbb7",
    "diffEditor.windsurfRemovedTextBackground": "#88371f1f",
-   "void.greenBG": "#4556200f",
-   "void.redBG": "#88371f0f",
+   "void.greenBG": "#4556202d",
+   "void.redBG": "#88371f2d",
    "inlineDiffToolbar.hotkeyBackground": "#7e5b10",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#72520c",
@@ -56224,7 +56224,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9f61ba1b1b504cbd",
+  "colors": "d111fbedd33cdd00",
   "tokenColors": "33d40469d09a91e7",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -57221,8 +57221,8 @@
    "window.activeBorder": "#464649",
    "window.inactiveBorder": "#323234",
    "diffEditor.windsurfRemovedTextBackground": "#d482821f",
-   "void.greenBG": "#8fb8940d",
-   "void.redBG": "#d482820d",
+   "void.greenBG": "#8fb89426",
+   "void.redBG": "#d4828226",
    "inlineDiffToolbar.hotkeyBackground": "#93A6BC",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#93A6BC",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "35465ac139d4a71a",
+  "colors": "90e99209bcdfc5b8",
   "tokenColors": "194e170bd6c389ee",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -58514,8 +58514,8 @@
    "window.activeBorder": "#b9b8b5",
    "window.inactiveBorder": "#cfcdc9",
    "diffEditor.windsurfRemovedTextBackground": "#8939311f",
-   "void.greenBG": "#385a3e0f",
-   "void.redBG": "#8939310f",
+   "void.greenBG": "#385a3e2d",
+   "void.redBG": "#8939312c",
    "inlineDiffToolbar.hotkeyBackground": "#4E627A",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#485a70",
@@ -58810,7 +58810,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a419ef562dc592bb",
+  "colors": "7953db3a0478949c",
   "tokenColors": "c096d036240f4cec",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -59807,8 +59807,8 @@
    "window.activeBorder": "#3b3b3b",
    "window.inactiveBorder": "#242425",
    "diffEditor.windsurfRemovedTextBackground": "#e194851f",
-   "void.greenBG": "#90b18117",
-   "void.redBG": "#e1948517",
+   "void.greenBG": "#90b18142",
+   "void.redBG": "#e1948542",
    "inlineDiffToolbar.hotkeyBackground": "#d1aa5d",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#D8A83C",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ee6b8db834dcdaa6",
+  "colors": "1852bed1912e15c9",
   "tokenColors": "4ff2fdc208526b0a",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -61087,8 +61087,8 @@
    "window.activeBorder": "#c8c7c5",
    "window.inactiveBorder": "#e0e0de",
    "diffEditor.windsurfRemovedTextBackground": "#7c30221f",
-   "void.greenBG": "#364f2618",
-   "void.redBG": "#7c302218",
+   "void.greenBG": "#364f2646",
+   "void.redBG": "#7c302246",
    "inlineDiffToolbar.hotkeyBackground": "#895f1a",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#704e0e",
@@ -61370,7 +61370,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c67168f82af1d4ee",
+  "colors": "169051ac8a0bd1ce",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
@@ -62367,8 +62367,8 @@
    "window.activeBorder": "#353f3b",
    "window.inactiveBorder": "#202926",
    "diffEditor.windsurfRemovedTextBackground": "#ff5c4d1f",
-   "void.greenBG": "#5fd8c00d",
-   "void.redBG": "#ff5c4d0d",
+   "void.greenBG": "#5fd8c026",
+   "void.redBG": "#ff5c4d26",
    "inlineDiffToolbar.hotkeyBackground": "#db7869",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#5FD8C0",
@@ -62614,7 +62614,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ea9e36b80680a891",
+  "colors": "2eb1a836db43caa2",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -63611,8 +63611,8 @@
    "window.activeBorder": "#c0c6c2",
    "window.inactiveBorder": "#d7ddda",
    "diffEditor.windsurfRemovedTextBackground": "#c22a181f",
-   "void.greenBG": "#0a6e5e13",
-   "void.redBG": "#c22a1813",
+   "void.greenBG": "#0a6e5e38",
+   "void.redBG": "#c22a1838",
    "inlineDiffToolbar.hotkeyBackground": "#a34b38",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0A6E5E",
@@ -63858,7 +63858,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3f9e95cd83e6e93b",
+  "colors": "de86f6133a48e8f1",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
@@ -64855,8 +64855,8 @@
    "window.activeBorder": "#4e3b40",
    "window.inactiveBorder": "#372529",
    "diffEditor.windsurfRemovedTextBackground": "#f987941f",
-   "void.greenBG": "#8fc9a413",
-   "void.redBG": "#f9879413",
+   "void.greenBG": "#8fc9a438",
+   "void.redBG": "#f9879438",
    "inlineDiffToolbar.hotkeyBackground": "#e27683",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#FFA6B6",
@@ -65138,7 +65138,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0240bbb2d2ac8738",
+  "colors": "93e4e0065ba27c47",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -66135,8 +66135,8 @@
    "window.activeBorder": "#c9bdbf",
    "window.inactiveBorder": "#e0d5d7",
    "diffEditor.windsurfRemovedTextBackground": "#b012381f",
-   "void.greenBG": "#1e6a4616",
-   "void.redBG": "#b0123816",
+   "void.greenBG": "#1e6a4640",
+   "void.redBG": "#b0123840",
    "inlineDiffToolbar.hotkeyBackground": "#9a3741",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#8A2050",
@@ -66418,7 +66418,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a9033b8546141929",
+  "colors": "05c8b1215bfe2bf7",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -67415,8 +67415,8 @@
    "window.activeBorder": "#495661",
    "window.inactiveBorder": "#33404c",
    "diffEditor.windsurfRemovedTextBackground": "#f67f871f",
-   "void.greenBG": "#6becbe12",
-   "void.redBG": "#f67f8712",
+   "void.greenBG": "#6becbe34",
+   "void.redBG": "#f67f8734",
    "inlineDiffToolbar.hotkeyBackground": "#0ECCCB",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#9BD0F6",
@@ -67698,7 +67698,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ca4e3e0d51fee0b1",
+  "colors": "c13946d1ecf09294",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -68695,8 +68695,8 @@
    "window.activeBorder": "#bec7cc",
    "window.inactiveBorder": "#d6dee2",
    "diffEditor.windsurfRemovedTextBackground": "#b240511f",
-   "void.greenBG": "#094b3012",
-   "void.redBG": "#b2405112",
+   "void.greenBG": "#094b3034",
+   "void.redBG": "#b2405134",
    "inlineDiffToolbar.hotkeyBackground": "#0A6B6C",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#0B5475",
@@ -68978,7 +68978,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "20c375ca3d2b6d8b",
+  "colors": "5a8f00b1fc393426",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -69975,8 +69975,8 @@
    "window.activeBorder": "#43444c",
    "window.inactiveBorder": "#2d2d35",
    "diffEditor.windsurfRemovedTextBackground": "#df7f841f",
-   "void.greenBG": "#80ba8f0f",
-   "void.redBG": "#df7f840f",
+   "void.greenBG": "#80ba8f2d",
+   "void.redBG": "#df7f842d",
    "inlineDiffToolbar.hotkeyBackground": "#AE9FCD",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#AE9FCD",
@@ -70258,7 +70258,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1561ee7092b38b27",
+  "colors": "acf9d36de0baba7c",
   "tokenColors": "51d8af92e621be46",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
@@ -71255,8 +71255,8 @@
    "window.activeBorder": "#c1bfbf",
    "window.inactiveBorder": "#d9d6d5",
    "diffEditor.windsurfRemovedTextBackground": "#913f471f",
-   "void.greenBG": "#2d643e11",
-   "void.redBG": "#913f4711",
+   "void.greenBG": "#2d643e31",
+   "void.redBG": "#913f4731",
    "inlineDiffToolbar.hotkeyBackground": "#60537D",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#31454F",
@@ -71538,7 +71538,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6a37897ee8e5b3c0",
+  "colors": "bf7026b046d03b4c",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -72535,8 +72535,8 @@
    "window.activeBorder": "#48453e",
    "window.inactiveBorder": "#312e28",
    "diffEditor.windsurfRemovedTextBackground": "#ff7f421f",
-   "void.greenBG": "#3fc97e0f",
-   "void.redBG": "#ff7f420f",
+   "void.greenBG": "#3fc97e2d",
+   "void.redBG": "#ff7f422d",
    "inlineDiffToolbar.hotkeyBackground": "#e07dac",
    "inlineDiffToolbar.hotkeyForeground": "#101014",
    "accent": "#FFEE3C",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5e7e81560ec2eeed",
+  "colors": "228219c31f6b4038",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -73815,8 +73815,8 @@
    "window.activeBorder": "#c2beb3",
    "window.inactiveBorder": "#d9d5c9",
    "diffEditor.windsurfRemovedTextBackground": "#ab430d1f",
-   "void.greenBG": "#0a6e420e",
-   "void.redBG": "#ab430d0e",
+   "void.greenBG": "#0a6e4229",
+   "void.redBG": "#ab430d29",
    "inlineDiffToolbar.hotkeyBackground": "#a54776",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
    "accent": "#745b00",

@@ -5,7 +5,7 @@ const GROUPS = [
     why: 'the wash behind text the assistant deletes inline; Devin (formerly Windsurf) defaults it to red at 7% whatever the theme, so it takes the family deleted wash',
     keys: ['diffEditor.windsurfRemovedTextBackground'] },
   { editor: 'Void',
-    why: 'the line washes of the inline diff; Void defaults them to a fixed green and a fixed red at 10% whatever the theme, so they take the family diff line washes',
+    why: 'the washes of the inline review; Void defaults them to a fixed green and a fixed red at 10% whatever the theme, and they are its only cue for an edited line, so they take the family diff washes at the strength of a changed word',
     keys: ['void.greenBG', 'void.redBG'] },
   { editor: 'Kiro',
     why: 'the hotkey badge of the inline diff toolbar; Kiro defaults it to orange with black text whatever the theme, so it takes the family button colours',

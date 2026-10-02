@@ -341,6 +341,12 @@ function analyse(fam, v) {
   if (mergeSplit < 8) bad('conflict', `current and incoming at ${down(mergeSplit)} dE, under 8`);
 
   out.diff = { deltaE: deltaE(insLine, delLine), text: diffText, comment: diffComment, mark: diffMark };
+  // Void marks an edited line with these washes alone, so they tell added from removed and keep the code as a diff does
+  const voidWashes = [over(c['void.greenBG'], eb), over(c['void.redBG'], eb)];
+  if (deltaE(...voidWashes) < 8) bad('diff', `void.greenBG and void.redBG at ${deltaE(...voidWashes).toFixed(1)} dE, under 8`);
+  const voidText = Math.min(...voidWashes.flatMap((g) => diffSyntax.map((r) => contrast(p[r], g))));
+  const voidComment = p.comment ? Math.min(...voidWashes.map((g) => contrast(p.comment, g))) : 99;
+  if (voidText < 3.4 || voidComment < 3.2) bad('diff', `syntax at ${down(voidText)} and comments at ${down(voidComment)} on the Void washes, under 3.4 and 3.2`);
   if (out.diff.deltaE < 2.5) bad('diff', `inserted and removed at ${out.diff.deltaE.toFixed(1)} dE`);
   if (diffText < 3.4) bad('diff', `syntax on a diff background at ${down(diffText)}, under 3.4`);
   if (diffComment < 3.2) bad('diff', `comments on a diff background at ${down(diffComment)}, under 3.2`);
