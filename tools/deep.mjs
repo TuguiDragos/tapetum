@@ -432,13 +432,11 @@ function analyse(fam, v) {
     const cr = contrast(over(c[k], c['sideBar.background']), c['sideBar.background']);
     if (cr < 4.5) bad('surface', `${k}, a decorated file name in the side bar, at ${cr.toFixed(2)}, under 4.5`);
     const apart = deltaE(c[k], c['sideBar.foreground']);
-    if (p.status) pend('decorated names apart from the plain names of the side bar, in the palettes with hand placed status colours (10 dE)', apart, 10);
-    else if (apart < 10) bad('surface', `${k}, a decorated file name, at ${apart.toFixed(1)} dE from the plain names, under 10`);
+    if (apart < 10) bad('surface', `${k}, a decorated file name, at ${apart.toFixed(1)} dE from the plain names, under 10`);
     for (const row of ['list.hoverBackground', 'list.inactiveSelectionBackground', 'list.focusBackground', 'list.inactiveFocusBackground']) {
       const ground = over(c[row], c['sideBar.background']);
       const cr = contrast(over(c[k], ground), ground);
-      if (p.status) pend('decorated names on hovered, inactive selected and focused side bar rows, in the palettes with hand placed status colours (4.5)', cr, 4.5);
-      else if (cr < 4.5) bad('surface', `${k}, a decorated file name on ${row}, at ${down(cr)}, under 4.5`);
+      if (cr < 4.5) bad('surface', `${k}, a decorated file name on ${row}, at ${down(cr)}, under 4.5`);
     }
     if (k === 'list.invalidItemForeground') continue;
     const strip = c['editorGroupHeader.tabsBackground'];
@@ -448,9 +446,7 @@ function analyse(fam, v) {
     if (hc) continue;
     const hovered = mix(over(strip, eb), c.foreground, 0.06);
     const onHovered = contrast(over(c[k], hovered), hovered);
-    // hand placed status colours stay as their palette writes them
-    if (p.status) pend('decorated names on a hovered tab, in the palettes with hand placed status colours (4.5)', onHovered, 4.5);
-    else if (onHovered < 4.5) bad('surface', `${k}, a decorated name on a hovered tab, at ${down(onHovered)}, under 4.5`);
+    if (onHovered < 4.5) bad('surface', `${k}, a decorated name on a hovered tab, at ${down(onHovered)}, under 4.5`);
   }
   for (const g of LINE_NUMBER_GROUNDS) {
     const floor = hc ? 4.5 : 3.0;
