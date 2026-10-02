@@ -172,7 +172,9 @@ function tokens(s) {
     'editor.findMatchForeground': findText,
     'editor.findMatchHighlightForeground': findText,
     'editor.findRangeHighlightBackground': alpha(acc, 0.1),
-    'editor.hoverHighlightBackground': alpha(acc, 0.14),
+    // drawn in the selection's own colour, as VS Code's themes draw it, at the strength that lays 14% of the accent on the editor;
+    // on a selection it then adds nothing, and on any other wash it moves the text no further than the selection does
+    'editor.hoverHighlightBackground': hc ? alpha(acc, 0.14) : alpha(composite(sel, bg), Math.min(1, 0.14 / Math.max(parse(sel).a, 0.14))),
     'editor.lineHighlightBackground': lineHighlight,
     'editor.lineHighlightBorder': '#00000000',
     'editor.rangeHighlightBackground': alpha(acc, 0.1),

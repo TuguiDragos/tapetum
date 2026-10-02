@@ -142,6 +142,7 @@ const HC_QUIET = [['titleBar.inactiveForeground', 'titleBar.inactiveBackground']
   ['agentsChatInput.placeholderForeground', 'agentsChatInput.background'], ['editor.placeholder.foreground', 'editor.background'],
   ['editor.foldPlaceholderForeground', 'editor.background'], ['commandCenter.inactiveForeground', 'commandCenter.background', 'titleBar.inactiveBackground']];
 // a figure under a floor, cut rather than rounded, so 3.1996 does not read as 3.20
+const findTextsOf = (c) => ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
 const down = (x) => (Math.floor(x * 100) / 100).toFixed(2);
 const hueDist = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
 
@@ -218,7 +219,17 @@ function analyse(fam, v) {
   out.stacked = { worst: stackWorst, at: stackAt };
   if (stackWorst < selFloor) bad('layers', `${stackAt} at ${down(stackWorst)}, under ${floorNote}`);
   const hoverSel = Math.min(...['', 'editor.wordHighlightBackground', 'editor.wordHighlightStrongBackground'].map((k) => worstOver(['editor.selectionBackground', 'editor.hoverHighlightBackground', k].filter(Boolean), onSel)));
-  pend(`syntax over the selection plus the hover highlight (${floorNote})`, hoverSel, selFloor);
+  if (hoverSel < selFloor) bad('layers', `syntax over the selection plus the hover highlight at ${down(hoverSel)}, under ${floorNote}`);
+  // a hovered word also lies on the current line, a range highlight and the diff washes, and the hover may not take it under what that wash leaves
+  if (!hc) for (const layers of [['editor.inactiveSelectionBackground'], ['editor.lineHighlightBackground'], ['editor.rangeHighlightBackground'],
+    ...['inserted', 'removed'].flatMap((d) => [[`diffEditor.${d}LineBackground`], [`diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`]])]) {
+    const floor = Math.min(3.0, worstOver(layers, onSel)), cr = worstOver([...layers, 'editor.hoverHighlightBackground'], onSel);
+    if (cr < floor - 0.005) bad('layers', `syntax under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under ${floor.toFixed(2)}`);
+  }
+  if (!hc && findTextsOf(c).length) for (const layers of [['editor.findMatchHighlightBackground'], ['editor.findMatchBackground'], ['editor.selectionBackground', 'editor.findMatchHighlightBackground']]) {
+    const cr = worstOver([...layers, 'editor.hoverHighlightBackground'], findTextsOf(c));
+    if (cr < 4.5) bad('layers', `a find match under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under 4.5`);
+  }
   const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
   pend(`syntax over the selection in a diff (${floorNote})`, diffSel, selFloor);
   const findTexts = hc && selFg && parse(selFg).a === 1 ? [selFg] : ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
