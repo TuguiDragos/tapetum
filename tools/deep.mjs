@@ -159,6 +159,9 @@ const COMPOSED = [
   { fg: (c) => c['sideBar.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['sideBar.background'])], floor: 4.5, what: 'a match in the search view, the side bar text on the find highlight' },
   { fg: (c) => c['editor.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['editor.background'])], floor: 4.5, what: 'text on a find highlight in the editor' },
   { fg: (c) => c['quickInputList.focusHighlightForeground'], grounds: (c) => [over(c['quickInputList.focusBackground'], c['quickInput.background'])], floor: 4.5, what: 'match highlight on the focused row of the command palette' },
+  // the warning or note label of a chat picker sits on the chat pane, in the side bar, the panel or an editor; hovered or open it takes the toolbar hover
+  ...['problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => ({ fg: (c) => c[k], floor: 4.5, what: `${k}, the label of a chat picker on the chat pane, plain, hovered or open`,
+    grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], c['editor.background']); return [pane, over(c['toolbar.hoverBackground'], pane)]; }) })),
   { fg: (c) => c['terminal.foreground'], grounds: (c) => [c['terminal.findMatchBackground'].slice(0, 7), over(c['terminal.findMatchHighlightBackground'], c['terminal.background'])], floor: 4.5, what: 'terminal text on its find matches, the active one drawn by xterm without alpha' },
 ];
 const DECORATED_NAMES = [...['added', 'modified', 'deleted', 'renamed', 'stageModified', 'stageDeleted', 'untracked', 'conflicting', 'submodule']
