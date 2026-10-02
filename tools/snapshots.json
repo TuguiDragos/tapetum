@@ -6,7 +6,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8e58883a578fcbf1",
+  "colors": "60c33de447569998",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
@@ -994,8 +994,8 @@
    "terminalOverviewRuler.border": "#242836",
    "testing.coveredMinimapBackground": "#6ee7a873",
    "testing.uncoveredMinimapBackground": "#ff9f4573",
-   "testing.iconErrored.retired": "#914362",
-   "testing.iconFailed.retired": "#914362",
+   "testing.iconErrored.retired": "#a04969",
+   "testing.iconFailed.retired": "#a04969",
    "testing.iconPassed.retired": "#418568",
    "testing.iconQueued.retired": "#915e32",
    "testing.iconSkipped.retired": "#595f70",
@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c4b56450ccd49988",
+  "colors": "f5f385f7ea1457ea",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -2274,8 +2274,8 @@
    "terminalOverviewRuler.border": "#dee0e7",
    "testing.coveredMinimapBackground": "#06704a73",
    "testing.uncoveredMinimapBackground": "#af490073",
-   "testing.iconErrored.retired": "#dc89b6",
-   "testing.iconFailed.retired": "#dc89b6",
+   "testing.iconErrored.retired": "#d467a1",
+   "testing.iconFailed.retired": "#d467a1",
    "testing.iconPassed.retired": "#74af9b",
    "testing.iconQueued.retired": "#d19973",
    "testing.iconSkipped.retired": "#898a94",
@@ -2566,7 +2566,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7be937d07832f866",
+  "colors": "f6096a415ad1a05b",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
@@ -3554,8 +3554,8 @@
    "terminalOverviewRuler.border": "#24262c",
    "testing.coveredMinimapBackground": "#7ce85c73",
    "testing.uncoveredMinimapBackground": "#ffc93c73",
-   "testing.iconErrored.retired": "#8d3a2d",
-   "testing.iconFailed.retired": "#8d3a2d",
+   "testing.iconErrored.retired": "#a84433",
+   "testing.iconFailed.retired": "#a84433",
    "testing.iconPassed.retired": "#48843a",
    "testing.iconQueued.retired": "#907328",
    "testing.iconSkipped.retired": "#5e6166",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "544484bf3623e8a5",
+  "colors": "6eaede8eb5c79b7a",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -4834,8 +4834,8 @@
    "terminalOverviewRuler.border": "#deddda",
    "testing.coveredMinimapBackground": "#3d7a1f73",
    "testing.uncoveredMinimapBackground": "#8b5f0073",
-   "testing.iconErrored.retired": "#db907d",
-   "testing.iconFailed.retired": "#db907d",
+   "testing.iconErrored.retired": "#d17058",
+   "testing.iconFailed.retired": "#d17058",
    "testing.iconPassed.retired": "#93b480",
    "testing.iconQueued.retired": "#bda56f",
    "testing.iconSkipped.retired": "#8f8f8e",
@@ -5126,7 +5126,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3f370d28cdadd6ab",
+  "colors": "3b71ed4ed72d6580",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
@@ -6114,8 +6114,8 @@
    "terminalOverviewRuler.border": "#252724",
    "testing.coveredMinimapBackground": "#7fe33f73",
    "testing.uncoveredMinimapBackground": "#ffb74273",
-   "testing.iconErrored.retired": "#91402d",
-   "testing.iconFailed.retired": "#91402d",
+   "testing.iconErrored.retired": "#a24731",
+   "testing.iconFailed.retired": "#a24731",
    "testing.iconPassed.retired": "#4a8227",
    "testing.iconQueued.retired": "#916a28",
    "testing.iconSkipped.retired": "#5f615d",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d8ff46d959140c37",
+  "colors": "5715e49bd391acfd",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -7394,8 +7394,8 @@
    "terminalOverviewRuler.border": "#dbdcd8",
    "testing.coveredMinimapBackground": "#3a741373",
    "testing.uncoveredMinimapBackground": "#8a5a0073",
-   "testing.iconErrored.retired": "#d49385",
-   "testing.iconFailed.retired": "#d49385",
+   "testing.iconErrored.retired": "#c8705f",
+   "testing.iconFailed.retired": "#c8705f",
    "testing.iconPassed.retired": "#8faf78",
    "testing.iconQueued.retired": "#bba16e",
    "testing.iconSkipped.retired": "#8e8f8b",
@@ -7686,7 +7686,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "55cb2e738066bc75",
+  "colors": "303ef81ffd225472",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
@@ -8674,8 +8674,8 @@
    "terminalOverviewRuler.border": "#282829",
    "testing.coveredMinimapBackground": "#39b87173",
    "testing.uncoveredMinimapBackground": "#e8b54a73",
-   "testing.iconErrored.retired": "#81492c",
-   "testing.iconFailed.retired": "#81492c",
+   "testing.iconErrored.retired": "#965431",
+   "testing.iconFailed.retired": "#965431",
    "testing.iconPassed.retired": "#256b44",
    "testing.iconQueued.retired": "#85692f",
    "testing.iconSkipped.retired": "#626263",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "948b9c37e9e29f9a",
+  "colors": "76283b8c455caf09",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9954,8 +9954,8 @@
    "terminalOverviewRuler.border": "#dcdcdd",
    "testing.coveredMinimapBackground": "#22683f73",
    "testing.uncoveredMinimapBackground": "#8a5a0073",
-   "testing.iconErrored.retired": "#cb9980",
-   "testing.iconFailed.retired": "#cb9980",
+   "testing.iconErrored.retired": "#bd7a58",
+   "testing.iconFailed.retired": "#bd7a58",
    "testing.iconPassed.retired": "#82a993",
    "testing.iconQueued.retired": "#bca170",
    "testing.iconSkipped.retired": "#8e8e90",
@@ -10246,7 +10246,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1b112964ec892fe0",
+  "colors": "569c7c8e6c2cfe6a",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
@@ -11234,8 +11234,8 @@
    "terminalOverviewRuler.border": "#1e1e21",
    "testing.coveredMinimapBackground": "#0ef47773",
    "testing.uncoveredMinimapBackground": "#f4d00c73",
-   "testing.iconErrored.retired": "#883d33",
-   "testing.iconFailed.retired": "#883d33",
+   "testing.iconErrored.retired": "#9b4539",
+   "testing.iconFailed.retired": "#9b4539",
    "testing.iconPassed.retired": "#0a8844",
    "testing.iconQueued.retired": "#887409",
    "testing.iconSkipped.retired": "#56585b",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ff7dfec470c470b5",
+  "colors": "ec114e571a96a111",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -12514,8 +12514,8 @@
    "terminalOverviewRuler.border": "#dfdfe1",
    "testing.coveredMinimapBackground": "#0a683073",
    "testing.uncoveredMinimapBackground": "#71600873",
-   "testing.iconErrored.retired": "#e47d81",
-   "testing.iconFailed.retired": "#e47d81",
+   "testing.iconErrored.retired": "#df666a",
+   "testing.iconFailed.retired": "#df666a",
    "testing.iconPassed.retired": "#77ab8d",
    "testing.iconQueued.retired": "#b0a777",
    "testing.iconSkipped.retired": "#8f9092",
@@ -15372,7 +15372,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ee9f3e76a7516ddf",
+  "colors": "125db8058f201879",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
@@ -16360,8 +16360,8 @@
    "terminalOverviewRuler.border": "#252329",
    "testing.coveredMinimapBackground": "#20d12e73",
    "testing.uncoveredMinimapBackground": "#f2b48673",
-   "testing.iconErrored.retired": "#8b3b40",
-   "testing.iconFailed.retired": "#8b3b40",
+   "testing.iconErrored.retired": "#a24449",
+   "testing.iconFailed.retired": "#a24449",
    "testing.iconPassed.retired": "#177720",
    "testing.iconQueued.retired": "#8a6750",
    "testing.iconSkipped.retired": "#5d5b62",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "01184555e551ca19",
+  "colors": "4413a2647fc5c301",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -17640,8 +17640,8 @@
    "terminalOverviewRuler.border": "#e0dfe1",
    "testing.coveredMinimapBackground": "#0b691273",
    "testing.uncoveredMinimapBackground": "#81440a73",
-   "testing.iconErrored.retired": "#e57791",
-   "testing.iconFailed.retired": "#e57791",
+   "testing.iconErrored.retired": "#e1617f",
+   "testing.iconFailed.retired": "#e1617f",
    "testing.iconPassed.retired": "#77ab7c",
    "testing.iconQueued.retired": "#b89677",
    "testing.iconSkipped.retired": "#89888b",
@@ -17932,7 +17932,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8ffe5b4e8cb56ba1",
+  "colors": "e0c9546dad39ad51",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -18920,8 +18920,8 @@
    "terminalOverviewRuler.border": "#1d2d36",
    "testing.coveredMinimapBackground": "#0cc68173",
    "testing.uncoveredMinimapBackground": "#b69f4b73",
-   "testing.iconErrored.retired": "#715059",
-   "testing.iconFailed.retired": "#715059",
+   "testing.iconErrored.retired": "#875c65",
+   "testing.iconFailed.retired": "#875c65",
    "testing.iconPassed.retired": "#087554",
    "testing.iconQueued.retired": "#666036",
    "testing.iconSkipped.retired": "#55646b",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1dcf9f8a55356d47",
+  "colors": "162005f9091a9157",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -20200,8 +20200,8 @@
    "terminalOverviewRuler.border": "#d9dee0",
    "testing.coveredMinimapBackground": "#0a6d4673",
    "testing.uncoveredMinimapBackground": "#76630e73",
-   "testing.iconErrored.retired": "#c2a0a7",
-   "testing.iconFailed.retired": "#c2a0a7",
+   "testing.iconErrored.retired": "#ae7d86",
+   "testing.iconFailed.retired": "#ae7d86",
    "testing.iconPassed.retired": "#74ac98",
    "testing.iconQueued.retired": "#b0a779",
    "testing.iconSkipped.retired": "#8b9192",
@@ -20492,7 +20492,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c1ad308ff34d58d8",
+  "colors": "c4fe77a730e39118",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
@@ -21480,8 +21480,8 @@
    "terminalOverviewRuler.border": "#2b2622",
    "testing.coveredMinimapBackground": "#0ccea073",
    "testing.uncoveredMinimapBackground": "#f2ba2473",
-   "testing.iconErrored.retired": "#8c544c",
-   "testing.iconFailed.retired": "#8c544c",
+   "testing.iconErrored.retired": "#8f554d",
+   "testing.iconFailed.retired": "#8f554d",
    "testing.iconPassed.retired": "#0e775c",
    "testing.iconQueued.retired": "#8c6c18",
    "testing.iconSkipped.retired": "#635d5a",
@@ -21772,7 +21772,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "19726bcc01fe37e6",
+  "colors": "d8bd6ea1259f0708",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -22760,8 +22760,8 @@
    "terminalOverviewRuler.border": "#dedbd4",
    "testing.coveredMinimapBackground": "#0c644c73",
    "testing.uncoveredMinimapBackground": "#674d0a73",
-   "testing.iconErrored.retired": "#d8767f",
-   "testing.iconFailed.retired": "#d8767f",
+   "testing.iconErrored.retired": "#d46670",
+   "testing.iconFailed.retired": "#d46670",
    "testing.iconPassed.retired": "#77a696",
    "testing.iconQueued.retired": "#a99a71",
    "testing.iconSkipped.retired": "#898580",
@@ -23052,7 +23052,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "714d4a4557b5dd56",
+  "colors": "b894d18c12c2bf43",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
@@ -24040,8 +24040,8 @@
    "terminalOverviewRuler.border": "#2e2f36",
    "testing.coveredMinimapBackground": "#60d53d73",
    "testing.uncoveredMinimapBackground": "#f2c17a73",
-   "testing.iconErrored.retired": "#8f4849",
-   "testing.iconFailed.retired": "#8f4849",
+   "testing.iconErrored.retired": "#a55151",
+   "testing.iconFailed.retired": "#a55151",
    "testing.iconPassed.retired": "#3e7f2e",
    "testing.iconQueued.retired": "#8f7450",
    "testing.iconSkipped.retired": "#64666c",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0272b426cfe42fbc",
+  "colors": "e6742bb82caa6739",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -25320,8 +25320,8 @@
    "terminalOverviewRuler.border": "#dfddd4",
    "testing.coveredMinimapBackground": "#1f660b73",
    "testing.uncoveredMinimapBackground": "#6e4c0a73",
-   "testing.iconErrored.retired": "#e37686",
-   "testing.iconFailed.retired": "#e37686",
+   "testing.iconErrored.retired": "#df6175",
+   "testing.iconFailed.retired": "#df6175",
    "testing.iconPassed.retired": "#82a872",
    "testing.iconQueued.retired": "#ad9a71",
    "testing.iconSkipped.retired": "#898680",
@@ -25612,7 +25612,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "dc344c6b9e22cd45",
+  "colors": "443c3cd6c0db4352",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
@@ -26600,8 +26600,8 @@
    "terminalOverviewRuler.border": "#282522",
    "testing.coveredMinimapBackground": "#41bf7673",
    "testing.uncoveredMinimapBackground": "#e4bf3973",
-   "testing.iconErrored.retired": "#8c3d45",
-   "testing.iconFailed.retired": "#8c3d45",
+   "testing.iconErrored.retired": "#a1454f",
+   "testing.iconFailed.retired": "#a1454f",
    "testing.iconPassed.retired": "#2a6e45",
    "testing.iconQueued.retired": "#836e23",
    "testing.iconSkipped.retired": "#615d59",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5390ecfb2aea9e09",
+  "colors": "1bb7659a4829ed45",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -27880,8 +27880,8 @@
    "terminalOverviewRuler.border": "#dbd8d1",
    "testing.coveredMinimapBackground": "#0b6a3a73",
    "testing.uncoveredMinimapBackground": "#5f4e0b73",
-   "testing.iconErrored.retired": "#d88593",
-   "testing.iconFailed.retired": "#d88593",
+   "testing.iconErrored.retired": "#cf6579",
+   "testing.iconFailed.retired": "#cf6579",
    "testing.iconPassed.retired": "#75a88b",
    "testing.iconQueued.retired": "#a39971",
    "testing.iconSkipped.retired": "#86837f",
@@ -28172,7 +28172,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e0e480ed775140df",
+  "colors": "d9fc607b7465856f",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
@@ -29160,8 +29160,8 @@
    "terminalOverviewRuler.border": "#1f2f40",
    "testing.coveredMinimapBackground": "#4fbe6f73",
    "testing.uncoveredMinimapBackground": "#caa20a73",
-   "testing.iconErrored.retired": "#88555c",
-   "testing.iconFailed.retired": "#88555c",
+   "testing.iconErrored.retired": "#945b61",
+   "testing.iconFailed.retired": "#945b61",
    "testing.iconPassed.retired": "#2e724f",
    "testing.iconQueued.retired": "#726317",
    "testing.iconSkipped.retired": "#586674",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "53c75845134c1665",
+  "colors": "cd43c10df3774443",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -30440,8 +30440,8 @@
    "terminalOverviewRuler.border": "#d8dce1",
    "testing.coveredMinimapBackground": "#0c763873",
    "testing.uncoveredMinimapBackground": "#79610a73",
-   "testing.iconErrored.retired": "#dc758f",
-   "testing.iconFailed.retired": "#dc758f",
+   "testing.iconErrored.retired": "#d86481",
+   "testing.iconFailed.retired": "#d86481",
    "testing.iconPassed.retired": "#75b191",
    "testing.iconQueued.retired": "#b1a577",
    "testing.iconSkipped.retired": "#8a8f93",
@@ -30732,7 +30732,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d5849492211b4951",
+  "colors": "2825ef3d834def48",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
@@ -31720,8 +31720,8 @@
    "terminalOverviewRuler.border": "#22272d",
    "testing.coveredMinimapBackground": "#66a56773",
    "testing.uncoveredMinimapBackground": "#f2a47a73",
-   "testing.iconErrored.retired": "#8a4851",
-   "testing.iconFailed.retired": "#8a4851",
+   "testing.iconErrored.retired": "#9a4f59",
+   "testing.iconFailed.retired": "#9a4f59",
    "testing.iconPassed.retired": "#3d6141",
    "testing.iconQueued.retired": "#8a604b",
    "testing.iconSkipped.retired": "#596065",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4d530442456e7df4",
+  "colors": "40a0a49b209ef913",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -33000,8 +33000,8 @@
    "terminalOverviewRuler.border": "#dfdad0",
    "testing.coveredMinimapBackground": "#39773d73",
    "testing.uncoveredMinimapBackground": "#913e0a73",
-   "testing.iconErrored.retired": "#dd748f",
-   "testing.iconFailed.retired": "#dd748f",
+   "testing.iconErrored.retired": "#d85f80",
+   "testing.iconFailed.retired": "#d85f80",
    "testing.iconPassed.retired": "#90b08c",
    "testing.iconQueued.retired": "#c19170",
    "testing.iconSkipped.retired": "#89847e",
@@ -33292,7 +33292,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "05762da933c3a48a",
+  "colors": "13e280cdfd593665",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
@@ -34280,8 +34280,8 @@
    "terminalOverviewRuler.border": "#1e2226",
    "testing.coveredMinimapBackground": "#5cb8a573",
    "testing.uncoveredMinimapBackground": "#ce8c5473",
-   "testing.iconErrored.retired": "#8b3263",
-   "testing.iconFailed.retired": "#8b3263",
+   "testing.iconErrored.retired": "#a43a73",
+   "testing.iconFailed.retired": "#a43a73",
    "testing.iconPassed.retired": "#356860",
    "testing.iconQueued.retired": "#745033",
    "testing.iconSkipped.retired": "#555b60",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8702db04b80045c3",
+  "colors": "72c9ef594e249720",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -35560,8 +35560,8 @@
    "terminalOverviewRuler.border": "#dbdee1",
    "testing.coveredMinimapBackground": "#0b635573",
    "testing.uncoveredMinimapBackground": "#8f562173",
-   "testing.iconErrored.retired": "#e077b9",
-   "testing.iconFailed.retired": "#e077b9",
+   "testing.iconErrored.retired": "#db5dac",
+   "testing.iconFailed.retired": "#db5dac",
    "testing.iconPassed.retired": "#76a7a1",
    "testing.iconQueued.retired": "#bea084",
    "testing.iconSkipped.retired": "#8d9194",
@@ -35852,7 +35852,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "66d48f001cf69253",
+  "colors": "7be94845e3ec23ad",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
@@ -36840,8 +36840,8 @@
    "terminalOverviewRuler.border": "#1d2426",
    "testing.coveredMinimapBackground": "#11d9a973",
    "testing.uncoveredMinimapBackground": "#aebd0f73",
-   "testing.iconErrored.retired": "#8b3932",
-   "testing.iconFailed.retired": "#8b3932",
+   "testing.iconErrored.retired": "#a44239",
+   "testing.iconFailed.retired": "#a44239",
    "testing.iconPassed.retired": "#0b7b62",
    "testing.iconQueued.retired": "#626c0e",
    "testing.iconSkipped.retired": "#545c5e",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "be575cfa0e9d0bb1",
+  "colors": "b10271aeaa6bfbf0",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -38120,8 +38120,8 @@
    "terminalOverviewRuler.border": "#d8dede",
    "testing.coveredMinimapBackground": "#0c5e4873",
    "testing.uncoveredMinimapBackground": "#565d0b73",
-   "testing.iconErrored.retired": "#e57883",
-   "testing.iconFailed.retired": "#e57883",
+   "testing.iconErrored.retired": "#e2616d",
+   "testing.iconFailed.retired": "#e2616d",
    "testing.iconPassed.retired": "#75a498",
    "testing.iconQueued.retired": "#9ea477",
    "testing.iconSkipped.retired": "#8b9191",
@@ -38412,7 +38412,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c1ed8d551e4295ee",
+  "colors": "1f837dff2ab21c28",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
@@ -39400,8 +39400,8 @@
    "terminalOverviewRuler.border": "#272220",
    "testing.coveredMinimapBackground": "#0ab84c73",
    "testing.uncoveredMinimapBackground": "#f2a85473",
-   "testing.iconErrored.retired": "#8d393d",
-   "testing.iconFailed.retired": "#8d393d",
+   "testing.iconErrored.retired": "#a24146",
+   "testing.iconFailed.retired": "#a24146",
    "testing.iconPassed.retired": "#0b692d",
    "testing.iconQueued.retired": "#8b6031",
    "testing.iconSkipped.retired": "#615a59",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b7e18e66f8131225",
+  "colors": "77fdeafdd4c75432",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -40680,8 +40680,8 @@
    "terminalOverviewRuler.border": "#dedad6",
    "testing.coveredMinimapBackground": "#0a732e73",
    "testing.uncoveredMinimapBackground": "#7a4b0a73",
-   "testing.iconErrored.retired": "#df748c",
-   "testing.iconFailed.retired": "#df748c",
+   "testing.iconErrored.retired": "#db5f7b",
+   "testing.iconFailed.retired": "#db5f7b",
    "testing.iconPassed.retired": "#76ae86",
    "testing.iconQueued.retired": "#b49872",
    "testing.iconSkipped.retired": "#898482",
@@ -40972,7 +40972,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "19ca994f4d072d44",
+  "colors": "ce3117fedf883ead",
   "tokenColors": "91ea5c0dc49aec9d",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
@@ -41960,8 +41960,8 @@
    "terminalOverviewRuler.border": "#443324",
    "testing.coveredMinimapBackground": "#e5d19673",
    "testing.uncoveredMinimapBackground": "#ffc24a73",
-   "testing.iconErrored.retired": "#9f4a37",
-   "testing.iconFailed.retired": "#9f4a37",
+   "testing.iconErrored.retired": "#b4533e",
+   "testing.iconFailed.retired": "#b4533e",
    "testing.iconPassed.retired": "#917f58",
    "testing.iconQueued.retired": "#9f762f",
    "testing.iconSkipped.retired": "#786959",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ace9468096de244a",
+  "colors": "b83286c9922a95bf",
   "tokenColors": "b1bad2f521ea37ef",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -43240,8 +43240,8 @@
    "terminalOverviewRuler.border": "#d4cdbd",
    "testing.coveredMinimapBackground": "#45552573",
    "testing.uncoveredMinimapBackground": "#684c0073",
-   "testing.iconErrored.retired": "#bf7d6a",
-   "testing.iconFailed.retired": "#bf7d6a",
+   "testing.iconErrored.retired": "#b66854",
+   "testing.iconFailed.retired": "#b66854",
    "testing.iconPassed.retired": "#919675",
    "testing.iconQueued.retired": "#a49160",
    "testing.iconSkipped.retired": "#837e73",
@@ -43532,7 +43532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e070baf0ddbeecf2",
+  "colors": "9129a805c74031d1",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -44520,8 +44520,8 @@
    "terminalOverviewRuler.border": "#202a28",
    "testing.coveredMinimapBackground": "#14bfa073",
    "testing.uncoveredMinimapBackground": "#d8c07a73",
-   "testing.iconErrored.retired": "#8f4457",
-   "testing.iconFailed.retired": "#8f4457",
+   "testing.iconErrored.retired": "#a14b60",
+   "testing.iconFailed.retired": "#a14b60",
    "testing.iconPassed.retired": "#0e715f",
    "testing.iconQueued.retired": "#7a714a",
    "testing.iconSkipped.retired": "#56615e",
@@ -44812,7 +44812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3083d1f6aeeedfc6",
+  "colors": "ab799260b12b2a2c",
   "tokenColors": "bffa2047076974ee",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
@@ -45800,8 +45800,8 @@
    "terminalOverviewRuler.border": "#d9d4d8",
    "testing.coveredMinimapBackground": "#00634c73",
    "testing.uncoveredMinimapBackground": "#5f550373",
-   "testing.iconErrored.retired": "#cb7694",
-   "testing.iconFailed.retired": "#cb7694",
+   "testing.iconErrored.retired": "#c46486",
+   "testing.iconFailed.retired": "#c46486",
    "testing.iconPassed.retired": "#6ea297",
    "testing.iconQueued.retired": "#a39a6f",
    "testing.iconSkipped.retired": "#848284",
@@ -46092,7 +46092,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "598125b2d6fd5aad",
+  "colors": "a569bf918238a45e",
   "tokenColors": "b98b3725f2ddc967",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
@@ -47080,8 +47080,8 @@
    "terminalOverviewRuler.border": "#2f3136",
    "testing.coveredMinimapBackground": "#9eb09673",
    "testing.uncoveredMinimapBackground": "#f0b75a73",
-   "testing.iconErrored.retired": "#8d4e4a",
-   "testing.iconFailed.retired": "#8d4e4a",
+   "testing.iconErrored.retired": "#a65954",
+   "testing.iconFailed.retired": "#a65954",
    "testing.iconPassed.retired": "#626d61",
    "testing.iconQueued.retired": "#8f7140",
    "testing.iconSkipped.retired": "#6a6c70",
@@ -47342,7 +47342,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "10936af0f6b5a8ca",
+  "colors": "5ce5b8294e9cc0c8",
   "tokenColors": "afc07bc0064373d1",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -48330,8 +48330,8 @@
    "terminalOverviewRuler.border": "#dad9d5",
    "testing.coveredMinimapBackground": "#5a6c5273",
    "testing.uncoveredMinimapBackground": "#85560673",
-   "testing.iconErrored.retired": "#cf8d84",
-   "testing.iconFailed.retired": "#cf8d84",
+   "testing.iconErrored.retired": "#c26c62",
+   "testing.iconFailed.retired": "#c26c62",
    "testing.iconPassed.retired": "#9fa898",
    "testing.iconQueued.retired": "#b79c6e",
    "testing.iconSkipped.retired": "#7f7e7d",
@@ -48592,7 +48592,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d08b2077332f4676",
+  "colors": "b15e18f2e3cb5b03",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -49580,8 +49580,8 @@
    "terminalOverviewRuler.border": "#2f2b26",
    "testing.coveredMinimapBackground": "#93a46873",
    "testing.uncoveredMinimapBackground": "#c99c5573",
-   "testing.iconErrored.retired": "#805141",
-   "testing.iconFailed.retired": "#805141",
+   "testing.iconErrored.retired": "#8e5a47",
+   "testing.iconFailed.retired": "#8e5a47",
    "testing.iconPassed.retired": "#5a623f",
    "testing.iconQueued.retired": "#785d35",
    "testing.iconSkipped.retired": "#68625b",
@@ -49885,7 +49885,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "403e026ed5bfe0a5",
+  "colors": "f3dc725b819933df",
   "tokenColors": "5d7c605186cc1ac7",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -50873,8 +50873,8 @@
    "terminalOverviewRuler.border": "#d5cfc2",
    "testing.coveredMinimapBackground": "#3c591c73",
    "testing.uncoveredMinimapBackground": "#664c0d73",
-   "testing.iconErrored.retired": "#ba876f",
-   "testing.iconFailed.retired": "#ba876f",
+   "testing.iconErrored.retired": "#ac6e53",
+   "testing.iconFailed.retired": "#ac6e53",
    "testing.iconPassed.retired": "#8d9a72",
    "testing.iconQueued.retired": "#a4936a",
    "testing.iconSkipped.retired": "#837e76",
@@ -51178,7 +51178,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "39ecad4735114237",
+  "colors": "e6b8c5ce4dd56542",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
@@ -52166,8 +52166,8 @@
    "terminalOverviewRuler.border": "#2a2d32",
    "testing.coveredMinimapBackground": "#66c07073",
    "testing.uncoveredMinimapBackground": "#f09a1873",
-   "testing.iconErrored.retired": "#924042",
-   "testing.iconFailed.retired": "#924042",
+   "testing.iconErrored.retired": "#ad494a",
+   "testing.iconFailed.retired": "#ad494a",
    "testing.iconPassed.retired": "#407349",
    "testing.iconQueued.retired": "#8c5e19",
    "testing.iconSkipped.retired": "#5e6267",
@@ -52446,7 +52446,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cd2f2980651c5a71",
+  "colors": "c656b4bb1f44cdf1",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -53434,8 +53434,8 @@
    "terminalOverviewRuler.border": "#dadbdf",
    "testing.coveredMinimapBackground": "#2c662073",
    "testing.uncoveredMinimapBackground": "#9a5a0073",
-   "testing.iconErrored.retired": "#d8747d",
-   "testing.iconFailed.retired": "#d8747d",
+   "testing.iconErrored.retired": "#d56670",
+   "testing.iconFailed.retired": "#d56670",
    "testing.iconPassed.retired": "#86a782",
    "testing.iconQueued.retired": "#c3a070",
    "testing.iconSkipped.retired": "#85868a",
@@ -53714,7 +53714,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "221940d9979380ab",
+  "colors": "971ea892c6f3534f",
   "tokenColors": "f17dbfd296cf8cdc",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
@@ -54702,8 +54702,8 @@
    "terminalOverviewRuler.border": "#34302b",
    "testing.coveredMinimapBackground": "#9aa87c73",
    "testing.uncoveredMinimapBackground": "#c9a24a73",
-   "testing.iconErrored.retired": "#7f4f3e",
-   "testing.iconFailed.retired": "#7f4f3e",
+   "testing.iconErrored.retired": "#965c48",
+   "testing.iconFailed.retired": "#965c48",
    "testing.iconPassed.retired": "#60664c",
    "testing.iconQueued.retired": "#7a6331",
    "testing.iconSkipped.retired": "#6b6861",
@@ -54970,7 +54970,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c7dce40508bc8f36",
+  "colors": "0df39c7b34c43757",
   "tokenColors": "abb379b06b40a5eb",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55958,8 +55958,8 @@
    "terminalOverviewRuler.border": "#d4cbb7",
    "testing.coveredMinimapBackground": "#41531b73",
    "testing.uncoveredMinimapBackground": "#68470173",
-   "testing.iconErrored.retired": "#b4846d",
-   "testing.iconFailed.retired": "#b4846d",
+   "testing.iconErrored.retired": "#a76d56",
+   "testing.iconFailed.retired": "#a76d56",
    "testing.iconPassed.retired": "#8e946c",
    "testing.iconQueued.retired": "#a48e5d",
    "testing.iconSkipped.retired": "#7b7568",
@@ -56226,7 +56226,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c44a86056684e716",
+  "colors": "ccd72f12b03c2a84",
   "tokenColors": "33d40469d09a91e7",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -57214,8 +57214,8 @@
    "terminalOverviewRuler.border": "#323234",
    "testing.coveredMinimapBackground": "#8fb89473",
    "testing.uncoveredMinimapBackground": "#c8b08473",
-   "testing.iconErrored.retired": "#805354",
-   "testing.iconFailed.retired": "#805354",
+   "testing.iconErrored.retired": "#955f5f",
+   "testing.iconFailed.retired": "#955f5f",
    "testing.iconPassed.retired": "#5a715e",
    "testing.iconQueued.retired": "#7a6d55",
    "testing.iconSkipped.retired": "#666669",
@@ -57519,7 +57519,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e0ac1954fd0fe4c3",
+  "colors": "e52db494243237e7",
   "tokenColors": "c2bacbe284ec3fb3",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -58507,8 +58507,8 @@
    "terminalOverviewRuler.border": "#cfcdc9",
    "testing.coveredMinimapBackground": "#34563a73",
    "testing.uncoveredMinimapBackground": "#614b1a73",
-   "testing.iconErrored.retired": "#b3867f",
-   "testing.iconFailed.retired": "#b3867f",
+   "testing.iconErrored.retired": "#a56d66",
+   "testing.iconFailed.retired": "#a56d66",
    "testing.iconPassed.retired": "#859785",
    "testing.iconQueued.retired": "#9e9174",
    "testing.iconSkipped.retired": "#777674",
@@ -58812,7 +58812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b45bd809e7a3b64d",
+  "colors": "23912ac4bc65b4e8",
   "tokenColors": "22e9640b633482b5",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -59800,8 +59800,8 @@
    "terminalOverviewRuler.border": "#242425",
    "testing.coveredMinimapBackground": "#90b18173",
    "testing.uncoveredMinimapBackground": "#d8a83c73",
-   "testing.iconErrored.retired": "#7f554e",
-   "testing.iconFailed.retired": "#7f554e",
+   "testing.iconErrored.retired": "#a66e64",
+   "testing.iconFailed.retired": "#a66e64",
    "testing.iconPassed.retired": "#53654b",
    "testing.iconQueued.retired": "#7a6026",
    "testing.iconSkipped.retired": "#797978",
@@ -60092,7 +60092,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "109a19dd34141dbf",
+  "colors": "008a9caad0925cb5",
   "tokenColors": "bba6bb44c345bb2d",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -61080,8 +61080,8 @@
    "terminalOverviewRuler.border": "#e0e0de",
    "testing.coveredMinimapBackground": "#334d2373",
    "testing.uncoveredMinimapBackground": "#5f400073",
-   "testing.iconErrored.retired": "#b68c83",
-   "testing.iconFailed.retired": "#b68c83",
+   "testing.iconErrored.retired": "#9e675c",
+   "testing.iconFailed.retired": "#9e675c",
    "testing.iconPassed.retired": "#8e9c84",
    "testing.iconQueued.retired": "#a69571",
    "testing.iconSkipped.retired": "#6d6d6b",
@@ -61372,7 +61372,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f3d002fe888a2edf",
+  "colors": "faf80815b2e88067",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
@@ -62360,8 +62360,8 @@
    "terminalOverviewRuler.border": "#202926",
    "testing.coveredMinimapBackground": "#5fd8c073",
    "testing.uncoveredMinimapBackground": "#ffa03c73",
-   "testing.iconErrored.retired": "#8f3a30",
-   "testing.iconFailed.retired": "#8f3a30",
+   "testing.iconErrored.retired": "#ab4237",
+   "testing.iconFailed.retired": "#ab4237",
    "testing.iconPassed.retired": "#377e6f",
    "testing.iconQueued.retired": "#8f5f27",
    "testing.iconSkipped.retired": "#57605c",
@@ -62616,7 +62616,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f63c5f6b74214588",
+  "colors": "69b4f04124dcf3a3",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -63604,8 +63604,8 @@
    "terminalOverviewRuler.border": "#d7ddda",
    "testing.coveredMinimapBackground": "#0a6e5e73",
    "testing.uncoveredMinimapBackground": "#9a520073",
-   "testing.iconErrored.retired": "#d8877b",
-   "testing.iconFailed.retired": "#d8877b",
+   "testing.iconErrored.retired": "#d16a5d",
+   "testing.iconFailed.retired": "#d16a5d",
    "testing.iconPassed.retired": "#73aca2",
    "testing.iconQueued.retired": "#c29d6e",
    "testing.iconSkipped.retired": "#838885",
@@ -63860,7 +63860,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1341c6a862259e4d",
+  "colors": "6cb804e9b9932662",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
@@ -64848,8 +64848,8 @@
    "terminalOverviewRuler.border": "#372529",
    "testing.coveredMinimapBackground": "#8fc9a473",
    "testing.uncoveredMinimapBackground": "#e8b54a73",
-   "testing.iconErrored.retired": "#964f58",
-   "testing.iconFailed.retired": "#964f58",
+   "testing.iconErrored.retired": "#985059",
+   "testing.iconFailed.retired": "#985059",
    "testing.iconPassed.retired": "#5b7361",
    "testing.iconQueued.retired": "#8c682f",
    "testing.iconSkipped.retired": "#6f5d62",
@@ -65140,7 +65140,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "61a76cd1f6822cdc",
+  "colors": "b9196db8d189e8a8",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -66128,8 +66128,8 @@
    "terminalOverviewRuler.border": "#e0d5d7",
    "testing.coveredMinimapBackground": "#1e6a4673",
    "testing.uncoveredMinimapBackground": "#8a5a0073",
-   "testing.iconErrored.retired": "#d2778c",
-   "testing.iconFailed.retired": "#d2778c",
+   "testing.iconErrored.retired": "#cb637b",
+   "testing.iconFailed.retired": "#cb637b",
    "testing.iconPassed.retired": "#81a794",
    "testing.iconQueued.retired": "#bd9e6d",
    "testing.iconSkipped.retired": "#8a8183",
@@ -66420,7 +66420,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d2427b8922c2b225",
+  "colors": "140f96ff8c1d9108",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -67408,8 +67408,8 @@
    "terminalOverviewRuler.border": "#33404c",
    "testing.coveredMinimapBackground": "#6becbe73",
    "testing.uncoveredMinimapBackground": "#f6b46473",
-   "testing.iconErrored.retired": "#935761",
-   "testing.iconFailed.retired": "#935761",
+   "testing.iconErrored.retired": "#b2646d",
+   "testing.iconFailed.retired": "#b2646d",
    "testing.iconPassed.retired": "#47937f",
    "testing.iconQueued.retired": "#93754e",
    "testing.iconSkipped.retired": "#69747e",
@@ -67700,7 +67700,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7a4e1ba34e0dbf10",
+  "colors": "5bf5231d5d31460c",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -68688,8 +68688,8 @@
    "terminalOverviewRuler.border": "#d6dee2",
    "testing.coveredMinimapBackground": "#094b3073",
    "testing.uncoveredMinimapBackground": "#804e0873",
-   "testing.iconErrored.retired": "#cf949e",
-   "testing.iconFailed.retired": "#cf949e",
+   "testing.iconErrored.retired": "#c3727f",
+   "testing.iconFailed.retired": "#c3727f",
    "testing.iconPassed.retired": "#729a8c",
    "testing.iconQueued.retired": "#b39b76",
    "testing.iconSkipped.retired": "#81898c",
@@ -68980,7 +68980,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "894ecb31900357d0",
+  "colors": "5d0a5f9b9e15d2eb",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -69968,8 +69968,8 @@
    "terminalOverviewRuler.border": "#2d2d35",
    "testing.coveredMinimapBackground": "#80ba8f73",
    "testing.uncoveredMinimapBackground": "#ddac7b73",
-   "testing.iconErrored.retired": "#844e54",
-   "testing.iconFailed.retired": "#844e54",
+   "testing.iconErrored.retired": "#94575d",
+   "testing.iconFailed.retired": "#94575d",
    "testing.iconPassed.retired": "#4f6f5a",
    "testing.iconQueued.retired": "#83674f",
    "testing.iconSkipped.retired": "#63656d",
@@ -70260,7 +70260,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "76d552f8fc6125b2",
+  "colors": "87fd13a5180a906b",
   "tokenColors": "0e0193adc4e55d86",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
@@ -71248,8 +71248,8 @@
    "terminalOverviewRuler.border": "#d9d6d5",
    "testing.coveredMinimapBackground": "#2a613b73",
    "testing.uncoveredMinimapBackground": "#744d2073",
-   "testing.iconErrored.retired": "#bd8e92",
-   "testing.iconFailed.retired": "#bd8e92",
+   "testing.iconErrored.retired": "#af757a",
+   "testing.iconFailed.retired": "#af757a",
    "testing.iconPassed.retired": "#85a28c",
    "testing.iconQueued.retired": "#ae977e",
    "testing.iconSkipped.retired": "#848383",
@@ -71540,7 +71540,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8e2aa086bbd993d4",
+  "colors": "fc860e3a08a1523d",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -72528,8 +72528,8 @@
    "terminalOverviewRuler.border": "#312e28",
    "testing.coveredMinimapBackground": "#3fc97e73",
    "testing.uncoveredMinimapBackground": "#ffee3c73",
-   "testing.iconErrored.retired": "#964e2b",
-   "testing.iconFailed.retired": "#964e2b",
+   "testing.iconErrored.retired": "#a2542d",
+   "testing.iconFailed.retired": "#a2542d",
    "testing.iconPassed.retired": "#2d774c",
    "testing.iconQueued.retired": "#968b27",
    "testing.iconSkipped.retired": "#6a665f",
@@ -72820,7 +72820,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d2e17610f6c32194",
+  "colors": "c28428be2ba1d2b1",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -73808,8 +73808,8 @@
    "terminalOverviewRuler.border": "#d9d5c9",
    "testing.coveredMinimapBackground": "#0a6e4273",
    "testing.uncoveredMinimapBackground": "#7a600073",
-   "testing.iconErrored.retired": "#cc916e",
-   "testing.iconFailed.retired": "#cc916e",
+   "testing.iconErrored.retired": "#be6e43",
+   "testing.iconFailed.retired": "#be6e43",
    "testing.iconPassed.retired": "#74a98b",
    "testing.iconQueued.retired": "#b1a167",
    "testing.iconSkipped.retired": "#85827a",

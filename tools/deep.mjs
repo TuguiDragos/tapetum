@@ -898,10 +898,12 @@ function analyse(fam, v) {
     pend('the source and code of a problem in its hover, the text at 60%, solid and as glass (4.0)', at60('editorHoverWidget.foreground'), 4.0);
     pend('a linked code of a problem in its hover, textLink at 60%, solid and as glass (4.0)', at60('textLink.foreground'), 4.0);
   }
-  // the test icons of a stale run, faded on purpose, in the Test Explorer and the editor's gutter; VS Code's own keep a failure at 4.0
+  // the test icons of a stale run, faded on purpose, in the Test Explorer and the editor's gutter: a stale failure keeps the 3.0 of
+  // a mark, as VS Code's own keep it at 4.0, and a stale pass or queue is measured
   {
     const grounds = [eb, over(c['sideBar.background'], eb)], icon = (ks) => Math.min(...ks.flatMap((k) => grounds.map((g) => contrast(over(c[`testing.icon${k}.retired`], g), g))));
-    pend('a failed or errored test icon from a stale run (3.0)', icon(['Failed', 'Errored']), 3.0);
+    const failed = icon(['Failed', 'Errored']);
+    if (failed < 3.0) bad('surface', `a failed or errored test icon from a stale run, on the editor or the side bar, at ${down(failed)}, under 3.0`);
     pend('a passed or queued test icon from a stale run (3.0)', icon(['Passed', 'Queued']), 3.0);
   }
   // unused code at the theme's editorUnnecessaryCode opacity, and the shortcut hint on the issue reporter's primary button at 70%
