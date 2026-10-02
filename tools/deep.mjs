@@ -617,7 +617,7 @@ if (issues || detail) {
     for (const f of r.findings) console.log(`   [${f.sev}] ${f.msg}`);
   }
 }
-console.log('\nwaiting for the maintainer\'s decision, measured but not counted as problems:');
+console.log('\nmeasured but not counted as problems, since no theme value lifts them without a larger loss elsewhere:');
 for (const what of [...new Set(rows.flatMap((r) => Object.keys(r.pending)))]) {
   const hit = rows.filter((r) => r.pending[what]);
   const low = hit.reduce((a, b) => (b.pending[what].worst < a.pending[what].worst ? b : a));
