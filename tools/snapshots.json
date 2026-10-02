@@ -6,7 +6,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e643e81ca8da8022",
+  "colors": "7eaede5f83b77f9c",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
@@ -58,7 +58,7 @@
    "editor.findMatchForeground": "#dee5f9",
    "editor.findMatchHighlightForeground": "#dee5f9",
    "editor.findRangeHighlightBackground": "#cd8ff91a",
-   "editor.hoverHighlightBackground": "#cd8ff924",
+   "editor.hoverHighlightBackground": "#342949a9",
    "editor.lineHighlightBackground": "#171a25",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#cd8ff91a",
@@ -1286,7 +1286,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e1157f322ba1b2fa",
+  "colors": "4aa4772b876e07ee",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
@@ -1338,7 +1338,7 @@
    "editor.findMatchForeground": "#24294A",
    "editor.findMatchHighlightForeground": "#24294A",
    "editor.findRangeHighlightBackground": "#7b2cbf1a",
-   "editor.hoverHighlightBackground": "#7b2cbf24",
+   "editor.hoverHighlightBackground": "#dcc9f095",
    "editor.lineHighlightBackground": "#ebecf0",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#7b2cbf1a",
@@ -2566,7 +2566,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a5e4f36d225fe38c",
+  "colors": "9724ac39d5ed0389",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
@@ -2618,7 +2618,7 @@
    "editor.findMatchForeground": "#f0f2f5",
    "editor.findMatchHighlightForeground": "#f0f2f5",
    "editor.findRangeHighlightBackground": "#af9cf91a",
-   "editor.hoverHighlightBackground": "#af9cf924",
+   "editor.hoverHighlightBackground": "#302d4895",
    "editor.lineHighlightBackground": "#14161c",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#af9cf91a",
@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "77b28fd7ad969ac2",
+  "colors": "b30d2c9bb0afc8b1",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3898,7 +3898,7 @@
    "editor.findMatchForeground": "#1B1D22",
    "editor.findMatchHighlightForeground": "#1B1D22",
    "editor.findRangeHighlightBackground": "#3a2fc91a",
-   "editor.hoverHighlightBackground": "#3a2fc924",
+   "editor.hoverHighlightBackground": "#cecbec9a",
    "editor.lineHighlightBackground": "#ecebe7",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#3a2fc91a",
@@ -5126,7 +5126,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "aa8ce2c58c06dccb",
+  "colors": "53047481ab86b7e8",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
@@ -5178,7 +5178,7 @@
    "editor.findMatchForeground": "#DCE0D8",
    "editor.findMatchHighlightForeground": "#DCE0D8",
    "editor.findRangeHighlightBackground": "#7fe33f1a",
-   "editor.hoverHighlightBackground": "#7fe33f24",
+   "editor.hoverHighlightBackground": "#243a15a3",
    "editor.lineHighlightBackground": "#171817",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#7fe33f1a",
@@ -6406,7 +6406,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f6b2817f5885b476",
+  "colors": "a56af4991434abef",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
@@ -6458,7 +6458,7 @@
    "editor.findMatchForeground": "#1C1F1A",
    "editor.findMatchHighlightForeground": "#1C1F1A",
    "editor.findRangeHighlightBackground": "#3d7a141a",
-   "editor.hoverHighlightBackground": "#3d7a1424",
+   "editor.hoverHighlightBackground": "#cbdabe95",
    "editor.lineHighlightBackground": "#e8e9e5",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#3d7a141a",
@@ -7686,7 +7686,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "110d03c6033239f3",
+  "colors": "e67694c45682e7fa",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
@@ -7738,7 +7738,7 @@
    "editor.findMatchForeground": "#E2E2E4",
    "editor.findMatchHighlightForeground": "#E2E2E4",
    "editor.findRangeHighlightBackground": "#e8b54a1a",
-   "editor.hoverHighlightBackground": "#e8b54a24",
+   "editor.hoverHighlightBackground": "#3f331b9a",
    "editor.lineHighlightBackground": "#19191a",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#e8b54a1a",
@@ -8966,7 +8966,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "137376cba43d7af2",
+  "colors": "60aaa8a46681900c",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
@@ -9018,7 +9018,7 @@
    "editor.findMatchForeground": "#1D1D20",
    "editor.findMatchHighlightForeground": "#1D1D20",
    "editor.findRangeHighlightBackground": "#8a5a001a",
-   "editor.hoverHighlightBackground": "#8a5a0024",
+   "editor.hoverHighlightBackground": "#ded2bd95",
    "editor.lineHighlightBackground": "#e9e9ea",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#8a5a001a",
@@ -10246,7 +10246,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "78bb86fd8cfeabd2",
+  "colors": "bed8bbee2e933379",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
@@ -10298,7 +10298,7 @@
    "editor.findMatchForeground": "#d4d8de",
    "editor.findMatchHighlightForeground": "#d4d8de",
    "editor.findRangeHighlightBackground": "#16dff41a",
-   "editor.hoverHighlightBackground": "#16dff424",
+   "editor.hoverHighlightBackground": "#093d448a",
    "editor.lineHighlightBackground": "#141416",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#16dff41a",
@@ -11526,7 +11526,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e1529ea599e4ca57",
+  "colors": "f19572428cf1d8fb",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
@@ -11578,7 +11578,7 @@
    "editor.findMatchForeground": "#16181C",
    "editor.findMatchHighlightForeground": "#16181C",
    "editor.findRangeHighlightBackground": "#0a5b641a",
-   "editor.hoverHighlightBackground": "#0a5b6424",
+   "editor.hoverHighlightBackground": "#c3d6d995",
    "editor.lineHighlightBackground": "#eeeeef",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0a5b641a",
@@ -15372,7 +15372,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8455b9e9780f9e42",
+  "colors": "9999748301fb7e3f",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
@@ -15424,7 +15424,7 @@
    "editor.findMatchForeground": "#D4D1DC",
    "editor.findMatchHighlightForeground": "#D4D1DC",
    "editor.findRangeHighlightBackground": "#f976e71a",
-   "editor.hoverHighlightBackground": "#f976e724",
+   "editor.hoverHighlightBackground": "#532a5076",
    "editor.lineHighlightBackground": "#17151a",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#f976e71a",
@@ -16652,7 +16652,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "46df52167b728114",
+  "colors": "09432dc5f94bdf87",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
@@ -16704,7 +16704,7 @@
    "editor.findMatchForeground": "#222128",
    "editor.findMatchHighlightForeground": "#222128",
    "editor.findRangeHighlightBackground": "#b70ca81a",
-   "editor.hoverHighlightBackground": "#b70ca824",
+   "editor.hoverHighlightBackground": "#ebc2e995",
    "editor.lineHighlightBackground": "#edecee",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#b70ca81a",
@@ -17932,7 +17932,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7f3a856730c731d4",
+  "colors": "79a2155f425dce26",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
@@ -17984,7 +17984,7 @@
    "editor.findMatchForeground": "#c9dee3",
    "editor.findMatchHighlightForeground": "#c9dee3",
    "editor.findRangeHighlightBackground": "#97ccf21a",
-   "editor.hoverHighlightBackground": "#97ccf224",
+   "editor.hoverHighlightBackground": "#273f4f95",
    "editor.lineHighlightBackground": "#0f1e26",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#97ccf21a",
@@ -19212,7 +19212,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7522dcf3a5669d14",
+  "colors": "fc2dd1b8edea1ea0",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
@@ -19264,7 +19264,7 @@
    "editor.findMatchForeground": "#152225",
    "editor.findMatchHighlightForeground": "#152225",
    "editor.findRangeHighlightBackground": "#0a587b1a",
-   "editor.hoverHighlightBackground": "#0a587b24",
+   "editor.hoverHighlightBackground": "#bed3dd95",
    "editor.lineHighlightBackground": "#e7ebed",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0a587b1a",
@@ -20492,7 +20492,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9015fa9bf9abeaaf",
+  "colors": "6780889e7afd38f4",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
@@ -20544,7 +20544,7 @@
    "editor.findMatchForeground": "#DED2CD",
    "editor.findMatchHighlightForeground": "#DED2CD",
    "editor.findRangeHighlightBackground": "#f28f831a",
-   "editor.hoverHighlightBackground": "#f28f8324",
+   "editor.hoverHighlightBackground": "#52322c7b",
    "editor.lineHighlightBackground": "#1c1815",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#f28f831a",
@@ -21772,7 +21772,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e25070b53a8124d2",
+  "colors": "44bef15c52829705",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
@@ -21824,7 +21824,7 @@
    "editor.findMatchForeground": "#251D19",
    "editor.findMatchHighlightForeground": "#251D19",
    "editor.findRangeHighlightBackground": "#bc0d221a",
-   "editor.hoverHighlightBackground": "#bc0d2224",
+   "editor.hoverHighlightBackground": "#ebbfbf95",
    "editor.lineHighlightBackground": "#ebe8e2",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#bc0d221a",
@@ -23052,7 +23052,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6eb2d1daf684ae9f",
+  "colors": "bc97dc96c2be1b93",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
@@ -23104,7 +23104,7 @@
    "editor.findMatchForeground": "#D7DCE5",
    "editor.findMatchHighlightForeground": "#D7DCE5",
    "editor.findRangeHighlightBackground": "#77abf91a",
-   "editor.hoverHighlightBackground": "#77abf924",
+   "editor.hoverHighlightBackground": "#303f5a80",
    "editor.lineHighlightBackground": "#202026",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#77abf91a",
@@ -24332,7 +24332,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a55c6732c568db3a",
+  "colors": "b413b87174e002df",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
@@ -24384,7 +24384,7 @@
    "editor.findMatchForeground": "#251F19",
    "editor.findMatchHighlightForeground": "#251F19",
    "editor.findRangeHighlightBackground": "#0a66b21a",
-   "editor.hoverHighlightBackground": "#0a66b224",
+   "editor.hoverHighlightBackground": "#c1d6e195",
    "editor.lineHighlightBackground": "#eceae2",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0a66b21a",
@@ -25612,7 +25612,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc7d95372341b14f",
+  "colors": "54dc8efc98e46970",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
@@ -25664,7 +25664,7 @@
    "editor.findMatchForeground": "#DBD2CE",
    "editor.findMatchHighlightForeground": "#DBD2CE",
    "editor.findRangeHighlightBackground": "#0fcbb71a",
-   "editor.hoverHighlightBackground": "#0fcbb724",
+   "editor.hoverHighlightBackground": "#0e403980",
    "editor.lineHighlightBackground": "#191714",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0fcbb71a",
@@ -26892,7 +26892,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ab9faa534e62db68",
+  "colors": "02a1d55098c7bd57",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
@@ -26944,7 +26944,7 @@
    "editor.findMatchForeground": "#211B18",
    "editor.findMatchHighlightForeground": "#211B18",
    "editor.findRangeHighlightBackground": "#0c61571a",
-   "editor.hoverHighlightBackground": "#0c615724",
+   "editor.hoverHighlightBackground": "#bfd1c995",
    "editor.lineHighlightBackground": "#e8e5df",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0c61571a",
@@ -28172,7 +28172,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ef20489c0b0a22f2",
+  "colors": "c323016425932399",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
@@ -28224,7 +28224,7 @@
    "editor.findMatchForeground": "#d5e5eb",
    "editor.findMatchHighlightForeground": "#d5e5eb",
    "editor.findRangeHighlightBackground": "#ee7dfa1a",
-   "editor.hoverHighlightBackground": "#ee7dfa24",
+   "editor.hoverHighlightBackground": "#4c346776",
    "editor.lineHighlightBackground": "#112031",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#ee7dfa1a",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fb3b137e0831b907",
+  "colors": "d8a91c477b988b19",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -29504,7 +29504,7 @@
    "editor.findMatchForeground": "#152125",
    "editor.findMatchHighlightForeground": "#152125",
    "editor.findRangeHighlightBackground": "#b61ccb1a",
-   "editor.hoverHighlightBackground": "#b61ccb24",
+   "editor.hoverHighlightBackground": "#e6c3f195",
    "editor.lineHighlightBackground": "#e6e9ee",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#b61ccb1a",
@@ -30732,7 +30732,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fca5371c406a07c2",
+  "colors": "91f35ddf19076f82",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
@@ -30784,7 +30784,7 @@
    "editor.findMatchForeground": "#ccdce2",
    "editor.findMatchHighlightForeground": "#ccdce2",
    "editor.findRangeHighlightBackground": "#f2a47a1a",
-   "editor.hoverHighlightBackground": "#f2a47a24",
+   "editor.hoverHighlightBackground": "#4b372f80",
    "editor.lineHighlightBackground": "#16191e",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#f2a47a1a",
@@ -32012,7 +32012,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b5e1e34cdd04cf53",
+  "colors": "2ab42469fe1ed5c1",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
@@ -32064,7 +32064,7 @@
    "editor.findMatchForeground": "#251C18",
    "editor.findMatchHighlightForeground": "#251C18",
    "editor.findRangeHighlightBackground": "#913e0a1a",
-   "editor.hoverHighlightBackground": "#913e0a24",
+   "editor.hoverHighlightBackground": "#e2cab695",
    "editor.lineHighlightBackground": "#ece7de",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#913e0a1a",
@@ -33292,7 +33292,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "963bf11181fde1ac",
+  "colors": "d978bcb2c17aef2e",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
@@ -33344,7 +33344,7 @@
    "editor.findMatchForeground": "#C3D4DB",
    "editor.findMatchHighlightForeground": "#C3D4DB",
    "editor.findRangeHighlightBackground": "#40d0ed1a",
-   "editor.hoverHighlightBackground": "#40d0ed24",
+   "editor.hoverHighlightBackground": "#153d4884",
    "editor.lineHighlightBackground": "#14161a",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#40d0ed1a",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a6c11fd750179450",
+  "colors": "22129b69f93f4add",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -34624,7 +34624,7 @@
    "editor.findMatchForeground": "#162227",
    "editor.findMatchHighlightForeground": "#162227",
    "editor.findRangeHighlightBackground": "#0c5b6a1a",
-   "editor.hoverHighlightBackground": "#0c5b6a24",
+   "editor.hoverHighlightBackground": "#c0d4da95",
    "editor.lineHighlightBackground": "#e9ebee",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0c5b6a1a",
@@ -35852,7 +35852,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "46575d0c0f3d5c30",
+  "colors": "fee2a5db75228db6",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
@@ -35904,7 +35904,7 @@
    "editor.findMatchForeground": "#C4D5D4",
    "editor.findMatchHighlightForeground": "#C4D5D4",
    "editor.findRangeHighlightBackground": "#11d9a91a",
-   "editor.hoverHighlightBackground": "#11d9a924",
+   "editor.hoverHighlightBackground": "#08413684",
    "editor.lineHighlightBackground": "#121719",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#11d9a91a",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9b17c737649994e3",
+  "colors": "194fb8fbd91c80d1",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37184,7 +37184,7 @@
    "editor.findMatchForeground": "#172221",
    "editor.findMatchHighlightForeground": "#172221",
    "editor.findRangeHighlightBackground": "#0c5e481a",
-   "editor.hoverHighlightBackground": "#0c5e4824",
+   "editor.hoverHighlightBackground": "#bdd5cf95",
    "editor.lineHighlightBackground": "#e6ebeb",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0c5e481a",
@@ -38412,7 +38412,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "14caa85ad52f66b9",
+  "colors": "7c39e17a88f30b93",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
@@ -38464,7 +38464,7 @@
    "editor.findMatchForeground": "#dfd1d0",
    "editor.findMatchHighlightForeground": "#dfd1d0",
    "editor.findRangeHighlightBackground": "#e8cc6a1a",
-   "editor.hoverHighlightBackground": "#e8cc6a24",
+   "editor.hoverHighlightBackground": "#41371e95",
    "editor.lineHighlightBackground": "#191614",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#e8cc6a1a",
@@ -39692,7 +39692,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "04a14c94d9afc028",
+  "colors": "baf7f63ebafa2201",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
@@ -39744,7 +39744,7 @@
    "editor.findMatchForeground": "#251C1B",
    "editor.findMatchHighlightForeground": "#251C1B",
    "editor.findRangeHighlightBackground": "#574a0a1a",
-   "editor.hoverHighlightBackground": "#574a0a24",
+   "editor.hoverHighlightBackground": "#d3cdbb95",
    "editor.lineHighlightBackground": "#ebe7e3",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#574a0a1a",
@@ -40972,7 +40972,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "94e995c2dd807a66",
+  "colors": "6c86b2162bb12d43",
   "tokenColors": "02ee168538723851",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
@@ -41024,7 +41024,7 @@
    "editor.findMatchForeground": "#fefdfc",
    "editor.findMatchHighlightForeground": "#fefdfc",
    "editor.findRangeHighlightBackground": "#fff6e41a",
-   "editor.hoverHighlightBackground": "#fff6e424",
+   "editor.hoverHighlightBackground": "#4a3b2df0",
    "editor.lineHighlightBackground": "#342418",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#fff6e41a",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "25fca2b55dfc5921",
+  "colors": "2469ead095a34a9e",
   "tokenColors": "c3adc3f9a88869bf",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -42304,7 +42304,7 @@
    "editor.findMatchForeground": "#2C2318",
    "editor.findMatchHighlightForeground": "#2C2318",
    "editor.findRangeHighlightBackground": "#1a130a1a",
-   "editor.hoverHighlightBackground": "#1a130a24",
+   "editor.hoverHighlightBackground": "#c5beb0be",
    "editor.lineHighlightBackground": "#dfd8c9",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#1a130a1a",
@@ -43532,7 +43532,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0aece7395ef4a6aa",
+  "colors": "d2787599dbc17852",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
@@ -43584,7 +43584,7 @@
    "editor.findMatchForeground": "#C4D2CE",
    "editor.findMatchHighlightForeground": "#C4D2CE",
    "editor.findRangeHighlightBackground": "#3fe8be1a",
-   "editor.hoverHighlightBackground": "#3fe8be24",
+   "editor.hoverHighlightBackground": "#134035a3",
    "editor.lineHighlightBackground": "#111b19",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#3fe8be1a",
@@ -44812,7 +44812,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "36881738ae03b1ef",
+  "colors": "dcdaaddac477fe34",
   "tokenColors": "098dfb7cd385529a",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
@@ -44864,7 +44864,7 @@
    "editor.findMatchForeground": "#1E2321",
    "editor.findMatchHighlightForeground": "#1E2321",
    "editor.findRangeHighlightBackground": "#0652461a",
-   "editor.hoverHighlightBackground": "#06524624",
+   "editor.hoverHighlightBackground": "#bcc9ca95",
    "editor.lineHighlightBackground": "#e6e0e4",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0652461a",
@@ -46092,7 +46092,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "26a3b24d6dd3b8c4",
+  "colors": "e9fa56c0dbdfd7d0",
   "tokenColors": "3de8a9adfa99c13a",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
@@ -46144,7 +46144,7 @@
    "editor.findMatchForeground": "#eff0f1",
    "editor.findMatchHighlightForeground": "#eff0f1",
    "editor.findRangeHighlightBackground": "#f0b75a1a",
-   "editor.hoverHighlightBackground": "#f0b75a24",
+   "editor.hoverHighlightBackground": "#3d352ad4",
    "editor.lineHighlightBackground": "#23252a",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#f0b75a1a",
@@ -47341,7 +47341,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "995331c04e3c1e04",
+  "colors": "e184500c713f134c",
   "tokenColors": "7b810470a89217d0",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
@@ -47393,7 +47393,7 @@
    "editor.findMatchForeground": "#2E3036",
    "editor.findMatchHighlightForeground": "#2E3036",
    "editor.findRangeHighlightBackground": "#8556061a",
-   "editor.hoverHighlightBackground": "#85560624",
+   "editor.hoverHighlightBackground": "#daceb89a",
    "editor.lineHighlightBackground": "#e5e3df",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#8556061a",
@@ -48590,7 +48590,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1a3413042757c558",
+  "colors": "61052d62d29bd25d",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -48642,7 +48642,7 @@
    "editor.findMatchForeground": "#f0ebe2",
    "editor.findMatchHighlightForeground": "#f0ebe2",
    "editor.findRangeHighlightBackground": "#c39b541a",
-   "editor.hoverHighlightBackground": "#c39b5424",
+   "editor.hoverHighlightBackground": "#372d1bb3",
    "editor.lineHighlightBackground": "#1f1c18",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#c39b541a",
@@ -49883,7 +49883,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a9614cf7b44da29e",
+  "colors": "c70eda7938b60e8f",
   "tokenColors": "3f5a7079bd6c36e5",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -49935,7 +49935,7 @@
    "editor.findMatchForeground": "#241F16",
    "editor.findMatchHighlightForeground": "#241F16",
    "editor.findRangeHighlightBackground": "#8a5f1e1a",
-   "editor.hoverHighlightBackground": "#8a5f1e24",
+   "editor.hoverHighlightBackground": "#d8c9b09a",
    "editor.lineHighlightBackground": "#e1dbcf",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#8a5f1e1a",
@@ -51176,7 +51176,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5cbf944d1d555529",
+  "colors": "4692c84218c40fec",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
@@ -51228,7 +51228,7 @@
    "editor.findMatchForeground": "#e1e4e8",
    "editor.findMatchHighlightForeground": "#e1e4e8",
    "editor.findRangeHighlightBackground": "#f09a181a",
-   "editor.hoverHighlightBackground": "#f09a1824",
+   "editor.hoverHighlightBackground": "#41311aa9",
    "editor.lineHighlightBackground": "#1d2024",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#f09a181a",
@@ -52444,7 +52444,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9210b5955139dcec",
+  "colors": "1ff6878c52ad38c4",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
@@ -52496,7 +52496,7 @@
    "editor.findMatchForeground": "#22262E",
    "editor.findMatchHighlightForeground": "#22262E",
    "editor.findRangeHighlightBackground": "#8a5a001a",
-   "editor.hoverHighlightBackground": "#8a5a0024",
+   "editor.hoverHighlightBackground": "#dbd1bd95",
    "editor.lineHighlightBackground": "#e6e7ea",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#8a5a001a",
@@ -53712,7 +53712,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1ec7191568048892",
+  "colors": "a808190d2edf3e76",
   "tokenColors": "032a5033393b1a2a",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
@@ -53764,7 +53764,7 @@
    "editor.findMatchForeground": "#efeae0",
    "editor.findMatchHighlightForeground": "#efeae0",
    "editor.findRangeHighlightBackground": "#d9a94a1a",
-   "editor.hoverHighlightBackground": "#d9a94a24",
+   "editor.hoverHighlightBackground": "#3c311cc6",
    "editor.lineHighlightBackground": "#23201d",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#d9a94a1a",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9314950239991a7d",
+  "colors": "3638f441118a4483",
   "tokenColors": "b919a495ee1519e5",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55020,7 +55020,7 @@
    "editor.findMatchForeground": "#2A241A",
    "editor.findMatchHighlightForeground": "#2A241A",
    "editor.findRangeHighlightBackground": "#7e5b0e1a",
-   "editor.hoverHighlightBackground": "#7e5b0e24",
+   "editor.hoverHighlightBackground": "#d2c3a095",
    "editor.lineHighlightBackground": "#dfd6c2",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#7e5b0e1a",
@@ -56224,7 +56224,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2808de983f167c93",
+  "colors": "082b8e4f9fcfba8b",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -56276,7 +56276,7 @@
    "editor.findMatchForeground": "#f6f6f6",
    "editor.findMatchHighlightForeground": "#f6f6f6",
    "editor.findRangeHighlightBackground": "#93a6bc1a",
-   "editor.hoverHighlightBackground": "#93a6bc24",
+   "editor.hoverHighlightBackground": "#32363cb3",
    "editor.lineHighlightBackground": "#242426",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#93a6bc1a",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "84b4aa1dee619a70",
+  "colors": "12b2346ff38a20ed",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -57569,7 +57569,7 @@
    "editor.findMatchForeground": "#242428",
    "editor.findMatchHighlightForeground": "#242428",
    "editor.findRangeHighlightBackground": "#4e627a1a",
-   "editor.hoverHighlightBackground": "#4e627a24",
+   "editor.hoverHighlightBackground": "#c3c6c895",
    "editor.lineHighlightBackground": "#dad8d4",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#4e627a1a",
@@ -58810,7 +58810,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "324fbf57289c2cee",
+  "colors": "1c59ede1253a15cf",
   "tokenColors": "7328fed861e584da",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
@@ -58862,7 +58862,7 @@
    "editor.findMatchForeground": "#DEDCD6",
    "editor.findMatchHighlightForeground": "#DEDCD6",
    "editor.findRangeHighlightBackground": "#d8a83c1a",
-   "editor.hoverHighlightBackground": "#d8a83c24",
+   "editor.hoverHighlightBackground": "#42351880",
    "editor.lineHighlightBackground": "#161617",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#d8a83c1a",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d3d0fde2863a0878",
+  "colors": "8bf78046d0b3bfb2",
   "tokenColors": "7b68d79e017deb02",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -60142,7 +60142,7 @@
    "editor.findMatchForeground": "#1F1E1A",
    "editor.findMatchHighlightForeground": "#1F1E1A",
    "editor.findRangeHighlightBackground": "#8a5f121a",
-   "editor.hoverHighlightBackground": "#8a5f1224",
+   "editor.hoverHighlightBackground": "#e1d7c395",
    "editor.lineHighlightBackground": "#eeeeec",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#8a5f121a",
@@ -61370,7 +61370,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "281d5bc181d261c3",
+  "colors": "c67168f82af1d4ee",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
@@ -61422,7 +61422,7 @@
    "editor.findMatchForeground": "#C6D2CC",
    "editor.findMatchHighlightForeground": "#C6D2CC",
    "editor.findRangeHighlightBackground": "#ff5c4d1a",
-   "editor.hoverHighlightBackground": "#ff5c4d24",
+   "editor.hoverHighlightBackground": "#4a251e84",
    "editor.lineHighlightBackground": "#111a17",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#ff5c4d1a",
@@ -62614,7 +62614,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ff6be2f63b9f6228",
+  "colors": "ea9e36b80680a891",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
@@ -62666,7 +62666,7 @@
    "editor.findMatchForeground": "#1D2622",
    "editor.findMatchHighlightForeground": "#1D2622",
    "editor.findRangeHighlightBackground": "#c22a181a",
-   "editor.hoverHighlightBackground": "#c22a1824",
+   "editor.hoverHighlightBackground": "#e7c7c095",
    "editor.lineHighlightBackground": "#e4e9e6",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#c22a181a",
@@ -63858,7 +63858,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b75155a0ad79e9fe",
+  "colors": "3f9e95cd83e6e93b",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
@@ -63910,7 +63910,7 @@
    "editor.findMatchForeground": "#EDD6DA",
    "editor.findMatchHighlightForeground": "#EDD6DA",
    "editor.findRangeHighlightBackground": "#ff5e7a1a",
-   "editor.hoverHighlightBackground": "#ff5e7a24",
+   "editor.hoverHighlightBackground": "#61232f76",
    "editor.lineHighlightBackground": "#26151a",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#ff5e7a1a",
@@ -65138,7 +65138,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f2b455022a87a16b",
+  "colors": "0240bbb2d2ac8738",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
@@ -65190,7 +65190,7 @@
    "editor.findMatchForeground": "#2A161B",
    "editor.findMatchHighlightForeground": "#2A161B",
    "editor.findRangeHighlightBackground": "#b012381a",
-   "editor.hoverHighlightBackground": "#b0123824",
+   "editor.hoverHighlightBackground": "#e9bcc695",
    "editor.lineHighlightBackground": "#ece3e4",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#b012381a",
@@ -66418,7 +66418,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0467047178454b6b",
+  "colors": "a9033b8546141929",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
@@ -66470,7 +66470,7 @@
    "editor.findMatchForeground": "#f8fbfd",
    "editor.findMatchHighlightForeground": "#f8fbfd",
    "editor.findRangeHighlightBackground": "#0ecccb1a",
-   "editor.hoverHighlightBackground": "#0ecccb24",
+   "editor.hoverHighlightBackground": "#17575f7b",
    "editor.lineHighlightBackground": "#24313c",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0ecccb1a",
@@ -67698,7 +67698,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f98ab701dd9f12a5",
+  "colors": "ca4e3e0d51fee0b1",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
@@ -67750,7 +67750,7 @@
    "editor.findMatchForeground": "#18262F",
    "editor.findMatchHighlightForeground": "#18262F",
    "editor.findRangeHighlightBackground": "#0a6b6c1a",
-   "editor.hoverHighlightBackground": "#0a6b6c24",
+   "editor.hoverHighlightBackground": "#bbd8da95",
    "editor.lineHighlightBackground": "#e3ebee",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#0a6b6c1a",
@@ -68978,7 +68978,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c6378ba5682c4278",
+  "colors": "20c375ca3d2b6d8b",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -69030,7 +69030,7 @@
    "editor.findMatchForeground": "#D6DEEC",
    "editor.findMatchHighlightForeground": "#D6DEEC",
    "editor.findRangeHighlightBackground": "#ae9fcd1a",
-   "editor.hoverHighlightBackground": "#ae9fcd24",
+   "editor.hoverHighlightBackground": "#363241a3",
    "editor.lineHighlightBackground": "#1f1e24",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#ae9fcd1a",
@@ -70258,7 +70258,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a8e9e115ab7a8c27",
+  "colors": "835d98eb7fd7abe7",
   "tokenColors": "331b1630f0d9933c",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
@@ -70310,7 +70310,7 @@
    "editor.findMatchForeground": "#1E1C22",
    "editor.findMatchHighlightForeground": "#1E1C22",
    "editor.findRangeHighlightBackground": "#60537d1a",
-   "editor.hoverHighlightBackground": "#60537d24",
+   "editor.hoverHighlightBackground": "#d1ccd495",
    "editor.lineHighlightBackground": "#e6e3e2",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#60537d1a",
@@ -71538,7 +71538,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0886a74cc7bd8676",
+  "colors": "6a37897ee8e5b3c0",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -71590,7 +71590,7 @@
    "editor.findMatchForeground": "#E8E2D4",
    "editor.findMatchHighlightForeground": "#E8E2D4",
    "editor.findRangeHighlightBackground": "#ff63b41a",
-   "editor.hoverHighlightBackground": "#ff63b424",
+   "editor.hoverHighlightBackground": "#5027388e",
    "editor.lineHighlightBackground": "#201e19",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#ff63b41a",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3a29d1ae3c386c47",
+  "colors": "4a699939363848b6",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72870,7 +72870,7 @@
    "editor.findMatchForeground": "#211E16",
    "editor.findMatchHighlightForeground": "#211E16",
    "editor.findRangeHighlightBackground": "#c4157e1a",
-   "editor.hoverHighlightBackground": "#c4157e24",
+   "editor.hoverHighlightBackground": "#ecc7d1be",
    "editor.lineHighlightBackground": "#e6e2d6",
    "editor.lineHighlightBorder": "#00000000",
    "editor.rangeHighlightBackground": "#c4157e1a",
