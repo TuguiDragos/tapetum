@@ -1179,6 +1179,9 @@ function addendum(t) {
   const { bg, elev, chrome, fg, dim, faint, ghost, line, line2, acc, fill, onFill, st, y, trio, dark, legible } = t;
   const a = (c, k) => alpha(c, k);
   const m = (x, yy, k) => mix(x, yy, k);
+  // a failure from a stale run keeps the 3.0 of a mark on the editor and the side bar, still fainter than a fresh one
+  let staleShare = 0.55;
+  while (staleShare < 1 && [bg, elev].some((g) => contrast(m(bg, st.error, staleShare), g) < 3.0)) staleShare = Math.round(staleShare * 100 + 1) / 100;
   const guides = {};
   for (let i = 2; i <= 6; i++) {
     const hue = trio[(i - 1) % 3];
@@ -1245,8 +1248,8 @@ function addendum(t) {
     'terminalOverviewRuler.border': line,
     'testing.coveredMinimapBackground': a(st.ok, 0.45),
     'testing.uncoveredMinimapBackground': a(st.warn, 0.45),
-    'testing.iconErrored.retired': m(bg, st.error, 0.55),
-    'testing.iconFailed.retired': m(bg, st.error, 0.55),
+    'testing.iconErrored.retired': m(bg, st.error, staleShare),
+    'testing.iconFailed.retired': m(bg, st.error, staleShare),
     'testing.iconPassed.retired': m(bg, st.ok, 0.55),
     'testing.iconQueued.retired': m(bg, st.warn, 0.55),
     'testing.iconSkipped.retired': ghost,
