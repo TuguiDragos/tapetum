@@ -151,6 +151,7 @@ function analyse(fam, v) {
   const out = { label: t.name, findings: [] };
   const bad = (sev, msg) => out.findings.push({ sev, msg });
   out.pending = {};
+  out.linkGap = deltaE(over(c['textLink.foreground'], eb), over(c.foreground, eb));
   const pend = (what, cr, floor) => {
     const q = (out.pending[what] ||= { worst: 99, under: false });
     q.worst = Math.min(q.worst, cr);
@@ -570,5 +571,7 @@ for (const what of [...new Set(rows.flatMap((r) => Object.keys(r.pending)))]) {
   const low = hit.reduce((a, b) => (b.pending[what].worst < a.pending[what].worst ? b : a));
   console.log(`   ${what}: under the floor in ${hit.filter((r) => r.pending[what].under).length} of ${hit.length} themes, lowest ${low.pending[what].worst.toFixed(2)} in ${low.label}`);
 }
+const near = rows.filter((r) => r.linkGap < 10), nearest = rows.reduce((a, b) => (b.linkGap < a.linkGap ? b : a));
+console.log(`\nmeasured, kept by the maintainer's choice: a link under 10 dE from the text beside it in ${near.length} of ${rows.length} themes, lowest ${nearest.linkGap.toFixed(1)} in ${nearest.label}`);
 console.log(issues ? `\nTOTAL ${issues} problems` : '\nNO PROBLEM IN THE DEEP AUDIT');
 process.exit(issues ? 1 : 0);
