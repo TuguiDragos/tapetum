@@ -49,10 +49,13 @@ function tokens(s) {
   let findAlpha = 0.38;
   while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
   const findWash = alpha(s.syntax.number, findAlpha);
+  // Insiders draws the quick input, menus, hovers, dialogs and notifications (all on elev) as frosted glass, from 50% to 100% of
+  // the surface over whatever lies under it, so text on them also reads with half of the editor, the strip or the chrome
+  const glass = [bg, chrome, strip].map((u) => mix(u, elev, 0.5));
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   // links also sit on the status bar of a hover, which is the overlay surface; a hovered link also names a hovered card of the
   // customization discovery, the list hover over 4% of the text on the widget
-  const linkOf = (c) => faded(readsOn(legible(legible(c, bg, 4.5), elev, 4.5), over, 4.5), bg, 0.9, 4.5);
+  const linkOf = (c) => faded([over, ...glass].reduce((x, g) => readsOn(x, g, 4.5), legible(legible(c, bg, 4.5), elev, 4.5)), bg, 0.9, 4.5);
   const activeLinkOf = (c) => faded(readsOn(legible(legible(c, bg, 4.5), elev, 4.5), composite(alpha(fg, 0.06), mix(elev, fg, 0.04)), 4.5), bg, 0.9, 4.5);
   // a link is told from the text beside it by its colour alone, so where the function colour sits on the text it takes the family accent
   const apartFromText = (c) => deltaE(c, fg) >= 12;
@@ -123,11 +126,11 @@ function tokens(s) {
     pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
   }
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, linkSource, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, glass, linkSource, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
-    errorForeground: legible(legible(st.error, bg, 4.5), elev, 4.5),
+    errorForeground: glass.reduce((x, g) => readsOn(x, g, 4.5), legible(legible(st.error, bg, 4.5), elev, 4.5)),
     focusBorder: focusRing,
     'icon.foreground': dim,
     'selection.background': sel,
@@ -249,7 +252,7 @@ function tokens(s) {
     'editorHoverWidget.background': elev,
     'editorHoverWidget.foreground': fg,
     'editorHoverWidget.border': line2,
-    'editorHoverWidget.highlightForeground': readsOn(y.string, elev, 4.5),
+    'editorHoverWidget.highlightForeground': [elev, ...glass].reduce((x, g) => readsOn(x, g, 4.5), y.string),
     'editorHoverWidget.statusBarBackground': over,
     'editorSuggestWidget.background': elev,
     'editorSuggestWidget.border': line2,
@@ -757,7 +760,7 @@ function integrations(t) {
     'notifications.background': elev,
     'notifications.foreground': fg,
     'notifications.border': line,
-    'notificationLink.foreground': readsOn(t.linkSource, elev, 4.5),
+    'notificationLink.foreground': [elev, ...t.glass].reduce((x, g) => readsOn(x, g, 4.5), t.linkSource),
     'notificationsErrorIcon.foreground': st.error,
     'notificationsWarningIcon.foreground': st.warn,
     'notificationsInfoIcon.foreground': st.info,
