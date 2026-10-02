@@ -78,7 +78,10 @@ function tokens(s) {
   const nameGrounds = [elev, strip, mix(strip, fg, 0.06), stripHover, ...rowGrounds];
   // VS Code draws the letter of a decoration (M, U, a problem count) beside the name at 75%, and it keeps the 3.0 of a mark
   const letterOn = (c, grounds) => grounds.reduce((x, g) => away(x, g, (y) => contrast(mix(g, y, 0.75), g) >= 3.0, 95), c);
-  const whitespace = mix(bg, fg, 0.2);
+  // VS Code draws whitespace only on a selection by default, and the dots keep the 6 dE its own themes keep there, focused or not
+  let wsShare = 0.2;
+  while (wsShare < 0.5 && [sel, selSoft].some((s) => deltaE(mix(bg, fg, wsShare), composite(s, bg)) < 6.0)) wsShare = Math.round(wsShare * 100 + 1) / 100;
+  const whitespace = mix(bg, fg, wsShare);
   // the search view shows each match in the side bar's text on the find highlight, so the highlight eases off until that text reads
   const sideText = legible(mix(fg, elev, 0.18), elev, 4.5);
   let matchAlpha = 0.24;
@@ -1065,6 +1068,7 @@ export function buildColors(spec) {
   if (t.hc) applyHighContrast(all, t);
   else onGlass(all, t);
   findInTrees(all, t);
+  framesOnCurrentLine(all, t);
   Object.assign(all, forkKeys(all, t));
   for (const k of Object.keys(all)) if (all[k] === undefined) delete all[k];
   return all;
@@ -1602,6 +1606,18 @@ function findInTrees(all, t) {
   let a = parse(all['list.filterMatchBackground']).a;
   while (a > 0.1 && !reads(a)) a = Math.round(a * 100 - 1) / 100;
   all['list.filterMatchBackground'] = alpha(hex, a);
+}
+
+// a program stopped in the debugger leaves the cursor on its frame line, so the frame lies over the current line, focused or not
+function framesOnCurrentLine(all, t) {
+  const { y } = t, eb = all['editor.background'], code = [y.comment, y.keyword, y.func, y.string, y.type, y.number, y.tag].filter(Boolean);
+  const grounds = [eb, ...['editor.lineHighlightBackground', 'editor.inactiveLineHighlightBackground'].map((k) => composite(all[k], eb))];
+  for (const k of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground']) {
+    const hex = all[k].slice(0, 7);
+    let a = parse(all[k]).a;
+    while (a > 0.05 && grounds.some((g) => code.some((c) => contrast(c, composite(alpha(hex, a), g)) < 3.0))) a = Math.round(a * 100 - 1) / 100;
+    all[k] = alpha(hex, a);
+  }
 }
 
 function forkKeys(all, t) {

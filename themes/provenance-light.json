@@ -625,7 +625,7 @@
     "debugView.stateLabelBackground": "#dcdad5",
     "debugView.stateLabelForeground": "#2E3036",
     "debugView.valueChangedHighlight": "#85560666",
-    "editor.stackFrameHighlightBackground": "#85560629",
+    "editor.stackFrameHighlightBackground": "#85560626",
     "editor.focusedStackFrameHighlightBackground": "#5a6c5229",
     "chat.requestBackground": "#EAE7E0",
     "chat.requestBorder": "#c4c3c1",
