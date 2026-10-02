@@ -50,8 +50,9 @@ function tokens(s) {
   while (findAlpha > 0.2 && contrast(fg, composite(alpha(s.syntax.number, findAlpha), bg)) < 4.5) findAlpha = Math.round(findAlpha * 100 - 2) / 100;
   const findWash = alpha(s.syntax.number, findAlpha);
   // Insiders draws the quick input, menus, hovers, dialogs and notifications (all on elev) as frosted glass, from 50% to 100% of
-  // the surface over whatever lies under it, so text on them also reads with half of the editor, the strip or the chrome
-  const glass = [bg, chrome, strip].map((u) => mix(u, elev, 0.5));
+  // the surface over whatever lies under it, so text on them also reads with half of the editor, the strip or the chrome, and
+  // with the text of the editor and the side bar, which its 12px blur keeps at about 12%
+  const glass = [bg, chrome, strip, mix(bg, fg, 0.12), mix(elev, fg, 0.12)].map((u) => mix(u, elev, 0.5));
   const highlight = [over, elev, bg].reduce((c, g) => legible(c, g, 4.5), s.syntax.string);
   // links also sit on the status bar of a hover, which is the overlay surface; a hovered link also names a hovered card of the
   // customization discovery, the list hover over 4% of the text on the widget
@@ -217,9 +218,9 @@ function tokens(s) {
     'editorInfo.background': alpha(st.info, 0.08),
     'problemsErrorIcon.foreground': softStatus(st.error),
     // also text: the labels of the chat pickers, on the chat pane or its toolbar hover (6% of the text), and the agent
-    // permissions, on menus that Insiders turns to glass
-    'problemsWarningIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
-    'problemsInfoIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass].reduce((x, g) => readsOn(x, g, 4.5), st.info),
+    // permissions, on menus that Insiders turns to glass, their focused row with the same 6% over it
+    'problemsWarningIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass, ...glass.map((g) => mix(g, fg, 0.06))].reduce((x, g) => readsOn(x, g, 4.5), softStatus(st.warn)),
+    'problemsInfoIcon.foreground': [elev, mix(elev, fg, 0.06), ...glass, ...glass.map((g) => mix(g, fg, 0.06))].reduce((x, g) => readsOn(x, g, 4.5), st.info),
 
     'editorGutter.background': bg,
     'editorGutter.modifiedBackground': st.modified,
@@ -1043,6 +1044,7 @@ export function buildColors(spec) {
   const t = tokens(spec);
   const all = { ...t.editor, ...chrome(t), ...controls(t), ...integrations(t), ...assistant(t), ...remainder(t), ...tail(t), ...addendum(t) };
   if (t.hc) applyHighContrast(all, t);
+  else onGlass(all, t);
   Object.assign(all, forkKeys(all, t));
   for (const k of Object.keys(all)) if (all[k] === undefined) delete all[k];
   return all;
@@ -1526,6 +1528,40 @@ function diffWashes(t) {
     'diffEditor.insertedTextBorder': '#00000000',
     'diffEditor.removedTextBorder': '#00000000',
   };
+}
+
+// Insiders draws its frosted glass at 80% by default over what lies under it, and that can be a wash the theme paints: a selection,
+// the changed words of a diff, a merge or an inline edit, a hovered request, an exception, a search match as a 12px blur keeps it,
+// with the text in it. The text the glass carries keeps its floor there too, also on the rows and tints it sits on
+const GLASS_TEXT = [['quickInput.foreground', 4.5], ['menu.foreground', 4.5], ['editorHoverWidget.foreground', 4.5], ['editorWidget.foreground', 4.5],
+  ['notifications.foreground', 4.5], ['foreground', 4.5], ['editor.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5],
+  ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['notificationLink.foreground', 4.5], ['errorForeground', 4.5],
+  ['chat.linesAddedForeground', 4.5], ['chat.linesRemovedForeground', 4.5], ['debugTokenExpression.name', 4.5],
+  ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5], ['icon.foreground', 3.0], ['extensionIcon.verifiedForeground', 3.0],
+  ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]];
+const tintOf = (k, share) => (all, g) => mix(g, composite(all[k], g), share);
+const GLASS_WASHED = [['descriptionForeground', 4.0, 'list.hoverBackground'], ['descriptionForeground', 4.0, tintOf('foreground', 0.10)],
+  ['descriptionForeground', 4.0, 'textCodeBlock.background'], ['problemsWarningIcon.foreground', 4.5, 'list.hoverBackground'],
+  ['problemsInfoIcon.foreground', 4.5, 'list.hoverBackground'], ['textLink.foreground', 4.5, 'textCodeBlock.background'],
+  ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground']];
+
+function onGlass(all, t) {
+  const eb = all['editor.background'], side = all['sideBar.background'], term = all['terminal.background'];
+  const on = (k, base) => composite(all[k], base);
+  const word = (k, base) => mix(base, on(k, base), 0.55);
+  // the minimap draws the lines of a selection at half its alpha
+  const minimap = mix(eb, all['minimap.selectionHighlight'].slice(0, 7), parse(all['minimap.selectionHighlight']).a * 0.5);
+  const washes = [on('editor.selectionBackground', eb), on('editor.inactiveSelectionBackground', eb), minimap,
+    ...['inserted', 'removed'].map((d) => composite(all[`diffEditor.${d}TextBackground`], on(`diffEditor.${d}LineBackground`, eb))),
+    composite(all['mergeEditor.change.word.background'], on('mergeEditor.change.background', eb)),
+    ...['modified', 'original'].map((s) => composite(all[`inlineEdit.${s}ChangedTextBackground`], on(`inlineEdit.${s}ChangedLineBackground`, eb))),
+    on('debugExceptionWidget.background', eb), on('testing.coveredBackground', eb), on('testing.uncoveredBackground', eb),
+    ...['chat.requestBubbleBackground', 'chat.requestBubbleHoverBackground', 'list.activeSelectionBackground', 'list.inactiveSelectionBackground'].map((k) => on(k, side)),
+    on('terminal.selectionBackground', term), on('terminal.inactiveSelectionBackground', term),
+    word('editor.findMatchBackground', eb), word('terminal.findMatchBackground', term)];
+  const grounds = [...t.glass, ...washes.flatMap((w) => [w, mix(w, t.fg, 0.12)]).map((w) => mix(w, t.elev, 0.8))];
+  for (const [k, floor] of GLASS_TEXT) all[k] = grounds.reduce((x, g) => readsOn(x, g, floor), all[k]);
+  for (const [k, floor, wash] of GLASS_WASHED) all[k] = grounds.reduce((x, g) => readsOn(x, typeof wash === 'function' ? wash(all, g) : composite(all[wash], g), floor), all[k]);
 }
 
 function forkKeys(all, t) {
