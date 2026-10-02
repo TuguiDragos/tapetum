@@ -48590,7 +48590,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "16535216904b2f22",
+  "colors": "9d3120684f7946cb",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
@@ -49106,8 +49106,8 @@
    "gitDecoration.stageDeletedResourceForeground": "#D9866B",
    "gitDecoration.conflictingResourceForeground": "#C99C55",
    "gitDecoration.ignoredResourceForeground": "#7a746c",
-   "gitDecoration.renamedResourceForeground": "#D8C298",
-   "gitDecoration.submoduleResourceForeground": "#A69574",
+   "gitDecoration.renamedResourceForeground": "#A69574",
+   "gitDecoration.submoduleResourceForeground": "#B18FC0",
    "scmGraph.foreground1": "#E0D3B0",
    "scmGraph.foreground2": "#C99C55",
    "scmGraph.foreground3": "#C4674A",
@@ -56224,7 +56224,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ca943c7c4fb0780d",
+  "colors": "690b324d7bf6ebec",
   "tokenColors": "34ea447b6532673a",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
@@ -56741,7 +56741,7 @@
    "gitDecoration.conflictingResourceForeground": "#C8B084",
    "gitDecoration.ignoredResourceForeground": "#767679",
    "gitDecoration.renamedResourceForeground": "#F0F0F4",
-   "gitDecoration.submoduleResourceForeground": "#98989e",
+   "gitDecoration.submoduleResourceForeground": "#B29AC0",
    "scmGraph.foreground1": "#DEDEE5",
    "scmGraph.foreground2": "#C4C4CB",
    "scmGraph.foreground3": "#ADADB3",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a5a9614882ab3be1",
+  "colors": "b954b024de13b8e5",
   "tokenColors": "0eb32c15cd2d6dae",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -58034,7 +58034,7 @@
    "gitDecoration.conflictingResourceForeground": "#6A5220",
    "gitDecoration.ignoredResourceForeground": "#6a6868",
    "gitDecoration.renamedResourceForeground": "#141418",
-   "gitDecoration.submoduleResourceForeground": "#3E3E44",
+   "gitDecoration.submoduleResourceForeground": "#5E4268",
    "scmGraph.foreground1": "#202026",
    "scmGraph.foreground2": "#333339",
    "scmGraph.foreground3": "#46464D",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "8ecaebf1bf69572f",
+  "colors": "c19fb798278dce36",
   "tokenColors": "7b68d79e017deb02",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -60607,7 +60607,7 @@
    "gitDecoration.conflictingResourceForeground": "#6A490E",
    "gitDecoration.ignoredResourceForeground": "#605f5e",
    "gitDecoration.renamedResourceForeground": "#643a5c",
-   "gitDecoration.submoduleResourceForeground": "#504732",
+   "gitDecoration.submoduleResourceForeground": "#6f3b13",
    "scmGraph.foreground1": "#8A5F12",
    "scmGraph.foreground2": "#5A5038",
    "scmGraph.foreground3": "#8A4A18",
@@ -68978,7 +68978,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a1503d7727d9a9a4",
+  "colors": "6bd2c894759f8008",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
@@ -69495,7 +69495,7 @@
    "gitDecoration.conflictingResourceForeground": "#DDAC7B",
    "gitDecoration.ignoredResourceForeground": "#747780",
    "gitDecoration.renamedResourceForeground": "#B1A2D0",
-   "gitDecoration.submoduleResourceForeground": "#A7BBDE",
+   "gitDecoration.submoduleResourceForeground": "#BD86AD",
    "scmGraph.foreground1": "#B1A2D0",
    "scmGraph.foreground2": "#A7BBDE",
    "scmGraph.foreground3": "#D17F90",
