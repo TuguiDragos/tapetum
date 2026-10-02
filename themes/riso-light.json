@@ -7,7 +7,7 @@
     "foreground": "#211E16",
     "descriptionForeground": "#56524b",
     "disabledForeground": "#6d6a63",
-    "errorForeground": "#ab430d",
+    "errorForeground": "#a9420d",
     "focusBorder": "#c4157ebf",
     "icon.foreground": "#56524b",
     "selection.background": "#c4157e30",

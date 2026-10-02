@@ -105,6 +105,23 @@ const ON_ITS_SURFACE = [
   ['editorHoverWidget.highlightForeground', ['editorHoverWidget.background']],
   ['pickerGroup.foreground', ['dropdown.listBackground']],
 ];
+// Insiders draws these surfaces as frosted glass, 50% to 100% of the surface over what lies under it, blurred: text on them,
+// with the wash it sits on, and the surfaces of the theme that can lie under the glass
+const GLASS = {
+  'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5],
+    ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'], ['quickInputList.focusForeground', 4.5, 'quickInputList.focusBackground'],
+    ['quickInputList.focusHighlightForeground', 4.5, 'quickInputList.focusBackground']],
+  'menu.background': [['menu.foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'],
+    ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background']],
+  'editorHoverWidget.background': [['editorHoverWidget.foreground', 4.5], ['descriptionForeground', 4.0], ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5],
+    ['editorHoverWidget.highlightForeground', 4.5], ['errorForeground', 4.5], ['editorHoverWidget.foreground', 4.5, 'textCodeBlock.background'],
+    ['textLink.foreground', 4.5, 'editorHoverWidget.statusBarBackground'], ['textPreformat.foreground', 4.5, 'textPreformat.background']],
+  'editorWidget.background': [['editorWidget.foreground', 4.5], ['descriptionForeground', 4.0]],
+  'notifications.background': [['notifications.foreground', 4.5], ['descriptionForeground', 4.0], ['notificationLink.foreground', 4.5],
+    ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]],
+};
+const UNDER_GLASS = ['editor.background', 'sideBar.background', 'panel.background', 'statusBar.background', 'titleBar.activeBackground', 'activityBar.background',
+  'editorGroupHeader.tabsBackground', 'terminal.background'];
 // text and surface set in different rules of the stylesheets, which tools/extract-pairs.mjs cannot pair
 const multiDiffHeaders = (c) => {
   const header = over(c['sideBarSectionHeader.background'], c['editor.background']);
@@ -488,6 +505,16 @@ function analyse(fam, v) {
   if (hc) for (const [k, g, floor] of HC_LINES) {
     const cr = contrast(over(c[k], c[g]), c[g]);
     if (cr < floor) bad('surface', `${k} on ${g} at ${down(cr)}, under ${floor} in high contrast`);
+  }
+  if (!hc) for (const [s, texts] of Object.entries(GLASS)) for (const [k, floor, wash] of texts) {
+    for (const u of UNDER_GLASS) {
+      const glass = mix(over(c[u], eb), over(c[s], eb), 0.5), ground = wash ? over(c[wash], glass) : glass;
+      const cr = contrast(over(c[k], ground), ground);
+      if (cr < floor) bad('glass', `${k}${wash ? ` on ${wash}` : ''} on ${s} as glass at half over ${u}, at ${down(cr)}, under ${floor}`);
+    }
+    // over content the theme does not paint, a white page under a dark theme or a black image under a light one, at the default 80%
+    const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = wash ? over(c[wash], glass) : glass;
+    pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(over(c[k], ground), ground), floor);
   }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it

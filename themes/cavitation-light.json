@@ -585,7 +585,7 @@
     "notifications.background": "#EEF2F7",
     "notifications.foreground": "#162227",
     "notifications.border": "#dbdee1",
-    "notificationLink.foreground": "#3C709E",
+    "notificationLink.foreground": "#3b6f9c",
     "notificationsErrorIcon.foreground": "#CC0C82",
     "notificationsWarningIcon.foreground": "#8F5621",
     "notificationsInfoIcon.foreground": "#3C709E",

@@ -3846,7 +3846,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b30d2c9bb0afc8b1",
+  "colors": "de5d471f332b9d97",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
@@ -3980,7 +3980,7 @@
    "editorHoverWidget.background": "#F2F1EC",
    "editorHoverWidget.foreground": "#1B1D22",
    "editorHoverWidget.border": "#c5c5c3",
-   "editorHoverWidget.highlightForeground": "#3D7A1F",
+   "editorHoverWidget.highlightForeground": "#3b781f",
    "editorHoverWidget.statusBarBackground": "#e2e1dd",
    "editorSuggestWidget.background": "#F2F1EC",
    "editorSuggestWidget.border": "#c5c5c3",
@@ -29452,7 +29452,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d8a91c477b988b19",
+  "colors": "dede8e69cec04fe1",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
@@ -30042,7 +30042,7 @@
    "notifications.background": "#EAF0F8",
    "notifications.foreground": "#152125",
    "notifications.border": "#d8dce1",
-   "notificationLink.foreground": "#0c73a6",
+   "notificationLink.foreground": "#0c71a3",
    "notificationsErrorIcon.foreground": "#C70A35",
    "notificationsWarningIcon.foreground": "#79610A",
    "notificationsInfoIcon.foreground": "#0b6fa1",
@@ -34572,7 +34572,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "22129b69f93f4add",
+  "colors": "a3b03ff70d08c3a6",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
@@ -35162,7 +35162,7 @@
    "notifications.background": "#EEF2F7",
    "notifications.foreground": "#162227",
    "notifications.border": "#dbdee1",
-   "notificationLink.foreground": "#3C709E",
+   "notificationLink.foreground": "#3b6f9c",
    "notificationsErrorIcon.foreground": "#CC0C82",
    "notificationsWarningIcon.foreground": "#8F5621",
    "notificationsInfoIcon.foreground": "#3C709E",
@@ -37132,7 +37132,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "194fb8fbd91c80d1",
+  "colors": "bc46f734e37fe0c7",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
@@ -37144,7 +37144,7 @@
    "foreground": "#172221",
    "descriptionForeground": "#555d5c",
    "disabledForeground": "#727777",
-   "errorForeground": "#D70E21",
+   "errorForeground": "#d50e21",
    "focusBorder": "#0c5e48a6",
    "icon.foreground": "#555d5c",
    "selection.background": "#0c5e483d",
@@ -42252,7 +42252,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d21c231046b45f29",
+  "colors": "c84f85094c386919",
   "tokenColors": "d747d65002eea1a7",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
@@ -42386,7 +42386,7 @@
    "editorHoverWidget.background": "#E4DCC9",
    "editorHoverWidget.foreground": "#2C2318",
    "editorHoverWidget.border": "#bfb7a8",
-   "editorHoverWidget.highlightForeground": "#A83A16",
+   "editorHoverWidget.highlightForeground": "#a63916",
    "editorHoverWidget.statusBarBackground": "#d5cfc1",
    "editorSuggestWidget.background": "#E4DCC9",
    "editorSuggestWidget.border": "#bfb7a8",
@@ -42842,7 +42842,7 @@
    "notifications.background": "#E4DCC9",
    "notifications.foreground": "#2C2318",
    "notifications.border": "#d4cdbd",
-   "notificationLink.foreground": "#A83A16",
+   "notificationLink.foreground": "#a63916",
    "notificationsErrorIcon.foreground": "#9D2A13",
    "notificationsWarningIcon.foreground": "#6D4F04",
    "notificationsInfoIcon.foreground": "#1A130A",
@@ -49883,7 +49883,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a223bae189b7789e",
+  "colors": "d5bf9acfa01e1ee3",
   "tokenColors": "dc138d193b9e871c",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
@@ -50473,7 +50473,7 @@
    "notifications.background": "#E5DECE",
    "notifications.foreground": "#241F16",
    "notifications.border": "#d5cfc2",
-   "notificationLink.foreground": "#835a1d",
+   "notificationLink.foreground": "#7f571c",
    "notificationsErrorIcon.foreground": "#8F3918",
    "notificationsWarningIcon.foreground": "#6A5011",
    "notificationsInfoIcon.foreground": "#285876",
@@ -54968,7 +54968,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ada00be32587e2cf",
+  "colors": "611e53d5a2914f17",
   "tokenColors": "cf80f37bf82edf61",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
@@ -55102,7 +55102,7 @@
    "editorHoverWidget.background": "#E3D9C0",
    "editorHoverWidget.foreground": "#2A241A",
    "editorHoverWidget.border": "#beb6a3",
-   "editorHoverWidget.highlightForeground": "#7b590e",
+   "editorHoverWidget.highlightForeground": "#76550d",
    "editorHoverWidget.statusBarBackground": "#d5cdb9",
    "editorSuggestWidget.background": "#E3D9C0",
    "editorSuggestWidget.border": "#beb6a3",
@@ -55558,7 +55558,7 @@
    "notifications.background": "#E3D9C0",
    "notifications.foreground": "#2A241A",
    "notifications.border": "#d4cbb7",
-   "notificationLink.foreground": "#7b590e",
+   "notificationLink.foreground": "#76550d",
    "notificationsErrorIcon.foreground": "#88371F",
    "notificationsWarningIcon.foreground": "#6B4A04",
    "notificationsInfoIcon.foreground": "#2D5373",
@@ -57517,7 +57517,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b0a058b782226616",
+  "colors": "35465ac139d4a71a",
   "tokenColors": "194e170bd6c389ee",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
@@ -58107,7 +58107,7 @@
    "notifications.background": "#DEDBD5",
    "notifications.foreground": "#26262A",
    "notifications.border": "#cfcdc9",
-   "notificationLink.foreground": "#4E627A",
+   "notificationLink.foreground": "#4b5e75",
    "notificationsErrorIcon.foreground": "#893931",
    "notificationsWarningIcon.foreground": "#664F1E",
    "notificationsInfoIcon.foreground": "#3D5377",
@@ -60090,7 +60090,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3e512149afff1af4",
+  "colors": "ee6b8db834dcdaa6",
   "tokenColors": "4ff2fdc208526b0a",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
@@ -60111,7 +60111,7 @@
    "sash.hoverBorder": "#8A5F12",
    "toolbar.hoverBackground": "#1f1e1a0f",
    "toolbar.activeBackground": "#1f1e1a1a",
-   "textLink.foreground": "#75510f",
+   "textLink.foreground": "#704e0e",
    "textLink.activeForeground": "#584e37",
    "textPreformat.foreground": "#5a3010",
    "textPreformat.background": "#8a4a181a",
@@ -60680,7 +60680,7 @@
    "notifications.background": "#D6D1C6",
    "notifications.foreground": "#1F1E1A",
    "notifications.border": "#e0e0de",
-   "notificationLink.foreground": "#785310",
+   "notificationLink.foreground": "#714e0f",
    "notificationsErrorIcon.foreground": "#7C3022",
    "notificationsWarningIcon.foreground": "#624203",
    "notificationsInfoIcon.foreground": "#2A4975",
@@ -61091,7 +61091,7 @@
    "void.redBG": "#7c302218",
    "inlineDiffToolbar.hotkeyBackground": "#895f1a",
    "inlineDiffToolbar.hotkeyForeground": "#ffffff",
-   "accent": "#75510f",
+   "accent": "#704e0e",
    "walkthroughActivityBarBadge.background": "#895f1a",
    "positronActionBar.textInputSelectionBackground": "#895f1a",
    "positronActionBar.textInputSelectionForeground": "#ffffff",
@@ -72818,7 +72818,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f87196ccb4b9ee93",
+  "colors": "5e7e81560ec2eeed",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
@@ -72830,7 +72830,7 @@
    "foreground": "#211E16",
    "descriptionForeground": "#56524b",
    "disabledForeground": "#6d6a63",
-   "errorForeground": "#ab430d",
+   "errorForeground": "#a9420d",
    "focusBorder": "#c4157ebf",
    "icon.foreground": "#56524b",
    "selection.background": "#c4157e30",
