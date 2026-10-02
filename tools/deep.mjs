@@ -111,6 +111,8 @@ const ON_ITS_SURFACE = [
 const tint = (k, share) => (c, glass) => mix(glass, over(c[k], glass), share);
 const GLASS = {
   'quickInput.background': [['quickInput.foreground', 4.5], ['descriptionForeground', 4.0], ['list.highlightForeground', 4.5], ['icon.foreground', 3.0],
+    // the description and the meta beside a name, which VS Code writes at 70% off the focused row
+    ['quickInput.foreground', 4.0, null, 0.7],
     ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'], ['quickInputList.focusForeground', 4.5, 'quickInputList.focusBackground'],
     ['quickInputList.focusHighlightForeground', 4.5, 'quickInputList.focusBackground'],
     // Quick Chat lays a chat on it
@@ -119,6 +121,9 @@ const GLASS = {
   // the action widget, and the context menus through a style Insiders injects
   'menu.background': [['menu.foreground', 4.5], ['foreground', 4.5], ['descriptionForeground', 4.0], ['menu.selectionForeground', 4.5, 'menu.selectionBackground'], ['list.hoverForeground', 4.5, 'list.hoverBackground'], ['descriptionForeground', 4.0, 'list.hoverBackground'], ['keybindingLabel.foreground', 4.5, 'keybindingLabel.background'],
     ['textLink.foreground', 4.5], ['textLink.activeForeground', 4.5], ['problemsWarningIcon.foreground', 4.5], ['problemsInfoIcon.foreground', 4.5],
+    ['problemsWarningIcon.foreground', 4.5, 'list.hoverBackground'], ['problemsInfoIcon.foreground', 4.5, 'list.hoverBackground'],
+    // the arrow of a submenu, at 60%
+    ['menu.foreground', 3.0, null, 0.6],
     ['badge.foreground', 4.5, 'badge.background'], ['input.foreground', 4.5, 'input.background'], ['icon.foreground', 3.0],
     // the model picker of chat
     ['modernTab.activeForeground', 4.5, 'modernTab.activeBackground'], ['modernTab.hoverForeground', 4.5, 'modernTab.hoverBackground'],
@@ -137,6 +142,26 @@ const GLASS = {
   'notifications.background': [['notifications.foreground', 4.5], ['descriptionForeground', 4.0], ['notificationLink.foreground', 4.5], ['icon.foreground', 3.0],
     ['notificationsErrorIcon.foreground', 3.0], ['notificationsWarningIcon.foreground', 3.0], ['notificationsInfoIcon.foreground', 3.0]],
 };
+// at its default 80% the glass also lies over the washes a theme paints, a search match as a 12px blur keeps it, the minimap's
+// selection at half its alpha
+const washesUnderGlass = (c) => {
+  const eb = c['editor.background'], side = c['sideBar.background'], term = c['terminal.background'], on = (k, base) => over(c[k], base);
+  const sel = c['minimap.selectionHighlight'];
+  return {
+    'editor.selectionBackground': on('editor.selectionBackground', eb), 'editor.inactiveSelectionBackground': on('editor.inactiveSelectionBackground', eb),
+    'minimap.selectionHighlight': mix(eb, sel.slice(0, 7), parse(sel).a * 0.5),
+    ...Object.fromEntries(['inserted', 'removed'].map((d) => [`diffEditor.${d}TextBackground`, on(`diffEditor.${d}TextBackground`, on(`diffEditor.${d}LineBackground`, eb))])),
+    'mergeEditor.change.word.background': on('mergeEditor.change.word.background', on('mergeEditor.change.background', eb)),
+    ...Object.fromEntries(['modified', 'original'].map((s) => [`inlineEdit.${s}ChangedTextBackground`, on(`inlineEdit.${s}ChangedTextBackground`, on(`inlineEdit.${s}ChangedLineBackground`, eb))])),
+    ...Object.fromEntries(['debugExceptionWidget.background', 'testing.coveredBackground', 'testing.uncoveredBackground'].map((k) => [k, on(k, eb)])),
+    ...Object.fromEntries(['chat.requestBubbleBackground', 'chat.requestBubbleHoverBackground', 'list.activeSelectionBackground', 'list.inactiveSelectionBackground'].map((k) => [k, on(k, side)])),
+    'terminal.selectionBackground': on('terminal.selectionBackground', term), 'terminal.inactiveSelectionBackground': on('terminal.inactiveSelectionBackground', term),
+    'editor.findMatchBackground': mix(eb, on('editor.findMatchBackground', eb), 0.55), 'terminal.findMatchBackground': mix(term, on('terminal.findMatchBackground', term), 0.55),
+  };
+};
+// the text of the surfaces under the glass, which its 12px blur keeps at about 12% (measured on the pixels of dense lines)
+const TEXT_UNDER_GLASS = { 'editor.background': 'editor.foreground', 'sideBar.background': 'sideBar.foreground', 'panel.background': 'foreground', 'terminal.background': 'terminal.foreground' };
+const withText = (c, ground, text) => mix(ground, over(c[text], c['editor.background']), 0.12);
 const UNDER_GLASS = ['editor.background', 'sideBar.background', 'panel.background', 'statusBar.background', 'titleBar.activeBackground', 'activityBar.background',
   'editorGroupHeader.tabsBackground', 'terminal.background'];
 // text and surface set in different rules of the stylesheets, which tools/extract-pairs.mjs cannot pair
@@ -285,6 +310,20 @@ function analyse(fam, v) {
   }
   const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
   pend(`syntax over the selection in a diff (${floorNote})`, diffSel, selFloor);
+  // the details of the action widget at 80% and the permissions of an agent host at 85%, on the menu, solid or as glass over the theme
+  // and its text, and the summary of those permissions beside the chat pickers, plain, hovered or pressed
+  if (!hc) {
+    const menu = over(c['menu.background'], eb), unders = [menu, ...UNDER_GLASS.map((u) => mix(over(c[u], eb), menu, 0.5)),
+      ...Object.entries(TEXT_UNDER_GLASS).map(([u, text]) => mix(withText(c, over(c[u], eb), text), menu, 0.5)), ...Object.values(washesUnderGlass(c)).map((w) => mix(w, menu, 0.8))];
+    const at = (k, share, grounds, wash) => Math.min(...grounds.map((g) => { const ground = wash ? over(c[wash], g) : g; return contrast(mix(ground, c[k], share), ground); }));
+    pend('a detail of the action widget, the description at 80% (4.0)', at('descriptionForeground', 0.8, unders), 4.0);
+    for (const k of ['descriptionForeground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'])
+      pend(`${k}, a permission of an agent host at 85% on the menu, on its row and focused (4.0)`, Math.min(at(k, 0.85, unders), at(k, 0.85, unders, 'list.hoverBackground')), 4.0);
+    const pickers = ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], eb), input = over(c['input.background'], pane);
+      return [pane, input].flatMap((g) => [g, over(c['toolbar.hoverBackground'], g), over(c['toolbar.activeBackground'], g)]); });
+    for (const k of ['descriptionForeground', 'problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'])
+      pend(`${k}, the summary of an agent host's permissions at 85% beside the chat pickers (4.0)`, at(k, 0.85, pickers), 4.0);
+  }
   // what VS Code itself writes at part strength, high contrast aside: the line badge of the call stack at 60%, the empty message of the
   // outline at 50%, the name on an inactive pill tab at 50% of the text, a description on an inactive tab, and a terminal icon a user colours
   // black or white
@@ -572,15 +611,23 @@ function analyse(fam, v) {
     const cr = contrast(over(c[k], c[g]), c[g]);
     if (cr < floor) bad('surface', `${k} on ${g} at ${down(cr)}, under ${floor} in high contrast`);
   }
-  if (!hc) for (const [s, texts] of Object.entries(GLASS)) for (const [k, floor, wash] of texts) {
-    for (const u of UNDER_GLASS) {
-      const glass = mix(over(c[u], eb), over(c[s], eb), 0.5), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
-      const cr = contrast(over(c[k], ground), ground);
-      if (cr < floor) bad('glass', `${k}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at half over ${u}, at ${down(cr)}, under ${floor}`);
+  if (!hc) for (const [s, texts] of Object.entries(GLASS)) for (const [k, floor, wash, share] of texts) {
+    const shown = (ground) => (share ? mix(ground, c[k], share) : over(c[k], ground));
+    for (const u of UNDER_GLASS) for (const text of [null, TEXT_UNDER_GLASS[u]]) {
+      if (text === undefined) continue;
+      const under = text ? withText(c, over(c[u], eb), text) : over(c[u], eb);
+      const glass = mix(under, over(c[s], eb), 0.5), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
+      const cr = contrast(shown(ground), ground);
+      if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at half over ${u}${text ? ' and its text' : ''}, at ${down(cr)}, under ${floor}`);
+    }
+    for (const [w, plain] of Object.entries(washesUnderGlass(c))) for (const under of [plain, withText(c, plain, /^terminal/.test(w) ? 'terminal.foreground' : /^(chat|list)\./.test(w) ? 'sideBar.foreground' : 'editor.foreground')]) {
+      const glass = mix(under, over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
+      const cr = contrast(shown(ground), ground);
+      if (cr < floor) bad('glass', `${k}${share ? ` at ${share * 100}%` : ''}${typeof wash === 'string' ? ` on ${wash}` : wash ? ' on a tint' : ''} on ${s} as glass at 80% over ${w}${under === plain ? '' : ' and its text'}, at ${down(cr)}, under ${floor}`);
     }
     // over content the theme does not paint, a white page under a dark theme or a black image under a light one, at the default 80%
     const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
-    pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(over(c[k], ground), ground), floor);
+    pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(shown(ground), ground), floor);
   }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
