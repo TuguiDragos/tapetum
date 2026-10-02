@@ -65,10 +65,10 @@ function tokens(s) {
   const findGround = [bg, elev, chrome, strip].map((surface) => composite(findWash, surface))
     .reduce((a, b) => (contrast(fg, b) < contrast(fg, a) ? b : a));
   const stripHover = hc ? elev : reach(strip, strip, fg, 3.0);
-  // a decorated file name sits on the side bar, the strip, a hovered tab, the hovered and inactive selected rows (the text at 6%)
+  // a decorated file name sits on the side bar, the strip, a hovered tab, modern or classic, the hovered and inactive selected rows (the text at 6%)
   // and the focused row a keyboard moves to, which keeps the name's own colour until it is selected
   const rowGrounds = [mix(elev, fg, 0.06), over];
-  const nameGrounds = [elev, strip, mix(strip, fg, 0.06), ...rowGrounds];
+  const nameGrounds = [elev, strip, mix(strip, fg, 0.06), stripHover, ...rowGrounds];
   // VS Code draws the letter of a decoration (M, U, a problem count) beside the name at 75%, and it keeps the 3.0 of a mark
   const letterOn = (c, grounds) => grounds.reduce((x, g) => away(x, g, (y) => contrast(mix(g, y, 0.75), g) >= 3.0, 95), c);
   const whitespace = mix(bg, fg, 0.2);
