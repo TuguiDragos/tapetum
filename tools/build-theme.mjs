@@ -1528,12 +1528,21 @@ function forkKeys(all, t) {
   const fill = on(y.func, [bg, elev], 3.0);
   // Cursor shows its watermark at half opacity, so the colour moves toward the text end until half of it reads 3.0
   const half = (c) => contrast(mix(bg, c, 0.5), bg);
+  // Void marks an edited line with these washes alone, so they take the strength of a changed word in the diff editor,
+  // as far as the code on them keeps the floors of a diff
+  const syntax = [y.keyword, y.string, y.func, y.type, y.number, y.tag, y.op].filter(Boolean);
+  const voidWash = (line, text) => {
+    const reads = (w) => Math.min(...syntax.map((c) => contrast(c, composite(w, bg)))) >= 3.4 && (!y.comment || contrast(y.comment, composite(w, bg)) >= 3.2);
+    let a8 = Math.floor((1 - (1 - parse(line).a) * (1 - parse(text).a)) * 255);
+    while (a8 > 1 && !reads(alpha(line.slice(0, 7), a8 / 255))) a8--;
+    return alpha(line.slice(0, 7), a8 / 255);
+  };
   let watermark = fg;
   for (let i = 1; i <= 100 && half(watermark) < 3.0; i++) watermark = mix(fg, relLum(bg) < 0.5 ? '#ffffff' : '#000000', i / 100);
   return {
     'diffEditor.windsurfRemovedTextBackground': alpha(st.deleted, 0.12),
-    'void.greenBG': all['diffEditor.insertedLineBackground'],
-    'void.redBG': all['diffEditor.removedLineBackground'],
+    'void.greenBG': voidWash(all['diffEditor.insertedLineBackground'], all['diffEditor.insertedTextBackground']),
+    'void.redBG': voidWash(all['diffEditor.removedLineBackground'], all['diffEditor.removedTextBackground']),
     'inlineDiffToolbar.hotkeyBackground': all['button.background'],
     'inlineDiffToolbar.hotkeyForeground': all['button.foreground'],
     accent: all['textLink.foreground'],
