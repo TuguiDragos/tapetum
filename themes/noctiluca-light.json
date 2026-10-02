@@ -511,7 +511,7 @@
     "gitDecoration.stageDeletedResourceForeground": "#c20c1e",
     "gitDecoration.conflictingResourceForeground": "#565D0B",
     "gitDecoration.ignoredResourceForeground": "#727777",
-    "gitDecoration.renamedResourceForeground": "#0e6b72",
+    "gitDecoration.renamedResourceForeground": "#0e6970",
     "gitDecoration.submoduleResourceForeground": "#3454d4",
     "scmGraph.foreground1": "#0C5E48",
     "scmGraph.foreground2": "#0C658E",

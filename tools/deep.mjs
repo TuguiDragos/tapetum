@@ -465,6 +465,14 @@ function analyse(fam, v) {
       const cr = contrast(over(c[k], ground), ground);
       if (cr < 4.5) bad('surface', `${k}, a decorated file name on ${row}, at ${down(cr)}, under 4.5`);
     }
+    // its letter (M, U, a problem count) is drawn beside the name at 75%, and it is the only status mark of the source control view
+    const tabStrip = over(c['editorGroupHeader.tabsBackground'], eb);
+    const letterGrounds = { 'the side bar': c['sideBar.background'], ...Object.fromEntries(['list.hoverBackground', 'list.inactiveSelectionBackground', 'list.focusBackground', 'list.inactiveFocusBackground'].map((r) => [r, over(c[r], c['sideBar.background'])])),
+      ...(k === 'list.invalidItemForeground' ? {} : { 'the tab strip': tabStrip, ...(hc ? {} : { 'a hovered tab': mix(tabStrip, c.foreground, 0.06) }) }) };
+    for (const [where, ground] of Object.entries(letterGrounds)) {
+      const cr = contrast(mix(ground, over(c[k], ground), 0.75), ground);
+      if (cr < 3.0) bad('surface', `${k}, the letter of a decoration at 75% on ${where}, at ${down(cr)}, under 3.0`);
+    }
     if (k === 'list.invalidItemForeground') continue;
     const strip = c['editorGroupHeader.tabsBackground'];
     const onTab = contrast(over(c[k], strip), strip);

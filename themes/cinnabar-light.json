@@ -512,7 +512,7 @@
     "gitDecoration.conflictingResourceForeground": "#674D0A",
     "gitDecoration.ignoredResourceForeground": "#797471",
     "gitDecoration.renamedResourceForeground": "#b30973",
-    "gitDecoration.submoduleResourceForeground": "#594cbf",
+    "gitDecoration.submoduleResourceForeground": "#584bbd",
     "scmGraph.foreground1": "#BC0D22",
     "scmGraph.foreground2": "#0C644C",
     "scmGraph.foreground3": "#CB0B82",

@@ -69,6 +69,8 @@ function tokens(s) {
   // and the focused row a keyboard moves to, which keeps the name's own colour until it is selected
   const rowGrounds = [mix(elev, fg, 0.06), over];
   const nameGrounds = [elev, strip, mix(strip, fg, 0.06), ...rowGrounds];
+  // VS Code draws the letter of a decoration (M, U, a problem count) beside the name at 75%, and it keeps the 3.0 of a mark
+  const letterOn = (c, grounds) => grounds.reduce((x, g) => away(x, g, (y) => contrast(mix(g, y, 0.75), g) >= 3.0, 95), c);
   const whitespace = mix(bg, fg, 0.2);
   // the search view shows each match in the side bar's text on the find highlight, so the highlight eases off until that text reads
   const sideText = legible(mix(fg, elev, 0.18), elev, 4.5);
@@ -126,7 +128,7 @@ function tokens(s) {
     pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
   }
   const sides = mergeSides({ y: s.syntax, bg, dark, legible });
-  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, glass, linkSource, rowGrounds, nameGrounds, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
+  return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, glass, linkSource, rowGrounds, nameGrounds, letterOn, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
     disabledForeground: faint,
@@ -382,10 +384,10 @@ function chrome(t) {
     'list.inactiveFocusBackground': alphaOf(fg, 0.04),
     'list.inactiveFocusOutline': inactiveOutline,
     'list.highlightForeground': t.highlight,
-    'list.errorForeground': t.handStatus ? st.error : t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.error),
-    'list.warningForeground': t.handStatus ? st.warn : t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.warn),
+    'list.errorForeground': t.handStatus ? st.error : t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.error), t.nameGrounds),
+    'list.warningForeground': t.handStatus ? st.warn : t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.warn), t.nameGrounds),
     'list.deemphasizedForeground': faint,
-    'list.invalidItemForeground': t.handStatus ? st.error : [elev, ...t.rowGrounds].reduce((x, g) => readsOn(x, g, 4.5), st.error),
+    'list.invalidItemForeground': t.handStatus ? st.error : t.letterOn([elev, ...t.rowGrounds].reduce((x, g) => readsOn(x, g, 4.5), st.error), [elev, ...t.rowGrounds]),
     'list.dropBackground': alphaOf(acc, 0.16),
     'list.dropBetweenBackground': acc,
     'list.filterMatchBackground': filterWash,
@@ -1231,7 +1233,7 @@ function gitDecorations(t) {
   const pool = vivid.length ? vivid : roles;
   const ansiPool = ansi ? ['blue', 'magenta', 'cyan', 'yellow', 'green', 'red'].map((k) => ansi[k]) : [];
   const apartFrom = (c, used) => Math.min(...used.map((u) => deltaE(c, u)));
-  const name = (c) => t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), c);
+  const name = (c) => t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), c), t.nameGrounds);
   // a renamed file or a submodule also has to stand apart from the plain names beside it, as it is written
   const fits = (c) => deltaE(name(c), t.sideText) >= 10;
   const pick = (used) => {
