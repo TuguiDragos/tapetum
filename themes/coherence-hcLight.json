@@ -165,7 +165,7 @@
     "titleBar.inactiveForeground": "#6a6a6a",
     "titleBar.border": "#0F4A85",
     "commandCenter.background": "#0000000d",
-    "commandCenter.foreground": "#525252",
+    "commandCenter.foreground": "#1b1b1b",
     "commandCenter.border": "#0F4A85",
     "commandCenter.activeBackground": "#0000001a",
     "commandCenter.activeForeground": "#000000",

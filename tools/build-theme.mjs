@@ -313,7 +313,8 @@ function chrome(t) {
     'titleBar.border': line,
 
     'commandCenter.background': alphaOf(fg, 0.05),
-    'commandCenter.foreground': legible(dim, t.hard, 5.0),
+    // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search
+    'commandCenter.foreground': faded(legible(dim, t.hard, 5.0), ch, 0.6, t.hc ? 4.5 : 3.2),
     'commandCenter.border': line2,
     'commandCenter.activeBackground': alphaOf(fg, 0.1),
     'commandCenter.activeForeground': fg,
