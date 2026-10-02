@@ -154,7 +154,7 @@ export function buildFrom(paint) {
 }
 
 // Comments and what sits in them, quotes and struck-through Markdown may recede to 4.0; other syntax holds 4.5.
-const RECEDES = /(^|[\s.])comment([\s.]|$)|\.jsdoc$|^keyword\.codetag$|^(markup\.quote|blockquote|punctuation\.definition\.quote)|^markup\.strikethrough/;
+const RECEDES = /(^|[\s.])comment([\s.]|$)|\.jsdoc$|^keyword\.codetag$|^(markup\.quote|blockquote|punctuation\.definition\.quote)|^markup\.strikethrough|^log\.(date|verbose)$/;
 export const syntaxFloor = (r) => ([].concat(r.scope).every((s) => RECEDES.test(s)) ? 4.0 : 4.5);
 
 export const styled = (foreground, fontStyle) => (fontStyle ? { foreground, fontStyle } : { foreground });

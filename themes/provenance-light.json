@@ -564,11 +564,11 @@
     "mergeEditor.conflict.unhandled.minimapOverViewRuler": "#855606",
     "mergeEditor.conflictingLines.background": "#85560629",
     "peekView.border": "#855606",
-    "peekViewEditor.background": "#efede7",
+    "peekViewEditor.background": "#f3f0eb",
     "peekViewEditor.matchHighlightBackground": "#5b48a04d",
     "peekViewEditor.matchHighlightBorder": "#00000000",
-    "peekViewEditorGutter.background": "#efede7",
-    "peekViewEditorStickyScroll.background": "#efede7",
+    "peekViewEditorGutter.background": "#f3f0eb",
+    "peekViewEditorStickyScroll.background": "#f3f0eb",
     "peekViewResult.background": "#EAE7E0",
     "peekViewResult.fileForeground": "#2E3036",
     "peekViewResult.lineForeground": "#55575E",
@@ -727,7 +727,7 @@
     "testing.coverCountBadgeForeground": "#ffffff",
     "notebook.editorBackground": "#F4F2ED",
     "notebook.cellBorderColor": "#cbcac7",
-    "notebook.cellEditorBackground": "#e9e7e3",
+    "notebook.cellEditorBackground": "#f3f1ec",
     "notebook.cellHoverBackground": "#00000000",
     "notebook.cellInsertionIndicator": "#855606",
     "notebook.cellStatusBarItemHoverBackground": "#2e30361a",
@@ -817,7 +817,7 @@
     "welcomePage.tileBorder": "#dad9d5",
     "welcomePage.progress.background": "#ffffff",
     "welcomePage.progress.foreground": "#855606",
-    "walkThrough.embeddedEditorBackground": "#efede7",
+    "walkThrough.embeddedEditorBackground": "#f3f0eb",
     "walkthrough.stepTitle.foreground": "#2E3036",
     "ports.iconRunningProcessForeground": "#5A6C52",
     "searchEditor.textInputBorder": "#c4c3c1",
@@ -895,7 +895,7 @@
     "editorMarkerNavigationInfo.background": "#0F6480",
     "editorPane.background": "#F4F2ED",
     "editorStickyScrollGutter.background": "#F4F2ED",
-    "peekViewEditorStickyScrollGutter.background": "#efede7",
+    "peekViewEditorStickyScrollGutter.background": "#f3f0eb",
     "editorSuggestWidget.focusOutline": "#855606",
     "mergeEditor.conflict.input1.background": "#5a6c5229",
     "mergeEditor.conflict.input2.background": "#85560629",
@@ -1564,6 +1564,16 @@
       "settings": {
         "foreground": "#855606",
         "fontStyle": ""
+      }
+    },
+    {
+      "name": "Log lines on the Output view",
+      "scope": [
+        "log.date",
+        "log.verbose"
+      ],
+      "settings": {
+        "foreground": "#6c6f77"
       }
     }
   ],
