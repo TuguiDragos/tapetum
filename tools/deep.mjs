@@ -189,6 +189,27 @@ const COMPOSED = [
   { fg: (c) => c['sideBar.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['sideBar.background'])], floor: 4.5, what: 'a match in the search view, the side bar text on the find highlight' },
   { fg: (c) => c['editor.foreground'], grounds: (c) => [over(c['editor.findMatchHighlightBackground'], c['editor.background'])], floor: 4.5, what: 'text on a find highlight in the editor' },
   { fg: (c) => c['quickInputList.focusHighlightForeground'], grounds: (c) => [over(c['quickInputList.focusBackground'], c['quickInput.background'])], floor: 4.5, what: 'match highlight on the focused row of the command palette' },
+  // the matched word of a reference in the peek keeps peekViewResult.fileForeground on its wash, the row plain, selected or hovered
+  { fg: (c) => c['peekViewResult.fileForeground'], floor: 4.5, what: 'the matched word of a reference in the peek',
+    grounds: (c) => { const r = over(c['peekViewResult.background'], c['editor.background']);
+      return [r, over(c['peekViewResult.selectionBackground'], r), over(c['list.hoverBackground'], r)].map((g) => over(c['peekViewResult.matchHighlightBackground'], g)); } },
+  // a prominent status bar item (Tab Moves Focus, OVR, the kernel picker) sits on its own wash over the bar, hovered on a second one
+  { fg: (c) => c['statusBarItem.prominentForeground'], floor: 4.5, what: 'statusBarItem.prominentForeground on its wash over the status bar',
+    grounds: (c) => [over(c['statusBarItem.prominentBackground'], over(c['statusBar.background'], c['editor.background']))] },
+  { fg: (c) => c['statusBarItem.prominentHoverForeground'], floor: 4.5, what: 'statusBarItem.prominentHoverForeground, a hovered prominent item over the status bar',
+    grounds: (c) => [over(c['statusBarItem.prominentHoverBackground'], over(c['statusBarItem.prominentBackground'], over(c['statusBar.background'], c['editor.background'])))] },
+  // a link written as code keeps its colour on textPreformat.background, in a chat answer and in a dropdown's description (hovered
+  // there in textLink.activeForeground); a hovered code block pill of a chat answer writes the link on list.hoverBackground
+  { fg: (c) => c['textLink.foreground'], floor: 4.5, what: 'textLink.foreground, a link written as code in chat or a dropdown',
+    grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background', 'dropdown.listBackground'].map((s) => over(c['textPreformat.background'], over(c[s], c['editor.background']))) },
+  { fg: (c) => c['textLink.activeForeground'], floor: 4.5, what: 'textLink.activeForeground, a hovered link written as code in a dropdown',
+    grounds: (c) => [over(c['textPreformat.background'], over(c['dropdown.listBackground'], c['editor.background']))] },
+  { fg: (c) => c['textLink.foreground'], floor: 4.5, what: 'textLink.foreground, a hovered code block pill in chat',
+    grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].map((s) => over(c['list.hoverBackground'], over(c[s], c['editor.background']))) },
+  // the label of a chat picker (the mode, the model) is text in icon.foreground, on the chat pane or the input, plain or open
+  { fg: (c) => c['icon.foreground'], floor: 4.5, what: 'icon.foreground, the label of a chat picker, plain or open',
+    grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], c['editor.background']), input = over(c['input.background'], pane);
+      return [pane, input].flatMap((g) => [g, over(c['toolbar.hoverBackground'], g)]); }) },
   // the warning or note label of a chat picker sits on the chat pane, in the side bar, the panel or an editor; hovered or open it takes the toolbar hover
   ...['problemsWarningIcon.foreground', 'problemsInfoIcon.foreground'].map((k) => ({ fg: (c) => c[k], floor: 4.5, what: `${k}, the label of a chat picker on the chat pane, plain, hovered or open`,
     grounds: (c) => ['sideBar.background', 'panel.background', 'editor.background'].flatMap((s) => { const pane = over(c[s], c['editor.background']); return [pane, over(c['toolbar.hoverBackground'], pane)]; }) })),
@@ -342,6 +363,19 @@ function analyse(fam, v) {
     pend('the name on an inactive pill tab, the text at 50% (4.5)', contrast(mix(pill, c.foreground, 0.5), pill), 4.5);
     pend(`a description on an inactive tab, at ${light ? 95 : 70}% (4.0)`, contrast(mix(tabs, c['tab.inactiveForeground'], light ? 0.95 : 0.7), tabs), 4.0);
     pend('a terminal icon coloured black or white (3.0)', Math.min(...['terminal.ansiBlack', 'terminal.ansiWhite'].map((k) => contrast(c[k], pane))), 3.0);
+  }
+  // a link written as code inside the user's own request bubble
+  if (!hc) {
+    const bubble = ['sideBar.background', 'panel.background'].map((s) => over(c['textPreformat.background'], over(c['chat.requestBubbleBackground'], over(c[s], eb))));
+    pend('textLink.foreground, a link written as code in the request bubble of chat (4.5)', Math.min(...bubble.map((g) => contrast(over(c['textLink.foreground'], g), g))), 4.5);
+  }
+  // a description beside a decorated name (the folder of a duplicate name, a search result) takes the decoration colour, at 70%
+  // (95% in light themes), on the side bar, its rows and the tabs; lifting it would move every git and problem colour of the dark themes
+  {
+    const sb = c['sideBar.background'], share = t.type === 'light' ? 0.95 : 0.7, floor = hc ? 4.5 : 4.0;
+    const grounds = [sb, over(c['list.hoverBackground'], sb), over(c['list.inactiveSelectionBackground'], sb), over(c['editorGroupHeader.tabsBackground'], eb), eb];
+    pend(`a description in a decoration colour, at ${share * 100}% (${floor.toFixed(1)})`,
+      Math.min(...DECORATED_NAMES.filter((k) => k !== 'list.invalidItemForeground').flatMap((k) => grounds.map((g) => contrast(mix(g, over(c[k], g), share), g)))), floor);
   }
   const findTexts = hc && selFg && parse(selFg).a === 1 ? [selFg] : ['editor.findMatchForeground', 'editor.findMatchHighlightForeground'].map((k) => c[k]).filter(Boolean);
   if (findTexts.length) {
@@ -605,6 +639,9 @@ function analyse(fam, v) {
     if (cr < floor) bad('surface', `editorLineNumber.foreground on ${k} at ${down(cr)}, under ${floor}`);
     const act = contrast(over(c['editorLineNumber.activeForeground'], ground), ground);
     if (act < 4.5) bad('surface', `editorLineNumber.activeForeground on ${k} at ${down(act)}, under 4.5`);
+    // the + and - signs beside the changed lines are codicons at 70% (whole in high contrast)
+    const sign = contrast(mix(ground, c['icon.foreground'], hc ? 1 : 0.7), ground);
+    if (sign < 3.0) bad('surface', `icon.foreground, the sign of a changed line at 70% on ${k}, at ${down(sign)}, under 3.0`);
   }
   const cell = over(c['notebook.cellEditorBackground'] || eb, eb);
   const inCell = contrast(over(c['editorLineNumber.foreground'], cell), cell);
@@ -645,6 +682,14 @@ function analyse(fam, v) {
     // over content the theme does not paint, a white page under a dark theme or a black image under a light one, at the default 80%
     const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
     pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(shown(ground), ground), floor);
+  }
+  // a compact pair of status bar entries (source control and its sync, the language and its status) takes the hover background
+  // as a whole when one is hovered, high contrast aside; the neighbour keeps its text
+  if (!hc) {
+    const hovered = over(c['statusBarItem.hoverBackground'], over(c['statusBar.background'], eb)), cr = contrast(over(c['statusBar.foreground'], hovered), hovered);
+    if (cr < 4.5) bad('surface', `statusBar.foreground beside a hovered compact entry, on statusBarItem.hoverBackground, at ${down(cr)}, under 4.5`);
+    const empty = over(c['statusBarItem.hoverBackground'], over(c['statusBar.noFolderBackground'], eb));
+    pend('statusBar.noFolderForeground beside a hovered compact entry, in a window with no folder (4.5)', contrast(over(c['statusBar.noFolderForeground'], empty), empty), 4.5);
   }
   // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search, on the title bar, or with
   // the modern UI off on the wash of its input, plain or hovered
