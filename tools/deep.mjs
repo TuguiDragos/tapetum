@@ -98,11 +98,12 @@ const ON_ANY_SURFACE = [
   ['problemsInfoIcon.foreground', 3.0], ['testing.iconFailed', 3.0], ['testing.iconPassed', 3.0], ['testing.iconQueued', 3.0],
   ['chat.workingProgressStableIconForeground', 3.0], ['chat.workingProgressInsidersIconForeground', 3.0],
 ];
-// text VS Code paints on a known surface without a stylesheet pair: the debug views, notifications, parameter hints
+// text VS Code paints on a known surface without a stylesheet pair: the debug views, notifications, parameter hints, dropdown options
 const ON_ITS_SURFACE = [
   ...['name', 'value', 'string', 'number', 'boolean', 'error', 'type'].map((k) => [`debugTokenExpression.${k}`, ['sideBar.background', 'panel.background', 'editorHoverWidget.background']]),
   ['notificationLink.foreground', ['notifications.background']],
   ['editorHoverWidget.highlightForeground', ['editorHoverWidget.background']],
+  ['pickerGroup.foreground', ['dropdown.listBackground']],
 ];
 // text and surface set in different rules of the stylesheets, which tools/extract-pairs.mjs cannot pair
 const multiDiffHeaders = (c) => {
