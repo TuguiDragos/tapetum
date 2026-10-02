@@ -128,7 +128,7 @@ function tokens(s) {
     pairGuides[`editorBracketPairGuide.background${i}`] = alpha(trio[(i - 1) % 3], 0.28);
     pairGuides[`editorBracketPairGuide.activeBackground${i}`] = alpha(trio[(i - 1) % 3], 0.6);
   }
-  const sides = mergeSides({ y: s.syntax, bg, dark, legible });
+  const sides = mergeSides({ y: s.syntax, bg, dark, legible, faint });
   return { bg, elev, chrome, over, fg, dim, faint, ghost, hard, hc, legible, line, line2, acc, fill, sel, selSoft, onAcc, onFill, onColor, st, y, depth, trio, sides, ansi: s.ansi, shadow, sh, up, dn, hoverOf, dark, field, strip, stripHover, sideText, handStatus: !!s.handStatus, glass, linkSource, rowGrounds, nameGrounds, letterOn, gutterK, sliders, focusRing, focusStrong, highlight, editor: {
     foreground: fg,
     descriptionForeground: dim,
@@ -730,8 +730,8 @@ function integrations(t) {
     'merge.currentContentBackground': alphaOf(sides.current, sides.contentK),
     'merge.incomingHeaderBackground': alphaOf(sides.incoming, sides.headerK),
     'merge.incomingContentBackground': alphaOf(sides.incoming, sides.contentK),
-    'merge.commonHeaderBackground': alphaOf(faint, sides.headerK),
-    'merge.commonContentBackground': alphaOf(faint, sides.contentK),
+    'merge.commonHeaderBackground': alphaOf(faint, sides.commonHeaderK),
+    'merge.commonContentBackground': alphaOf(faint, sides.commonContentK),
     'merge.border': '#00000000',
     'mergeEditor.change.background': alphaOf(st.added, 0.12),
     'mergeEditor.change.word.background': alphaOf(st.added, 0.22),
@@ -1471,8 +1471,9 @@ function mergeSides(t) {
     sides = fit(lch2hex(L, 18, 60), lch2hex(L, 18, 250));
   }
 
-  const common = lch2hex(hex2lch(bg)[0] + (dark ? 30 : -30), 4, hex2lch(bg)[2]);
-  return { current: sides.current, incoming: sides.incoming, common, contentK: sides.contentK, headerK: sides.headerK };
+  // the common ancestor block of a diff3 conflict is the faint text at the same strength, eased off until code reads on it
+  const ease = (k) => { let x = k; while (x > 0.06 && reads(composite(alpha(t.faint, x), bg)) < FLOOR) x = Math.round(x * 100 - 1) / 100; return x; };
+  return { current: sides.current, incoming: sides.incoming, contentK: sides.contentK, headerK: sides.headerK, commonContentK: ease(sides.contentK), commonHeaderK: ease(sides.headerK) };
 }
 
 function bracketTrio(t) {
