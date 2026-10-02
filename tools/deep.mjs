@@ -342,6 +342,17 @@ function analyse(fam, v) {
     const floor = Math.min(3.0, worstOver(layers, onSel)), cr = worstOver([...layers, 'editor.hoverHighlightBackground'], onSel);
     if (cr < floor - 0.005) bad('layers', `syntax under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under ${floor.toFixed(2)}`);
   }
+  // a program stopped in the debugger leaves the cursor on its frame line, so the frame wash lies over the current line
+  for (const f of ['editor.stackFrameHighlightBackground', 'editor.focusedStackFrameHighlightBackground'])
+    for (const layers of [[f], ['editor.lineHighlightBackground', f], ['editor.inactiveLineHighlightBackground', f]]) {
+      const cr = worstOver(layers, [...R.map((r) => p[r]), ...comments]);
+      if (cr < 3.0) bad('layers', `syntax on ${layers.join(' plus ')} at ${down(cr)}, under 3.0`);
+    }
+  // whitespace shows only on a selection by default, and its dots keep the 6 dE VS Code's own themes keep there, focused or not
+  for (const s of ['editor.selectionBackground', 'editor.inactiveSelectionBackground']) {
+    const g = over(c[s], eb), d = deltaE(over(c['editorWhitespace.foreground'], g), g);
+    if (d < 6.0) bad('presence', `editorWhitespace.foreground on ${s} at ${d.toFixed(2)} dE, under 6.0`);
+  }
   // VS Code paints find matches above the hover highlight (their decorations carry zIndex 10 and 13, the hover none)
   if (!hc && findTextsOf(c).length) for (const [under, match] of [[[], 'editor.findMatchHighlightBackground'], [[], 'editor.findMatchBackground'], [['editor.selectionBackground'], 'editor.findMatchHighlightBackground']]) {
     const cr = worstOver([...under, 'editor.hoverHighlightBackground', match], findTextsOf(c));
