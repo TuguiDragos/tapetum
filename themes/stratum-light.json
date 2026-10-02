@@ -996,6 +996,7 @@
     "void.redBG": "#983f1d0e",
     "inlineDiffToolbar.hotkeyBackground": "#8A5F1E",
     "inlineDiffToolbar.hotkeyForeground": "#ffffff",
+    "accent": "#1E1808",
     "walkthroughActivityBarBadge.background": "#8A5F1E",
     "positronActionBar.textInputSelectionBackground": "#8A5F1E",
     "positronActionBar.textInputSelectionForeground": "#ffffff",

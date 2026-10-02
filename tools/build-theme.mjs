@@ -1517,6 +1517,7 @@ function forkKeys(all, t) {
     'void.redBG': all['diffEditor.removedLineBackground'],
     'inlineDiffToolbar.hotkeyBackground': all['button.background'],
     'inlineDiffToolbar.hotkeyForeground': all['button.foreground'],
+    accent: all['textLink.foreground'],
     'walkthroughActivityBarBadge.background': all['activityBarBadge.background'],
     'positronActionBar.textInputSelectionBackground': all['button.background'],
     'positronActionBar.textInputSelectionForeground': all['button.foreground'],
