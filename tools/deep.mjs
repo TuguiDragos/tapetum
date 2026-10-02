@@ -261,9 +261,10 @@ function analyse(fam, v) {
     const floor = Math.min(3.0, worstOver(layers, onSel)), cr = worstOver([...layers, 'editor.hoverHighlightBackground'], onSel);
     if (cr < floor - 0.005) bad('layers', `syntax under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under ${floor.toFixed(2)}`);
   }
-  if (!hc && findTextsOf(c).length) for (const layers of [['editor.findMatchHighlightBackground'], ['editor.findMatchBackground'], ['editor.selectionBackground', 'editor.findMatchHighlightBackground']]) {
-    const cr = worstOver([...layers, 'editor.hoverHighlightBackground'], findTextsOf(c));
-    if (cr < 4.5) bad('layers', `a find match under the hover highlight on ${layers.join(' plus ')} at ${down(cr)}, under 4.5`);
+  // VS Code paints find matches above the hover highlight (their decorations carry zIndex 10 and 13, the hover none)
+  if (!hc && findTextsOf(c).length) for (const [under, match] of [[[], 'editor.findMatchHighlightBackground'], [[], 'editor.findMatchBackground'], [['editor.selectionBackground'], 'editor.findMatchHighlightBackground']]) {
+    const cr = worstOver([...under, 'editor.hoverHighlightBackground', match], findTextsOf(c));
+    if (cr < 4.5) bad('layers', `a find match over the hover highlight on ${[...under, match].join(' plus ')} at ${down(cr)}, under 4.5`);
   }
   const diffSel = Math.min(...['inserted', 'removed'].map((d) => worstOver(['editor.selectionBackground', `diffEditor.${d}LineBackground`, `diffEditor.${d}TextBackground`], onSel)));
   pend(`syntax over the selection in a diff (${floorNote})`, diffSel, selFloor);
