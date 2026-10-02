@@ -71538,7 +71538,7 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "bf7026b046d03b4c",
+  "colors": "682b2108c0646478",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
@@ -72394,7 +72394,7 @@
    "editor.snippetTabstopHighlightBorder": "#ff63b480",
    "editor.snippetFinalTabstopHighlightBackground": "#5fbcc429",
    "editor.snippetFinalTabstopHighlightBorder": "#5FBCC4",
-   "editor.placeholder.foreground": "#757169",
+   "editor.placeholder.foreground": "#7c7871",
    "editorUnicodeHighlight.background": "#ffee3c24",
    "editorUnicodeHighlight.border": "#FFEE3C",
    "editorGutter.addedSecondaryBackground": "#3fc97e80",
