@@ -629,6 +629,11 @@ function analyse(fam, v) {
     const glass = mix(t.type === 'light' ? '#000000' : '#ffffff', over(c[s], eb), 0.8), ground = typeof wash === 'function' ? wash(c, glass) : wash ? over(c[wash], glass) : glass;
     pend(`text on the frosted glass of Insiders over white or black content, at the default 80% (${floor.toFixed(1)})`, contrast(shown(ground), ground), floor);
   }
+  // VS Code 1.140 writes the workspace name in the command center at 60%, a placeholder of its search, on the title bar
+  for (const k of ['commandCenter.foreground', 'commandCenter.activeForeground']) {
+    const tb = over(c['titleBar.activeBackground'], eb), cr = contrast(mix(tb, c[k], 0.6), tb), floor = hc ? 4.5 : 3.2;
+    if (cr < floor) bad('surface', `${k}, the workspace name in the command center at 60%, at ${down(cr)}, under ${floor}`);
+  }
   for (const { fg, share, grounds, floor, what } of COMPOSED) for (const ground of grounds(c)) {
     // a share is an opacity VS Code applies to the element, drawn as the exact blend with what lies under it
     const shown = share ? mix(ground, fg(c, t.type === 'light'), share) : over(fg(c, t.type === 'light'), ground);
