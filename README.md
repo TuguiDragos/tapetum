@@ -921,6 +921,9 @@ Press `Cmd K` then `Cmd T`, or `Ctrl K` then `Ctrl T` on Windows and Linux, and
 type a family name to filter. Every family is `Tapetum <Family>` for the dark
 variant and `Tapetum <Family> Light` for the light one.
 
+If you would rather choose before you install, [tapetum.tuguidragos.com](https://tapetum.tuguidragos.com)
+previews all 58 in the browser, with screenshots from VS Code.
+
 When the system asks for high contrast, VS Code switches to a high contrast theme
 of its own. To keep Tapetum, set `workbench.preferredHighContrastColorTheme` to
 `Tapetum Coherence High Contrast` and `workbench.preferredHighContrastLightColorTheme`
