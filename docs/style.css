@@ -327,10 +327,13 @@ li code {
   box-decoration-break: clone;
 }
 
+/* Clipped sideways only, so nothing can widen the page, while the shadows at the bottom of a section fade out
+   instead of stopping at its edge. A browser without overflow: clip keeps the line above. */
 .hero,
 .closing {
   position: relative;
   overflow: hidden;
+  overflow: clip visible;
   text-align: center;
 }
 
