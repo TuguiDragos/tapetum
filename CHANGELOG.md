@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.2]
+
+The themes are the same as in 1.1.1. The extension now points to its site and
+to GitHub Sponsors.
+
+### Added
+
+**The site.** The Homepage link on the Marketplace and on Open VSX, and a line
+in the README, lead to tapetum.tuguidragos.com, which previews all 58 themes
+in the browser.
+
+**A Sponsor button.** The Marketplace and the extension's page in VS Code show
+one, leading to GitHub Sponsors.
+
 ## [1.1.1]
 
 VS Code 1.140 gave the connected tab strip a key of its own and drew a line
