@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.3]
+
+The themes are the same as in 1.1.2.
+
+### Changed
+
+**The README opens with the theme.** The row of badges for the website and
+the social profiles is gone, on GitHub, the Marketplace and Open VSX.
+
+**Publishing keeps no token.** The Marketplace receives each release through
+Microsoft Entra ID, as Open VSX already does through trusted publishing.
+
 ## [1.1.2]
 
 The themes are the same as in 1.1.1. The extension now points to its site and
