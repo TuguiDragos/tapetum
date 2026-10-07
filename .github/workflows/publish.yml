@@ -70,10 +70,9 @@ jobs:
           vsce package --no-dependencies -o tapetum.vsix
           ls -l tapetum.vsix
 
-      # global Azure DevOps PATs stop on 1 December 2026; the managed identity takes over once the
-      # environment holds its ids, and VSCE_PAT stays the fallback until a release has gone through it
+      # the Marketplace takes the managed identity tapetum-marketplace, which trusts this environment's
+      # OIDC token, so no token is stored; global Azure DevOps PATs stop on 1 December 2026
       - name: Sign in to Microsoft Entra ID
-        if: vars.AZURE_CLIENT_ID != ''
         # a failed sign in shows in the Marketplace step and must not keep the package from Open VSX
         continue-on-error: true
         uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
@@ -86,31 +85,22 @@ jobs:
       # can ask for it; 499b84ac-1321-427f-aa17-267ca6975798 is Azure DevOps, which the Marketplace runs on.
       # The first run fails with VSS011031 while it creates the profile; a rerun prints the ID
       - name: The ID to add to the Marketplace publisher
-        if: github.event_name == 'workflow_dispatch' && vars.AZURE_CLIENT_ID != ''
+        if: github.event_name == 'workflow_dispatch'
         run: |
           az rest -u https://app.vssps.visualstudio.com/_apis/profile/profiles/me \
             --resource 499b84ac-1321-427f-aa17-267ca6975798 --query id -o tsv
 
       # fails until that ID is a Contributor on the publisher, so a passing run proves the next release gets through
       - name: The identity can publish as the publisher
-        if: github.event_name == 'workflow_dispatch' && vars.AZURE_CLIENT_ID != ''
+        if: github.event_name == 'workflow_dispatch'
         run: vsce verify-pat --azure-credential "$(node -p "require('./package.json').publisher")"
 
-      # each registry gets its chance even if the other refuses; the job fails at the end if one did.
-      # vsce takes a PAT over --azure-credential, so VSCE_PAT is only set when there is no identity
+      # each registry gets its chance even if the other refuses; the job fails at the end if one did
       - name: Publish to the VS Code Marketplace
         id: marketplace
         if: github.event_name == 'release'
         continue-on-error: true
-        env:
-          ENTRA_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
-          PAT: ${{ secrets.VSCE_PAT }}
-        run: |
-          if [ -n "$ENTRA_CLIENT_ID" ]; then
-            vsce publish --packagePath tapetum.vsix --skip-duplicate --azure-credential
-          else
-            VSCE_PAT="$PAT" vsce publish --packagePath tapetum.vsix --skip-duplicate
-          fi
+        run: vsce publish --packagePath tapetum.vsix --skip-duplicate --azure-credential
 
       - name: Publish to Open VSX by trusted publishing
         id: openvsx
