@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.4]
+
+VS Code 1.141 draws a thin divider between editor tabs in the modern UI.
+
+### Added
+
+**The tab divider.** Every theme sets `tab.divider` to the colour of its tab
+border, the colour VS Code falls back to, so the line looks as VS Code means
+it to. The registry is VS Code 1.141.0, and every theme covers all 988 keys it
+registers and has not deprecated.
+
 ## [1.1.3]
 
 The themes are the same as in 1.1.2.
