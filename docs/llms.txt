@@ -2,7 +2,7 @@
 
 > Tapetum is a free collection of 58 color themes for Visual Studio Code and the editors built on it: 28 families, each in a dark and a light variant, plus a high contrast pair for Coherence. Every palette was placed by hand, and every color is measured on the surface it sits on.
 
-Each family is drawn from something in the physical world that emits or bends light. Tapetum colors code in 6 ways: grammar, provenance, borrow, effect, signal and tone. Every syntax color clears 4.5 to 1 against its own background, the themes cover all 987 color keys VS Code 1.140.0 registers and has not deprecated, apart from the few it reads as switches, and they are checked on VSCodium, Cursor, Devin, code-server, Positron, Kiro, Trae, Antigravity and the last Void build.
+Each family is drawn from something in the physical world that emits or bends light. Tapetum colors code in 6 ways: grammar, provenance, borrow, effect, signal and tone. Every syntax color clears 4.5 to 1 against its own background, the themes cover all 988 color keys VS Code 1.141.0 registers and has not deprecated, apart from the few it reads as switches, and they are checked on VSCodium, Cursor, Devin, code-server, Positron, Kiro, Trae, Antigravity and the last Void build.
 
 Install it with `code --install-extension tuguidragos.tapetum`, or from the VS Code Marketplace or Open VSX. It requires VS Code 1.99 or later. It is free software under the MIT License, by Țugui Dragoș.
 
