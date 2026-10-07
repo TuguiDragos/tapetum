@@ -1,0 +1,55 @@
+# Tapetum
+
+> Tapetum is a free collection of 58 color themes for Visual Studio Code and the editors built on it: 28 families, each in a dark and a light variant, plus a high contrast pair for Coherence. Every palette was placed by hand, and every color is measured on the surface it sits on.
+
+Each family is drawn from something in the physical world that emits or bends light. Tapetum colors code in 6 ways: grammar, provenance, borrow, effect, signal and tone. Every syntax color clears 4.5 to 1 against its own background, the themes cover all 987 color keys VS Code 1.140.0 registers and has not deprecated, apart from the few it reads as switches, and they are checked on VSCodium, Cursor, Devin, code-server, Positron, Kiro, Trae, Antigravity and the last Void build.
+
+Install it with `code --install-extension tuguidragos.tapetum`, or from the VS Code Marketplace or Open VSX. It requires VS Code 1.99 or later. It is free software under the MIT License, by Țugui Dragoș.
+
+## Families
+
+- Selenium (grammar scheme): Selenium toning. Hue rotates as tone drops
+- Hadal (grammar scheme): The depth at which each color dies underwater
+- Effect (effect scheme): Which code touches the world and which only computes
+- Dichroic (grammar scheme): A dichroic filter. 2 hues in the whole of the code
+- Cochineal (grammar scheme): Carminic acid, the first real scarlet Europe had
+- Aerogel (grammar scheme): Rayleigh scattering. Blue reflected, amber transmitted
+- Anodise (grammar scheme): Interference on anodized titanium
+- Borrow (borrow scheme): Whether a thing can change, and where it is written to
+- Cavitation (grammar scheme): Sonoluminescence, the flash of a collapsing bubble
+- Cherenkov (grammar scheme): A reactor pool. No warm color in the code
+- Cinnabar (grammar scheme): Mineral pigments ground before synthetic chemistry
+- Coherence (grammar scheme): 6 lines from 1 argon and krypton ion laser
+- Epitaxy (grammar scheme): A silicon wafer and real LED emission peaks
+- Fraunhofer (grammar scheme): Absorption lines in sunlight
+- Glacier (grammar scheme): Compressed glacier ice. Nothing in it is black
+- Incandescence (grammar scheme): The temperature scale of hot steel
+- Noctiluca (grammar scheme): Light made by living things
+- Palimpsest (signal scheme): A scraped and rewritten manuscript
+- Passepartout (grammar scheme): The mat around a framed photograph
+- Persistence (grammar scheme): Oscilloscope phosphor decay
+- Provenance (provenance scheme): Where each symbol came from
+- Quantum (grammar scheme): Emission lines of heated gases
+- Riso (grammar scheme): The 6 spot inks you can order for a duplicator
+- Safelight (grammar scheme): A darkroom under an OC filter
+- Silverpoint (tone scheme): A silver stylus on prepared paper. Gray code, hue kept for signals
+- Stratum (tone scheme): Sedimentary layers. Color sits on nesting depth
+- Valence (grammar scheme): Transition metals dissolved in water
+- Verdigris (grammar scheme): What copper turns into as it corrodes
+
+## Install
+
+- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=tuguidragos.tapetum): Tapetum Theme, by tuguidragos
+- [Open VSX](https://open-vsx.org/extension/tuguidragos/tapetum): the gallery VSCodium, Kiro, Trae, Antigravity and code-server install from
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/TuguiDragos/tapetum/main/README.md): every family with its palette, the 6 schemes, how the themes are checked, and how to customize them
+- [Changelog](https://raw.githubusercontent.com/TuguiDragos/tapetum/main/CHANGELOG.md): every release, newest first
+
+## Optional
+
+- [Source code](https://github.com/TuguiDragos/tapetum)
+- [Sponsor](https://github.com/sponsors/TuguiDragos): GitHub Sponsors
+- [How every color in Tapetum was placed and measured](https://tuguidragos.com/58-vs-code-themes-measured/): the author's write-up
+- [Author](https://tuguidragos.com/about/): Țugui Dragoș
