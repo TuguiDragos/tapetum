@@ -10,7 +10,6 @@ import { FORK_KEYS } from './forks.mjs';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 const RAW = 'https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets';
-const badges = fs.readFileSync(path.join(HERE, 'readme-badges.html'), 'utf8').trimEnd();
 const downloads = fs.readFileSync(path.join(HERE, 'readme-downloads.html'), 'utf8').trimEnd();
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
 const VARIANTS = ['dark', 'light', 'hcDark', 'hcLight'];
@@ -164,9 +163,7 @@ ${sem}
   return { scopes, selectors: semantic.size, schemes: blocks.length, snippet };
 })();
 
-const md = `${badges}
-
-<h1 align="center">
+const md = `<h1 align="center">
   <img src="${RAW}/tapetum-fan-512.png" alt="" width="56" align="absmiddle" />
   &nbsp;${pkg.displayName}
 </h1>
