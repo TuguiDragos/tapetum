@@ -57,6 +57,9 @@
     "url": "https://github.com/TuguiDragos/tapetum/issues"
   },
   "homepage": "https://tapetum.tuguidragos.com",
+  "sponsor": {
+    "url": "https://github.com/sponsors/TuguiDragos"
+  },
   "galleryBanner": {
     "color": "#0B0E1A",
     "theme": "dark"
