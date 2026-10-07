@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   issues: write
+  id-token: write
 
 concurrency:
   group: tokens
@@ -17,6 +18,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # the identity's ids are variables of this environment, so the job has to run in it to see them
+    environment: vscode-marketplace
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -36,19 +39,37 @@ jobs:
         id: manifest
         run: echo "publisher=$(node -p "require('./package.json').publisher")" >> "$GITHUB_OUTPUT"
 
-      - name: Ask the Marketplace whether its token can still publish
+      - name: Sign in to Microsoft Entra ID
+        if: vars.AZURE_CLIENT_ID != ''
+        # a failed sign in shows in the check below, which opens the issue
+        continue-on-error: true
+        uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          allow-no-subscriptions: true
+
+      # vsce takes a PAT over --azure-credential, so VSCE_PAT is only set when there is no identity
+      - name: Ask the Marketplace whether the release can still publish
         id: marketplace
         continue-on-error: true
         env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          ENTRA_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+          PAT: ${{ secrets.VSCE_PAT }}
           PUBLISHER: ${{ steps.manifest.outputs.publisher }}
-        run: vsce verify-pat "$PUBLISHER"
+        run: |
+          if [ -n "$ENTRA_CLIENT_ID" ]; then
+            vsce verify-pat --azure-credential "$PUBLISHER"
+          else
+            VSCE_PAT="$PAT" vsce verify-pat "$PUBLISHER"
+          fi
 
-      - name: Open an issue if the token stopped working
+      - name: Open an issue if the Marketplace stopped taking the release
         if: steps.marketplace.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
           PUBLISHER: ${{ steps.manifest.outputs.publisher }}
+          ENTRA_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
         run: |
           title="A publishing token stopped working"
           if [ -n "$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')" ]; then
@@ -56,11 +77,17 @@ jobs:
             exit 1
           fi
           {
-            echo "The monthly token check could not publish as $PUBLISHER with VSCE_PAT."
+            if [ -n "$ENTRA_CLIENT_ID" ]; then
+              echo "The monthly check could not publish as $PUBLISHER with the Microsoft Entra managed identity $ENTRA_CLIENT_ID."
+              echo
+              echo "Check that the identity still has a federated credential for this repository's environment vscode-marketplace, with the immutable subject GitHub gives this repository (gh api repos/$GITHUB_REPOSITORY/actions/oidc/customization/sub), and that its Marketplace ID is still a Contributor on the publisher's Members page. Running the Publish workflow by hand prints that ID and repeats the check. Open VSX publishes by trusted publishing and needs no token."
+            else
+              echo "The monthly check could not publish as $PUBLISHER with VSCE_PAT."
+              echo
+              echo "Azure DevOps stops global personal access tokens on 1 December 2026, so a new one is no fix past that date: give the environment vscode-marketplace the variables AZURE_CLIENT_ID and AZURE_TENANT_ID of the managed identity instead, and the Marketplace is reached through Microsoft Entra ID. Open VSX publishes by trusted publishing and needs no token."
+            fi
             echo
-            echo "A Marketplace token comes from https://dev.azure.com, user settings, personal access tokens, with the Marketplace Manage scope and All accessible organizations, and lives at most 1 year. Azure DevOps stops all such global tokens on 1 December 2026; from then on the Marketplace takes Microsoft Entra ID or its own trusted publishing. Open VSX publishes by trusted publishing and needs no token."
-            echo
-            echo "Put the new value in the repository settings under Secrets and variables, Actions, then run the Tokens workflow again to confirm. Until then the Publish workflow cannot reach the Marketplace, though Open VSX and the release still get the package."
+            echo "Then run the Tokens workflow again to confirm. Until then the Publish workflow cannot reach the Marketplace, though Open VSX and the release still get the package."
           } > body.md
           gh issue create --title "$title" --body-file body.md
           exit 1
