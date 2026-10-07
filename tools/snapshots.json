@@ -6,11 +6,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "60c33de447569998",
+  "colors": "1a05fe76cb5ef7a9",
   "tokenColors": "1494d2ebdcc086dc",
   "semanticTokenColors": "9faa4c1144a62387",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -280,6 +280,7 @@
    "tab.inactiveBackground": "#171b2a",
    "tab.inactiveForeground": "#7f869e",
    "tab.border": "#242836",
+   "tab.divider": "#242836",
    "tab.hoverBackground": "#212535",
    "tab.hoverForeground": "#C8D3F5",
    "tab.hoverBorder": "#00000000",
@@ -1286,11 +1287,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f5f385f7ea1457ea",
+  "colors": "93dfc7bc426f540b",
   "tokenColors": "74a8f5622b52f14f",
   "semanticTokenColors": "67725d6d42e97588",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -1560,6 +1561,7 @@
    "tab.inactiveBackground": "#e6e9f2",
    "tab.inactiveForeground": "#656879",
    "tab.border": "#dee0e7",
+   "tab.divider": "#dee0e7",
    "tab.hoverBackground": "#d7dbe5",
    "tab.hoverForeground": "#24294A",
    "tab.hoverBorder": "#00000000",
@@ -2566,11 +2568,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f6096a415ad1a05b",
+  "colors": "a188309753b524c0",
   "tokenColors": "8a0484666b448375",
   "semanticTokenColors": "d37b4508a27d775e",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -2840,6 +2842,7 @@
    "tab.inactiveBackground": "#161921",
    "tab.inactiveForeground": "#86898f",
    "tab.border": "#24262c",
+   "tab.divider": "#24262c",
    "tab.hoverBackground": "#20232b",
    "tab.hoverForeground": "#DDE1E8",
    "tab.hoverBorder": "#00000000",
@@ -3846,11 +3849,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6eaede8eb5c79b7a",
+  "colors": "79af0dbedbec0481",
   "tokenColors": "048227b385362047",
   "semanticTokenColors": "011503c56c25fb2e",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -4120,6 +4123,7 @@
    "tab.inactiveBackground": "#e7e6e0",
    "tab.inactiveForeground": "#636364",
    "tab.border": "#deddda",
+   "tab.divider": "#deddda",
    "tab.hoverBackground": "#d9d8d3",
    "tab.hoverForeground": "#1B1D22",
    "tab.hoverBorder": "#00000000",
@@ -5126,11 +5130,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "3b71ed4ed72d6580",
+  "colors": "cbd8086b939a7733",
   "tokenColors": "58102655482cb3e3",
   "semanticTokenColors": "a9bb67439421d470",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -5400,6 +5404,7 @@
    "tab.inactiveBackground": "#191b18",
    "tab.inactiveForeground": "#868984",
    "tab.border": "#252724",
+   "tab.divider": "#252724",
    "tab.hoverBackground": "#232522",
    "tab.hoverForeground": "#DCE0D8",
    "tab.hoverBorder": "#00000000",
@@ -6406,11 +6411,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5715e49bd391acfd",
+  "colors": "8dc787f4ec8fb6b4",
   "tokenColors": "ff3c740bf9749d31",
   "semanticTokenColors": "719a18ffdd88432c",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -6680,6 +6685,7 @@
    "tab.inactiveBackground": "#e3e5de",
    "tab.inactiveForeground": "#61635f",
    "tab.border": "#dbdcd8",
+   "tab.divider": "#dbdcd8",
    "tab.hoverBackground": "#d5d7d0",
    "tab.hoverForeground": "#1C1F1A",
    "tab.hoverBorder": "#00000000",
@@ -7686,11 +7692,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "303ef81ffd225472",
+  "colors": "e187a8945bda764a",
   "tokenColors": "284556545503f362",
   "semanticTokenColors": "4771b3334d3969c3",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -7960,6 +7966,7 @@
    "tab.inactiveBackground": "#1d1d1e",
    "tab.inactiveForeground": "#8b8b8c",
    "tab.border": "#282829",
+   "tab.divider": "#282829",
    "tab.hoverBackground": "#272728",
    "tab.hoverForeground": "#E2E2E4",
    "tab.hoverBorder": "#00000000",
@@ -8966,11 +8973,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "76283b8c455caf09",
+  "colors": "9ea0592347883677",
   "tokenColors": "a724e9b954d47e19",
   "semanticTokenColors": "5a9bb932d99913d0",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -9240,6 +9247,7 @@
    "tab.inactiveBackground": "#e4e4e7",
    "tab.inactiveForeground": "#626264",
    "tab.border": "#dcdcdd",
+   "tab.divider": "#dcdcdd",
    "tab.hoverBackground": "#d6d6d9",
    "tab.hoverForeground": "#1D1D20",
    "tab.hoverBorder": "#00000000",
@@ -10246,11 +10254,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "569c7c8e6c2cfe6a",
+  "colors": "a9afe1d4ec6de1dd",
   "tokenColors": "974d0bdb7a1471f5",
   "semanticTokenColors": "48f47352633ddebf",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -10520,6 +10528,7 @@
    "tab.inactiveBackground": "#16181b",
    "tab.inactiveForeground": "#808387",
    "tab.border": "#1e1e21",
+   "tab.divider": "#1e1e21",
    "tab.hoverBackground": "#202225",
    "tab.hoverForeground": "#C9CED6",
    "tab.hoverBorder": "#00000000",
@@ -11526,11 +11535,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ec114e571a96a111",
+  "colors": "a5ac6b91526dfe98",
   "tokenColors": "2d04159e1a67746f",
   "semanticTokenColors": "53b9963fdbef1074",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -11800,6 +11809,7 @@
    "tab.inactiveBackground": "#e7e8eb",
    "tab.inactiveForeground": "#646567",
    "tab.border": "#dfdfe1",
+   "tab.divider": "#dfdfe1",
    "tab.hoverBackground": "#d9dade",
    "tab.hoverForeground": "#16181C",
    "tab.hoverBorder": "#00000000",
@@ -12806,11 +12816,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a0f3ccc148aaa05f",
+  "colors": "37e0ed85c041126f",
   "tokenColors": "1d6f3b9f8c116049",
   "semanticTokenColors": "f79e51285f000020",
   "counts": [
-   1047,
+   1048,
    99,
    58
   ],
@@ -13081,6 +13091,7 @@
    "tab.inactiveBackground": "#000000",
    "tab.inactiveForeground": "#9b9b9b",
    "tab.border": "#6FC3DF",
+   "tab.divider": "#6FC3DF",
    "tab.hoverBackground": "#000000",
    "tab.hoverForeground": "#FFFFFF",
    "tab.hoverBorder": "#6FC3DF",
@@ -14089,11 +14100,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e722484516a0ec01",
+  "colors": "f89f27da4f2b3863",
   "tokenColors": "7358338af029e8ce",
   "semanticTokenColors": "02e4bbd49dde06f0",
   "counts": [
-   1047,
+   1048,
    99,
    58
   ],
@@ -14364,6 +14375,7 @@
    "tab.inactiveBackground": "#FFFFFF",
    "tab.inactiveForeground": "#5c5c5c",
    "tab.border": "#0F4A85",
+   "tab.divider": "#0F4A85",
    "tab.hoverBackground": "#FFFFFF",
    "tab.hoverForeground": "#000000",
    "tab.hoverBorder": "#0F4A85",
@@ -15372,11 +15384,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "125db8058f201879",
+  "colors": "a8fd456734d0cea2",
   "tokenColors": "2640825a289d525e",
   "semanticTokenColors": "982253a5d1d1458d",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -15646,6 +15658,7 @@
    "tab.inactiveBackground": "#15121B",
    "tab.inactiveForeground": "#85838b",
    "tab.border": "#252329",
+   "tab.divider": "#252329",
    "tab.hoverBackground": "#1f1c25",
    "tab.hoverForeground": "#D4D1DC",
    "tab.hoverBorder": "#00000000",
@@ -16652,11 +16665,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "4413a2647fc5c301",
+  "colors": "13180cb1cd8895d7",
   "tokenColors": "efc4e8d2117d4bfe",
   "semanticTokenColors": "8e3a25d841b8072b",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -16926,6 +16939,7 @@
    "tab.inactiveBackground": "#EAE7EF",
    "tab.inactiveForeground": "#68676b",
    "tab.border": "#e0dfe1",
+   "tab.divider": "#e0dfe1",
    "tab.hoverBackground": "#dcd9e1",
    "tab.hoverForeground": "#222128",
    "tab.hoverBorder": "#00000000",
@@ -17932,11 +17946,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e0c9546dad39ad51",
+  "colors": "a4b7de7c0dad293f",
   "tokenColors": "a1df1bf37499bfbe",
   "semanticTokenColors": "61a9ffceb3066a9a",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -18206,6 +18220,7 @@
    "tab.inactiveBackground": "#0e212d",
    "tab.inactiveForeground": "#7a8d93",
    "tab.border": "#1d2d36",
+   "tab.divider": "#1d2d36",
    "tab.hoverBackground": "#182b37",
    "tab.hoverForeground": "#C6DCE1",
    "tab.hoverBorder": "#00000000",
@@ -19212,11 +19227,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "162005f9091a9157",
+  "colors": "17f79a97339d1b3a",
   "tokenColors": "bc777dbe0adb1ab0",
   "semanticTokenColors": "a506fab92dff6064",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -19486,6 +19501,7 @@
    "tab.inactiveBackground": "#E0EAF0",
    "tab.inactiveForeground": "#60676a",
    "tab.border": "#d9dee0",
+   "tab.divider": "#d9dee0",
    "tab.hoverBackground": "#d2dce2",
    "tab.hoverForeground": "#152225",
    "tab.hoverBorder": "#00000000",
@@ -20492,11 +20508,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c4fe77a730e39118",
+  "colors": "c5014134cc4bfa8b",
   "tokenColors": "322c006375f9f52e",
   "semanticTokenColors": "1aacfc7faf758ea5",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -20766,6 +20782,7 @@
    "tab.inactiveBackground": "#201a17",
    "tab.inactiveForeground": "#8d8580",
    "tab.border": "#2b2622",
+   "tab.divider": "#2b2622",
    "tab.hoverBackground": "#2a2421",
    "tab.hoverForeground": "#DED2CD",
    "tab.hoverBorder": "#00000000",
@@ -21772,11 +21789,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d8bd6ea1259f0708",
+  "colors": "1e6e813a28702821",
   "tokenColors": "e7b14806fc07e5da",
   "semanticTokenColors": "8d09c8dd1f1688b2",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -22046,6 +22063,7 @@
    "tab.inactiveBackground": "#E8E3D7",
    "tab.inactiveForeground": "#696460",
    "tab.border": "#dedbd4",
+   "tab.divider": "#dedbd4",
    "tab.hoverBackground": "#dad5ca",
    "tab.hoverForeground": "#251D19",
    "tab.hoverBorder": "#00000000",
@@ -23052,11 +23070,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b894d18c12c2bf43",
+  "colors": "025abddb6e09779f",
   "tokenColors": "fd071e124c6c77bf",
   "semanticTokenColors": "96925bfb0b791024",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -23326,6 +23344,7 @@
    "tab.inactiveBackground": "#23232c",
    "tab.inactiveForeground": "#8b8e95",
    "tab.border": "#2e2f36",
+   "tab.divider": "#2e2f36",
    "tab.hoverBackground": "#2d2d36",
    "tab.hoverForeground": "#D7DCE5",
    "tab.hoverBorder": "#00000000",
@@ -24332,11 +24351,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e6742bb82caa6739",
+  "colors": "792b071f923ed8c4",
   "tokenColors": "572eca53d97c8920",
   "semanticTokenColors": "7463b031660e905a",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -24606,6 +24625,7 @@
    "tab.inactiveBackground": "#EAE6D6",
    "tab.inactiveForeground": "#696660",
    "tab.border": "#dfddd4",
+   "tab.divider": "#dfddd4",
    "tab.hoverBackground": "#dcd8c9",
    "tab.hoverForeground": "#251F19",
    "tab.hoverBorder": "#00000000",
@@ -25612,11 +25632,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "443c3cd6c0db4352",
+  "colors": "9f8b6fb242cfa620",
   "tokenColors": "e42d70847c236209",
   "semanticTokenColors": "adc91fb86a40193c",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -25886,6 +25906,7 @@
    "tab.inactiveBackground": "#1e1b17",
    "tab.inactiveForeground": "#8a8481",
    "tab.border": "#282522",
+   "tab.divider": "#282522",
    "tab.hoverBackground": "#282521",
    "tab.hoverForeground": "#DBD2CE",
    "tab.hoverBorder": "#00000000",
@@ -26892,11 +26913,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1bb7659a4829ed45",
+  "colors": "d92b11085b144a82",
   "tokenColors": "c24e3f820d58837f",
   "semanticTokenColors": "98ba7fb10d9315ac",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -27166,6 +27187,7 @@
    "tab.inactiveBackground": "#E4DFD3",
    "tab.inactiveForeground": "#66625e",
    "tab.border": "#dbd8d1",
+   "tab.divider": "#dbd8d1",
    "tab.hoverBackground": "#d7d2c7",
    "tab.hoverForeground": "#211B18",
    "tab.hoverBorder": "#00000000",
@@ -28172,11 +28194,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "d9fc607b7465856f",
+  "colors": "ed7eaf965b0c4cf4",
   "tokenColors": "b4a0ba3f226e39ae",
   "semanticTokenColors": "834f9712dfd348ad",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -28446,6 +28468,7 @@
    "tab.inactiveBackground": "#0f2239",
    "tab.inactiveForeground": "#7d8f9b",
    "tab.border": "#1f2f40",
+   "tab.divider": "#1f2f40",
    "tab.hoverBackground": "#192c43",
    "tab.hoverForeground": "#CADEE6",
    "tab.hoverBorder": "#00000000",
@@ -29452,11 +29475,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "cd43c10df3774443",
+  "colors": "8330c46ab58bdab5",
   "tokenColors": "f7453dee3a81427c",
   "semanticTokenColors": "05aaad469932c28e",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -29726,6 +29749,7 @@
    "tab.inactiveBackground": "#DEE7F3",
    "tab.inactiveForeground": "#60676a",
    "tab.border": "#d8dce1",
+   "tab.divider": "#d8dce1",
    "tab.hoverBackground": "#d0d9e5",
    "tab.hoverForeground": "#152125",
    "tab.hoverBorder": "#00000000",
@@ -30732,11 +30756,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "2825ef3d834def48",
+  "colors": "4a9a8113e28de6fe",
   "tokenColors": "7eabc13041d81ce3",
   "semanticTokenColors": "9d935d947d5db013",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -31006,6 +31030,7 @@
    "tab.inactiveBackground": "#181c23",
    "tab.inactiveForeground": "#7d888e",
    "tab.border": "#22272d",
+   "tab.divider": "#22272d",
    "tab.hoverBackground": "#22262d",
    "tab.hoverForeground": "#C6D8DF",
    "tab.hoverBorder": "#00000000",
@@ -32012,11 +32037,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "40a0a49b209ef913",
+  "colors": "fef530a435e32d09",
   "tokenColors": "0e44290bc53e9282",
   "semanticTokenColors": "10dc05d5001ce34d",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -32286,6 +32311,7 @@
    "tab.inactiveBackground": "#E9E2D2",
    "tab.inactiveForeground": "#69635e",
    "tab.border": "#dfdad0",
+   "tab.divider": "#dfdad0",
    "tab.hoverBackground": "#dbd4c5",
    "tab.hoverForeground": "#251C18",
    "tab.hoverBorder": "#00000000",
@@ -33292,11 +33318,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "13e280cdfd593665",
+  "colors": "0e495c04bc2c6295",
   "tokenColors": "f8d4e27a76a7a950",
   "semanticTokenColors": "bd0d6d0dc07d53dc",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -33566,6 +33592,7 @@
    "tab.inactiveBackground": "#11151c",
    "tab.inactiveForeground": "#798389",
    "tab.border": "#1e2226",
+   "tab.divider": "#1e2226",
    "tab.hoverBackground": "#1a1f26",
    "tab.hoverForeground": "#C3D4DB",
    "tab.hoverBorder": "#00000000",
@@ -34572,11 +34599,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "72c9ef594e249720",
+  "colors": "eed0e06b809c49d1",
   "tokenColors": "b32522229abf1110",
   "semanticTokenColors": "e11afd335a3e85bd",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -34846,6 +34873,7 @@
    "tab.inactiveBackground": "#E3E9F1",
    "tab.inactiveForeground": "#61676a",
    "tab.border": "#dbdee1",
+   "tab.divider": "#dbdee1",
    "tab.hoverBackground": "#d5dbe3",
    "tab.hoverForeground": "#162227",
    "tab.hoverBorder": "#00000000",
@@ -35852,11 +35880,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "7be94845e3ec23ad",
+  "colors": "5c34283c6dc7540d",
   "tokenColors": "b162e9cc831907da",
   "semanticTokenColors": "188dc1aad69ebf75",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -36126,6 +36154,7 @@
    "tab.inactiveBackground": "#12191d",
    "tab.inactiveForeground": "#7a8586",
    "tab.border": "#1d2426",
+   "tab.divider": "#1d2426",
    "tab.hoverBackground": "#1c2327",
    "tab.hoverForeground": "#C4D5D4",
    "tab.hoverBorder": "#00000000",
@@ -37132,11 +37161,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b10271aeaa6bfbf0",
+  "colors": "821716a0a72096f5",
   "tokenColors": "9e9b904af1b05ad7",
   "semanticTokenColors": "5be2c19530c5ac2c",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -37406,6 +37435,7 @@
    "tab.inactiveBackground": "#dfe9e9",
    "tab.inactiveForeground": "#616767",
    "tab.border": "#d8dede",
+   "tab.divider": "#d8dede",
    "tab.hoverBackground": "#d1dbdb",
    "tab.hoverForeground": "#172221",
    "tab.hoverBorder": "#00000000",
@@ -38412,11 +38442,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "1f837dff2ab21c28",
+  "colors": "48514b83fa40e150",
   "tokenColors": "800fcd95a375702b",
   "semanticTokenColors": "382bbd0748849c35",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -38686,6 +38716,7 @@
    "tab.inactiveBackground": "#1d1716",
    "tab.inactiveForeground": "#8e8583",
    "tab.border": "#272220",
+   "tab.divider": "#272220",
    "tab.hoverBackground": "#282120",
    "tab.hoverForeground": "#DDCFCD",
    "tab.hoverBorder": "#00000000",
@@ -39692,11 +39723,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "77fdeafdd4c75432",
+  "colors": "bc6d05a1b49e2547",
   "tokenColors": "4d2d2fc42fa1425b",
   "semanticTokenColors": "2d12dd7d240ca66b",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -39966,6 +39997,7 @@
    "tab.inactiveBackground": "#E8E1D9",
    "tab.inactiveForeground": "#696361",
    "tab.border": "#dedad6",
+   "tab.divider": "#dedad6",
    "tab.hoverBackground": "#dad3cc",
    "tab.hoverForeground": "#251C1B",
    "tab.hoverBorder": "#00000000",
@@ -40972,11 +41004,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ce3117fedf883ead",
+  "colors": "e8d853d29eae73cf",
   "tokenColors": "91ea5c0dc49aec9d",
   "semanticTokenColors": "59a50f2581701e68",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -41246,6 +41278,7 @@
    "tab.inactiveBackground": "#392719",
    "tab.inactiveForeground": "#aa9d8a",
    "tab.border": "#443324",
+   "tab.divider": "#443324",
    "tab.hoverBackground": "#433122",
    "tab.hoverForeground": "#F0DCBE",
    "tab.hoverBorder": "#00000000",
@@ -42252,11 +42285,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b83286c9922a95bf",
+  "colors": "afa77a7c99fcb4b1",
   "tokenColors": "b1bad2f521ea37ef",
   "semanticTokenColors": "d5c48165c1c64179",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -42526,6 +42559,7 @@
    "tab.inactiveBackground": "#DAD1BC",
    "tab.inactiveForeground": "#60564b",
    "tab.border": "#d4cdbd",
+   "tab.divider": "#d4cdbd",
    "tab.hoverBackground": "#cdc4b0",
    "tab.hoverForeground": "#2C2318",
    "tab.hoverBorder": "#00000000",
@@ -43532,11 +43566,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "9129a805c74031d1",
+  "colors": "7e7b22c9896872b1",
   "tokenColors": "3ff87cad44b4090b",
   "semanticTokenColors": "ba2fadf420df1e3b",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -43806,6 +43840,7 @@
    "tab.inactiveBackground": "#0F1C19",
    "tab.inactiveForeground": "#808c89",
    "tab.border": "#202a28",
+   "tab.divider": "#202a28",
    "tab.hoverBackground": "#192623",
    "tab.hoverForeground": "#C4D2CE",
    "tab.hoverBorder": "#00000000",
@@ -44812,11 +44847,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ab799260b12b2a2c",
+  "colors": "5db033d2b1aff6c3",
   "tokenColors": "bffa2047076974ee",
   "semanticTokenColors": "cd472401ee24e3d9",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -45086,6 +45121,7 @@
    "tab.inactiveBackground": "#E0D5DE",
    "tab.inactiveForeground": "#595f5d",
    "tab.border": "#d9d4d8",
+   "tab.divider": "#d9d4d8",
    "tab.hoverBackground": "#d2c9d1",
    "tab.hoverForeground": "#1E2321",
    "tab.hoverBorder": "#00000000",
@@ -46092,11 +46128,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "a569bf918238a45e",
+  "colors": "376ab21ef4d347b7",
   "tokenColors": "b98b3725f2ddc967",
   "semanticTokenColors": "02b683360cd8b5d4",
   "counts": [
-   1044,
+   1045,
    43,
    62
   ],
@@ -46366,6 +46402,7 @@
    "tab.inactiveBackground": "#26292f",
    "tab.inactiveForeground": "#939599",
    "tab.border": "#2f3136",
+   "tab.divider": "#2f3136",
    "tab.hoverBackground": "#303338",
    "tab.hoverForeground": "#C6C8CC",
    "tab.hoverBorder": "#00000000",
@@ -47342,11 +47379,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5ce5b8294e9cc0c8",
+  "colors": "17cd3a2aae7c4127",
   "tokenColors": "afc07bc0064373d1",
   "semanticTokenColors": "107a554e0d252b59",
   "counts": [
-   1044,
+   1045,
    43,
    62
   ],
@@ -47616,6 +47653,7 @@
    "tab.inactiveBackground": "#DFDBD2",
    "tab.inactiveForeground": "#5d5f66",
    "tab.border": "#dad9d5",
+   "tab.divider": "#dad9d5",
    "tab.hoverBackground": "#d2cec6",
    "tab.hoverForeground": "#2E3036",
    "tab.hoverBorder": "#00000000",
@@ -48592,11 +48630,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b15e18f2e3cb5b03",
+  "colors": "f25ed334286563ce",
   "tokenColors": "bc4c34de7deda23a",
   "semanticTokenColors": "3831a354f159410d",
   "counts": [
-   1044,
+   1045,
    86,
    49
   ],
@@ -48866,6 +48904,7 @@
    "tab.inactiveBackground": "#231f1a",
    "tab.inactiveForeground": "#918b80",
    "tab.border": "#2f2b26",
+   "tab.divider": "#2f2b26",
    "tab.hoverBackground": "#2e2924",
    "tab.hoverForeground": "#E4DACA",
    "tab.hoverBorder": "#00000000",
@@ -49885,11 +49924,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "f3dc725b819933df",
+  "colors": "03ca6f4f46f2f60f",
   "tokenColors": "5d7c605186cc1ac7",
   "semanticTokenColors": "20ba53276e301dec",
   "counts": [
-   1044,
+   1045,
    86,
    49
   ],
@@ -50159,6 +50198,7 @@
    "tab.inactiveBackground": "#DAD2BF",
    "tab.inactiveForeground": "#5c584f",
    "tab.border": "#d5cfc2",
+   "tab.divider": "#d5cfc2",
    "tab.hoverBackground": "#cdc5b3",
    "tab.hoverForeground": "#241F16",
    "tab.hoverBorder": "#00000000",
@@ -51178,11 +51218,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e6b8c5ce4dd56542",
+  "colors": "1d330f7aec8a898b",
   "tokenColors": "2a9b1af8163d8ffa",
   "semanticTokenColors": "82a4e958ee3abe12",
   "counts": [
-   1044,
+   1045,
    86,
    54
   ],
@@ -51452,6 +51492,7 @@
    "tab.inactiveBackground": "#1e222a",
    "tab.inactiveForeground": "#8b8e95",
    "tab.border": "#2a2d32",
+   "tab.divider": "#2a2d32",
    "tab.hoverBackground": "#282c34",
    "tab.hoverForeground": "#C8CDD6",
    "tab.hoverBorder": "#00000000",
@@ -52446,11 +52487,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c656b4bb1f44cdf1",
+  "colors": "4ca23cdb48d039d2",
   "tokenColors": "62ce60587d1791c4",
   "semanticTokenColors": "462a55d50ee115d1",
   "counts": [
-   1044,
+   1045,
    86,
    54
   ],
@@ -52720,6 +52761,7 @@
    "tab.inactiveBackground": "#E0E3EA",
    "tab.inactiveForeground": "#63656a",
    "tab.border": "#dadbdf",
+   "tab.divider": "#dadbdf",
    "tab.hoverBackground": "#d2d5dc",
    "tab.hoverForeground": "#22262E",
    "tab.hoverBorder": "#00000000",
@@ -53714,11 +53756,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "971ea892c6f3534f",
+  "colors": "621f07bc784de0cc",
   "tokenColors": "f17dbfd296cf8cdc",
   "semanticTokenColors": "54d2d0f76e6cdb8d",
   "counts": [
-   1044,
+   1045,
    86,
    48
   ],
@@ -53988,6 +54030,7 @@
    "tab.inactiveBackground": "#26221b",
    "tab.inactiveForeground": "#969187",
    "tab.border": "#34302b",
+   "tab.divider": "#34302b",
    "tab.hoverBackground": "#302c24",
    "tab.hoverForeground": "#E8E1D2",
    "tab.hoverBorder": "#00000000",
@@ -54970,11 +55013,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "0df39c7b34c43757",
+  "colors": "6d6e3cc7ac79c322",
   "tokenColors": "abb379b06b40a5eb",
   "semanticTokenColors": "2d8a2bd7f50424fe",
   "counts": [
-   1044,
+   1045,
    86,
    48
   ],
@@ -55244,6 +55287,7 @@
    "tab.inactiveBackground": "#D7CBAE",
    "tab.inactiveForeground": "#5a554a",
    "tab.border": "#d4cbb7",
+   "tab.divider": "#d4cbb7",
    "tab.hoverBackground": "#cbbfa4",
    "tab.hoverForeground": "#2A241A",
    "tab.hoverBorder": "#00000000",
@@ -56226,11 +56270,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "ccd72f12b03c2a84",
+  "colors": "5edf20a0805c514d",
   "tokenColors": "33d40469d09a91e7",
   "semanticTokenColors": "a598c1a83c652ddc",
   "counts": [
-   1044,
+   1045,
    86,
    49
   ],
@@ -56500,6 +56544,7 @@
    "tab.inactiveBackground": "#27272b",
    "tab.inactiveForeground": "#939396",
    "tab.border": "#323234",
+   "tab.divider": "#323234",
    "tab.hoverBackground": "#313135",
    "tab.hoverForeground": "#D2D2D6",
    "tab.hoverBorder": "#00000000",
@@ -57519,11 +57564,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "e52db494243237e7",
+  "colors": "c6db0fbaf9de68f7",
   "tokenColors": "c2bacbe284ec3fb3",
   "semanticTokenColors": "0e9ae30c80fe05bc",
   "counts": [
-   1044,
+   1045,
    86,
    49
   ],
@@ -57793,6 +57838,7 @@
    "tab.inactiveBackground": "#D2CFC8",
    "tab.inactiveForeground": "#565556",
    "tab.border": "#cfcdc9",
+   "tab.divider": "#cfcdc9",
    "tab.hoverBackground": "#c5c2bc",
    "tab.hoverForeground": "#26262A",
    "tab.hoverBorder": "#00000000",
@@ -58812,11 +58858,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "23912ac4bc65b4e8",
+  "colors": "fb2dcfd5c0cd4504",
   "tokenColors": "22e9640b633482b5",
   "semanticTokenColors": "2aecd952cc2ef6be",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -59086,6 +59132,7 @@
    "tab.inactiveBackground": "#2B2B31",
    "tab.inactiveForeground": "#9f9d9c",
    "tab.border": "#242425",
+   "tab.divider": "#242425",
    "tab.hoverBackground": "#35353a",
    "tab.hoverForeground": "#DEDCD6",
    "tab.hoverBorder": "#00000000",
@@ -60092,11 +60139,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "008a9caad0925cb5",
+  "colors": "8bb248c546c15469",
   "tokenColors": "bba6bb44c345bb2d",
   "semanticTokenColors": "d9b556d2e22b5e21",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -60366,6 +60413,7 @@
    "tab.inactiveBackground": "#C6C0B2",
    "tab.inactiveForeground": "#4e4e4c",
    "tab.border": "#e0e0de",
+   "tab.divider": "#e0e0de",
    "tab.hoverBackground": "#bab5a7",
    "tab.hoverForeground": "#1F1E1A",
    "tab.hoverBorder": "#00000000",
@@ -61372,11 +61420,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "faf80815b2e88067",
+  "colors": "75ff2e0ddefceb7b",
   "tokenColors": "ac416a61daa7fbf7",
   "semanticTokenColors": "153f229582f1ea44",
   "counts": [
-   1044,
+   1045,
    86,
    50
   ],
@@ -61646,6 +61694,7 @@
    "tab.inactiveBackground": "#121c18",
    "tab.inactiveForeground": "#7c8681",
    "tab.border": "#202926",
+   "tab.divider": "#202926",
    "tab.hoverBackground": "#1c2622",
    "tab.hoverForeground": "#C6D2CC",
    "tab.hoverBorder": "#00000000",
@@ -62616,11 +62665,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "69b4f04124dcf3a3",
+  "colors": "1e680449d0f42dc9",
   "tokenColors": "645cbd8fc92fda29",
   "semanticTokenColors": "bc1d6e16229454db",
   "counts": [
-   1044,
+   1045,
    86,
    50
   ],
@@ -62890,6 +62939,7 @@
    "tab.inactiveBackground": "#DCE5E0",
    "tab.inactiveForeground": "#5f6563",
    "tab.border": "#d7ddda",
+   "tab.divider": "#d7ddda",
    "tab.hoverBackground": "#ced7d2",
    "tab.hoverForeground": "#1D2622",
    "tab.hoverBorder": "#00000000",
@@ -63860,11 +63910,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "6cb804e9b9932662",
+  "colors": "b02a765b8441ba45",
   "tokenColors": "6c02d6d48345b222",
   "semanticTokenColors": "cdec5f74c7f32289",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -64134,6 +64184,7 @@
    "tab.inactiveBackground": "#2A1219",
    "tab.inactiveForeground": "#9a868a",
    "tab.border": "#372529",
+   "tab.divider": "#372529",
    "tab.hoverBackground": "#341c23",
    "tab.hoverForeground": "#EDD6DA",
    "tab.hoverBorder": "#00000000",
@@ -65140,11 +65191,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "b9196db8d189e8a8",
+  "colors": "6cc9878d40f1b5e4",
   "tokenColors": "1d9a685b02647b32",
   "semanticTokenColors": "7417ac1a71c5073c",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -65414,6 +65465,7 @@
    "tab.inactiveBackground": "#E8D8DB",
    "tab.inactiveForeground": "#675a5c",
    "tab.border": "#e0d5d7",
+   "tab.divider": "#e0d5d7",
    "tab.hoverBackground": "#dccbcf",
    "tab.hoverForeground": "#2A161B",
    "tab.hoverBorder": "#00000000",
@@ -66420,11 +66472,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "140f96ff8c1d9108",
+  "colors": "069400a8faeda397",
   "tokenColors": "c14f5486df94f9ba",
   "semanticTokenColors": "aea60e10b8bc57b5",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -66694,6 +66746,7 @@
    "tab.inactiveBackground": "#253444",
    "tab.inactiveForeground": "#909da6",
    "tab.border": "#33404c",
+   "tab.divider": "#33404c",
    "tab.hoverBackground": "#2f3e4e",
    "tab.hoverForeground": "#DCEAF2",
    "tab.hoverBorder": "#00000000",
@@ -67700,11 +67753,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5bf5231d5d31460c",
+  "colors": "05be4dc9cd220122",
   "tokenColors": "cdf494bd191006ae",
   "semanticTokenColors": "9a0f5371169e7489",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -67974,6 +68027,7 @@
    "tab.inactiveBackground": "#D8E9F2",
    "tab.inactiveForeground": "#5b6469",
    "tab.border": "#d6dee2",
+   "tab.divider": "#d6dee2",
    "tab.hoverBackground": "#cbdbe4",
    "tab.hoverForeground": "#18262F",
    "tab.hoverBorder": "#00000000",
@@ -68980,11 +69034,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "5d0a5f9b9e15d2eb",
+  "colors": "6dd80dbbd7ac1bb0",
   "tokenColors": "735dce4c0f7dcb32",
   "semanticTokenColors": "58c31db7875ecef2",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -69254,6 +69308,7 @@
    "tab.inactiveBackground": "#22212a",
    "tab.inactiveForeground": "#8a8e99",
    "tab.border": "#2d2d35",
+   "tab.divider": "#2d2d35",
    "tab.hoverBackground": "#2c2b35",
    "tab.hoverForeground": "#D6DEEC",
    "tab.hoverBorder": "#00000000",
@@ -70260,11 +70315,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "87fd13a5180a906b",
+  "colors": "ee6c4d0f423cc438",
   "tokenColors": "0e0193adc4e55d86",
   "semanticTokenColors": "96f3ad5428b10c39",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -70534,6 +70589,7 @@
    "tab.inactiveBackground": "#DFDAD6",
    "tab.inactiveForeground": "#5f5c5f",
    "tab.border": "#d9d6d5",
+   "tab.divider": "#d9d6d5",
    "tab.hoverBackground": "#d1cdc9",
    "tab.hoverForeground": "#1E1C22",
    "tab.hoverBorder": "#00000000",
@@ -71540,11 +71596,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "fc860e3a08a1523d",
+  "colors": "64a5866b9ad7712f",
   "tokenColors": "4edd22db4f2b922d",
   "semanticTokenColors": "98c3680e2c9bf350",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -71814,6 +71870,7 @@
    "tab.inactiveBackground": "#242019",
    "tab.inactiveForeground": "#928d83",
    "tab.border": "#312e28",
+   "tab.divider": "#312e28",
    "tab.hoverBackground": "#2e2a22",
    "tab.hoverForeground": "#E8E2D4",
    "tab.hoverBorder": "#00000000",
@@ -72820,11 +72877,11 @@
    "semanticHighlighting": true,
    "$schema": "vscode://schemas/color-theme"
   },
-  "colors": "c28428be2ba1d2b1",
+  "colors": "0329069b0dd931bf",
   "tokenColors": "309270da5d490717",
   "semanticTokenColors": "7bada4f4c322d1be",
   "counts": [
-   1044,
+   1045,
    99,
    58
   ],
@@ -73094,6 +73151,7 @@
    "tab.inactiveBackground": "#E0D8C4",
    "tab.inactiveForeground": "#5f5c55",
    "tab.border": "#d9d5c9",
+   "tab.divider": "#d9d5c9",
    "tab.hoverBackground": "#d3cbb8",
    "tab.hoverForeground": "#211E16",
    "tab.hoverBorder": "#00000000",

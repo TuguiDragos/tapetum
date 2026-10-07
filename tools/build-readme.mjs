@@ -32,7 +32,7 @@ for (const v of ['dark', 'light']) {
 const FAMILY_GAP = Math.floor(closest);
 const REGISTRY = JSON.parse(fs.readFileSync(path.join(HERE, 'vscode-color-keys-full.json'), 'utf8'));
 // the VS Code build last checked on macOS, Linux and Windows with tools/fork-check.mjs; set by hand after that check
-const VERIFIED = '1.140.0';
+const VERIFIED = '1.141.0';
 const KEY_COUNT = REGISTRY.confirmedReal.filter((k) => !REGISTRY.deprecated.includes(k)).length;
 const UNSET_REGULAR = leftUnset('vs-dark').size;
 const UNSET_HC = leftUnset('hc-black').size;

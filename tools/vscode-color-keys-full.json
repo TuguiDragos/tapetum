@@ -1,27 +1,27 @@
 {
- "vscode": "1.140.0",
+ "vscode": "1.141.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
    "registerFunction": "me",
-   "registrations": 898,
+   "registrations": 899,
    "deprecated": 10,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
    "registerFunction": "ae",
-   "registrations": 966,
+   "registrations": 967,
    "deprecated": 10,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 986,
+  "registered": 987,
   "contributedByExtensions": 11,
-  "confirmedReal": 997,
+  "confirmedReal": 998,
   "deprecated": 10,
-  "microsoftThemes": 350
+  "microsoftThemes": 348
  },
  "confirmedReal": [
   "actionBar.toggledBackground",
@@ -871,6 +871,7 @@
   "tab.activeForeground",
   "tab.activeModifiedBorder",
   "tab.border",
+  "tab.divider",
   "tab.dragAndDropBorder",
   "tab.hoverBackground",
   "tab.hoverBorder",

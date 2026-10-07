@@ -845,8 +845,8 @@ What a machine is good for is catching what a person misses. On all
 | --- | --- |
 | **Contrast** | every syntax colour against its own background, and interface text against the surfaces VS Code's stylesheets pair it with. Syntax clears 4.5 to 1, and deprecated symbols, struck through, and comments 4.0, the lowest at 4.07; on the selection, also where a word, a snippet or a hovered symbol is marked on it, syntax and comments keep 3.0; interface text clears 4.5, descriptions 4.0, and text meant to recede, such as placeholders and inactive or disabled items, 3.0, and 4.5 in the high contrast themes; a link stands at least 12 dE from the text beside it |
 | **Separation** | CIEDE2000 between every pair of coloured roles, and between every pair of families, so no 2 look like each other |
-| **Coverage** | all 987 colour keys VS Code 1.140.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 4 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
-| **Editors** | verified one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, on the last Void build, and on the macOS, Linux and Windows builds of VS Code 1.140.0 |
+| **Coverage** | all 988 colour keys VS Code 1.141.0 registers and has not deprecated, including the chat, agents, sessions window, inline edit and modern tab surfaces most themes leave to the defaults, except the ones VS Code reads as switches, 4 in the regular themes and 1 in the high contrast ones, which `tools/unset.mjs` lists with the reason |
+| **Editors** | verified one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, on the last Void build, and on the macOS, Linux and Windows builds of VS Code 1.141.0 |
 
 None of that comes from a hand written list. `tools/extract-keys.mjs` reads the
 colour registry out of every window bundle of the installed editor, including the
@@ -885,7 +885,7 @@ keys of what those editors paint in colours of their own, listed with their reas
 in `tools/forks.mjs`, take the family's colour instead; `tools/fork-check.mjs`
 repeats those measurements on any editor from 1 command, and confirms that its
 core accepts the VS Code version the manifest asks for. The registry, pairs and
-derivations extracted from the Linux and Windows builds of VS Code 1.140.0
+derivations extracted from the Linux and Windows builds of VS Code 1.141.0
 are identical to the macOS ones, byte for byte, so what holds on one holds on all
 3.
 

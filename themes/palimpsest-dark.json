@@ -269,6 +269,7 @@
     "tab.inactiveBackground": "#26221b",
     "tab.inactiveForeground": "#969187",
     "tab.border": "#34302b",
+    "tab.divider": "#34302b",
     "tab.hoverBackground": "#302c24",
     "tab.hoverForeground": "#E8E1D2",
     "tab.hoverBorder": "#00000000",

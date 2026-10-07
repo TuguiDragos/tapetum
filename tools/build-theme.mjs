@@ -444,6 +444,7 @@ function chrome(t) {
     'tab.inactiveBackground': strip,
     'tab.inactiveForeground': legible(mix(dim, faint, 0.4), strip, 4.5),
     'tab.border': line,
+    'tab.divider': line,
     'tab.hoverBackground': stripHover,
     'tab.hoverForeground': fg,
     'tab.hoverBorder': '#00000000',
@@ -1747,6 +1748,8 @@ function applyHighContrast(all, t) {
     if (/focus|active|Active|sessionStateIndicator/.test(k) && !passive) { all[k] = c.active; continue; }
     all[k] = c.border;
   }
+  // not named as a border, so the loop above skips it
+  all['tab.divider'] = all['tab.border'];
   for (const s of ['Error', 'Warning', 'Info', 'Hint']) all[`editor${s}.border`] = all[`editor${s}.foreground`];
   all['diffEditor.insertedTextBorder'] = t.st.added;
   all['diffEditor.removedTextBorder'] = t.st.deleted;

@@ -1,5 +1,5 @@
 {
- "vscode": "1.140.0",
+ "vscode": "1.141.0",
  "grammar": "extensions/typescript-basics/syntaxes/TypeScript.tmLanguage.json",
  "lines": [
   "type Point = { x: number; label: string };",

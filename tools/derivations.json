@@ -334,6 +334,7 @@
   "symbolIcon.typeParameterForeground": "foreground",
   "symbolIcon.unitForeground": "foreground",
   "tab.activeBackground": "editor.background",
+  "tab.divider": "tab.border",
   "tab.dragAndDropBorder": "tab.activeForeground",
   "tab.lastPinnedBorder": "tree.indentGuidesStroke",
   "tab.selectedBackground": "list.inactiveSelectionBackground",
