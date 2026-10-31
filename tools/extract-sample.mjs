@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { appRoot } from './vscode-path.mjs';
+import { appRoot, coreVersion } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
@@ -48,6 +48,6 @@ for (const line of LINES) {
   state = r.ruleStack;
 }
 if (!tokens.length) { console.error('the grammar gave no tokens, nothing written'); process.exit(1); }
-const version = JSON.parse(fs.readFileSync(path.join(app, 'product.json'), 'utf8')).version;
+const version = coreVersion(app);
 fs.writeFileSync(path.join(HERE, 'paint-sample.json'), JSON.stringify({ vscode: version, grammar: path.relative(app, file), lines: LINES, tokens }, null, 1) + '\n');
 console.log(`${tokens.length} tokens from ${LINES.length} lines of TypeScript, VS Code ${version}`);

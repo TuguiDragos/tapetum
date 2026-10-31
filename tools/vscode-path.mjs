@@ -35,6 +35,12 @@ export function appRoot() {
   );
 }
 
+// the VS Code core an editor is built on: Cursor and Kiro keep it apart from their own version, the others in version
+export function coreVersion(app = appRoot()) {
+  const product = JSON.parse(fs.readFileSync(path.join(app, 'product.json'), 'utf8'));
+  return product.vscodeVersion || product.vsCodeVersion || product.version;
+}
+
 export const bundledExtensions = () => path.join(appRoot(), 'extensions');
 export const outDir = () => path.join(appRoot(), 'out');
 export const workbenchCss = () => path.join(appRoot(), 'out/vs/workbench/workbench.desktop.main.css');

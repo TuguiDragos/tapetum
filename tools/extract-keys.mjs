@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { appRoot, outDir } from './vscode-path.mjs';
+import { appRoot, outDir, coreVersion } from './vscode-path.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = appRoot();
@@ -110,7 +110,7 @@ if (process.argv[1] && process.argv[1].endsWith('extract-keys.mjs')) {
 
   const confirmed = [...new Set([...registered, ...contributed])].sort();
   const out = {
-    vscode: JSON.parse(fs.readFileSync(path.join(ROOT, 'product.json'), 'utf8')).version,
+    vscode: coreVersion(ROOT),
     bundles: scanned,
     counts: { registered: registered.size, contributedByExtensions: contributed.size, confirmedReal: confirmed.length,
       deprecated: deprecated.size, microsoftThemes: microsoft.size },
