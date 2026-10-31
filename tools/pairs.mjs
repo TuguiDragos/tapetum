@@ -12,7 +12,7 @@ export const ACCEPTED = [
   },
   {
     fg: 'inlineEdit.gutterIndicator.primaryForeground', bg: 'inlineEdit.gutterIndicator.background',
-    why: 'the .inline-edits-view-indicator rule pairs them, but no bundle of VS Code 1.139.1 or 1.140.0 gives that class to any element: the gutter indicator is .inline-edits-view-gutter-indicator, and its icon paints primaryForeground on primaryBackground.',
+    why: 'the .inline-edits-view-indicator rule pairs them, but no bundle of VS Code 1.139.1, 1.140.0 or 1.144.0 gives that class to any element: the gutter indicator is .inline-edits-view-gutter-indicator, and its icon paints primaryForeground on primaryBackground.',
   },
 ];
 export const accepted = (p) => ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg && a.bgAlpha === p.bgAlpha);

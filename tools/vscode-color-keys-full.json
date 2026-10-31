@@ -1,26 +1,26 @@
 {
- "vscode": "1.141.0",
+ "vscode": "1.144.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
-   "registerFunction": "me",
-   "registrations": 899,
-   "deprecated": 10,
+   "registerFunction": "ve",
+   "registrations": 903,
+   "deprecated": 11,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
-   "registerFunction": "ae",
-   "registrations": 967,
-   "deprecated": 10,
+   "registerFunction": "ue",
+   "registrations": 971,
+   "deprecated": 11,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 987,
+  "registered": 991,
   "contributedByExtensions": 11,
-  "confirmedReal": 998,
-  "deprecated": 10,
+  "confirmedReal": 1002,
+  "deprecated": 11,
   "microsoftThemes": 348
  },
  "confirmedReal": [
@@ -82,6 +82,7 @@
   "agentsUpdateButton.downloadingBackground",
   "agentsVoice.speakingBackground",
   "agentsVoice.speakingForeground",
+  "agentsWindowGraphic.orange",
   "badge.background",
   "badge.foreground",
   "banner.background",
@@ -120,6 +121,9 @@
   "chat.editedFileForeground",
   "chat.findMatchBackground",
   "chat.findMatchHighlightBackground",
+  "chat.fusionBadgeForeground",
+  "chat.fusionBadgeGradientEnd",
+  "chat.fusionBadgeGradientStart",
   "chat.inputWorkingBorderColor1",
   "chat.inputWorkingBorderColor2",
   "chat.inputWorkingBorderColor3",
@@ -1026,6 +1030,7 @@
  "deprecated": [
   "chat.inputWorkingBorderColor2",
   "chat.inputWorkingBorderColor3",
+  "chat.voiceSpeakingGlow",
   "editorActiveLineNumber.foreground",
   "editorIndentGuide.activeBackground",
   "editorIndentGuide.background",

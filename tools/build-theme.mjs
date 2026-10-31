@@ -877,6 +877,10 @@ function assistant(t) {
     'chat.sessionStateIndicator.needsInputBorder': frame(st.error),
     'chat.workingProgressStableIconForeground': st.info,
     'chat.workingProgressInsidersIconForeground': st.ok,
+    // the Copilot Fusion badge of the model picker: the theme's badge; high contrast keeps VS Code's outlined text
+    'chat.fusionBadgeForeground': t.hc ? fg : onFill,
+    'chat.fusionBadgeGradientStart': t.hc ? '#00000000' : fill,
+    'chat.fusionBadgeGradientEnd': t.hc ? '#00000000' : fill,
 
     'inlineChat.background': elev,
     'inlineChat.border': line2,
@@ -1011,6 +1015,8 @@ function assistant(t) {
     'charts.orange': y.number,
     'charts.green': st.ok,
     'charts.purple': y.keyword,
+    // the orange of the Agents window graphic on the Welcome page, beside the chart colours it is drawn in
+    'agentsWindowGraphic.orange': y.number,
 
     'symbolIcon.arrayForeground': y.number,
     'symbolIcon.booleanForeground': y.number,
@@ -1134,7 +1140,8 @@ function tail(t) {
     'agentsBottomPanel.border': line,
     'agentsCard.border': line2,
     'agentsGradient.tintColor': acc,
-    'agentsVoice.speakingForeground': y.tag,
+    // the border of a hovered voice in the Voice Mode onboarding, which VS Code 1.144 derives from charts.blue
+    'agentsVoice.speakingForeground': y.func,
     'browser.border': line2,
     'editor.inlineValuesBackground': alphaOf(y.number, 0.12),
     'editor.inlineValuesForeground': t.legible(mixOf(y.number, fg, 0.25), mixOf(t.hard, y.number, 0.12), 4.7),
@@ -1208,7 +1215,8 @@ function addendum(t) {
     'chart.line': acc,
     'chat.voiceGlowBaseColor': acc,
     'chat.voiceListeningGlow': a(acc, 0.5),
-    'chat.voiceSpeakingGlow': a(y.string, 0.5),
+    // deprecated in VS Code 1.144; kept equal to the listening glow, as tools/deprecated.mjs says
+    'chat.voiceSpeakingGlow': a(acc, 0.5),
     'checkbox.disabled.background': m(bg, fg, 0.06),
     'checkbox.disabled.foreground': ghost,
     'commandCenter.inactiveForeground': faint,
@@ -1221,7 +1229,8 @@ function addendum(t) {
     'editorMultiCursor.primary.background': bg,
     'editorMultiCursor.secondary.background': bg,
     'editorBracketMatch.foreground': legible(y.string, composite(t.editor['editorBracketMatch.background'], bg), 4.6),
-    'agentsVoice.speakingBackground': a(y.tag, 0.08),
+    // not painted by VS Code 1.144; the speaking colour at 8%, as its default
+    'agentsVoice.speakingBackground': a(y.func, 0.08),
     'editorOverviewRuler.commentForeground': a(y.comment, 0.7),
     'editorOverviewRuler.commentDraftForeground': a(y.comment, 0.45),
     'editorOverviewRuler.commentUnresolvedForeground': a(st.warn, 0.7),
@@ -1785,6 +1794,8 @@ function applyHighContrast(all, t) {
   for (let i = 1; i <= 6; i++) { lineOn(`editorIndentGuide.background${i}`, t.bg, 3.0); lineOn(`editorIndentGuide.activeBackground${i}`, t.bg, 4.5); }
   lineOn('tree.inactiveIndentGuidesStroke', t.elev, 3.0);
   lineOn('tree.indentGuidesStroke', t.elev, 4.5);
+  // the split button separator: VS Code 1.142's contrast border would read under 1.4 on these filled buttons
+  lineOn('button.separator', all['button.background'], 3.0);
 }
 
 function scmGraphColors(t) {
