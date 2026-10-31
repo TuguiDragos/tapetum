@@ -1,4 +1,4 @@
-import { buildFrom, styled, outputRules, logRules } from './scheme-kit.mjs';
+import { buildFrom, styled, outputRules, logRules, rustItems } from './scheme-kit.mjs';
 
 const tones = (p) => ({
   t1: p.func, t2: p.keyword, t3: p.string, t4: p.type, t5: p.number, t6: p.tag,
@@ -47,5 +47,7 @@ export function semanticTokenColors(p) {
     '*.documentation': it(t.comment), '*.builtin': it(t.t3), '*.typeHint': it(t.t4),
     keyword: t.t2, modifier: t.t2, operator: t.op,
     string: t.t3, number: bold(t.t5), regexp: it(t.t5), comment: it(t.comment),
+    // a static mut drops the bold of a readonly tone along with its colour
+    ...rustItems(bold(t.t2), { foreground: t.fg, fontStyle: '' }),
   };
 }

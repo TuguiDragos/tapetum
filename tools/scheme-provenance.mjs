@@ -99,5 +99,9 @@ export function semanticTokenColors(p) {
     '*.documentation': it(comment), '*.builtin': it(builtin), '*.typeHint': it(builtin),
     keyword: dim, modifier: dim, operator: dim,
     string: lit, number: lit, regexp: lit, comment: it(comment),
+    // Rust marks what can change: without `mutable` a binding cannot change, and self, Self and the primitive types
+    // come from the language, as `this` and `number` do in TS
+    'variable:rust': frozen, 'variable.mutable:rust': fg, 'variable.declaration.mutable:rust': bold(def),
+    'selfKeyword:rust': it(builtin), 'selfTypeKeyword:rust': it(builtin), 'builtinType:rust': it(builtin),
   };
 }

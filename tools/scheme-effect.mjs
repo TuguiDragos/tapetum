@@ -43,5 +43,9 @@ export function semanticTokenColors(p) {
     '*.builtin': it(r.still), '*.typeHint': r.still,
     keyword: r.dim, modifier: r.dim, operator: r.op,
     string: r.calm, number: r.calm, regexp: r.calm, comment: it(r.comment),
+    // Rust marks what can change: without `mutable` a binding stays calm, an unsafe operation burns, as it reaches
+    // past what the compiler checks, and a static mut's declaration reads as a declaration
+    'variable:rust': r.calm, 'variable.mutable:rust': r.fg, '*.unsafe:rust': bold(r.hot),
+    'variable.mutable.unsafe:rust': bold(r.hot), 'variable.declaration.mutable:rust': bold(r.cool),
   };
 }

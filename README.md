@@ -825,6 +825,13 @@ Nothing at all. No hue in the code, only 6 tones plus weight and italic.
 when no server is running, so open a real file rather than a scratch buffer the
 first time you try one.
 
+Rust marks what can change rather than what cannot: rust-analyzer sends
+`mutable` and never `readonly`, and gives `const` and `static` items types of
+their own. So in `provenance`, `borrow` and `effect` a binding without `mut`
+reads as a `readonly` one does in TypeScript, in `borrow` a `&mut` reads as a
+borrowed parameter, in `effect` every `unsafe` operation burns, and in all 6
+schemes a Rust constant keeps the constant colour.
+
 In `grammar`, 6 roles carry their own hue: keywords, strings, functions, types,
 numbers and tags. Parameters and properties take the foreground colour and are
 told apart by italic instead, because a 7th saturated hue cannot be held away
@@ -947,7 +954,7 @@ parameters, imports, decorators and a few more. To switch it off in all
 theme scope that ends in `*` against every theme whose name starts that way, so
 each of the 6 schemes gets 1 entry for its own families, stating what
 stays once italic is gone: nothing, bold or underline. The 325 scopes and
-24 semantic selectors are read from the rules themselves, so the
+32 semantic selectors are read from the rules themselves, so the
 list stays complete when the rules change:
 
 ```jsonc
@@ -1204,6 +1211,7 @@ list stays complete when the rules change:
         "*.static": { "italic": false },
         "*.typeHint": { "italic": false },
         "builtinConstant": { "italic": false },
+        "builtinType:rust": { "italic": false },
         "class": { "italic": false },
         "class.defaultLibrary": { "italic": false },
         "comment": { "italic": false },
@@ -1213,8 +1221,15 @@ list stays complete when the rules change:
         "interface": { "italic": false },
         "namespace": { "italic": false },
         "parameter": { "italic": false },
+        "parameter.mutable.reference:rust": { "italic": false },
+        "parameter.mutable:rust": { "italic": false },
         "parameter.readonly": { "italic": false },
+        "parameter:rust": { "italic": false },
         "regexp": { "italic": false },
+        "selfKeyword.mutable.reference:rust": { "italic": false },
+        "selfKeyword.mutable:rust": { "italic": false },
+        "selfKeyword:rust": { "italic": false },
+        "selfTypeKeyword:rust": { "italic": false },
         "struct": { "italic": false },
         "type": { "italic": false },
         "type.defaultLibrary": { "italic": false },

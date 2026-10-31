@@ -224,7 +224,7 @@
           "name": "Why do Provenance, Borrow and Effect look different on my code?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "They read the semantic tokens your language server emits, not only the grammar. They fall back to grammar rules when no server is running, so open a real file rather than a scratch buffer the first time you try one."
+            "text": "They read the semantic tokens your language server emits, not only the grammar. They fall back to grammar rules when no server is running, so open a real file rather than a scratch buffer the first time you try one. In Rust, which marks what can change rather than what cannot, they read the mutable modifier of rust-analyzer, so a binding without mut reads as frozen."
           }
         },
         {
@@ -766,7 +766,7 @@
 <details><summary>Which editors does Tapetum work in?</summary><p>VS Code 1.99 or later on macOS, Linux and Windows, and the editors built on it. It is checked one by one on the current VSCodium, Cursor, Devin (formerly Windsurf), code-server, Positron, Kiro, Trae and Antigravity, and on the last Void build.</p></details>
 <details><summary>Are the light themes inverted dark themes?</summary><p>No. A color that reads clearly on black is often unreadable on white, and the reverse holds just as firmly, so every light palette was placed by hand and measured on its own ground.</p></details>
 <details><summary>Does Tapetum have a high contrast theme?</summary><p>Yes, Coherence comes in a high contrast pair. When the system asks for high contrast, VS Code switches to a high contrast theme of its own; set <code>workbench.<wbr>preferredHighContrastColorTheme</code> to Tapetum Coherence High Contrast and <code>workbench.<wbr>preferredHighContrastLightColorTheme</code> to Tapetum Coherence High Contrast Light to keep Tapetum.</p></details>
-<details><summary>Why do Provenance, Borrow and Effect look different on my code?</summary><p>They read the semantic tokens your language server emits, not only the grammar. They fall back to grammar rules when no server is running, so open a real file rather than a scratch buffer the first time you try one.</p></details>
+<details><summary>Why do Provenance, Borrow and Effect look different on my code?</summary><p>They read the semantic tokens your language server emits, not only the grammar. They fall back to grammar rules when no server is running, so open a real file rather than a scratch buffer the first time you try one. In Rust, which marks what can change rather than what cannot, they read the mutable modifier of rust-analyzer, so a binding without mut reads as frozen.</p></details>
 <details><summary>Can I change a color in a Tapetum theme?</summary><p>Yes. Any color can be overridden per theme in your settings, with <code>workbench.colorCustomizations</code> and <code>editor.tokenColorCustomizations</code>, without forking anything.</p></details>
 <details><summary>Can I turn italics off?</summary><p>Yes. The README has a block for your settings that switches italic off in all 58 themes at once, and says what stays in each scheme once italic is gone.</p></details>
 <details><summary>Is Tapetum free?</summary><p>Yes. Tapetum is free and open source under the MIT License.</p></details>

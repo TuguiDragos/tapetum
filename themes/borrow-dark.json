@@ -2191,6 +2191,38 @@
     "comment": {
       "foreground": "#767D89",
       "fontStyle": "italic"
-    }
+    },
+    "variable:rust": "#64AEF9",
+    "variable.mutable:rust": "#F09A18",
+    "variable.mutable.reference:rust": "#66C070",
+    "variable.declaration.mutable:rust": {
+      "foreground": "#EAECF0",
+      "fontStyle": "bold"
+    },
+    "parameter:rust": {
+      "foreground": "#64AEF9",
+      "fontStyle": "italic"
+    },
+    "parameter.mutable:rust": {
+      "foreground": "#F09A18",
+      "fontStyle": "italic"
+    },
+    "parameter.mutable.reference:rust": {
+      "foreground": "#66C070",
+      "fontStyle": "italic"
+    },
+    "selfKeyword:rust": {
+      "foreground": "#64AEF9",
+      "fontStyle": "italic"
+    },
+    "selfKeyword.mutable:rust": {
+      "foreground": "#F09A18",
+      "fontStyle": "italic"
+    },
+    "selfKeyword.mutable.reference:rust": {
+      "foreground": "#66C070",
+      "fontStyle": "italic"
+    },
+    "property:rust": "#C8CDD6"
   }
 }

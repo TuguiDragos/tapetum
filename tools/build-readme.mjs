@@ -45,6 +45,7 @@ const SCHEME = {
   effect: 'effect', signal: 'signal', tone: 'tone',
 };
 
+
 const ROWS = [
   ['background', 'bg'], ['foreground', 'fg'], ['keyword', 'keyword'], ['function', 'func'],
   ['string', 'string'], ['type', 'type'], ['number', 'number'], ['tag', 'tag'], ['comment', 'comment'],
@@ -252,6 +253,13 @@ Nothing at all. No hue in the code, only 6 tones plus weight and italic.
 \`async\` modifiers that most themes never touch. They fall back to grammar rules
 when no server is running, so open a real file rather than a scratch buffer the
 first time you try one.
+
+Rust marks what can change rather than what cannot: rust-analyzer sends
+\`mutable\` and never \`readonly\`, and gives \`const\` and \`static\` items types of
+their own. So in \`provenance\`, \`borrow\` and \`effect\` a binding without \`mut\`
+reads as a \`readonly\` one does in TypeScript, in \`borrow\` a \`&mut\` reads as a
+borrowed parameter, in \`effect\` every \`unsafe\` operation burns, and in all 6
+schemes a Rust constant keeps the constant colour.
 
 In \`grammar\`, 6 roles carry their own hue: keywords, strings, functions, types,
 numbers and tags. Parameters and properties take the foreground colour and are

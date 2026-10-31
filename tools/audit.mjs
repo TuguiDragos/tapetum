@@ -6,6 +6,7 @@ import { FAMILIES } from './palettes.mjs';
 import { KEPT_DEPRECATED } from './deprecated.mjs';
 import { FORK_KEYS } from './forks.mjs';
 import { LEFT_UNSET, leftUnset } from './unset.mjs';
+import { RUST_READS, rustReadsDiffer } from './semantic-match.mjs';
 import { execFileSync } from 'node:child_process';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -291,6 +292,15 @@ try {
   semantic = `${perScheme.size} schemes checked, ${lg.std.types.length + lg.custom.types.size} types, ${lg.std.modifiers.length} standard modifiers`;
 } catch (e) { semantic = `skipped, ${e.message.split('\n')[0]}`; }
 
+// rust-analyzer marks what can change rather than what cannot; each scheme has to read Rust as it reads TypeScript
+let rustReads = 0;
+for (const f of FAMILIES) for (const v of ['dark', 'light', 'hcDark', 'hcLight'].filter((k) => f[k])) {
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, `themes/${f.id}-${v}.json`), 'utf8'));
+  const scheme = f.scheme || 'grammar';
+  rustReads += RUST_READS.filter((c) => c.schemes.includes(scheme)).length;
+  for (const d of rustReadsDiffer(th.semanticTokenColors, scheme)) note(false, `${f.label} ${v}: ${d}`);
+}
+
 let coverage = 'skipped, grammar-coverage printed no figure';
 try {
   const cov = execFileSync(process.execPath, [path.join(HERE, 'grammar-coverage.mjs')], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
@@ -304,6 +314,7 @@ try {
 console.log(`families ${FAMILIES.length}, themes ${declared.length}, files ${onDisk.length}`);
 console.log(`TextMate scope coverage: ${coverage}`);
 console.log(`semantic legend: ${semantic}`);
+console.log(`Rust under rust-analyzer: ${rustReads} readings checked against TypeScript across ${declared.length} themes`);
 console.log(`APCA: lowest Lc ${apcaWorst.toFixed(1)} at ${apcaWorstAt}, ${apcaBelow} roles under their floor outside the exemptions`);
 console.log(`keys per theme ${[...new Set(stats.map((s) => s.keys))].join(', ')}`);
 console.log(`schemes: ${Object.entries(schemes).map(([k, v]) => `${k} ${v.length}`).join(', ')}`);

@@ -2316,6 +2316,9 @@
     "*.typeHint": "#5FBCC4",
     "*.async": {
       "fontStyle": "italic"
-    }
+    },
+    "const:rust": "#FF7F42",
+    "static:rust": "#FF7F42",
+    "static.mutable:rust": "#E8E2D4"
   }
 }

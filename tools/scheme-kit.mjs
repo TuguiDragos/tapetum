@@ -159,6 +159,10 @@ export const syntaxFloor = (r) => ([].concat(r.scope).every((s) => RECEDES.test(
 
 export const styled = (foreground, fontStyle) => (fontStyle ? { foreground, fontStyle } : { foreground });
 
+// rust-analyzer sends no readonly and types `const` and `static` under `variable`, so a Rust constant would take a
+// plain variable's colour; rules scoped to Rust win by 10 in VS Code and reach no other language
+export const rustItems = (readonly, plain) => ({ 'const:rust': readonly, 'static:rust': readonly, 'static.mutable:rust': plain });
+
 export const outputRules = (st, op, bg) => [
   { name: 'Output info', scope: 'token.info-token', settings: { foreground: readable(st.info, bg) } },
   { name: 'Output warnings', scope: 'token.warn-token', settings: { foreground: readable(st.warn, bg) } },

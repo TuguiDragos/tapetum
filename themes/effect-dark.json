@@ -2163,6 +2163,20 @@
     "comment": {
       "foreground": "#6E7B76",
       "fontStyle": "italic"
+    },
+    "variable:rust": "#93B4CA",
+    "variable.mutable:rust": "#C6D2CC",
+    "*.unsafe:rust": {
+      "foreground": "#FF5C4D",
+      "fontStyle": "bold"
+    },
+    "variable.mutable.unsafe:rust": {
+      "foreground": "#FF5C4D",
+      "fontStyle": "bold"
+    },
+    "variable.declaration.mutable:rust": {
+      "foreground": "#5FD8C0",
+      "fontStyle": "bold"
     }
   }
 }

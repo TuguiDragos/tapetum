@@ -1,4 +1,4 @@
-import { buildFrom, styled, outputRules, logRules } from './scheme-kit.mjs';
+import { buildFrom, styled, outputRules, logRules, rustItems } from './scheme-kit.mjs';
 
 const roles = (p) => ({
   scraped: p.keyword, lit: p.number, name: p.fg, deep: p.func,
@@ -46,5 +46,6 @@ export function semanticTokenColors(p) {
     '*.builtin': it(r.aside), '*.typeHint': it(r.scraped),
     keyword: r.scraped, modifier: r.scraped, operator: r.op,
     string: r.lit, number: r.lit, regexp: r.lit, comment: it(r.comment),
+    ...rustItems(r.lit, r.name),
   };
 }

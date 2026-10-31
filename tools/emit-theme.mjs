@@ -5,7 +5,7 @@ import * as effect from './scheme-effect.mjs';
 import * as signal from './scheme-signal.mjs';
 import * as tone from './scheme-tone.mjs';
 import { hex2lch, contrast, mix, readable, deltaE, over, lighten, darken } from './color.mjs';
-import { outputRules, syntaxFloor } from './scheme-kit.mjs';
+import { outputRules, syntaxFloor, rustItems } from './scheme-kit.mjs';
 
 const hueDist = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
@@ -206,6 +206,7 @@ export function buildSemantic(y) {
     '*.static': { fontStyle: 'italic' }, '*.abstract': { fontStyle: 'italic' },
     '*.documentation': it(y.comment), '*.builtin': it(y.tag), '*.typeHint': y.type,
     '*.async': { fontStyle: 'italic' },
+    ...rustItems(y.number, y.variable),
   };
 }
 

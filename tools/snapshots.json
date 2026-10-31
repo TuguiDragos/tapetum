@@ -8,11 +8,11 @@
   },
   "colors": "99936e1c0512b42d",
   "tokenColors": "1494d2ebdcc086dc",
-  "semanticTokenColors": "9faa4c1144a62387",
+  "semanticTokenColors": "0c672e7eeddd8629",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C8D3F5",
@@ -1281,7 +1281,10 @@
    "*.typeHint": "#6EE7A8",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FF9F45",
+   "static:rust": "#FF9F45",
+   "static.mutable:rust": "#C8D3F5"
   }
  },
  "quantum-light": {
@@ -1293,11 +1296,11 @@
   },
   "colors": "58905d4b2010d99a",
   "tokenColors": "74a8f5622b52f14f",
-  "semanticTokenColors": "67725d6d42e97588",
+  "semanticTokenColors": "b207f168bb8ff381",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#24294A",
@@ -2566,7 +2569,10 @@
    "*.typeHint": "#06704A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#C25100",
+   "static:rust": "#C25100",
+   "static.mutable:rust": "#24294A"
   }
  },
  "fraunhofer-dark": {
@@ -2578,11 +2584,11 @@
   },
   "colors": "ac02acf4d0b64eaf",
   "tokenColors": "8a0484666b448375",
-  "semanticTokenColors": "d37b4508a27d775e",
+  "semanticTokenColors": "cb320feff993eff4",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DDE1E8",
@@ -3851,7 +3857,10 @@
    "*.typeHint": "#00E5C0",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FFC93C",
+   "static:rust": "#FFC93C",
+   "static.mutable:rust": "#DDE1E8"
   }
  },
  "fraunhofer-light": {
@@ -3863,11 +3872,11 @@
   },
   "colors": "13f8a216e141f1d5",
   "tokenColors": "048227b385362047",
-  "semanticTokenColors": "011503c56c25fb2e",
+  "semanticTokenColors": "d9c00fb4bfa63c77",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1B1D22",
@@ -5136,7 +5145,10 @@
    "*.typeHint": "#007A66",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#9A6A00",
+   "static:rust": "#9A6A00",
+   "static.mutable:rust": "#1B1D22"
   }
  },
  "persistence-dark": {
@@ -5148,11 +5160,11 @@
   },
   "colors": "ea11bd5ed853438e",
   "tokenColors": "58102655482cb3e3",
-  "semanticTokenColors": "a9bb67439421d470",
+  "semanticTokenColors": "9a21c0ced44ed547",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DCE0D8",
@@ -6421,7 +6433,10 @@
    "*.typeHint": "#4ECFC0",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FF6B4A",
+   "static:rust": "#FF6B4A",
+   "static.mutable:rust": "#DCE0D8"
   }
  },
  "persistence-light": {
@@ -6433,11 +6448,11 @@
   },
   "colors": "af37c9c996796b5a",
   "tokenColors": "ff3c740bf9749d31",
-  "semanticTokenColors": "719a18ffdd88432c",
+  "semanticTokenColors": "d0a1a943d97404b5",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1C1F1A",
@@ -7706,7 +7721,10 @@
    "*.typeHint": "#00786B",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#B8402A",
+   "static:rust": "#B8402A",
+   "static.mutable:rust": "#1C1F1A"
   }
  },
  "anodise-dark": {
@@ -7718,11 +7736,11 @@
   },
   "colors": "8d9f13767850886d",
   "tokenColors": "284556545503f362",
-  "semanticTokenColors": "4771b3334d3969c3",
+  "semanticTokenColors": "28f96f700907dbb5",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#E2E2E4",
@@ -8991,7 +9009,10 @@
    "*.typeHint": "#39B871",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#E07A45",
+   "static:rust": "#E07A45",
+   "static.mutable:rust": "#E2E2E4"
   }
  },
  "anodise-light": {
@@ -9003,11 +9024,11 @@
   },
   "colors": "334385353d5880c3",
   "tokenColors": "a724e9b954d47e19",
-  "semanticTokenColors": "5a9bb932d99913d0",
+  "semanticTokenColors": "59686a9ace7bca6f",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1D1D20",
@@ -10276,7 +10297,10 @@
    "*.typeHint": "#22683F",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#B0501F",
+   "static:rust": "#B0501F",
+   "static.mutable:rust": "#1D1D20"
   }
  },
  "coherence-dark": {
@@ -10288,11 +10312,11 @@
   },
   "colors": "84f83227ec48f454",
   "tokenColors": "974d0bdb7a1471f5",
-  "semanticTokenColors": "48f47352633ddebf",
+  "semanticTokenColors": "e31533ad47c93d23",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C9CED6",
@@ -11561,7 +11585,10 @@
    "*.typeHint": "#F4D00C",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F46B57",
+   "static:rust": "#F46B57",
+   "static.mutable:rust": "#C9CED6"
   }
  },
  "coherence-light": {
@@ -11573,11 +11600,11 @@
   },
   "colors": "2a8030d63bb75786",
   "tokenColors": "2d04159e1a67746f",
-  "semanticTokenColors": "53b9963fdbef1074",
+  "semanticTokenColors": "20f880935a5ea1d0",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#16181C",
@@ -12846,7 +12873,10 @@
    "*.typeHint": "#716008",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#CF151A",
+   "static:rust": "#CF151A",
+   "static.mutable:rust": "#16181C"
   }
  },
  "coherence-hcDark": {
@@ -12858,11 +12888,11 @@
   },
   "colors": "c4b85811b2728084",
   "tokenColors": "1d6f3b9f8c116049",
-  "semanticTokenColors": "f79e51285f000020",
+  "semanticTokenColors": "ce10cb326b033eb4",
   "counts": [
    1052,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#FFFFFF",
@@ -14134,7 +14164,10 @@
    "*.typeHint": "#FFE20E",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FFA05C",
+   "static:rust": "#FFA05C",
+   "static.mutable:rust": "#FFFFFF"
   }
  },
  "coherence-hcLight": {
@@ -14146,11 +14179,11 @@
   },
   "colors": "6c6edee878978563",
   "tokenColors": "7358338af029e8ce",
-  "semanticTokenColors": "02e4bbd49dde06f0",
+  "semanticTokenColors": "3f704f2cc507e339",
   "counts": [
    1052,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#000000",
@@ -15422,7 +15455,10 @@
    "*.typeHint": "#695500",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#B50005",
+   "static:rust": "#B50005",
+   "static.mutable:rust": "#000000"
   }
  },
  "valence-dark": {
@@ -15434,11 +15470,11 @@
   },
   "colors": "e100a3ac30bce729",
   "tokenColors": "2640825a289d525e",
-  "semanticTokenColors": "982253a5d1d1458d",
+  "semanticTokenColors": "6fec6b9ba783b6df",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#D4D1DC",
@@ -16707,7 +16743,10 @@
    "*.typeHint": "#F2B486",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F46469",
+   "static:rust": "#F46469",
+   "static.mutable:rust": "#D4D1DC"
   }
  },
  "valence-light": {
@@ -16719,11 +16758,11 @@
   },
   "colors": "5e88e1fcf0243e79",
   "tokenColors": "efc4e8d2117d4bfe",
-  "semanticTokenColors": "8e3a25d841b8072b",
+  "semanticTokenColors": "4fa926c185a89391",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#222128",
@@ -17992,7 +18031,10 @@
    "*.typeHint": "#81440A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D20B38",
+   "static:rust": "#D20B38",
+   "static.mutable:rust": "#222128"
   }
  },
  "hadal-dark": {
@@ -18004,11 +18046,11 @@
   },
   "colors": "169441220043e8e4",
   "tokenColors": "a1df1bf37499bfbe",
-  "semanticTokenColors": "61a9ffceb3066a9a",
+  "semanticTokenColors": "a859c822f8142ff3",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C6DCE1",
@@ -19277,7 +19319,10 @@
    "*.typeHint": "#B69F4B",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#CB8661",
+   "static:rust": "#CB8661",
+   "static.mutable:rust": "#C6DCE1"
   }
  },
  "hadal-light": {
@@ -19289,11 +19334,11 @@
   },
   "colors": "bb7b413d05c7aa37",
   "tokenColors": "bc777dbe0adb1ab0",
-  "semanticTokenColors": "a506fab92dff6064",
+  "semanticTokenColors": "da7e9ba68123aef5",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#152225",
@@ -20562,7 +20607,10 @@
    "*.typeHint": "#76630E",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#915431",
+   "static:rust": "#915431",
+   "static.mutable:rust": "#152225"
   }
  },
  "cinnabar-dark": {
@@ -20574,11 +20622,11 @@
   },
   "colors": "f50c90622fa76067",
   "tokenColors": "322c006375f9f52e",
-  "semanticTokenColors": "1aacfc7faf758ea5",
+  "semanticTokenColors": "74696b38a4ab2e8a",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DED2CD",
@@ -21847,7 +21895,10 @@
    "*.typeHint": "#F2BA24",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FA54AC",
+   "static:rust": "#FA54AC",
+   "static.mutable:rust": "#DED2CD"
   }
  },
  "cinnabar-light": {
@@ -21859,11 +21910,11 @@
   },
   "colors": "068d5d96c4a6c7a2",
   "tokenColors": "e7b14806fc07e5da",
-  "semanticTokenColors": "8d09c8dd1f1688b2",
+  "semanticTokenColors": "ac8f341bbfd287ba",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#251D19",
@@ -23132,7 +23183,10 @@
    "*.typeHint": "#674D0A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#CB0B82",
+   "static:rust": "#CB0B82",
+   "static.mutable:rust": "#251D19"
   }
  },
  "epitaxy-dark": {
@@ -23144,11 +23198,11 @@
   },
   "colors": "ee17610e919ca526",
   "tokenColors": "fd071e124c6c77bf",
-  "semanticTokenColors": "96925bfb0b791024",
+  "semanticTokenColors": "5cf229d09da02b24",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#D7DCE5",
@@ -24417,7 +24471,10 @@
    "*.typeHint": "#60D53D",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F2726E",
+   "static:rust": "#F2726E",
+   "static.mutable:rust": "#D7DCE5"
   }
  },
  "epitaxy-light": {
@@ -24429,11 +24486,11 @@
   },
   "colors": "ced2568950c87498",
   "tokenColors": "572eca53d97c8920",
-  "semanticTokenColors": "7463b031660e905a",
+  "semanticTokenColors": "c59a58ea4340b191",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#251F19",
@@ -25702,7 +25759,10 @@
    "*.typeHint": "#1F660B",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#CF0B30",
+   "static:rust": "#CF0B30",
+   "static.mutable:rust": "#251F19"
   }
  },
  "verdigris-dark": {
@@ -25714,11 +25774,11 @@
   },
   "colors": "90510787ced17127",
   "tokenColors": "e42d70847c236209",
-  "semanticTokenColors": "adc91fb86a40193c",
+  "semanticTokenColors": "0ae726f238882a28",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DBD2CE",
@@ -26987,7 +27047,10 @@
    "*.typeHint": "#41BF76",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F46577",
+   "static:rust": "#F46577",
+   "static.mutable:rust": "#DBD2CE"
   }
  },
  "verdigris-light": {
@@ -26999,11 +27062,11 @@
   },
   "colors": "e578452214aab992",
   "tokenColors": "c24e3f820d58837f",
-  "semanticTokenColors": "98ba7fb10d9315ac",
+  "semanticTokenColors": "583e16df99a1f23e",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#211B18",
@@ -28272,7 +28335,10 @@
    "*.typeHint": "#0B6A3A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#BE2A49",
+   "static:rust": "#BE2A49",
+   "static.mutable:rust": "#211B18"
   }
  },
  "cherenkov-dark": {
@@ -28284,11 +28350,11 @@
   },
   "colors": "29456bae8e836c74",
   "tokenColors": "b4a0ba3f226e39ae",
-  "semanticTokenColors": "834f9712dfd348ad",
+  "semanticTokenColors": "1be459148f86c23d",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#CADEE6",
@@ -29557,7 +29623,10 @@
    "*.typeHint": "#4FBE6F",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#15C6EC",
+   "static:rust": "#15C6EC",
+   "static.mutable:rust": "#CADEE6"
   }
  },
  "cherenkov-light": {
@@ -29569,11 +29638,11 @@
   },
   "colors": "7b7c15fd9cd85a07",
   "tokenColors": "f7453dee3a81427c",
-  "semanticTokenColors": "05aaad469932c28e",
+  "semanticTokenColors": "a604fd11e10eabe4",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#152125",
@@ -30842,7 +30911,10 @@
    "*.typeHint": "#0C7638",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#0D6377",
+   "static:rust": "#0D6377",
+   "static.mutable:rust": "#152125"
   }
  },
  "aerogel-dark": {
@@ -30854,11 +30926,11 @@
   },
   "colors": "e8171b2601d53c71",
   "tokenColors": "7eabc13041d81ce3",
-  "semanticTokenColors": "9d935d947d5db013",
+  "semanticTokenColors": "28c50cf777f5f31a",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C6D8DF",
@@ -32127,7 +32199,10 @@
    "*.typeHint": "#A187E9",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F27884",
+   "static:rust": "#F27884",
+   "static.mutable:rust": "#C6D8DF"
   }
  },
  "aerogel-light": {
@@ -32139,11 +32214,11 @@
   },
   "colors": "b654c95cd6e20327",
   "tokenColors": "0e44290bc53e9282",
-  "semanticTokenColors": "10dc05d5001ce34d",
+  "semanticTokenColors": "8b6db929f272e28f",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#251C18",
@@ -33412,7 +33487,10 @@
    "*.typeHint": "#6D57B4",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#C40A43",
+   "static:rust": "#C40A43",
+   "static.mutable:rust": "#251C18"
   }
  },
  "cavitation-dark": {
@@ -33424,11 +33502,11 @@
   },
   "colors": "801d1044bf4070a9",
   "tokenColors": "f8d4e27a76a7a950",
-  "semanticTokenColors": "bd0d6d0dc07d53dc",
+  "semanticTokenColors": "c4ba8e0bcebbab49",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C3D4DB",
@@ -34697,7 +34775,10 @@
    "*.typeHint": "#CE8C54",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F955AB",
+   "static:rust": "#F955AB",
+   "static.mutable:rust": "#C3D4DB"
   }
  },
  "cavitation-light": {
@@ -34709,11 +34790,11 @@
   },
   "colors": "5dd059f602a3ee55",
   "tokenColors": "b32522229abf1110",
-  "semanticTokenColors": "e11afd335a3e85bd",
+  "semanticTokenColors": "6ba5cad5897a6569",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#162227",
@@ -35982,7 +36063,10 @@
    "*.typeHint": "#8F5621",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#CC0C82",
+   "static:rust": "#CC0C82",
+   "static.mutable:rust": "#162227"
   }
  },
  "noctiluca-dark": {
@@ -35994,11 +36078,11 @@
   },
   "colors": "fc48781cbb23c0e5",
   "tokenColors": "b162e9cc831907da",
-  "semanticTokenColors": "188dc1aad69ebf75",
+  "semanticTokenColors": "d8d9f00b951fcfb1",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C4D5D4",
@@ -37267,7 +37351,10 @@
    "*.typeHint": "#9291F2",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FA6051",
+   "static:rust": "#FA6051",
+   "static.mutable:rust": "#C4D5D4"
   }
  },
  "noctiluca-light": {
@@ -37279,11 +37366,11 @@
   },
   "colors": "cba9973afd2a6e37",
   "tokenColors": "9e9b904af1b05ad7",
-  "semanticTokenColors": "5be2c19530c5ac2c",
+  "semanticTokenColors": "1d02e55bfdc601de",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#172221",
@@ -38552,7 +38639,10 @@
    "*.typeHint": "#3657DD",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D70E21",
+   "static:rust": "#D70E21",
+   "static.mutable:rust": "#172221"
   }
  },
  "incandescence-dark": {
@@ -38564,11 +38654,11 @@
   },
   "colors": "5b447fea4b677d53",
   "tokenColors": "800fcd95a375702b",
-  "semanticTokenColors": "382bbd0748849c35",
+  "semanticTokenColors": "beb6adfd0091aea0",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DDCFCD",
@@ -39837,7 +39927,10 @@
    "*.typeHint": "#F7616A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F95A93",
+   "static:rust": "#F95A93",
+   "static.mutable:rust": "#DDCFCD"
   }
  },
  "incandescence-light": {
@@ -39849,11 +39942,11 @@
   },
   "colors": "674f143a6be908bf",
   "tokenColors": "4d2d2fc42fa1425b",
-  "semanticTokenColors": "2d12dd7d240ca66b",
+  "semanticTokenColors": "c358540ba6d2495e",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#251C1B",
@@ -41122,7 +41215,10 @@
    "*.typeHint": "#D40B3B",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D30B6B",
+   "static:rust": "#D30B6B",
+   "static.mutable:rust": "#251C1B"
   }
  },
  "safelight-dark": {
@@ -41134,11 +41230,11 @@
   },
   "colors": "fa04229899300029",
   "tokenColors": "91ea5c0dc49aec9d",
-  "semanticTokenColors": "59a50f2581701e68",
+  "semanticTokenColors": "9d9355d9e8b97c19",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#F0DCBE",
@@ -42407,7 +42503,10 @@
    "*.typeHint": "#CFB48A",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FF9463",
+   "static:rust": "#FF9463",
+   "static.mutable:rust": "#F0DCBE"
   }
  },
  "safelight-light": {
@@ -42419,11 +42518,11 @@
   },
   "colors": "be23c87ffae62e9a",
   "tokenColors": "b1bad2f521ea37ef",
-  "semanticTokenColors": "d5c48165c1c64179",
+  "semanticTokenColors": "b774b0f4f8dc0002",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#2C2318",
@@ -43692,7 +43791,10 @@
    "*.typeHint": "#6A5A3E",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#8A3D12",
+   "static:rust": "#8A3D12",
+   "static.mutable:rust": "#2C2318"
   }
  },
  "dichroic-dark": {
@@ -43704,11 +43806,11 @@
   },
   "colors": "4ed4985cc114e840",
   "tokenColors": "3ff87cad44b4090b",
-  "semanticTokenColors": "ba2fadf420df1e3b",
+  "semanticTokenColors": "1ef3a8d80cd7c640",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#C4D2CE",
@@ -44977,7 +45079,10 @@
    "*.typeHint": "#31A892",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F658AE",
+   "static:rust": "#F658AE",
+   "static.mutable:rust": "#C4D2CE"
   }
  },
  "dichroic-light": {
@@ -44989,11 +45094,11 @@
   },
   "colors": "f52714a1e2f913b6",
   "tokenColors": "bffa2047076974ee",
-  "semanticTokenColors": "cd472401ee24e3d9",
+  "semanticTokenColors": "623e144ec986cf33",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1E2321",
@@ -46262,7 +46367,10 @@
    "*.typeHint": "#097869",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#AC136E",
+   "static:rust": "#AC136E",
+   "static.mutable:rust": "#1E2321"
   }
  },
  "provenance-dark": {
@@ -46274,11 +46382,11 @@
   },
   "colors": "2619d729bbd612a9",
   "tokenColors": "b98b3725f2ddc967",
-  "semanticTokenColors": "02b683360cd8b5d4",
+  "semanticTokenColors": "cd6c5cfb700867df",
   "counts": [
    1049,
    43,
-   62
+   68
   ],
   "values": {
    "foreground": "#C6C8CC",
@@ -47517,6 +47625,24 @@
    "comment": {
     "foreground": "#7C808A",
     "fontStyle": "italic"
+   },
+   "variable:rust": "#B9A6E8",
+   "variable.mutable:rust": "#C6C8CC",
+   "variable.declaration.mutable:rust": {
+    "foreground": "#F0B75A",
+    "fontStyle": "bold"
+   },
+   "selfKeyword:rust": {
+    "foreground": "#6FC7E0",
+    "fontStyle": "italic"
+   },
+   "selfTypeKeyword:rust": {
+    "foreground": "#6FC7E0",
+    "fontStyle": "italic"
+   },
+   "builtinType:rust": {
+    "foreground": "#6FC7E0",
+    "fontStyle": "italic"
    }
   }
  },
@@ -47529,11 +47655,11 @@
   },
   "colors": "bcc80ab72c8574c3",
   "tokenColors": "afc07bc0064373d1",
-  "semanticTokenColors": "107a554e0d252b59",
+  "semanticTokenColors": "77572d343f759af2",
   "counts": [
    1049,
    43,
-   62
+   68
   ],
   "values": {
    "foreground": "#2E3036",
@@ -48772,6 +48898,24 @@
    "comment": {
     "foreground": "#70747C",
     "fontStyle": "italic"
+   },
+   "variable:rust": "#5B48A0",
+   "variable.mutable:rust": "#2E3036",
+   "variable.declaration.mutable:rust": {
+    "foreground": "#855606",
+    "fontStyle": "bold"
+   },
+   "selfKeyword:rust": {
+    "foreground": "#0F6480",
+    "fontStyle": "italic"
+   },
+   "selfTypeKeyword:rust": {
+    "foreground": "#0F6480",
+    "fontStyle": "italic"
+   },
+   "builtinType:rust": {
+    "foreground": "#0F6480",
+    "fontStyle": "italic"
    }
   }
  },
@@ -48784,11 +48928,11 @@
   },
   "colors": "b2a5123601212fac",
   "tokenColors": "bc4c34de7deda23a",
-  "semanticTokenColors": "3831a354f159410d",
+  "semanticTokenColors": "72a46df62d57b2ce",
   "counts": [
    1049,
    86,
-   49
+   52
   ],
   "values": {
    "foreground": "#E4DACA",
@@ -50070,6 +50214,18 @@
    "comment": {
     "foreground": "#7F7667",
     "fontStyle": "italic"
+   },
+   "const:rust": {
+    "foreground": "#BFA77B",
+    "fontStyle": "bold"
+   },
+   "static:rust": {
+    "foreground": "#BFA77B",
+    "fontStyle": "bold"
+   },
+   "static.mutable:rust": {
+    "foreground": "#E4DACA",
+    "fontStyle": ""
    }
   }
  },
@@ -50082,11 +50238,11 @@
   },
   "colors": "165d70993a904dec",
   "tokenColors": "5d7c605186cc1ac7",
-  "semanticTokenColors": "20ba53276e301dec",
+  "semanticTokenColors": "535bbf312240aaf1",
   "counts": [
    1049,
    86,
-   49
+   52
   ],
   "values": {
    "foreground": "#241F16",
@@ -51368,6 +51524,18 @@
    "comment": {
     "foreground": "#77705E",
     "fontStyle": "italic"
+   },
+   "const:rust": {
+    "foreground": "#5C4E32",
+    "fontStyle": "bold"
+   },
+   "static:rust": {
+    "foreground": "#5C4E32",
+    "fontStyle": "bold"
+   },
+   "static.mutable:rust": {
+    "foreground": "#241F16",
+    "fontStyle": ""
    }
   }
  },
@@ -51380,11 +51548,11 @@
   },
   "colors": "8365c80baebce8cf",
   "tokenColors": "2a9b1af8163d8ffa",
-  "semanticTokenColors": "82a4e958ee3abe12",
+  "semanticTokenColors": "2954b32d3bffd543",
   "counts": [
    1049,
    86,
-   54
+   65
   ],
   "values": {
    "foreground": "#C8CDD6",
@@ -52641,7 +52809,39 @@
    "comment": {
     "foreground": "#767D89",
     "fontStyle": "italic"
-   }
+   },
+   "variable:rust": "#64AEF9",
+   "variable.mutable:rust": "#F09A18",
+   "variable.mutable.reference:rust": "#66C070",
+   "variable.declaration.mutable:rust": {
+    "foreground": "#EAECF0",
+    "fontStyle": "bold"
+   },
+   "parameter:rust": {
+    "foreground": "#64AEF9",
+    "fontStyle": "italic"
+   },
+   "parameter.mutable:rust": {
+    "foreground": "#F09A18",
+    "fontStyle": "italic"
+   },
+   "parameter.mutable.reference:rust": {
+    "foreground": "#66C070",
+    "fontStyle": "italic"
+   },
+   "selfKeyword:rust": {
+    "foreground": "#64AEF9",
+    "fontStyle": "italic"
+   },
+   "selfKeyword.mutable:rust": {
+    "foreground": "#F09A18",
+    "fontStyle": "italic"
+   },
+   "selfKeyword.mutable.reference:rust": {
+    "foreground": "#66C070",
+    "fontStyle": "italic"
+   },
+   "property:rust": "#C8CDD6"
   }
  },
  "borrow-light": {
@@ -52653,11 +52853,11 @@
   },
   "colors": "9ddad2bae65ca333",
   "tokenColors": "62ce60587d1791c4",
-  "semanticTokenColors": "462a55d50ee115d1",
+  "semanticTokenColors": "a3d38a2e0416d0b7",
   "counts": [
    1049,
    86,
-   54
+   65
   ],
   "values": {
    "foreground": "#22262E",
@@ -53914,7 +54114,39 @@
    "comment": {
     "foreground": "#6B7280",
     "fontStyle": "italic"
-   }
+   },
+   "variable:rust": "#0C5FA8",
+   "variable.mutable:rust": "#9A5A00",
+   "variable.mutable.reference:rust": "#2C6620",
+   "variable.declaration.mutable:rust": {
+    "foreground": "#141820",
+    "fontStyle": "bold"
+   },
+   "parameter:rust": {
+    "foreground": "#0C5FA8",
+    "fontStyle": "italic"
+   },
+   "parameter.mutable:rust": {
+    "foreground": "#9A5A00",
+    "fontStyle": "italic"
+   },
+   "parameter.mutable.reference:rust": {
+    "foreground": "#2C6620",
+    "fontStyle": "italic"
+   },
+   "selfKeyword:rust": {
+    "foreground": "#0C5FA8",
+    "fontStyle": "italic"
+   },
+   "selfKeyword.mutable:rust": {
+    "foreground": "#9A5A00",
+    "fontStyle": "italic"
+   },
+   "selfKeyword.mutable.reference:rust": {
+    "foreground": "#2C6620",
+    "fontStyle": "italic"
+   },
+   "property:rust": "#22262E"
   }
  },
  "palimpsest-dark": {
@@ -53926,11 +54158,11 @@
   },
   "colors": "7cac217d0bdeb201",
   "tokenColors": "f17dbfd296cf8cdc",
-  "semanticTokenColors": "54d2d0f76e6cdb8d",
+  "semanticTokenColors": "fde3073b74085a63",
   "counts": [
    1049,
    86,
-   48
+   51
   ],
   "values": {
    "foreground": "#E8E1D2",
@@ -55175,7 +55407,10 @@
    "comment": {
     "foreground": "#837A6C",
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D9A94A",
+   "static:rust": "#D9A94A",
+   "static.mutable:rust": "#E8E1D2"
   }
  },
  "palimpsest-light": {
@@ -55187,11 +55422,11 @@
   },
   "colors": "8463c4294205524d",
   "tokenColors": "abb379b06b40a5eb",
-  "semanticTokenColors": "2d8a2bd7f50424fe",
+  "semanticTokenColors": "7f318291d20a1c63",
   "counts": [
    1049,
    86,
-   48
+   51
   ],
   "values": {
    "foreground": "#2A241A",
@@ -56436,7 +56671,10 @@
    "comment": {
     "foreground": "#716A58",
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#7E5B0E",
+   "static:rust": "#7E5B0E",
+   "static.mutable:rust": "#2A241A"
   }
  },
  "silverpoint-dark": {
@@ -56448,11 +56686,11 @@
   },
   "colors": "34bdd00554463d4e",
   "tokenColors": "33d40469d09a91e7",
-  "semanticTokenColors": "a598c1a83c652ddc",
+  "semanticTokenColors": "99846d13b6e52c07",
   "counts": [
    1049,
    86,
-   49
+   52
   ],
   "values": {
    "foreground": "#D2D2D6",
@@ -57734,6 +57972,18 @@
    "comment": {
     "foreground": "#7E7E84",
     "fontStyle": "italic"
+   },
+   "const:rust": {
+    "foreground": "#AAAAB0",
+    "fontStyle": "bold"
+   },
+   "static:rust": {
+    "foreground": "#AAAAB0",
+    "fontStyle": "bold"
+   },
+   "static.mutable:rust": {
+    "foreground": "#D2D2D6",
+    "fontStyle": ""
    }
   }
  },
@@ -57746,11 +57996,11 @@
   },
   "colors": "d27b59950c031182",
   "tokenColors": "c2bacbe284ec3fb3",
-  "semanticTokenColors": "0e9ae30c80fe05bc",
+  "semanticTokenColors": "10dee635d5fabbc3",
   "counts": [
    1049,
    86,
-   49
+   52
   ],
   "values": {
    "foreground": "#26262A",
@@ -59032,6 +59282,18 @@
    "comment": {
     "foreground": "#6C6C72",
     "fontStyle": "italic"
+   },
+   "const:rust": {
+    "foreground": "#5E5E64",
+    "fontStyle": "bold"
+   },
+   "static:rust": {
+    "foreground": "#5E5E64",
+    "fontStyle": "bold"
+   },
+   "static.mutable:rust": {
+    "foreground": "#26262A",
+    "fontStyle": ""
    }
   }
  },
@@ -59044,11 +59306,11 @@
   },
   "colors": "23707e3b43643688",
   "tokenColors": "22e9640b633482b5",
-  "semanticTokenColors": "2aecd952cc2ef6be",
+  "semanticTokenColors": "63162c5bb6468460",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DEDCD6",
@@ -60317,7 +60579,10 @@
    "*.typeHint": "#A8B0A0",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D89A6A",
+   "static:rust": "#D89A6A",
+   "static.mutable:rust": "#DEDCD6"
   }
  },
  "passepartout-light": {
@@ -60329,11 +60594,11 @@
   },
   "colors": "590b42b6c8a5d617",
   "tokenColors": "bba6bb44c345bb2d",
-  "semanticTokenColors": "d9b556d2e22b5e21",
+  "semanticTokenColors": "80fde2bebc95c6ef",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1F1E1A",
@@ -61602,7 +61867,10 @@
    "*.typeHint": "#3E5040",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#8A4A18",
+   "static:rust": "#8A4A18",
+   "static.mutable:rust": "#1F1E1A"
   }
  },
  "effect-dark": {
@@ -61614,11 +61882,11 @@
   },
   "colors": "4f8e2124cbc5562e",
   "tokenColors": "ac416a61daa7fbf7",
-  "semanticTokenColors": "153f229582f1ea44",
+  "semanticTokenColors": "f6c8ecbee3be70ff",
   "counts": [
    1049,
    86,
-   50
+   55
   ],
   "values": {
    "foreground": "#C6D2CC",
@@ -62851,6 +63119,20 @@
    "comment": {
     "foreground": "#6E7B76",
     "fontStyle": "italic"
+   },
+   "variable:rust": "#93B4CA",
+   "variable.mutable:rust": "#C6D2CC",
+   "*.unsafe:rust": {
+    "foreground": "#FF5C4D",
+    "fontStyle": "bold"
+   },
+   "variable.mutable.unsafe:rust": {
+    "foreground": "#FF5C4D",
+    "fontStyle": "bold"
+   },
+   "variable.declaration.mutable:rust": {
+    "foreground": "#5FD8C0",
+    "fontStyle": "bold"
    }
   }
  },
@@ -62863,11 +63145,11 @@
   },
   "colors": "3d4fff3f51f809f4",
   "tokenColors": "645cbd8fc92fda29",
-  "semanticTokenColors": "bc1d6e16229454db",
+  "semanticTokenColors": "6217078a3b9ca45e",
   "counts": [
    1049,
    86,
-   50
+   55
   ],
   "values": {
    "foreground": "#1D2622",
@@ -64100,6 +64382,20 @@
    "comment": {
     "foreground": "#65736E",
     "fontStyle": "italic"
+   },
+   "variable:rust": "#2E5C78",
+   "variable.mutable:rust": "#1D2622",
+   "*.unsafe:rust": {
+    "foreground": "#C22A18",
+    "fontStyle": "bold"
+   },
+   "variable.mutable.unsafe:rust": {
+    "foreground": "#C22A18",
+    "fontStyle": "bold"
+   },
+   "variable.declaration.mutable:rust": {
+    "foreground": "#0A6E5E",
+    "fontStyle": "bold"
    }
   }
  },
@@ -64112,11 +64408,11 @@
   },
   "colors": "fee3cad6d0ed0f25",
   "tokenColors": "6c02d6d48345b222",
-  "semanticTokenColors": "cdec5f74c7f32289",
+  "semanticTokenColors": "c0dcb459ee67cc2d",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#EDD6DA",
@@ -65385,7 +65681,10 @@
    "*.typeHint": "#8FC9A4",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FF8A5C",
+   "static:rust": "#FF8A5C",
+   "static.mutable:rust": "#EDD6DA"
   }
  },
  "cochineal-light": {
@@ -65397,11 +65696,11 @@
   },
   "colors": "ca676ab11d4e5d29",
   "tokenColors": "1d9a685b02647b32",
-  "semanticTokenColors": "7417ac1a71c5073c",
+  "semanticTokenColors": "3f5d5c2e6a4268f1",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#2A161B",
@@ -66670,7 +66969,10 @@
    "*.typeHint": "#1E6A46",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#A64414",
+   "static:rust": "#A64414",
+   "static.mutable:rust": "#2A161B"
   }
  },
  "glacier-dark": {
@@ -66682,11 +66984,11 @@
   },
   "colors": "08652f869d7778d2",
   "tokenColors": "c14f5486df94f9ba",
-  "semanticTokenColors": "aea60e10b8bc57b5",
+  "semanticTokenColors": "6738276d77b1cacf",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#DCEAF2",
@@ -67955,7 +68257,10 @@
    "*.typeHint": "#AEA0F0",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#F6B464",
+   "static:rust": "#F6B464",
+   "static.mutable:rust": "#DCEAF2"
   }
  },
  "glacier-light": {
@@ -67967,11 +68272,11 @@
   },
   "colors": "31908cc6d9692e52",
   "tokenColors": "cdf494bd191006ae",
-  "semanticTokenColors": "9a0f5371169e7489",
+  "semanticTokenColors": "0f56a11ef89456ae",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#18262F",
@@ -69240,7 +69545,10 @@
    "*.typeHint": "#5461AD",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#804E08",
+   "static:rust": "#804E08",
+   "static.mutable:rust": "#18262F"
   }
  },
  "selenium-dark": {
@@ -69252,11 +69560,11 @@
   },
   "colors": "93cbd4c7f291ae3c",
   "tokenColors": "735dce4c0f7dcb32",
-  "semanticTokenColors": "58c31db7875ecef2",
+  "semanticTokenColors": "612805a0735a2f1e",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#D6DEEC",
@@ -70525,7 +70833,10 @@
    "*.typeHint": "#BD86AD",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#D17F90",
+   "static:rust": "#D17F90",
+   "static.mutable:rust": "#D6DEEC"
   }
  },
  "selenium-light": {
@@ -70537,11 +70848,11 @@
   },
   "colors": "6b3e01901b2381d1",
   "tokenColors": "0e0193adc4e55d86",
-  "semanticTokenColors": "96f3ad5428b10c39",
+  "semanticTokenColors": "810486e296ac1658",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#1E1C22",
@@ -71810,7 +72121,10 @@
    "*.typeHint": "#865277",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#9F5263",
+   "static:rust": "#9F5263",
+   "static.mutable:rust": "#1E1C22"
   }
  },
  "riso-dark": {
@@ -71822,11 +72136,11 @@
   },
   "colors": "295719159d0cc1e3",
   "tokenColors": "4edd22db4f2b922d",
-  "semanticTokenColors": "98c3680e2c9bf350",
+  "semanticTokenColors": "7fd0de67e0541fa5",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#E8E2D4",
@@ -73095,7 +73409,10 @@
    "*.typeHint": "#5FBCC4",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#FF7F42",
+   "static:rust": "#FF7F42",
+   "static.mutable:rust": "#E8E2D4"
   }
  },
  "riso-light": {
@@ -73107,11 +73424,11 @@
   },
   "colors": "0a8b0ea668f86592",
   "tokenColors": "309270da5d490717",
-  "semanticTokenColors": "7bada4f4c322d1be",
+  "semanticTokenColors": "cd7b58bee71a06b3",
   "counts": [
    1049,
    99,
-   58
+   61
   ],
   "values": {
    "foreground": "#211E16",
@@ -74380,7 +74697,10 @@
    "*.typeHint": "#0E6068",
    "*.async": {
     "fontStyle": "italic"
-   }
+   },
+   "const:rust": "#B4470E",
+   "static:rust": "#B4470E",
+   "static.mutable:rust": "#211E16"
   }
  }
 }

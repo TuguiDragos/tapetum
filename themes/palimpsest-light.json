@@ -2181,6 +2181,9 @@
     "comment": {
       "foreground": "#716A58",
       "fontStyle": "italic"
-    }
+    },
+    "const:rust": "#7E5B0E",
+    "static:rust": "#7E5B0E",
+    "static.mutable:rust": "#2A241A"
   }
 }

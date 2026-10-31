@@ -47,5 +47,12 @@ export function semanticTokenColors(p) {
     '*.builtin': it(r.lib), '*.typeHint': it(r.lib),
     keyword: r.dim, modifier: r.frozen, operator: r.op,
     string: r.dim, number: r.dim, regexp: r.dim, comment: it(r.comment),
+    // Rust marks what can change: without `mutable` a binding is frozen, a `&mut` is borrowed like a TS parameter,
+    // a field takes no side as rust-analyzer gives it none, and declarations stay bold as in TS
+    'variable:rust': r.frozen, 'variable.mutable:rust': r.mutable, 'variable.mutable.reference:rust': r.borrowed,
+    'variable.declaration.mutable:rust': bold(r.own),
+    'parameter:rust': it(r.frozen), 'parameter.mutable:rust': it(r.mutable), 'parameter.mutable.reference:rust': it(r.borrowed),
+    'selfKeyword:rust': it(r.frozen), 'selfKeyword.mutable:rust': it(r.mutable), 'selfKeyword.mutable.reference:rust': it(r.borrowed),
+    'property:rust': r.fg,
   };
 }

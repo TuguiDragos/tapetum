@@ -2236,6 +2236,18 @@
     "comment": {
       "foreground": "#7E7E84",
       "fontStyle": "italic"
+    },
+    "const:rust": {
+      "foreground": "#AAAAB0",
+      "fontStyle": "bold"
+    },
+    "static:rust": {
+      "foreground": "#AAAAB0",
+      "fontStyle": "bold"
+    },
+    "static.mutable:rust": {
+      "foreground": "#D2D2D6",
+      "fontStyle": ""
     }
   }
 }

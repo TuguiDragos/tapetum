@@ -1723,6 +1723,24 @@
     "comment": {
       "foreground": "#70747C",
       "fontStyle": "italic"
+    },
+    "variable:rust": "#5B48A0",
+    "variable.mutable:rust": "#2E3036",
+    "variable.declaration.mutable:rust": {
+      "foreground": "#855606",
+      "fontStyle": "bold"
+    },
+    "selfKeyword:rust": {
+      "foreground": "#0F6480",
+      "fontStyle": "italic"
+    },
+    "selfTypeKeyword:rust": {
+      "foreground": "#0F6480",
+      "fontStyle": "italic"
+    },
+    "builtinType:rust": {
+      "foreground": "#0F6480",
+      "fontStyle": "italic"
     }
   }
 }
