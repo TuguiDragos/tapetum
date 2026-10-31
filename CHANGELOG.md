@@ -7,7 +7,22 @@ Agents window on the Welcome page and a Copilot Fusion badge in the model
 picker, and draws the Voice Mode glow the same while the agent speaks as while
 it listens.
 
+### Fixed
+
+**Rust in every scheme.** rust-analyzer sends `mutable` and never `readonly`,
+and gives `const` and `static` items types of their own. Borrow painted every
+`let` as mutable and every parameter as borrowed, Provenance and Effect painted
+frozen and mutable bindings alike, and every scheme painted a Rust constant as a
+plain variable. Now a binding without `mut` reads as frozen in Provenance,
+Borrow and Effect, a `&mut` as borrowed in Borrow, an `unsafe` operation burns
+in Effect, and a constant keeps its colour in every scheme.
+
 ### Added
+
+**The schemes side by side.** The README and the site set the same 5 lines in
+one family of each scheme, cut from VS Code with its TypeScript server running.
+The preview on the site now paints what VS Code paints, semantic tokens
+included, so Provenance, Borrow and Effect show what sets them apart.
 
 **The keys of 1.144.** The orange of the Agents window graphic takes the
 family's chart orange, beside the chart blue, purple and yellow the rest of the
@@ -23,8 +38,8 @@ and has not deprecated.
 **Voice Mode.** The border VS Code draws around a hovered voice in the Voice
 Mode onboarding takes the chart blue, the colour 1.144 derives it from. The
 speaking glow, which 1.144 no longer paints and draws with the listening glow
-instead, now equals the listening glow, and stays set for VSCodium 1.143, which
-still paints it.
+instead, now equals the listening glow, and stays set for VSCodium 1.143 and
+Positron 2026.10.2, which still paint it.
 
 **High contrast.** The separator of a split button reads 3.0 on the button.
 VS Code 1.142 draws it in the contrast border, which reads under 1.4 on the
