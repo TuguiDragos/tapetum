@@ -45,6 +45,12 @@ const SCHEME = {
   effect: 'effect', signal: 'signal', tone: 'tone',
 };
 
+// one family of each scheme, cut from VS Code on the same 5 lines of TypeScript with its server running, as the site shows them
+const COMPARED = [['grammar', 'selenium'], ['provenance', 'provenance'], ['borrow', 'borrow'], ['effect', 'effect'], ['signal', 'palimpsest'], ['tone', 'stratum']];
+const compared = COMPARED.map(([scheme, id]) => {
+  const label = FAMILIES.find((f) => f.id === id).label;
+  return `**${scheme}** &nbsp;·&nbsp; *${label}*<br>\n<img src="${RAW}/tapetum-scheme-${scheme}.png" alt="5 lines of TypeScript in Tapetum ${label}, the ${scheme} scheme" width="553" />`;
+}).join('\n\n');
 
 const ROWS = [
   ['background', 'bg'], ['foreground', 'fg'], ['keyword', 'keyword'], ['function', 'func'],
@@ -260,6 +266,11 @@ their own. So in \`provenance\`, \`borrow\` and \`effect\` a binding without \`m
 reads as a \`readonly\` one does in TypeScript, in \`borrow\` a \`&mut\` reads as a
 borrowed parameter, in \`effect\` every \`unsafe\` operation burns, and in all 6
 schemes a Rust constant keeps the constant colour.
+
+The same 5 lines in one family of each scheme, cut from VS Code with its
+TypeScript server running:
+
+${compared}
 
 In \`grammar\`, 6 roles carry their own hue: keywords, strings, functions, types,
 numbers and tags. Parameters and properties take the foreground colour and are

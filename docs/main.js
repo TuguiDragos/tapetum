@@ -63,6 +63,15 @@ const CURRENT_LINE = 13;
 
 const escape = (text) => text.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 
+// a line of the sample in a theme's own colours, numbered as in the file
+const row = (theme, index, current) => {
+  const tokens = theme.lines[index].map(([text, color, style = 0]) => {
+    const classes = [style & 1 && "i", style & 2 && "b", style & 4 && "u"].filter(Boolean).join(" ");
+    return `<span${classes ? ` class="${classes}"` : ""} style="color:${theme.palette[color]}">${escape(text)}</span>`;
+  }).join("");
+  return `<div class="row${current ? " current" : ""}"><span class="n">${index + 1}</span>${tokens}</div>`;
+};
+
 const paint = () => {
   if (!themes) return;
   const theme = themes.get(`${state.family}-${state.variant}`);
@@ -70,16 +79,32 @@ const paint = () => {
     if (theme.ui[key]) editor.style.setProperty(variable, theme.ui[key]);
     else editor.style.removeProperty(variable);
   }
-  code.innerHTML = theme.lines.map((line, index) => {
-    const tokens = line.map(([text, color, style = 0]) => {
-      const classes = [style & 1 && "i", style & 2 && "b", style & 4 && "u"].filter(Boolean).join(" ");
-      return `<span${classes ? ` class="${classes}"` : ""} style="color:${theme.palette[color]}">${escape(text)}</span>`;
-    }).join("");
-    return `<div class="row${index + 1 === CURRENT_LINE ? " current" : ""}"><span class="n">${index + 1}</span>${tokens}</div>`;
-  }).join("");
+  code.innerHTML = theme.lines.map((_, index) => row(theme, index, index + 1 === CURRENT_LINE)).join("");
   status.textContent = theme.label;
   editor.setAttribute("aria-label", `A code sample in ${theme.label}`);
 };
+
+// One family of each scheme with the same function, so the 6 questions can be told apart side by side.
+const compare = document.querySelector("[data-compare]");
+const COMPARED = [["Grammar", "selenium"], ["Provenance", "provenance"], ["Borrow", "borrow"], ["Effect", "effect"], ["Signal", "palimpsest"], ["Tone", "stratum"]];
+const COMPARED_LINES = [12, 16];
+let compareVariant = "dark";
+const paintCompare = () => {
+  if (!themes || !compare) return;
+  compare.querySelector(".compare-grid").innerHTML = COMPARED.map(([scheme, family]) => {
+    const theme = themes.get(`${family}-${compareVariant}`);
+    const vars = `--e-bg: ${theme.ui.bg}; --e-fg: ${theme.ui.fg}; --e-line: ${theme.ui.line}; --e-title: ${theme.ui.title}; --e-title-fg: ${theme.ui.titleFg}`;
+    const lines = [];
+    for (let index = COMPARED_LINES[0] - 1; index < COMPARED_LINES[1]; index++) lines.push(row(theme, index, false));
+    return `<div class="compare-item" style="${vars}"><p class="compare-name">${scheme} <span>${theme.label.replace(/^Tapetum /, "")}</span></p><div class="editor-code">${lines.join("")}</div></div>`;
+  }).join("");
+  compare.hidden = false;
+};
+compare?.querySelectorAll("[data-compare-variant]").forEach((button, _, all) => button.addEventListener("click", () => {
+  compareVariant = button.dataset.compareVariant;
+  all.forEach((other) => other.setAttribute("aria-pressed", String(other === button)));
+  paintCompare();
+}));
 
 const show = (family, variant, center) => {
   const card = browser.querySelector(`.family[id="${family}"]`);
@@ -106,6 +131,14 @@ const fromHash = location.hash.slice(1);
 const start = [...chips].some((chip) => chip.dataset.family === fromHash) ? fromHash : state.family;
 show(start, "dark", start === fromHash && "instant");
 if (start === fromHash) document.getElementById(start).scrollIntoView({ block: "start" });
+// a link to a family from elsewhere on the page, such as a scheme, shows it in the preview
+addEventListener("hashchange", () => {
+  const family = location.hash.slice(1);
+  if (![...chips].some((chip) => chip.dataset.family === family)) return;
+  show(family, state.variant, calm.matches ? "instant" : "smooth");
+  // only the chosen family's card is shown, so the browser could not scroll to it before
+  document.getElementById(family).scrollIntoView({ block: "start", behavior: calm.matches ? "instant" : "smooth" });
+});
 
 fetch("data/themes.json")
   .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
@@ -113,6 +146,7 @@ fetch("data/themes.json")
     themes = new Map(data.themes.map((theme) => [theme.id, theme]));
     editor.classList.add("ready");
     paint();
+    paintCompare();
   })
   .catch(() => {
     editor.querySelector(".editor-code").textContent = "The preview couldn’t load. The screenshots below show the themes in VS Code.";

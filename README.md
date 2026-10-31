@@ -832,6 +832,27 @@ reads as a `readonly` one does in TypeScript, in `borrow` a `&mut` reads as a
 borrowed parameter, in `effect` every `unsafe` operation burns, and in all 6
 schemes a Rust constant keeps the constant colour.
 
+The same 5 lines in one family of each scheme, cut from VS Code with its
+TypeScript server running:
+
+**grammar** &nbsp;·&nbsp; *Selenium*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-grammar.png" alt="5 lines of TypeScript in Tapetum Selenium, the grammar scheme" width="553" />
+
+**provenance** &nbsp;·&nbsp; *Provenance*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-provenance.png" alt="5 lines of TypeScript in Tapetum Provenance, the provenance scheme" width="553" />
+
+**borrow** &nbsp;·&nbsp; *Borrow*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-borrow.png" alt="5 lines of TypeScript in Tapetum Borrow, the borrow scheme" width="553" />
+
+**effect** &nbsp;·&nbsp; *Effect*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-effect.png" alt="5 lines of TypeScript in Tapetum Effect, the effect scheme" width="553" />
+
+**signal** &nbsp;·&nbsp; *Palimpsest*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-signal.png" alt="5 lines of TypeScript in Tapetum Palimpsest, the signal scheme" width="553" />
+
+**tone** &nbsp;·&nbsp; *Stratum*<br>
+<img src="https://raw.githubusercontent.com/TuguiDragos/tapetum/main/readme-assets/tapetum-scheme-tone.png" alt="5 lines of TypeScript in Tapetum Stratum, the tone scheme" width="553" />
+
 In `grammar`, 6 roles carry their own hue: keywords, strings, functions, types,
 numbers and tags. Parameters and properties take the foreground colour and are
 told apart by italic instead, because a 7th saturated hue cannot be held away

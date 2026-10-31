@@ -229,8 +229,11 @@ for (const g of ['tapetum-all-themes-dark.gif', 'tapetum-all-themes-light.gif'])
   note(fs.existsSync(path.join(ROOT, 'readme-assets', g)), `${g} is missing`);
 }
 const gifPos = Math.min(readme.indexOf('tapetum-all-themes-dark.gif'), readme.indexOf('tapetum-all-themes-light.gif'));
-const lastShot = readme.lastIndexOf('.png');
-note(gifPos > lastShot, 'the gifs must come after every screenshot, so the page reads before they load');
+// the comparison of the schemes sits in their own section, after the tour
+const lastShot = Math.max(...FAMILIES.flatMap((f) => (SHOTS[f.id] || []).map((v) => readme.lastIndexOf(`tapetum-${f.id}-${v}.png`))));
+note(gifPos > lastShot, 'the gifs must come after every family screenshot, so the page reads before they load');
+for (const s of ['grammar', 'provenance', 'borrow', 'effect', 'signal', 'tone'])
+  note(readme.includes(`tapetum-scheme-${s}.png`), `README does not compare the ${s} scheme on the same code as the others`);
 note(!/-palette\.png/.test(readme), 'README still refers to the palette strips');
 note(!fs.readdirSync(path.join(ROOT, 'readme-assets')).some((f) => f.includes('-palette.')), 'palette strips are still on disk');
 note(readme.includes(`${declared.length} themes`), `README does not say ${declared.length} themes`);
