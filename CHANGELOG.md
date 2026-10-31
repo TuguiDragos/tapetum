@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.1.5]
+
+VS Code 1.142 and 1.143 add no colour keys. 1.144 adds 4, for a graphic of the
+Agents window on the Welcome page and a Copilot Fusion badge in the model
+picker, and draws the Voice Mode glow the same while the agent speaks as while
+it listens.
+
+### Added
+
+**The keys of 1.144.** The orange of the Agents window graphic takes the
+family's chart orange, beside the chart blue, purple and yellow the rest of the
+graphic is drawn in. The Copilot Fusion badge, which VS Code paints near black
+on a fixed cyan to violet gradient in every dark and light theme, takes the
+theme's badge, and its text clears 4.5 on it in every theme; the high contrast
+pair keeps VS Code's own form, the text inside the contrast border. The
+registry is VS Code 1.144.0, and every theme covers all 991 keys it registers
+and has not deprecated.
+
+### Changed
+
+**Voice Mode.** The border VS Code draws around a hovered voice in the Voice
+Mode onboarding takes the chart blue, the colour 1.144 derives it from. The
+speaking glow, which 1.144 no longer paints and draws with the listening glow
+instead, now equals the listening glow, and stays set for VSCodium 1.143, which
+still paints it.
+
+**High contrast.** The separator of a split button reads 3.0 on the button.
+VS Code 1.142 draws it in the contrast border, which reads under 1.4 on the
+filled buttons of the high contrast pair.
+
 ## [1.1.4]
 
 VS Code 1.141 draws a thin divider between editor tabs in the modern UI.
