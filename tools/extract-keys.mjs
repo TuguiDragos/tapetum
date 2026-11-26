@@ -21,7 +21,7 @@ export function bundles() {
   return out.sort();
 }
 
-const SIGNATURE = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\(\\s*"(${ID})",\\s*(?:\\{[^{}]*\\}|null|"[^"]*"|[A-Za-z_$][\\w$]*(?:\\([^()]*(?:\\([^()]*\\)[^()]*)*\\))?),\\s*${LOCALIZE}`, 'g');
+const SIGNATURE = new RegExp(`(?<![\\w$.])([A-Za-z_$][\\w$]*)\\(\\s*"(${ID})",\\s*(?:\\{[^{}]*\\}|null|"[^"]*"|[A-Za-z_$][\\w$]*(?:\\([^()]*(?:\\([^()]*\\)[^()]*)*\\))?),\\s*${LOCALIZE}`, 'g');
 
 export function registerFunction(src) {
   const counts = new Map();
@@ -57,12 +57,12 @@ export function registrations(src, fn) {
     if (a.length < 3) return;
     found.set(id, { binding: binding || null, defaults: a[1], deprecated: a.length >= 5 && LOCALIZED.test(a[4]), pos: m.index });
   };
-  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*(["\`])(${ID})\\2\\s*,`, 'g');
+  const re = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?(?<![\\w$.])${fn}\\(\\s*(["\`])(${ID})\\2\\s*,`, 'g');
   for (const m of src.matchAll(re)) add(m[3], m, m[1]);
   // a few editors pass the id through a constant bound once to a string: X="a.b";…;fn(X,…,"description")
   const constants = new Map();
   for (const m of src.matchAll(new RegExp(`(?<![\\w$.])([A-Za-z_$][\\w$]*)\\s*=\\s*"(${ID}\\.${ID})"`, 'g'))) constants.set(m[1], constants.has(m[1]) ? null : m[2]);
-  const byName = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?\\b${fn}\\(\\s*([A-Za-z_$][\\w$]*)\\s*,`, 'g');
+  const byName = new RegExp(`(?:(?<![\\w$])([A-Za-z_$][\\w$]*)\\s*=\\s*)?(?<![\\w$.])${fn}\\(\\s*([A-Za-z_$][\\w$]*)\\s*,`, 'g');
   for (const m of src.matchAll(byName)) {
     const id = constants.get(m[2]);
     if (!id || found.has(id)) continue;
