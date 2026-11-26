@@ -1,5 +1,53 @@
 # Changelog
 
+## [1.1.6]
+
+VS Code 1.145 to 1.148 add 10 colour keys, for confetti, the agent sessions
+that wait for an answer, the activity bar the Agents window docks and the
+outline around the code of a comment thread. 1.145 draws the Copilot Fusion
+badge as a gradient outline around ordinary text, so its text colour is gone.
+
+### Added
+
+**The keys of 1.145 to 1.148.** The confetti takes the family's chart colours,
+red to purple, the colours VS Code derives it from. A session that waits for
+input is marked in the family's warning colour, which VS Code also writes as a
+count in the title bar of the Agents window; there it clears 4.5 on the title
+bar, hovered and on the orange of a session that needs input, which moves it
+by at most 1.5 dE in 18 light themes, where VS Code's own default is a fixed
+amber. The docked activity bar of the Agents window stays transparent, as
+VS Code draws it, and the outline around the code of a comment thread takes
+the colour of an unresolved comment, the colour it derives from. The registry
+is VS Code 1.148.0, identical on macOS, Linux and Windows, and every theme
+covers all 1000 keys it registers and has not deprecated. Every theme was read
+again on the current VSCodium, Cursor, Devin, code-server, Positron, Kiro,
+Trae and Antigravity, on the last Void build and on VS Code Insiders 1.149,
+with 0 real problems on each.
+
+### Changed
+
+**The workflows run on the current releases.** Node 26, the LTS line since
+October, `actions/setup-node` 7.1.0, vsce 4.1.1 and ovsx 1.4.0. The package
+vsce 4.1.1 builds holds the same 65 files as before.
+
+### Removed
+
+**Keys no editor paints any more.** The text colour of the Copilot Fusion
+badge, which only VS Code 1.144 had, and the 4 `modernActivityBar` keys
+deprecated in 1.136, now that Positron 2026.11.1 paints its activity bar with
+the `modernActivityBarItem` keys, as VS Code, Kiro and Devin do. The speaking
+glow of Voice Mode stays set for VSCodium 1.143, Positron 2026.11.1 and Devin
+3.15.14, which still paint it.
+
+### Fixed
+
+**The registry of other editors.** `tools/extract-keys.mjs` read
+`new $me("pasteIntoEditor", …)` in Devin as a call to its colour function
+`me`, and 4 calls to a method `this.U` in Trae as calls to its colour function
+`U`, so 5 names that are not colours counted as keys of those editors. A name
+now counts only when it stands on its own, and the registries of VS Code
+1.144.0 and 1.148.0 come out the same, byte for byte.
+
 ## [1.1.5]
 
 VS Code 1.142 and 1.143 add no colour keys. 1.144 adds 4, for a graphic of the
