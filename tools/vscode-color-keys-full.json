@@ -1,27 +1,27 @@
 {
- "vscode": "1.144.0",
+ "vscode": "1.148.0",
  "bundles": [
   {
    "file": "out/vs/sessions/sessions.desktop.main.js",
-   "registerFunction": "ve",
-   "registrations": 903,
+   "registerFunction": "we",
+   "registrations": 912,
    "deprecated": 11,
    "ansi": 16
   },
   {
    "file": "out/vs/workbench/workbench.desktop.main.js",
-   "registerFunction": "ue",
-   "registrations": 971,
+   "registerFunction": "Ie",
+   "registrations": 980,
    "deprecated": 11,
    "ansi": 16
   }
  ],
  "counts": {
-  "registered": 991,
+  "registered": 1000,
   "contributedByExtensions": 11,
-  "confirmedReal": 1002,
+  "confirmedReal": 1011,
   "deprecated": 11,
-  "microsoftThemes": 348
+  "microsoftThemes": 358
  },
  "confirmedReal": [
   "actionBar.toggledBackground",
@@ -50,11 +50,14 @@
   "agentFeedbackEditorWidget.background",
   "agentFeedbackEditorWidget.border",
   "agentFeedbackInputWidget.border",
+  "agentSessionNeedsInput.foreground",
   "agentSessionReadIndicator.foreground",
   "agentSessionSelectedBadge.border",
   "agentSessionSelectedUnfocusedBadge.border",
   "agentStatusIndicator.background",
   "agents.background",
+  "agentsActivityBar.background",
+  "agentsActivityBar.border",
   "agentsBadge.background",
   "agentsBadge.foreground",
   "agentsBottomPanel.border",
@@ -121,7 +124,6 @@
   "chat.editedFileForeground",
   "chat.findMatchBackground",
   "chat.findMatchHighlightBackground",
-  "chat.fusionBadgeForeground",
   "chat.fusionBadgeGradientEnd",
   "chat.fusionBadgeGradientStart",
   "chat.inputWorkingBorderColor1",
@@ -165,6 +167,12 @@
   "commandCenter.inactiveForeground",
   "commentsView.resolvedIcon",
   "commentsView.unresolvedIcon",
+  "confetti.color1",
+  "confetti.color2",
+  "confetti.color3",
+  "confetti.color4",
+  "confetti.color5",
+  "confetti.color6",
   "contrastActiveBorder",
   "contrastBorder",
   "debugConsole.errorForeground",
@@ -300,6 +308,7 @@
   "editorCodeLens.foreground",
   "editorCommentsWidget.rangeActiveBackground",
   "editorCommentsWidget.rangeBackground",
+  "editorCommentsWidget.rangeBorder",
   "editorCommentsWidget.replyInputBackground",
   "editorCommentsWidget.resolvedBorder",
   "editorCommentsWidget.unresolvedBorder",

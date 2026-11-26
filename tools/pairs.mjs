@@ -8,11 +8,11 @@ export const ACCEPTED = [
   },
   {
     fg: 'badge.foreground', bg: 'badge.background', bgAlpha: 0.5,
-    why: 'the disabled plugin status of the sessions window is the badge at half strength under the ordinary badge text. Half a badge pulls the ground toward the surface, so the text reads only when it also stands apart from the surface: light text in a dark theme, dark text in a light one. Tapetum\'s badge text has the lightness of the surface in every theme (dark text on a bright badge in the dark themes, light text on a strong badge in the light ones), so 57 of 58 measure under 4.5, the lowest 2.16 in Passepartout Light; only Safelight\'s near-white badge holds. VS Code\'s own 2026-light measures 2.20, and Light Modern passes only because its badge is grey. The alternative is a different badge across the whole interface.',
+    why: 'the disabled plugin status of the sessions window is the badge at half strength under the ordinary badge text; VS Code 1.147 removed the rule, Positron 2026.11.1 and Kiro 1.5.49 still paint it. Half a badge pulls the ground toward the surface, so the text reads only when it also stands apart from the surface: light text in a dark theme, dark text in a light one. Tapetum\'s badge text has the lightness of the surface in every theme (dark text on a bright badge in the dark themes, light text on a strong badge in the light ones), so 57 of 58 measure under 4.5, the lowest 2.16 in Passepartout Light; only Safelight\'s near-white badge holds. VS Code\'s own 2026-light measures 2.20, and Light Modern passes only because its badge is grey. The alternative is a different badge across the whole interface.',
   },
   {
     fg: 'inlineEdit.gutterIndicator.primaryForeground', bg: 'inlineEdit.gutterIndicator.background',
-    why: 'the .inline-edits-view-indicator rule pairs them, but no bundle of VS Code 1.139.1, 1.140.0 or 1.144.0 gives that class to any element: the gutter indicator is .inline-edits-view-gutter-indicator, and its icon paints primaryForeground on primaryBackground.',
+    why: 'the .inline-edits-view-indicator rule pairs them, but no bundle of VS Code 1.139.1, 1.140.0, 1.144.0 or 1.148.0 gives that class to any element: the gutter indicator is .inline-edits-view-gutter-indicator, and its icon paints primaryForeground on primaryBackground.',
   },
 ];
 export const accepted = (p) => ACCEPTED.some((a) => a.fg === p.fg && a.bg === p.bg && a.bgAlpha === p.bgAlpha);

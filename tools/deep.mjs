@@ -625,7 +625,7 @@ function analyse(fam, v) {
     const cr = Math.min(...grounds.map((g) => contrast(over(c.focusBorder, g), g)));
     if (cr < 3) bad('focus', `focusBorder as an icon on a toolbar hover, a hovered row or the quota callout at ${down(cr)}, under 3:1`);
   }
-  for (const k of SESSION_FRAMES) for (const s of FOCUS_SURFACES) {
+  for (const k of [...SESSION_FRAMES, 'agentSessionNeedsInput.foreground']) for (const s of FOCUS_SURFACES) {
     const ground = isAlpha(c[s]) ? over(c[s], eb) : c[s];
     const cr = contrast(over(c[k], ground), ground);
     if (cr < 3) bad('frame', `${k} on ${s} at ${cr.toFixed(2)}, under 3:1`);
@@ -834,6 +834,14 @@ function analyse(fam, v) {
     for (const g of [tb, over(c[wash], tb)]) {
       const cr = contrast(mix(g, c[k], 0.6), g);
       if (cr < floor) bad('surface', `${k}, the workspace name in the command center at 60%${g === tb ? '' : ` on ${wash}`}, at ${down(cr)}, under ${floor}`);
+    }
+  }
+  {
+    const tb = over(c['titleBar.activeBackground'], eb), orange = (k) => over(alpha(c['charts.orange'], k), tb);
+    for (const [where, g] of [['the title bar', tb], ['commandCenter.activeBackground', over(c['commandCenter.activeBackground'], tb)],
+      ['the 7% chart orange of a session that needs input', orange(0.07)], ['its 12% hovered', orange(0.12)]]) {
+      const cr = contrast(over(c['agentSessionNeedsInput.foreground'], g), g);
+      if (cr < 4.5) bad('surface', `agentSessionNeedsInput.foreground, the count of the Agents title bar, on ${where}, at ${down(cr)}, under 4.5`);
     }
   }
   // an inactive window draws its whole title bar at 60%, as an inactive window dims its title on purpose: the title, the classic

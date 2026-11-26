@@ -166,10 +166,11 @@ for (const entry of pkg.contributes.themes) {
   console.log(`\n${entry.label}   ${found.length} problems`);
   for (const f of found) console.log(`   [${f.sev}] ${f.msg}`);
 }
-console.log(`\npairs extracted from the CSS: ${PAIRS.length}; accepted exceptions: ${ACCEPTED.length}; pairs measured: ${measured} of ${(PAIRS.length - ACCEPTED.length) * pkg.contributes.themes.length} across ${pkg.contributes.themes.length} themes`);
+const acceptedHere = ACCEPTED.filter((a) => PAIRS.some((p) => p.fg === a.fg && p.bg === a.bg && p.bgAlpha === a.bgAlpha));
+console.log(`\npairs extracted from the CSS: ${PAIRS.length}; accepted exceptions: ${acceptedHere.length}; pairs measured: ${measured} of ${(PAIRS.length - acceptedHere.length) * pkg.contributes.themes.length} across ${pkg.contributes.themes.length} themes`);
 for (const [p, themes] of Object.entries(skipped))
   console.log(`not measured in ${themes.length === pkg.contributes.themes.length ? 'any theme' : themes.join(', ')}: ${p}`);
-for (const a of ACCEPTED) console.log(`accepted exception: ${a.fg} on ${a.bg}${a.bgAlpha !== undefined ? ` at ${Math.round(a.bgAlpha * 100)}%` : ''}\n   ${a.why}`);
+for (const a of acceptedHere) console.log(`accepted exception: ${a.fg} on ${a.bg}${a.bgAlpha !== undefined ? ` at ${Math.round(a.bgAlpha * 100)}%` : ''}\n   ${a.why}`);
 console.log(`documented divergent seams: ${DELIBERATE.length}`);
 console.log(total ? `TOTAL ${total} problems  ${JSON.stringify(bySeverity)}` : `ALL ${pkg.contributes.themes.length} PASS`);
 process.exit(total ? 1 : 0);

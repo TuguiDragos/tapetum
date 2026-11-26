@@ -323,6 +323,8 @@ function chrome(t) {
   let outlineK = 22;
   while (outlineK < 100 && contrast(composite(alphaOf(fg, outlineK / 100), elev), elev) < 3.0) outlineK++;
   const inactiveOutline = alphaOf(fg, outlineK / 100);
+  const warnName = t.handStatus ? st.warn : t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.warn), t.nameGrounds);
+  const titleGrounds = [ch, ...[[fg, 0.1], [y.number, 0.07], [y.number, 0.12]].map(([c, k]) => composite(alphaOf(c, k), ch))];
   return {
     'titleBar.activeBackground': ch,
     'titleBar.activeForeground': legible(dim, ch, 4.5),
@@ -359,10 +361,6 @@ function chrome(t) {
     'modernActivityBar.background': ch,
     'modernActivityBar.inactiveBackground': ch,
     'modernActivityBar.border': line2,
-    'modernActivityBar.activeBackground': activeWash,
-    'modernActivityBar.activeForeground': fg,
-    'modernActivityBar.hoverBackground': listHover,
-    'modernActivityBar.hoverForeground': fg,
     'modernActivityBarItem.activeBackground': activeWash,
     'modernActivityBarItem.activeForeground': fg,
     'modernActivityBarItem.hoverBackground': listHover,
@@ -408,7 +406,8 @@ function chrome(t) {
     'list.inactiveFocusOutline': inactiveOutline,
     'list.highlightForeground': t.highlight,
     'list.errorForeground': t.handStatus ? st.error : t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.error), t.nameGrounds),
-    'list.warningForeground': t.handStatus ? st.warn : t.letterOn(t.nameGrounds.reduce((x, g) => readsOn(x, g, 4.5), st.warn), t.nameGrounds),
+    'list.warningForeground': warnName,
+    'agentSessionNeedsInput.foreground': titleGrounds.reduce((x, g) => readsOn(x, g, 4.5), warnName),
     'list.deemphasizedForeground': faint,
     'list.invalidItemForeground': t.handStatus ? st.error : t.letterOn([elev, ...t.rowGrounds].reduce((x, g) => readsOn(x, g, 4.5), st.error), [elev, ...t.rowGrounds]),
     'list.dropBackground': alphaOf(acc, 0.16),
@@ -877,8 +876,6 @@ function assistant(t) {
     'chat.sessionStateIndicator.needsInputBorder': frame(st.error),
     'chat.workingProgressStableIconForeground': st.info,
     'chat.workingProgressInsidersIconForeground': st.ok,
-    // the Copilot Fusion badge of the model picker: the theme's badge; high contrast keeps VS Code's outlined text
-    'chat.fusionBadgeForeground': t.hc ? fg : onFill,
     'chat.fusionBadgeGradientStart': t.hc ? '#00000000' : fill,
     'chat.fusionBadgeGradientEnd': t.hc ? '#00000000' : fill,
 
@@ -894,6 +891,8 @@ function assistant(t) {
 
     'agents.background': bg,
     'agentsDetail.background': bg,
+    'agentsActivityBar.background': '#00000000',
+    'agentsActivityBar.border': '#00000000',
     'agentsPanel.background': elev,
     'agentsPanel.border': line,
     'agentsPanel.foreground': fg,
@@ -1015,6 +1014,12 @@ function assistant(t) {
     'charts.orange': y.number,
     'charts.green': st.ok,
     'charts.purple': y.keyword,
+    'confetti.color1': st.error,
+    'confetti.color2': y.number,
+    'confetti.color3': st.warn,
+    'confetti.color4': st.ok,
+    'confetti.color5': y.func,
+    'confetti.color6': y.keyword,
     // the orange of the Agents window graphic on the Welcome page, beside the chart colours it is drawn in
     'agentsWindowGraphic.orange': y.number,
 
@@ -1067,6 +1072,7 @@ function assistant(t) {
     'search.resultsInfoForeground': dim,
     'editorCommentsWidget.resolvedBorder': faint,
     'editorCommentsWidget.unresolvedBorder': st.warn,
+    'editorCommentsWidget.rangeBorder': st.warn,
     'editorCommentsWidget.rangeBackground': alphaOf(st.warn, 0.08),
     'editorCommentsWidget.rangeActiveBackground': alphaOf(st.warn, 0.14),
     'editorCommentsWidget.replyInputBackground': elev,
@@ -1743,6 +1749,7 @@ const HC = {
 // borders the high contrast pass leaves as the family sets them, and why
 const HC_KEEPS = {
   'editorOverviewRuler.border': "a quiet line beside the scrollbar, as in VS Code's own high contrast themes",
+  'agentsActivityBar.border': "the docked activity bar of the Agents window sits inside the border of its pane, transparent as in VS Code's own high contrast defaults",
 };
 // borders whose colour says what happened keep the status colour the family gives them, as VS Code's HC defaults do
 const MEANING = /^(debugExceptionWidget\.border|editorUnicodeHighlight\.border|inlineEdit\.(modified|original)Border|mergeEditor\.conflict\.\w+\.border)$/;
